@@ -49,7 +49,7 @@
                 
             </p>
         </div>
-        <div class="ben-right"><?php echo $this->string->numberFormate($post[price])?> <?php echo $this->document->setup['Currency']?></div>
+        <div class="ben-right"><?php echo $this->string->numberFormate($post[price])?><?php echo $this->document->setup['Currency']?></div>
         <div class="clearer">&nbsp;</div>
         <!--<div class="ben-right"><a onclick="cart.add('<?php echo $post['mediaid']?>')">Đặt hàng</a></div>-->
     </div>
@@ -81,7 +81,7 @@
             	<td><?php echo $val['title']?></td>
                 <td class="number"><?php echo $val['thitruong']?> <?php echo $this->document->setup['Currency']?></td>
                 <td class="number"><?php echo $val['gia']?> <?php echo $this->document->setup['Currency']?></td>
-                <td class="number"><?php echo $val['khuyenmai']?> <?php echo $this->document->setup['Currency']?></td>
+                <td class="number"><?php echo $val['khuyenmai']?><?php echo $this->document->setup['Currency']?></td>
                 <td><input type="button" class="ben-button" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
             </tr>
             <?php } ?>
