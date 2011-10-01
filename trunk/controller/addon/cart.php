@@ -50,7 +50,7 @@ class ControllerAddonCart extends Controller
 		$_SESSION['cart'][$mediaid] = array(
 											'mediaid' => $mediaid,
 											'title' => $parent['title']."-". $media['title'],
-											'price' => $media['price'],
+											'price' => $price,
 											'imagethumbnail' => $media['imagethumbnail'],
 											'qty' => $qty+1
 											);
