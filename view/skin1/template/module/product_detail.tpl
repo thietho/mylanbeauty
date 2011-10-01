@@ -51,7 +51,7 @@
         </div>
         <div class="ben-right"><?php echo $this->string->numberFormate($post[price])?> <?php echo $this->document->setup['Currency']?></div>
         <div class="clearer">&nbsp;</div>
-        <div class="ben-right"><a onclick="cart.add('<?php echo $post['mediaid']?>')">Đặt hàng</a></div>
+        <!--<div class="ben-right"><a onclick="cart.add('<?php echo $post['mediaid']?>')">Đặt hàng</a></div>-->
     </div>
     <div class="clearer">&nbsp;</div>
 </div>
@@ -63,6 +63,32 @@
 <p class="ben-text-right">
 	<b><?php echo $post['source']?></b>
 </p>
+<?php if(count($priceproduct)){ ?>
+<div id="listprice">
+	<table>
+    	<thead>
+        	<tr>
+            	<th>Sẩn phẩm</th>
+                <th>Giá thị trường</th>
+                <th>Giá bán</th>
+                <th>Khuyến mãi</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        	<?php foreach($priceproduct as $val){ ?>
+            <tr>
+            	<td><?php echo $val['title']?></td>
+                <td class="number"><?php echo $val['thitruong']?> <?php echo $this->document->setup['Currency']?></td>
+                <td class="number"><?php echo $val['gia']?> <?php echo $this->document->setup['Currency']?></td>
+                <td class="number"><?php echo $val['khuyenmai']?> <?php echo $this->document->setup['Currency']?></td>
+                <td><input type="button" class="ben-button" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+<?php } ?>
 <?php if(count($child)){ ?>
 <div id="subinfo">
         	

@@ -440,6 +440,25 @@ class ControllerCorePostcontent extends Controller
 		$this->render();
 	}
 	
+	public function getPrice()
+	{
+		$this->load->model("core/media");
+		$this->load->helper('image');
+		$mediaid = $this->request->get['mediaid'];
+		$media=$this->model_core_media->getItem($mediaid);
+		$para = $this->string->referSiteMapToArray($media['summary']);
+		foreach($para as $val)
+		{
+			$ar = split("=",$val);
+			$media[$ar[0]] = $ar[1];	
+		}
+		
+		$this->data['output'] = json_encode(array('price' => $media));
+		$this->id='post';
+		$this->template="common/output.tpl";
+		$this->render();
+	}
+	
 	public function getSubInfor()
 	{
 		$this->load->model("core/media");

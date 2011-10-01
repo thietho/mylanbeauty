@@ -23,12 +23,12 @@
                                             <td class="number"><?php echo $item['gia']?></td>
                                             <td class="number"><?php echo $item['khuyenmai']?></td>
                                             <td>
-                                                <input type="text" class="text number pos" id="pos-<?php echo $item['mediaid']?>" name="pos[<?php echo $item['mediaid']?>]" value="<?php echo $item['position']?>" size="3" style="text-align:right"/>
+                                                <input type="text" class="text number price" id="pos-<?php echo $item['mediaid']?>" name="pos[<?php echo $item['mediaid']?>]" value="<?php echo $item['position']?>" size="3" style="text-align:right"/>
                                             </td>
                                             
                                             <td>
                                                 
-                                                <a class="button" onclick="editeSubInfor('<?php echo $item['mediaid']?>')">Edit</a>&nbsp;<a class="button" onclick="removeSubInfor('<?php echo $item['mediaid']?>')">Remove</a>
+                                                <a class="button" onclick="price.edit('<?php echo $item['mediaid']?>')">Edit</a>&nbsp;<a class="button" onclick="price.remove('<?php echo $item['mediaid']?>')">Remove</a>
                                             </td>
                                             
                                         </tr>
@@ -39,7 +39,7 @@
                                 	<tfoot>
                                     	<tr>
                                         	<td colspan="3">
-                                            	<center><input type="button" class="button" id="btnUpdatePos" name="btnUpdatePos"  value="Update position" /></center>
+                                            	<center><input type="button" class="button" id="btnUpdatePrice" name="btnUpdatePos"  value="Update position" /></center>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -49,8 +49,8 @@ $(document).ready(function() {
 	numberReady();
 })
 
-$("#btnUpdatePos").click(function(){
-	$(".pos").each(function(index){
+$("#btnUpdatePrice").click(function(){
+	$(".price").each(function(index){
 		var arr = this.id.split('-');
 		var mediaid = arr[1];
 		var pos = $(this).val().replace(/,/g,"");
@@ -63,6 +63,8 @@ $("#btnUpdatePos").click(function(){
 			if(data=="true")
 			{
 				
+			    $("#pricelist").load("?route=core/postcontent/loadPrice&mediaid="+$("#mediaid").val());
+
 			}
 		});
 	})
