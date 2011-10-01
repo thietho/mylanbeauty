@@ -97,12 +97,23 @@ class ControllerModulePagedetail extends Controller
 		}
 		//Get sub infomation
 		
-		$this->data['child'] = $this->model_core_media->getListByParent($mediaid,"Order by position");
+		$this->data['child'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'subinfor' Order by position");
 		foreach($this->data['child'] as $key => $item)
 		{
 			$this->data['child'][$key]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height'])."' >";
 		}
 		
+		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'price' Order by position");
+		foreach($this->data['priceproduct'] as $key => $item)
+		{
+			$para = $this->string->referSiteMapToArray($item['summary']);
+			foreach($para as $val)
+			{
+				$ar = split("=",$val);
+				$this->data['priceproduct'][$key][$ar[0]] = $ar[1];	
+			}
+			
+		}
 		//Get list
 		$queryoptions = array();
 		$queryoptions['mediaparent'] = '%';

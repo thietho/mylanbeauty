@@ -57,7 +57,7 @@ class ControllerPageHome extends Controller
 		//Rigth sitebar
 		$this->data['rightsitebar']['login'] = $this->loadModule('sitebar/login');
 		$this->data['rightsitebar']['search'] = $this->loadModule('sitebar/search');
-		//$this->data['rightsitebar']['cart'] = $this->loadModule('sitebar/cart');
+		$this->data['rightsitebar']['cart'] = $this->loadModule('sitebar/cart');
 		$this->data['rightsitebar']['banner'] = $this->loadModule('sitebar/banner');
 		$this->data['rightsitebar']['question'] = $this->loadModule('sitebar/question');
 	}

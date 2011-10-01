@@ -34,12 +34,22 @@ class ControllerAddonCart extends Controller
 		}
 		$mediaid = $data['mediaid'];
 		$media = $this->model_core_media->getItem($mediaid);
-		$media['imagethumbnail'] = HelperImage::resizePNG($media['imagepath'], 100, 100);
+		$para = $this->string->referSiteMapToArray($media['summary']);
+		foreach($para as $val)
+		{
+			$ar = split("=",$val);
+			$media[$ar[0]] = $ar[1];	
+		}
+		$price = $this->string->toNumber($media['gia']);
+		if((int)$media['khuyenmai']!=0)
+			$price = $this->string->toNumber($media['khuyenmai']);
+		$parent = $this->model_core_media->getItem($media['mediaparent']);
+		$media['imagethumbnail'] = HelperImage::resizePNG($parent['imagepath'], 100, 100);
 		$qty =(int)$_SESSION['cart'][$mediaid]['qty'];
 		
 		$_SESSION['cart'][$mediaid] = array(
 											'mediaid' => $mediaid,
-											'title' => $media['title'],
+											'title' => $parent['title']."-". $media['title'],
 											'price' => $media['price'],
 											'imagethumbnail' => $media['imagethumbnail'],
 											'qty' => $qty+1

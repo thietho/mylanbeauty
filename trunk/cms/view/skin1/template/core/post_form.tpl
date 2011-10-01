@@ -237,6 +237,8 @@ $(document).ready(function(e) {
 $("#btnSavePrice").click(function(){
 	 price.save();
 });
+
+
 var price = new Price();
 function Price()
 {
@@ -273,7 +275,19 @@ function Price()
 	}
 	this.edit = function(mediaid)
 	{
-		
+		$.getJSON("?route=core/postcontent/getPrice&mediaid="+mediaid, 
+			function(data) 
+			{
+				
+				$("#price_mediaid").val(data.price.mediaid);
+				$("#price_title").val(data.price.title);
+				$("#price_thitruong").val(data.price.thitruong);
+				$("#price_gia").val(data.price.gia);
+				$("#price_khuyenmai").val(data.price.khuyenmai);
+				
+				
+				
+			});
 	}
 	this.remove = function(mediaid)
 	{
@@ -283,7 +297,7 @@ function Price()
 			cache: false,
 			success: function(html)
 			{
-				$("#subinforlist").load("?route=core/postcontent/loadSubInfor&mediaid="+$("#mediaid").val());
+				$("#pricelist").load("?route=core/postcontent/loadPrice&mediaid="+$("#mediaid").val());
 			}
 		});
 	}
