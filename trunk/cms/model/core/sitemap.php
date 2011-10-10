@@ -20,6 +20,7 @@ class ModelCoreSitemap extends Model
 							);
 	private $moduleaddon = array(
 								 /*"core/changeskin" => "Change skin",*/
+								 "core/category" => "Catelogy",
 								 "addon/order" => "Order management <span id='orderwarring'></span>",
 								 "core/member" => "Member management",
 								 "core/user" => "User management"
