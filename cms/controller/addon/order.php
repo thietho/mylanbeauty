@@ -31,9 +31,18 @@ class ControllerAddonOrder extends Controller
 		foreach($this->data['detail'] as $key => $item)
 		{
 			$parent = $this->model_core_media->getItem($item['mediaparent']);
-			$imagepreview = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
-			$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-			$this->data['detail'][$key]['title'] = $parent['title'] ." - ". $item['title'];
+			if(count($parent)==0)
+			{
+				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
+				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
+				$this->data['detail'][$key]['title'] = $item['title'];
+			}
+			else
+			{
+				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($parent['imagepath'], 180, 180)."' >";
+				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
+				$this->data['detail'][$key]['title'] = $parent['title'] ." - ". $item['title'];
+			}
 		}
 		
 		$this->id='content';

@@ -51,7 +51,9 @@
         </div>
         <div class="ben-right"><?php echo $this->string->numberFormate($post[price])?><?php echo $this->document->setup['Currency']?></div>
         <div class="clearer">&nbsp;</div>
-        <!--<div class="ben-right"><a onclick="cart.add('<?php echo $post['mediaid']?>')">Đặt hàng</a></div>-->
+        <?php if(count($priceproduct)==0){ ?>
+        <div class="ben-right"><a onclick="cart.add('<?php echo $post['mediaid']?>')">Đặt hàng</a></div>
+        <?php } ?>
     </div>
     <div class="clearer">&nbsp;</div>
 </div>
