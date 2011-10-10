@@ -30,6 +30,9 @@
             
         	<ul>
                 <li><a href="#fragment-content"><span><?php echo $tab_editcontent?></span></a></li>
+                <?php if($hasProperties) {?>
+                <li><a href="#fragment-properties"><span>Properties</span></a></li>
+                <?php }?>
                 <li><a href="#fragment-detail"><span>Detail</span></a></li>
                 <?php if($hasVideo) {?>
                 <li><a href="#fragment-video"><span>Video</span></a></li>
@@ -139,6 +142,16 @@
                 
                 </div>
                 
+            </div>
+            <div id="fragment-properties">
+            	<div>
+                	<p>
+                    	<label>Loại sản phẩm</label>
+                        <div>
+                        </div>
+                       
+                    </p>
+                </div>
             </div>
             <div id="fragment-detail">
             	<a class="button" onclick="browserFileEditor()">Select image</a>
