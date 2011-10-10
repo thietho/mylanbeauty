@@ -44,12 +44,22 @@ class ControllerAddonCart extends Controller
 		if((int)$media['khuyenmai']!=0)
 			$price = $this->string->toNumber($media['khuyenmai']);
 		$parent = $this->model_core_media->getItem($media['mediaparent']);
-		$media['imagethumbnail'] = HelperImage::resizePNG($parent['imagepath'], 100, 100);
+		if(count($parent))
+		{
+			$media['imagethumbnail'] = HelperImage::resizePNG($parent['imagepath'], 100, 100);
+			$title = $parent['title']."-". $media['title'];
+		}
+		else
+		{
+			$media['imagethumbnail'] = HelperImage::resizePNG($media['imagepath'], 100, 100);
+			$title = $media['title'];
+			$price = $media['price'];
+		}
 		$qty =(int)$_SESSION['cart'][$mediaid]['qty'];
 		
 		$_SESSION['cart'][$mediaid] = array(
 											'mediaid' => $mediaid,
-											'title' => $parent['title']."-". $media['title'],
+											'title' => $title,
 											'price' => $price,
 											'imagethumbnail' => $media['imagethumbnail'],
 											'qty' => $qty+1
