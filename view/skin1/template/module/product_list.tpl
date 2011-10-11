@@ -1,7 +1,4 @@
 <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/product.css'>
-<h2><?php echo $sitemap['breadcrumb']?></h2>
-<h2><?php echo $sitemap['sitemapname']?></h2>
-<!--<div class="ben-item-separator"></div>-->
 <?php
 if(count($medias))
 {

@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	background: #FFF;
+	background:url(../image/bg.gif) repeat-x scroll 0 0 #ECECEC;
 	color: #444;
 	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
@@ -373,16 +373,31 @@ input.ben-button:active {border-style: inset;}
 
 /*---------- HEADER AREA ------------*/
 /* Header */
-#ben-header {padding-top: 0px;border-bottom: 1px solid #DDD;}
+#ben-header 
+{
+	padding:5px;
+	background:#222222;
+	color:#FFFFFF;
+}
 
+#ben-header-support
+{
+	margin:10px;	
+}
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
 	width: 1000px;
 	padding-bottom: 0px;
 }
-
-
+#ben-mainmenu
+{
+	color:#FFFFFF;
+}
+#ben-mainmenu a
+{
+	color:#FFFFFF;	
+}
 /* Logo */
 #ben-logo {	
 	padding: 5px 15px 5px 0;
@@ -390,8 +405,15 @@ input.ben-button:active {border-style: inset;}
 }
 #ben-logo img {}
 
-#ben-site-title{padding-top:30px}
-
+#ben-site-title
+{
+	
+	padding-top:30px
+}
+#ben-site-title h1
+{
+	color:#FFFFFF;	
+}
 /* Splash */
 #ben-splash {padding-top: 32px;}
 
@@ -485,11 +507,20 @@ display:block;
 
 
 /*---------- BODY AREA ------------*/
-#ben-content {margin: 24px auto; width:1000px}
+#ben-content 
+{
+	width:1000px;
+	background:#E2E2E2;
+}
 
 #ben-maincontent{}
 .ben-two-columns #ben-maincontent{width: 750px;}
-.ben-three-columns #ben-maincontent{width:570px; margin-left:5px;}
+.ben-three-columns #ben-maincontent
+{
+	width:785px; 
+	margin-left:5px;
+	background:#FFFFFF;
+}
 .ben-three-columns-right #ben-maincontent{width:520px; margin-right:20px}
 
 
@@ -537,20 +568,24 @@ display:block;
 
 /* Sections */
 .ben-section {margin-bottom: 10px; border:1px solid #DDDDDD}
-.ben-sidebar .ben-section{}
+.ben-sidebar .ben-section{padding:5px}
 #ben-maincontent .ben-section{}
 
 .ben-section-content{padding:5px 15px}
-.ben-sidebar .ben-section-content{padding:5px}
+.ben-sidebar .ben-section-content
+{
+	border:thin solid #c2c2c2;
+	padding:5px;
+}
 #ben-maincontent .ben-section-content{padding:5px 10px}
 
 .ben-section-title {
-	background-color: #F9F9F9;
+	background:url(../image/bgtitle.gif) repeat-x;
 	border-top: 2px solid #DDD;
-	color: #7A7A7A;
+	color: #FFFFFF;
 	font: bold 1.2em sans-serif;
 	margin-bottom: 5px;
-	padding: 7px 10px 6px;
+	padding: 5px 10px 6px;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;}
 #ben-maincontent .ben-section-title {margin-bottom: 8px;}

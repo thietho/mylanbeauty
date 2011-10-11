@@ -179,7 +179,9 @@ function toMonth(month)
 
 function formateNumber(num)
 {
-	num = num.replace(",","");
+	if(num =="")
+		return 0;
+	num = num.replace(/,/g,"");
 	
 	ar = (""+num).split("\.");
 	div = ar[0];

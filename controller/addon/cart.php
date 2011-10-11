@@ -18,6 +18,7 @@ class ControllerAddonCart extends Controller
 		{
 			$this->data['medias'] = $_SESSION['cart'];
 		}
+		
 		$this->id="content";
 		$this->template="addon/cart_list.tpl";
 		$this->render();

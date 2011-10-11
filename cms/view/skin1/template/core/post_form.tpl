@@ -145,8 +145,9 @@
             </div>
             <div id="fragment-properties">
             	<div>
+                	
                 	<p>
-                    	<label>Loại sản phẩm</label>
+                    	<label>Product type</label>
                         <?php foreach($loaisp as $it){ ?>
                         <div>
                         	
@@ -157,7 +158,7 @@
                         <?php } ?>
                     </p>
                     <p>
-                    	<label>Nhóm hương</label><br />
+                    	<label>Flavour collection</label><br />
                         <select name="nhomhuong">
                         	<option value=""></option>
                         	<?php foreach($nhomhuong as $it){ ?>
@@ -166,13 +167,24 @@
                         </select>
                     </p>
                     <p>
-                    	<label>Nhãn hiệu</label><br />
+                    	<label>Brand</label><br />
                         <select name="nhanhieu">
                         	<option value=""></option>
                         	<?php foreach($nhanhieu as $it){ ?>
                         	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
                         	<?php } ?>
                         </select>
+                    </p>
+                    <p>
+                    	<label>Status</label>
+                        <?php foreach($statuspro as $it){ ?>
+                        <div>
+                        	
+                        	<?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?>
+                            <input type="checkbox"  name="loaisp[<?php echo $it['categoryid']?>]" value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'checked="checked"':''; ?> />
+                            <?php echo $it['categoryname']?>
+                        </div>
+                        <?php } ?>
                     </p>
                 </div>
             </div>
@@ -287,7 +299,7 @@ function Price()
 						mediaparent : $("#mediaid").val(),
 						title : $("#price_title").val(), 
 						mediatype : 'price',
-						summary : "[thitruong="+ $("#price_thitruong").val() +"][gia="+ $("#price_gia").val() +"][khuyenmai="+ $("#price_khuyenmai").val() +"]"
+						summary : "[thitruong="+ $("#price_thitruong").val().replace(/,/g,"") +"][gia="+ $("#price_gia").val().replace(/,/g,"") +"][khuyenmai="+ $("#price_khuyenmai").val().replace(/,/g,"") +"]"
 						
 					},
 			function(data){
@@ -317,9 +329,9 @@ function Price()
 				
 				$("#price_mediaid").val(data.price.mediaid);
 				$("#price_title").val(data.price.title);
-				$("#price_thitruong").val(data.price.thitruong);
-				$("#price_gia").val(data.price.gia);
-				$("#price_khuyenmai").val(data.price.khuyenmai);
+				$("#price_thitruong").val(formateNumber(data.price.thitruong));
+				$("#price_gia").val(formateNumber(data.price.gia));
+				$("#price_khuyenmai").val(formateNumber(data.price.khuyenmai));
 				
 				
 				

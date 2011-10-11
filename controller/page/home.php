@@ -49,17 +49,19 @@ class ControllerPageHome extends Controller
 		//Left sitebar
 		$arr = array('sanpham');
 		$this->data['leftsitebar']['produtcategory'] = $this->loadModule('sitebar/catalogue','index',$arr);
-		$this->data['leftsitebar']['supportonline'] = $this->loadModule('sitebar/supportonline');
-		$this->data['leftsitebar']['exchange'] = $this->loadModule('sitebar/exchange');
-		$this->data['leftsitebar']['weblink'] = $this->loadModule('sitebar/weblink');
-		$this->data['leftsitebar']['hitcounter'] = $this->loadModule('sitebar/hitcounter');
+		$this->data['leftsitebar']['faq'] = $this->loadModule('sitebar/faq');
+		$this->data['leftsitebar']['cart'] = $this->loadModule('sitebar/cart');
+		//$this->data['leftsitebar']['supportonline'] = $this->loadModule('sitebar/supportonline');
+		//$this->data['leftsitebar']['exchange'] = $this->loadModule('sitebar/exchange');
+		//$this->data['leftsitebar']['weblink'] = $this->loadModule('sitebar/weblink');
+		//$this->data['leftsitebar']['hitcounter'] = $this->loadModule('sitebar/hitcounter');
 		
 		//Rigth sitebar
-		$this->data['rightsitebar']['login'] = $this->loadModule('sitebar/login');
+		/*$this->data['rightsitebar']['login'] = $this->loadModule('sitebar/login');
 		$this->data['rightsitebar']['search'] = $this->loadModule('sitebar/search');
 		$this->data['rightsitebar']['cart'] = $this->loadModule('sitebar/cart');
 		$this->data['rightsitebar']['banner'] = $this->loadModule('sitebar/banner');
-		$this->data['rightsitebar']['question'] = $this->loadModule('sitebar/question');
+		$this->data['rightsitebar']['question'] = $this->loadModule('sitebar/question');*/
 	}
 	
 	function getProduct()
