@@ -67,9 +67,20 @@ class ControllerModuleProductlist extends Controller
 				
 				if($media['imagepath'] != "" )
 				{
-					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
+					$imagethumbnail = HelperImage::fixsize($media['imagepath'], $template['width'], $template['height']);
 				}
 				
+				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
+				foreach($priceproduct as $key => $item)
+				{
+					$para = $this->string->referSiteMapToArray($item['summary']);
+					foreach($para as $val)
+					{
+						$ar = split("=",$val);
+						$priceproduct[$key][$ar[0]] = $ar[1];	
+					}
+					
+				}
 				
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],

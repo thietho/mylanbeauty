@@ -133,7 +133,7 @@ class ModelCoreSitemap extends Model
 	public function getBreadcrumb($id, $siteid, $end=0)
 	{
 		$data = $this->getPath($id, $siteid);
-		$strBreadcrumb = "<a class='ben-smaller' href='index.php'>Home</a>";
+		$strBreadcrumb = "<a href='".HTTP_SERVER."'>Trang chủ</a>";
 		for($i=count($data)-1;$i>$end;$i--)
 		{
 			$link = "".$data[$i]['sitemapname']."";

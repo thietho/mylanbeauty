@@ -19,9 +19,9 @@
                                             <td>
                                                 <?php echo $item['title']?>
                                             </td>
-                                            <td class="number"><?php echo $item['thitruong']?></td>
-                                            <td class="number"><?php echo $item['gia']?></td>
-                                            <td class="number"><?php echo $item['khuyenmai']?></td>
+                                            <td class="number"><?php echo $this->string->numberFormate($item['thitruong'])?></td>
+                                            <td class="number"><?php echo $this->string->numberFormate($item['gia'])?></td>
+                                            <td class="number"><?php echo $this->string->numberFormate($item['khuyenmai'])?></td>
                                             <td>
                                                 <input type="text" class="text number price" id="pos-<?php echo $item['mediaid']?>" name="pos[<?php echo $item['mediaid']?>]" value="<?php echo $item['position']?>" size="3" style="text-align:right"/>
                                             </td>

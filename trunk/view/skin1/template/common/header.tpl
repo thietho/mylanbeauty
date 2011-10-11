@@ -1,16 +1,20 @@
 <div id="ben-header">
     <div id="ben-top">
-        <div class="ben-left" id="ben-logo">
-            <a href="index.html"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.gif" alt="" /></a>
-        </div>
-    
+        <div id="ben-mainmenu">
+        	<a href="#">Trang chủ</a>
+            | <a href="#">Giới thiệu</a>
+            | <a href="#">Liên hệ</a>
+            | Giời mở cửa: Thứ 2 đến Chủ nhật - 9h đến 21h30
+    	</div>
         <div class="ben-left" id="ben-site-title">
             <h1><?php echo $this->document->setup['Slogan']?></h1>
         </div>
-    
+        <div id="ben-header-support" class="ben-right">
+        	<?php echo $supportonline?>
+        </div>
         <div class="clearer">&nbsp;</div>
         
-        <div class="ben-navigation">
+        <!--<div class="ben-navigation">
     
             <ul id="ben-main-nav">
                 <?php echo $mainmenu?>
@@ -18,7 +22,7 @@
     
             <div class="clearer">&nbsp;</div>
     
-        </div>
+        </div>-->
         
     </div>
 </div>

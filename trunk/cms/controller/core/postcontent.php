@@ -89,6 +89,9 @@ class ControllerCorePostcontent extends Controller
 		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
 		unset($this->data['nhanhieu'][0]);
 		
+		$this->data['statuspro'] = array();
+		$this->model_core_category->getTree("status",$this->data['statuspro']);
+		unset($this->data['statuspro'][0]);
 		
 		$this->data['post'] =array();
 		//Save

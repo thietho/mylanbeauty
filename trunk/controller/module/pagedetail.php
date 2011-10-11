@@ -47,7 +47,24 @@ class ControllerModulePagedetail extends Controller
 	public function getFormProduct($sitemapid="",$count=8, $template = array(),$media=array())
 	{
 		$this->load->model("core/media");
+		$this->load->model("core/category");
 		$this->load->helper('image');
+		
+		$this->data['loaisp'] = array();
+		$this->model_core_category->getTree("loaisp",$this->data['loaisp']);
+		unset($this->data['loaisp'][0]);
+		
+		$this->data['nhomhuong'] = array();
+		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
+		unset($this->data['nhomhuong'][0]);
+		
+		$this->data['nhanhieu'] = array();
+		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
+		unset($this->data['nhanhieu'][0]);
+		
+		$this->data['statuspro'] = array();
+		$this->model_core_category->getTree("status",$this->data['statuspro']);
+		unset($this->data['statuspro'][0]);
 		
 		if($sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
@@ -67,6 +84,8 @@ class ControllerModulePagedetail extends Controller
 		{
 			$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], $template['width'], $template['height']);
 		}
+		$this->data['properties'] = $this->string->referSiteMapToArray($this->data['post']['groupkeys']);
+		
 		//Get sub attachment
 		$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
 		$listfileid=array();
