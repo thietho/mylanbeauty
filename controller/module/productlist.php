@@ -71,22 +71,15 @@ class ControllerModuleProductlist extends Controller
 				}
 				
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
-				foreach($priceproduct as $key => $item)
-				{
-					$para = $this->string->referSiteMapToArray($item['summary']);
-					foreach($para as $val)
-					{
-						$ar = split("=",$val);
-						$priceproduct[$key][$ar[0]] = $ar[1];	
-					}
-					
-				}
 				
+				$price = $media['price'];
+				if($price == 0)
+					$price = $priceproduct[0]['price'];
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
 					'summary' => $media['summary'],
-					'price' => $media['price'],
+					'price' => $price,
 					'imagethumbnail' => $imagethumbnail,
 					'fileid' => $media['imageid'],
 					'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),

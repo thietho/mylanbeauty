@@ -1,9 +1,9 @@
 <div id="ben-header">
     <div id="ben-top">
         <div id="ben-mainmenu">
-        	<a href="#">Trang chủ</a>
-            | <a href="#">Giới thiệu</a>
-            | <a href="#">Liên hệ</a>
+        	<a href="<?php echo HTTP_SERVER?>">Trang chủ</a>
+            | <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/gioithieu">Giới thiệu</a>
+            | <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/lienhe">Liên hệ</a>
             | Giời mở cửa: Thứ 2 đến Chủ nhật - 9h đến 21h30
     	</div>
         <div class="ben-left" id="ben-site-title">

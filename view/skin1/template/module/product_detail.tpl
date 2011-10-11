@@ -104,22 +104,26 @@
             </tr>
         </thead>
         <tbody>
-        	<?php if($post[price]!=0){ ?>
-            <tr>
-            	<td><?php echo $post['title']?></td>
-                <td class="number"></td>
-                <td class="number"><?php echo $this->string->numberFormate($post[price])?> <?php echo $this->document->setup['Currency']?></td>
-                <td class="number"></td>
-                <td><input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng"></td>
-            </tr>
-            <?php } ?>
+        	
             <?php if(count($priceproduct)){ ?>
         	<?php foreach($priceproduct as $val){ ?>
             <tr>
-            	<td><?php echo $val['title']?></td>
-                <td class="number"><?php echo $val['thitruong']?> <?php echo $this->document->setup['Currency']?></td>
-                <td class="number"><?php echo $val['gia']?> <?php echo $this->document->setup['Currency']?></td>
-                <td class="number"><?php echo $val['khuyenmai']?><?php echo $this->document->setup['Currency']?></td>
+            	<td><?php echo $val['title']!=""?$val['title']:$post['title'] ?></td>
+                <td class="number">
+                	<?php if($val['thitruong']!=0){ ?>
+                	<?php echo $this->string->numberFormate($val['thitruong'])?> <?php echo $this->document->setup['Currency']?>
+                    <?php } ?>
+                </td>
+                <td class="number">
+                	<?php if($val['gia']!=0){ ?>
+                	<?php echo $this->string->numberFormate($val['gia'])?> <?php echo $this->document->setup['Currency']?>
+                    <?php } ?>
+                </td>
+                <td class="number">
+                	<?php if($val['khuyenmai']!=0){ ?>
+                	<?php echo $this->string->numberFormate($val['khuyenmai'])?><?php echo $this->document->setup['Currency']?>
+                    <?php } ?>
+                </td>
                 <td><input type="button" class="ben-button" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
             </tr>
             <?php } ?>
