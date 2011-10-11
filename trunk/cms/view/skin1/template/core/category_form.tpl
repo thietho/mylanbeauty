@@ -16,17 +16,17 @@
         	<div>   
             	<p>
                     <label>Category ID</label><br />
-                    <input type="text" name="catelogyid" value="<?php echo $item['catelogyid']?>" class="text" size=60 <?php if($item['catelogyid']!="") echo 'readonly="readonly"'?>/>
+                    <input type="text" name="categoryid" value="<?php echo $item['categoryid']?>" class="text" size=60 <?php if($item['categoryid']!="") echo 'readonly="readonly"'?>/>
                 </p>     
                 <p>
                     <label>Category name</label><br />
-                    <input type="text" name="catelogyname" value="<?php echo $item['catelogyname']?>" class="text" size=60 />
+                    <input type="text" name="categoryname" value="<?php echo $item['categoryname']?>" class="text" size=60 />
                 </p>
                 <p>
                     <label>Parent</label><br />
                     <select id="parent" name="parent">
                         <?php foreach($datas as $it){ ?>
-                        <option value="<?php echo $it['catelogyid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['catelogyname']?></option>
+                        <option value="<?php echo $it['categoryid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>
                         <?php } ?>
                     </select>
                 </p>
