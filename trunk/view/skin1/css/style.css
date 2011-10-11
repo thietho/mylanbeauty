@@ -589,7 +589,10 @@ display:block;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;}
 #ben-maincontent .ben-section-title {margin-bottom: 8px;}
-
+#ben-searchform select 
+{
+	width:186px;
+}
 
 
 

@@ -47,6 +47,7 @@ class ControllerPageHome extends Controller
 	private function loadSiteBar()
 	{
 		//Left sitebar
+		$this->data['leftsitebar']['searchproduct'] = $this->loadModule('sitebar/searchproduct');
 		$arr = array('sanpham');
 		$this->data['leftsitebar']['produtcategory'] = $this->loadModule('sitebar/catalogue','index',$arr);
 		$this->data['leftsitebar']['faq'] = $this->loadModule('sitebar/faq');
