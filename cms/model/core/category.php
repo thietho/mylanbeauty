@@ -8,19 +8,19 @@ class ModelCoreCategory extends Model
 		$data = $this->getItem($this->root);
 		if(count($data)==0)
 		{
-			$data['catelogyid'] = $this->root;
-			$data['catelogyname'] = "Category";
+			$data['categoryid'] = $this->root;
+			$data['categoryname'] = "Category";
 			$data['parent'] = "";
 			$data['position'] = 0;
 			$this->insert($data);
 		}
    	}
 	
-	public function getItem($catelogyid, $where="")
+	public function getItem($categoryid, $where="")
 	{
 		$query = $this->db->query("Select `catelogy`.* 
 									from `catelogy` 
-									where catelogyid ='".$catelogyid."' ".$where);
+									where categoryid ='".$categoryid."' ".$where);
 		return $query->row;
 	}
 	
@@ -39,15 +39,15 @@ class ModelCoreCategory extends Model
 		return $query->rows;
 	}
 	
-	public function getChild($catelogyid,$order = " Order by position")
+	public function getChild($categoryid,$order = " Order by position")
 	{
-		$where = " AND parent = '".$catelogyid."'";
+		$where = " AND parent = '".$categoryid."'";
 		return $this->getList($where);
 	}
 	
 	protected function getnextid($prefix)
 	{
-		$id=$this->db->getNextIdVarChar("catelogy","catelogyid",$prefix);
+		$id=$this->db->getNextIdVarChar("catelogy","categoryid",$prefix);
 		return $id;
 	}
 	
@@ -60,51 +60,51 @@ class ModelCoreCategory extends Model
 	
 	public function insert($data)
 	{
-		$catelogyid= $this->db->escape(@$data['catelogyid']);
-		$catelogyname=$this->db->escape(@$data['catelogyname']);
+		$categoryid= $this->db->escape(@$data['categoryid']);
+		$categoryname=$this->db->escape(@$data['categoryname']);
 		$parent=$this->db->escape(@$data['parent']);
 		$position= (int)@$this->nextposition($parent);
 		
 		
 		
 		$field=array(
-						'catelogyid',
-						'catelogyname',
+						'categoryid',
+						'categoryname',
 						'parent',
 						'position'
 					);
 		$value=array(
-						$catelogyid,
-						$catelogyname,
+						$categoryid,
+						$categoryname,
 						$parent,
 						$position
 					);
 		$this->db->insertData("catelogy",$field,$value);
 		
-		return $catelogyid;
+		return $categoryid;
 	}
 	
 	public function update($data)
 	{
-		$catelogyid= $this->db->escape(@$data['catelogyid']);
-		$catelogyname=$this->db->escape(@$data['catelogyname']);
+		$categoryid= $this->db->escape(@$data['categoryid']);
+		$categoryname=$this->db->escape(@$data['categoryname']);
 		$parent=$this->db->escape(@$data['parent']);
 		
 		
 		
 		
 		$field=array(
-						'catelogyid',
-						'catelogyname',
+						'categoryid',
+						'categoryname',
 						'parent'
 					);
 		$value=array(
-						$catelogyid,
-						$catelogyname,
+						$categoryid,
+						$categoryname,
 						$parent
 					);
 		
-		$where="catelogyid = '".$catelogyid."'";
+		$where="categoryid = '".$categoryid."'";
 		$this->db->updateData("catelogy",$field,$value,$where);
 		
 		
@@ -114,7 +114,7 @@ class ModelCoreCategory extends Model
 	
 	public function updateposition($data)
 	{
-		$catelogyid= $this->db->escape(@$data['catelogyid']);
+		$categoryid= $this->db->escape(@$data['categoryid']);
 		$position= (int)@$data['position'];
 		
 		$field=array(
@@ -126,7 +126,7 @@ class ModelCoreCategory extends Model
 						$position
 					);
 		
-		$where="catelogyid = '".$catelogyid."'";
+		$where="categoryid = '".$categoryid."'";
 		$this->db->updateData("catelogy",$field,$value,$where);
 		
 		
@@ -136,7 +136,7 @@ class ModelCoreCategory extends Model
 	
 	public function save($data)
 	{
-		$item = $this->getItem($data['catelogyid']);
+		$item = $this->getItem($data['categoryid']);
 		if(count($item) == 0)
 		{
 			$this->insert($data);
@@ -147,12 +147,12 @@ class ModelCoreCategory extends Model
 		}
 	}
 	
-	public function delete($catelogyid)
+	public function delete($categoryid)
 	{
-		$data = $this->getChild($catelogyid);
+		$data = $this->getChild($categoryid);
 		if(count($data)==0)
 		{
-			$where="catelogyid = '".$catelogyid."'";
+			$where="categoryid = '".$categoryid."'";
 			$this->db->deleteData("catelogy",$where);
 			
 		}
@@ -195,7 +195,7 @@ class ModelCoreCategory extends Model
 		if(count($rows))
 			foreach($rows as $row)
 			{
-				$this->getTree($row['catelogyid'], $data, $level, $path, $parentpath);
+				$this->getTree($row['categoryid'], $data, $level, $path, $parentpath);
 			}
 	}
 	

@@ -26,7 +26,13 @@ class ControllerCorePostcontent extends Controller
 		{
 			$this->data['permissionDelete'] = false;
 		}
-	 	
+		
+	 	$this->load->model("core/user");
+		$this->load->model("core/media");
+		$this->load->model("core/sitemap");
+		$this->load->model("core/file");
+		$this->load->model("core/category");
+		$this->load->helper('image');
    	}
 	
 	function index()
@@ -34,11 +40,7 @@ class ControllerCorePostcontent extends Controller
 		if(!$this->data['permissionAccess'])
 			$this->response->redirect("?route=common/permission");
 		
-		$this->load->model("core/user");
-		$this->load->model("core/media");
-		$this->load->model("core/sitemap");
-		$this->load->model("core/file");
-		$this->load->helper('image');
+		
 		
 		if (!$this->user->isLogged()) {
 			$this->redirect($this->url->https('page/index'));
@@ -73,7 +75,21 @@ class ControllerCorePostcontent extends Controller
 		
 		$this->data = array_merge($this->data, $this->language->getData());
 		
-		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);		
+		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);	
+		
+		$this->data['loaisp'] = array();
+		$this->model_core_category->getTree("loaisp",$this->data['loaisp']);
+		unset($this->data['loaisp'][0]);
+		
+		$this->data['nhomhuong'] = array();
+		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
+		unset($this->data['nhomhuong'][0]);
+		
+		$this->data['nhanhieu'] = array();
+		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
+		unset($this->data['nhanhieu'][0]);
+		
+		
 		$this->data['post'] =array();
 		//Save
 		if (($this->request->post) && ($this->validate())) {
@@ -120,6 +136,8 @@ class ControllerCorePostcontent extends Controller
 			else
 			{
 				$this->data['post'] = $this->model_core_media->getItem($mediaid);
+				$this->data['properties'] = $this->string->referSiteMapToArray($this->data['post']['groupkeys']);
+				
 				if($mediaid == "")
 				{
 					$this->data['post']['mediaid'] = $this->model_core_media->insert($data);
@@ -296,7 +314,7 @@ class ControllerCorePostcontent extends Controller
 		$data['description'] = $this->data['post']['description'];
 		$data['author'] = $this->data['post']['author'];
 		$data['source'] = $this->data['post']['source'];
-		
+		$data['groupkeys'] = $this->getProperties($this->data['post']);
 		$data['status'] = $this->data['post']['status'];	
 		$data['imageid'] = $this->data['post']['imageid'];
 		$data['imagepath'] = $this->data['post']['imagepath'];
@@ -362,6 +380,15 @@ class ControllerCorePostcontent extends Controller
 			//$this->redirect("index.php");
 		//}
 		
+	}
+	
+	private function getProperties($data)
+	{
+		$arr = $data['loaisp'];
+		$arr['nhomhuong'] = $data['nhomhuong'];
+		$arr['nhanhieu'] = $data['nhanhieu'];
+		$groupkeys = $this->string->arrayToString($arr);
+		return $groupkeys;	
 	}
 	
 	public function updatePos()

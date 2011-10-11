@@ -68,12 +68,12 @@ class ControllerCoreCategory extends Controller
 	
 	public function delete() 
 	{
-		$listcatelogyid=$this->request->post['delete'];
-		//$listcatelogyid=$_POST['delete'];
+		$listcategoryid=$this->request->post['delete'];
+		//$listcategoryid=$_POST['delete'];
 		$this->load->model("core/category");
-		if(count($listcatelogyid))
+		if(count($listcategoryid))
 		{
-			$this->model_core_category->deletedatas($listcatelogyid);
+			$this->model_core_category->deletedatas($listcategoryid);
 			$this->data['output'] = "Xóa thành công";
 		}
 		$this->id="content";
@@ -84,13 +84,13 @@ class ControllerCoreCategory extends Controller
 	public function updateposition()
 	{
 		$listposition=$this->request->post['position'];
-		//$listcatelogyid=$_POST['delete'];
+		//$listcategoryid=$_POST['delete'];
 		$this->load->model("core/category");
 		if(count($listposition))
 		{
 			foreach($listposition as $key => $item)
 			{
-				$data['catelogyid'] = $key;
+				$data['categoryid'] = $key;
 				$data['position'] = $item;
 				$this->model_core_category->updateposition($data);		
 			}
@@ -119,10 +119,10 @@ class ControllerCoreCategory extends Controller
 		{
 			
 			$deep = $item['level'];
-			$link_edit = $this->url->http('core/category/update&catelogyid='.$item['catelogyid']);
+			$link_edit = $this->url->http('core/category/update&categoryid='.$item['categoryid']);
 			$text_edit = "Edit";
 			
-			$link_addchild = $this->url->http('core/category/update&parent='.$item['catelogyid']);
+			$link_addchild = $this->url->http('core/category/update&parent='.$item['categoryid']);
 			$text_addchild = "Add child";
 			
 			$tab="";
@@ -134,12 +134,12 @@ class ControllerCoreCategory extends Controller
 				$class=$eclass.$item['parentpath'];
 				
 			$this->data["datas"][]=array(
-										'catelogyid'=>$item['catelogyid'],
+										'categoryid'=>$item['categoryid'],
 										'prefix'=>$this->string->getPrefix("--",$deep),
 										'deep'=>$deep + 1,
 										'eid' =>$eid . $item['path'] ,
 										'class' =>$class,
-										'catelogyname'=>$item['catelogyname'],
+										'categoryname'=>$item['categoryname'],
 										'parent'=>$item['parent'],
 										'position'=>$item['position'],
 										'tab'=>$tab,
@@ -169,9 +169,9 @@ class ControllerCoreCategory extends Controller
 		$this->data['datas'] = array();
 		$this->data['datas'] = $this->model_core_category->getDanhMucPhanLoai();
 		
-		if ((isset($this->request->get['catelogyid'])) ) 
+		if ((isset($this->request->get['categoryid'])) ) 
 		{
-      		$this->data['item'] = $this->model_core_category->getItem($this->request->get['catelogyid']);
+      		$this->data['item'] = $this->model_core_category->getItem($this->request->get['categoryid']);
     	}
 		
 		$this->id='content';
@@ -207,17 +207,17 @@ class ControllerCoreCategory extends Controller
 		if($data['id'] == "")
 		{
 			$this->load->model("core/category");
-			$item = $this->model_core_category->getItem($data['catelogyid']);
+			$item = $this->model_core_category->getItem($data['categoryid']);
 			if(count($item)>0)
-				$this->error['catelogyid'] = "Category is used";
+				$this->error['categoryid'] = "Category is used";
 		}
-		if ((strlen($data['catelogyid']) == 0)) 
+		if ((strlen($data['categoryid']) == 0)) 
 		{
-      		$this->error['catelogyid'] = "Category Id is not null";
+      		$this->error['categoryid'] = "Category Id is not null";
     	}
-		if ((strlen($data['catelogyname']) == 0)) 
+		if ((strlen($data['categoryname']) == 0)) 
 		{
-      		$this->error['catelogyname'] = "Category name is not null";
+      		$this->error['categoryname'] = "Category name is not null";
     	}
 
 		if (count($this->error)==0) {
