@@ -292,15 +292,17 @@ function Price()
 {
 	this.save = function()
 	{
-		
+		var price = $("#price_gia").val().replace(/,/g,"");
+		if($("#price_khuyenmai").val()!= 0)
+			price = $("#price_khuyenmai").val().replace(/,/g,"")
 		$.post("?route=core/postcontent/savepost", 
 					{
 						mediaid : $("#price_mediaid").val(), 
 						mediaparent : $("#mediaid").val(),
 						title : $("#price_title").val(), 
 						mediatype : 'price',
-						summary : "[thitruong="+ $("#price_thitruong").val().replace(/,/g,"") +"][gia="+ $("#price_gia").val().replace(/,/g,"") +"][khuyenmai="+ $("#price_khuyenmai").val().replace(/,/g,"") +"]"
-						
+						summary : "[thitruong="+ $("#price_thitruong").val().replace(/,/g,"") +"][gia="+ $("#price_gia").val().replace(/,/g,"") +"][khuyenmai="+ $("#price_khuyenmai").val().replace(/,/g,"") +"]",
+						price : price
 					},
 			function(data){
 				if(data=="true")
