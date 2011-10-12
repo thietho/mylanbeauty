@@ -1,8 +1,10 @@
+<?php if($this->document->sitemapid != "faq"){ ?>
 <div class="ben-editor">
     <p>
         <?php echo $post['description']?>
     </p>
 </div>
+<?php } ?>
 <?php if(count($child)){ ?>
 <style>
 .faq-item
