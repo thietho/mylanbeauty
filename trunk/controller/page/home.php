@@ -26,11 +26,13 @@ class ControllerPageHome extends Controller
 						  'height' =>176
 						  );
 			
-			$medias = $this->getProduct();
+			$medias = $this->getProduct("sanphamhot");
+			$arr = array("",12,"Sản phẩm hot",$template,$medias);
+			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','index',$arr);
 			
-			$arr = array("",6,"",$template,$medias);
-			$this->data['producthome'] = $this->loadModule('module/productlist','index',$arr);
-			
+			$medias = $this->getProduct("sanphamkhuyenmai");
+			$arr = array("",12,"Sản phẩm khuyến mãi",$template,$medias);
+			$this->data['producthome']['sanphamkhuyenmai'] = $this->loadModule('module/productlist','index',$arr);
 			/*$arr = array("gioithieu");
 			$this->data['producthome'] = $this->loadModule('module/information','index',$arr);*/
 			//
@@ -66,7 +68,7 @@ class ControllerPageHome extends Controller
 		$this->data['rightsitebar']['question'] = $this->loadModule('sitebar/question');*/
 	}
 	
-	function getProduct()
+	function getProduct($status)
 	{
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
@@ -77,6 +79,7 @@ class ControllerPageHome extends Controller
 		$queryoptions['mediaparent'] = '%';
 		$queryoptions['mediatype'] = '%';
 		$options['refersitemap'] = $arrsitemapid;
+		$options['groupkeys'] = $status;
 		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=9);
 		
 		return $data;

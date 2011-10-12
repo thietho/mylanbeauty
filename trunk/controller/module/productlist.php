@@ -6,8 +6,12 @@ class ControllerModuleProductlist extends Controller
 		
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
+		$this->load->model("core/category");
 		$this->load->helper('image');
 		
+		$this->data['statuspro'] = array();
+		$this->model_core_category->getTree("status",$this->data['statuspro']);
+		unset($this->data['statuspro'][0]);
 		if($sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		
@@ -15,6 +19,8 @@ class ControllerModuleProductlist extends Controller
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
 		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
+		if($headername!="")
+			$this->data['sitemap']['sitemapname'] = $headername;
 		$step = (int)$this->request->get['step'];
 		$to = $count;
 		
@@ -71,15 +77,16 @@ class ControllerModuleProductlist extends Controller
 				}
 				
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
-				
 				$price = $media['price'];
 				if($price == 0)
 					$price = $priceproduct[0]['price'];
+				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
 					'summary' => $media['summary'],
 					'price' => $price,
+					'properties' => $properties,
 					'imagethumbnail' => $imagethumbnail,
 					'fileid' => $media['imageid'],
 					'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),

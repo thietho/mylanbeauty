@@ -594,7 +594,10 @@ display:block;
 	width:186px;
 }
 
-
+.ben-product-list
+{
+	margin-top:10px;	
+}
 
 
 
@@ -637,6 +640,21 @@ display:block;
 	background:#F00;
 }
 
+.ben-icon
+{
+	position:absolute;	
+}
+
+#ben-icon-sale
+{
+	margin-top:152px;	
+}
+
+#ben-icon-new
+{
+	margin-left:140px;
+	margin-top:140px;
+}
 ul#menu, ul#menu ul {
   list-style-type:none;
   margin: 0;

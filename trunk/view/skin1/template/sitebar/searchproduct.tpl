@@ -39,8 +39,26 @@
 </div>
 <script language="javascript">
 $("#btnSearch").click(function(){
+	var url =  HTTP_SERVER+"site/<?php echo $this->member->getSiteId()?>/product/search/";
 	var keyword = trim($("#txt_search").val()," ");
-	if(keyword!="")
-		window.location = HTTP_SERVER+"site/<?php echo $this->member->getSiteId()?>/search/keyword/"+keyword;							   
+	
+	if($("#loaisp").val() != "")
+		url += "[loaisp=" + $("#loaisp").val()+"]";
+	if($("#nhomhuong").val() != "")
+		url += "[nhomhuong="+ $("#nhomhuong").val()+"]";
+	if($("#nhanhieu").val() != "")
+		url += "[nhanhieu=" + $("#nhanhieu").val()+"]";
+	if($("#gia").val() != "")
+		url += "[gia=" + $("#gia").val()+"]";
+	if($("#keyword").val() != "")
+		url += "[keyword=" + keyword+"]";
+	
+	
+	if("<?php echo $_GET['opendialog']?>" == "true")
+	{
+		url += "&opendialog=true";
+	}
+	
+	window.location = url;
 });
 </script>

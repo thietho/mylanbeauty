@@ -14,7 +14,9 @@
             <div class=" ben-section-content">
             
             	<?php echo $bannerhome?>
-            	<?php echo $producthome?>
+                <?php foreach($producthome as $item){ ?>
+            	<?php echo $item?>
+                <?php } ?>
             </div>
             
             
