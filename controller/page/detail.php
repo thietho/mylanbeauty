@@ -21,7 +21,7 @@ class ControllerPageDetail extends Controller
 			$id = $this->request->get['id'];
 			
 			$this->document->breadcrumb = $this->model_core_sitemap->getBreadcrumb($this->document->sitemapid, $siteid, -1);
-			
+			echo "test";
 			if($this->document->sitemapid != "")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($this->document->sitemapid, $siteid);
@@ -29,6 +29,7 @@ class ControllerPageDetail extends Controller
 				switch($sitemap['moduleid'])
 				{
 					case "":
+						
 						$this->data['module'] = $this->loadModule('addon/'.$this->document->sitemapid);
 					break;
 					case "module/information":
