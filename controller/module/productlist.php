@@ -39,8 +39,6 @@ class ControllerModuleProductlist extends Controller
 			}
 			
 			
-			
-			
 			$this->data['medias'] = array();
 			
 		

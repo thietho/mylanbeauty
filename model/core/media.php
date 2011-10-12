@@ -124,7 +124,7 @@ class ModelCoreMedia extends ModelCoreFile
 			
 			$where .= "AND (". implode($arr," OR ").")";
 		}
-		elseif($groupkeys != "%")
+		elseif($groupkeys != "")
 		{
 			$where .= " AND groupkeys like '%[".$groupkeys."]%'";
 		}
