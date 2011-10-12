@@ -16,11 +16,40 @@
 	text-align:center;
 	margin-top:5px;
 }
+
+#ben-icon-sale-detail
+{
+	margin-top:220px;	
+}
+
+#ben-icon-new-detail
+{
+	margin-left:200px;
+	margin-top:212px;
+}
 </style>
 <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/product.css'>
 <h2><?php echo $sitemap['breadcrumb']?></h2>
 <div class="ben-post">
 	<div class="ben-left product-left">
+    	<?php if(in_array("sanphamhot",$properties)){ ?>
+        <div id="ben-icon-hot-detail" class="ben-icon">
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-hot.png" />
+        </div>
+        <?php } ?>
+        <?php if(in_array("sanphamkhuyenmai",$properties)){ ?>
+        <div id="ben-icon-sale-detail" class="ben-icon">
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-sale.png" />
+        </div>
+        <?php } ?>
+        <?php if(in_array("sanphammoi",$properties)){ ?>
+        <div id="ben-icon-new-detail" class="ben-icon">
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-new.png" />
+        </div>
+        <?php } ?>
+        <?php if($media['imagethumbnail'] !=""){ ?>
+        <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
+        <?php }?>
     	<?php if($post['imagethumbnail'] !=""){ ?>
         <div class="product-mainimage">
 	        <img id="product-preview" src="<?php echo $post['imagethumbnail']?>"/>
@@ -150,43 +179,9 @@
             
 </div>
 <?php } ?>
-<div class="ben-hline"></div>
 
-<?php if($othernews) {?>
-<h3>Các sản phẩm khác</h3>             
-<div>
-    
-    	<?php foreach($medias as $media) {?>
-        <div>
-        <table class="ben-left product">
-            <tr>
-                <td>
-                    
-                    <?php if($media['imagethumbnail'] !=""){ ?>
-                    <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
-                    <?php }?>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div align="center"><a href="<?php echo $media['link']?>"><h6><?php echo $media['title']?></h6></a></div>
-                    <div align="center"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
-                    <div align="center">
-                        <a href="<?php echo $media['link']?>">Chi tiết</a> || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        
-        
-        
-        
-    </div>
-        <?php } ?>    
-    
-</div>
-<?php } ?>
+
+
 
 <div class="clearer">&nbsp;</div>
 

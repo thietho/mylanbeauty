@@ -53,6 +53,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$month = $options['month'];
 		$year = $options['year'];
 		$refersitemap = $options['refersitemap'];
+		$groupkeys = $options['groupkeys'];
 		
 		//Where Command
 		$where = "";
@@ -111,6 +112,21 @@ class ModelCoreMedia extends ModelCoreFile
 		elseif($refersitemap != "%")
 		{
 			$where .= " AND refersitemap like '%[".$refersitemap."]%'";
+		}
+		
+		//groupkeys
+		if(is_array($groupkeys) && count($groupkeys))
+		{
+			foreach($groupkeys as $item)
+			{
+				$arr[] = " groupkeys like '%[".$item."]%'";
+			}
+			
+			$where .= "AND (". implode($arr," OR ").")";
+		}
+		elseif($groupkeys != "%")
+		{
+			$where .= " AND groupkeys like '%[".$groupkeys."]%'";
 		}
 		//echo "<br>".$where;
 		return $this->getList($where, $from, $to);
