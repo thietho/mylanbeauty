@@ -133,40 +133,7 @@ class ControllerModulePagedetail extends Controller
 			}
 			
 		}
-		//Get list
-		$queryoptions = array();
-		$queryoptions['mediaparent'] = '%';
-		$queryoptions['mediatype'] = '%';
-		$queryoptions['refersitemap'] = $sitemapid;
-		//$queryoptions['date'] = $this->data['post']['statusdate'];
-		$this->data['othernews'] = $this->model_core_media->getOthersMedia($mediaid, $queryoptions, $count);
-		for($i=0;$i<count($this->data['othernews']);$i++)
-		{
-			/*$this->data['othernews'][$i]['statusdate'] = $this->date->formatMySQLDate($this->data['othernews'][$i]['statusdate'], 'longdate', "/");
-			
-			$this->data['othernews'][$i]['link'] = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$this->data['othernews'][$i]['mediaid'];*/
-			$media = $this->data['othernews'][$i];
-			$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
-				
-			$imagethumbnail = "";
-			
-			if($media['imagepath'] != "" )
-			{
-				$imagethumbnail = HelperImage::resizePNG($media['imagepath'],170, 170);
-			}
-			
-			
-			$this->data['medias'][] = array(
-				'mediaid' => $media['mediaid'],
-				'title' => $media['title'],
-				'summary' => $media['summary'],
-				'price' => $media['price'],
-				'imagethumbnail' => $imagethumbnail,
-				'fileid' => $media['imageid'],
-				'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),
-				'link' => $link
-			);
-		}
+		
 		
 		
 		$this->id="news";
