@@ -61,4 +61,9 @@ $("#btnSearch").click(function(){
 	
 	window.location = url;
 });
+$("#loaisp").val("<?php echo $_GET['loaisp']?>");
+$("#nhomhuong").val("<?php echo $_GET['nhomhuong']?>");
+$("#nhanhieu").val("<?php echo $_GET['nhanhieu']?>");
+$("#gia").val("<?php echo $_GET['gia']?>");
+$("#keyword").val("<?php echo $_GET['keyword']?>");
 </script>
