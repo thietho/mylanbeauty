@@ -587,6 +587,10 @@ display:block;
 	margin-bottom: 5px;
 	padding: 5px 10px 6px;
 }
+.ben-section-title a
+{
+	color:#FFFFFF;
+}
 .ben-sidebar .ben-section-title {margin-bottom: 8px;}
 #ben-maincontent .ben-section-title {margin-bottom: 8px;}
 #ben-searchform select 
