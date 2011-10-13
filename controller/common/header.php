@@ -12,7 +12,7 @@
 			
 			$this->id="header";
 			$this->template="common/header.tpl";
-			$this->data['mainmenu'] = $this->getMenu("");
+			$this->data['mainmenu'] = $this->getMenu("sanpham");
 			$this->render();
 		}
 		

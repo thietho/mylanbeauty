@@ -9,14 +9,14 @@
                 <?php } ?>
             </select>
         </p>
-        <p>
+        <!--<p>
             <select name="nhomhuong" id="nhomhuong">
                 <option value="">Nhóm hương</option>
                 <?php foreach($nhomhuong as $it){ ?>
                 <option value="<?php echo $it['categoryid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
                 <?php } ?>
             </select>
-        </p>
+        </p>-->
         <p>
             <select name="nhanhieu" id="nhanhieu">
                 <option value="">Nhãn hiệu</option>
@@ -44,8 +44,8 @@ $("#btnSearch").click(function(){
 	
 	if($("#loaisp").val() != "")
 		url += "[loaisp=" + $("#loaisp").val()+"]";
-	if($("#nhomhuong").val() != "")
-		url += "[nhomhuong="+ $("#nhomhuong").val()+"]";
+	/*if($("#nhomhuong").val() != "")
+		url += "[nhomhuong="+ $("#nhomhuong").val()+"]";*/
 	if($("#nhanhieu").val() != "")
 		url += "[nhanhieu=" + $("#nhanhieu").val()+"]";
 	if($("#gia").val() != "")
