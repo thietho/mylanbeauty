@@ -77,9 +77,6 @@ class ControllerCorePostcontent extends Controller
 		
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);	
 		
-		$this->data['loaisp'] = array();
-		$this->model_core_category->getTree("loaisp",$this->data['loaisp']);
-		unset($this->data['loaisp'][0]);
 		
 		$this->data['nhomhuong'] = array();
 		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);

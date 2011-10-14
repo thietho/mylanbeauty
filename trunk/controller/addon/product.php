@@ -32,9 +32,11 @@ class ControllerAddonProduct extends Controller
 			
 			foreach($datasearch as $key => $item)
 			{
-				if($item !="" && $key != "gia" && $key != "keyword")
+				if($item !="" && $key != "gia" && $key != "keyword" && $key != "loaisp")
 					$arr[] = " AND groupkeys like '%[".$item."]%'";
 					
+				if($key == "loaisp")
+					$arr[] = " AND refersitemap like '%[".$item."]%'";
 				
 			}
 			
