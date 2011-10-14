@@ -79,7 +79,7 @@
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
                         	<?php foreach($loaisp as $it){ ?>
-                            <?php echo in_array($it['categoryid'],$properties)?$it['categoryname'].'<br />':''; ?>
+                            <?php echo $it['sitemapname']; ?>
                             <?php } ?>
                         </td>
                     </tr>
@@ -91,14 +91,7 @@
                             <?php } ?>
                         </td>
                     </tr>
-                    <tr>
-                    	<td><strong>Nhóm hương:</strong></td>
-                        <td>
-                        	<?php foreach($nhomhuong as $it){ ?>
-                            <?php echo in_array($it['categoryid'],$properties)?$it['categoryname'].'<br />':''; ?>
-                            <?php } ?>
-                        </td>
-                    </tr>
+                    
                 </table>
             	
                 

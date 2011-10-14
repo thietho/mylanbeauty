@@ -48,11 +48,8 @@ class ControllerModulePagedetail extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->model("core/category");
+		$this->load->model("core/sitemap");
 		$this->load->helper('image');
-		
-		$this->data['loaisp'] = array();
-		$this->model_core_category->getTree("loaisp",$this->data['loaisp']);
-		unset($this->data['loaisp'][0]);
 		
 		$this->data['nhomhuong'] = array();
 		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
@@ -79,6 +76,12 @@ class ControllerModulePagedetail extends Controller
 		}
 		$this->data['post']['summary'] = str_replace(chr(13),"<br>",$this->data['post']['summary']);
 		$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
+		
+		$loaisp= $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
+		foreach($loaisp as $item)
+		{
+			$this->data['loaisp'][] = $this->model_core_sitemap->getItem($item,$this->member->getSiteId());
+		}
 		
 		if($this->data['post']['imagepath'] != "")
 		{
