@@ -32,10 +32,19 @@ class ControllerPageHome extends Controller
 						  'width' => 176,
 						  'height' =>176
 						  );
-			
-			$medias = $this->getProduct("");
-			$arr = array("",12,"Sản phẩm hot",$template,$medias);
-			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','index',$arr);
+			$this->load->model('core/sitemap');
+			$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
+			foreach($listroot as $sitemap)
+			{
+				//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
+				$medias = $this->getProduct($sitemap['sitemapid'],"");
+				$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
+				$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','index',$arr);
+			}
+			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
+			$medias = $this->getProduct($sitemap['sitemapid'],"");
+			$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
+			$this->data['producthome']['trangdiem'] = $this->loadModule('module/productlist','index',$arr);*/
 			
 			/*$medias = $this->getProduct("sanphamkhuyenmai");
 			$arr = array("",12,"Sản phẩm khuyến mãi",$template,$medias);
@@ -75,13 +84,25 @@ class ControllerPageHome extends Controller
 		$this->data['rightsitebar']['question'] = $this->loadModule('sitebar/question');*/
 	}
 	
-	function getProduct($status)
+	function getProduct($rootid,$status)
 	{
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
 		$siteid = $this->member->getSiteId();
-		$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
+		//$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
+		$sitemaps = array();
+		$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
+		
 		$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
+		/*//print_r($sitemaps);
+		//print_r($arrsitemapid);
+		$arrsitemapid = array();
+		foreach($sitemaps as $item)
+		{
+			echo $item['sitemapid'];	
+			array_push($arrsitemapid, $item['sitemapid']);
+		}*/
+		
 		$queryoptions = array();
 		$queryoptions['mediaparent'] = '%';
 		$queryoptions['mediatype'] = '%';

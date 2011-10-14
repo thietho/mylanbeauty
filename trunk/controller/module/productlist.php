@@ -18,9 +18,10 @@ class ControllerModuleProductlist extends Controller
 		$siteid = $this->user->getSiteId();
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
-		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
 		if($headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
+		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
+		
 		$step = (int)$this->request->get['step'];
 		$to = $count;
 		

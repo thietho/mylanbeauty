@@ -9,9 +9,7 @@
 	<div class="ben-left" id="ben-maincontent">
     	<div class="ben-section">
         
-        	<div class=" ben-section-title">
-            	
-            </div>
+        	<div class="ben-section-title"><?php echo $brand?></div>
             
             <div class="ben-section-content">
             	<?php echo $this->document->breadcrumb?>
