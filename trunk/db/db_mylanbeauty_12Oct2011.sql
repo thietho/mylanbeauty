@@ -22,10 +22,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catelogy`
+-- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `catelogy` (
+CREATE TABLE IF NOT EXISTS `category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `categoryid` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `categoryname` text COLLATE utf8_unicode_ci NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `catelogy` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=46 ;
 
 --
--- Dumping data for table `catelogy`
+-- Dumping data for table `category`
 --
 
-INSERT INTO `catelogy` (`id`, `categoryid`, `categoryname`, `parent`, `position`) VALUES
+INSERT INTO `category` (`id`, `categoryid`, `categoryname`, `parent`, `position`) VALUES
 (1, 'category', 'Category', '', 1),
 (2, 'loaisp', 'Loại sản phẩm', 'category', 1),
 (3, 'nhomhuong', 'Nhóm hương', 'category', 2),

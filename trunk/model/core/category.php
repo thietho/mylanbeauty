@@ -18,8 +18,8 @@ class ModelCoreCategory extends Model
 	
 	public function getItem($categoryid, $where="")
 	{
-		$query = $this->db->query("Select `catelogy`.* 
-									from `catelogy` 
+		$query = $this->db->query("Select `category`.* 
+									from `category` 
 									where categoryid ='".$categoryid."' ".$where);
 		return $query->row;
 	}
@@ -27,8 +27,8 @@ class ModelCoreCategory extends Model
 	public function getList($where="", $from=0, $to=0,$order = " Order by position")
 	{
 		
-		$sql = "Select `catelogy`.* 
-									from `catelogy` 
+		$sql = "Select `category`.* 
+									from `category` 
 									where 1=1 " . $where . $order;
 		if($to > 0)
 		{
@@ -47,13 +47,13 @@ class ModelCoreCategory extends Model
 	
 	protected function getnextid($prefix)
 	{
-		$id=$this->db->getNextIdVarChar("catelogy","categoryid",$prefix);
+		$id=$this->db->getNextIdVarChar("category","categoryid",$prefix);
 		return $id;
 	}
 	
 	public function nextposition($parent)
 	{
-		$sql = "Select max(position) as max From catelogy where parent='".$parent."'";
+		$sql = "Select max(position) as max From category where parent='".$parent."'";
 		$query = $this->db->query($sql);
 		return $query->rows[0]['max'] +1 ;
 	}
@@ -79,7 +79,7 @@ class ModelCoreCategory extends Model
 						$parent,
 						$position
 					);
-		$this->db->insertData("catelogy",$field,$value);
+		$this->db->insertData("category",$field,$value);
 		
 		return $categoryid;
 	}
@@ -105,7 +105,7 @@ class ModelCoreCategory extends Model
 					);
 		
 		$where="categoryid = '".$categoryid."'";
-		$this->db->updateData("catelogy",$field,$value,$where);
+		$this->db->updateData("category",$field,$value,$where);
 		
 		
 		
@@ -127,7 +127,7 @@ class ModelCoreCategory extends Model
 					);
 		
 		$where="categoryid = '".$categoryid."'";
-		$this->db->updateData("catelogy",$field,$value,$where);
+		$this->db->updateData("category",$field,$value,$where);
 		
 		
 		
@@ -153,7 +153,7 @@ class ModelCoreCategory extends Model
 		if(count($data)==0)
 		{
 			$where="categoryid = '".$categoryid."'";
-			$this->db->deleteData("catelogy",$where);
+			$this->db->deleteData("category",$where);
 			
 		}
 	}
