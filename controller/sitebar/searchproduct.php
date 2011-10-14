@@ -4,8 +4,10 @@ class ControllerSitebarSearchproduct extends Controller
 	public function index()
 	{
 		$this->load->model("core/category");
+		$this->load->model("core/sitemap");
 		$this->data['loaisp'] = array();
-		$this->model_core_category->getTree("loaisp",$this->data['loaisp']);
+		$siteid = $this->member->getSiteId();
+		$this->model_core_sitemap->getTreeSitemap("sanpham",$this->data['loaisp'],$siteid);
 		unset($this->data['loaisp'][0]);
 		
 		$this->data['nhomhuong'] = array();

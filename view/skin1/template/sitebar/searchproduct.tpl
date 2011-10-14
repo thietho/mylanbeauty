@@ -5,7 +5,7 @@
             <select name="loaisp" id="loaisp">
                 <option value="">Loại sản phẩm</option>
                 <?php foreach($loaisp as $it){ ?>
-                <option value="<?php echo $it['categoryid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
+                <option value="<?php echo $it['sitemapid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['sitemapname']?></option>                        
                 <?php } ?>
             </select>
         </p>
