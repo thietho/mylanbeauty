@@ -10,6 +10,13 @@ class ControllerPageHome extends Controller
 	{
 		if($this->cachehtml->iscacht($this->name) == false)
 		{
+			//Brand
+			$template = array(
+						  'template' => "module/category_brand.tpl"
+						  );
+		
+			$arr = array("nhanhieu",$template);
+			$this->data['brand'] = $this->loadModule('module/category','getList',$arr);
 			//Banner home
 			$template = array(
 						  'template' => "home/banner.tpl",
@@ -26,13 +33,13 @@ class ControllerPageHome extends Controller
 						  'height' =>176
 						  );
 			
-			$medias = $this->getProduct("sanphamhot");
+			$medias = $this->getProduct("");
 			$arr = array("",12,"Sản phẩm hot",$template,$medias);
 			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','index',$arr);
 			
-			$medias = $this->getProduct("sanphamkhuyenmai");
+			/*$medias = $this->getProduct("sanphamkhuyenmai");
 			$arr = array("",12,"Sản phẩm khuyến mãi",$template,$medias);
-			$this->data['producthome']['sanphamkhuyenmai'] = $this->loadModule('module/productlist','index',$arr);
+			$this->data['producthome']['sanphamkhuyenmai'] = $this->loadModule('module/productlist','index',$arr);*/
 			/*$arr = array("gioithieu");
 			$this->data['producthome'] = $this->loadModule('module/information','index',$arr);*/
 			//
@@ -84,5 +91,6 @@ class ControllerPageHome extends Controller
 		
 		return $data;
 	}
+	
 }
 ?>

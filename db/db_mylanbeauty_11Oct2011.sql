@@ -16,45 +16,45 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `catelogy`
+-- Table structure for table `category`
 -- 
 
-CREATE TABLE `catelogy` (
+CREATE TABLE `category` (
   `id` bigint(20) NOT NULL auto_increment,
-  `catelogyid` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `catelogyname` text collate utf8_unicode_ci NOT NULL,
+  `categoryid` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `categoryname` text collate utf8_unicode_ci NOT NULL,
   `parent` varchar(100) collate utf8_unicode_ci NOT NULL,
   `position` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 -- 
--- Dumping data for table `catelogy`
+-- Dumping data for table `category`
 -- 
 
-INSERT INTO `catelogy` VALUES (1, 'category', 'Category', '', 1);
-INSERT INTO `catelogy` VALUES (2, 'loaisp', 'Loại sản phẩm', 'category', 1);
-INSERT INTO `catelogy` VALUES (3, 'nhomhuong', 'Nhóm hương', 'category', 2);
-INSERT INTO `catelogy` VALUES (4, 'nhanhieu', 'Nhãn hiệu', 'category', 3);
-INSERT INTO `catelogy` VALUES (5, 'gia', 'Giá', 'category', 4);
-INSERT INTO `catelogy` VALUES (6, '0-200', 'Dưới 200,000', 'gia', 1);
-INSERT INTO `catelogy` VALUES (7, '200-500', '200,000 - 500,000', 'gia', 2);
-INSERT INTO `catelogy` VALUES (8, '500-800', '500,000 - 800,000', 'gia', 3);
-INSERT INTO `catelogy` VALUES (9, '800-1000', '800,000 - 1,000,000', 'gia', 4);
-INSERT INTO `catelogy` VALUES (10, '1000-0', 'Trên 1,000,000', 'gia', 5);
-INSERT INTO `catelogy` VALUES (11, 'nuochoa', 'Nước hoa', 'loaisp', 1);
-INSERT INTO `catelogy` VALUES (12, 'mypham', 'Mỹ phẩm', 'loaisp', 2);
-INSERT INTO `catelogy` VALUES (13, 'trangdiem', 'Trang điểm', 'loaisp', 3);
-INSERT INTO `catelogy` VALUES (14, 'quatang', 'Quà tặng', 'loaisp', 4);
-INSERT INTO `catelogy` VALUES (15, 'nuochoanam', 'Nước hoa nam', 'nuochoa', 1);
-INSERT INTO `catelogy` VALUES (16, 'nuochoanu', 'Nước hoa nữ', 'nuochoa', 2);
-INSERT INTO `catelogy` VALUES (17, 'nuochoabo', 'Nước hoa bộ', 'nuochoa', 3);
-INSERT INTO `catelogy` VALUES (18, 'lankhumui', 'Lăn khử mùi', 'nuochoa', 4);
-INSERT INTO `catelogy` VALUES (19, 'aftershave', 'Aftershave', 'nuochoa', 5);
-INSERT INTO `catelogy` VALUES (20, 'duongmoi', 'Dưỡng môi', 'mypham', 1);
-INSERT INTO `catelogy` VALUES (21, 'duongmat', 'Dưỡng mắt', 'mypham', 2);
-INSERT INTO `catelogy` VALUES (22, 'lamtrangtrinam', 'Làm trắng - trị nám', 'mypham', 3);
-INSERT INTO `catelogy` VALUES (23, 'trimun', 'Trị mụn', 'mypham', 4);
+INSERT INTO `category` VALUES (1, 'category', 'Category', '', 1);
+INSERT INTO `category` VALUES (2, 'loaisp', 'Loại sản phẩm', 'category', 1);
+INSERT INTO `category` VALUES (3, 'nhomhuong', 'Nhóm hương', 'category', 2);
+INSERT INTO `category` VALUES (4, 'nhanhieu', 'Nhãn hiệu', 'category', 3);
+INSERT INTO `category` VALUES (5, 'gia', 'Giá', 'category', 4);
+INSERT INTO `category` VALUES (6, '0-200', 'Dưới 200,000', 'gia', 1);
+INSERT INTO `category` VALUES (7, '200-500', '200,000 - 500,000', 'gia', 2);
+INSERT INTO `category` VALUES (8, '500-800', '500,000 - 800,000', 'gia', 3);
+INSERT INTO `category` VALUES (9, '800-1000', '800,000 - 1,000,000', 'gia', 4);
+INSERT INTO `category` VALUES (10, '1000-0', 'Trên 1,000,000', 'gia', 5);
+INSERT INTO `category` VALUES (11, 'nuochoa', 'Nước hoa', 'loaisp', 1);
+INSERT INTO `category` VALUES (12, 'mypham', 'Mỹ phẩm', 'loaisp', 2);
+INSERT INTO `category` VALUES (13, 'trangdiem', 'Trang điểm', 'loaisp', 3);
+INSERT INTO `category` VALUES (14, 'quatang', 'Quà tặng', 'loaisp', 4);
+INSERT INTO `category` VALUES (15, 'nuochoanam', 'Nước hoa nam', 'nuochoa', 1);
+INSERT INTO `category` VALUES (16, 'nuochoanu', 'Nước hoa nữ', 'nuochoa', 2);
+INSERT INTO `category` VALUES (17, 'nuochoabo', 'Nước hoa bộ', 'nuochoa', 3);
+INSERT INTO `category` VALUES (18, 'lankhumui', 'Lăn khử mùi', 'nuochoa', 4);
+INSERT INTO `category` VALUES (19, 'aftershave', 'Aftershave', 'nuochoa', 5);
+INSERT INTO `category` VALUES (20, 'duongmoi', 'Dưỡng môi', 'mypham', 1);
+INSERT INTO `category` VALUES (21, 'duongmat', 'Dưỡng mắt', 'mypham', 2);
+INSERT INTO `category` VALUES (22, 'lamtrangtrinam', 'Làm trắng - trị nám', 'mypham', 3);
+INSERT INTO `category` VALUES (23, 'trimun', 'Trị mụn', 'mypham', 4);
 
 -- --------------------------------------------------------
 

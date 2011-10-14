@@ -88,5 +88,13 @@ final class Document {
 		fclose($fp);
 	}
 	
+	public function getCategory($categoryid,$name="categoryname")
+	{
+		$query = $this->db->query("Select `category`.* 
+									from `category` 
+									where categoryid ='".$categoryid."' ");
+		return $query->row[$name];	
+	}
+	
 }
 ?>

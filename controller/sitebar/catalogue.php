@@ -47,7 +47,7 @@ class ControllerSitebarCatalogue extends Controller
 			
 			if(count($childs) > 0)
 			{
-				$str .= "<span class='collape right'>[+]</span>";
+				//$str .= "<span class='collape right'>[+]</span>";
 				$str .= '<div class="clearer">&nbsp;</div>';
 				$str .= "</div>";
 				

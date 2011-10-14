@@ -10,11 +10,11 @@
     	<div class="ben-section">
         
         	<div class=" ben-section-title">
-            	<?php echo $this->document->breadcrumb?>
+            	
             </div>
             
             <div class="ben-section-content">
-            
+            	<?php echo $this->document->breadcrumb?>
             	<?php echo $module?>
             
             </div>

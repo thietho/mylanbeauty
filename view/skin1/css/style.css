@@ -693,6 +693,7 @@ ul#menu li div a{
 
 ul#menu li div a{
   color: #FFF;	
+  text-transform:uppercase;
 }
 
 ul#menu li div:hover{
@@ -707,7 +708,8 @@ ul#menu li ul li div {
 }
 
 ul#menu li ul li a {
-  color: #FFF;
+  color: #000;
+  font-weight:bold;
 }
 
 ul#menu li ul li ul li div {
