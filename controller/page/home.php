@@ -32,6 +32,11 @@ class ControllerPageHome extends Controller
 						  'width' => 176,
 						  'height' =>176
 						  );
+						  
+			$medias = $this->getProduct("","sanphamhot");
+			$arr = array("",12,"Sản phẩm hot",$template,$medias);
+			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','index',$arr);
+						  
 			$this->load->model('core/sitemap');
 			$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
 			foreach($listroot as $sitemap)
@@ -89,13 +94,17 @@ class ControllerPageHome extends Controller
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
 		$siteid = $this->member->getSiteId();
-		//$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
 		$sitemaps = array();
-		$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
-		
+		if($rootid == "")
+			$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
+		else
+		{
+			$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
+		}
 		$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
+		
 		/*//print_r($sitemaps);
-		//print_r($arrsitemapid);
+		
 		$arrsitemapid = array();
 		foreach($sitemaps as $item)
 		{
