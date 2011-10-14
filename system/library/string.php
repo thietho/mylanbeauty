@@ -28,7 +28,7 @@ final class String
 	{
 		$arr = array();
 		foreach($data as $item)
-			$arr[]=$item[$col];
+			array_push($arr,$item[$col]);
 		return $arr;
 	}
 	
