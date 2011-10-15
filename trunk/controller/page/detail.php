@@ -118,7 +118,9 @@ class ControllerPageDetail extends Controller
 							$template = array(
 											  'template' => "module/product_list.tpl",
 											  'width' => 170,
-											  'height' =>170
+											  'height' =>170,
+											  'widthpreview' => 300,
+											  'heightpreview' =>300
 											  );
 							$arr = array($this->document->sitemapid,9,"",$template);
 							$this->data['module'] = $this->loadModule('module/productlist','index',$arr);

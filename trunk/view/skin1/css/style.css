@@ -408,7 +408,6 @@ input.ben-button:active {border-style: inset;}
 #ben-site-title
 {
 	
-	padding-top:30px
 }
 #ben-site-title h1
 {
@@ -435,9 +434,10 @@ z-index:100;
 display:block;
 padding:3px 5px;
 border:1px solid #CCCCCC;
-color:#fff;
+color:#000;
 text-decoration:none;
 background-color:#CCCCCC;
+text-transform:uppercase;
 }
 
 #ben-main-nav a:hover{
@@ -590,6 +590,7 @@ display:block;
 .ben-section-title a
 {
 	color:#FFFFFF;
+	text-transform:uppercase;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;}
 #ben-maincontent .ben-section-title {margin-bottom: 8px;}
@@ -614,7 +615,7 @@ display:block;
 }
 #ben-footer-left {width: 700px;}
 #ben-footer-right {
-	width: 459px;
+	
 	text-align: right;
 }
 #ben-footer p {margin-bottom: 0.4em;}

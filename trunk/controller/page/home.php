@@ -34,8 +34,8 @@ class ControllerPageHome extends Controller
 						  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
-			$arr = array("",12,"Sản phẩm hot",$template,$medias);
-			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','index',$arr);
+			$arr = array("",0,"Sản phẩm hot",$template,$medias);
+			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
 						  
 			$this->load->model('core/sitemap');
 			$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
@@ -43,8 +43,8 @@ class ControllerPageHome extends Controller
 			{
 				//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
 				$medias = $this->getProduct($sitemap['sitemapid'],"");
-				$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
-				$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','index',$arr);
+				$arr = array("",0,$sitemap['sitemapname'],$template,$medias);
+				$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','getAll',$arr);
 			}
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
 			$medias = $this->getProduct($sitemap['sitemapid'],"");
