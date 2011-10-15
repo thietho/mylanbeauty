@@ -1,4 +1,5 @@
 <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/product.css'>
+<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/product.js'></script>
 <?php
 if(count($medias))
 {
@@ -6,7 +7,7 @@ if(count($medias))
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
     <div>
-        <table class="ben-left product">
+        <table class="ben-left product tip_trigger">
             <tr>
                 <td>
                 	<?php if(in_array("sanphamhot",$media['properties'])){ ?>
@@ -26,8 +27,9 @@ if(count($medias))
                     <?php } ?>
                     <?php if($media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
+                    <span class="tip"><img alt="" src=<?php echo $media['imagetpreview']?>"></span>
                     <?php }?>
-                    
+                    	
                 </td>
             </tr>
             <tr>
