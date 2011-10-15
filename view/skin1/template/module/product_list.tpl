@@ -27,7 +27,7 @@ if(count($medias))
                     <?php } ?>
                     <?php if($media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
-                    <span class="tip"><img alt="" src=<?php echo $media['imagetpreview']?>"></span>
+                    <span class="tip"><img alt="" src="<?php echo $media['imagetpreview']?>"></span>
                     <?php }?>
                     	
                 </td>
