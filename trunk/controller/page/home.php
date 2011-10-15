@@ -30,7 +30,9 @@ class ControllerPageHome extends Controller
 			$template = array(
 						  'template' => "home/product.tpl",
 						  'width' => 176,
-						  'height' =>176
+						  'height' =>176,
+						  'widthpreview' => 400,
+						  'heightpreview' =>400
 						  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
