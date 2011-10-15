@@ -31,8 +31,8 @@ class ControllerPageHome extends Controller
 						  'template' => "home/product.tpl",
 						  'width' => 176,
 						  'height' =>176,
-						  'widthpreview' => 400,
-						  'heightpreview' =>400
+						  'widthpreview' => 300,
+						  'heightpreview' =>300
 						  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
