@@ -54,6 +54,7 @@
                         <td><input type="text" name="position[<?php echo $item['categoryid']?>]" value="<?php echo $item['position']?>" size=3 class="text number"/></td>
                         <td class="link-control">
                             <a class="button" href="<?php echo $item['link_edit']?>" title="<?php echo $item['text_edit']?>"><?php echo $item['text_edit']?></a>
+                            <a class="button" href="<?php echo $item['link_editcontent']?>" title="<?php echo $item['text_editcontent']?>"><?php echo $item['text_editcontent']?></a>
                             <a class="button" href="<?php echo $item['link_addchild']?>" title="<?php echo $item['text_edit']?>"><?php echo $item['text_addchild']?></a>
                            
                         </td>
