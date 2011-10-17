@@ -5,7 +5,7 @@
             | <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/cart">Giỏ hàng</a>
     	</div>
         <div class="ben-left" id="ben-site-title">
-        	Website đang hoàng thiện và tiếp tục cập nhật sản phẩm mới liên tục
+        	<h1>Website đang hoàng thiện <br />và tiếp tục cập nhật sản phẩm mới liên tục</h1>
             <h1><?php echo $this->document->setup['Slogan']?></h1>
         </div>
         <div id="ben-header-support" class="ben-right">

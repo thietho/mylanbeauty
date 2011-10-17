@@ -86,10 +86,14 @@ class ControllerCoreCategory extends Controller
 		{
 			//$this->load->language('core/category');
 			//$this->data = array_merge($this->data, $this->language->getData());
-			
-			$this->data['post']['mediaid'] = $this->user->getSiteId().$sitemapid;
-			$this->data['post']['mediatype'] = "information";
+			$categoryid = $this->request->get['categoryid'];
 			$category = $this->model_core_category->getItem($this->request->get['categoryid']);
+			
+			$this->data['DIR_UPLOADPHOTO'] = HTTP_SERVER."index.php?route=common/uploadpreview";
+			$this->data['DIR_UPLOADATTACHMENT'] = HTTP_SERVER."index.php?route=common/uploadattachment";
+			$this->data['post']['mediaid'] = $this->user->getSiteId()."cat".$categoryid;
+			$this->data['post']['mediatype'] = "information";
+			
 			$this->data['post']=$this->model_core_media->initialization($this->data['post']['mediaid'],$this->data['post']['mediatype']);
 			$this->data['post'] = $this->model_core_media->getItem($this->data['post']['mediaid']);
 			
@@ -98,7 +102,14 @@ class ControllerCoreCategory extends Controller
 				$this->data['post']['mediaid'] = $this->user->getSiteId().$category['categoryid'];
 				$this->data['post']['title'] = $category['categoryname'];
 			}
-			
+			if($this->data['post']['imagepath'] != "")
+			{
+				$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], 200, 200);
+			}
+			$this->id='content';
+			$this->template='core/category_content.tpl';
+			$this->layout="layout/center";
+			$this->render();
 		}
 		
   	}
