@@ -2,8 +2,7 @@
 class ControllerCoreCategory extends Controller
 {
 	private $error = array();
-   
-	public function index()
+   	function __construct() 
 	{
 		if(!$this->user->hasPermission($this->getRoute(), "access"))
 		{
@@ -24,12 +23,24 @@ class ControllerCoreCategory extends Controller
 		{
 			$this->data['permissionDelete'] = false;
 		}
+		
+	 	$this->load->model("core/user");
+		$this->load->model("core/media");
+		$this->load->model("core/sitemap");
+		$this->load->model("core/file");
+		$this->load->model("core/category");
+		$this->load->helper('image');
+   	}
+	
+	public function index()
+	{
+		
 		//$this->load->language('core/category');
 		//$this->data = array_merge($this->data, $this->language->getData());
 		
 		$this->document->title = $this->language->get('heading_title');
 		
-		$this->load->model("core/category");
+		
 		$this->getList();
 	}
 	
@@ -55,7 +66,7 @@ class ControllerCoreCategory extends Controller
 			//$this->data = array_merge($this->data, $this->language->getData());
 			
 			
-			$this->load->model("core/category");
+			
 			$this->data['haspass'] = false;
 			$this->data['readonly'] = 'readonly="readonly"';
 		
@@ -65,6 +76,32 @@ class ControllerCoreCategory extends Controller
 		
   	}
 	
+	public function edit()
+	{
+		if(!$this->user->hasPermission($this->getRoute(), "edit"))
+		{
+			$this->response->redirect("?route=common/permission");
+		}
+		else
+		{
+			//$this->load->language('core/category');
+			//$this->data = array_merge($this->data, $this->language->getData());
+			
+			$this->data['post']['mediaid'] = $this->user->getSiteId().$sitemapid;
+			$this->data['post']['mediatype'] = "information";
+			$category = $this->model_core_category->getItem($this->request->get['categoryid']);
+			$this->data['post']=$this->model_core_media->initialization($this->data['post']['mediaid'],$this->data['post']['mediatype']);
+			$this->data['post'] = $this->model_core_media->getItem($this->data['post']['mediaid']);
+			
+			if($this->data['post']['title'] == '' && $route='module/information')
+			{
+				$this->data['post']['mediaid'] = $this->user->getSiteId().$category['categoryid'];
+				$this->data['post']['title'] = $category['categoryname'];
+			}
+			
+		}
+		
+  	}
 	
 	public function delete() 
 	{
@@ -125,6 +162,9 @@ class ControllerCoreCategory extends Controller
 			$link_addchild = $this->url->http('core/category/update&parent='.$item['categoryid']);
 			$text_addchild = "Add child";
 			
+			$link_editcontent = $this->url->http('core/category/edit&categoryid='.$item['categoryid']);
+			$text_editcontent = "Edit content";
+			
 			$tab="";
 			if(count($item['countchild'])==0)
 				$tab="<span class='tab'></span>";
@@ -145,6 +185,8 @@ class ControllerCoreCategory extends Controller
 										'tab'=>$tab,
 										'link_edit'=>$link_edit,
 										'text_edit' =>$text_edit,
+										'link_editcontent'=>$link_editcontent,
+										'text_editcontent' =>$text_editcontent,
 										'link_addchild' => $link_addchild,
 										'text_addchild' => $text_addchild
 								    );
