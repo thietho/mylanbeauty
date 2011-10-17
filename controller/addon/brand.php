@@ -16,7 +16,8 @@ class ControllerAddonBrand extends Controller
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
 		$categoryid = $this->request->get['id'];
-		$this->document->breadcrumb .= $this->document->getCategory($categoryid);
+		$header = $this->document->getCategory($categoryid);
+		$this->document->breadcrumb .= $header;
 		$where = " AND groupkeys like '%[".$categoryid."]%'";
 		$medias = $this->model_core_media->getList($where);
 		
@@ -39,10 +40,12 @@ class ControllerAddonBrand extends Controller
 		
 		$template = array(
 							  'template' => "module/product_list.tpl",
-							  'width' => 170,
-							  'height' =>170
+							  'width' => 176,
+							  'height' =>176,
+							  'widthpreview' => 450,
+						 	  'heightpreview' =>450
 							  );
-		$arr = array("",12,"Kết quả tìm kiếm",$template,$medias);
+		$arr = array("",12,$header,$template,$medias);
 		$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
 			
 			

@@ -28,7 +28,7 @@
 	margin-top:212px;
 }
 </style>
-<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/product.css'>
+
 <h2><?php echo $sitemap['breadcrumb']?></h2>
 <div class="ben-post">
 	<div class="ben-left product-left">

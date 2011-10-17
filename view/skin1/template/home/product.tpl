@@ -1,5 +1,4 @@
-<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/product.css'>
-<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/product.js'></script>
+<h1><?php echo $sitemap['sitemapname']?></h1>
 <?php
 if(count($medias))
 {

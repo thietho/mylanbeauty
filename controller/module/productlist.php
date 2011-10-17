@@ -178,7 +178,7 @@ class ControllerModuleProductlist extends Controller
 				if($media['imagepath'] != "" )
 				{
 					$imagethumbnail = HelperImage::fixsize($media['imagepath'], $template['width'], $template['height']);
-					$imagetpreview = HelperImage::fixsize($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
+					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 				}
 				
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
