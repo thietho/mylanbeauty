@@ -84,6 +84,12 @@ class ControllerCoreCategory extends Controller
 		}
 		else
 		{
+			if (($this->request->post)) 
+			{
+			
+				$this->loadModule('core/postcontent',"savepost");
+				$this->redirect("index.php?route=core/category");
+			}
 			//$this->load->language('core/category');
 			//$this->data = array_merge($this->data, $this->language->getData());
 			$categoryid = $this->request->get['categoryid'];
@@ -99,7 +105,7 @@ class ControllerCoreCategory extends Controller
 			
 			if($this->data['post']['title'] == '' && $route='module/information')
 			{
-				$this->data['post']['mediaid'] = $this->user->getSiteId().$category['categoryid'];
+				$this->data['post']['mediaid'] = $this->user->getSiteId()."cat".$categoryid;
 				$this->data['post']['title'] = $category['categoryname'];
 			}
 			if($this->data['post']['imagepath'] != "")
