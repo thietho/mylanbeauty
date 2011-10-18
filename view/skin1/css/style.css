@@ -192,7 +192,7 @@ img.ben-alignright, img.ben-right {margin: 0 0 1em 1.5em;}
 ------------------------------------------------------------------- */
 /* Default Lists */
 li ul, li ol {margin-left: 1.5em;}
-ul, ol {margin: 0 0 1.5em 1.5em;}
+ul, ol {}
 ul {list-style-type: disc;}
 ol {
 	list-style-type: decimal;
