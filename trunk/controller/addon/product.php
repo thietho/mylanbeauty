@@ -106,7 +106,9 @@ class ControllerAddonProduct extends Controller
 		$template = array(
 							  'template' => "module/product_list.tpl",
 							  'width' => 170,
-							  'height' =>170
+							  'height' =>170,
+							  'widthpreview' => 450,
+						  	  'heightpreview' =>450
 							  );
 		$arr = array("",12,"Kết quả tìm kiếm",$template,$medias);
 		$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
