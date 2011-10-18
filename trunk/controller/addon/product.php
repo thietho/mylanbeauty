@@ -60,8 +60,10 @@ class ControllerAddonProduct extends Controller
 		{
 			$arr[] = " refersitemap like '%[".$item."]%'";
 		}
+		$hasprice = false;
 		if($datasearch['gia'] != "")
 		{
+			$hasprice = true;
 			$arrgia = split("-",$datasearch['gia']);
 			$giatu = (int)$arrgia[0];
 			$giaden = (int)$arrgia[1];
@@ -69,7 +71,7 @@ class ControllerAddonProduct extends Controller
 				$whereprice = " AND price >= '".$giatu*$donvi ."'";
 			if($giaden)
 				$whereprice.= " AND price <= '".$giaden*$donvi ."'";
-			
+			$whereprice;
 			$mediaprice = $this->model_core_media->getList($whereprice);
 			
 			$listparent = $this->string->matrixToArray($mediaprice,"mediaparent");
@@ -94,6 +96,11 @@ class ControllerAddonProduct extends Controller
 				}
 			}
 			$medias = $data;
+		}
+		else
+		{
+			if($hasprice)
+				$medias = array();	
 		}
 		
 		$template = array(
