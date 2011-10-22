@@ -19,7 +19,7 @@ class ModelCoreSitemap extends Model
 							'group/domain'=>'Domain page',
 							);
 	private $moduleaddon = array(
-								 /*"core/changeskin" => "Change skin",*/
+								 "core/changeskin" => "Change skin",
 								 "core/category" => "Catelogy",
 								 "addon/order" => "Order management <span id='orderwarring'></span>",
 								 "core/member" => "Member management",
