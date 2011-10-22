@@ -1,0 +1,16 @@
+.product
+{
+	width:184px;
+	height:255px;
+	border:thin dashed #CCC;
+	margin:3px;
+}
+.tip {
+    background: none repeat scroll 0 0 #1D1D1D;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: none;
+    padding: 5px;
+    position: absolute;
+    z-index: 1000;
+}

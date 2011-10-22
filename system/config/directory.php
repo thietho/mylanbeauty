@@ -13,11 +13,19 @@ define('DIR_CONTROLLER','controller/');
 define('DIR_MODEL','model/');
 define('DIR_LANGUAGE', 'language/');
 
+define('DIR_DATABASE', 'system/database/');
+define('DIR_COMPONENT', 'component/');
+define('DIR_FILE','file/');
+define('DIR_SYSTEM', 'system/');
+define('DIR_CACHE', 'file/cache/');
+define('DIR_CACHEHTML', 'file/cachehtml/');
+
 $filename = DIR_FILE."db/setting.json";;
 @$handle = fopen($filename, "r");
 @$contents = fread($handle, filesize($filename));
 @fclose($handle);
 $setting = json_decode($contents);
+
 if($setting->skin=="")
 	$setting->skin="skin1";
 define('DIR_VIEW','view/'.$setting->skin.'/');
@@ -37,10 +45,5 @@ define('DIR_JS', 'view/skin1/js/');
 define('DIR_XML', 'view/skin1/xml/');*/
 
 //
-define('DIR_DATABASE', 'system/database/');
-define('DIR_COMPONENT', 'component/');
-define('DIR_FILE','file/');
-define('DIR_SYSTEM', 'system/');
-define('DIR_CACHE', 'file/cache/');
-define('DIR_CACHEHTML', 'file/cachehtml/');
+
 ?>
