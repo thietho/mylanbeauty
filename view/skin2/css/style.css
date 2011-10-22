@@ -414,6 +414,8 @@ input.ben-button:active {border-style: inset;}
 #ben-logo {	
 	
 	position:absolute;
+	margin-left:-18px;
+	margin-top:14px;
 }
 #ben-logo img {}
 
@@ -432,9 +434,10 @@ input.ben-button:active {border-style: inset;}
 .ben-navigation
 {
 	position:absolute;
-	margin-left:259px;
+	margin-left:240px;
 	margin-top:100px;
 	background:url(../image/bg-menumain.png) repeat-x;
+	width:755px;
 }
 #ben-main-nav, #ben-main-nav ul{
 margin:0;
@@ -448,7 +451,7 @@ z-index:100;
 
 #ben-main-nav a{
 display:block;
-padding:5px 7px;
+padding:5px 8px;
 color:#000;
 text-decoration:none;
 text-transform:uppercase;
@@ -596,7 +599,7 @@ display:block;
 }
 #ben-searchform
 {
-	margin-top:55px;	
+	margin-top:74px;	
 }
 #ben-maincontent .ben-section-content{padding:5px 10px}
 
@@ -614,7 +617,7 @@ display:block;
 	text-transform:uppercase;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;}
-#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:35px;}
+#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:29px;}
 #ben-searchform select 
 {
 	width:186px;
