@@ -47,9 +47,12 @@ var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
             <?php echo $content?>
         </div>
         
-        <?php echo $footer?> 
+        
     
     </div>
+</div>
+<div id="ben-bottom">
+	<?php echo $footer?> 
 </div>
 </body>
 
