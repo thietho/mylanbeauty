@@ -746,11 +746,13 @@ ul#menu li ul li div {
   background: #FFF;
   color: #000;
   padding-left: 20px;
+  text-align:left !important;
 }
 
 ul#menu li ul li a {
   color: #000;
   font-weight:bold;
+  
 }
 
 ul#menu li ul li ul li div {
@@ -761,11 +763,12 @@ ul#menu li ul li ul li div {
 
 ul#menu li ul li ul li div a {
   color: #000;
+  
 }
 
 ul#menu li ul li div:hover {
   background: #aaa;
-  border-left: 5px #000 solid;
+  
 }
 .number
 {
