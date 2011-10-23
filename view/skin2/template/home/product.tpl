@@ -1,4 +1,4 @@
-<h1><?php echo $sitemap['sitemapname']?></h1>
+<h1><img src="<?php echo HTTP_SERVER.DIR_IMAGE.$sitemap['sitemapname']?>.png" /></h1>
 <?php
 if(count($medias))
 {
