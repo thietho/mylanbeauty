@@ -716,10 +716,10 @@ ul#menu div.collape{
 	text-align:center;
 	font-weight:bold;
 	font-size:1.1em;
+	margin-bottom:1px;
 }
-
-ul#menu li {
-  margin-top: 1px;
+.ben-unuppercase {
+  	text-transform:capitalize !important;
 }
 
 ul#menu li div {
@@ -745,7 +745,7 @@ ul#menu li div:hover{
 ul#menu li ul li div {
   background: #FFF;
   color: #000;
-  padding-left: 20px;
+  padding-left: 5px;
   text-align:left !important;
 }
 

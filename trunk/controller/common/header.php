@@ -44,10 +44,10 @@
 				if($item['moduleid'] != "group")
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
-					$link = "<a ".$currenttab." href='".HTTP_SERVER."site/".$siteid."/".$item['sitemapid']."'>".$item['sitemapname']."</a>";
+					$link = "<a ".$currenttab." href='".HTTP_SERVER."site/".$siteid."/".$item['sitemapid']."'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
 				if($item['moduleid'] == "homepage"){
-					$link = "<a ".$currenttab." href='".HTTP_SERVER."'>".$item['sitemapname']."</a>";
+					$link = "<a ".$currenttab." href='".HTTP_SERVER."'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
 				
 				$str .= "<li>";
