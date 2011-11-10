@@ -79,7 +79,7 @@
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
                         	<?php foreach($loaisp as $it){ ?>
-                            <?php echo $it['sitemapname']; ?>
+                            <?php echo $it['sitemapname'].'<br />'; ?>
                             <?php } ?>
                         </td>
                     </tr>
