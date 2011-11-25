@@ -20,8 +20,8 @@ class ControllerPageHome extends Controller
 			//Banner home
 			$template = array(
 						  'template' => "home/banner.tpl",
-						  'width' => 548,
-						  'height' =>548
+						  'width' => 765,
+						  'height' =>0
 						  );
 		
 			$arr = array("bannerhome",0,"",$template);
