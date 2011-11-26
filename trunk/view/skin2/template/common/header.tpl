@@ -24,7 +24,7 @@
             	<li><a href="<?php echo HTTP_SERVER?>">Trang chủ</a></li>
                 <li><a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/gioithieu">Giới thiệu</a></li>
                 <?php echo $mainmenu?>
-                <li><a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/khuyenmai">Khuyến mãi</a></li>
+                
             </ul>
     
             <div class="clearer">&nbsp;</div>

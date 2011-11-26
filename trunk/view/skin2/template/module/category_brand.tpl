@@ -6,7 +6,7 @@
 .ben-brand li
 {
 	float:left;	
-	margin-left:5px;
+	
 }
 .ben-subbrand
 {
@@ -14,19 +14,22 @@
 	display:none;
 	position:absolute;	
 	background:#000000;
+	z-index:10;
+}
+.ben-space
+{
+	margin:6px;	
 }
 .ben-subbrand li
 {
 	float:none;	
-	padding:5px;
 }
 </style>
 <ul class="ben-brand">
 <?php foreach($datas as $key => $item){?>
 	<?php if($item['parent'] == "nhanhieu"){ ?>
 	<li>
-        <?php if($key > 1) echo "|";?>
-        <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/brand/<?php echo $item['categoryid']?>"><?php echo $item['categoryname']?></a>
+        <?php if($key > 1) echo "<span class='ben-space'>|</span>";?><a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/brand/<?php echo $item['categoryid']?>"><?php echo $item['categoryname']?></a>
         <?php 
         	$arr = $this->string->array_Filter($datas,'parent',$item['categoryid']);
             if(count($arr))
