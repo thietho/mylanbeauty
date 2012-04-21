@@ -84,7 +84,7 @@ $("#btnCheckout").click(function(){
 			var arr = data.split("-")
 			if(arr[0] == "true")
 			{
-				window.location = HTTP_SERVER+"site/<?php echo $this->member->getSiteId()?>/checkoutcomplete/"+arr[1];
+				window.location = HTTP_SERVER+"checkoutcomplete/"+arr[1]+".html";
 			}
 			else
 			{

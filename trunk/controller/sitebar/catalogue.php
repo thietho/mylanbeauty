@@ -38,7 +38,7 @@ class ControllerSitebarCatalogue extends Controller
 			if($item['moduleid'] != "group" && $item['moduleid'] != "homepage")
 			{
 				//$link='<a class="left" href="?route='.$item['moduleid']."&sitemapid=".$item['sitemapid'].'" title="[Detail]">'.$item['sitemapname'].'</a>';
-				$link = "<a  href='".HTTP_SERVER."site/".$siteid."/".$item['sitemapid']."'>".html_entity_decode($item['sitemapname'])."</a>";
+				$link = "<a  href='".$this->document->createLink($item['sitemapid'])."'>".html_entity_decode($item['sitemapname'])."</a>";
 			}
 			
 			$str .= "<li>";

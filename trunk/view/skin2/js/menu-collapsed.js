@@ -1,5 +1,5 @@
 function initMenu() {
-  $('#menu ul').show();
+  $('#menu ul').hide();
   $('#menu li div.collape').click(
     function() {
         $(this).next().slideToggle('normal');	

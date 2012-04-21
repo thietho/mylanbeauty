@@ -40,7 +40,7 @@
                 	<tr>
                     	<td><?php echo $media['firstcolumn']?>&nbsp;</td>
                         <td><b><?php echo $media['title']?></b>&nbsp;</td>
-                        <td><?php echo $media['summary']?>&nbsp;</td>
+                        <td><?php echo html_entity_decode($media['summary'])?>&nbsp;</td>
                         <td><?php echo $media['imagepreview']?>&nbsp;</td>
                         <td>
                         	<?php if($permissionEdit){?>
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
 function deletelist()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
 	$.post(DIR_DELETE, $("#postlist").serialize(), function(data){
 		window.location.reload()
 	});	

@@ -3,12 +3,12 @@ class ControllerPageHome extends Controller
 {
 	function __construct() 
 	{
-		$this->iscache = true;
+		//$this->iscache = true;
 	 	$this->name ="PageHome";
    	}
 	public function index()
 	{
-		if($this->cachehtml->iscacht($this->name) == false)
+		//if($this->cachehtml->iscacht($this->name) == false)
 		{
 			//Brand
 			$template = array(

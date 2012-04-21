@@ -37,7 +37,7 @@ class ControllerModuleBlock extends Controller
 			{
 				$index += 1;
 				
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
 				if($media['imagepath'] != "" && $template['width'] >0 )
@@ -118,10 +118,10 @@ class ControllerModuleBlock extends Controller
 			
 			if($item['moduleid'] != "group")
 			{
-				$link = "<a ".$currenttab." href='".HTTP_SERVER."site/".$siteid."/".$item['sitemapid']."'>".$item['sitemapname']."</a>";
+				$link = "<a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."'>".$item['sitemapname']."</a>";
 			}
 			if($item['moduleid'] == "homepage"){
-				$link = "<a ".$currenttab." href='index.php'>".$item['sitemapname']."</a>";
+				$link = "<a ".$currenttab." href='".$this->document->createLink()."'>".$item['sitemapname']."</a>";
 			}
 			
 			$str .= "<li>";
@@ -151,7 +151,7 @@ class ControllerModuleBlock extends Controller
 		{
 			$medias[$key] = $this->model_core_media->getItem($this->member->getSiteId().$item['sitemapid']);
 			$medias[$key]['headertitle'] = $item['sitemapname'];
-			$link = HTTP_SERVER."site/".$siteid."/".$item['sitemapid'];
+			$link = $this->document->createLink($item['sitemapid']);
 				
 			$imagethumbnail = "";
 			if($medias[$key]['imagepath'] != "" && $template['width'] >0 )
@@ -180,7 +180,7 @@ class ControllerModuleBlock extends Controller
 		{
 			$medias[$key] = $this->model_core_media->getItem($this->member->getSiteId().$item['sitemapid']);
 			$medias[$key]['headertitle'] = $item['sitemapname'];
-			$link = HTTP_SERVER."site/".$siteid."/".$item['sitemapid'];
+			$link = $this->document->createLink($item['sitemapid']);
 				
 			$imagethumbnail = "";
 			if($medias[$key]['imagepath'] != "" && $template['width'] >0 )

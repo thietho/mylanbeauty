@@ -49,7 +49,7 @@ class ControllerModuleProductlist extends Controller
 			$x=$page;		
 			$limit = $to;
 			$total = count($medias); 
-			$uri = "site/".$siteid."/".$sitemapid."/";
+			$uri = $this->document->getURI();
 			// work out the pager values 
 			$this->data['pager']  = $this->pager->pageLayoutWeb($total, $limit, $page,$uri); 
 			
@@ -66,7 +66,7 @@ class ControllerModuleProductlist extends Controller
 				$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 				$sitemapid = $arr[0];
 				
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
 				
@@ -149,20 +149,7 @@ class ControllerModuleProductlist extends Controller
 			
 		
 			$index = -1;
-			/*//Page
-			$page = $this->request->get['page'];		
-			$x=$page;		
-			$limit = $to;
-			$total = count($medias); 
-			$uri = "site/".$siteid."/".$sitemapid."/";
-			// work out the pager values 
-			$this->data['pager']  = $this->pager->pageLayoutWeb($total, $limit, $page,$uri); 
 			
-			$pager  = $this->pager->getPagerData($total, $limit, $page); 
-			$offset = $pager->offset; 
-			$limit  = $pager->limit; 
-			$page   = $pager->page;
-			for($i=$offset;$i < $offset + $limit && count($medias[$i])>0;$i++)*/
 			foreach($medias as $media)
 			{
 				$index += 1;
@@ -171,7 +158,7 @@ class ControllerModuleProductlist extends Controller
 				$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 				$sitemapid = $arr[0];
 				
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
 				

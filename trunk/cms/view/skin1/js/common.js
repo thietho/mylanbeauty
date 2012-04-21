@@ -181,8 +181,9 @@ function formateNumber(num)
 {
 	if(num =="")
 		return 0;
-	num = num.replace(/,/g,"");
 	
+	num = String(num).replace(/,/g,"");
+	num = Number(num);
 	ar = (""+num).split("\.");
 	div = ar[0];
 	mod = ar[1];
@@ -227,6 +228,31 @@ function rtrim(str, chars) {
 	return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
 }
 
+function toBasicText(str)
+{
+	var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?"; 
+	for (var i = 0; i < str.length; i++) 
+	{ 
+		if (iChars.indexOf(str.charAt(i)) != -1) 
+		{ 
+			
+			str = str.replace(str.charAt(i),"");
+		}
+		//alert(str.charAt(i))
+	}
+	return str;
+}
+
+function getPrefix(letter,n)
+{
+	var s = "";
+	for(i=0;i<n;i++)
+	{
+		s+=letter;	
+	}
+	return s;
+}
+
 function isNumber(char)
 {
 	if( char!=8 && char!=0 && (char<45 || char>57) )
@@ -255,7 +281,27 @@ function numberReady()
 		
 	  	return isNumber(e.which);
 	});
-
+	
+	$('.number').focus(function(e) {
+        if(this.value == 0)
+			this.value = "";
+    });
+	$('.number').blur(function(e) {
+        if(this.value == "")
+			this.value = 0;
+    });
+	$(".ben-datepicker").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dateFormat: 'dd-mm-yy'
+			});
+	$(".number").each(function(index){
+		//alert(formateNumber($(this).val()))
+		$(this).val(formateNumber($(this).val()))
+		
+	});	
+	
+		
 	
 }
 $(document).ready(function(){
@@ -268,9 +314,35 @@ $(document).ready(function(){
 	});
 	
 	numberReady();
-	$(".number").each(function(index){
-		//alert(formateNumber($(this).val()))
-		$(this).val(formateNumber($(this).val()))
-		
-	});					   
+					   
 });
+function printObject(o) {
+  var out = '';
+  for (var p in o) {
+    out += p + ': ' + o[p] + '\n';
+  }
+  alert(out);
+}
+function logout()
+{
+	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	
+	$.get(HTTP_SERVER+"?route=sitebar/login/logout", 
+		function(data){
+			if(data == "true")
+			{
+				alert("Bạn đã đăng xuất thành công!");
+				//window.location = "<?php echo HTTP_SERVER?>site/default/login";
+				window.location = HTTP_SERVER;
+			}
+			else
+			{
+				
+				$('#error').html(data).show('slow');
+				
+				
+			}
+			$.unblockUI();
+		}
+	);	
+}

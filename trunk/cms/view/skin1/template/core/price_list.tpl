@@ -2,6 +2,7 @@
                                 	<thead>
                                     	<tr>
                                         	<th>Tiêu đề</th>
+                                            <th>Code</th>
                                             <th>Giá thị trường</th>
                                             <th>Giá bán</th>
                                             <th>Khuyến mãi</th>
@@ -18,6 +19,13 @@
                                             
                                             <td>
                                                 <?php echo $item['title']?>
+                                                <?php if($item['tenkhuyenmai']){ ?>
+                                                (<?php echo $item['tenkhuyenmai']?>)
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $item['code']?>
+                                                
                                             </td>
                                             <td class="number"><?php echo $this->string->numberFormate($item['thitruong'])?></td>
                                             <td class="number"><?php echo $this->string->numberFormate($item['gia'])?></td>
@@ -39,7 +47,10 @@
                                 	<tfoot>
                                     	<tr>
                                         	<td colspan="3">
-                                            	<center><input type="button" class="button" id="btnUpdatePrice" name="btnUpdatePos"  value="Update position" /></center>
+                                            	<center>
+                                                	<input type="button" class="button" id="btnUpdatePrice" name="btnUpdatePos"  value="Update position" />
+                                                    <input type="hidden" name="mainprice" value="<?php echo $child[0]['mainprice']?>" />
+                                                </center>
                                             </td>
                                         </tr>
                                     </tfoot>

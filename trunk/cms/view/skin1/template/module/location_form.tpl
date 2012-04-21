@@ -345,7 +345,7 @@ $(document).ready(function() {
 <script language="javascript">
 function save()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
 	var oEditor = CKEDITOR.instances['editor1'] ;
 	var pageValue = oEditor.getData();
 	$('textarea#editor1').val(pageValue);

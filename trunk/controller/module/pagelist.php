@@ -37,7 +37,7 @@ class ControllerModulePagelist extends Controller
 			{
 				$index += 1;
 				
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
 				if($media['imagepath'] != "" && $template['width'] >0 )
@@ -69,7 +69,7 @@ class ControllerModulePagelist extends Controller
 			for($i=0;$i<count($this->data['othernews']);$i++)
 			{
 				$this->data['othernews'][$i]['statusdate'] = $this->date->formatMySQLDate($this->data['othernews'][$i]['statusdate'], 'longdate', "/");
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$this->data['othernews'][$i]['mediaid'];
+				$link = $this->document->createLink($sitemapid,$this->data['othernews'][$i]['alias']);
 				$this->data['othernews'][$i]['link'] = $link;
 			}
 			

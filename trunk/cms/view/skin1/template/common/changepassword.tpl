@@ -40,7 +40,7 @@
 <script language="javascript">
 function changePass()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
 	$.post('?route=common/changepassword/update', $("#fchangepass").serialize(), function(data){
 		if(data=="true")
 		{

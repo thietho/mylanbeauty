@@ -70,7 +70,7 @@ $.blockUI.version = 2.33; // 2nd generation blocking at no extra cost!
 // override these in your code to change the default behavior and style
 $.blockUI.defaults = {
 	// message displayed when blocking (use null for no message)
-	message:  '<h1>Please wait...</h1>',
+	message:  '<h1>Đang xử lý...</h1>',
 
 	title: null,	  // title string; only used when theme == true
 	draggable: true,  // only used when theme == true (requires jquery-ui.js to be loaded)
@@ -86,7 +86,7 @@ $.blockUI.defaults = {
 		width:		'30%',
 		top:		'40%',
 		left:		'35%',
-		textAlign:	'center',
+		textAlign:	'left',
 		color:		'#000',
 		border:		'3px solid #aaa',
 		backgroundColor:'#fff',
