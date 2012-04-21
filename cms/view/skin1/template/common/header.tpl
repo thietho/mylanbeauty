@@ -9,7 +9,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <div id="top">
 
     <div class="left text-center" id="weblogo">
-        <a href="index.html">
+        <a href="http://ben-solution.com/">
             <img class="png" src="<?php echo DIR_IMAGE?>ben_logo.gif" alt="" /><br />
         </a>  
     </div>
@@ -28,7 +28,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
     </div>
     
     <div class="right text-center" id="logo">
-        <a href="index.html">
+        <a href="http://ben-solution.com/">
             <img class="png" src="<?php echo DIR_IMAGE?>ben_logo.gif" alt="" /><br />
         </a>  
     </div>

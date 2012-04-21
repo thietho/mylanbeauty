@@ -28,7 +28,7 @@ final class String
 	{
 		$arr = array();
 		foreach($data as $item)
-			array_push($arr,$item[$col]);
+			$arr[]=$item[$col];
 		return $arr;
 	}
 	
@@ -41,6 +41,18 @@ final class String
 				$arr[]=$item;
 		}
 		return $arr;
+	}
+	
+	public function getTextLength($str, $to,$form)
+	{
+		
+		$arr = split(" ",strip_tags($str));
+		$arr_str = array();
+		for($i=$to;$i<$form && $i<count($arr) ;$i++)
+		{
+			$arr_str[] = $arr[$i];
+		}
+		return implode(" ",$arr_str);
 	}
 	
 	public function swapArray($arr)
@@ -62,7 +74,26 @@ final class String
 	{
 		return str_replace(",","",$str);
 	}
-	
+	public function numberToString($num,$leng)
+	{
+		$str = "".$num;
+		$arr = array();
+		for($i=strlen($str)-1;$i>=0;$i--)
+		{
+			array_push($arr,$str[$i]);
+		}
+		
+		while(count($arr)<$leng)
+		{
+			array_push($arr,0);
+		}
+		$s = "";
+		while(count($arr))
+		{
+			$s.=array_pop($arr);	
+		}
+		return $s;
+	}
 	function arrayRemove($arr,$pos)
 	{
 		$ar=array();
@@ -259,8 +290,9 @@ final class String
 	function arrayToString($arr)
 	{
 		$s="";
-		foreach($arr as $item)
-			$s.="[".$item."]";
+		if(count($arr))
+			foreach($arr as $item)
+				$s.="[".$item."]";
 		return $s;
 	}
 	
@@ -419,10 +451,16 @@ final class String
 		$s="";
 		for($i=0;$i < strlen($str) ; $i++)
 		{
-			if((ord($str[$i])>=97 && ord($str[$i])<= 122) || (ord($str[$i])>=48 && ord($str[$i])<= 57))
-				$s .= $str[$i];
-			else 
-				$s .=" ";				
+			
+			if(ord($str[$i])!=32)
+			{
+				if((ord($str[$i])>=97 && ord($str[$i])<= 122 && ord($str[$i])!=32) || (ord($str[$i])>=48 && ord($str[$i])<= 57))
+					$s .= $str[$i];
+				else 
+					$s .="";
+			}
+			else
+				$s.=" ";
 		}
 		
 		return $s;

@@ -10,15 +10,25 @@ class ModelCoreMedia extends ModelCoreFile
 		return $query->row;
 	}
 	
-	public function getList($where="", $from=0, $to=0)
+	public function getByAlias($alias, $where="")
+	{
+		$query = $this->db->query("Select `media`.* 
+									from `media` 
+									where alias ='".$alias."' ".$where);
+		return $query->row;
+	}
+	
+	public function getList($where="", $from=0, $to=0,$order="")
 	{
 		
 		$sql = "Select `media`.* 
 									from `media` 
-									where status not like 'delete' AND mediaid like '%".$this->member->getSiteId()."%' " . $where . " Order by position, statusdate DESC";
+									where status not like 'delete' AND mediaid like '%".$this->member->getSiteId()."%' " . $where .$order ;
+		if($order == "")
+			$order = " Order by position, statusdate DESC";
 		if($to > 0)
 		{
-			$sql .= " Limit ".$from.",".$to;
+			$sql .= $order." Limit ".$from.",".$to;
 		}
 		
 		$query = $this->db->query($sql);
@@ -39,7 +49,7 @@ class ModelCoreMedia extends ModelCoreFile
 		return $query->rows;
 	}
 	
-	public function getPaginationList($options, $step=0, $to=20)
+	public function getPaginationList($options, $step=0, $to=0,$order="")
 	{
 		//From
 		if((int)$step < 0) $step = 0;
@@ -129,7 +139,7 @@ class ModelCoreMedia extends ModelCoreFile
 			$where .= " AND groupkeys like '%[".$groupkeys."]%'";
 		}
 		//echo "<br>".$where;
-		return $this->getList($where, $from, $to);
+		return $this->getList($where, $from,$to,$order);
 	}
 	
 	public function getOthersMedia($mediaid, $options, $to=20)

@@ -39,7 +39,7 @@
 </div>
 <script language="javascript">
 $("#btnSearch").click(function(){
-	var url =  HTTP_SERVER+"site/<?php echo $this->member->getSiteId()?>/product/search/";
+	var url =  HTTP_SERVER+"product/search/";
 	var keyword = trim($("#txt_search").val()," ");
 	
 	if($("#loaisp").val() != "")
@@ -59,7 +59,7 @@ $("#btnSearch").click(function(){
 		url += "&opendialog=true";
 	}
 	
-	window.location = url;
+	window.location = url+".html";
 });
 $("#loaisp").val("<?php echo $_GET['loaisp']?>");
 $("#nhomhuong").val("<?php echo $_GET['nhomhuong']?>");

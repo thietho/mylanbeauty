@@ -14,7 +14,7 @@
                 <td class="ben-right"></td>
                 <td>
                     <p>
-                        <input type="button" class="ben-button" id="btnLogin" value="Đăng nhập"> <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/register">Đăng ký</a>
+                        <input type="button" class="ben-button" id="btnLogin" value="Đăng nhập"> <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
                     </p>
                     
                     <input type="checkbox" name="remember" value="1"> Ghi nhớ
@@ -33,7 +33,9 @@ $("#btnLogin").click(function(){
 			if(data == "true")
 			{
 				alert("Bạn đã đăng nhập thành công!");
-				window.location = "<?php echo HTTP_SERVER?>";
+				if(history.length=1)
+					window.location = '<?php echo HTTP_SERVER?>';
+				history.go(-1);
 			}
 			else
 			{

@@ -1,6 +1,6 @@
 <?php
 final class Language {
-  	private $code = 'en';
+  	private $code = 'vn';
   	private $languages = array();
 	private $data = array();
  
@@ -32,10 +32,11 @@ final class Language {
 		if (@array_key_exists($this->session->data['language'], $this->languages)) {
 			$this->set($this->session->data['language']);
 		}else{
-			$this->set('en');
+			$this->set('vn');
 		}
 
-		$this->load($this->languages[$this->code]['filename']);		
+		$this->load($this->languages[$this->code]['filename']);
+		
 	}
 
 	public function set($language) {
@@ -60,12 +61,13 @@ final class Language {
   	}
 	
 	public function load($filename, $code = FALSE) {
+		
 		if (isset($this->languages[$code])) {
 			$file = DIR_LANGUAGE . $this->languages[$code]['directory'] . '/' . $filename . '.php';
 		} else {
 			$file = DIR_LANGUAGE . $this->languages[$this->code]['directory'] . '/' . $filename . '.php';
 		}
-	
+		
     	if (file_exists($file)) {
 	  		$_ = array();
 	  

@@ -106,7 +106,7 @@
 <script type="text/javascript" charset="utf-8">
 function save()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
 	
 	$.post("?route=module/freedownload/save", $("#frm").serialize(),
 		function(data){

@@ -5,8 +5,8 @@
         </div>
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>">Trang chủ</a>
-            | <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/lienhe">Liên hệ</a>
-            | <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/cart">Giỏ hàng</a>
+            | <a href="<?php echo $this->document->createLink('lienhe')?>">Liên hệ</a>
+            | <a href="<?php echo $this->document->createLink('cart')?>">Giỏ hàng</a>
     	</div>
         <!--<div class="ben-left" id="ben-site-title">
         	<h1>Website đang hoàng thiện <br />và tiếp tục cập nhật sản phẩm mới liên tục</h1>
@@ -22,7 +22,7 @@
     
             <ul id="ben-main-nav">
             	<li><a href="<?php echo HTTP_SERVER?>">Trang chủ</a></li>
-                <li><a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/gioithieu">Giới thiệu</a></li>
+                <li><a href="<?php echo $this->document->createLink('gioithieu')?>">Giới thiệu</a></li>
                 <?php echo $mainmenu?>
                 
             </ul>

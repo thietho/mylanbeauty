@@ -54,7 +54,7 @@ class ControllerAddonSearch extends Controller
 					$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 					$sitemapid = $arr[0];
 				}
-				$link = HTTP_SERVER."site/".$siteid."/".$sitemapid."/".$media['mediaid'];
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
 				if($media['imagepath'] != "" && $template['width'] >0 )

@@ -2,13 +2,13 @@ $(document).ready(
 	function() {
 		var $container = $(".container");
 		$container.wtRotator({
-			width:765,
-			height:300,
+			width:548,
+			height:210,
 			button_width:24,
 			button_height:24,
 			button_margin:4,
 			auto_start:true,
-			delay:1500,
+			delay:6000,
 			transition:"random",
 			transition_speed:800,
 			block_size:75,
