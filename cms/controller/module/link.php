@@ -106,7 +106,7 @@ class ControllerModuleLink extends Controller
 		$this->data['delete'] = $this->url->http('module/link/delete');		
 		
 		$this->data['datas'] = array();
-		$where = " AND refersitemap like '%".$sitemapid."%'";
+		$where = " AND refersitemap like '%[".$sitemapid."]%'";
 		
 		/*$datasearchlike['makhachhang'] = $this->request->get['makhachhang'];
 		$datasearchlike['hoten'] = $this->request->get['hoten'];

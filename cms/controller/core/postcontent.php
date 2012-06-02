@@ -314,6 +314,7 @@ class ControllerCorePostcontent extends Controller
 			if(!$this->string->isImage($this->data['attachment'][$key]['extension']))
 				$this->data['attachment'][$key]['imagethumbnail'] = DIR_IMAGE."icon/dinhkem.png";
 		}
+		
 		$this->data['status'] = $this->data['post']['status'];
 		if($this->data['status'] == "")
 		{
@@ -406,10 +407,10 @@ class ControllerCorePostcontent extends Controller
 		
 		$listAttachment=$this->data['post']['attimageid'];
 		$this->model_core_media->saveAttachment($data['mediaid'],$listAttachment);
-		$listdelfile=$this->data['post']['delfile'];
+		/*$listdelfile=$this->data['post']['delfile'];
 		if(count($listdelfile))
 			foreach($listdelfile as $item)
-				$this->model_core_file->deleteFile($item);
+				$this->model_core_file->deleteFile($item);*/
 		$this->model_core_media->clearTempFile();
 		/*if($route=="module/contact")
 		{

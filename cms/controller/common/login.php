@@ -58,6 +58,7 @@ class ControllerCommonLogin extends Controller
 	}	
 	
 	public function checkLogin() {
+		
 		if (!$this->user->isLogged()) {
 			$route = $this->getRoute();
 			$part = explode('/', $route);

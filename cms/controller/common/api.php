@@ -11,14 +11,16 @@ class ControllerCommonApi extends Controller
 		$this->load->model('core/media');
 		$media = $this->model_core_media->getByAlias($alias);
 		$index = 0;
+		$temp = $alias;
 		//print_r($media);
 		while(count($media)>0)
 		{
 			$index++;
-			$alias.='-'.$index;
-			$media = $this->model_core_media->getByAlias($alias);
+			$temp = $alias.'-'.$index;
+			$media = $this->model_core_media->getByAlias($temp);
+			
 		}	
-		$this->data['output'] = $alias;
+		$this->data['output'] = $temp;
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
