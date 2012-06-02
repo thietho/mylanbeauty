@@ -136,7 +136,7 @@ $('#title').change(function(e) {
                         <div class="loadingimage" style="display:none"></div>
                         <?php if($hasAttachment){ ?>
                         <p>
-                        	<a id="btnAddAttachment" class="button"><?php echo $entry_attachment?></a><br />
+                        	<a id="btnAddAttachment" class="button" onclick="browserFileAttachment()"><?php echo $entry_attachment?></a><br />
                         </p>
                         <p id="attachment">
                         </p>
@@ -146,21 +146,23 @@ $('#title').change(function(e) {
                     </div>
                     <?php }?>
 <script language="javascript">
+	
 	$(document).ready(function() {
    	// put all your jQuery goodness in here.
+	
 <?php
 		foreach($attachment as $item)
 		{
 			if(count($item))
 			{
 ?>
-			$('#attachment').append(creatAttachmentRow("<?php echo $item['fileid']?>","<?php echo $item['filename']?>","<?php echo $item['imagethumbnail']?>"));
+			$('#attachment').append(attachment.creatAttachmentRow("<?php echo $item['fileid']?>","<?php echo $item['filename']?>","<?php echo $item['imagethumbnail']?>"));
 <?php
 			}
 		}
 ?>
  	});
-
+	
 </script>
                     <div class="clearer">&nbsp;</div>
                 
@@ -190,27 +192,11 @@ $(document).ready(function(e) {
                 
                 </div>
                 
+
             </div>
             <div id="fragment-properties">
             	<div>
-                	<p>
-                    	<label>Perfumes</label><br />
-                        <select name="nhomhuong">
-                        	<option value=""></option>
-                        	<?php foreach($nhomhuong as $it){ ?>
-                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
-                        	<?php } ?>
-                        </select>
-                    </p>
-                    <p>
-                    	<label>Brand</label><br />
-                        <select name="nhanhieu">
-                        	<option value=""></option>
-                        	<?php foreach($nhanhieu as $it){ ?>
-                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
-                        	<?php } ?>
-                        </select>
-                    </p>
+                	
                 	
                     <p>
                     	<label><?php echo $text_status?></label>
@@ -238,7 +224,7 @@ $(document).ready(function(e) {
             <div id="fragment-video">
                     <p id="pnVideo">
                         <label for="file">File</label><br />
-                        <a id="btnAddVideo" class="button">Select file</a><br />
+                        <a onclick="browserFile()" class="button">Select file</a><br />
                         <span id="filename"><?php echo $filepath?></span>
                         <input type="hidden" id="filepath" name="filepath" value="<?php echo $filepath?>" />
                         <input type="hidden" id="fileid" name="fileid" value="<?php echo $fileid?>" />
@@ -649,36 +635,50 @@ $(document).ready(function() {
 <?php if($hasSubInfor) {?>
 <script src="<?php echo DIR_JS?>uploadsubimage.js" type="text/javascript"></script>
 <?php } ?>
-<?php if($hasAttachment){ ?>
-<script src="<?php echo DIR_JS?>uploadattament.js" type="text/javascript"></script>
-<?php } ?>
+
 <?php }?>
-<?php if($hasVideo) {?>
-<script src="<?php echo DIR_JS?>uploadvideo.js" type="text/javascript"></script>
-<?php }?>
+
 
 <script language="javascript">
 
 
 function browserFileImage()
 {
-    //var re = openDialog("?route=core/file",800,500);
+    //var re = openDialog("?route=core/file&dialog=true",800,500);
 	$('#handler').val('image');
 	$('#outputtype').val('image');
 	showPopup("#popup", 800, 500);
 	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
-	$("#popup").load("?route=core/file")
+	$("#popup").load("?route=core/file&dialog=true");
+		
+}
+function browserFileAttachment()
+{
+	$('#handler').val('attachment');
+	$('#outputtype').val('attachment');
+	showPopup("#popup", 800, 500);
+	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
+	$("#popup").load("?route=core/file&dialog=true");
+}
+function browserFile()
+{
+    //var re = openDialog("?route=core/file&dialog=true",800,500);
+	$('#handler').val('file');
+	$('#outputtype').val('file');
+	showPopup("#popup", 800, 500);
+	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
+	$("#popup").load("?route=core/file&dialog=true")
 		
 }
 
 function browserFileEditor()
 {
-    //var re = openDialog("?route=core/file",800,500);
+    //var re = openDialog("?route=core/file&dialog=true",800,500);
 	$('#handler').val('editor1');
 	$('#outputtype').val('editor');
 	showPopup("#popup", 800, 500);
 	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
-	$("#popup").load("?route=core/file")
+	$("#popup").load("?route=core/file&dialog=true")
 		
 }
 
@@ -726,13 +726,50 @@ function addImageTo()
 								$('#'+handler+'thumbnail').val(file.file.imagepreview)
 								$('#'+handler+'preview').attr('src',file.file.imagepreview)
 							});
-							
+							break;
+						case 'file':
+							var handler = $('#handler').val();
+							$('#'+handler+'id').val(data.file.fileid);
+							$('#'+handler+'path').val(data.file.filepath);
+							$('#'+handler+'name').html(data.file.filename);
+							break;
+						case 'attachment':
+							var handler = $('#handler').val();
+							$.getJSON("?route=core/file/getFile&fileid="+data.file.fileid+"&width=50", 
+							function(file) 
+							{
+								$('#'+handler).append(attachment.creatAttachmentRow(data.file.fileid,data.file.filename,file.file.imagepreview));
+								
+							});
 							
 							break;
-						
 					}
 				});
 		}
 	}
 }
+function Attachment()
+{
+	this.index = 0;
+	this.removeAttachmentRow = function(index)
+	{
+		$("#delfile").append('<input type="hidden" id="attimageid'+attachment.index+'" name="delfile['+index+']" value="'+$("#attimageid"+index).val()+'" />');
+		$("#attrows"+index).html("")
+	}
+	this.creatAttachmentRow = function(iid,path,thums)
+	{
+		row = '<div id="attrows'+attachment.index+'"><img src="'+thums+'" /><input type="hidden" id="attimageid'+attachment.index+'" name="attimageid['+attachment.index+']" value="'+iid+'" />'+path+' <a id="removerow'+attachment.index+'" onclick="attachment.removeAttachmentRow('+attachment.index+')" class="button" >Remove</a></div>';
+		attachment.index++;
+		return row;	
+	}
+	this.creatAttachmentRowView = function(iid,name,path,thums)
+	{
+		row = '<div id="attrows'+attachment.index+'"><img src="'+thums+'" /><input type="hidden" id="attimageid'+attachment.index+'" name="attimageid['+attachment.index+']" value="'+iid+'" />'+'<a href="'+path+'" target="_blank">'+name+'</a>';
+		attachment.index++;
+		return row;
+	}
+
+}
+var attachment = new Attachment();
+
 </script>

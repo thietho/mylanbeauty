@@ -185,6 +185,17 @@ class ControllerCoreSitemap extends Controller
 			{
 				$this->error['sitemapid'] = "ID không hợp lệ";
 			}
+			else
+			{
+				if($this->request->post['id'] =="")
+				{
+					$sitemapid = $this->request->post['sitemapid'];
+					$this->load->model("core/sitemap");
+					$siteamap = $this->model_core_sitemap->getItem($sitemapid,$this->user->getSiteId());
+					if(count($siteamap))
+						$this->error['sitemapid'] = "ID đã được sử dụng";
+				}
+			}
 		}
     	if ((strlen($this->request->post['sitemapname']) == 0) || (strlen($this->request->post['siteid']) > 50)) {
       		$this->error['sitemapname'] = "Bạn chưa nhập tên";

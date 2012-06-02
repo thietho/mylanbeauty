@@ -64,7 +64,7 @@ function browserFile(eid,type)
 	$('#outputtype').val(type);
 	showPopup("#popup", 800, 500);
 	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
-	$("#popup").load("?route=core/file")
+	$("#popup").load("?route=core/file&dialog=true")
 		
 }
 
