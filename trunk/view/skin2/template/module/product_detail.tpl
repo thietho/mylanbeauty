@@ -160,14 +160,7 @@ $("#ben-next").click(function(){
                             <?php } ?>
                         </td>
                     </tr>
-                    <tr>
-                    	<td><strong>Nhóm hương:</strong></td>
-                        <td>
-                        	<?php foreach($nhomhuong as $it){ ?>
-                            <?php echo in_array($it['categoryid'],$properties)?$it['categoryname'].'<br />':''; ?>
-                            <?php } ?>
-                        </td>
-                    </tr>
+                    
                 </table>
             	
                 

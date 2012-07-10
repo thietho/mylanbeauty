@@ -197,7 +197,15 @@ $(document).ready(function(e) {
             <div id="fragment-properties">
             	<div>
                 	
-                	
+                	<p>
+                    	<label>Nhãn hiệu</label><br />
+                        <select name="nhanhieu">
+                        	<option value=""></option>
+                        	<?php foreach($nhanhieu as $it){ ?>
+                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
+                        	<?php } ?>
+                        </select>
+                    </p>
                     <p>
                     	<label><?php echo $text_status?></label>
                         <?php foreach($statuspro as $it){ ?>
@@ -369,7 +377,7 @@ $(document).ready(function() {
                     </p>
                     <p>
                         Code sản phẩm:<br />
-                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />
+                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/>
                     </p>
                     <p>
                         Giá thị trường:<br />
@@ -412,16 +420,16 @@ function Price()
 {
 	this.loadPrice = function(code)
 	{
-		$.getJSON("<?php echo HTTP_SERVER?>ric/getSanPham.php?masanpham="+code, 
-			function(data) 
-			{
-				if(data.sanpham == false)
-					alert('Không tồn tại code sản phẩm này');
-				else
-					$('#price_gia').val(formateNumber(data.sanpham.HH_GiaBan+""));
-				
-				
-			});
+		//$.getJSON("<?php echo HTTP_SERVER?>ric/getSanPham.php?masanpham="+code, 
+//			function(data) 
+//			{
+//				if(data.sanpham == false)
+//					alert('Không tồn tại code sản phẩm này');
+//				else
+//					$('#price_gia').val(formateNumber(data.sanpham.HH_GiaBan+""));
+//				
+//				
+//			});
 	}
 	
 	this.save = function()
