@@ -36,16 +36,24 @@ class ControllerPageHome extends Controller
 						  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
-			$arr = array("",0,"Sản phẩm hot",$template,$medias);
+			$arr = array("",0,"sanphamhot",$template,$medias);
 			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
+			$template = array(
+						  'template' => "home/product.tpl",
+						  'width' => 176,
+						  'height' =>176,
+						  'widthpreview' => 450,
+						  'heightpreview' =>450,
 						  
+						  );
+					  
 			$this->load->model('core/sitemap');
 			$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
 			foreach($listroot as $sitemap)
 			{
 				//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
 				$medias = $this->getProduct($sitemap['sitemapid'],"");
-				$arr = array("",0,$sitemap['sitemapname'],$template,$medias);
+				$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
 				$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','getAll',$arr);
 			}
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());

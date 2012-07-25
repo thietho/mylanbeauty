@@ -1,4 +1,9 @@
+<?php if($sitemap['sitemapid'] !=''){ ?>
+<h1><img src="<?php echo HTTP_SERVER.DIR_IMAGE.$sitemap['sitemapid']?>.png" /></h1>
+<?php }else{ ?>
 <h1><img src="<?php echo HTTP_SERVER.DIR_IMAGE.$sitemap['sitemapname']?>.png" /></h1>
+<?php } ?>
+
 <?php
 if(count($medias))
 {
