@@ -4,9 +4,9 @@ if(count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div>
-        <table class="ben-left product tip_trigger">
-            <tr>
+    <div class="ben-left product tip_trigger">
+        <table>
+            <tr class="product-list-image">
                 <td>
                 	<?php if(in_array("sanphamhot",$media['properties'])){ ?>
                 	<div id="ben-icon-hot" class="ben-icon">

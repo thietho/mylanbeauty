@@ -74,7 +74,7 @@ class ControllerAddonBrand extends Controller
 							  'widthpreview' => 450,
 						 	  'heightpreview' =>450
 							  );
-		$arr = array("",16,$header,$template,$medias);
+		$arr = array("",20,$header,$template,$medias);
 		$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
 			
 		$this->id="content";

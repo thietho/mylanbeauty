@@ -160,7 +160,14 @@ $("#ben-next").click(function(){
                             <?php } ?>
                         </td>
                     </tr>
-                    
+                    <?php if(count($priceproduct) == 0){ ?>
+                    <tr>
+                    	<td><strong>Giá:</strong></td>
+                        <td>
+                        	<?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?> <input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
+                        </td>
+                    </tr>
+                    <?php } ?>
                 </table>
             	
                 

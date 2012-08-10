@@ -20,7 +20,7 @@
     </div>
 
     <div class="ben-right" id="ben-footer-right">
-        Địa chỉ: 84/5 Phan Xích Long, P.4, Q3, Tp.HCM. <strong>Hotline: 0903 76 75 80</strong>
+        Địa chỉ: 1335 Phan Văn Trị, P.10, Q.Gò Vấp, Tp.HCM. <strong>Hotline: 0903 76 75 80 - 0909 51 69 93</strong>
     
     </div>
 

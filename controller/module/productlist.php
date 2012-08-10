@@ -24,19 +24,43 @@ class ControllerModuleProductlist extends Controller
 		
 		$step = (int)$this->request->get['step'];
 		$to = $count;
-		
+		$_GET = $this->document->getPara();
 		//Get list
+		$child = array();
+		$this->model_core_sitemap->getTreeSitemap($sitemapid,$child,$this->member->getSiteId());
+		$listsitemap = array();
+		if(count($child))
+		{
+			foreach($child as $item)
+				$listsitemap[] = $item['sitemapid'];
+		}
 		$queryoptions = array();
 		$queryoptions['mediaparent'] = '%';
 		$queryoptions['mediatype'] = '%';
-		$queryoptions['refersitemap'] = $sitemapid;
+		$queryoptions['refersitemap'] = $listsitemap;
+		$order = $_GET['order'];
+		$orderby = "";
+		switch($order)
+		{
+			case "az":
+				$orderby = " ORDER BY `title` ASC";
+				break;
+			case "gt":
+				$orderby = " ORDER BY `price` ASC";
+				break;
+			case "gg":
+				$orderby = " ORDER BY `price` DESC";
+				break;
+			default:
+				$orderby = " ORDER BY `updateddate` DESC";
+		}
 		
 		if($mediaid == "")
 		{
 			if(count($medias)==0)
 			{
 				//$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
-				$medias = $this->model_core_media->getPaginationList($queryoptions);
+				$medias = $this->model_core_media->getPaginationList($queryoptions,0,0,$orderby);
 			}
 			
 			
@@ -45,10 +69,14 @@ class ControllerModuleProductlist extends Controller
 		
 			$index = -1;
 			//Page
-			$page = $this->request->get['page'];		
+			
+			
+			$page = $_GET['page'];
+			
 			$x=$page;		
 			$limit = $to;
-			$total = count($medias); 
+			$total = count($medias);
+			//$uri = $this->document->createLink($sitemapid);
 			$uri = $this->document->getURI();
 			// work out the pager values 
 			$this->data['pager']  = $this->pager->pageLayoutWeb($total, $limit, $page,$uri); 
@@ -66,13 +94,13 @@ class ControllerModuleProductlist extends Controller
 				$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 				$sitemapid = $arr[0];
 				
-				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
+				$link = $this->document->createLink($sitemapid,$media['alias']);
 				$imagethumbnail = "";
 				
-				if($media['imagepath'] != "" )
+				//if($media['imagepath'] != "" )
 				{
-					$imagethumbnail = HelperImage::fixsize($media['imagepath'], $template['width'], $template['height']);
+					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 				}
 				
@@ -99,7 +127,9 @@ class ControllerModuleProductlist extends Controller
 			
 			
 		}
-		
+		$this->data['status'] = $template['status'];
+		$this->data['paging'] = $template['paging'];
+		$this->data['sorting'] = $template['sorting'];
 		$this->id="news";
 		$this->template=$template['template'];
 		$this->render();
@@ -136,12 +166,28 @@ class ControllerModuleProductlist extends Controller
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $sitemapid;
 		
+		$order = $_GET['order'];
+		$orderby = "";
+		switch($order)
+		{
+			case "az":
+				$orderby = " ORDER BY `title` ASC";
+				break;
+			case "gt":
+				$orderby = " ORDER BY `price` ASC";
+				break;
+			case "gg":
+				$orderby = " ORDER BY `price` DESC";
+				break;
+			default:
+				$orderby = " ORDER BY `updateddate` DESC";
+		}
 		if($mediaid == "")
 		{
 			if(count($medias)==0)
 			{
 				//$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
-				$medias = $this->model_core_media->getPaginationList($queryoptions);
+				$medias = $this->model_core_media->getPaginationList($queryoptions,0,0,$orderby);
 			}
 			
 			
@@ -149,7 +195,6 @@ class ControllerModuleProductlist extends Controller
 			
 		
 			$index = -1;
-			
 			foreach($medias as $media)
 			{
 				$index += 1;
@@ -164,7 +209,7 @@ class ControllerModuleProductlist extends Controller
 				
 				if($media['imagepath'] != "" )
 				{
-					$imagethumbnail = HelperImage::fixsize($media['imagepath'], $template['width'], $template['height']);
+					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 				}
 				
@@ -191,7 +236,7 @@ class ControllerModuleProductlist extends Controller
 			
 			
 		}
-		
+		$this->data['status'] = $template['status'];
 		$this->id="news";
 		$this->template=$template['template'];
 		$this->render();

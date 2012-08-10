@@ -1,18 +1,13 @@
-<?php if($sitemap['sitemapid'] !=''){ ?>
-<h1><img src="<?php echo HTTP_SERVER.DIR_IMAGE.$sitemap['sitemapid']?>.png" /></h1>
-<?php }else{ ?>
-<h1><img src="<?php echo HTTP_SERVER.DIR_IMAGE.$sitemap['sitemapname']?>.png" /></h1>
-<?php } ?>
-
+<h2><?php echo $sitemap['sitemapname']?></h2>
 <?php
 if(count($medias))
 {
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div>
-        <table class="ben-left product tip_trigger">
-            <tr>
+    <div class="ben-left product tip_trigger">
+        <table>
+            <tr class="product-list-image">
                 <td>
                 	<?php if(in_array("sanphamhot",$media['properties'])){ ?>
                 	<div id="ben-icon-hot" class="ben-icon">
