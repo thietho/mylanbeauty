@@ -36,8 +36,8 @@ class ControllerPageHome extends Controller
 						  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
-			$arr = array("",0,"sanphamhot",$template,$medias);
-			$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
+			$arr = array("",0,"Sản phẩm hot",$template,$medias);
+			//$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
 			$template = array(
 						  'template' => "home/product.tpl",
 						  'width' => 176,
@@ -127,7 +127,7 @@ class ControllerPageHome extends Controller
 		$queryoptions['mediatype'] = '%';
 		$options['refersitemap'] = $arrsitemapid;
 		$options['groupkeys'] = $status;
-		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=9);
+		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=16);
 		
 		return $data;
 	}

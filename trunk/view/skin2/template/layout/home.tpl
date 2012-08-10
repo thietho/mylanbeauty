@@ -100,9 +100,13 @@ $(function() {
     
     </div>
 </div>
-<div id="ben-bottom">
-	<?php echo $footer?> 
-</div>
+    <div id="ben-bottom">
+        <?php echo $footer?> 
+    </div>
+    <div id="ben-popup" style="display:none">
+        <div id="ben-popup-content"></div>
+        
+    </div>
 </body>
 
 </html>

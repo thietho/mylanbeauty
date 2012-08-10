@@ -122,8 +122,8 @@ class ControllerPageDetail extends Controller
 											  'widthpreview' => 450,
 											  'heightpreview' =>450
 											  );
-							$arr = array($this->document->sitemapid,9,"",$template);
-							$this->data['module'] = $this->loadModule('module/productlist','index',$arr);
+							$arr = array($this->document->sitemapid,0,"",$template);
+							$this->data['module'] = $this->loadModule('module/productlist','getAll',$arr);
 	
 						}
 						else

@@ -1,9 +1,10 @@
 .product
 {
-	width:184px;
-	height:255px;
-	border:thin dashed #CCC;
+	width:183px;
+	height:280px;
+	border:thin solid #CCC;
 	margin:3px;
+	border-radius:5px;
 }
 .tip {
     background: none repeat scroll 0 0 #1D1D1D;
@@ -13,4 +14,12 @@
     padding: 5px;
     position: absolute;
     z-index: 1000;
+}
+.product-list-image
+{
+	height:195px;	
+}
+.product-right
+{
+	width:480px;	
 }
