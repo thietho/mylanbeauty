@@ -9,8 +9,11 @@
                     </div>
 <script language="javascript">
 $(document).ready(function(){
+	
+	$('.deep2').hide('fast',function(){
 	<?php foreach($path as $item){ ?>
 	$("#<?php echo $item['sitemapid']?>").show();
-	<?php } ?>
+	<?php } ?>	
+	});
 });
 </script>
