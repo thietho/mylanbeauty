@@ -5,7 +5,7 @@ if(count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div class="ben-left product tip_trigger">
+    <div class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>">
         <table>
             <tr class="product-list-image">
                 <td>
@@ -26,7 +26,7 @@ if(count($medias))
                     <?php } ?>
                     <?php if($media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
-                    <span class="tip"><img alt="" src="<?php echo $media['imagetpreview']?>"></span>
+                    
                     <?php }?>
                     	
                 </td>

@@ -56,7 +56,8 @@ var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 <script type="text/javascript" src="<?php echo HTTP_SERVER.DIR_JS?>jquery.fancybox-1.3.4.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo HTTP_SERVER.DIR_CSS?>jquery.fancybox-1.3.4.css" media="screen" />
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/product.js'></script>
-
+<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_JS?>jquery-tooltip.js'></script>
+<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/stickytooltip.css'>
 <script type="text/javascript">
 	$(document).ready(function() {
 		/*
@@ -110,3 +111,23 @@ $(function() {
 </body>
 
 </html>
+<div id="mystickytooltip" class="stickytooltip">
+	<div style="padding:5px">
+        <div id="sticky1">
+        	
+        </div>
+    </div>
+</div>
+<script language="javascript">
+
+$(document).ready(function(){
+	$(".link_hover").hover(function(){
+		var img = '<img src="'+$(this).attr('ref')+'">';
+		$('#sticky1').html(img);
+		
+	});
+
+});
+	
+
+</script>

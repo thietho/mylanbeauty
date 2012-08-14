@@ -34,6 +34,7 @@ class ControllerModuleProductlist extends Controller
 			foreach($child as $item)
 				$listsitemap[] = $item['sitemapid'];
 		}
+		
 		$queryoptions = array();
 		$queryoptions['mediaparent'] = '%';
 		$queryoptions['mediatype'] = '%';
@@ -161,10 +162,19 @@ class ControllerModuleProductlist extends Controller
 		$to = $count;
 		
 		//Get list
+		$child = array();
+		$this->model_core_sitemap->getTreeSitemap($sitemapid,$child,$this->member->getSiteId());
+		$listsitemap = array();
+		if(count($child))
+		{
+			foreach($child as $item)
+				$listsitemap[] = $item['sitemapid'];
+		}
+		
 		$queryoptions = array();
 		$queryoptions['mediaparent'] = '%';
 		$queryoptions['mediatype'] = '%';
-		$queryoptions['refersitemap'] = $sitemapid;
+		$queryoptions['refersitemap'] = $listsitemap;
 		
 		$order = $_GET['order'];
 		$orderby = "";
