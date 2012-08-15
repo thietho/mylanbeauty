@@ -123,7 +123,8 @@ $(function() {
 $(document).ready(function(){
 	$(".link_hover").hover(function(){
 		var img = '<img src="'+$(this).attr('ref')+'">';
-		$('#sticky1').html(img);
+		var text = '<h5>'+$(this).attr('title')+'</h5>';
+		$('#sticky1').html(img+text);
 		
 	});
 

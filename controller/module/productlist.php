@@ -113,6 +113,7 @@ class ControllerModuleProductlist extends Controller
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
+					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
 					'price' => $price,
 					'properties' => $properties,
@@ -231,6 +232,7 @@ class ControllerModuleProductlist extends Controller
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
+					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
 					'price' => $price,
 					'properties' => $properties,

@@ -280,7 +280,7 @@ class ModelCoreSitemap extends Model
 		
 		$rows = $this->getListByParent($id, $siteid);
 		
-		$arr['countchild'] = count(rows);
+		$arr['countchild'] = count($rows);
 		
 		if($arr['sitemapparent'] != "") $parentpath .= "-".$arr['sitemapparent'];
 		

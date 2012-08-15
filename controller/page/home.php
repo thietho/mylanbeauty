@@ -48,13 +48,19 @@ class ControllerPageHome extends Controller
 						  );
 					  
 			$this->load->model('core/sitemap');
-			$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
-			foreach($listroot as $sitemap)
+			//$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
+			$data_sitemap = array();
+			$this->model_core_sitemap->getTreeSitemap("sanpham", $data_sitemap, $this->member->getSiteId());
+			
+			foreach($data_sitemap as $sitemap)
 			{
-				//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
-				$medias = $this->getProduct($sitemap['sitemapid'],"");
-				$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
-				$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','getAll',$arr);
+				if($sitemap['countchild'] == 0)
+				{
+					//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
+					$medias = $this->getProduct($sitemap['sitemapid'],"");
+					$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
+					$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','getAll',$arr);
+				}
 			}
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
 			$medias = $this->getProduct($sitemap['sitemapid'],"");
