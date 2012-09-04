@@ -108,7 +108,10 @@ class ControllerModuleProductlist extends Controller
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
 				$price = $media['price'];
 				if($price == 0)
+				{
 					$price = $priceproduct[0]['price'];
+					$volume = $priceproduct[0]['title'];
+				}
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
@@ -116,6 +119,7 @@ class ControllerModuleProductlist extends Controller
 					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
 					'price' => $price,
+					'volume' => $volume,
 					'properties' => $properties,
 					'imagethumbnail' => $imagethumbnail,
 					'imagetpreview' => $imagetpreview,
@@ -227,7 +231,11 @@ class ControllerModuleProductlist extends Controller
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
 				$price = $media['price'];
 				if($price == 0)
+				{
 					$price = $priceproduct[0]['price'];
+					$volume = $priceproduct[0]['title'];
+					
+				}
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
@@ -235,6 +243,7 @@ class ControllerModuleProductlist extends Controller
 					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
 					'price' => $price,
+					'volume' => $volume,
 					'properties' => $properties,
 					'imagethumbnail' => $imagethumbnail,
 					'imagetpreview' => $imagetpreview,
