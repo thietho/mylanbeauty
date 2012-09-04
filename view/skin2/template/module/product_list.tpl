@@ -4,7 +4,7 @@ if(count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>">
+    <div class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>" title="<?php echo $media['keyword']?>">
         <table>
             <tr class="product-list-image">
                 <td>
@@ -33,7 +33,7 @@ if(count($medias))
             <tr>
                 <td>
                     <div align="center"><a href="<?php echo $media['link']?>"><h6><?php echo $media['title']?></h6></a></div>
-                    <div align="center"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
+                    <div align="center"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?> (<?php echo $media['volume']?>)</div>
                     <div align="center">
                         <a href="<?php echo $media['link']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
