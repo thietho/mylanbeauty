@@ -16,11 +16,11 @@ class ControllerCommonValidate extends Controller
 		//print_r($_SERVER);
 		//Luu vi tri va ip xuong db
 		$this->load->model("core/media");
-		$data = $this->request->get;
+		$data = $this->request->post;
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$this->model_core_media->saveInformation("locationallow", $data['location'], $ip);
 		
-		$this->data['output']=$_SERVER['REMOTE_ADDR'];
+		$this->data['output']="true";
 		
 		$this->id="content";
 		$this->template="common/output.tpl";
