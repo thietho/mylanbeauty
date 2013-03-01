@@ -21,14 +21,14 @@ class ModelCoreSitemap extends Model
 							
 							);
 	private $moduleaddon = array(
-								 /*"core/changeskin" => "Change skin",*/
+								 "core/changeskin" => "Change skin",
 								 "core/category" => "Quản lý danh mục",
 								 "core/media" => "Quản lý thông tin",
 								 "core/file" => "Quản lý file",
 								 "addon/sitemap" => "Quản lý cấu trúc website",
-								 /*"core/comment" => "Đánh giá",*/
-								/* "addon/order" => "Order management <span id='orderwarring'></span>",
-								 "core/member" => "Member management",*/
+								 "core/comment" => "Đánh giá",
+								 "addon/order" => "Order management <span id='orderwarring'></span>",
+								 "core/member" => "Member management",
 								 'core/message' => 'Message',
 								 "core/user" => "User management"
 								 );
