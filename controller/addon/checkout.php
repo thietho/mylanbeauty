@@ -49,6 +49,29 @@ class ControllerAddonCheckout extends Controller
 				$this->model_addon_order->saveOrderProduct($detail);
 			}
 			unset($_SESSION['cart']);
+			//Gui don hang den nguoi nhan lien he
+			$arr = array($orderid);
+			$description = $this->loadModule('addon/checkoutcomplete','viewOrder',$arr);
+			$email = $this->model_core_media->getInformation("setting", 'EmailContact');
+			$mail['from'] = $data['email'];
+			$mail['FromName'] = $data['customername'];
+			$mail['to'] = $email;
+			$mail['name'] = "";
+			$mail['subject'] =  "Thông tin đặt hàng";
+			$arr = array($description);
+			$mail['body'] = $this->loadModule('module/contact','createEmailTemplate',$arr);
+			$this->mailsmtp->sendMail($mail);
+			//Gui don hang den khach hang
+			$email = $this->model_core_media->getInformation("setting", 'EmailContact');
+			$mail['from'] = "sales@mylanbeauty.net";
+			$mail['FromName'] = "Bộ phận bán hàng - mylanbeauty.net";
+			$mail['to'] = $data['email'];
+			$mail['name'] = $data['customername'];
+			$mail['subject'] =  "Thông tin đặt hàng";
+			$arr = array($description);
+			$mail['body'] = $this->loadModule('module/contact','createEmailTemplate',$arr);
+			$this->mailsmtp->sendMail($mail);
+			
 			$this->data['output'] = "true-".$orderid;
 		}
 		else

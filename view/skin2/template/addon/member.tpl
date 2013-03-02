@@ -1,5 +1,5 @@
 
-	<div class="ben-section-title">Thông tin thành viên</div>
+	
     <div class="ben-section-content">
     	<p>
     		<?php echo $member['fullname']?> (<?php echo $member['username']?>)

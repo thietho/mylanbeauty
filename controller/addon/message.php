@@ -16,7 +16,7 @@ class ControllerAddonMessage extends Controller
 	public function index()
 	{
 		$this->document->title .= " - Hộp thư";
-		$this->document->breadcrumb .= "Hộp thư";
+		$this->document->breadcrumb .= '<a href="'.$this->document->createLink('member').'">Thông tin thành viên </a> » '."Hộp thư";
 		if($this->messageid=="")
 			$this->getList();
 		else
