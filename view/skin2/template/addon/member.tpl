@@ -13,9 +13,9 @@
         <p>
         	<a href="<?php echo $this->document->createLink('historyorder')?>">Lịch sử mua hàng</a>
         </p>
-        <p>
+        <!--<p>
         	<a href="<?php echo $this->document->createLink('message')?>">Hộp thư</a>
-        </p>
+        </p>-->
         <p>
         	<a href="#" onclick="logout()">Đăng xuất</a>
         </p>

@@ -6,7 +6,7 @@
             <a class="ben-button" href="<?php echo $this->document->createLink('message','folder','send')?>">Thư đã gửi</a>
         </div>
     	<div class="ben-right">
-        	<a class="ben-button" href="<?php echo $this->document->createLink('compose')?>site/<?php echo $this->member->getSiteId()?>/compose">Soạn tin</a>&nbsp;
+        	<a class="ben-button" href="<?php echo $this->document->createLink('compose')?>">Soạn tin</a>&nbsp;
             <a class="ben-button" onclick="deletelist()">Xóa</a>&nbsp;
         </div>
         <div class="clearer">&nbsp;</div>
