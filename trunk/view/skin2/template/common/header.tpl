@@ -6,7 +6,15 @@
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>">Trang chủ</a>
             | <a href="<?php echo $this->document->createLink('lienhe')?>">Liên hệ</a>
+            | <a href="<?php echo $this->document->createLink('lienhe')?>">Liên hệ</a>
             | <a href="<?php echo $this->document->createLink('cart')?>">Giỏ hàng</a>
+            <?php if(!$this->member->isLogged()){?>
+            | <a href="<?php echo $this->document->createLink('login')?>">Đăng nhập</a>
+            | <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
+            <?php }else{ ?>
+            | <a href="<?php echo $this->document->createLink('member')?>"><?php echo $this->document->getUser($this->member->getUserName())?></a>
+            | <a href="#" onclick="logout()">Đăng xuất</a>
+            <?php }?>
     	</div>
         <!--<div class="ben-left" id="ben-site-title">
         	<h1>Website đang hoàng thiện <br />và tiếp tục cập nhật sản phẩm mới liên tục</h1>

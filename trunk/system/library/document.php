@@ -117,6 +117,14 @@ final class Document {
 		return $query->row[$name];	
 	}
 	
+	public function getUser($userid,$name="fullname")
+	{
+		$query = $this->db->query("Select `user`.* 
+									from `user` 
+									where userid ='".$userid."' ");
+		return $query->row[$name];	
+	}
+	
 	public function createLink($sitemap="",$id="",$key = "",$val = "")
 	{
 		$link = HTTP_SERVER;
