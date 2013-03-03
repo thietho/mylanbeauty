@@ -35,8 +35,8 @@
                                             </td>
                                             
                                             <td>
-                                                
-                                                <a class="button" onclick="price.edit('<?php echo $item['mediaid']?>')">Edit</a>&nbsp;<a class="button" onclick="price.remove('<?php echo $item['mediaid']?>')">Remove</a>
+                                                <input type="button" class="button" value="Edit" onclick="price.edit('<?php echo $item['mediaid']?>')"/>
+                                                <input type="button" class="button" value="Remove" onclick="price.remove('<?php echo $item['mediaid']?>')"/>
                                             </td>
                                             
                                         </tr>
