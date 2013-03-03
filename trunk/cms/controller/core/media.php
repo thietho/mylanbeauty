@@ -60,7 +60,7 @@ class ControllerCoreMedia extends Controller
 		
 		$where = " AND mediaparent = '' AND mediatype = ''";
 		
-		$keyword = $this->request->get['keyword'];
+		$keyword = urldecode($this->request->get['keyword']);
 		$type = $this->request->get['type'];
 		$sitemapid = $this->request->get['sitemapid'];
 		$userid = $this->request->get['userid'];

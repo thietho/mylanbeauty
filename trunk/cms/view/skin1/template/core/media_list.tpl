@@ -186,7 +186,7 @@ $('#type').change(function(e) {
 		$("#sitemapid").val("<?php echo $_GET['sitemapid']?>");
 	});
 });
-$("#keyword").val("<?php echo $_GET['keyword']?>");
+$("#keyword").val("<?php echo urldecode($_GET['keyword'])?>");
 $("#type").val("<?php echo $_GET['type']?>");
 $("#userid").val("<?php echo $_GET['userid']?>");
 $("#tungay").val("<?php echo $_GET['tungay']?>");
