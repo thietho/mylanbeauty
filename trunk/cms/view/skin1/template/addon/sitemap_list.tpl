@@ -1,6 +1,6 @@
 <div class="section" id="sitemaplist">
 
-	<div class="section-title"><?php echo $text_sitemapheader?></div>
+	<div class="section-title"><?php echo $menu_sitemap ?></div>
     
     <div class="section-content">
     
@@ -8,8 +8,8 @@
         
         	<div class="button right">
                 
-                <input class="button" value="Delete" name="btnDel" type="button" onclick="deleteList()">
-                <input class="button" value="Update" name="btnUpdate" type="button" onclick="updateList()">
+                <input class="button" value="<?php echo $button_delete ?>" name="btnDel" type="button" onclick="deleteList()">
+                <input class="button" value="<?php echo $button_update ?>" name="btnUpdate" type="button" onclick="updateList()">
                 <input type="hidden" name="type" value="" />
             </div>
             <div class="clearer">^&nbsp;</div>
@@ -29,16 +29,14 @@
                 <table class="example data-table" width="100%">
                     <thead>
                     <tr class="tr-head">
-                     <th align="left" width="50%">
-           
-                     &nbsp;Menu</th>
+                     <th align="left" width="30%">Menu</th>
                       <th width="25%"><?php echo $text_editmodule?></th>
                       <th width="10%"><?php echo $text_status?></th>
         <?php
             if($this->session->data['userid']=='admin')
             {
         ?>
-                      <th width="15%"><?php echo $text_control?></th>
+                      <th width="300px"><?php echo $text_control?></th>
         <?php
             }
         ?>
@@ -70,7 +68,7 @@
                 {
         ?>
                       <td>
-                            <a href="<?php echo $insert?>&parent=<?php echo $sitemap['sitemapid']?>" class="button" title="[Add child]">Add child</a> 
+                            <a href="<?php echo $insert?>&parent=<?php echo $sitemap['sitemapid']?>" class="button" title="[Add child]"><?php echo $button_addchild ?></a> 
                             <a href="<?php echo $sitemap['update']?>" class="button" title="[<?php echo $button_edit?>]"><?php echo $button_edit?></a> 
                             
                       </td>

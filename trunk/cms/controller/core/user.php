@@ -98,9 +98,9 @@ class ControllerCoreUser extends Controller
 			$data['status'] = "lock";
 		$this->model_core_user->updatestatus($data);
 		if($data['status'] == "active")
-			$this->data['output']="Kích hoạt thành công";
+			$this->data['output']= $this->data['announ_active'];
 		if($data['status'] == "lock")
-			$this->data['output']="User đã bị khóa";
+			$this->data['output']= $this->data['announ_lock'];
 		$this->id="content";
 		$this->template="common/output.tpl";
 		$this->render();
@@ -114,7 +114,7 @@ class ControllerCoreUser extends Controller
 		if(count($listuserid))
 		{
 			$this->model_core_user->deleteusers($listuserid);
-			$this->data['output'] = "Xóa thành công";
+			$this->data['output'] = $this->data['announ_del'];
 		}
 		$this->id="content";
 		$this->template="common/output.tpl";
@@ -146,12 +146,17 @@ class ControllerCoreUser extends Controller
 		{
 			$this->data['users'][$i] = $rows[$i];
 			$this->data['users'][$i]['link_edit'] = $this->url->http('core/user/update&userid='.$this->data['users'][$i]['userid']);
-			$this->data['users'][$i]['text_edit'] = "Edit";
+			$this->data['users'][$i]['text_edit'] = $this->data['button_edit'];
 			$this->data['users'][$i]['link_active'] = $this->url->http('core/user/active&userid='.$this->data['users'][$i]['userid']);
 			if($this->data['users'][$i]['status']=='lock')
-				$this->data['users'][$i]['text_active'] = "Active";
+				$this->data['users'][$i]['text_active'] = $this->data['button_active'];
 			else
-				$this->data['users'][$i]['text_active'] = "Lock";
+				$this->data['users'][$i]['text_active'] = $this->data['button_lock'];
+				
+			if($this->data['users'][$i]['status']=='active')
+				$this->data['users'][$i]['text_st'] = $this->data['button_active'];
+			else
+				$this->data['users'][$i]['text_st'] = $this->data['button_lock'];
 		}
 		$this->data['refres']=$_SERVER['QUERY_STRING'];
 		$this->id='content';
@@ -171,8 +176,9 @@ class ControllerCoreUser extends Controller
 		//$xml = simplexml_load_file(DIR_COMPONENT.'xml/countries.xml');
 		//$this->data['countries'] = $this->string->xmltoArray($xml);
 		$this->data['countries'] = $this->model_core_country->getCountrys();
-		$this->data['selectcountry'] = "VN";
+		
 		$this->data['usertype'] = $this->model_core_usertype->getAllUsertype();
+		
 		if (!isset($this->request->get['userid'])) {
 			$this->data['action'] = $this->url->http('core/user/insert');
 		} else {
@@ -192,6 +198,11 @@ class ControllerCoreUser extends Controller
 			
 		}
 		
+		if(!$this->data['selectcountry'])
+		{
+			$this->data['selectcountry'] = "VN";	
+		}
+		
 		$this->id='content';
 		$this->template='core/user_form.tpl';
 		$this->layout="layout/center";
@@ -203,36 +214,36 @@ class ControllerCoreUser extends Controller
 	{
     	if ((strlen($this->request->post['username']) == 0) || (strlen($this->request->post['username']) > 30)) 
 		{
-      		$this->error['username'] = "username not null";
+      		$this->error['username'] = $this->data['war_username'];
     	}
 		else
 		{
 			
 			if($this->validation->_isId(trim($this->request->post['username'])) == false)
-				$this->error['username'] ="username không hợp lệ";
+				$this->error['username'] = $this->data['war_invalid_username'];
 			else
 			{
 				$user = $this->model_core_user->getItemByUserName($this->request->post['username']);
 				if(count($user)>0 && $this->request->post['userid'] == '')
-					$this->error['username'] = "username đã được sử dụng";			
+					$this->error['username'] = $this->data['war_existed_username'];			
 			}
 		}
 		if($this->request->get['userid']=="")
 		{
 			if (strlen($this->request->post['password']) == 0) 
 			{
-				$this->error['password'] = "Password not null";
+				$this->error['password'] = $this->data['war_password'];
 			}
 			
 			if ($this->request->post['confrimpassword'] != $this->request->post['password']) 
 			{
-				$this->error['confrimpassword'] = "Confrimpassword invalidate";
+				$this->error['confrimpassword'] = $this->data['war_confirmpass'];
 			}		
 		}
 		
 		if ($this->validation->_checkEmail($this->request->post['email']) == false ) 
 		{
-      		$this->error['email'] = "Email invalidate";
+      		$this->error['email'] = $this->data['war_invalid_email'];
     	}
 
 		if (!$this->error) {

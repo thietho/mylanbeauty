@@ -41,8 +41,14 @@ class ControllerModuleLink extends Controller
 		
 		$this->document->title = $this->language->get('heading_title');
 		
-		
-		$this->getList();
+		$mediaid = $this->request->get['mediaid'];
+		if($mediaid=="")
+			$this->getList();
+		else
+		{
+			$this->request->get['id'] = $mediaid;
+			$this->getForm();
+		}
 	}
 	
 	public function insert()
@@ -98,7 +104,7 @@ class ControllerModuleLink extends Controller
 	{
 		$route = $sitemapid;
 		$sitemapid = $this->request->get['sitemapid'];
-		$mediaid = $this->request->get['mediaid'];
+		
 		$siteid = $this->user->getSiteId();
 		$step = (int)$this->request->get['step'];
 		$to = 9;
@@ -171,6 +177,7 @@ class ControllerModuleLink extends Controller
 		$sitemapid = $this->request->get['sitemapid'];
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
+
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid,$this->user->getSiteId());
 		if ((isset($this->request->get['id'])) ) 
 		{

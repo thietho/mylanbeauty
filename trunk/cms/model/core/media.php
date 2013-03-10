@@ -23,7 +23,7 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$sql = "Select `media`.* 
 									from `media` 
-									where status not like 'delete' AND mediaid like '%".$this->user->getSiteId()."%' " . $where . " Order by position, statusdate DESC";
+									where status not like 'delete' AND temp not like 'temp' AND mediaid like '%".$this->user->getSiteId()."%' " . $where ;
 		if($to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
@@ -243,6 +243,91 @@ class ModelCoreMedia extends ModelCoreFile
 		return $this->db->getNextIdVarChar("media","mediaid",$prefix);	
 	}
 	
+	public function insertTemp($data)
+	{
+		$mediaid = $this->nextID($this->user->getSiteId().time());
+		$mediaparent=$this->db->escape(@$data['mediaparent']);
+		$mediatype=$this->db->escape(@$data['mediatype']);
+		$refersitemap=$this->db->escape(@$data['refersitemap']);
+		$userid=$this->db->escape(@$data['userid']);
+		
+		$title=$this->db->escape(@$data['title']);
+		$summary=$this->db->escape(@$data['summary']);
+		$price=$this->db->escape(@$data['price']);
+		$description=(@$data['description']);
+		$author=$this->db->escape(@$data['author']);
+		$source=$this->db->escape(@$data['source']);
+		
+		$imageid=(int)@$data['imageid'];
+		$imagepath=$this->db->escape(@$data['imagepath']);
+		$fileid=(int)@$data['fileid'];
+		$filepath=$this->db->escape(@$data['filepath']);
+		
+		$groupkeys=$this->db->escape(@$data['groupkeys']);
+		$viewcount=0;
+		$position=(int)@$data['position'];
+		$status="delete";
+		$temp = "temp";
+		$statusdate = $this->date->getToday();
+		$statusby=$this->db->escape(@$data['userid']);
+		$updateddate = $this->date->getToday();
+		
+		$field=array(
+						'mediaid',
+						'mediaparent',
+						'mediatype',
+						'refersitemap',
+						'userid',
+						'title',
+						'summary',
+						'price',
+						'description',
+						'author',
+						'source',
+						'imageid',
+						'imagepath',
+						'fileid',
+						'filepath',
+						'groupkeys',
+						'viewcount',
+						'position',
+						'status',
+						'temp',
+						'statusdate',
+						'statusby',
+						'updateddate'
+					);
+		$value=array(
+						$mediaid,
+						$mediaparent,
+						$mediatype,
+						$refersitemap,
+						$userid,
+						$title,
+						$summary,
+						$price,
+						$description,
+						$author,
+						$source,
+						$imageid,
+						$imagepath,
+						$fileid,
+						$filepath,
+						$groupkeys,
+						$viewcount,
+						$position,
+						$status,
+						$temp,
+						$statusdate,
+						$statusby,
+						$updateddate
+					);
+		$this->db->insertData("media",$field,$value);
+		$this->updateFileTemp($imageid);
+		$this->updateFileTemp($fileid);
+		return $mediaid;
+	}
+	
 	public function insert($data)
 	{
 		$mediaid = $this->nextID($this->user->getSiteId().time());
@@ -345,7 +430,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$imagepath=$this->db->escape(@$data['imagepath']);
 		$fileid=(int)@$data['fileid'];
 		$filepath=$this->db->escape(@$data['filepath']);
-		$status=$this->db->escape(@$data['status']);;
+		$status=$this->db->escape(@$data['status']);
 		$groupkeys=$this->db->escape(@$data['groupkeys']);
 		$tagkeyword=$this->db->escape(@$data['tagkeyword']);
 		

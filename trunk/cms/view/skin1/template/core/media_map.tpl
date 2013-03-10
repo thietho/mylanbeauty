@@ -17,7 +17,7 @@
         </div>
     </p>
     
-    <input type="button" class="button" value="Lưu" onClick="save()">
+    <input type="button" class="button" value="<?php echo $button_save ?>" onClick="save()">
 </form>
 </div>
 <script language="javascript">

@@ -11,6 +11,7 @@ class ModelCoreSitemap extends Model
 							'module/banner'=>'Banner',
 							'module/album'=>'Album',
 							'module/video'=>'Video',
+							'module/audio'=>'Audio',
 							'module/product'=>'Product',
 							'module/download'=>'Download',
 							'module/contact'=>'Contact',
@@ -21,15 +22,14 @@ class ModelCoreSitemap extends Model
 							
 							);
 	private $moduleaddon = array(
-								 "core/changeskin" => "Change skin",
+								 /*"core/changeskin" => "Change skin",*/
 								 "core/category" => "Quản lý danh mục",
 								 "core/media" => "Quản lý thông tin",
-								 "core/file" => "Quản lý file",
 								 "addon/sitemap" => "Quản lý cấu trúc website",
-								 "core/comment" => "Đánh giá",
-								 "addon/order" => "Order management <span id='orderwarring'></span>",
-								 "core/member" => "Member management",
-								 'core/message' => 'Message',
+								 /*"core/comment" => "Đánh giá",*/
+								/* "addon/order" => "Order management <span id='orderwarring'></span>",
+								 "core/member" => "Member management",*/
+								 "core/message" =>"Message",
 								 "core/user" => "User management"
 								 );
 	public $moduleuser = array(
@@ -59,14 +59,11 @@ class ModelCoreSitemap extends Model
 		return $query->row;
 	}
 	
-	public function getList($siteid, $where = "",$order = "")
+	public function getList($siteid, $where = "")
 	{
-		if($order == "")
-			$order = " ORDER BY position, siteid, id";
 		$query = $this->db->query("Select `sitemap`.* 
 									from `sitemap`
-									where `sitemap`.status not like 'Delete' AND siteid = '".$siteid."' ".$where.
-									$order
+									where `sitemap`.status not like 'Delete' AND siteid = '".$siteid."' ".$where
 									);
 		return $query->rows;
 	}
@@ -106,9 +103,8 @@ class ModelCoreSitemap extends Model
 	
 	public function getListByModule($moduleid, $siteid)
 	{
-		$where = " AND `sitemap`.moduleid = '".$moduleid."'";
-		$order = " ORDER BY sitemapname";
-		return $this->getList($siteid, $where,$order);
+		$where = " AND `sitemap`.moduleid = '".$moduleid."' order by sitemapname";
+		return $this->getList($siteid, $where);
 	}
 	
 	
@@ -172,7 +168,7 @@ class ModelCoreSitemap extends Model
 	public function getBreadcrumb($id, $siteid, $end=0)
 	{
 		$data = $this->getPath($id, $siteid);
-		$strBreadcrumb = "<a href='index.php'>Home</a>";
+		$strBreadcrumb = "<a href='?route=common/dashboard'>Trang chủ</a>";
 		for($i=count($data)-1;$i>$end;$i--)
 		{
 			$link = "".$data[$i]['sitemapname']."";

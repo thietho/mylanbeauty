@@ -13,7 +13,7 @@
             	<input type="button" class="button" value="Đã duyệt" onclick="window.location='?route=core/comment&status=published'">
                 <input type="button" class="button" value="Không duyệt" onclick="window.location='?route=core/comment&status=denial'">
                 <?php } ?>
-            	<input class="button" type="button" name="delete_all" value="Delete" onclick="deleteitem()"/>
+            	<input class="button" type="button" name="delete_all" value="<?php echo $button_delete ?>" onclick="deleteitem()"/>
                 
                 	
             </div>
@@ -38,7 +38,7 @@
                         
                         
                         <?php if($dialog!=true){ ?>
-                        <th>Control</th>     
+                        <th><?php echo $text_control ?></th>     
                         <?php } ?>
                     </tr>
                 </thead>
@@ -93,7 +93,7 @@
 
 function deleteitem()
 {
-	var answer = confirm("Bạn có muốn xóa không?")
+	var answer = confirm("<?php echo $announ_del ?>")
 	if (answer)
 	{
 		$.post("?route=core/comment/delete", 

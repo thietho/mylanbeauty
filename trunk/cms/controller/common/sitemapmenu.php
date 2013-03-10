@@ -13,7 +13,15 @@ class ControllerCommonSitemapmenu extends Controller
 		
 		$this->data['menu'] = $this->getMenu("");
 		$this->data['addon'] = $this->getAddOnMenu("");
-		$this->data['addonmodule'] = $this->model_core_sitemap->getModuleAddons();
+		//$this->data['addonmodule'] = $this->model_core_sitemap->getModuleAddons();
+		$this->data['addonmodule'] = array(
+										"core/category" => $this->data['category'],
+										"core/media" => $this->data['menu_media'],
+										"core/file" => $this->data['menu_file'],
+								 		"addon/sitemap" => $this->data['menu_sitemap'],
+										"core/message" => $this->data['message'],
+										"core/user" => $this->data['user_management'],
+									);
 		$this->id='sitemapmenu';
 		$this->template='common/sitemapmenu.tpl';
 		$this->render();
@@ -41,6 +49,11 @@ class ControllerCommonSitemapmenu extends Controller
 			if($item['moduleid'] != "group" && $item['moduleid'] != "homepage")
 			{
 				$link='<a class="left" href="?route='.$item['moduleid']."&sitemapid=".$item['sitemapid'].'" title="[Detail]">'.$item['sitemapname'].'</a>';
+			}
+			
+			if($item['moduleid'] == 'homepage')
+			{
+				$link='<a class="left" href="?route=common/dashboard">'.$item['sitemapname'].'</a>';	
 			}
 			
 			$str .= "<li>";

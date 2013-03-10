@@ -167,6 +167,7 @@ class ControllerCoreCategory extends Controller
 		unset($rows[0]);
 		$this->data['datas'] = array();
 		
+				
 		$eid="ex0-node";
 		$eclass="child-of-ex0-node";
 		foreach($rows as $item)
@@ -180,7 +181,7 @@ class ControllerCoreCategory extends Controller
 			$text_addchild = "Add child";
 			
 			$link_editcontent = $this->url->http('core/category/edit&categoryid='.$item['categoryid']);
-			$text_editcontent = "Edit content";
+			$text_editcontent = "Edit Content";
 			
 			$tab="";
 			if(count($item['countchild'])==0)

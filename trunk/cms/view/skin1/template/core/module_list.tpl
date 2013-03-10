@@ -24,7 +24,7 @@
                         <th width="25%">ModuleName</th>
                         <th width="10%">Pos</th>
                         <th width="5%">Status</th>                    
-                        <th width="10%">Control</th>                                  
+                        <th widht="10%"><?php echo $text_control ?></th>                                  
                     </tr>
         <?php
             foreach($modules as $module)

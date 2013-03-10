@@ -7,7 +7,7 @@
 	<tr>
         <td colspan="3">
      		<input type="hidden" name="sitemap" id="sitemap" value="" />
-      		<strong>Tên file</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
+      		<strong>File name</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
             
             
             			
@@ -23,7 +23,8 @@
                 <a id="btnAddImagePopup" class="button">Select file</a><br />
                 
                 <div id="errorupload" class="error" style="display:none"></div>
-                <input type="button" class="button" id="btnDelFile" value="Xóa file"/>
+                <input type="button" class="button" id="btnDelFile" value="Delete file"/>
+                
             </p>
         </td>
     </tr>
@@ -66,12 +67,23 @@ $("#btnfilter").click(function(){
 	$("#result").load(url);						   
 })
 $('#btnDelFile').click(function(e) {
-    for(i in arrfileid)
+    /*for(i in arrfileid)
 	{
 		$.get("?route=core/file/delFile&fileid="+arrfileid[i],function(){
 			$("#result").load("?route=core/file/getList&edit=true");	
 		});
-	}
+	}*/
+	/*$('.chkfile').each(function(index, element) {
+        if(this.checked==true)
+		{
+			$.get("?route=core/file/delFile&fileid="+this.value,function(){
+				$("#result").load("?route=core/file/getList&edit=true");
+			});
+		}
+    });*/
+	$.post("?route=core/file/delListFile",$('#ffile').serialize(),function(data){
+		$("#result").load("?route=core/file/getList&edit=true");
+	});
 });
 
 function moveto(url)

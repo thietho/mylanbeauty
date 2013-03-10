@@ -8,7 +8,7 @@
         
         	<div class="button right">
                
-            	<input class="button" type="button" name="delete_all" value="Delete" onclick="deleteUser()"/>  
+            	<input class="button" type="button" name="delete_all" value="<?php echo $button_delete ?>" onclick="deleteUser()"/>  
             </div>
             <div class="clearer">^&nbsp;</div>
             
@@ -21,7 +21,7 @@
                         <th width="25%">User name</th>
                         <th width="25%">Full name</th>
                         <th width="25%">Status</th>                    
-                        <th width="10%">Control</th>                                  
+                        <th widht="10%"><?php echo $text_control ?></th>                                  
                     </tr>
         
         
@@ -70,7 +70,7 @@ function activeUser(userid)
 
 function deleteUser()
 {
-	var answer = confirm("Bạn có muốn xóa không?")
+	var answer = confirm("<?php echo $announ_del ?>")
 	if (answer)
 	{
 		$.post("?route=core/member/delete", 

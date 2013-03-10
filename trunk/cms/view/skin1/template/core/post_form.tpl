@@ -15,8 +15,9 @@
         </div>
         
     	<div class="right">
+        	<input class="button" type="button" value="<?php echo $button_preview?>" onclick="preview()"/>
         	<input class="button" type="button" value="<?php echo $button_save?>" onclick="save()"/>
-            <a class="button" href="<?php echo $DIR_CANCEL?>"><?php echo $button_cancel?></a>
+            <a class="button" href="<?php echo $DIR_CANCEL.'&page='.$_GET['page']?>"><?php echo $button_cancel?></a>
              
              <input type="hidden" id="mediaid" name="mediaid" value="<?php echo $mediaid?>" />
              <input type="hidden" id="mediatype" name="mediatype" value="<?php echo $mediatype?>" />
@@ -34,26 +35,29 @@
         	<ul>
                 <li class="tabs-selected"><a href="#fragment-content" ><span><?php echo $tab_editcontent?></span></a></li>
                 <?php if($hasProperties) {?>
-                <li><a href="#fragment-properties"><span>Properties</span></a></li>
+                <li><a href="#fragment-properties"><span><?php echo $lbl_property ?></span></a></li>
                 <?php }?>
-                <li><a href="#fragment-detail"><span>Detail</span></a></li>
+                <li><a href="#fragment-detail"><span><?php echo $lbl_detail ?></span></a></li>
                 <?php if($hasVideo) {?>
                 <li><a href="#fragment-video"><span>Video</span></a></li>
                 <?php }?>
+                <?php if($hasAudio) {?>
+                <li><a href="#fragment-audio"><span>Audio</span></a></li>
+                <?php }?>
                 <?php if($hasSubInfor) {?>
-                <li><a href="#fragment-subinfor"><span>Information</span></a></li>
+                <li><a href="#fragment-subinfor"><span><?php echo $lbl_infor ?></span></a></li>
                 <?php }?>
                 <?php if($hasTabImages){ ?>
-                <li><a href="#fragment-images"><span>Images</span></a></li>
+                <li><a href="#fragment-images"><span><?php echo $lbl_image ?></span></a></li>
                 <?php } ?>
                 <?php if($hasTabVideos){ ?>
                 <li><a href="#fragment-videos"><span>Videos</span></a></li>
                 <?php } ?>
                 <?php if($hasTabDocuments){ ?>
-                <li><a href="#fragment-documents"><span>Tài liệu</span></a></li>
+                <li><a href="#fragment-documents"><span><?php echo $lbl_document ?></span></a></li>
                 <?php } ?>
                 <?php if($hasProductPrice) {?>
-                <li><a href="#fragment-productprice"><span><?php echo $text_price?></span></a></li>
+                <li><a href="#fragment-productprice"><span><?php echo $lbl_price?></span></a></li>
                 <?php }?>
                 <?php if($hasTabMap) {?>
                 <li><a href="#fragment-map"><span><?php echo $tab_map?></span></a></li>
@@ -74,6 +78,8 @@
                     <div class="col2 left">
                     	
                         <?php if($hasTitle) {?>
+                        <br />
+                        <br />
                         <p>
                             <label><?php echo $entry_title?></label><br>
                             <input class="text" type="text" id="title" name="title" value="<?php echo $title?>" size="60" />
@@ -95,19 +101,19 @@ $('#title').change(function(e) {
 	});
 });
 </script>
-                        <p>
+                       <!-- <p>
                             <label><?php echo $text_keyword?></label><br>
                             <textarea class="text" rows="3" cols="70" name="keyword"><?php echo $keyword?></textarea>
-                        </p>
+                        </p>-->
                         <?php } ?>
                         
                        	<?php if($hasEvent) {?>
                         <p>
-                            <label>Ngày</label><br>
+                            <label><?php echo $lbl_date ?></label><br>
                             <input class="text ben-datepicker" type="text" name="eventdate" value="<?php echo $this->date->formatMySQLDate($eventdate)?>" />
                         </p>
                         <p>
-                            <label>Thời gian</label><br>
+                            <label><?php echo $lbl_time ?></label><br>
                             <input class="text" type="text" name="eventtime" value="<?php echo $eventtime?>" />
                         </p>
                         <?php } ?>
@@ -145,7 +151,7 @@ $('#title').change(function(e) {
                         <div id="errorupload" class="error" style="display:none"></div>
                         
                         <div class="loadingimage" style="display:none"></div>
-                        <?php if($hasAttachment){ ?>
+                       <?php if($hasAttachment){ ?>
                         <p>
                         	<a id="btnAddAttachment" class="button" onclick="browserFileAttachment()"><?php echo $entry_attachment?></a><br />
                         </p>
@@ -203,20 +209,11 @@ $(document).ready(function(e) {
                 
                 </div>
                 
-
             </div>
             <div id="fragment-properties">
             	<div>
                 	
-                	<p>
-                    	<label>Nhãn hiệu</label><br />
-                        <select name="nhanhieu">
-                        	<option value=""></option>
-                        	<?php foreach($nhanhieu as $it){ ?>
-                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
-                        	<?php } ?>
-                        </select>
-                    </p>
+                	
                     <p>
                     	<label><?php echo $text_status?></label>
                         <?php foreach($statuspro as $it){ ?>
@@ -231,7 +228,7 @@ $(document).ready(function(e) {
                 </div>
             </div>
             <div id="fragment-detail">
-            	<a class="button" onclick="browserFileEditor()">Select image</a>
+            	<a class="button" onclick="browserFileEditor()"><?php echo $entry_photo ?></a>
                 <input type="hidden" id="listselectfile" name="listselectfile" />
             	<div>
                 	<p>
@@ -242,8 +239,8 @@ $(document).ready(function(e) {
             <?php if($hasVideo) {?>
             <div id="fragment-video">
                     <p id="pnVideo">
-                        <label for="file">File</label><br />
-                        <a onclick="browserFile()" class="button">Select file</a><br />
+                        <label for="file"><?php echo $lbl_file ?></label><br />
+                        <a id="btnAddVideo" class="button"><?php echo $entry_file ?></a><br />
                         <span id="filename"><?php echo $filepath?></span>
                         <input type="hidden" id="filepath" name="filepath" value="<?php echo $filepath?>" />
                         <input type="hidden" id="fileid" name="fileid" value="<?php echo $fileid?>" />
@@ -258,17 +255,38 @@ $(document).ready(function(e) {
                     <div class="loadingimage" style="display:none"></div>
             </div>
             <?php } ?>
+            
+            <?php if($hasAudio) {?>
+            <div id="fragment-audio">
+                    <p id="pnAudio">
+                        <label for="file"><?php echo $lbl_file ?></label><br />
+                        <a id="btnAddAudio" class="button"><?php echo $entry_file ?></a><br />
+                        <span id="filename"><?php echo $filepath?></span>
+                        <input type="hidden" id="filepath1" name="filepath" value="<?php echo $filepath?>" />
+                        <input type="hidden" id="fileid1" name="fileid" value="<?php echo $fileid?>" />
+                        <div id="sub_errorupload" class="error" style="display:none"></div>
+                        
+                        
+                    </p>
+                    
+                    
+                    <div id="errorupload" class="error" style="display:none"></div>
+                    
+                    <div class="loadingimage" style="display:none"></div>
+            </div>
+            <?php } ?>
+            
             <?php if($hasSubInfor) {?>
             <div id="fragment-subinfor">
             	<input type="hidden" name="sub_mediaid" id="sub_mediaid" />
             	<div>
                 	<p>
-                        Tiêu đề:<br />
+                       <?php echo $lbl_title ?><br />
                         <input class="text" type="text" name="sub_title" id="sub_title" value="" size="40" />
                     </p>
                     <p id="sub_pnImage">
-                        <label for="image">Image</label><br />
-                        <a id="btnAddSubImage" class="button">Select Image</a><br />
+                        <label for="image"><?php echo $lbl_image ?></label><br />
+                        <a id="btnAddSubImage" class="button"><?php echo $entry_photo ?></a><br />
                         <img id="sub_preview" src="" />
                         <input type="hidden" id="sub_imagepath" name="sub_imagepath" />
                         <input type="hidden" id="sub_imageid" name="sub_imageid"  />
@@ -346,7 +364,7 @@ function editeSubInfor(mediaid)
 
 function removeSubInfor(mediaid)
 {
-	//$.blockUI({ message: "<h1>Đang xử lý...</h1>" });
+	//$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" });
 	$.ajax({
 		url: "?route=core/postcontent/removeSubImage&mediaid="+mediaid, 
 		cache: false,
@@ -383,31 +401,31 @@ $(document).ready(function() {
             	<input type="hidden" name="price_mediaid" id="price_mediaid" />
             	<div>
                 	<p>
-                        Tiêu đề:<br />
+                        <?php echo $lbl_title ?><br />
                         <input class="text" type="text" name="price_title" id="price_title" value="" size="40" />
                     </p>
                     <p>
                         Code sản phẩm:<br />
-                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/>
+                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <!--<input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />-->
                     </p>
                     <p>
-                        Giá thị trường:<br />
+                        <?php echo $lbl_standardprice ?><br />
                         <input class="text number" type="text" name="price_thitruong" id="price_thitruong" value="" size="40" />
                     </p>
-                    <p>
-                        Giá:<br />
-                        <input class="text number" type="text" name="price_gia" id="price_gia" value="" size="40" />
-                    </p>
-                    <p>
-                        Khuyến mãi:<br />
+                      <p>
+                        <?php echo $lbl_sale ?><br />
                         <input class="text number" type="text" name="price_khuyenmai" id="price_khuyenmai" value="" size="40" />
                     </p>
                     <p>
+                        <?php echo $lbl_price ?><br />
+                        <input class="text number" type="text" name="price_gia" id="price_gia" value="" size="40" />
+                    </p>
+<!--                    <p>
                     	Chương trình khuyến mãi:
                         <input type="hidden" name="machuongtrinh" id="machuongtrinh"/>
                         <span id="tenchuongtrinh"></span>
                         <input type="button" class="button" id="btnSelectKhuyenMai" value="Chọn chương trình khuyến mãi" />
-                    </p>
+                    </p>-->
                     <p>
                     	<input type="button" class="button" id="btnSavePrice" value="<?php echo $button_save?>"/>
                         <input type="button" class="button" value="<?php echo $button_cancel?>"/>
@@ -431,16 +449,16 @@ function Price()
 {
 	this.loadPrice = function(code)
 	{
-		//$.getJSON("<?php echo HTTP_SERVER?>ric/getSanPham.php?masanpham="+code, 
-//			function(data) 
-//			{
-//				if(data.sanpham == false)
-//					alert('Không tồn tại code sản phẩm này');
-//				else
-//					$('#price_gia').val(formateNumber(data.sanpham.HH_GiaBan+""));
-//				
-//				
-//			});
+		$.getJSON("<?php echo HTTP_SERVER?>ric/getSanPham.php?masanpham="+code, 
+			function(data) 
+			{
+				if(data.sanpham == false)
+					alert('Không tồn tại code sản phẩm này');
+				else
+					$('#price_gia').val(formateNumber(data.sanpham.HH_GiaBan+""));
+				
+				
+			});
 	}
 	
 	this.save = function()
@@ -499,7 +517,7 @@ function Price()
 	}
 	this.remove = function(mediaid)
 	{
-		//$.blockUI({ message: "<h1>Đang xử lý...</h1>" });
+		//$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" });
 		$.ajax({
 			url: "?route=core/postcontent/removeSubImage&mediaid="+mediaid, 
 			cache: false,
@@ -611,7 +629,7 @@ $(document).ready(function(e) {
 <script type="text/javascript" charset="utf-8">
 function save()
 {
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	var oEditor = CKEDITOR.instances['editor1'] ;
 	var pageValue = oEditor.getData();
 	$('textarea#editor1').val(pageValue);
@@ -628,7 +646,7 @@ function save()
 				{
 					var sitemapid = $('#refersitemap').val().replace('[',"");
 					sitemapid = sitemapid.replace("]","");
-					window.location = "?route=<?php echo $this->getRoute()?>&sitemapid=<?php echo $_GET['sitemapid']?>";	
+					window.location = "?route=<?php echo $this->getRoute()?>&sitemapid=<?php echo $_GET['sitemapid']?>&page=<?php echo $_GET['page'] ?>";	
 				}
 				else
 					window.location = "?route=core/media";	
@@ -640,6 +658,40 @@ function save()
 			
 		});
 }
+
+function preview()
+{
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
+	var oEditor = CKEDITOR.instances['editor1'] ;
+	var pageValue = oEditor.getData();
+	$('textarea#editor1').val(pageValue);
+	<?php if($hasSummary) {?>
+	var oEditor = CKEDITOR.instances['summary'] ;
+	var pageValue = oEditor.getData();
+	$('textarea#summary').val(pageValue);
+	<?php } ?>
+	$.post("?route=core/postcontent/savepreview",$('#frmPost').serialize(),
+		function(data){
+			if(data)
+			{
+				if("<?php echo $_GET['sitemapid']?>"!= "")
+				{
+					var sitemapid = $('#refersitemap').val().replace('[',"");
+					sitemapid = sitemapid.replace("]","");
+					
+					obj = jQuery.parseJSON(data);
+					alias = "/" + obj.alias;
+					url = "<?php echo str_replace('/cms/',"/".$_GET['sitemapid'],HTTP_SERVER); ?>" + alias + '.html';
+					window.open(url,'_blank');
+				}
+				else
+					window.location = "?route=core/media";
+					
+				$.unblockUI();
+			}
+		});
+}
+
 var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
 var DIR_UPLOADATTACHMENT = "<?php echo $DIR_UPLOADATTACHMENT?>";
 $(document).ready(function() { 
@@ -656,8 +708,12 @@ $(document).ready(function() {
 <?php } ?>
 
 <?php }?>
-
-
+<?php if($hasVideo) {?>
+<script src="<?php echo DIR_JS?>uploadvideo.js" type="text/javascript"></script>
+<?php }?>
+<?php if($hasAudio) {?>
+<script src="<?php echo DIR_JS?>uploadaudio.js" type="text/javascript"></script>
+<?php }?>
 <script language="javascript">
 
 

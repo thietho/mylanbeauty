@@ -7,8 +7,8 @@
     	<form id="frm" name="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         
         	<div class="button right">
-            	<input type="button" value="Save" class="button" onclick="save()"/>
-     	        <input type="button" value="Cancel" class="button" onclick="linkto('?route=core/usertype')"/>   
+            	<input type="button" value="<?php echo $button_save ?>" class="button" onclick="save()"/>
+     	        <input type="button" value="<?php echo $button_cancel ?>" class="button" onclick="linkto('?route=core/usertype')"/>   
      	        <input type="hidden" name="usertypeid" value="<?php echo $usertype['usertypeid']?>" />
                 <input type="hidden" id="permission" name="permission" value="<?php echo $usertype['permission']?>"/>
             </div>
@@ -64,7 +64,7 @@ $(".checkbox").click(function(){
 
 function save()
 {
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	$.post("?route=core/usertype/save", 
 		   $("#frm").serialize(),
 		   function(data)

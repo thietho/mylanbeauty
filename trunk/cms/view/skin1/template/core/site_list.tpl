@@ -7,8 +7,8 @@
         <form action="" name="formlist" id="formlist" method="post">
         
         	<div class="button right">
-                <input class="button" value="Add new" type="button" onclick="linkto('<?php echo $insert?>')">
-            	<input class="button" type="button" name="delete_all" value="Delete" onclick="deleteList()"/>  
+                <input class="button" value="<?php echo $button_add ?>" type="button" onclick="linkto('<?php echo $insert?>')">
+            	<input class="button" type="button" name="delete_all" value="<?php echo $button_delete ?>" onclick="deleteList()"/>  
             </div>
             <div class="clearer">^&nbsp;</div>
             
@@ -20,7 +20,7 @@
                         <th width="10%"><?php echo $column_siteid?></th>
                         <th width="25%"><?php echo $column_sitename?></th>
                         <th width="25%"><?php echo $column_status?></th>                    
-                        <th width="10%">Control</th>                                  
+                        <th widht="10%"><?php echo $text_control ?></th>                                  
                     </tr>
         
         

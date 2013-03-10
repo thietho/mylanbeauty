@@ -72,7 +72,7 @@
 
 function deleteitem()
 {
-	var answer = confirm("Bạn có muốn xóa không?")
+	var answer = confirm("<?php echo $announ_del ?>")
 	if (answer)
 	{
 		$.post("?route=module/link/delete", 

@@ -55,7 +55,7 @@
                 <input type="button" class="button" name="btnSearch" value="View all" onclick="window.location = '?route=addon/order'"/>
             </div>
         	<div class="button right">
-            	<input class="button" type="button" name="delete_all" value="Delete" onclick="deleteorder()"/>  
+            	<input class="button" type="button" name="delete_all" value="<?php echo $button_delete ?>" onclick="deleteorder()"/>  
             </div>
             <div class="clearer">&nbsp;</div>
             
