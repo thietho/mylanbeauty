@@ -15,7 +15,7 @@
         </div>
         
     	<div class="right">
-        	<input class="button" type="submit" value="Save" />
+        	<input class="button" type="submit" value="<?php echo $button_save ?>" />
             <a class="button" href="<?php echo $DIR_CANCEL?>"><?php echo $button_cancel?></a>
              <input type="hidden" id="status" name="status" value="<?php echo $post['status']?>" />
              <input type="hidden" id="mediaid" name="mediaid" value="<?php echo $post['mediaid']?>" />

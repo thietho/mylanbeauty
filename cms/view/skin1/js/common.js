@@ -10,7 +10,10 @@ function linkto(url)
 {
 	window.location = url
 }
-
+function moveto(url,eid)
+{
+	$("#"+eid).load(url);	
+}
 function searchMatrix(matrix,col,need)
 {
 	for(i=0;i < matrix.length ;i++)
@@ -54,8 +57,8 @@ function setCKEditorType(strID, intType)
 					toolbar : [ ['Bold','Italic','Underline'],['Font','FontSize','TextColor','BGColor'],['Smiley'],['Link','Unlink'],['NumberedList','BulletedList'],['Outdent','Indent'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['RemoveFormat'],['Maximize'] ]
 				});
 		//CKEDITOR.config.contentsCss = ['../view/skin1/css/ckeditor.css'];
-		CKEDITOR.config.height = '400px';
-		CKEDITOR.config.width = '640px';
+		//CKEDITOR.config.height = '400px';
+		//CKEDITOR.config.width = '640px';
 		break;
 		
 		case 2: //giao dien edit content
@@ -325,7 +328,7 @@ function printObject(o) {
 }
 function logout()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	
 	$.get(HTTP_SERVER+"?route=sitebar/login/logout", 
 		function(data){

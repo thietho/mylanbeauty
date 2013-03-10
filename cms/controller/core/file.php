@@ -103,5 +103,18 @@ class ControllerCoreFile extends Controller
 		$this->template="common/output.tpl";
 		$this->render();
 	}
+	
+	public function delListFile()
+	{
+		$this->load->model("core/file");
+		$listfileid = $this->request->post['chkfile'];
+		foreach($listfileid as $fileid)
+			$this->model_core_file->deleteFile($fileid);
+		
+		$this->data['output'] = "true";
+		$this->id='post';
+		$this->template="common/output.tpl";
+		$this->render();
+	}
 }
 ?>

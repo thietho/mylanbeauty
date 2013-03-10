@@ -86,7 +86,7 @@ function sendMessage()
 	var oEditor = CKEDITOR.instances['description'] ;
 	var pageValue = oEditor.getData();
 	$('textarea#description').val(pageValue);
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	$.post("?route=core/message/sendMessage", $("#fromMessage").serialize(),
 		function(data){
 			if(data == "true")

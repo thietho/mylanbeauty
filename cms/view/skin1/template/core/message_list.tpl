@@ -23,11 +23,10 @@
             
             	<thead>
                 	<th><input class="inputchk" type="checkbox" onclick="$('input[name*=\'delete\']').attr('checked', this.checked);"></th>
-                	<th width="25%"><?php echo $column_from?></th>
+                	<th width="30%"><?php echo $column_from?></th>
                     <th width="35%"><?php echo $column_title?></th>
                     <th width="15%"><?php echo $column_date?></th>
-                    <th width="15%"><img src="<?php echo DIR_IMAGE."icon/dinhkem.png"?>"></th>
-                    
+                    <!--<th width="15%"><img src="<?php echo DIR_IMAGE."icon/dinhkem.png"?>"></th>-->                    
                 </thead>
                 
                 <tbody>
@@ -43,7 +42,7 @@
                     	<td><?php echo $item['from']?>&nbsp;</td>
                         <td><a href="<?php echo $view?>&messageid=<?php echo $item['messageid']?>"><?php echo $item['title']?>&nbsp;</a></td>
                         <td><?php echo $this->date->formatMySQLDate($item['senddate'])?>&nbsp;</td>
-                        <td><?php if($item['attachment']) echo '<img src="'.DIR_IMAGE.'icon/dinhkem.png">';?>&nbsp;</td>
+                        <!--<td><?php if($item['attachment']) echo '<img src="'.DIR_IMAGE.'icon/dinhkem.png">';?>&nbsp;</td>-->
                         
                     </tr>
                     <?php } ?>
@@ -70,7 +69,7 @@ $(document).ready(function() {
 
 function deletelist()
 {
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	$.post('?route=core/message/delete&folder=<?php echo $_GET["folder"]?>', $("#postlist").serialize(), function(data){
 		window.location.reload()
 	});	

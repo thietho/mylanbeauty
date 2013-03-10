@@ -1,15 +1,15 @@
 <div class="section" id="sitemaplist">
 
-	<div class="section-title">SITEMAP MANAGEMENT</div>
+	<div class="section-title"><?php echo $menu_sitemap ?></div>
     
     <div class="section-content">
     
     	<form action="" id="formlist" name="formlist" method="post">
         
         	<div class="button right">
-                <input class="button" value="Add new" type="button" onclick="linkto('<?php echo $insert?>')">
-                <input class="button" value="Delete" name="btnDel" type="button" onclick="deleteList()">
-                <input class="button" value="Update" name="btnUpdate" type="button" onclick="updateList()">
+                <input class="button" value="<?php echo $button_add ?>" type="button" onclick="linkto('<?php echo $insert?>')">
+                <input class="button" value="<?php echo $button_delete ?>" name="btnDel" type="button" onclick="deleteList()">
+                <input class="button" value="<?php echo $button_update ?>" name="btnUpdate" type="button" onclick="updateList()">
                 <input type="hidden" name="type" value="" />
             </div>
             <div class="clearer">^&nbsp;</div>
@@ -29,7 +29,7 @@
                 <table class="example data-table" width="100%">
                     <thead>
                     <tr class="tr-head">
-                     <th align="left" width="50%">
+                     <th align="left" width="30%">
         <?php
             if($this->session->data['userid']=='admin')
             {
@@ -39,13 +39,13 @@
             }
         ?>             
                      &nbsp;Menu</th>
-                      <th width="25%">Edit Module</th>
-                      <th width="10%">Status</th>
+                      <th width="25%"><?php echo $text_editmodule?></th>
+                      <th width="10%"><?php echo $text_status?></th>
         <?php
             if($this->session->data['userid']=='admin')
             {
         ?>
-                      <th width="15%">Control</th>
+                      <th width="300px"><?php echo $text_control?></th>
         <?php
             }
         ?>
@@ -77,8 +77,8 @@
                 {
         ?>
                       <td>
-                            <a href="<?php echo $insert?>&parent=<?php echo $sitemap['sitemapid']?>" class="button" title="[Add child]">Add child</a> 
-                            <a href="<?php echo $sitemap['update']?>" class="button" title="[Edit]">Edit</a> 
+                            <a href="<?php echo $insert?>&parent=<?php echo $sitemap['sitemapid']?>" class="button" title="[Add child]"><?php echo $button_addchild ?></a> 
+                            <a href="<?php echo $sitemap['update']?>" class="button" title="[Edit]"><?php echo $button_edit?></a> 
                             
                       </td>
         <?php

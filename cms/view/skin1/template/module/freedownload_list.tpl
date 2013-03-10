@@ -31,7 +31,7 @@
                         <th>Ngày tạo</th>
                         <th>Image</th>
                         <?php if($dialog!=true){ ?>              
-                        <th width="10%">Control</th>                                  
+                        <th widht="10%"><?php echo $text_control ?></th>                                  
                         <?php } ?>
                     </tr>
         
@@ -72,7 +72,7 @@
 
 function deleteitem()
 {
-	var answer = confirm("Bạn có muốn xóa không?")
+	var answer = confirm("<?php echo $announ_del ?>")
 	if (answer)
 	{
 		$.post("?route=module/link/delete", 

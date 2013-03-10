@@ -177,28 +177,28 @@ class ControllerCoreSitemap extends Controller
 	private function validateForm()
 	{
 		if ((strlen($this->request->post['sitemapid']) == 0) || (strlen($this->request->post['siteid']) > 50)) {
-      		$this->error['sitemapid'] = "Bạn chưa nhập id";
+      		$this->error['sitemapid'] = $this->data['war_ID'];
     	}
 		else
 		{
-			if($this->validation->_isId(trim($this->request->post['sitemapid'])) == false)
+/*			if($this->validation->_isId(trim($this->request->post['sitemapid'])) == false)
 			{
-				$this->error['sitemapid'] = "ID không hợp lệ";
+				$this->error['sitemapid'] = $this->data['war_invalid_ID'];
 			}
 			else
-			{
+			{*/
 				if($this->request->post['id'] =="")
 				{
 					$sitemapid = $this->request->post['sitemapid'];
 					$this->load->model("core/sitemap");
 					$siteamap = $this->model_core_sitemap->getItem($sitemapid,$this->user->getSiteId());
 					if(count($siteamap))
-						$this->error['sitemapid'] = "ID đã được sử dụng";
+						$this->error['sitemapid'] = $this->data['war_existed_ID'];
 				}
-			}
+			//}
 		}
     	if ((strlen($this->request->post['sitemapname']) == 0) || (strlen($this->request->post['siteid']) > 50)) {
-      		$this->error['sitemapname'] = "Bạn chưa nhập tên";
+      		$this->error['sitemapname'] = $this->data['war_existed_name'];
     	}
 
 		if (!$this->error) {

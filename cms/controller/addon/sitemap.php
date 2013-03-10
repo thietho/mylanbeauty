@@ -2,41 +2,6 @@
 class ControllerAddonSitemap extends Controller
 {
 	private $error = array();
-	function __construct() 
-	{
-		$this->data['permissionAccess'] = true;
-		$this->data['permissionAdd'] = true;
-		$this->data['permissionEdit'] = true;
-		$this->data['permissionDelete'] = true;
-		
-		$sitemapid = $this->request->get['sitemapid'];
-		
-		if($this->user->getUserTypeId() != "admin")
-		{
-			if(!$this->user->hasPermission($sitemapid, "access"))
-			{
-				$this->data['permissionAccess'] = false;
-			}
-			if(!$this->user->hasPermission($sitemapid, "add"))
-			{
-				$this->data['permissionAdd'] = false;
-			}
-			if(!$this->user->hasPermission($sitemapid, "edit"))
-			{
-				$this->data['permissionEdit'] = false;
-			}
-			if(!$this->user->hasPermission($sitemapid, "delete"))
-			{
-				$this->data['permissionDelete'] = false;
-			}
-		}
-	 	$this->load->model("core/user");
-		$this->load->model("core/media");
-		$this->load->model("core/sitemap");
-		$this->load->model("core/file");
-		$this->load->model("core/category");
-		$this->load->helper('image');
-   	}
 	
 	public function index()
 	{
@@ -56,13 +21,13 @@ class ControllerAddonSitemap extends Controller
 	
 	public function getList()
 	{
-		$this->data['insert'] = $this->url->http('addon/sitemap/insert');
-		$this->data['delete'] = $this->url->http('addon/sitemap/delete');
+		$this->data['insert'] = $this->url->http('core/sitemap/insert');
+		$this->data['delete'] = $this->url->http('core/sitemap/delete');
 		
 		$this->data["sitemaps"]=array();
 		
 		$arrSiteMapTree = array();
-		$this->model_core_sitemap->getTreeSitemapUser("", $arrSiteMapTree, $this->user->getSiteId());
+		$this->model_core_sitemap->getTreeSitemap("", $arrSiteMapTree, $this->user->getSiteId());
 		
 		$arrstatus=$this->model_core_sitemap->listStatus();
 		
@@ -89,7 +54,7 @@ class ControllerAddonSitemap extends Controller
 				$class=$eclass.$item['parentpath'];
 			
 			
-			$update = $this->url->http('addon/sitemap/update&sitemapid='.$item['sitemapid']);
+			$update = $this->url->http('core/sitemap/update&sitemapid='.$item['sitemapid']);
 			$this->data["sitemaps"][]=array(
 										'sitemapid'=>$item['sitemapid'],
 										'prefix'=>$this->string->getPrefix("--",$deep),
@@ -126,7 +91,7 @@ class ControllerAddonSitemap extends Controller
 		$this->load->model("core/file");
 		$this->load->model("core/module");
 		
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validateForm())) {
+		/*if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validateForm())) {
 			$filepath = $this->date->getPath()."/sitemap/";
 			$file=$this->model_core_file->saveFile($_FILES['image'],$filepath,"image");	
 			$data = $this->request->post;
@@ -142,8 +107,8 @@ class ControllerAddonSitemap extends Controller
 			$data['languageid'] = 1;
 			$this->model_core_sitemap->insertSiteMap($data);
 			$this->session->data['success'] = $this->language->get('text_success');
-			$this->redirect($this->url->http('addon/sitemap'));
-		}
+			$this->redirect($this->url->http('core/sitemap'));
+		}*/
     
     	$this->getForm();
 	}
@@ -157,7 +122,7 @@ class ControllerAddonSitemap extends Controller
 		$this->load->model("core/file");
 		$this->load->model("core/module");
 		
-    	if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validateForm())) {
+    	/*if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validateForm())) {
 			$filepath = $this->date->getPath()."/sitemap/";
 			$file=$this->model_core_file->saveFile($_FILES['image'],$filepath,"image");	
 			
@@ -170,16 +135,70 @@ class ControllerAddonSitemap extends Controller
 			
 			$this->model_core_sitemap->updateSiteMap($data);
 			$this->session->data['success'] = $this->language->get('text_success');
-			$this->redirect($this->url->http('addon/sitemap'));
-		}
+			$this->redirect($this->url->http('core/sitemap'));
+		}*/
     
     	$this->getForm();
   	}
 	
+	public function save()
+	{
+		$data = $this->request->post;
+		
+		if($this->validateForm($data))
+		{
+			$this->load->model("core/sitemap");
+			$data['siteid'] = $this->user->getSiteId();
+			if($data['id']=="")
+			{
+				$data['position'] = $this->model_core_sitemap->nextPosition($data['sitemapparent']);
+				$this->model_core_sitemap->insertSiteMap($data);
+			}
+			else
+			{
+				$this->model_core_sitemap->updateSiteMap($data);
+			}
+			
+			$this->data['output'] = "true";
+		}
+		else
+		{
+			foreach($this->error as $item)
+			{
+				$this->data['output'] .= $item."<br>";
+			}
+		}
+		
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
+	}
+	
 	private function validateForm()
 	{
+		if ((strlen($this->request->post['sitemapid']) == 0) || (strlen($this->request->post['siteid']) > 50)) {
+      		$this->error['sitemapid'] = $this->data['war_ID'];
+    	}
+		else
+		{
+		/*	if($this->validation->_isId(trim($this->request->post['sitemapid'])) == false)
+			{
+				$this->error['sitemapid'] = $this->data['war_invalid_ID'];
+			}
+			else
+			{*/
+				if($this->request->post['id'] =="")
+				{
+					$sitemapid = $this->request->post['sitemapid'];
+					$this->load->model("core/sitemap");
+					$siteamap = $this->model_core_sitemap->getItem($sitemapid,$this->user->getSiteId());
+					if(count($siteamap))
+						$this->error['sitemapid'] = $this->data['war_existed_ID'];
+				}
+			//}
+		}
     	if ((strlen($this->request->post['sitemapname']) == 0) || (strlen($this->request->post['siteid']) > 50)) {
-      		$this->error['sitemapname'] = $this->language->get('error_sitemapname');
+      		$this->error['sitemapname'] = $this->data['war_existed_name'];
     	}
 
 		if (!$this->error) {
@@ -195,35 +214,27 @@ class ControllerAddonSitemap extends Controller
 		$this->data['error'] = @$this->error;
 		
 		if (!isset($this->request->get['sitemapid'])) {
-			$this->data['action'] = $this->url->http('addon/sitemap/insert');
+			$this->data['action'] = $this->url->http('core/sitemap/insert');
 		} else {
-			$this->data['action'] = $this->url->http('addon/sitemap/update&sitemapid=' . $this->request->get['sitemapid']);
+			$this->data['action'] = $this->url->http('core/sitemap/update&sitemapid=' . $this->request->get['sitemapid']);
 		}
 		
-		$this->data['cancel'] = $this->url->https('core/site');
+		
 		
 		$this->data['status']=$this->model_core_sitemap->listStatus();
-		$this->data['modules']=$this->model_core_sitemap->moduleuser;
+		$this->data['modules']=$this->model_core_sitemap->getModules();
 		
 		if ((isset($this->request->get['sitemapid'])) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-      		$sitemap = $this->model_core_sitemap->getItem($this->request->get['sitemapid'], $this->user->getSiteId());
+			$sitemapid = $this->request->get['sitemapid'];
+      		$sitemap = $this->model_core_sitemap->getItem(urldecode($sitemapid), $this->user->getSiteId());
 			//$sitemap_description = $this->model_core_sitemap->getSiteMapDescription($this->request->get['sitemapid'],$this->language->getId() );
 			//$file =$this->model_core_file->getFile($sitemap['imageid']);
 			
-			$this->data['sitemap']['sitemapid'] = $sitemap['sitemapid'];
-			$this->data['sitemap']['sitemapname'] = $sitemap['sitemapname'];
-			$this->data['sitemap']['sitemapparent'] = $sitemap['sitemapparent'];
-			$this->data['sitemap']['moduleid'] = $sitemap['moduleid'];
-			$this->data['sitemap']['position'] = $sitemap['position'];
-			$this->data['sitemap']['imageid'] = $sitemap['imageid'];
-			$this->data['sitemap']['imagepath'] = $sitemap['imagepath'];
-			$this->data['sitemap']['thumbnail'] = HelperImage::resizePNG($sitemap['imagepath'],180,180);
-			$this->data['sitemap']['status'] = $sitemap['status'];
+			$this->data['sitemap'] = $sitemap;
+			
+			$this->data['sitemap']['thumbnail'] = HelperImage::resizePNG($sitemap['imagepath'],200,200);
+			$this->data['noimage'] = HelperImage::resizePNG("",200,200);
     	}
-		else
-		{
-			$this->data['sitemap'] = $this->request->post;
-		}
 		
 		$list = array();
 		$parent=$this->request->get['parent'];
@@ -305,7 +316,7 @@ class ControllerAddonSitemap extends Controller
 				if($this->request->post['type']=="Update")
 					$this->model_core_sitemap->updateSiteMapPosition($key,$val);
 			}
-			$this->response->redirect('?route=addon/sitemap');
+			$this->response->redirect('?route=core/sitemap');
 		}
 		
 	}

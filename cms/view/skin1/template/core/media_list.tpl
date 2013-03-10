@@ -1,15 +1,15 @@
 <script src='<?php echo DIR_JS?>ui.datepicker.js' type='text/javascript' language='javascript'> </script>
 <div class="section">
 
-	<div class="section-title">Quản lý bài viết</div>
+	<div class="section-title"><?php echo $menu_media ?></div>
     
     <div class="section-content">
     	
         <form action="" method="post" id="listitem" name="listitem">
         	<div id="ben-search">
-            	<label>Từ khóa</label>
+            	<label><?php echo $lbl_key ?></label>
                 <input type="text" id="keyword" name="keyword" class="text" value="" />
-                <label>Loại</label>
+               <!-- <label>Loại</label>
                 <select id="type" name="type">
                     <option value=""></option>
                     <?php foreach($module as $key => $val){ ?>
@@ -27,9 +27,8 @@
                     <?php foreach($users as $key => $val){ ?>
                     <option value="<?php echo $val['userid']?>"><?php echo $val['fullname']?></option>
                     <?php } ?>
-                </select>
-                <br />
-                <label>Từ ngày</label>
+                </select>-->
+                <label><?php echo $lbl_fromdate ?></label>
                 <script language="javascript">
 					$(function() {
 						$("#tungay").datepicker({
@@ -40,7 +39,7 @@
 						});
 				 </script>
                 <input id="tungay" name="tungay" type="text" class="text" />
-                <label>Đến ngày</label>
+                <label><?php echo $lbl_todate ?></label>
                 <script language="javascript">
 					$(function() {
 						$("#denngay").datepicker({
@@ -52,13 +51,12 @@
 				 </script>
                 <input id="denngay" name="denngay" type="text" class="text" />
                
-                <br />
-                <input type="button" class="button" name="btnSearch" value="Tìm" onclick="searchForm()"/>
-                <input type="button" class="button" name="btnSearch" value="Xem tất cả" onclick="window.location = '?route=core/media'"/>
+                <input type="button" class="button" name="btnSearch" value="<?php echo $button_search ?>" onclick="searchForm()"/>
+                <input type="button" class="button" name="btnSearch" value="<?php echo $button_viewall ?>" onclick="window.location = '?route=core/media'"/>
             </div>
         	<div class="button right">
                
-            	<input class="button" type="button" name="delete_all" value="Delete" onclick="deleteItem()"/>  
+            	<input class="button" type="button" name="delete_all" value="<?php echo $button_delete ?>" onclick="deleteItem()"/>  
             </div>
             <div class="clearer">^&nbsp;</div>
             
@@ -68,13 +66,13 @@
                     <tr class="tr-head">
                         <th width="1%"><input class="inputchk" type="checkbox" onclick="$('input[name*=\'delete\']').attr('checked', this.checked);"></th>
                         
-                        <th>Tiêu đề</th>
-                        <th>Tắc giả</th>
-                        <th>Loại</th>
-                        <th>Danh muc</th>
-                        <th>Ngày</th>
-                        <th>Hình</th>                 
-                        <th>Control</th>                                  
+                        <th><?php echo $lbl_title ?></th>
+<!--                    <th>Tắc giả</th>
+                        <th>Loại</th>-->                        
+                        <th><?php echo $lbl_category ?></th>
+                        <th><?php echo $lbl_date ?></th>
+                        <th><?php echo $lbl_image ?></th>                 
+                        <th width='150px'><?php echo $text_control ?></th>                                  
                     </tr>
         
         
@@ -86,13 +84,14 @@
                         <td class="check-column"><input class="inputchk" type="checkbox" name="delete[<?php echo $item['mediaid']?>]" value="<?php echo $item['mediaid']?>" ></td>
                         
                         <td><?php echo $item['title']?></td>
-                        <td><?php echo $item['fullname']?></td>
-                        <td><?php echo $item['typename']?></td>
+                        
+                        <!--<td><?php echo $item['fullname']?></td>
+                        <td><?php echo $item['typename']?></td>-->
                 		<td><?php echo $item['sitemapnames']?></td>
                         <td><?php echo $this->date->formatMySQLDate($item['statusdate'],'longdate')?></td>
                         <td><?php echo $item['imagepreview']?></td>
                         <td class="link-control">
-                            <a class="button" href="<?php echo $item['link_edit']?>" title="<?php echo $item['text_edit']?>"><?php echo $item['text_edit']?></a>
+                            <a class="button" href="<?php echo $item['link_edit']?>" title="<?php echo $item['text_edit']?>"><?php echo $button_edit?></a>
                             <?php echo $item['btnMap']?>
                         </td>
                     </tr>
@@ -115,7 +114,7 @@
 
 function deleteItem()
 {
-	var answer = confirm("Bạn có muốn xóa không?")
+	var answer = confirm("<?php echo $announ_del ?>")
 	if (answer)
 	{
 		$.post("?route=core/media/delete", 
@@ -150,13 +149,13 @@ function searchForm()
 	
 	if($("#keyword").val() != "")
 		url += "&keyword="+ $("#keyword").val();
-	if($("#type").val() != "")
+/*	if($("#type").val() != "")
 		url += "&type=" + $("#type").val();
 	if($("#sitemapid").val() != "")
 		url += "&sitemapid=" + $("#sitemapid").val();
 	if($("#userid").val() != "")
 		url += "&userid=" + $("#userid").val();
-	if($("#tungay").val() != "")
+*/	if($("#tungay").val() != "")
 		url += "&tungay=" + $("#tungay").val();
 	if($("#denngay").val() != "")
 		url += "&denngay=" + $("#denngay").val();
@@ -186,7 +185,7 @@ $('#type').change(function(e) {
 		$("#sitemapid").val("<?php echo $_GET['sitemapid']?>");
 	});
 });
-$("#keyword").val("<?php echo urldecode($_GET['keyword'])?>");
+$("#keyword").val("<?php echo $_GET['keyword']?>");
 $("#type").val("<?php echo $_GET['type']?>");
 $("#userid").val("<?php echo $_GET['userid']?>");
 $("#tungay").val("<?php echo $_GET['tungay']?>");

@@ -7,8 +7,8 @@
     	<form name="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         
         	<div class="button right">
-            	<input type="submit" value="Save" class="button"/>
-     	        <input type="button" value="Cancel" class="button" onclick="linkto('<?php echo $cancel?>')"/>   
+            	<input type="submit" value="<?php echo $button_save ?>" class="button"/>
+     	        <input type="button" value="<?php echo $button_cancel ?>" class="button" onclick="linkto('<?php echo $cancel?>')"/>   
      	        <input type="hidden" name="id" value="<?php echo $site['id']?>" />   
             </div>
             <div class="clearer">^&nbsp;</div>

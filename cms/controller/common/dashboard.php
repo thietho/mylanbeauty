@@ -33,7 +33,6 @@ class ControllerCommonDashboard extends Controller
 	{
 		$data = $this->request->post;
 		
-		
 		$this->load->model("core/media");
 		//Save setting
 		$this->model_core_media->saveInformation($data['mediaid'],"Title",$data['Title']);

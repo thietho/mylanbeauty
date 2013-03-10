@@ -55,6 +55,7 @@ class ControllerCorePostcontent extends Controller
 	
 	private function getForm()
 	{
+		$this->load->model("core/media");
 		$mediaid = $this->request->get['mediaid'];
 		if($mediaid)
 		{
@@ -173,7 +174,7 @@ class ControllerCorePostcontent extends Controller
 		
 		//Define product
 		$this->data['hasPrice'] = false;
-		$this->data['hasSubInfor'] = true;
+		$this->data['hasSubInfor'] = false;
 		//Video
 		$this->data['hasVideo'] = false;
 		$this->data['DIR_CANCEL'] = HTTP_SERVER."index.php?route=".$route."&sitemapid=".$sitemapid;
@@ -199,7 +200,7 @@ class ControllerCorePostcontent extends Controller
 		if($route == "module/product")
 		{
 			$this->data['hasProperties'] = true;
-			$this->data['hasPrice'] = true;
+			$this->data['hasPrice'] = false;
 			$this->data['hasSubInfor'] = false;
 			$this->data['hasProductPrice'] = true;
 			$this->data['hasSource'] = false;
@@ -208,6 +209,10 @@ class ControllerCorePostcontent extends Controller
 		if($route == "module/video")
 		{
 			$this->data['hasVideo'] = true;
+		}
+		if($route == "module/audio")
+		{
+			$this->data['hasAudio'] = true;
 		}
 		if($route == "module/banner")
 		{
@@ -236,7 +241,7 @@ class ControllerCorePostcontent extends Controller
 			
 			$this->data['hasFile'] = true;
 			$this->data['hasSource'] = false;
-			$this->data['hasSubInfor'] = true;
+			$this->data['hasSubInfor'] = false;
 			//$this->data['post']['title'] = $sitemap['sitemapname'];
 			$this->data['DIR_CANCEL'] = HTTP_SERVER."index.php";
 		}
@@ -248,7 +253,7 @@ class ControllerCorePostcontent extends Controller
 			
 			$this->data['hasFile'] = true;
 			$this->data['hasSource'] = false;
-			$this->data['hasSubInfor'] = true;
+			$this->data['hasSubInfor'] = false;
 		}
 		elseif($route == "module/contact")
 		{
@@ -302,7 +307,6 @@ class ControllerCorePostcontent extends Controller
 		$this->data['statusdate'] = $this->data['post']['statusdate'];
 		$this->data['statusby'] = $this->data['post']['statusby'];
 		$this->data['updateddate'] = $this->data['post']['updateddate'];
-		
 		$listfile = $this->model_core_media->getInformation($this->data['mediaid'], "attachment");
 		$listfileid=array();
 		if($listfile)
@@ -315,7 +319,6 @@ class ControllerCorePostcontent extends Controller
 			if(!$this->string->isImage($this->data['attachment'][$key]['extension']))
 				$this->data['attachment'][$key]['imagethumbnail'] = DIR_IMAGE."icon/dinhkem.png";
 		}
-		
 		$this->data['status'] = $this->data['post']['status'];
 		if($this->data['status'] == "")
 		{
@@ -395,7 +398,6 @@ class ControllerCorePostcontent extends Controller
 		}
 		else
 		{
-			
 			if($this->model_core_media->update($data) == false)
 			{
 				exit("There are some problems, please contact administrator!");
@@ -412,8 +414,8 @@ class ControllerCorePostcontent extends Controller
 		/*$listdelfile=$this->data['post']['delfile'];
 		if(count($listdelfile))
 			foreach($listdelfile as $item)
-				$this->model_core_file->deleteFile($item);*/
-		$this->model_core_media->clearTempFile();
+				$this->model_core_file->deleteFile($item);
+		$this->model_core_media->clearTempFile();*/
 		/*if($route=="module/contact")
 		{
 			$this->model_core_media->saveInformation($data['mediaid'], "email1", $this->data['post']['email1']);
@@ -432,6 +434,77 @@ class ControllerCorePostcontent extends Controller
 		//{
 			//$this->redirect("index.php");
 		//}
+		
+	}
+	
+	public function savepreview()
+	{
+		$this->load->model("core/media");
+		$this->load->model("core/sitemap");
+		$route = $this->getRoute();
+		$this->data['post'] = $this->request->post;
+		//$this->data['post']['temp'] = 'temp';
+		$sitemapid = $this->request->get['sitemapid'];
+		$mediaid = $this->request->get['mediaid'];
+		$siteid = $this->user->getSiteId();
+			
+		$sitemapid = $this->request->get['sitemapid'];
+		
+		$data = $this->data['post'];
+		
+		
+		$data['userid'] = $this->user->getId();
+		
+		if($data['price'] == "")
+			$data['price'] = $this->data['post']['mainprice'];
+		
+		$data['groupkeys'] = $this->getProperties($this->data['post']);
+		
+		$list = $this->model_core_sitemap->getListByModule("module/news",$this->user->getSiteId());
+		
+		$data['refersitemap'] = "";
+		if($this->request->post['listrefersitemap'])
+		{
+			foreach ($this->request->post['listrefersitemap'] as $refersiteid) {
+				$data['refersitemap'] .= "[".$refersiteid."]";
+			}
+		}
+		
+		if($data['mediaid'] == "")
+		{
+			
+			$data['mediaid'] = $this->model_core_media->insertTemp($data);
+			
+			if($data['mediaparent'])
+				$this->model_core_media->updateStatus($data['mediaid'],"active");
+		}
+		else
+		{
+			if($this->model_core_media->update($data) == false)
+			{
+				exit("There are some problems, please contact administrator!");
+			}
+			if($data['eventdate']!="")
+			{
+				$this->model_core_media->updateCol($data['mediaid'],'eventdate',$this->date->formatViewDate($data['eventdate']));	
+				$this->model_core_media->updateCol($data['mediaid'],'eventtime',$data['eventtime']);
+			}
+		}
+		
+		$listAttachment=$this->data['post']['attimageid'];
+		$this->model_core_media->saveAttachment($data['mediaid'],$listAttachment);
+		$listdelfile=$this->data['post']['delfile'];
+		if(count($listdelfile))
+			foreach($listdelfile as $item)
+				$this->model_core_file->deleteFile($item);
+		$this->model_core_media->clearTempFile();
+
+		
+		$this->data['output'] = json_encode($data);
+		
+		$this->template="common/output.tpl";
+		$this->render();
+
 		
 	}
 	

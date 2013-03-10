@@ -8,8 +8,8 @@
         
         	<div class="button right">
             	<p>
-                <input type="submit" value="Save" class="button"/>
-           		<input type="button" value="Cancel" class="button" onclick="linkto('?route=core/module')"/>
+                <input type="submit" value="<?php echo $button_save ?>" class="button"/>
+           		<input type="button" value="<?php echo $button_cancel ?>" class="button" onclick="linkto('?route=core/module')"/>
                 </p>
             </div>
             <div class="clearer">^&nbsp;</div>

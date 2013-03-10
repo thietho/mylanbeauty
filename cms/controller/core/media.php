@@ -60,7 +60,7 @@ class ControllerCoreMedia extends Controller
 		
 		$where = " AND mediaparent = '' AND mediatype = ''";
 		
-		$keyword = urldecode($this->request->get['keyword']);
+		$keyword = $this->request->get['keyword'];
 		$type = $this->request->get['type'];
 		$sitemapid = $this->request->get['sitemapid'];
 		$userid = $this->request->get['userid'];
@@ -116,7 +116,6 @@ class ControllerCoreMedia extends Controller
 		$page   = $pager->page;
 		$this->data['medias'] = array();
 		for($i=$offset;$i < $offset + $limit && count($rows[$i])>0;$i++)
-		//for($i=0; $i <= count($this->data['medias'])-1 ; $i++)
 		{
 			$this->data['medias'][$i] = $rows[$i];
 			$user = $this->model_core_user->getItem($this->data['medias'][$i]['userid']);

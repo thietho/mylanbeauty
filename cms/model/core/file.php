@@ -83,6 +83,7 @@ class ModelCoreFile extends Model
 						$filetypeid
 					);
 		$this->db->insertData("file",$field,$value);
+		return $this->db->getLastId();
 	}
 	
 	public function updateTagKeyword($fileid, $keyword)

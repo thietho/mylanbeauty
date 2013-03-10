@@ -13,33 +13,28 @@
                     <div>
                         
                         <p>
-                            <label for="username">Username</label><br>
+                            <label for="username"><?php echo $lbl_username ?></label><br>
                             <input type="text" class="text" id="username" name="username"  value="<?php echo $username?>" />
                         </p>
-                        
                         <p>
-                            <label for="password">Password</label><br>
+                            <label for="password"><?php echo $lbl_password ?></label><br>
                             <input type="password" class="text" id="password" name="password" />
                         </p>
-                        
+                        <!--                        
                         <p>
                             <label for="password">Website</label><br>
                             <select name="siteid">
-                            	<?php foreach($sites as $site) {?>
-                                	<option value="<?php echo $site['siteid']?>"><?php echo $site['sitename']?></option>
-                            	<?php } ?>
+                                <?php foreach($sites as $site) {?>
+                                    <option value="<?php echo $site['siteid']?>"><?php echo $site['sitename']?></option>
+                                <?php } ?>
                             </select>
-                            
                         </p>
-                        
+                        -->                        
                         <p>
-                            <label for="password">Security Code:</label><br>
-                            <input type="text" class="text" name="code" /><br />
-							<img src="<?php echo $security?>" />
+                            <label for="password"><?php echo $security_code ?></label><br>
+                            <img src="<?php echo $security?>" /><br />
+                            <input type="text" class="text" name="code" />
                         </p>
-                        
-                        
-        
                     </div>			
                 
             </div>
@@ -51,8 +46,8 @@
             <div class="clearer">&nbsp;</div>
             
             <p>
-                <input type="submit" class="button" id="btnsubmit" name="btnsubmit" value="Login" />&nbsp;
-                <input type="button" class="button" id="btnsubmit" name="btnquenmatkhau" value="Forgot Password" onclick="window.location='?route=common/forgotpassword'"/>
+                <input type="submit" class="button" id="btnsubmit" name="btnsubmit" value="<?php echo $button_login ?>" />&nbsp;
+                <input type="button" class="button" id="btnsubmit" name="btnquenmatkhau" value="<?php echo $button_forgot_pass ?>" onclick="window.location='?route=common/forgotpassword'"/>
             </p>
         </form>
     </div>

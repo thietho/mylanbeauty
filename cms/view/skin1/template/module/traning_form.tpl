@@ -8,8 +8,8 @@
     	<form name="frm" id="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         
         	<div class="button right">
-            	<input type="button" value="Save" class="button" onClick="save()"/>
-     	        <input type="button" value="Cancel" class="button" onclick="linkto('?route=module/traning&sitemapid=<?php echo $sitemap['sitemapid']?>')"/>   
+            	<input type="button" value="<?php echo $button_save ?>" class="button" onClick="save()"/>
+     	        <input type="button" value="<?php echo $button_cancel ?>" class="button" onclick="linkto('?route=module/traning&sitemapid=<?php echo $sitemap['sitemapid']?>')"/>   
      	        <input type="hidden" name="mediaid" value="<?php echo $item['mediaid']?>">
                 <input type="hidden" id="status" name="status" value="<?php echo $item['status']?>" />
              	<input type="hidden" id="mediatype" name="mediatype" value="traning" />
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
 function save()
 {
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	
 	var oEditor = CKEDITOR.instances['description'] ;
 	var pageValue = oEditor.getData();

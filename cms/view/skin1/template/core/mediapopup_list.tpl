@@ -55,7 +55,7 @@ $(document).ready(function() {
 
 function deletelist()
 {
-	$.blockUI({ message: "<h1>Đang xử lý...</h1>" }); 
+	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
 	$.post(DIR_DELETE, $("#postlist").serialize(), function(data){
 		window.location.reload()
 	});	

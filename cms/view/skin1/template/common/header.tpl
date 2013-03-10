@@ -9,18 +9,18 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <div id="top">
 
     <div class="left text-center" id="weblogo">
-        <a href="http://ben-solution.com/">
-            <img class="png" src="<?php echo DIR_IMAGE?>ben_logo.gif" alt="" /><br />
-        </a>  
+        <a href="http://ben-solution.com/">		
+			<?php echo $imagepreview ?>
+		</a>  
     </div>
 
     <div class="left">
         
         <?php if($sitename) {?>
-        <p>Content Management System</p>
+        <p><?php echo $title_system ?></p>
         <h2><?php echo $sitename?></h2>
         <?php } else { ?>
-        <h2>Content Management System</h2>
+        <h2><?php echo $title_system ?></h2>
         <?php } ?>
 
         <div class="clearer">&nbsp;</div>
@@ -29,13 +29,14 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
     
     <div class="right text-center" id="logo">
         <a href="http://ben-solution.com/">
-            <img class="png" src="<?php echo DIR_IMAGE?>ben_logo.gif" alt="" /><br />
+            <img class="png" src="<?php echo DIR_IMAGE?>logo.png"/><br />
         </a>  
     </div>
     
     <div class="right">
-    	Logged user: <b><?php echo $username?></b><br />
-		
+    <?php if($username != "") { ?>
+    	<?php echo $logged_user ?>: <b><?php echo $username?></b><br />
+	<?php } ?>	
     </div>
 
     <div class="clearer">&nbsp;</div>

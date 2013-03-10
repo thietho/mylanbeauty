@@ -1,12 +1,12 @@
                                 <table>
                                 	<thead>
                                     	<tr>
-                                        	<th>Tiêu đề</th>
-                                            <th>Code</th>
-                                            <th>Giá thị trường</th>
-                                            <th>Giá bán</th>
-                                            <th>Khuyến mãi</th>
-                                            <th>Thứ tự</th>
+                                        	<th><?php echo $lbl_title ?></th>
+                                           	<th>Code</th>
+                                            <th><?php echo $lbl_standardprice ?></th>
+                                            <th><?php echo $lbl_sale ?></th>
+                                            <th><?php echo $lbl_price ?></th>
+                                            <th><?php echo $lbl_order ?></th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -28,15 +28,15 @@
                                                 
                                             </td>
                                             <td class="number"><?php echo $this->string->numberFormate($item['thitruong'])?></td>
-                                            <td class="number"><?php echo $this->string->numberFormate($item['gia'])?></td>
                                             <td class="number"><?php echo $this->string->numberFormate($item['khuyenmai'])?></td>
+                                            <td class="number"><?php echo $this->string->numberFormate($item['gia'])?></td>
                                             <td>
                                                 <input type="text" class="text number price" id="pos-<?php echo $item['mediaid']?>" name="pos[<?php echo $item['mediaid']?>]" value="<?php echo $item['position']?>" size="3" style="text-align:right"/>
                                             </td>
                                             
                                             <td>
-                                                <input type="button" class="button" value="Edit" onclick="price.edit('<?php echo $item['mediaid']?>')"/>
-                                                <input type="button" class="button" value="Remove" onclick="price.remove('<?php echo $item['mediaid']?>')"/>
+                                                
+                                                <a class="button" onclick="price.edit('<?php echo $item['mediaid']?>')"><?php echo $button_edit ?></a>&nbsp;<a class="button" onclick="price.remove('<?php echo $item['mediaid']?>')"><?php echo $button_delete ?></a>
                                             </td>
                                             
                                         </tr>
@@ -48,7 +48,7 @@
                                     	<tr>
                                         	<td colspan="3">
                                             	<center>
-                                                	<input type="button" class="button" id="btnUpdatePrice" name="btnUpdatePos"  value="Update position" />
+                                                	<input type="button" class="button" id="btnUpdatePrice" name="btnUpdatePos"  value="<?php echo $button_updateposition ?>" />
                                                     <input type="hidden" name="mainprice" value="<?php echo $child[0]['mainprice']?>" />
                                                 </center>
                                             </td>
