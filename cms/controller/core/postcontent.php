@@ -302,6 +302,7 @@ class ControllerCorePostcontent extends Controller
 		$this->data['statusdate'] = $this->data['post']['statusdate'];
 		$this->data['statusby'] = $this->data['post']['statusby'];
 		$this->data['updateddate'] = $this->data['post']['updateddate'];
+		
 		$listfile = $this->model_core_media->getInformation($this->data['mediaid'], "attachment");
 		$listfileid=array();
 		if($listfile)
@@ -394,6 +395,7 @@ class ControllerCorePostcontent extends Controller
 		}
 		else
 		{
+			
 			if($this->model_core_media->update($data) == false)
 			{
 				exit("There are some problems, please contact administrator!");
