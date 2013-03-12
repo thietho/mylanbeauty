@@ -14,6 +14,7 @@ final class Document {
 	public $media = array();
 	public $meta_description = '';
 	public $meta_keyword = '';
+	public $meta_image = '';
 	public $sitebar =array();
 	public $text = array();
 	public $setting = array();
@@ -34,7 +35,7 @@ final class Document {
 		$this->db = Registry::get('db');
 		$this->language = Registry::get('language');
 		$this->text = $this->language->getData();
-		
+		$this->meta_image = DIR_FILE."default/default.png";
 		$this->filepath = DIR_FILE."db/setting.json";
 		$this->createDB();
 		$this->getData();
