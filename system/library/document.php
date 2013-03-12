@@ -137,7 +137,7 @@ final class Document {
 			$link.= '/'.$key;
 		if($val)
 			$link.= '/'.$val;
-		return $link.'.html';
+		return $link.'_'.time().'.html';
 	}
 	
 	public function getPara()
