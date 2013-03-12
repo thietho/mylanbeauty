@@ -213,7 +213,15 @@ $(document).ready(function(e) {
             <div id="fragment-properties">
             	<div>
                 	
-                	
+                	<p>
+                    	<label>Nhãn hiệu</label><br />
+                        <select name="nhanhieu">
+                        	<option value=""></option>
+                        	<?php foreach($nhanhieu as $it){ ?>
+                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
+                        	<?php } ?>
+                        </select>
+                    </p>
                     <p>
                     	<label><?php echo $text_status?></label>
                         <?php foreach($statuspro as $it){ ?>
