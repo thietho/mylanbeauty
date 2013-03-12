@@ -106,11 +106,17 @@ class ControllerModulePagedetail extends Controller
 		if($sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		$id = $this->request->get['id'];
-		
+		if(count($media))
+		{
+			$id = $media['alias'];	
+		}
 		$mediaid = $id;
 		$siteid = $this->member->getSiteId();
 		
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
+		$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
+		$sid = $arr[0];
+		$this->data['post']['link'] = $this->document->createLink($sid,$this->data['post']['alias']);
 		$mediaid = $this->data['post']['mediaid'];
 		$this->document->title .= " - ".$this->data['post']['title'];
 		if(count($this->data['post']) == 0)
