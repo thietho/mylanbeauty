@@ -174,7 +174,7 @@ $("#ben-next").click(function(){
             	
                 
             </p>
-            <p>
+            <p class="short_intro">
             	<?php echo $post['summary']?>
                 
             </p>
