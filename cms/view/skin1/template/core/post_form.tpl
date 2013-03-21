@@ -420,7 +420,7 @@ $(document).ready(function() {
                     </p>
                     <p>
                         Code sản phẩm:<br />
-                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />
+                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <!--<input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />-->
                     </p>
                     <p>
                         <?php echo $lbl_standardprice ?><br />
