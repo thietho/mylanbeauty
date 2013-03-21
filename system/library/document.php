@@ -21,21 +21,48 @@ final class Document {
 	public $setup = array();
 	public $status = array(
 						   'new' => "Đơn hàng mới",
-						   'pending' => "Đang chờ thanh toán",
-						   'completed' => "Đã thanh toán"
+						   'wait' => "Đang xử lý",
+						   'pending' => "Xát với khách hàng không được",
+						   'confirmed' => "Đã xát nhận",
+						   'completed' => "Hoàn thành",
+						   'cancel' => "Hủy đơn hàng"
 						   );
+	public $paymenttype = array(
+							'cash'=>'Giao hàng bàng tiền mặt',
+							'bank' =>'Thanh toán chuyển khoản trước khi giao hàng',
+							'cashbank80' =>'Đặt cọc 80% trước khi giao hàng(tiền mặt hoặc chuyển khoản)'
+							);
 	public $status_comment = array(
 						   'new' => "Chưa duyệt",
 						   'published' => "Duyệt",
 						   'denial' => "Không duyệt"
 						   );
+	public $userstatus = array(
+							'active' => "Đang kích hoạt",
+							'lock' => "Đã bị khóa"
+							);
+	public $tiente = array(
+						"VND" => "VNĐ",
+						"USD" => "USD"
+						);
+	public function toVND($value,$donvi)
+	{
+		if($donvi == "VND")
+			return $value;
+		else
+		{
+			
+			return $value * $this->toNumber($this->setup['Exchange']); 	
+		}
+			
+	}
 	private $filepath;
 	public function __construct() 
 	{
 		$this->db = Registry::get('db');
 		$this->language = Registry::get('language');
 		$this->text = $this->language->getData();
-		$this->meta_image = DIR_FILE."default/default.png";
+		$this->meta_image = HTTP_IMAGE."default/default.png";
 		$this->filepath = DIR_FILE."db/setting.json";
 		$this->createDB();
 		$this->getData();
@@ -117,7 +144,6 @@ final class Document {
 									where mediaid ='".$mediaid."' ");
 		return $query->row[$name];	
 	}
-	
 	public function getUser($userid,$name="fullname")
 	{
 		$query = $this->db->query("Select `user`.* 
@@ -125,7 +151,6 @@ final class Document {
 									where userid ='".$userid."' ");
 		return $query->row[$name];	
 	}
-	
 	public function createLink($sitemap="",$id="",$key = "",$val = "")
 	{
 		$link = HTTP_SERVER;
