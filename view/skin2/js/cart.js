@@ -40,7 +40,7 @@ function Cart()
 								$( this ).dialog( "close" );
 							},
 							'Xem giỏ hàng': function(){
-								window.location = HTTP_SERVER+'cart.html';	
+								window.location = HTTP_SERVER+'cart_'+ Date.now() +'.html';	
 							},
 							
 						}

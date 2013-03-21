@@ -45,7 +45,7 @@
         	
             <input type="hidden" id="userid" name="userid" value="<?php echo $member['username']?>" size="40">
             <tr>
-            	<td width="100px"><label>Họ và tên</label></td>
+            	<td width="200px"><label>Họ và tên</label></td>
                 <td><input type="text" id="customername" name="customername" value="<?php echo $member['fullname']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
             </tr>
             <tr>
@@ -66,7 +66,7 @@
         <h2>Thông tin giao hàng</h2>
         <table class="ben-form">
         	<tr>
-            	<td width="100px">Người nhận hàng</td>
+            	<td width="200px">Người nhận hàng</td>
                 <td><input type="text" id="receiver" name="receiver" class="ben-textbox" size="40" ></td>
             </tr>
             <tr>
