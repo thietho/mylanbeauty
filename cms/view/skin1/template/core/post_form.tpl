@@ -122,6 +122,10 @@ $('#title').change(function(e) {
                             <label><?php echo $text_price?></label><br>
                             <input class="text number" type="text" name="price" value="<?php echo $price?>" size="60" />
                         </p>
+                        <p>
+                            <label>Giá khuyến mãi</label><br>
+                            <input class="text number" type="text" name="pricepromotion" value="<?php echo $pricepromotion?>" size="60" />
+                        </p>
                         <?php } ?>
                         <p>
                         	<label>Trang thái:</label>
@@ -210,6 +214,7 @@ $(document).ready(function(e) {
                 </div>
                 
             </div>
+            <?php if($hasProperties) {?>
             <div id="fragment-properties">
             	<div>
                 	
@@ -235,6 +240,7 @@ $(document).ready(function(e) {
                     </p>
                 </div>
             </div>
+            <?php } ?>
             <div id="fragment-detail">
             	<a class="button" onclick="browserFileEditor()"><?php echo $entry_photo ?></a>
                 <input type="hidden" id="listselectfile" name="listselectfile" />
@@ -414,7 +420,7 @@ $(document).ready(function() {
                     </p>
                     <p>
                         Code sản phẩm:<br />
-                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <!--<input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />-->
+                        <input class="text" type="text" name="price_code" id="price_code" value="" size="40" onchange="price.loadPrice(this.value)"/> <input type="button" class="button" value="Lấy giá" onclick="price.loadPrice($('#price_code').val())" />
                     </p>
                     <p>
                         <?php echo $lbl_standardprice ?><br />
@@ -632,7 +638,7 @@ $(document).ready(function(e) {
 </div>
 
 <script src='<?php echo DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>
-<script src="<?php echo DIR_JS?>jquery.tabs.pack.js" type="text/javascript"></script>
+
 
 <script type="text/javascript" charset="utf-8">
 function save()
@@ -689,7 +695,7 @@ function preview()
 					
 					obj = jQuery.parseJSON(data);
 					alias = "/" + obj.alias;
-					url = "<?php echo str_replace('/cms/',"/".$_GET['sitemapid'],HTTP_SERVER); ?>" + alias + '.html';
+					url = "<?php echo str_replace('/cms/',"/".$_GET['sitemapid'],HTTP_SERVER); ?>" + alias + '_preview'+'.html';
 					window.open(url,'_blank');
 				}
 				else
