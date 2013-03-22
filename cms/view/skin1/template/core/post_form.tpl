@@ -478,8 +478,8 @@ function Price()
 	this.save = function()
 	{
 		var price = $("#price_gia").val().replace(/,/g,"");
-		if($("#price_khuyenmai").val()!= 0)
-			price = $("#price_khuyenmai").val().replace(/,/g,"")
+		
+		var	pricepromotion = $("#price_khuyenmai").val().replace(/,/g,"")
 		$.post("?route=core/postcontent/savepost", 
 					{
 						mediaid : $("#price_mediaid").val(), 
@@ -487,7 +487,8 @@ function Price()
 						title : $("#price_title").val(), 
 						mediatype : 'price',
 						summary : "[code="+ $('#price_code').val() +"][thitruong="+ $("#price_thitruong").val().replace(/,/g,"") +"][gia="+ $("#price_gia").val().replace(/,/g,"") +"][khuyenmai="+ $("#price_khuyenmai").val().replace(/,/g,"") +"][makhuyenmai="+ $('#machuongtrinh').val() +"]",
-						price : price
+						price : price,
+						pricepromotion : pricepromotion
 					},
 			function(data){
 				if(data=="true")

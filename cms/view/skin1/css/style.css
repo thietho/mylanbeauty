@@ -792,6 +792,15 @@ height:100px;
 {
 	margin:5px;	
 }
+#productlist
+{
+	width:600px;
+	
+}
+#productselect
+{
+	width:145px;
+}
 .product-item
 {
 	height:190px;	
@@ -804,6 +813,13 @@ height:100px;
 	background:#fff;
 	border:2px solid #666;
 	border-radius:5px;
+	display:none;
+	width:270px;
+}
+.price-item:hover
+{
+	background:#666;
+	cursor:pointer;
 }
 .product-item:hover
 {
