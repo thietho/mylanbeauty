@@ -17,6 +17,8 @@ $(document).ready(function(e) {
     $('#productlist').load("?route=addon/order/listProduct");
 });
 $('#keyword').keyup(function(e) {
-    $('#productlist').load("?route=addon/order/listProduct&keyword="+this.value);
+	
+	var url ="?route=addon/order/listProduct&keyword="+ encodeURIComponent( this.value);
+    $('#productlist').load(url);
 });
 </script>

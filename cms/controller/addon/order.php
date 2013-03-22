@@ -307,11 +307,17 @@ class ControllerAddonOrder extends Controller
 		$this->load->helper('image');
 		
 		$keyword = urldecode($this->request->get['keyword']);
-		
+		$arrkey = split(' ', $keyword);
 		$where = "";
 		if($keyword !="")
 		{
-			$where .= " AND ( title like '%".$keyword."%' OR summary like '%".$keyword."%' OR description like '%".$keyword."%')";
+			$arr = array();
+			foreach($arrkey as $key)
+			{
+				$arr[] = "title like '%".$key."%'";
+			}
+			$where .= " AND (". implode(" AND ",$arr). ")";
+			//$where .= " AND ( title like '%".$keyword."%' OR summary like '%".$keyword."%' OR description like '%".$keyword."%')";
 		}
 		$siteid = $this->member->getSiteId();
 		$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
