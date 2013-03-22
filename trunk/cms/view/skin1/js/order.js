@@ -133,6 +133,8 @@ function Order()
 					$('#productselect .listid').each(function(index, element) {
                         //alert($(this).val());
 						var mediaid = $(this).val();
+						var imagepath = '<img src="'+$(this).attr('image')+'">';
+						var title = $(this).attr('title');
 						$.getJSON("?route=core/media/getMedia&col=mediaid&val="+mediaid,
 							function(data)
 							{
@@ -140,7 +142,7 @@ function Order()
 								price = data.medias[0].price;
 								if(data.medias[0].pricepromotion != 0)
 									price = data.medias[0].pricepromotion;
-								var row = order.addRow(0,data.medias[0].mediaid,data.medias[0].title,data.medias[0].imagepreview,1,price);
+								var row = order.addRow(0,data.medias[0].mediaid,title,imagepath,1,price);
 								$('#listproduct').append(row);
 								numberReady();
 							});

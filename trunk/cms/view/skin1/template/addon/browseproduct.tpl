@@ -5,10 +5,10 @@
     </p>
 </div>
 <div class="clearer">^&nbsp;</div>
-<div id="productlist" class="left" style="width:80%">
+<div id="productlist" class="left">
 	
 </div>
-<div id="productselect" class="right" style="width:20%">
+<div id="productselect" class="right">
 	
 </div>
 <div class="clearer">^&nbsp;</div>
