@@ -293,10 +293,7 @@ class ControllerAddonOrder extends Controller
 	
 	public function browseProduct()
 	{
-		
-		
-		
-		
+
 		$this->id="content";
 		$this->template="addon/browseproduct.tpl";
 		$this->render();
@@ -335,7 +332,21 @@ class ControllerAddonOrder extends Controller
 			{
 				$this->data['medias'][$i]['imagepreview'] = HelperImage::resizePNG($this->data['medias'][$i]['imagepath'], 100, 100);
 				
-			}	
+			}
+			
+			$data_price = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
+			foreach($data_price as $key => $item)
+			{
+				$para = $this->string->referSiteMapToArray($item['summary']);
+				foreach($para as $val)
+				{
+					$ar = split("=",$val);
+					$data_price[$key][$ar[0]] = $ar[1];	
+				}
+				$khuyenmai = $this->model_core_media->getItem($data_price[$key]['makhuyenmai']);
+				$data_price[$key]['tenkhuyenmai'] = $khuyenmai['title'];
+			}
+			$this->data['medias'][$i]['productprice'] = $data_price;
 		}
 		
 		$this->id="content";

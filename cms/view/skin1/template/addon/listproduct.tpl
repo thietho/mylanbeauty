@@ -1,6 +1,21 @@
 <?php foreach($medias as $media){ ?>
 <div class="product-item left">
 	<input type="hidden" class="listid" value="<?php echo $media['mediaid']?>">
+    <div class="product-price">
+    	<table>
+        	<?php foreach($media['productprice'] as $item){ ?>
+            <tr>
+            	<td>
+            		<?php echo $item['title']?>
+            	</td>
+                <td>
+            		<?php echo $this->string->numberFormate($item['gia'])?>
+            	</td>
+            </tr>
+            <?php } ?>
+        </table>
+    	
+    </div>
 	<table>
     	<tr>
         	<td width="100px" height="100px" align="center">
@@ -10,7 +25,9 @@
         <tr>
         	<td align="center">
             	<?php echo $media['title']?><br>
+                <?php if($media['price']){ ?>
                 <?php echo $this->string->numberFormate($media['price'])?>
+                <?php } ?>
                 <?php if($media['pricepromotion']){ ?>
                 <br /><strong><?php echo $this->string->numberFormate($media['pricepromotion'])?></strong>
                 <?php } ?>
