@@ -113,7 +113,7 @@ $("#btnCheckout").click(function(){
 			var arr = data.split("-")
 			if(arr[0] == "true")
 			{
-				window.location = HTTP_SERVER+"checkoutcomplete/"+arr[1]+"_"+ Date.now() +".html";
+				window.location = HTTP_SERVER+"checkoutcomplete/"+arr[1]+".html";
 			}
 			else
 			{
