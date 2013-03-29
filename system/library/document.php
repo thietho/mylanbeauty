@@ -162,6 +162,20 @@ final class Document {
 			$link.= '/'.$key;
 		if($val)
 			$link.= '/'.$val;
+		return $link.'.html';
+	}
+	
+	public function createLinkShare($sitemap="",$id="",$key = "",$val = "")
+	{
+		$link = HTTP_SERVER;
+		if($sitemap)
+			$link.= $sitemap;
+		if($id)
+			$link.= '/'.$id;
+		if($key)
+			$link.= '/'.$key;
+		if($val)
+			$link.= '/'.$val;
 		return $link.'_'.time().'.html';
 	}
 	
