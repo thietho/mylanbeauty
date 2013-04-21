@@ -3,10 +3,17 @@
             
             	<thead>
                 	<th width="10%"><?php echo $column_position?></th>
-                    <th width="20%"><?php echo $column_title?></th>
-                    <th width="40%"><?php echo $column_summary?></th>
-                    <th width="20%"><?php echo $column_image?></th>
-                    <th width="10%"><?php echo $column_control?></th>
+                    <?php if($_GET['moduleid']=="module/product"){ ?>
+                    <th>Code</th>
+                    <th>Quy cách</th>
+                    <th>Giá</th>
+                    <th>Giá khuyến mãi</th>
+                    <th width="200px">Tồn kho</th>
+                    <?php } ?>
+                    <th><?php echo $column_title?></th>
+                    <th><?php echo $column_summary?></th>
+                    <th><?php echo $column_image?></th>
+                    <th><?php echo $column_control?></th>
                 </thead>
                 
                 <tbody>
@@ -16,6 +23,25 @@
                         	<input type="checkbox" value="<?php echo $media['mediaid']?>" name="delete[<?php echo $media['mediaid']?>]" class="inputchk">
                             <input type="text" class="text number" name="position[<?php echo $media['mediaid']?>]" value="<?php echo $key+1?>" size="3"/>
                         </td>
+                        <?php if($_GET['moduleid']=="module/product"){ ?>
+                        <td><b><?php echo $media['code']?></b>&nbsp;</td>
+                        <td><b><?php echo $media['sizes']?></b>&nbsp;</td>
+                        <td class="number"><b><?php echo $this->string->numberFormate($media['price'])?></b>&nbsp;</td>
+                        <td class="number"><b><?php echo $this->string->numberFormate($media['pricepromotion'])?></b>&nbsp;</td>
+                        <td class="number">
+                        	<p><?php echo $media['tonkho']?></p>
+                            <?php if(count($media['prices']))
+                            {
+                            	foreach($media['prices'] as $price)
+                                {
+                                ?>
+                                <p><?php echo $price['title']?>(<?php echo $price['code']?>): <?php echo $price['tonkho']?></p>
+                                <?php
+                                }
+                            }
+                            ?>
+                        </td>
+                        <?php } ?>
                         <td><b><?php echo $media['title']?></b>&nbsp;</td>
                         <td><?php echo html_entity_decode($media['summary'])?>&nbsp;</td>
                         <td><?php echo $media['imagepreview']?>&nbsp;</td>
