@@ -26,6 +26,7 @@ class ControllerCoreMedia extends Controller
 		}
 		
 		$this->load->model("core/media");
+		$this->load->model("quanlykho/donvitinh");
 		$this->load->model("core/sitemap");
 		$this->load->helper('image');
 		
@@ -280,6 +281,17 @@ class ControllerCoreMedia extends Controller
 		}
 		$this->data['output'] = json_encode(array('medias' => $datas));
 		$this->id="media";
+		$this->template="common/output.tpl";
+		$this->render();
+	}
+	public function getListDonVi()
+	{
+		$mediaid = $this->request->get['mediaid'];
+		$media = $this->model_core_media->getItem($mediaid);
+		$data_donvi = $this->model_quanlykho_donvitinh->getDonViQuyDoi($media['unit']);
+		$this->data['output'] = json_encode($data_donvi);
+		
+		$this->id="donvi";
 		$this->template="common/output.tpl";
 		$this->render();
 	}

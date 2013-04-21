@@ -1,4 +1,5 @@
 <?php
+$this->load->model("quanlykho/donvitinh");
 $this->load->model("core/file");
 class ModelCoreMedia extends ModelCoreFile 
 { 
@@ -331,6 +332,9 @@ class ModelCoreMedia extends ModelCoreFile
 	public function insert($data)
 	{
 		$mediaid = $this->nextID($this->user->getSiteId().time());
+		$code = $this->db->escape(@$data['code']);
+		$sizes = $this->db->escape(@$data['sizes']);
+		$unit = $this->db->escape(@$data['unit']);
 		$mediaparent=$this->db->escape(@$data['mediaparent']);
 		$mediatype=$this->db->escape(@$data['mediatype']);
 		$refersitemap=$this->db->escape(@$data['refersitemap']);
@@ -339,6 +343,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$title=$this->db->escape(@$data['title']);
 		$summary=$this->db->escape(@$data['summary']);
 		$price=$this->db->escape(@$data['price']);
+		$pricepromotion=$this->db->escape(@$this->string->toNumber($data['pricepromotion']));
 		$description=(@$data['description']);
 		$author=$this->db->escape(@$data['author']);
 		$source=$this->db->escape(@$data['source']);
@@ -358,6 +363,9 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$field=array(
 						'mediaid',
+						'code',
+						'sizes',
+						'unit',
 						'mediaparent',
 						'mediatype',
 						'refersitemap',
@@ -365,6 +373,7 @@ class ModelCoreMedia extends ModelCoreFile
 						'title',
 						'summary',
 						'price',
+						'pricepromotion',
 						'description',
 						'author',
 						'source',
@@ -382,6 +391,9 @@ class ModelCoreMedia extends ModelCoreFile
 					);
 		$value=array(
 						$mediaid,
+						$code,
+						$sizes,
+						$unit,
 						$mediaparent,
 						$mediatype,
 						$refersitemap,
@@ -389,6 +401,7 @@ class ModelCoreMedia extends ModelCoreFile
 						$title,
 						$summary,
 						$price,
+						$pricepromotion,
 						$description,
 						$author,
 						$source,
@@ -414,6 +427,9 @@ class ModelCoreMedia extends ModelCoreFile
 	{
 		
 		$mediaid = $this->db->escape(@$data['mediaid']);
+		$code = $this->db->escape(@$data['code']);
+		$sizes = $this->db->escape(@$data['sizes']);
+		$unit = $this->db->escape(@$data['unit']);
 		$mediaparent=$this->db->escape(@$data['mediaparent']);
 		$mediatype=$this->db->escape(@$data['mediatype']);
 		$refersitemap=$this->db->escape(@$data['refersitemap']);
@@ -444,6 +460,9 @@ class ModelCoreMedia extends ModelCoreFile
 		$updateddate = $this->date->getToday();
 		
 		$field=array(
+						'code',
+						'sizes',
+						'unit',
 						'mediaparent',
 						'mediatype',
 						'refersitemap',
@@ -466,6 +485,9 @@ class ModelCoreMedia extends ModelCoreFile
 						'updateddate'
 					);
 		$value=array(
+						$code,
+						$sizes,
+						$unit,
 						$mediaparent,
 						$mediatype,
 						$refersitemap,
@@ -490,9 +512,6 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$where="mediaid = '".$mediaid."'";
 		$this->db->updateData('media',$field,$value,$where);
-		
-		$this->updateFileTemp($imageid);
-		$this->updateFileTemp($fileid);
 		return true;
 	}
 	
@@ -625,6 +644,52 @@ class ModelCoreMedia extends ModelCoreFile
 		return $result;
 	}
 	
+	public function getSoLuong($mediaid,$loaiphieu)
+	{
+		$sql = "SELECT sum(soluong) as soluong, madonvi
+				FROM  `qlkphieunhapxuat_media` 
+				WHERE mediaid = '".$mediaid."' AND loaiphieu='".$loaiphieu."'
+				Group by madonvi
+				";
+		$query = $this->db->query($sql);
+		$query->rows;
+		
+		return $query->rows;
+	}
 	
+	public function getTongKho($mediaid,$loaiphieu)
+	{
+		$media = $this->getItem($mediaid);
+		$arr_soluong = $this->getSoLuong($mediaid,$loaiphieu);
+		$soluong = $this->model_quanlykho_donvitinh->toDonViTinh($arr_soluong,$media['unit']);
+		$intsoluong = $this->model_quanlykho_donvitinh->toInt($soluong);
+		$data_soluong = $this->model_quanlykho_donvitinh->toDonVi($intsoluong,$media['unit']);
+		return $this->model_quanlykho_donvitinh->toText($data_soluong);
+	}
+	
+	public function getTonKho($mediaid)
+	{
+		$media = $this->getItem($mediaid);
+		
+		$arrnhap = $this->getSoLuong($mediaid,'NK');
+		
+		$soluongnhap = $this->model_quanlykho_donvitinh->toDonViTinh($arrnhap,$media['unit']);
+		
+		//print_r($soluongnhap);
+		$int_nhap = $this->model_quanlykho_donvitinh->toInt($soluongnhap);
+		//$arr_nhap = $this->model_quanlykho_donvitinh->toDonVi($int_nhap,$media['unit']);
+		
+		//Xuat kho
+		
+		$arrxuat = $this->getSoLuong($mediaid,'PBH');
+		$soluongxuat = $this->model_quanlykho_donvitinh->toDonViTinh($arrxuat,$media['unit']);
+		
+		
+		$int_xuat = $this->model_quanlykho_donvitinh->toInt($soluongxuat);
+		//$arr_xuat = $this->model_quanlykho_donvitinh->toDonVi($int_xuat,$media['unit']);
+		$arr_ton = $this->model_quanlykho_donvitinh->toDonVi($int_nhap - $int_xuat,$media['unit']);
+		
+		return $this->model_quanlykho_donvitinh->toText($arr_ton);
+	}
 }
 ?>
