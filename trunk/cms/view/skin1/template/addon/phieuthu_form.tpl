@@ -43,11 +43,20 @@
                 	<label>Số chứng từ:</label><br />
                     <input type="text" name="chungtulienquan" value="<?php echo $item['chungtulienquan']?>" class="text" size=60/>
                 </p>
+                
                 <p>
                     <label>Số tiền</label><br />
                     <input type="text" name="sotien" value="<?php echo $item['sotien']?>" class="text number"/>
                     <input type="hidden" id="donvi" name="donvi" value="VND" />
                     
+                </p>
+                <p>
+                	<label>Tài khoản thu</label><br>
+                    <select id="taikhoanthuchi" name="taikhoanthuchi">
+                    	<?php foreach($tkthu as $val){?>
+                        <option value="<?php echo $val['categoryid']?>"><?php echo $val['categoryname']?></option>
+                        <?php } ?>
+                    </select>
                 </p>
                 <p>
                 	<label>Hình thức thanh toán</label><br />
@@ -77,6 +86,8 @@
 </div>
 
 <script language="javascript">
+$('#taikhoanthuchi').val("<?php echo $item['taikhoanthuchi']?>");
+$('#hinhthucthanhtoan').val("<?php echo $item['hinhthucthanhtoan']?>");
 var handle = "";
 $('#btnSelectKhachHang').click(function(e) {
 	handle = "khachhang";

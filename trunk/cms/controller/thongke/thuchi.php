@@ -160,7 +160,7 @@ class ControllerThongkeThuchi extends Controller
 				{
 					$arr = array(
 								'maphieu' => $item['sophieu'],
-								'loai' => "Phiếu thu",
+								'loai' => "Phiếu thu - " . $this->document->getCategory($item['taikhoanthuchi']),
 								'sotien' => $item['sotien']
 								);
 					$tongthu += $item['sotien'];
@@ -191,7 +191,7 @@ class ControllerThongkeThuchi extends Controller
 				{
 					$arr = array(
 								'maphieu' => $item['sophieu'],
-								'loai' => "Phiếu chi",
+								'loai' => "Phiếu chi - ". $this->document->getCategory($item['taikhoanthuchi']),
 								'sotien' => $item['sotien']
 								);
 					$tongchi += $item['sotien'];
