@@ -91,6 +91,28 @@ final class MySQL {
 		return $prefix.$nextid;
 	}
 	
+	public function getNextIdVarCharNumber($tablename,$tableid,$prefix)
+	{
+		$sql="SELECT $tableid FROM `$tablename` WHERE $tableid LIKE '%$prefix%'";
+		$query= $this->query($sql);
+		$mid=$query->rows;
+		if(count($mid)==0)
+		return 1;
+		$mnum=array();
+		for($i=0; $i<count($mid); $i++)
+		{
+				
+			array_push($mnum,str_replace($prefix,"",$mid[$i][$tableid]));
+		}
+
+		$max=0;
+		for($i=0; $i<count($mnum); $i++)
+		if($max<intval($mnum[$i]))
+		$max=intval($mnum[$i]);
+		$nextid=$max+1;
+		return $nextid;
+	}
+	
 	function insertData(  
 					  $tablename = NULL, 
 					  $fields = NULL,
@@ -106,6 +128,7 @@ final class MySQL {
 			is_array($values) ? $sql .= implode("','",$values) : $sql .= "'".$values."'";
 			$sql .= "')";
 			$this->query($sql);
+			return mysql_insert_id();
 		}
 		
 	}
@@ -146,6 +169,7 @@ final class MySQL {
 		$sql="DELETE FROM `$tablename` WHERE $where";
 		$this->query($sql);
 	}
-
+	
+	
 }
 ?>
