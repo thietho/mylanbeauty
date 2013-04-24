@@ -112,7 +112,7 @@ function intSelectMember()
 	{
 		case "khachhang":
 			$('.item').click(function(e) {
-				$("#makhachhang").val("KH-"+$(this).attr('username'));
+				$("#makhachhang").val("KH-"+$(this).attr('id'));
 				$("#tenkhachhang").val($(this).attr('fullname'));
 				$("#dienthoai").val($(this).attr('phone'));
 				$("#email").val($(this).attr('email'));

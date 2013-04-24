@@ -286,36 +286,12 @@ class ControllerCoreMember extends Controller
 	private function validateForm()
 	{
     	
-		if(trim($this->request->post['username']))
+		if(trim($this->request->post['fullname'])=="")
 		{
+			$this->error['fullname'] = "Bạn chưa nhập tên";
 			
-			if($this->validation->_isId(trim($this->request->post['username'])) == false)
-				$this->error['username'] ="username không hợp lệ";
-			else
-			{
-				if($this->request->post['id'])
-				{
-					$id = $this->request->post['id'];
-					$where = " AND id <> '".$id."' AND username = '".trim($this->request->post['username'])."'";
-					$data_user = $this->model_core_user->getList($where);
-					count($data_user);
-					if(count($data_user)>0)
-						$this->error['username'] = "username đã được sử dụng";			
-				}
-			}
 		}
-		if($this->request->post['password']!="")
-		{
-			if (strlen($this->request->post['password']) == 0) 
-			{
-				$this->error['password'] = "Password not null";
-			}
-			
-			if ($this->request->post['confrimpassword'] != $this->request->post['password']) 
-			{
-				$this->error['confrimpassword'] = "Confrimpassword invalidate";
-			}		
-		}
+		
 		
 		if ($this->validation->_checkEmail($this->request->post['email']) == false ) 
 		{

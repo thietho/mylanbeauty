@@ -9,6 +9,13 @@ class ModelCoreUser extends ModelCoreFile
 		return $query->rows;
 	}
 	
+	public function getId($id)
+	{
+		$id=$this->db->escape(@$id);
+		$query = $this->db->query("Select * from `user` where id = '".$id."'");
+		return $query->row;
+	}
+	
 	public function getItem($userid)
 	{
 		$userid=$this->db->escape(@$userid);
