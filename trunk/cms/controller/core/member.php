@@ -292,12 +292,13 @@ class ControllerCoreMember extends Controller
 			
 		}
 		
-		
-		if ($this->validation->_checkEmail($this->request->post['email']) == false ) 
+		if(trim($this->request->post['email'])!="")
 		{
-      		$this->error['email'] = "Email invalidate";
-    	}
-
+			if ($this->validation->_checkEmail($this->request->post['email']) == false ) 
+			{
+				$this->error['email'] = "Email invalidate";
+			}
+		}
 		if (!$this->error) {
 	  		return TRUE;
 		} else {
