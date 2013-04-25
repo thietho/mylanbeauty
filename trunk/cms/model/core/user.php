@@ -108,13 +108,13 @@ class ModelCoreUser extends ModelCoreFile
 						$userip
 					);
 		
-		$id=$this->db->insertData("user",$field,$value);
+		$id = $this->db->insertData("user",$field,$value);
 		return $id;
 		
 	}
 	
 	public function updateuser($data)
-	{		
+	{
 		$id=$this->db->escape(@$data['id']);
 		$userid=$this->db->escape(@$data['userid']);
 		$username=$this->db->escape(@$data['username']);
