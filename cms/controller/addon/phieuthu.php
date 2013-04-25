@@ -226,10 +226,7 @@ class ControllerAddonPhieuthu extends Controller
       		$this->error['tenkhachhang'] = "Bạn chưa nhập tên khách hàng";
     	}
 		
-		if (trim($data['dienthoai']) == "") 
-		{
-      		$this->error['dienthoai'] = "Bạn chưa nhập số điện thoại khách hàng";
-    	}
+		
 		
 		if (trim($data['email']) != "") 
 		{

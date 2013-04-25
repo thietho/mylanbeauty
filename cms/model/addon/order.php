@@ -16,12 +16,12 @@ class ModelAddonOrder extends Model
 		return $data;
 	}
 	
-	public function getList($where="", $from=0, $to=0)
+	public function getList($where="", $from=0, $to=5)
 	{
 		
 		$sql = "Select `order`.* 
 									from `order` 
-									where status <> 'delete' " . $where;
+									where 1=1 " . $where;
 		if($to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
@@ -65,8 +65,8 @@ class ModelAddonOrder extends Model
 						'email',
 						'phone',
 						'status',
-						'comment',
 						'paymenttype',
+						'comment',
 						'receiver',
 						'receiverphone',
 						'shipper',
@@ -83,8 +83,8 @@ class ModelAddonOrder extends Model
 						$email,
 						$phone,
 						$status,
-						$comment,
 						$paymenttype,
+						$comment,
 						$receiver,
 						$receiverphone,
 						$shipper,
@@ -203,14 +203,16 @@ class ModelAddonOrder extends Model
 	{
 		$orderid=$this->db->escape(@$data['orderid']);
 		$mediaid=$this->db->escape(@$data['mediaid']);
-		$quantity=$this->db->escape(@$this->string->toNumber($data['quantity']));
-		$price=$this->db->escape(@$this->string->toNumber($data['price']));
-		$discount=$this->db->escape(@$this->string->toNumber($data['discount']));
+		$quantity=$this->string->toNumber($this->db->escape(@$data['quantity']));
+		$unit=$this->db->escape(@$data['unit']);
+		$price=$this->string->toNumber($this->db->escape(@$data['price']));
+		$discount=$this->string->toNumber($this->db->escape(@$data['discount']));
 		$subtotal=$quantity*$price*(1 - $discount/100);
 		$field=array(
 						'orderid',
 						'mediaid',
 						'quantity',
+						'unit',
 						'price',
 						'discount',
 						'subtotal'
@@ -219,6 +221,7 @@ class ModelAddonOrder extends Model
 						$orderid,
 						$mediaid,
 						$quantity,
+						$unit,
 						$price,
 						$discount,
 						$subtotal
@@ -234,7 +237,6 @@ class ModelAddonOrder extends Model
 			$this->db->updateData('order_product',$field,$value,$where);
 		}
 	}
-	
 	public function deleteOrderProduct($id)
 	{
 		$id = @(int)$id;
@@ -251,9 +253,8 @@ class ModelAddonOrder extends Model
 									from `order_history` 
 									where id = '".$id."'";
 		$query = $this->db->query($sql);
-		return $query->row;
+		return $query->rows;
 	}
-	
 	public function getOrderHistoryList($where)
 	{
 		
@@ -263,7 +264,6 @@ class ModelAddonOrder extends Model
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
-	
 	public function saveOrderHistory($data)
 	{
 		$id=$this->db->escape(@$data['id']);
