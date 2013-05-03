@@ -76,8 +76,8 @@
     </thead>
     <tbody>
 	<?php foreach($taikhoanchi as $tk => $sotien){ ?>
-    	<tr>
-        	<td ><?php echo $this->document->getCategory($tk)?></td>
+    	<tr class="item">
+        	<td><?php echo $this->document->getCategory($tk)?></td>
             <td class="number"><?php echo $this->string->numberFormate($sotien)?></td>
             <td class="number"><?php echo $this->string->numberFormate($sotien/$tongchi*100,2)?>%</td>
         </tr>
