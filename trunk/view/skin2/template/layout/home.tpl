@@ -10,7 +10,7 @@
 <meta name="keywords" content="<?php echo $meta_keyword?>" />		
 <title><?php echo $title?></title>
 
-<meta content="<?php echo $meta_image?>" property="og:image">
+<?php echo $meta_image?>
 </head>
 
 <!--[if lt IE 7]>
