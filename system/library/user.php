@@ -4,8 +4,10 @@ final class User {
 	private $username;
 	private $siteid;
 	private $usertypeid;
+	public $nhanvien = array();
   	private $permission = array();
 	private $Control = array();
+	
 
   	public function __construct() {
 		$this->db = Registry::get('db');
@@ -39,6 +41,8 @@ final class User {
 				$sql = "SELECT permission FROM usertype where usertypeid = (Select usertypeid from user where userid = '" . $this->db->escape($this->session->data['userid']) . "')";
       			$query = $this->db->query($sql);
 				$this->setPermission($query->row['permission']);
+				$this->nhanvien = $this->getNhanVien();
+				
 			}elseif(isset($this->session->data['safemode'])){
 				$this->userid = $this->session->data['userid'];
 				$this->username = $this->session->data['username'];
@@ -150,6 +154,8 @@ final class User {
   	public function logout() {
 		unset($_SESSION['safemode']);
 		unset($_SESSION['userid']);
+		unset($_SESSION['sessionid']);
+		unset($this->session->data['sessionid']);
 		unset($this->session->data['userid']);	
 		$this->userid = '';
 		$this->username = '';
@@ -241,7 +247,15 @@ final class User {
 		} 
 		return false;
   	}
-  
+  	
+	public function setSessionId($sessionid)
+	{
+		$this->session->set('sessionid',$sessionid);
+	}
+	public function getSessionId()
+	{
+		return $this->session->data['sessionid'];
+	}
   	public function getId() {
     	return $this->userid;
   	}
