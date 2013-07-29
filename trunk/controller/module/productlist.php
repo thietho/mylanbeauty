@@ -36,7 +36,7 @@ class ControllerModuleProductlist extends Controller
 		}
 		
 		$queryoptions = array();
-		$queryoptions['mediaparent'] = '%';
+		$queryoptions['mediaparent'] = '';
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $listsitemap;
 		$order = $_GET['order'];
@@ -177,7 +177,7 @@ class ControllerModuleProductlist extends Controller
 		}
 		
 		$queryoptions = array();
-		$queryoptions['mediaparent'] = '%';
+		$queryoptions['mediaparent'] = '';
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $listsitemap;
 		
