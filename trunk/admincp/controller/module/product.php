@@ -96,16 +96,29 @@ class ControllerModuleProduct extends Controller
 				$this->data['medias'][$i]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($this->data['medias'][$i]['imagepath'], 100, 100)."' >";
 				
 			}
+			$this->data['medias'][$i]['saleprice'] = json_decode($this->data['medias'][$i]['saleprice']);
 			
 			$mediaid = $this->data['medias'][$i]['mediaid'];
-			$this->data['medias'][$i]['tonkho'] = $this->model_core_media->viewTonKho($mediaid);
+			$this->data['medias'][$i]['tonkho'] = $this->model_core_media->getTonKho($mediaid);
+			$data_child = $this->model_core_media->getListByParent($mediaid);
+			foreach($data_child as $key =>$child)
+			{
+				$data_child[$key]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($child['imagepath'], 100, 100)."' >";
+				$data_child[$key]['tonkho'] = $this->model_core_media->getTonKho($child['mediaid']);
+				$data_child[$key]['link_edit'] = $this->url->http('module/product/update&sitemapid='.$sitemap['sitemapid'].'&mediaid='.$child['mediaid'].$parapage);
+				$data_child[$key]['text_edit'] = "Edit";
+			}
+			$this->data['medias'][$i]['child'] = $data_child;
 			$parapage = "";
 			if($page)
 				$parapage = "&page=".$page;
 			if($page)
 				
 			$this->data['medias'][$i]['link_edit'] = $this->url->http('module/product/update&sitemapid='.$sitemap['sitemapid'].'&mediaid='.$this->data['medias'][$i]['mediaid'].$parapage);
-			$this->data['medias'][$i]['text_edit'] = "Edit";	
+			$this->data['medias'][$i]['text_edit'] = "Edit";
+			
+			$this->data['medias'][$i]['link_addchild'] = $this->url->http('module/product/insert&sitemapid='.$sitemap['sitemapid'].'&mediaparent='.$this->data['medias'][$i]['mediaid'].$parapage);
+			$this->data['medias'][$i]['text_addchild'] = "Thêm qui cách";	
 			
 			$this->data['medias'][$i]['type'] = $sitemap['moduleid'];
 			$this->data['medias'][$i]['typename'] = $this->model_core_sitemap->getModuleName($sitemap['moduleid']);
