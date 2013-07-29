@@ -2,11 +2,11 @@
 final class Date{
 	//Kieu ngay chuan: yyyy-mm-dd 00:00:00 - MySQLDate
 	//Kieu ngay view: dd-mm-yyyy 00:00:00 - ViewDate
-	public $now;
+	
 	
 	function __construct() 
 	{
-		$this->now = getdate();	
+		
 		
 	}
 	
@@ -64,16 +64,16 @@ final class Date{
 	{
 		$today = getdate();
 		
-		$time = $today['year'].'-'.$this->numberFormate($today['mon']).'-'.$this->numberFormate($today['mday']).' '.$this->numberFormate($today['hours']).":".$this->numberFormate($today['minutes']).":".$this->numberFormate($today['seconds']);
-		return $time;
+		$time = mktime(intval($this->numberFormate($today['hours'] + TIMEZONE)),intval($today['minutes']),intval($today['seconds']),intval($today['mon']),intval($today['mday']),intval($today['year']));
+		return date("Y-m-d H:i:s",$time);
 	}
 	
 	function getTodayNoTime()
 	{
-		$today = getdate();
 		
-		$time = $today['year'].'-'.$this->numberFormate($today['mon']).'-'.$this->numberFormate($today['mday']);
-		return $time;
+		
+		$time = $this->getToday();
+		return $this->getDate($time);
 	}
 	
 	function addday($stringdate,$days) //fomate yy-mm-dd
@@ -155,7 +155,7 @@ final class Date{
 		$h=$this->getHour($stringdate);
 		$m=$this->getMinute($stringdate);
 		$s=$this->getSecond($stringdate);
-		$time = mktime(intval($h),intval($m),intval($s)+$sec,intval($mon),intval($d),intval($y)+$years);
+		$time = mktime(intval($h),intval($m),intval($s)+$sec,intval($mon),intval($d),intval($y));
 		return date("Y-m-d  H:i:s",$time);
 	}
 	
@@ -214,6 +214,26 @@ final class Date{
 	function timeToInt($stringdate)
 	{	
 		return strtotime($stringdate);
+	}
+	
+	public function intToTime($secs)
+	{
+		
+		$bit = array(
+				
+				'd' => $this->div($secs,60*60*24) ,
+				'h' => $this->div($secs,60 * 60) % 24,
+				'm' => $this->div($secs,60) % 60,
+				's' => $secs % 60
+			);
+        
+		foreach($bit as $k => $v)
+        	if($v > 0)
+				$ret[] = $v . $k;
+        
+    	return join(' ', $ret);
+		
+		
 	}
 	
 	public function formatTime($time,$format = "")
@@ -292,6 +312,16 @@ final class Date{
 			return "0".$n;
 		else
 			return $n;
+	}
+	public function div($a,$b)
+	{
+		$count = 0;
+		while($a>$b)
+		{
+			$a-=$b;
+			$count++;
+		}
+		return $count;
 	}
 }
 
