@@ -156,11 +156,12 @@ $('#title').change(function(e) {
 										$('#frmgiaban').hide();
 									}
                                 });
+								*/
 								$(document).ready(function(e) {
 									
-                                	$('#unit').val("<?php echo $post['unit']?>").change();
+                                	$('#unit').val("<?php echo $post['unit']?>");
 										
-                                });*/
+                                });
 								
 								
 							</script>
@@ -498,11 +499,11 @@ function Comment()
 }
 function callbackLoadCommnet()
 {
-	objComment.loadComment("<?php echo $post['mediaid']?>");
+	objComment.loadComment('<?php echo $post['mediaid']?>');
 }
 var objComment = new Comment();
 $(document).ready(function(e) {
-    objComment.loadComment("<?php echo $post['mediaid']?>");
+    objComment.loadComment('<?php echo $post['mediaid']?>');
 });
 </script>
             <?php } ?>
