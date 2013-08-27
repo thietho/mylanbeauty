@@ -23,9 +23,9 @@
                 <div id="fragment-thongtin">
                     <p>
                         <label>Người nhập</label><br />
-                        <input type="hidden" name="nguoithuchienid" value="<?php echo $item['nguoithuchienid']?>" value="<?php echo $item['nguoithuchienid']?>">
-                        <input type="text" id="nguoithuchien" name="nguoithuchien" value="<?php echo $item['nguoithuchien']?>" class="text" size=60 <?php echo $readonly?>/>
-                        
+                        <input type="hidden" id="nguoithuchienid" name="nguoithuchienid" value="<?php echo $item['nguoithuchienid']?>" value="<?php echo $item['nguoithuchienid']?>">
+                        <input type="text" id="nguoithuchien" name="nguoithuchien" value="<?php echo $item['nguoithuchien']?>" class="text" size=60 />
+                        <input type="button" class="button" id="btnSelectNhanVienNhap" value="Chọn nhân viên nhập"/>
                     </p>
                     <p>
                         <label>Nhà cung cấp</label><br />
@@ -42,8 +42,9 @@
                     </p>
                     <p>
                         <label>Người nhận</label><br />
+                        <input type="hidden" id="nguoinhanid" name="nguoinhanid" value="<?php echo $item['nguoinhanid']?>" value="<?php echo $item['nguoinhanid']?>">
                         <input type="text" id="nguoinhan" name="nguoinhan" value="<?php echo $item['nguoinhan']?>" class="text" size=60 />
-                        
+                        <input type="button" class="button" id="btnSelectNhanVienNhan" value="Chọn nhân viên nhận"/>
                     </p>
                     <p>
                         <label>Ghi chú</label><br />
@@ -53,8 +54,7 @@
                    
                 </div>
                 <div id="fragment-nguyenlieu">
-                	<input type="hidden" id="delnhapkho" name="delnhapkho" />
-                    <input type="button" class="button" id="btnAddRow" value="Thêm dòng"/>
+                	
                 	<table>
                     	<thead>
                             <tr>
@@ -96,8 +96,11 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td class="number">Công nợ</td>
-                                <td class="number" id="congno"><?php echo $this->string->numberFormate($item['congno'])?></td>
+                                <td class="number">
+                                	Công nợ
+                                	<input type="hidden" id="congno" name="congno" value="<?php echo $item['congno']?>"/>
+                                </td>
+                                <td class="number" id="lbl-congno"><?php echo $this->string->numberFormate($item['congno'])?></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -111,7 +114,8 @@
                             </tr>
                         </tfoot>
                     </table>
-                    
+                    <input type="hidden" id="delnhapkho" name="delnhapkho" />
+                    <input type="button" class="button" id="btnAddRow" value="Thêm dòng"/>
                 </div>
            </div>
             
@@ -134,6 +138,65 @@ $(document).ready(function(e) {
 $(document).ready(function(e) {
     $('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
 });
+$('#btnSelectNhanVienNhap').click(function(e) {
+	handle = "nguoithuchien";
+    $("#popup").attr('title','Chọn nhân viên');
+		$( "#popup" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: 800,
+			height: 600,
+			modal: true,
+			
+		});
+	
+		
+		$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
+			$("#popup").dialog("open");	
+		});
+});
+$('#btnSelectNhanVienNhan').click(function(e) {
+	handle = "nguoinhan";
+    $("#popup").attr('title','Chọn nhân viên');
+		$( "#popup" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: 800,
+			height: 600,
+			modal: true,
+			
+		});
+	
+		
+		$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
+			$("#popup").dialog("open");	
+		});
+});
+function intSelectNhanVien()
+{
+	switch(handle)
+	{
+		case "nguoithuchien":
+			$('.item').click(function(e) {
+				$("#nguoithuchienid").val($(this).attr('id'));
+				$("#nguoithuchien").val($(this).attr('hoten'));
+				$("#popup").dialog( "close" );
+			});
+			break;
+		case "nguoinhan":
+			$('.item').click(function(e) {
+				$("#nguoinhanid").val($(this).attr('id'));
+				$("#nguoinhan").val($(this).attr('hoten'));
+				
+				$("#popup").dialog( "close" );
+			});
+			break;	
+	}
+			
+}
+
 $('#btnTrahet').click(function(e) {
     $('#thanhtoan').val($('#tongcong').html());
 	$('#thanhtoan').keyup();
@@ -142,7 +205,8 @@ $('#thanhtoan').keyup(function(e) {
     var tongcong = Number(stringtoNumber($('#tongcong').html()));
 	var thanhtoan = Number(stringtoNumber($('#thanhtoan').val()));
 	var congno = tongcong - thanhtoan;
-	$('#congno').html(formateNumber(congno));
+	$('#congno').val(congno);
+	$('#lbl-congno').html(formateNumber(congno));
 });
 
 $('#btnSeleteNhaCungCap').click(function(e) {
