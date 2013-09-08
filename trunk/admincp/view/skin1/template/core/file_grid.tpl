@@ -23,7 +23,7 @@
 <script language="javascript">
 $('.filelist').click(function(e) {
 	var fileid = this.id;
-    $("#popup").attr('title','Chọn hình');
+    $("#popup").attr('title','Thông tin file');
 		$( "#popup" ).dialog({
 			autoOpen: false,
 			show: "blind",
@@ -32,12 +32,17 @@ $('.filelist').click(function(e) {
 			height: 600,
 			modal: true,
 			buttons: {
-				
-				
-				
+				'Các bài viết sử dụng':function()
+				{
+					showMediaUse(fileid);
+				},
+				'Đưa vào bài viết':function()
+				{
+					showMediaForm(fileid);
+				},
 				'Tải về':function()
 				{
-					window.location = "<?php echo HTTP_SERVER?>download.php?url="+ encodeURI($('#filepath').val());
+					window.location = "download.php?url="+ encodeURI($('#filepath').val());
 				},
 				'Đóng': function() 
 				{

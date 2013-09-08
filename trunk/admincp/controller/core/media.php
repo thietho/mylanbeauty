@@ -187,6 +187,55 @@ class ControllerCoreMedia extends Controller
 		$this->template="common/output.tpl";
 		$this->render();
 	}
+	public function mediaUse()
+	{
+		$fileid = $this->request->get['fileid'];
+		$where = " AND imageid = '".$fileid."'";
+		$this->data['medias'] = $this->model_core_media->getList($where);
+		$this->id="content";
+		$this->template="core/media_usefile.tpl";
+		$this->render();
+	}
+	public function addMediaQuick()
+	{
+		$data = $this->request->post;
+		if($this->validateAddProductQuick($data))
+		{
+			$mediaid = $this->model_core_media->insert($data);
+			$this->model_core_media->updateStatus($mediaid, "active");
+			$data['error'] = "";
+			
+		}
+		else
+		{
+			foreach($this->error as $item)
+			{
+				$data['error'] .= $item."\n";
+			}
+		}
+		$this->data['output'] = json_encode($data);
+		$this->id="content";
+		$this->template="common/output.tpl";
+		$this->render();
+	}
+	function validateAddProductQuick($data)
+	{
+		if ($data['title'] == "")
+		{
+			$this->error['title'] = "Bạn chưa nhập tên sản phẩm";
+		}
+		if ($data['unit'] == "")
+		{
+			$this->error['unit'] = "Bạn chưa chọn đơn vị tính";
+		}
+		
+
+		if (count($this->error)==0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
 	
 	public function mapmoduleform()
 	{
@@ -244,6 +293,18 @@ class ControllerCoreMedia extends Controller
 		$this->template="common/output.tpl";
 		$this->render();	
 	}
+	public function updateCol()
+	{
+		$data = $this->request->post;
+		$mediaid =$data['mediaid'];
+		$col = $data['col'];
+		$val = $data['val'];
+		$this->model_core_media->updateCol($mediaid,$col,$val);
+		$this->data['output'] = 'true';
+		$this->id="sitemap";
+		$this->template="common/output.tpl";
+		$this->render();	
+	}
 	
 	//Cac ham xu ly tren form
 	public function getMedia()
@@ -293,6 +354,17 @@ class ControllerCoreMedia extends Controller
 		
 		$this->id="donvi";
 		$this->template="common/output.tpl";
+		$this->render();
+	}
+	
+	function fileToMedia()
+	{
+		$fileid = $this->request->get['fileid'];
+		$this->data['item']=$this->model_core_file->getFile($fileid);
+		$this->load->model("quanlykho/donvitinh");
+		$this->data['donvitinh'] = $this->model_quanlykho_donvitinh->getList();
+		$this->id='file';
+		$this->template = "core/media_form.tpl";
 		$this->render();
 	}
 }
