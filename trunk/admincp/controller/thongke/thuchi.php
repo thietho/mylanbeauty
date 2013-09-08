@@ -138,7 +138,8 @@ class ControllerThongkeThuchi extends Controller
 			$where .= " AND ngaylap < '".$denngay." 24:00:00'";
 		}
 		$data_nhaphang = $this->model_quanlykho_phieunhapxuat->getList($where);
-		foreach($data_chi as $item)
+		//print_r($data_nhaphang);
+		foreach($data_nhaphang as $item)
 		{
 			$ngaylap = $this->date->getDate($item['ngaylap']);
 			if(!in_array($ngaylap,$arrdate))
@@ -184,9 +185,9 @@ class ControllerThongkeThuchi extends Controller
 								'taikhoanthuchi	' => 'thubanhang',
 								'sotien' => $item['thanhtoan']
 								);
-					$tongthu += $item['tongtien'];
+					$tongthu += $item['thanhtoan'];
 					$data_thuchi[$date]['thu'][] = $arr;
-					$arr_taikhoanthu['thubanhang'] += $item['tongtien'];
+					$arr_taikhoanthu['thubanhang'] += $item['thanhtoan'];
 				}
 			}
 			
@@ -219,9 +220,10 @@ class ControllerThongkeThuchi extends Controller
 								'taikhoanthuchi	' => 'chiphinhaphang',
 								'sotien' => $item['thanhtoan']
 								);
-					$tongchi += $item['tongtien'];
+					$tongchi += $item['thanhtoan'];
+					
 					$data_thuchi[$date]['chi'][] = $arr;
-					$arr_taikhoanthu['chiphinhaphang'] += $item['tongtien'];
+					$arr_taikhoanchi['chiphinhaphang'] += $item['thanhtoan'];
 				}
 			}
 		}
