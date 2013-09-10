@@ -33,6 +33,7 @@ class ControllerModuleProduct extends Controller
 	public function getList()
 	{
 		$sitemapid = $this->request->get['sitemapid'];
+		$this->data['sitemapid'] = $sitemapid;
 		$siteid = $this->user->getSiteId();
 		if($sitemapid == "")
 		{
@@ -145,7 +146,7 @@ class ControllerModuleProduct extends Controller
 		$this->data['output'] = $this->loadModule('core/postcontent');
 		$this->id='content';
 		$this->template='common/output.tpl';
-		$this->layout='layout/center';
+		
 		$this->render();
 	}
 	
@@ -154,7 +155,7 @@ class ControllerModuleProduct extends Controller
 		$this->data['output'] = $this->loadModule('core/postcontent');
 		$this->id='content';
 		$this->template='common/output.tpl';
-		$this->layout='layout/center';
+		
 		$this->render();
 	}
 	public function productCat()
