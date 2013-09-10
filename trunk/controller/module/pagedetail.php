@@ -184,7 +184,7 @@ class ControllerModulePagedetail extends Controller
 			$this->data['child'][$key]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height'])."' >";
 		}
 		
-		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'price' Order by position");
+		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'module/product' Order by position");
 		
 		foreach($this->data['priceproduct'] as $key => $item)
 		{

@@ -39,13 +39,12 @@ class ControllerPageHome extends Controller
 			$arr = array("",0,"Sản phẩm hot",$template,$medias);
 			//$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
 			$template = array(
-						  'template' => "home/product.tpl",
-						  'width' => 176,
-						  'height' =>176,
-						  'widthpreview' => 450,
-						  'heightpreview' =>450,
-						  
-						  );
+								  'template' => "module/product_list.tpl",
+								  'width' => 170,
+								  'height' =>170,
+								  'widthpreview' => 450,
+								  'heightpreview' =>450
+								  );
 					  
 			$this->load->model('core/sitemap');
 			//$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());

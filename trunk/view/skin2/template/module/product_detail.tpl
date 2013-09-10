@@ -166,7 +166,16 @@ $("#ben-next").click(function(){
                     <tr>
                     	<td><strong>Giá:</strong></td>
                         <td>
-                        	<?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?> <input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
+                        	<?php $cls = '';?>
+                            <?php if($post['pricepromotion']){ ?>
+                            <?php $cls = 'product-price-no';?>
+                            <span class="product-pricepromotion">
+                            <?php echo $this->string->numberFormate($post['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
+                            </span>
+                            <?php } ?>
+                                
+                            <span  class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?></span>
+                            <input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
                         </td>
                     </tr>
                     <?php } ?>
