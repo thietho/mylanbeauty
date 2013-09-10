@@ -20,7 +20,7 @@
     </div>
 
     <div class="ben-right" id="ben-footer-right">
-        Địa chỉ: 1335 Phan Văn Trị, P.10, Q.Gò Vấp, Tp.HCM. <strong>Hotline: 0903 76 75 80 - 0909 51 69 93</strong>
+        Địa chỉ: 575/84 CMT8, P.15, Q.10, Tp.HCM (Lầu 1) <strong>Hotline: 0903 76 75 80 - 0906 965 338</strong>
     
     </div>
 
