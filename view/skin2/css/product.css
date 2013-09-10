@@ -23,3 +23,18 @@
 {
 	width:480px;	
 }
+.product-price
+{
+	
+}
+.product-pricepromotion
+{
+	color:#F00;
+	font-size:1.2em;
+	font-weight:bold;
+	height:1.2em;
+}
+.product-price-no
+{
+	text-decoration:line-through;	
+}

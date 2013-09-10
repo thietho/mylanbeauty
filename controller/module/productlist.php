@@ -195,7 +195,7 @@ class ControllerModuleProductlist extends Controller
 				$orderby = " ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = " ORDER BY `updateddate` DESC";
+				$orderby = " ORDER BY position,`title` DESC";
 		}
 		if($mediaid == "")
 		{
@@ -229,21 +229,17 @@ class ControllerModuleProductlist extends Controller
 				}
 				
 				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
-				$price = $media['price'];
-				if($price == 0)
-				{
-					$price = $priceproduct[0]['price'];
-					$volume = $priceproduct[0]['title'];
-					
-				}
+				
+				
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
 					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
-					'price' => $price,
-					'volume' => $volume,
+					'price' => $media['price'],
+					'pricepromotion' => $media['pricepromotion'],
+					
 					'properties' => $properties,
 					'imagethumbnail' => $imagethumbnail,
 					'imagetpreview' => $imagetpreview,
