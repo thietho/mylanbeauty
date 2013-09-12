@@ -8,6 +8,7 @@ if(count($medias))
         <table>
             <tr class="product-list-image">
                 <td>
+                	<div class="flagdiscount ben-icon">-<?php echo $media['discountpercent']?>%</div>
                 	<?php if(in_array("sanphamhot",$media['properties'])){ ?>
                 	<div id="ben-icon-hot" class="ben-icon">
                     	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-hot.png" />

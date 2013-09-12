@@ -238,6 +238,7 @@ class ControllerModuleProductlist extends Controller
 					'keyword' => $media['keyword'],
 					'summary' => $media['summary'],
 					'price' => $media['price'],
+					'discountpercent' => $media['discountpercent'],
 					'pricepromotion' => $media['pricepromotion'],
 					
 					'properties' => $properties,
