@@ -23,6 +23,16 @@
 {
 	width:480px;	
 }
+.flagdiscount
+{
+	background:url(../image/flag-discount.png) no-repeat;
+	width:47px;
+	height:24px;
+	padding-left:22px;
+	color:#fff;
+	font-size:0.8em;
+	margin-left:130px;
+}
 .product-price
 {
 	
