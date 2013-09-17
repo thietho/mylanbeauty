@@ -114,6 +114,15 @@ $('#title').change(function(e) {
                             <input class="text" type="text" id="color" name="color" value="<?php echo $post['color']?>" size="60" />
                         </p>
                         <p>
+                            <label>Nhãn hiệu</label><br />
+                            <select name="brand">
+                                <option value=""></option>
+                                <?php foreach($nhanhieu as $it){ ?>
+                                <option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
+                                <?php } ?>
+                            </select>
+                        </p>
+                        <p>
                         	<label>Đơn vị</label><br>
                             <select id="unit" name="unit">
                             	
@@ -179,12 +188,31 @@ $('#title').change(function(e) {
                         
                         <p>
                             <label><?php echo $text_price?></label><br>
-                            <input class="text number" type="text" name="price" value="<?php echo $post['price']?>" size="60" />
+                            <input class="text number" type="text" id="price" name="price" value="<?php echo $post['price']?>" size="60" />
+                        </p>
+                        <p>
+                            <label>Phần trăm giảm giá</label><br>
+                            <input class="text number" type="text" id="discountpercent" name="discountpercent" value="<?php echo $post['discountpercent']?>" />%
                         </p>
                         <p>
                             <label>Giá khuyến mãi</label><br>
-                            <input class="text number" type="text" name="pricepromotion" value="<?php echo $post['pricepromotion']?>" size="60" />
+                            <input class="text number" type="text" id="pricepromotion" name="pricepromotion" value="<?php echo $post['pricepromotion']?>" size="60" />
                         </p>
+                        <script language="javascript">
+						$('#discountpercent').keyup(function(e) {
+                            var price = Number(stringtoNumber($('#price').val()));
+							var discountpercent = Number(stringtoNumber($('#discountpercent').val()));
+							var pricepromotion = price*( 1- discountpercent/100);
+							$('#pricepromotion').val(formateNumber(pricepromotion));
+                        });
+						
+						$('#pricepromotion').keyup(function(e) {
+                            var price = Number(stringtoNumber($('#price').val()));
+							var pricepromotion = Number(stringtoNumber($('#pricepromotion').val()));
+							var discountpercent = (1- pricepromotion/price)*100;
+							$('#discountpercent').val(formateNumber(discountpercent));
+                        });
+						</script>
                         <?php } ?>
                         <p>
                         	<label>Trang thái:</label>
@@ -279,15 +307,7 @@ $(document).ready(function(e) {
             <div id="fragment-properties">
             	<div>
                 	
-                	<p>
-                    	<label>Nhãn hiệu</label><br />
-                        <select name="nhanhieu">
-                        	<option value=""></option>
-                        	<?php foreach($nhanhieu as $it){ ?>
-                        	<option value="<?php echo $it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'selected="selected"':''; ?>><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
-                        	<?php } ?>
-                        </select>
-                    </p>
+                	
                     <p>
                     	<label><?php echo $text_status?></label>
                         <?php foreach($statuspro as $it){ ?>
@@ -522,9 +542,6 @@ $(document).ready(function(e) {
 
 </div>
 
-<script src='<?php echo DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>
-
-
 <script type="text/javascript" charset="utf-8">
 function save()
 {
@@ -542,23 +559,7 @@ function save()
 			if(data=="true")
 			{
 				window.location = "<?php echo $DIR_CANCEL.'&page='.$_GET['page']?>"
-				/*if("<?php echo $_GET['sitemapid']?>"!= "")
-				{
-					var sitemapid = $('#refersitemap').val().replace('[',"");
-					sitemapid = sitemapid.replace("]","");
-					//alert(strurl)
-					if(strurl=="")
-						window.location = "?route=<?php echo $this->getRoute()?>&sitemapid=<?php echo $_GET['sitemapid']?>&page=<?php echo $_GET['page'] ?>";	
-					
-						
-				}
-				else
-				{
-					if("<?php echo $_GET['route']?>" == "module/product")
-						window.location = "?route=<?php echo $this->getRoute()?>&page=<?php echo $_GET['page'] ?>";
-					else
-						window.location = "?route=core/media";	
-				}*/
+				
 			}
 			else
 			{
@@ -597,19 +598,14 @@ $(document).ready(function() {
 
 function browserFileImage()
 {
-    //var re = openDialog("?route=core/file&dialog=true",800,500);
-	/*$('#handler').val('image');
-	$('#outputtype').val('image');
-	showPopup("#popup", 800, 500);
-	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
-	$("#popup").load("?route=core/file&dialog=true");*/
+    
 	
 	$("#popup").attr('title','Chọn hình');
 		$( "#popup" ).dialog({
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
+			width: $(document).width()-100,
 			height: 600,
 			modal: true,
 			
@@ -663,7 +659,7 @@ function intSeleteFile(type)
 			break;
 		case "multi":
 			$('.filelist').click(function(e) {
-                $('#popup-seletetion').append($(this))
+                //$('#popup-seletetion').append($(this))
             });
 			break;
 	}
@@ -676,14 +672,14 @@ function browserFileAttachment()
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
+			width: $(document).width()-100,
 			height: 600,
 			modal: true,
 			buttons: {
 				
 				
 				
-				'Xem danh sach':function()
+				/*'Xem danh sach':function()
 				{
 					$( "#popup-selete" ).show('fast',function(){
 						$( "#popup-selete" ).position({
@@ -696,10 +692,10 @@ function browserFileAttachment()
 					$('.closeselect').click(function(e) {
                         $( "#popup-selete" ).hide('fast');
                     });
-				},
+				},*/
 				'Chọn': function() 
 				{
-					$('#popup-seletetion .filelist').each(function(index, element) {
+					$('.selectfile').each(function(index, element) {
                         $.getJSON("?route=core/file/getFile&fileid="+this.id+"&width=50", 
 							function(file) 
 							{

@@ -1,15 +1,13 @@
 <script src='<?php echo DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>
 
 
-
-
 <form id="ffile" name="ffile" method="post">
 
 <table width="100%" class="data-table">
 	<tr>
         <td colspan="3">
      		<input type="hidden" name="sitemap" id="sitemap" value="" />
-      		<strong>Keyword</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
+      		<strong>File name</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
             
             
             			
@@ -22,14 +20,27 @@
     	<td colspan="3">
         	<p id="pnImage">
                 <label for="image">Upload file</label><br />
-                <a id="btnAddImagePopup" class="button">Select file</a><br />
                 
+                <input type="button" class="button" id="btnAddImagePopup" value="Chọn file" />
+                <input type="button" class="button" value="Tạo thư mục" onclick="showFolderForm('',$('.selectfolder').attr('folderid'))"/>
+                <input type="button" class="button" value="Sửa tên thư mục" onclick="showFolderForm($('.selectfolder').attr('folderid'),'')"/>
+                <input type="button" class="button" value="Xóa thư mục" onclick="delFolder($('.selectfolder').attr('folderid'))"/>
+                <br />
                 <div id="errorupload" class="error" style="display:none"></div>
+               
+                <?php if($_GET['dialog'] == ''){?>
+                <input type="button" class="button" id="btnDelFile" value="Xóa file"/>
+                <input type="button" class="button" id="btnMoveFile" value="Chuyển thư mục" onclick="showFolderMoveForm()"/>
+                <?php } ?>
+                
             </p>
         </td>
     </tr>
     <tr valign="top">
-    	
+    	<td  width="20%" style="vertical-align:top">
+        	<span class="folderitem selectfolder" folderid="0">Root</span>
+            <div id="showfolder"></div>   
+        </td>
         <td id="result" style="vertical-align:top !important">
         	Loading...
         </td>
@@ -45,7 +56,10 @@
 <script language="javascript">
 //alert(parent.opener.document.InsertContent.title.value);
 $(document).ready(function() {
-	showResult("?route=core/file/getList")
+	
+	loadFolder()
+  	showResult("?route=core/file/getList&folderid=0");
+	
 	$(".checkbox").click(function(index){
 		//alert($(this).val());
 		//alert(this.checked);
@@ -58,26 +72,66 @@ $(document).ready(function() {
 		})
 		$("#sitemap").val(temp);
 	});
+	$('#showfolder').css('overflow','auto');
+	//'$('#showfolder').css('height',$(window).height() - $('#showfolder').position().top+ 'px');
+	
+	
 });
-
+function loadFolder()
+{
+	
+	$('#showfolder').load("?route=core/file/getFolderTreeView",function(){
+		var CLASSES = ($.treeview.classes = {
+			animated: "fast",
+ 			collapsed: false,
+			persist: "cookie",
+ 			cookieId: "rememberme"
+		});
+		$("#group0").treeview(CLASSES);
+		intFolder()
+	});
+}
+function intFolder()
+{
+	$('.folderitem').click(function(e) {
+		$('.folderitem').removeClass("selectfolder");
+		$(this).addClass("selectfolder");
+		showResult("?route=core/file/getList&folderid="+ $(this).attr('folderid'));
+	});
+}
+function selectFolder(folderid)
+{
+	
+	$('#foldername' + folderid).addClass("selectfolder");
+	showResult("?route=core/file/getList&folderid="+ folderid);
+	
+	
+	
+}
+var arrfileid = new Array();
 $("#btnfilter").click(function(){
 	
 	url = "?route=core/file/getList&keyword="+escape($("#keyword").val())+"&location="+$("#location").val()+"&sitemap="+$("#sitemap").val();
-	$("#result").load(url);						   
+	showResult(url);						   
 })
+$('#btnDelFile').click(function(e) {
+    $('.selectfile').each(function(index, element) {
+        var fileid = this.id;
+		$.get("?route=core/file/delFile&fileid="+fileid,function(data){
+			showResult("?route=core/file/getList&folderid="+ $('.selectfolder').attr('folderid'));
+		});		
+    });
+});
 
-function moveto(url)
-{
-	$("#result").html("Loading...");
-	showResult(url)
-	
-}
+
+
 
 function callbackUploadFile()
 {
 	new AjaxUpload(jQuery('#btnAddImagePopup'), {
 		action: DIR_UPLOADATTACHMENT,
 		name: 'image2[]',
+		
 		responseType: 'json',
 		onChange: function(file, ext){
 		},
@@ -93,10 +147,23 @@ function callbackUploadFile()
 			}        */                    
 		},
 		onComplete: function(file, response){
-			//alert(response);
 			
+			for(i in response.files)
+			{
+				
+				var fileid = response.files[i].imageid;
+				var folderid = $('.selectfolder').attr('folderid');
+				$.get("?route=core/file/updateFolder&fileid="+fileid+"&folderid="+folderid,
+					function(){
+						 showResult("?route=core/file/getList&folderid="+folderid);
+					});
+				//Cap nhat vo thu muc folder:$('.selectfolder').attr('folderid'),
+			}
 			$('#errorupload').hide();
-			showResult("?route=core/file/getList")
+			
+           
+				
+            
 			
 			
 				
@@ -112,10 +179,11 @@ function callbackUploadFile()
 }
 function showResult(url)
 {
+	$('#result').html(loading);
 	$("#result").load(url,function(){
-		intSeleteFile("<?php echo $_GET['type']?>");
+		if("<?php echo $_GET['dialog']?>" =='true')
+			intSeleteFile("<?php echo $_GET['type']?>");
 	});
 }
 callbackUploadFile();
-
 </script>

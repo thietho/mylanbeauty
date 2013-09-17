@@ -336,6 +336,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$sizes = $this->db->escape(@$data['sizes']);
 		$unit = $this->db->escape(@$data['unit']);
 		$color = $this->db->escape(@$data['color']);
+		$brand = $this->db->escape(@$data['brand']);
 		$mediaparent=$this->db->escape(@$data['mediaparent']);
 		$mediatype=$this->db->escape(@$data['mediatype']);
 		$refersitemap=$this->db->escape(@$data['refersitemap']);
@@ -368,6 +369,7 @@ class ModelCoreMedia extends ModelCoreFile
 						'sizes',
 						'unit',
 						'color',
+						'brand',
 						'mediaparent',
 						'mediatype',
 						'refersitemap',
@@ -397,6 +399,7 @@ class ModelCoreMedia extends ModelCoreFile
 						$sizes,
 						$unit,
 						$color,
+						$brand,
 						$mediaparent,
 						$mediatype,
 						$refersitemap,
@@ -434,6 +437,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$sizes = $this->db->escape(@$data['sizes']);
 		$unit = $this->db->escape(@$data['unit']);
 		$color = $this->db->escape(@$data['color']);
+		$brand = $this->db->escape(@$data['brand']);
 		$mediaparent=$this->db->escape(@$data['mediaparent']);
 		$mediatype=$this->db->escape(@$data['mediatype']);
 		$refersitemap=$this->db->escape(@$data['refersitemap']);
@@ -442,6 +446,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$title=$this->db->escape(@$data['title']);
 		$summary=$this->db->escape(@$data['summary']);
 		$price=$this->db->escape(@$this->string->toNumber($data['price']));
+		$discountpercent=$this->db->escape(@$this->string->toNumber($data['discountpercent']));
 		$pricepromotion=$this->db->escape(@$this->string->toNumber($data['pricepromotion']));
 		$saleprice = $this->db->escape(@$data['saleprice']);
 		$description=(@$data['description']);
@@ -469,6 +474,7 @@ class ModelCoreMedia extends ModelCoreFile
 						'sizes',
 						'unit',
 						'color',
+						'brand',
 						'mediaparent',
 						'mediatype',
 						'refersitemap',
@@ -476,6 +482,7 @@ class ModelCoreMedia extends ModelCoreFile
 						'title',
 						'summary',
 						'price',
+						'discountpercent',
 						'pricepromotion',
 						'saleprice',
 						'description',
@@ -496,6 +503,7 @@ class ModelCoreMedia extends ModelCoreFile
 						$sizes,
 						$unit,
 						$color,
+						$brand,
 						$mediaparent,
 						$mediatype,
 						$refersitemap,
@@ -503,6 +511,7 @@ class ModelCoreMedia extends ModelCoreFile
 						$title,
 						$summary,
 						$price,
+						$discountpercent,
 						$pricepromotion,
 						$saleprice,
 						$description,

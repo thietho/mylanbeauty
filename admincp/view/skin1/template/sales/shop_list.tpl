@@ -101,4 +101,49 @@ function moveto(url,eid)
 	$(eid).html(loading);
 	$(eid).load(url);	
 }
+function selectNhanVien(shopid)
+{
+	$('body').append('<div id="nhanvienfrom" style="display:none"></div>');
+	var eid = "#nhanvienfrom"
+	$(eid).attr('title','Thông tin file');
+		$(eid).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: 500,
+			height: 600,
+			modal: true,
+			close:function()
+				{
+					$(eid).remove();
+				},
+			
+		});
+	
+		
+		$(eid).load("?route=sales/shop/getListStaff&dialog=true",function(){
+			$(eid).dialog("open");
+			$('.nhanvien').click(function(e) {
+                //alert($(this).attr('nhanvienid'));
+				var nhanvienid = $(this).attr('nhanvienid');
+				$.post("?route=sales/shop/saveStaffToShop",
+					{
+						staffid:nhanvienid,
+						shopid:shopid
+					},
+					function(data){
+						window.location.reload();
+					});
+				$(eid).dialog( "close" );
+            });
+		});
+}
+function removeStaff(staffid)
+{
+	$.get("?route=sales/shop/removeStaff&staffid="+staffid,function(data){
+		if(data=='true')
+			window.location.reload();
+	});
+}
+
 </script>

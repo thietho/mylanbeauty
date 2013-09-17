@@ -13,6 +13,7 @@ class ControllerSalesShop extends Controller
 		}
 			
 		$this->load->model("sales/shop");
+		$this->load->model("quanlykho/nhanvien");
 		
 	}
 	public function index()
@@ -73,10 +74,6 @@ class ControllerSalesShop extends Controller
 		
 		$this->load->model("core/user");
 		
-		
-		
-		
-		
 		$this->data['insert'] = $this->url->http('sales/shop/insert');
 		$this->data['delete'] = $this->url->http('sales/shop/delete');		
 		
@@ -116,6 +113,12 @@ class ControllerSalesShop extends Controller
 			
 			$this->data['datas'][$i]['link_edit'] = $this->url->http('sales/shop/update&id='.$this->data['datas'][$i]['id']);
 			$this->data['datas'][$i]['text_edit'] = "Sửa";
+			//Lay nhan vien cua của hang
+			$where = " AND shopid =". $this->data['datas'][$i]['id'];
+			$data_shopstaff = $this->model_sales_shop->getShopStaffList($where);
+			$arr_staffid = $this->string->matrixToArray($data_shopstaff,'staffid');
+			
+			$this->data['datas'][$i]['arr_staffid'] =$arr_staffid;
 			
 		}
 		$this->data['refres']=$_SERVER['QUERY_STRING'];
@@ -199,6 +202,34 @@ class ControllerSalesShop extends Controller
 		} else {
 	  		return FALSE;
 		}
+	}
+	
+	public function getListStaff()
+	{
+		$where = " AND id not in (SELECT staffid 
+										FROM  `shop_staff` )";
+		$this->data['data_nhanvien'] = $this->model_quanlykho_nhanvien->getList($where);
+		$this->id='content';
+		$this->template="sales/nhanvien_list.tpl";
+		$this->render();
+	}
+	public function saveStaffToShop()
+	{
+		$data = $this->request->post;
+		$this->model_sales_shop->saveShopStaff($data);
+		$this->data['output'] = "true";
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
+	}
+	public function removeStaff()
+	{
+		$staffid = $this->request->get['staffid'];
+		$this->model_sales_shop->deleteShopStaff($staffid);
+		$this->data['output'] = "true";
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
 	}
 }
 ?>
