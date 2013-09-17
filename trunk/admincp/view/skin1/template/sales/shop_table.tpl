@@ -11,7 +11,7 @@
                         <th>Tên cửa hàng</th>
                         <th>Địa chỉ</th>
                         <th>Điện thoại</th>
-                        
+                        <th>Nhân viên</th>
                         <?php if($dialog==false){ ?>
                         <th>Control</th>            
                         <?php } ?>                      
@@ -32,12 +32,27 @@
                         <td><?php echo $item['shopname']?></td>
                         <td><?php echo $item['address']?></td>
                         <td><?php echo $item['phone']?></td>
-                       
+                       	<td>
+                        	<?php if(count($item['arr_staffid'])){ ?>
+                            <ul>
+                        	<?php foreach($item['arr_staffid'] as $staffid){ ?>
+                            	<li>
+                                	<?php echo $this->document->getNhanVien($staffid)?>
+                                    (<?php echo $this->document->getNhanVien($staffid,'username')?>)
+                                    <input type="button" class="button" value="Xóa" onclick=" removeStaff(<?php echo $staffid?>)"/>
+                                    
+                                </li>
+                            <?php } ?>
+                            </ul>
+                            <?php } ?>
+                        </td>
                         <?php if($dialog==false){ ?>
                         <td class="link-control">
                             <?php if($this->user->checkPermission("sales/shop/update")==true){ ?>
                             <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="window.location='<?php echo $item['link_edit']?>'"/>
                             <?php } ?>
+                            
+                            <input type="button" class="button" name="btnAddStaff" value="Thêm nhân viên vào cửa hàng" onclick="selectNhanVien(<?php echo $item['id']?>)"/>
                             
                         </td>
                         <?php } ?>
