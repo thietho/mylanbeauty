@@ -25,7 +25,9 @@
         	<?php echo $supportonline?>
         </div>
         <div class="clearer">&nbsp;</div>
-        
+        <div style="position:absolute;width:755px;text-align:center;margin-top:34px;margin-left:240px">
+        	<h2>SẢN PHẨM ĐANG TIẾP TỤC CẬP NHẬT</h2>
+        </div>
         <div class="ben-navigation">
     
             <ul id="ben-main-nav">
