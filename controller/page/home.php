@@ -58,7 +58,8 @@ class ControllerPageHome extends Controller
 					//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
 					$medias = $this->getProduct($sitemap['sitemapid'],"");
 					$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
-					$this->data['producthome'][$sitemap['sitemapid']] = $this->loadModule('module/productlist','getAll',$arr);
+					$this->data['producthome'][$sitemap['sitemapid']]['title'] = $sitemap['sitemapname'];
+					$this->data['producthome'][$sitemap['sitemapid']]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 				}
 			}
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());

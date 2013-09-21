@@ -15,7 +15,10 @@
             
             	<?php echo $bannerhome?>
                 <?php foreach($producthome as $item){ ?>
-            	<?php echo $item?>
+                <?php if($item['data']){ ?>
+                <h3><?php echo $item['title']?></h3>
+            	<?php echo $item['data']?>
+                <?php } ?>
                 <?php } ?>
             </div>
             
