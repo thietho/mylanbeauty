@@ -520,7 +520,47 @@ class ControllerCorePostcontent extends Controller
 		$this->template="common/output.tpl";
 		$this->render();
 	}
-	
+	private function showTreeSiteMap($parentid)
+	{
+		$siteid = $this->user->getSiteId();
+		$str = "";
+		
+		$sitemaps = $this->model_core_sitemap->getListByParent($parentid, $siteid, "Active");
+		
+		foreach($sitemaps as $item)
+		{
+			if($item['moduleid'] == "module/product")
+			{
+				$childs = $this->model_core_sitemap->getListByParent($item['sitemapid'], $siteid);
+				
+				$link = "<a href='?route=module/product&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a> ";
+				
+				$str .= "<li>";
+				
+				$str .= $link;
+				
+				if(count($childs) > 0)
+				{
+					
+					
+					
+					$str .= "<ul>";
+					$str .= $this->showTreeSiteMap($item['sitemapid']);
+					$str .= "</ul>";
+				}
+				else
+				{
+					
+					
+					
+				}
+				$str .= "</li>";
+				
+			}
+		}
+		
+		return $str;
+	}
 	private function getListSiteMapCheckBox($media)
 	{
 		$strReferSitemap = $media['refersitemap'];
