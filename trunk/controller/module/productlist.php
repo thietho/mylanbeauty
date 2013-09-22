@@ -210,7 +210,7 @@ class ControllerModuleProductlist extends Controller
 			
 		
 			$index = -1;
-			foreach($medias as $media)
+			foreach($medias as $i=> $media)
 			{
 				$index += 1;
 				//$media = $medias[$i];
@@ -232,6 +232,12 @@ class ControllerModuleProductlist extends Controller
 				
 				
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
+				$this->data['medias'][$i] =$media;
+				$this->data['medias'][$i]['link']= $link;
+				$this->data['medias'][$i]['properties']= $properties;
+				$this->data['medias'][$i]['imagethumbnail']= $imagethumbnail;
+				$this->data['medias'][$i]['imagetpreview']= $imagetpreview;
+				$this->data['medias'][$i]['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
