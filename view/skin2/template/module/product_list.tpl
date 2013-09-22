@@ -27,7 +27,7 @@ if(count($medias))
                     </div>
                     <?php } ?>
                     <?php if($media['imagethumbnail'] !=""){ ?>
-                    <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
+                    <a class="islink" href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
                     
                     <?php }?>
                     	
@@ -35,7 +35,15 @@ if(count($medias))
             </tr>
             <tr>
                 <td>
-                    <div align="center"><a href="<?php echo $media['link']?>"><h6><?php echo $media['title']?></h6></a></div>
+                    <div align="center">
+                    	<a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">
+                        	<h6>
+                            	<?php echo $media['title']?>
+                            </h6>
+                            <?php if($media['code']!="") echo "<h6>".$media['code']."</h6>"?>
+                        </a>
+                    </div>
+                    <?php if($media['pricepromotion']){ ?>
                     <div align="center" class="product-pricepromotion">
                         	<?php $cls = '';?>
                         	<?php if($media['pricepromotion']){ ?>
@@ -43,9 +51,10 @@ if(count($medias))
                         	<?php echo $this->string->numberFormate($media['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
                             <?php } ?>
                     </div>
+                    <?php } ?>
                     <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
                     <div align="center">
-                        <a href="<?php echo $media['link']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
+                        <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                 </td>
             </tr>

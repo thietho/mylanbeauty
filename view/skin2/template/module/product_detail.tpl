@@ -25,7 +25,7 @@
         <div class="product-mainimage">
         	<table>
             	<tr valign="middle">
-                	<td id="product-preview" height="250px"><a class="zoom" href="<?php echo $post['imagepreview']?>"><img  src="<?php echo $post['imagethumbnail']?>" /></a></td>
+                	<td id="product-preview" height="250px" align="center"><a class="zoom" href="<?php echo $post['imagepreview']?>"><img  src="<?php echo $post['imagethumbnail']?>" /></a></td>
                 </tr>
             </table>
 	        
@@ -157,9 +157,9 @@ $("#ben-next").click(function(){
                     <tr>
                     	<td><strong>Nhản hiệu:</strong></td>
                         <td>
-                        	<?php foreach($nhanhieu as $it){ ?>
-                            <?php echo in_array($it['categoryid'],$properties)?"<a href='".$this->document->createLink('brandinfor',$it['categoryid'])."'>".$it['categoryname'].'</a><br />':''; ?>
-                            <?php } ?>
+                        	
+                            <a href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a>
+                            
                         </td>
                     </tr>
                     <?php if(count($priceproduct) == 0){ ?>
@@ -186,6 +186,11 @@ $("#ben-next").click(function(){
             <p class="short_intro">
             	<?php echo $post['summary']?>
                 
+            </p>
+            <p>
+            	<?php foreach($data_samplecode as $key => $item){?>
+                <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
+                <?php } ?>
             </p>
         </div>
         
