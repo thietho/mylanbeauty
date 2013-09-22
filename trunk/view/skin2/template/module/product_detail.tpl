@@ -162,6 +162,14 @@ $("#ben-next").click(function(){
                             
                         </td>
                     </tr>
+                    <tr>
+                    	<td><strong>Màu:</strong></td>
+                        <td>
+                        	
+                            <?php echo $post['color']?>
+                            
+                        </td>
+                    </tr>
                     <?php if(count($priceproduct) == 0){ ?>
                     <tr>
                     	<td><strong>Giá:</strong></td>
@@ -187,11 +195,13 @@ $("#ben-next").click(function(){
             	<?php echo $post['summary']?>
                 
             </p>
+            <?php if(count($data_samplecode)>1){ ?>
             <p>
             	<?php foreach($data_samplecode as $key => $item){?>
                 <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
                 <?php } ?>
             </p>
+            <?php } ?>
         </div>
         
     </div>

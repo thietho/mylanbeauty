@@ -226,13 +226,16 @@ class ControllerModulePagedetail extends Controller
 		$arr = array($where,$temp);
 		$this->data['comment'] = $this->loadModule('module/comment','getList',$arr);
 		//Cac sp cung code
-		$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = ''";
-		$this->data['data_samplecode'] = $this->model_core_media->getList($where);
-		foreach($this->data['data_samplecode'] as $i => $item)
-		{
-			$this->data['data_samplecode'][$i]['icon'] = HelperImage::resizePNG($item['imagepath'], 50, 50);
-		}
 		
+		if($this->data['post']['code'] != "")
+		{
+			$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = ''";
+			$this->data['data_samplecode'] = $this->model_core_media->getList($where);
+			foreach($this->data['data_samplecode'] as $i => $item)
+			{
+				$this->data['data_samplecode'][$i]['icon'] = HelperImage::resizePNG($item['imagepath'], 50, 50);
+			}
+		}
 		
 		$this->id="news";
 		$this->template=$template['template'];
