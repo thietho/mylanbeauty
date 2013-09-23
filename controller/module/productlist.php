@@ -205,12 +205,12 @@ class ControllerModuleProductlist extends Controller
 				$medias = $this->model_core_media->getPaginationList($queryoptions,0,0,$orderby);
 			}
 			
-			
+			//print_r($medias);
 			$this->data['medias'] = array();
 			
 		
 			$index = -1;
-			foreach($medias as $i=> $media)
+			foreach($medias as $i => $media)
 			{
 				$index += 1;
 				//$media = $medias[$i];
@@ -222,7 +222,7 @@ class ControllerModuleProductlist extends Controller
 				
 				$imagethumbnail = "";
 				
-				if($media['imagepath'] != "" )
+				//if($media['imagepath'] != "" )
 				{
 					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
@@ -238,22 +238,7 @@ class ControllerModuleProductlist extends Controller
 				$this->data['medias'][$i]['imagethumbnail']= $imagethumbnail;
 				$this->data['medias'][$i]['imagetpreview']= $imagetpreview;
 				$this->data['medias'][$i]['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");
-				$this->data['medias'][] = array(
-					'mediaid' => $media['mediaid'],
-					'title' => $media['title'],
-					'keyword' => $media['keyword'],
-					'summary' => $media['summary'],
-					'price' => $media['price'],
-					'discountpercent' => $media['discountpercent'],
-					'pricepromotion' => $media['pricepromotion'],
-					
-					'properties' => $properties,
-					'imagethumbnail' => $imagethumbnail,
-					'imagetpreview' => $imagetpreview,
-					'fileid' => $media['imageid'],
-					'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),
-					'link' => $link
-				);
+				
 				
 			}
 			
