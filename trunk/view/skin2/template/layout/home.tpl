@@ -9,8 +9,12 @@
 <meta name="description" content="<?php echo $meta_description?>" />
 <meta name="keywords" content="<?php echo $meta_keyword?>" />		
 <title><?php echo $title?></title>
-
+<meta property="og:title" content="<?php echo $title?>">
+<meta property="og:type" content="Website">
+<meta property="og:url" content="http://mylanbeauty.net/">
+<meta property="og:description" content="<?php echo $meta_description?>">
 <?php echo $meta_image?>
+
 </head>
 
 <!--[if lt IE 7]>
