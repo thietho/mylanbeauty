@@ -25,7 +25,7 @@ function Cart()
 			function(data){
 				if(data == "true")
 				{
-					$("#ben-popup").attr('title','Thông đặt hàng');
+					$("#ben-popup").attr('title','Thông tin đặt hàng');
 					$( "#ben-popup" ).dialog({
 						autoOpen: false,
 						show: "blind",
