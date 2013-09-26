@@ -162,6 +162,7 @@ $("#ben-next").click(function(){
                             
                         </td>
                     </tr>
+                    <?php if($post['color'] != ""){ ?>
                     <tr>
                     	<td><strong>Màu:</strong></td>
                         <td>
@@ -170,6 +171,7 @@ $("#ben-next").click(function(){
                             
                         </td>
                     </tr>
+                    <?php } ?>
                     <?php if(count($priceproduct) == 0){ ?>
                     <tr>
                     	<td><strong>Giá:</strong></td>
