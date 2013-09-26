@@ -40,8 +40,8 @@ class ControllerPageHome extends Controller
 			//$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
 			$template = array(
 								  'template' => "module/product_list.tpl",
-								  'width' => 170,
-								  'height' =>170,
+								  'width' => 180,
+								  'height' =>180,
 								  'widthpreview' => 450,
 								  'heightpreview' =>450
 								  );
