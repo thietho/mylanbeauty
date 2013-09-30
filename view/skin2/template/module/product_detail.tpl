@@ -146,6 +146,16 @@ $("#ben-next").click(function(){
         <div class="ben-post-body">
         	<p>
             	<table>
+                	<?php if($post['code'] != ""){ ?>
+                    <tr>
+                    	<td><strong>Mã số:</strong></td>
+                        <td>
+                        	
+                            <?php echo $post['code']?>
+                            
+                        </td>
+                    </tr>
+                    <?php } ?>
                 	<tr>
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
