@@ -230,10 +230,10 @@ class ModelCoreMedia extends ModelCoreFile
 		return $query->rows;
 	}
 	
-	public function getListByParent($parent,$order = "", $from=0, $length=0)
+	public function getListByParent($parent, $w="")
 	{
-		$where = "AND mediaparent = '".$parent."' ".$order;		
-		return $this->getMedias($where, $from, $length);		
+		$where = "AND mediaparent = '".$parent."'" . $w;		
+		return $this->getList($where);		
 		
 		
 	}
