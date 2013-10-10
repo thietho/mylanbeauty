@@ -123,6 +123,8 @@ class ControllerModulePagedetail extends Controller
 		$this->data['post']['link'] = $this->document->createLinkShare($sid,$this->data['post']['alias']);
 		$mediaid = $this->data['post']['mediaid'];
 		$this->document->title .= " - ".$this->data['post']['title'];
+		if($this->data['post']['code'])
+			$this->document->title .= " - ".$this->data['post']['code'];
 		if(count($this->data['post']) == 0)
 		{
 			$this->data['post']['description'] = "Updating...";
