@@ -43,9 +43,10 @@ if(count($medias))
                             <?php if($media['code']!="") echo "<h6>".$media['code']."</h6>"?>
                         </a>
                     </div>
-                    <?php if($media['pricepromotion']){ ?>
+                    <?php $cls = '';?>
+                    <?php if($media['pricepromotion']!=0){ ?>
                     <div align="center" class="product-pricepromotion">
-                        	<?php $cls = '';?>
+                        	
                         	<?php if($media['pricepromotion']){ ?>
                             <?php $cls = 'product-price-no';?>
                         	<?php echo $this->string->numberFormate($media['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>

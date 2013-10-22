@@ -187,7 +187,7 @@ $("#ben-next").click(function(){
                     	<td><strong>Giá:</strong></td>
                         <td>
                         	<?php $cls = '';?>
-                            <?php if($post['pricepromotion']){ ?>
+                            <?php if($post['pricepromotion']!=0){ ?>
                             <?php $cls = 'product-price-no';?>
                             <span class="product-pricepromotion">
                             <?php echo $this->string->numberFormate($post['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>

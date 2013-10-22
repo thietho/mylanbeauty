@@ -12,7 +12,7 @@
         	<div class="ben-section-title"><?php echo $brand?></div>
             
             <div class="ben-section-content">
-            
+            	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'banner.jpg'?>" width="767px"/>
             	<?php echo $bannerhome?>
                 <?php foreach($producthome as $item){ ?>
                 <?php if($item['data']){ ?>
