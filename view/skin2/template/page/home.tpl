@@ -12,7 +12,7 @@
         	<div class="ben-section-title"><?php echo $brand?></div>
             
             <div class="ben-section-content">
-            	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'banner.jpg'?>" width="767px"/>
+            	<a href="https://www.facebook.com/photo.php?fbid=191867867667323&set=a.179182488935861.1073741831.160652660788844&type=1&theater" target="_blank"><img src="<?php echo HTTP_SERVER.DIR_IMAGE.'banner.jpg'?>" width="767px"/></a>
             	<?php echo $bannerhome?>
                 <?php foreach($producthome as $item){ ?>
                 <?php if($item['data']){ ?>
