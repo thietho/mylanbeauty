@@ -5,7 +5,7 @@
         </div>
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>">Trang chủ</a>
-            | <a href="<?php echo $this->document->createLink('lienhe')?>">Liên hệ</a>
+            | <a href="<?php echo $this->document->createLink('gioithieu')?>">Giới thiệu</a>
             | <a href="<?php echo $this->document->createLink('lienhe')?>">Liên hệ</a>
             | <a href="<?php echo $this->document->createLink('cart')?>">Giỏ hàng</a>
             <?php if(!$this->member->isLogged()){?>
