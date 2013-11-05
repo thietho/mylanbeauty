@@ -27,7 +27,7 @@ class ControllerSitebarCatalogue extends Controller
 		{
 			$childs = $this->model_core_sitemap->getListByParent($item['sitemapid'], $siteid, $status);
 			
-			$link = "<a class='left'>".$item['sitemapname']."</a>";
+			$link = "<a class='left' title='".strip_tags($item['sitemapname'])."'>".$item['sitemapname']."</a>";
 			
 			if(substr($item['moduleid'],0,6) == "group/")
 			{
@@ -38,7 +38,7 @@ class ControllerSitebarCatalogue extends Controller
 			if($item['moduleid'] != "group" && $item['moduleid'] != "homepage")
 			{
 				//$link='<a class="left" href="?route='.$item['moduleid']."&sitemapid=".$item['sitemapid'].'" title="[Detail]">'.$item['sitemapname'].'</a>';
-				$link = "<a  href='".$this->document->createLink($item['sitemapid'])."'>".html_entity_decode($item['sitemapname'])."</a>";
+				$link = "<a  href='".$this->document->createLink($item['sitemapid'])."' title='".strip_tags($item['sitemapname'])."'>".html_entity_decode($item['sitemapname'])."</a>";
 			}
 			
 			$str .= "<li>";

@@ -93,6 +93,7 @@ $(function() {
 
 
 <body>
+<div style="display:none"><?php echo $meta_keyword?></div>
 <div id="ben-body">
     <div id="ben-main">
         

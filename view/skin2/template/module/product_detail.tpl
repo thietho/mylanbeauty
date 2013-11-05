@@ -37,7 +37,7 @@
             <table>
                 <tr>
                     <td style="width:14px">
-                        <img class="ben-link" id="ben-prev" src="<?php echo HTTP_SERVER.DIR_IMAGE?>galary_button_prev.png" />
+                        <img class="ben-link" id="ben-prev" src="<?php echo HTTP_SERVER.DIR_IMAGE?>galary_button_prev.png" title="<?php echo $post['title']?>" alt="<?php echo $post['title']?>"/>
                     </td>
                     <td>
                         <div style="overflow:hidden;width:248px;margin:0 auto;">
@@ -168,7 +168,7 @@ $("#ben-next").click(function(){
                     	<td><strong>Nhản hiệu:</strong></td>
                         <td>
                         	
-                            <a href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a>
+                            <a href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>" title="<?php echo $this->document->getCategory($post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a>
                             
                         </td>
                     </tr>
