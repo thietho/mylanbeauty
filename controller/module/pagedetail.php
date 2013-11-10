@@ -121,6 +121,7 @@ class ControllerModulePagedetail extends Controller
 		$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
 		$sid = $arr[0];
 		$this->data['post']['link'] = $this->document->createLinkShare($sid,$this->data['post']['alias']);
+		
 		$mediaid = $this->data['post']['mediaid'];
 		$this->document->title .= " - ".$this->data['post']['title'];
 		if($this->data['post']['code'])
