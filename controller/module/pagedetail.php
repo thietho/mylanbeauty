@@ -14,7 +14,7 @@ class ControllerModulePagedetail extends Controller
 		$siteid = $this->member->getSiteId();
 		
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
-		$this->document->title .= " - ".$this->data['post']['title'];
+		$this->document->title = "Mỹ Lan Beauty Shop - ".$this->data['post']['title'];
 		
 		if(count($this->data['post']) == 0)
 		{

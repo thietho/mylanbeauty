@@ -20,7 +20,7 @@ class ControllerModuleProductlist extends Controller
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
 		if($headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
-		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
+		
 		
 		$step = (int)$this->request->get['step'];
 		$to = $count;
@@ -161,7 +161,6 @@ class ControllerModuleProductlist extends Controller
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
 		if($headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
-		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
 		
 		$step = (int)$this->request->get['step'];
 		$to = $count;
