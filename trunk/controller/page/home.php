@@ -76,7 +76,7 @@ class ControllerPageHome extends Controller
 			$this->loadSiteBar();
 			
 		}
-		
+		$this->document->title .= $this->document->setup['Title'];
 		$this->id="content";
 		$this->template="page/home.tpl";
 		$this->layout="layout/home";

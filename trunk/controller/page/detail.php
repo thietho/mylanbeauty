@@ -24,13 +24,13 @@ class ControllerPageDetail extends Controller
 			$template = array(
 						  'template' => "module/category_brand.tpl"
 						  );
-		
+			
 			$arr = array("nhanhieu",$template);
 			$this->data['brand'] = $this->loadModule('module/category','getList',$arr);
 			if($this->document->sitemapid != "")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($this->document->sitemapid, $siteid);
-				
+				$this->document->title = "Mỹ Lan Beauty Shop - ".$sitemap['sitemapname'];
 				switch($sitemap['moduleid'])
 				{
 					case "":
