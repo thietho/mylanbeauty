@@ -34,7 +34,7 @@ class ControllerSitebarQuestion extends Controller
 			}
 			//Get sub infomation
 		
-			$child = $this->model_core_media->getListByParent($media['mediaid'],"Order by position");
+			$child = $this->model_core_media->getListByParent($media['mediaid'],"","Order by position");
 			foreach($child as $key => $item)
 			{
 				$child[$key]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
@@ -80,7 +80,7 @@ class ControllerSitebarQuestion extends Controller
 		$mediaid = $this->request->get['questionid'];
 		
 		$this->data['media'] = $this->model_core_media->getItem($mediaid);
-		$child = $this->model_core_media->getListByParent($this->data['media']['mediaid'],"Order by position");
+		$child = $this->model_core_media->getListByParent($this->data['media']['mediaid'],"","Order by position");
 		$sum = 0;
 		foreach($child as $key => $item)
 		{

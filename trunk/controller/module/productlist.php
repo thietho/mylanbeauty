@@ -105,7 +105,7 @@ class ControllerModuleProductlist extends Controller
 					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 				}
 				
-				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
+				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price'"," Order by position");
 				$price = $media['price'];
 				if($price == 0)
 				{
@@ -194,8 +194,9 @@ class ControllerModuleProductlist extends Controller
 				$orderby = " ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = " ORDER BY position,`title` DESC";
+				$orderby = "";
 		}
+		
 		if($mediaid == "")
 		{
 			if(count($medias)==0)
@@ -227,7 +228,6 @@ class ControllerModuleProductlist extends Controller
 					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 				}
 				
-				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price' Order by position");
 				
 				
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
