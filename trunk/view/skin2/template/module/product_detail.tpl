@@ -139,7 +139,12 @@ $("#ben-next").click(function(){
      
     </div>
     <div class="ben-right product-right">
-        <h2><?php echo $post['title']?></h2>
+        <h2>
+        	<?php echo $post['title']?>
+            <?php if($post['code'] != ""){ ?>
+            - <?php echo $post['code']?>
+            <?php } ?>
+        </h2>
         <?php if($post['noted']!="") echo "<h4>".$post['noted']."</h4>";?>
         
         <!--<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $post['link']?>" target="_blank">
@@ -150,16 +155,7 @@ $("#ben-next").click(function(){
         <div class="ben-post-body">
         	<p>
             	<table>
-                	<?php if($post['code'] != ""){ ?>
-                    <tr>
-                    	<td><strong>Mã số:</strong></td>
-                        <td>
-                        	
-                            <?php echo $post['code']?>
-                            
-                        </td>
-                    </tr>
-                    <?php } ?>
+                	
                 	<tr>
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>

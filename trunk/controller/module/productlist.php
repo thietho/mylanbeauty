@@ -15,6 +15,13 @@ class ControllerModuleProductlist extends Controller
 		if($sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		
+		
+		$tp = array(
+						'template' => "module/information.tpl",
+						);
+		$arr = array($this->member->getSiteId().$sitemapid,$tp);
+		
+		$this->data['content'] = $this->loadModule('module/block','showContent',$arr);
 		$siteid = $this->user->getSiteId();
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
@@ -24,7 +31,7 @@ class ControllerModuleProductlist extends Controller
 		
 		$step = (int)$this->request->get['step'];
 		$to = $count;
-		$_GET = $this->document->getPara();
+		//$_GET = $this->document->getPara();
 		//Get list
 		$child = array();
 		$this->model_core_sitemap->getTreeSitemap($sitemapid,$child,$this->member->getSiteId());
@@ -56,83 +63,91 @@ class ControllerModuleProductlist extends Controller
 				$orderby = " ORDER BY `updateddate` DESC";
 		}
 		
-		if($mediaid == "")
-		{
-			if(count($medias)==0)
-			{
-				//$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
-				$medias = $this->model_core_media->getPaginationList($queryoptions,0,0,$orderby);
-			}
-			
-			
-			$this->data['medias'] = array();
-			
 		
-			$index = -1;
-			//Page
+		if(count($medias)==0)
+		{
+			//$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
+			$medias = $this->model_core_media->getPaginationList($queryoptions,0,0,$orderby);
+		}
+		
+		
+		$this->data['medias'] = array();
+		
+	
+		$index = -1;
+		//Page
+		
+		
+		$page = $_GET['page'];
+		
+		$x=$page;		
+		$limit = $to;
+		$total = count($medias);
+		//$uri = $this->document->createLink($sitemapid);
+		$uri = $this->document->getURI();
+		// work out the pager values 
+		$this->data['pager']  = $this->pager->pageLayoutWeb($total, $limit, $page,$uri); 
+		
+		$pager  = $this->pager->getPagerData($total, $limit, $page); 
+		$offset = $pager->offset; 
+		$limit  = $pager->limit; 
+		$page   = $pager->page;
+		for($i=$offset;$i < $offset + $limit && count($medias[$i])>0;$i++)
+		//foreach($medias as $media)
+		{
+			$index += 1;
+			$media = $medias[$i];
+			
+			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
+			$sitemapid = $arr[0];
 			
 			
-			$page = $_GET['page'];
+			$link = $this->document->createLink($sitemapid,$media['alias']);
+			$imagethumbnail = "";
 			
-			$x=$page;		
-			$limit = $to;
-			$total = count($medias);
-			//$uri = $this->document->createLink($sitemapid);
-			$uri = $this->document->getURI();
-			// work out the pager values 
-			$this->data['pager']  = $this->pager->pageLayoutWeb($total, $limit, $page,$uri); 
-			
-			$pager  = $this->pager->getPagerData($total, $limit, $page); 
-			$offset = $pager->offset; 
-			$limit  = $pager->limit; 
-			$page   = $pager->page;
-			for($i=$offset;$i < $offset + $limit && count($medias[$i])>0;$i++)
-			//foreach($medias as $media)
+			//if($media['imagepath'] != "" )
 			{
-				$index += 1;
-				$media = $medias[$i];
-				
-				$arr = $this->string->referSiteMapToArray($media['refersitemap']);
-				$sitemapid = $arr[0];
-				
-				
-				$link = $this->document->createLink($sitemapid,$media['alias']);
-				$imagethumbnail = "";
-				
-				//if($media['imagepath'] != "" )
-				{
-					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
-					$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
-				}
-				
-				$priceproduct = $this->model_core_media->getListByParent($media['mediaid']," AND mediatype = 'price'"," Order by position");
-				$price = $media['price'];
-				if($price == 0)
-				{
-					$price = $priceproduct[0]['price'];
-					$volume = $priceproduct[0]['title'];
-				}
-				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
-				$this->data['medias'][] = array(
-					'mediaid' => $media['mediaid'],
-					'title' => $media['title'],
-					'keyword' => $media['keyword'],
-					'summary' => $media['summary'],
-					'price' => $price,
-					'volume' => $volume,
-					'properties' => $properties,
-					'imagethumbnail' => $imagethumbnail,
-					'imagetpreview' => $imagetpreview,
-					'fileid' => $media['imageid'],
-					'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),
-					'link' => $link
-				);
-				
+				$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
+				$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 			}
 			
 			
+			$properties = $this->string->referSiteMapToArray($media['groupkeys']);
+			$media['summary'] = html_entity_decode($media['summary']);
+			$media['link']= $link;
+			$media['properties']= $properties;
+			$media['imagethumbnail']= $imagethumbnail;
+			$media['imagetpreview']= $imagetpreview;
+			$media['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");
+			
+			$this->data['medias'][] = $media;
+			/*$this->data['medias'][] = array(
+				'mediaid' => $media['mediaid'],
+				'title' => $media['title'],
+				'keyword' => $media['keyword'],
+				'summary' => html_entity_decode($media['summary']),
+				'price' => $price,
+				'volume' => $volume,
+				'properties' => $properties,
+				'imagethumbnail' => $imagethumbnail,
+				'imagetpreview' => $imagetpreview,
+				'fileid' => $media['imageid'],
+				'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),
+				'link' => $link
+			);*/
 			
 		}
+			
+			
+		/*$this->data['medias'][$i] =$media;
+		$this->data['medias'][$i]['link']= $link;
+		$this->data['medias'][$i]['properties']= $properties;
+		$this->data['medias'][$i]['imagethumbnail']= $imagethumbnail;
+		$this->data['medias'][$i]['imagetpreview']= $imagetpreview;
+		$this->data['medias'][$i]['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");*/
+		
+		
+		
 		$this->data['status'] = $template['status'];
 		$this->data['paging'] = $template['paging'];
 		$this->data['sorting'] = $template['sorting'];
@@ -194,9 +209,8 @@ class ControllerModuleProductlist extends Controller
 				$orderby = " ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = "";
+				$orderby = " ORDER BY position,`title` DESC";
 		}
-		
 		if($mediaid == "")
 		{
 			if(count($medias)==0)
@@ -230,6 +244,7 @@ class ControllerModuleProductlist extends Controller
 				
 				
 				
+				
 				$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 				$this->data['medias'][$i] =$media;
 				$this->data['medias'][$i]['link']= $link;
@@ -249,5 +264,6 @@ class ControllerModuleProductlist extends Controller
 		$this->template=$template['template'];
 		$this->render();
 	}
+
 }
 ?>
