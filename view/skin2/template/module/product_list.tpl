@@ -55,6 +55,9 @@ if(count($medias))
                     <?php } ?>
                     <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
                     <div align="center">
+                    	<?php if($media['noteprice']!=""){ ?>
+                        (<?php echo $media['noteprice']?>)<br />
+                        <?php }?>
                         <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                 </td>
