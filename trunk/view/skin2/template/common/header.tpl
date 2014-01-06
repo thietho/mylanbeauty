@@ -6,6 +6,8 @@
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a>
             | <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
+            | <a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức">Tin tức</a>
+            | <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
             | <a href="<?php echo $this->document->createLink('lienhe')?>" title="Liên hệ">Liên hệ</a>
             | <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
             <?php if(!$this->member->isLogged()){?>
