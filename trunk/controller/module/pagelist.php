@@ -49,7 +49,7 @@ class ControllerModulePagelist extends Controller
 				$this->data['medias'][] = array(
 					'mediaid' => $media['mediaid'],
 					'title' => $media['title'],
-					'summary' => $media['summary'],
+					'summary' => html_entity_decode($media['summary']),
 					'imagethumbnail' => $imagethumbnail,
 					'statusdate' => $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/"),
 					'link' => $link
