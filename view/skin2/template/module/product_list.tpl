@@ -41,6 +41,7 @@ if(count($medias))
                             	<?php echo $media['title']?>
                             </h6>
                             <?php if($media['code']!="") echo "<h6>".$media['code']."</h6>"?>
+                            <?php if($media['brand']!="") echo "<h6>".$this->document->getCategory($media['brand'])."</h6>"?>
                         </a>
                     </div>
                     <?php $cls = '';?>

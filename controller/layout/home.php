@@ -16,6 +16,8 @@ class ControllerLayoutHome extends Controller
 			$this->data['meta_keyword'] = $this->document->meta_keyword;
 		//
 		@$arr = split(',',$this->document->meta_image);
+		//print_r($arr);
+		//$this->document->meta_image;
 		$this->data['meta_image'] = "";
 		
 		if(count($arr))
@@ -26,6 +28,12 @@ class ControllerLayoutHome extends Controller
 					$this->data['meta_image'] .= '<meta content="'.$item.'" property="og:image">';
 			}
 		}
+		else
+		{
+			$this->data['meta_image'] .= '<meta content="'.$this->document->meta_image.'" property="og:image">';
+		}
+		
+		
 		
 		$this->template="layout/home.tpl";
 		$this->children=array(
