@@ -293,8 +293,7 @@ $("#ben-next").click(function(){
     
     <div class="clearer">&nbsp;</div>
 </div>
-<div class=" ben-section-title">Sản phẩm cùng nhãn hiệu</div>
-<?php echo $saphamcungnhanhieu?>
+
 
 <?php echo $comment?>
 <div class=" ben-section-title">Gửi Nhận xét về <?php echo $post['title']?></div>
@@ -404,3 +403,5 @@ function sendComment()
 	);		
 }
 </script>
+<div class=" ben-section-title">Sản phẩm cùng nhãn hiệu</div>
+<?php echo $saphamcungnhanhieu?>
