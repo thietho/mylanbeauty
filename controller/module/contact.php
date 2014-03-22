@@ -44,16 +44,9 @@ class ControllerModuleContact extends Controller
 			$email2 = $this->model_core_media->getInformation($this->member->getSiteId().$data['sitemapid'], "email2");
 			$email3 = $this->model_core_media->getInformation($this->member->getSiteId().$data['sitemapid'], "email3");*/
 			$email = $this->model_core_media->getInformation("setting", 'EmailContact');
-			$email1 = $email;
-			$arrmail = array();
-			if($email1)
-				$arrmail[] = $email1;
-			if($email2)
-				$arrmail[] = $email2;
-			if($email3)
-				$arrmail[] = $email3;
+			
 			$this->load->model("core/message");
-			$message['to']="admin," .implode(",",$arrmail) ;
+			$message['to']="admin" ;
 			$message['from']='"'.$data['fullname'].'" '.$data['email'];
 			$message['title'] = $media['title'];
 			$message['description']="Họ tên: ".$data['fullname']."<br>";
@@ -66,7 +59,7 @@ class ControllerModuleContact extends Controller
 			
 			$mail['from'] = $data['email'];
 			$mail['FromName'] = $data['fullname'];
-			$mail['to'] = implode(",",$arrmail);
+			$mail['to'] = $email;
 			$mail['name'] = "";
 			$mail['subject'] =  $message['title'];
 			$arr = array($message['description']);
