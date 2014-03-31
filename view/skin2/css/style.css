@@ -458,7 +458,7 @@ z-index:100;
 
 #ben-main-nav a{
 display:block;
-padding:5px 8px;
+padding:5px 3px;
 color:#000;
 text-decoration:none;
 text-transform:uppercase;
@@ -473,7 +473,6 @@ color:#333;
 #ben-main-nav li{
 float:left;
 position:relative;
-margin-left:5px;
 }
 
 #ben-main-nav a.current-tab{
