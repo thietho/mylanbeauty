@@ -57,7 +57,7 @@ class ControllerAddonCart extends Controller
 				$price = $media['pricepromotion'];
 		}*/
 		$media['imagethumbnail'] = HelperImage::resizePNG($media['imagepath'], 100, 100);
-		$title = $media['title'];
+		$title = $this->document->productName($media['mediaid']);
 		$price = $media['price'];
 		$price = $media['price'];
 		if($media['pricepromotion'])

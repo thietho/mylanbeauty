@@ -4,7 +4,7 @@ if(count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>" title="<?php echo $media['title']?>">
+    <div class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>" title="<?php echo $this->document->productName($media)?>">
         <table>
             <tr class="product-list-image">
                 <td>
@@ -27,7 +27,7 @@ if(count($medias))
                     </div>
                     <?php } ?>
                     <?php if($media['imagethumbnail'] !=""){ ?>
-                    <a class="islink" href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' alt="<?php echo $media['title']?>" title="<?php echo $media['title']?>"/></a>
+                    <a class="islink" href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                     
                     <?php }?>
                     	
@@ -36,7 +36,7 @@ if(count($medias))
             <tr>
                 <td>
                     <div align="center">
-                    	<a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">
+                    	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
                         	<h6>
                             	<?php echo $media['title']?>
                             </h6>

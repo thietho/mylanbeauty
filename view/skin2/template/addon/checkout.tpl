@@ -18,7 +18,7 @@
     ?>
         <tr>
             <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
-            <td><?php echo $media['title']?></td>
+            <td><?php echo $this->document->productName($media['mediaid'])?></td>
             <td class="number"><?php echo $this->string->numberFormate($media['price'])?></td>
             <td class="number"><?php echo $this->string->numberFormate($media['qty'])?></td>
             <td class="number"><?php echo $this->string->numberFormate($media['price'] * $media['qty'])?></td>

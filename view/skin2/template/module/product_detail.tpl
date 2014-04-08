@@ -37,7 +37,7 @@
             <table>
                 <tr>
                     <td style="width:14px">
-                        <img class="ben-link" id="ben-prev" src="<?php echo HTTP_SERVER.DIR_IMAGE?>galary_button_prev.png" title="<?php echo $post['title']?>" alt="<?php echo $post['title']?>"/>
+                        <img class="ben-link" id="ben-prev" src="<?php echo HTTP_SERVER.DIR_IMAGE?>galary_button_prev.png" />
                     </td>
                     <td>
                         <div style="overflow:hidden;width:248px;margin:0 auto;">
@@ -46,7 +46,7 @@
                                    
                                     <?php foreach($subimage as $key => $val){ ?>
                                     <td>
-                                        <img  id="icon-<?php echo $key?>" class="ben-icon-item" src="<?php echo $val['icon']?>" />
+                                        <img  id="icon-<?php echo $key?>" class="ben-icon-item" src="<?php echo $val['icon']?>" title="<?php echo $this->document->productName($post['mediaid'])?>" alt="<?php echo $this->document->productName($post['mediaid'])?>"/>
                                     </td>
                                     <?php } ?>
                                 </tr>
@@ -140,10 +140,7 @@ $("#ben-next").click(function(){
     </div>
     <div class="ben-right product-right">
         <h2>
-        	<?php echo $post['title']?>
-            <?php if($post['code'] != ""){ ?>
-            - <?php echo $post['code']?>
-            <?php } ?>
+        	<?php echo $this->document->productName($post['mediaid'])?>
         </h2>
         <?php if($post['noted']!="") echo "<h4>".$post['noted']."</h4>";?>
         
@@ -245,7 +242,7 @@ $("#ben-next").click(function(){
                 <?php foreach($priceproduct as $val){ ?>
                 <tr>
                     <td>
-                    	<?php echo $val['title']!=""?$val['title']:$post['title'] ?>
+                    	<?php echo $this->document->productName($val['mediaid'])?>
                     	<?php if($val['tenkhuyenmai']){ ?>
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                         <?php } ?>
@@ -296,7 +293,7 @@ $("#ben-next").click(function(){
 
 
 <?php echo $comment?>
-<div class=" ben-section-title">Gửi Nhận xét về <?php echo $post['title']?></div>
+<div class=" ben-section-title">Gửi Nhận xét về <?php echo $this->document->productName($post)?></div>
 <div id="comment-warning" class="ben-error ben-hidden"></div>
 <form id="frmComment">
 <input type="hidden" name="mediaid" value="<?php echo $post['mediaid']?>" />
