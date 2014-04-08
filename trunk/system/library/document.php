@@ -2,8 +2,7 @@
 final class Document {
 	public $title;
 	public $description;
-	public $base;
-	
+	public $base;	
 	public $charset = 'utf-8';		
 	public $language = 'vi';	
 	public $direction = 'ltr';		
@@ -27,6 +26,11 @@ final class Document {
 						   'confirmed' => "Đã xát nhận",
 						   'completed' => "Hoàn thành",
 						   'cancel' => "Hủy đơn hàng"
+						   );
+	public $status_phieunhapxuat = array(
+						   'new' => "Chưa giao",
+						   'delivered' => "Đã giao",
+						   
 						   );
 	public $status_media = array(
 						   'active' => "Hiện",
@@ -57,6 +61,10 @@ final class Document {
 	public $tientechu = array(
 						"VND" => "đồng",
 						"USD" => "usd"
+						);
+	public $mediatypes = array(
+						'module/product'=>'Product',
+						'module/news'=>'News'
 						);
 	public function toVND($value,$donvi)
 	{
@@ -156,6 +164,22 @@ final class Document {
 									from `media` 
 									where mediaid ='".$mediaid."' ");
 		return $query->row[$name];	
+	}
+	public function productName($mediaid)
+	{
+		$query = $this->db->query("Select `media`.* 
+									from `media` 
+									where mediaid ='".$mediaid."' ");
+		$media = $query->row;
+		$productname = $media['title'];
+		if($media['code'])
+			$productname .= " - ".$media['code'];
+		if($media['sizes'])
+			$productname .= " ".$media['sizes'];
+		if($media['color'])
+			$productname .= " ".$media['color'];
+		return $productname;	
+		
 	}
 	public function getNhanVien($id,$name = 'hoten')
 	{
