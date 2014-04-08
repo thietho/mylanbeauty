@@ -73,7 +73,7 @@
     ?>
         <tr>
             <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
-            <td><?php echo $media['title']?></td>
+            <td><?php echo $this->document->productName($media['mediaid'])?></td>
             <td align="right"><?php echo $this->string->numberFormate($media['price'])?></td>
             <td align="right"><?php echo $this->string->numberFormate($media['quantity'])?></td>
             <td align="right"><?php echo $this->string->numberFormate($media['subtotal'])?></td>
