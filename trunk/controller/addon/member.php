@@ -5,7 +5,7 @@ class ControllerAddonMember extends Controller
 	public function index()
 	{
 		$this->document->breadcrumb .= "Thông tin thành viên";
-		
+		$this->document->title .= $this->document->breadcrumb;
 		$this->load->model("core/user");
 		$this->data['member'] = $this->model_core_user->getItem($this->member->getId());
 		$this->id="content";

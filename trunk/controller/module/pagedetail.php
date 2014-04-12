@@ -15,15 +15,15 @@ class ControllerModulePagedetail extends Controller
 		
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
 		$this->document->title = "Mỹ Lan Beauty Shop - ".$this->data['post']['title'];
-		
+		$this->document->meta_keyword = $this->data['post']['keyword'];
+		$this->document->meta_description = $this->data['post']['metadescription'];
 		if(count($this->data['post']) == 0)
 		{
 			$this->data['post']['description'] = "Updating...";
 		}
 		$this->data['post']['summary'] = html_entity_decode($this->data['post']['summary']);
 		$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
-		$this->document->meta_description = strip_tags($this->data['post']['summary']);
-		$this->document->meta_keyword = strip_tags($this->data['post']['description']);
+		
 		
 		if($this->data['post']['imagepath'] != "")
 		{
@@ -124,7 +124,9 @@ class ControllerModulePagedetail extends Controller
 		$this->data['post']['link'] = $this->document->createLink($sid,$this->data['post']['alias']);
 		
 		$mediaid = $this->data['post']['mediaid'];
-		$this->document->title .= " - ".$this->data['post']['title'];
+		$this->document->title .= " - ".$this->document->productName($this->data['post']);
+		$this->document->meta_keyword = $this->data['post']['keyword'];
+		$this->document->meta_description = $this->data['post']['metadescription'];
 		if($this->data['post']['code'])
 			$this->document->title .= " - ".$this->data['post']['code'];
 		if(count($this->data['post']) == 0)
@@ -133,8 +135,7 @@ class ControllerModulePagedetail extends Controller
 		}
 		$this->data['post']['summary'] = html_entity_decode($this->data['post']['summary']);
 		$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
-		$this->document->meta_description = strip_tags($this->data['post']['summary']);
-		$this->document->meta_keyword = strip_tags($this->data['post']['description']);
+		
 		
 		$loaisp= $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
 		

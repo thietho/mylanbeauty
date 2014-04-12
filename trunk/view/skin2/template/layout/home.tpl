@@ -3,12 +3,17 @@
 <head>
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="icon">
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="shortcut icon">
+<title><?php echo $title?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="INDEX,FOLLOW" />
 <meta http-equiv="REFRESH" content="5400" />
 <meta name="description" content="<?php echo $meta_description?>" />
 <meta name="keywords" content="<?php echo $meta_keyword?>" />		
-<title><?php echo $title?></title>
+<meta name="author" content="Ho Lan Solutions">
+<meta name="revisit-after" content="7" />
+<meta name="creator" content="Ho Lan Solutions" />
+<meta name="publisher" content="Ho Lan Solutions" />
+
 <meta property="og:title" content="<?php echo $title?>">
 <meta property="og:type" content="Website">
 <meta property="og:url" content="<?php echo $url?>">
