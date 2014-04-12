@@ -334,3 +334,19 @@ function logout()
 		}
 	);	
 }
+function numToString(n,minl)
+{
+	var s = String(n);
+	if(s.length<=minl)
+	{
+		s = "0"+s;	
+	}
+	return s;
+}
+function toPhpTime(time)
+{
+	var d = new Date(time);
+	
+	var s= d.getFullYear()+"-"+ numToString(d.getMonth() + 1 ,2) +"-"+ numToString(d.getDate(),2)+ " "+ d.getHours()+":"+ d.getMinutes()+":"+d.getSeconds();
+	return s;
+}
