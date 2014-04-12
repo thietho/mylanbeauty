@@ -5,6 +5,7 @@ class ControllerAddonCheckoutcomplete extends Controller
 	public function index()
 	{
 		$this->document->breadcrumb .= "Hoàn tất thanh toán";
+		$this->document->title .= $this->document->breadcrumb;
 		$orderid = $this->request->get['id'];
 		$this->getOrder($orderid);
 		$this->id="content";

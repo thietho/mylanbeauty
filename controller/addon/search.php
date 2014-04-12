@@ -6,6 +6,7 @@ class ControllerAddonSearch extends Controller
 	{
 		$keyword = $this->request->get['keyword'];
 		$this->document->breadcrumb .= "Kết quả tìm kiếm với từ khóa: '$keyword'";
+		$this->document->title .= $this->document->breadcrumb;
 		$this->getList($keyword);
 		$this->id="content";
 		$this->template="addon/search.tpl";

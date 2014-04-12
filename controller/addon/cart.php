@@ -5,7 +5,7 @@ class ControllerAddonCart extends Controller
 	public function index()
 	{
 		$this->document->breadcrumb .= "Giỏ hàng";
-		
+		$this->document->title .= $this->document->breadcrumb;
 		$this->id="content";
 		$this->template="addon/cart.tpl";
 		$this->render();
