@@ -127,8 +127,7 @@ class ControllerModulePagedetail extends Controller
 		$this->document->title .= " - ".$this->document->productName($this->data['post']);
 		$this->document->meta_keyword = $this->data['post']['keyword'];
 		$this->document->meta_description = $this->data['post']['metadescription'];
-		if($this->data['post']['code'])
-			$this->document->title .= " - ".$this->data['post']['code'];
+		
 		if(count($this->data['post']) == 0)
 		{
 			$this->data['post']['description'] = "Updating...";
