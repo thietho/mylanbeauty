@@ -44,6 +44,7 @@
     	<table class="ben-form">
         	
             <input type="hidden" id="userid" name="userid" value="<?php echo $member['username']?>" size="40">
+            <input type="hidden" id="orderdate" name="orderdate" >
             <tr>
             	<td width="200px"><label>Họ và tên</label></td>
                 <td><input type="text" id="customername" name="customername" value="<?php echo $member['fullname']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
@@ -107,7 +108,7 @@
 <script language="javascript">
 $("#btnCheckout").click(function(){
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
-	
+	$('#orderdate').val(toPhpTime(Date.now()));
 	$.post("<?php echo HTTP_SERVER?>?route=addon/checkout/checkout", $("#frmCheckOut").serialize(),
 		function(data){
 			var arr = data.split("-")

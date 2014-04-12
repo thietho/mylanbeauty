@@ -40,7 +40,7 @@ class ModelAddonOrder extends Model
 	{
 		$date = getdate();
 		$orderid= $this->nextID($date['year'].$this->date->numberFormate($date['mon']));
-		$orderdate=$this->date->getToday();
+		$orderdate=$this->db->escape(@$data['orderdate']);
 		$userid=$this->db->escape(@$data['userid']);
 		$customername=$this->db->escape(@$data['customername']);
 		$address=$this->db->escape(@$data['address']);
