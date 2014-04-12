@@ -12,7 +12,7 @@
         	<div class="ben-section-title"><?php echo $brand?></div>
             
             <div class="ben-section-content">
-            	<?php echo $this->document->breadcrumb?>
+            	<h1><?php echo $this->document->breadcrumb?></h1>
             	<?php echo $module?>
             
             </div>
