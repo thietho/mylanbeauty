@@ -102,17 +102,22 @@ class ModelCoreSitemap extends Model
 		return $deep;
 	}
 	
-	public function getRoot($id, $siteid)
+	public function getRoot($id, $siteid,$deeproot = 0)
 	{
 		if($id == "") return 'index';
 		$row=$this->getItem($id, $siteid);
+		
 		if($row['sitemapparent'] == "")
 		{
 			return $row['sitemapid'];
 		}
 		while($row['sitemapparent']!="")
 		{
+			$deep = $this->getDeep($row['sitemapid'], $siteid);
+			if($deep == $deeproot)
+				return $row['sitemapid'];
 			$row=$this->getItem($row['sitemapparent'], $siteid);
+			
 		}
 		return $row['sitemapid'];
 	}
@@ -134,13 +139,12 @@ class ModelCoreSitemap extends Model
 	{
 		$data = $this->getPath($id, $siteid);
 		$strBreadcrumb = "<a href='".HTTP_SERVER."'>Trang chủ</a>";
-		for($i=count($data)-1;$i>$end;$i--)
+		for($i=count($data)-1 - $end;$i>=0;$i--)
 		{
 			$link = "".$data[$i]['sitemapname']."";
-			if($data[$i]['modulepath'] != "")
-			{
-				$link = "<a class='ben-smaller' href='index.php?route=page/detail&sitemapid=".$data[$i]['sitemapid']."'>".$data[$i]['sitemapname']."</a>";
-			}
+			
+			$link = "<a href='index.php?route=page/detail&sitemapid=".$data[$i]['sitemapid']."'>".$data[$i]['sitemapname']."</a>";
+		
 			$strBreadcrumb .= " &#187; ".$link; 
 		}
 		return $strBreadcrumb;

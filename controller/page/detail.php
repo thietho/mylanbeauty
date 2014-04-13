@@ -20,7 +20,7 @@ class ControllerPageDetail extends Controller
 			
 			$id = $this->request->get['id'];
 			
-			$this->document->breadcrumb = $this->model_core_sitemap->getBreadcrumb($this->document->sitemapid, $siteid, -1);
+			$this->document->breadcrumb = $this->model_core_sitemap->getBreadcrumb($this->document->sitemapid, $siteid, 1);
 			$template = array(
 						  'template' => "module/category_brand.tpl"
 						  );
@@ -30,7 +30,7 @@ class ControllerPageDetail extends Controller
 			if($this->document->sitemapid != "")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($this->document->sitemapid, $siteid);
-				$this->document->title = "Mỹ Lan Beauty Shop - ".$sitemap['sitemapname'];
+				$this->document->title = $this->document->setup['Title'];
 				switch($sitemap['moduleid'])
 				{
 					case "":
