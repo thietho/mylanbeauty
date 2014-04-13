@@ -22,12 +22,12 @@ class ControllerAddonBrand extends Controller
 			$sitemapid = $arr[1];
 		}
 		
-		$this->document->title .= $this->document->getCategory($categoryid);
+		$this->document->title .= " - ".$this->document->getCategory($categoryid);
 		$header = $this->document->getCategory($categoryid);
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid,$this->member->getSiteId());
 		if($sitemapid == "")	
 		{
-			$this->document->breadcrumb .= '<a href="' .$this->document->createLink("brand",$categoryid).'">'.$header."</a>";
+			$this->document->breadcrumb .= ' » <a href="' .$this->document->createLink("brand",$categoryid).'">'.$header."</a>";
 		}
 		else
 		{
