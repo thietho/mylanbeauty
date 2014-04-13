@@ -9,6 +9,8 @@ border:2px solid black; /*Border around tooltip*/
 background:white;
 border-radius:5px;
 z-index:3000;
+width:450px;
+text-align:center;
 }
 
 
