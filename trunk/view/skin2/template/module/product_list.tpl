@@ -38,9 +38,9 @@ if(count($medias))
                     <div align="center">
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
                         	<h6>
-                            	<?php echo $media['title']?>
+                            	<?php echo $this->document->productName($media)?>
                             </h6>
-                            <?php if($media['code']!="") echo "<h6>".$media['code']."</h6>"?>
+                            
                             <?php if($media['brand']!="") echo "<h6>".$this->document->getCategory($media['brand'])."</h6>"?>
                         </a>
                     </div>
