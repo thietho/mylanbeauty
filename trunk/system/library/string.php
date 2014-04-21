@@ -283,7 +283,7 @@ final class String
 		$refersitemap = str_replace("][","@",$refersitemap);
 		$refersitemap = str_replace("[","",$refersitemap);
 		$refersitemap = str_replace("]","",$refersitemap);
-		$arr = split("@",$refersitemap);
+		@$arr = split("@",$refersitemap);
 		return $arr;
 	}
 	
@@ -434,6 +434,7 @@ final class String
 	
 	function chuyenvekodau($s)
 	{
+		$s = str_replace("Đ","d",$s);
 		$mkt=array('a','d','e','o','i','u','y');
 		foreach($mkt as $item)
 		{
@@ -538,6 +539,7 @@ final class String
 		$data['ext'] = array_pop($arr);
 		return $data;
 	}
+
 	
 	function inludeParameterToTemplate($param,$template)
 	{
