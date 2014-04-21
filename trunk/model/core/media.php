@@ -143,7 +143,7 @@ class ModelCoreMedia extends ModelCoreFile
 		{
 			$where .= " AND groupkeys like '%[".$groupkeys."]%'";
 		}
-		
+		//echo $where."<br>";
 		return $this->getList($where, $from,$to,$order);
 	}
 	

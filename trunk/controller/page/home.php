@@ -28,16 +28,20 @@ class ControllerPageHome extends Controller
 			$this->data['bannerhome'] = $this->loadModule('module/block','getList',$arr);
 			//San pham moi
 			$template = array(
-						  'template' => "home/product.tpl",
-						  'width' => 176,
-						  'height' =>176,
-						  'widthpreview' => 450,
-						  'heightpreview' =>450
-						  );
+								  'template' => "module/product_list.tpl",
+								  'width' => 180,
+								  'height' =>180,
+								  'widthpreview' => 450,
+								  'heightpreview' =>450
+								  );
 						  
 			$medias = $this->getProduct("","sanphamhot");
-			$arr = array("",0,"Sản phẩm hot",$template,$medias);
-			//$this->data['producthome']['sanphamhot'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
+			$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
+			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			
 			$template = array(
 								  'template' => "module/product_list.tpl",
 								  'width' => 180,
@@ -112,13 +116,17 @@ class ControllerPageHome extends Controller
 		$this->load->model('core/media');
 		$siteid = $this->member->getSiteId();
 		$sitemaps = array();
-		if($rootid == "")
-			$sitemaps = $this->model_core_sitemap->getListByModule("module/product", $siteid);
-		else
+		
+		if($rootid != "")
 		{
 			$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
+			$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
 		}
-		$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
+		else
+		{
+			$arrsitemapid ="%";
+		}
+		
 		
 		/*//print_r($sitemaps);
 		
@@ -130,11 +138,11 @@ class ControllerPageHome extends Controller
 		}*/
 		
 		$queryoptions = array();
-		$queryoptions['mediaparent'] = '%';
-		$queryoptions['mediatype'] = '%';
+		$options['mediaparent'] = '%';
+		$options['mediatype'] = 'module/product';
 		$options['refersitemap'] = $arrsitemapid;
 		$options['groupkeys'] = $status;
-		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=16);
+		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=0);
 		
 		return $data;
 	}
