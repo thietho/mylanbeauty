@@ -176,7 +176,7 @@ class ControllerModuleProductlist extends Controller
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
 		if($headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
-		
+		$this->data['sitemap']['sitemapname'];
 		$step = (int)$this->request->get['step'];
 		$to = $count;
 		
@@ -211,8 +211,10 @@ class ControllerModuleProductlist extends Controller
 			default:
 				$orderby = " ORDER BY position,`title` DESC";
 		}
+		
 		if($mediaid == "")
 		{
+			
 			if(count($medias)==0)
 			{
 				//$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
@@ -259,6 +261,7 @@ class ControllerModuleProductlist extends Controller
 			
 			
 		}
+		
 		$this->data['status'] = $template['status'];
 		$this->id="news";
 		$this->template=$template['template'];
