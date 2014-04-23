@@ -14,6 +14,8 @@ class ControllerModulePagedetail extends Controller
 		$siteid = $this->member->getSiteId();
 		
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
+		if(count($this->data['post']) == 0)
+			$this->response->redirect(HTTP_SERVER);
 		$this->document->title = "Mỹ Lan Beauty Shop - ".$this->data['post']['title'];
 		$this->document->meta_keyword = $this->data['post']['keyword'];
 		$this->document->meta_description = $this->data['post']['metadescription'];
@@ -119,6 +121,8 @@ class ControllerModulePagedetail extends Controller
 		$siteid = $this->member->getSiteId();
 		
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
+		if(count($this->data['post']) == 0)
+			$this->response->redirect(HTTP_SERVER);
 		$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
 		$sid = $arr[0];
 		$this->data['post']['link'] = $this->document->createLink($sid,$this->data['post']['alias']);
