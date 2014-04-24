@@ -35,11 +35,11 @@ class ControllerPageHome extends Controller
 								  'heightpreview' =>450
 								  );
 						  
-			//$medias = $this->getProduct("","sanphamhot");
+			$medias = $this->getProduct("","sanphamhot");
 			
-			//$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
-			//$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
-			//$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
+			$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
+			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			
 			
 			$template = array(
