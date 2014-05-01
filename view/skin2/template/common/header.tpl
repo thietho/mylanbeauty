@@ -1,7 +1,7 @@
 <div id="ben-header">
     <div id="ben-top">
     	<div class="ben-left" id="ben-logo">
-            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="" />
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="mylanbeauty.net" />
         </div>
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a>
@@ -27,9 +27,8 @@
         	<?php echo $supportonline?>
         </div>
         <div class="clearer">&nbsp;</div>
-        <div style="position:absolute;width:755px;text-align:center;margin-top:79px;margin-left:240px">
-        	<h2>GIẢM ĐẾN 50%</h2>
-            <h3>(Cam kết bán hàng chính hãng 100%)</h3>
+        <div id="ben-promotion">
+        	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>promotion.png" alt="GIẢM ĐẾN 50% (Cam kết bán hàng chính hãng 100%)" />
         </div>
         <div class="ben-navigation">
     
