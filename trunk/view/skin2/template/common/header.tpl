@@ -28,7 +28,7 @@
         </div>
         <div class="clearer">&nbsp;</div>
         <div style="position:absolute;width:755px;text-align:center;margin-top:79px;margin-left:240px">
-        	<h2>LUÔN CÓ NHIỀU QUÀ TẶNG HẤP DẪN</h2>
+        	<h2>GIẢM ĐẾN 50%</h2>
             <h3>(Cam kết bán hàng chính hãng 100%)</h3>
         </div>
         <div class="ben-navigation">
