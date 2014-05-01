@@ -42,7 +42,7 @@ class ControllerPageHome extends Controller
 			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			
 			
-			$template = array(
+			/*$template = array(
 								  'template' => "module/product_list.tpl",
 								  'width' => 180,
 								  'height' =>180,
@@ -65,7 +65,7 @@ class ControllerPageHome extends Controller
 					$this->data['producthome'][$sitemap['sitemapid']]['title'] = $sitemap['sitemapname'];
 					$this->data['producthome'][$sitemap['sitemapid']]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 				}
-			}
+			}*/
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
 			$medias = $this->getProduct($sitemap['sitemapid'],"");
 			$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
@@ -115,7 +115,7 @@ class ControllerPageHome extends Controller
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
 		
-		/*$listmediaid = $this->model_core_media->getInformation("sort".$status,"sort");
+		$listmediaid = $this->model_core_media->getInformation("sort".$status,"sort");
 		if($listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
@@ -128,7 +128,7 @@ class ControllerPageHome extends Controller
 				$data_media[] = $media;
 			}
 			return $data_media;
-		}*/
+		}
 		
 		$siteid = $this->member->getSiteId();
 		$sitemaps = array();
