@@ -114,6 +114,22 @@ class ControllerPageHome extends Controller
 	{
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
+		
+		/*$listmediaid = $this->model_core_media->getInformation("sort".$status,"sort");
+		if($listmediaid!="")
+		{
+			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
+			$data_media = array();
+		
+			
+			foreach($arrmediaid as $mediaid)
+			{
+				$media = $this->model_core_media->getItem($mediaid);
+				$data_media[] = $media;
+			}
+			return $data_media;
+		}*/
+		
 		$siteid = $this->member->getSiteId();
 		$sitemaps = array();
 		

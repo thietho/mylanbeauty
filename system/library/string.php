@@ -280,6 +280,8 @@ final class String
 	
 	function referSiteMapToArray($refersitemap)
 	{
+		if($refersitemap =="")
+			return;
 		$refersitemap = str_replace("][","@",$refersitemap);
 		$refersitemap = str_replace("[","",$refersitemap);
 		$refersitemap = str_replace("]","",$refersitemap);
@@ -539,7 +541,6 @@ final class String
 		$data['ext'] = array_pop($arr);
 		return $data;
 	}
-
 	
 	function inludeParameterToTemplate($param,$template)
 	{

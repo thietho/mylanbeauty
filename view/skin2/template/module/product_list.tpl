@@ -8,24 +8,11 @@ if(count($medias))
         <table>
             <tr class="product-list-image">
                 <td>
+                	
                 	<?php if($media['discountpercent']){ ?>
                 	<div class="flagdiscount ben-icon">-<?php echo $media['discountpercent']?>%</div>
                     <?php } ?>
-                	<?php if(in_array("sanphamhot",$media['properties'])){ ?>
-                	<div id="ben-icon-hot" class="ben-icon">
-                    	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-hot.png" />
-                    </div>
-                    <?php } ?>
-                    <?php if(in_array("sanphamkhuyenmai",$media['properties'])){ ?>
-                    <div id="ben-icon-sale" class="ben-icon">
-                    	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-sale.png" />
-                    </div>
-                    <?php } ?>
-                    <?php if(in_array("sanphammoi",$media['properties'])){ ?>
-                    <div id="ben-icon-new" class="ben-icon">
-                    	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-new.png" />
-                    </div>
-                    <?php } ?>
+                	
                     <?php if($media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                     
