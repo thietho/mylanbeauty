@@ -42,7 +42,7 @@ class ControllerPageHome extends Controller
 			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			
 			
-			/*$template = array(
+			$template = array(
 								  'template' => "module/product_list.tpl",
 								  'width' => 180,
 								  'height' =>180,
@@ -65,7 +65,7 @@ class ControllerPageHome extends Controller
 					$this->data['producthome'][$sitemap['sitemapid']]['title'] = $sitemap['sitemapname'];
 					$this->data['producthome'][$sitemap['sitemapid']]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 				}
-			}*/
+			}
 			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
 			$medias = $this->getProduct($sitemap['sitemapid'],"");
 			$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
@@ -154,11 +154,25 @@ class ControllerPageHome extends Controller
 		}*/
 		
 		$queryoptions = array();
-		$options['mediaparent'] = '';
-		$options['mediatype'] = 'module/product';
-		$options['refersitemap'] = $arrsitemapid;
-		$options['groupkeys'] = $status;
-		$data = $this->model_core_media->getPaginationList($options, $step=0, $to=0);
+		
+		$where = " AND mediatype = 'module/product'";
+		$where .= " AND mediaparent = ''";
+		if(count($arrsitemapid))
+		{
+			foreach($arrsitemapid as $item)
+			{
+				$arr[] = " refersitemap like '%[".$item."]%'";
+			}
+			$where .= "AND (". implode($arr," OR ").")";
+		}
+		$listmediaid = $this->model_core_media->getInformation("sortsanphamhot","sort");
+		if($listmediaid!="")
+		{
+			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
+			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
+		}
+		//echo $where."<br>";
+		$data = $this->model_core_media->getList($where);
 		
 		return $data;
 	}
