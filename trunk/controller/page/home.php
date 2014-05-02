@@ -116,8 +116,14 @@ class ControllerPageHome extends Controller
 		$this->load->model('core/media');
 		$data_media = array();
 		$listmediaid = $this->model_core_media->getInformation("sort".$status,"sort");
+		$arrmediaidsanphamhot = array();
 		if($listmediaid == "")
+		{
 			$listmediaid = $this->model_core_media->getInformation("sort".$rootid,"sort");
+			
+			$listmediaidsanphamhot = $this->model_core_media->getInformation("sortsanphamhot","sort");
+			$arrmediaidsanphamhot = $this->string->referSiteMapToArray($listmediaidsanphamhot);
+		}
 		if($listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
@@ -127,10 +133,11 @@ class ControllerPageHome extends Controller
 			foreach($arrmediaid as $mediaid)
 			{
 				$media = $this->model_core_media->getItem($mediaid);
-				if($media['status']== 'active')
-				$data_media[] = $media;
+				if($media['status']== 'active' && !in_array($media['mediaid'],$arrmediaidsanphamhot))
+					$data_media[] = $media;
 			}
-			return $data_media;
+			if($status =="sanphamhot")
+				return $data_media;
 		}
 		
 		$siteid = $this->member->getSiteId();
@@ -153,11 +160,11 @@ class ControllerPageHome extends Controller
 			}
 			$where .= "AND (". implode($arr," OR ").")";
 		}
-		$listmediaid = $this->model_core_media->getInformation("sortsanphamhot","sort");
+		$listmediaidsanphamhot = $this->model_core_media->getInformation("sortsanphamhot","sort");
 		if($listmediaid!="")
 		{
-			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
-			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
+			$arrmediaidsanphamhot = $this->string->referSiteMapToArray($listmediaidsanphamhot);
+			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaidsanphamhot)."')";
 		}
 		//echo $where."<br>";
 		$data = array();
