@@ -10,7 +10,7 @@ if(count($medias))
                 <td>
                 	
                 	<?php if($media['discountpercent']){ ?>
-                	<div class="flagdiscount ben-icon">-<?php echo $media['discountpercent']?>%</div>
+                	<div class="flagdiscount ben-icon">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
                     <?php } ?>
                 	
                     <?php if($media['imagethumbnail'] !=""){ ?>
