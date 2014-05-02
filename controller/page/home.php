@@ -114,20 +114,23 @@ class ControllerPageHome extends Controller
 	{
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
-		
+		$data_media = array();
 		$listmediaid = $this->model_core_media->getInformation("sort".$status,"sort");
+		if($listmediaid == "")
+			$listmediaid = $this->model_core_media->getInformation("sort".$rootid,"sort");
 		if($listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
-			$data_media = array();
+			
 		
 			
 			foreach($arrmediaid as $mediaid)
 			{
 				$media = $this->model_core_media->getItem($mediaid);
+				if($media['status']== 'active')
 				$data_media[] = $media;
 			}
-			return $data_media;
+			
 		}
 		
 		$siteid = $this->member->getSiteId();
@@ -138,25 +141,10 @@ class ControllerPageHome extends Controller
 			$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
 			$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
 		}
-		else
-		{
-			$arrsitemapid ="%";
-		}
-		
-		
-		/*//print_r($sitemaps);
-		
-		$arrsitemapid = array();
-		foreach($sitemaps as $item)
-		{
-			echo $item['sitemapid'];	
-			array_push($arrsitemapid, $item['sitemapid']);
-		}*/
-		
-		$queryoptions = array();
 		
 		$where = " AND mediatype = 'module/product'";
 		$where .= " AND mediaparent = ''";
+		
 		if(count($arrsitemapid))
 		{
 			foreach($arrsitemapid as $item)
@@ -172,9 +160,10 @@ class ControllerPageHome extends Controller
 			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
 		}
 		//echo $where."<br>";
+		$data = array();
 		$data = $this->model_core_media->getList($where);
-		
-		return $data;
+		$data_media = array_merge($data_media,$data);
+		return $data_media;
 	}
 	
 }
