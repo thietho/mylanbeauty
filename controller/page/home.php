@@ -130,7 +130,7 @@ class ControllerPageHome extends Controller
 				if($media['status']== 'active')
 				$data_media[] = $media;
 			}
-			
+			return $data_media;
 		}
 		
 		$siteid = $this->member->getSiteId();
