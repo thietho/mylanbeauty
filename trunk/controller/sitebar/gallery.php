@@ -32,6 +32,21 @@ class ControllerSitebarGallery extends Controller
 		$this->data['views']['Clinique']['title'] ="Clinique";
 		$this->data['views']['Clinique']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 		
+		$medias = $this->getSanPhanMoi("sortsanphammoiClarins");
+		$arr = array('',0,'',$template,$medias);
+		$this->data['views']['Clarins']['title'] ="Clarins";
+		$this->data['views']['Clarins']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
+		$medias = $this->getSanPhanMoi("sortsanphammoiShishedo");
+		$arr = array('',0,'',$template,$medias);
+		$this->data['views']['Shishedo']['title'] ="Shishedo";
+		$this->data['views']['Shishedo']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
+		$medias = $this->getSanPhanMoi("sortsanphammoiVictoriaSecrect");
+		$arr = array('',0,'',$template,$medias);
+		$this->data['views']['VictoriaSecrect']['title'] ="Victoria Secrect";
+		$this->data['views']['VictoriaSecrect']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
 		$this->id="content";
 		$this->template="sitebar/gallery.tpl";
 		$this->render();
