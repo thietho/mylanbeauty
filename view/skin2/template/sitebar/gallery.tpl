@@ -12,22 +12,7 @@
 
 </script>
 
-<style type="text/css">
 
-/* #SAG scroller demo #2 */
-
-div#mysagscroller2{
-width: 190px; /*width of scroller*/
-height:500px;
-
-}
-
-div#mysagscroller2 ul li img{
-border-width:0;
-display:block; /*this causes each image to be flush against each other*/
-}
-
-</style>
 
 <script>
 
@@ -35,10 +20,11 @@ var sagscroller_constants={
 	navpanel: {height:'16px', downarrow:'<?php echo HTTP_SERVER.DIR_IMAGE?>down.gif', opacity:0.6, title:'Go to Next Content', background:'black'},
 	loadingimg: {src:'<?php echo HTTP_SERVER.DIR_IMAGE?>ajaxloading.gif', dimensions:[100,15]}
 }
-//SAG scroller demo #2:
-
+</script>
+<?php foreach($views as $brand => $item){?>
+<script>
 var sagscroller2=new sagscroller({
-	id:'mysagscroller2',
+	id:'<?php echo $brand?>',
 	mode: 'auto',
 	pause: 2500,
 	animatespeed: 400 //<--no comma following last option
@@ -47,12 +33,13 @@ var sagscroller2=new sagscroller({
 </script>
 <div class="ben-section">
     <div class="ben-section-content">
-    	
-        <div id="mysagscroller2" class="sagscroller">
+    	<div class="ben-section-title"><?php echo $item['title']?></div>
+        <div id="<?php echo $brand?>" class="sagscroller">
             <ul>
-                <?php echo $sanphammoi['data']?>
+                <?php echo $item['data']?>
             </ul>
         </div>
     </div>
     
 </div>
+<?php } ?>

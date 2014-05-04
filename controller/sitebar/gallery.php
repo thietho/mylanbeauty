@@ -12,22 +12,31 @@ class ControllerSitebarGallery extends Controller
 							  'heightpreview' =>450
 							  );
 					  
-		$medias = $this->getSanPhanMoi();
-		
+		$medias = $this->getSanPhanMoi("sortsanphammoiSisley");
 		$arr = array('',0,'',$template,$medias);
-		$this->data['sanphammoi']['title'] ="Sản phẩm mới";
-		$this->data['sanphammoi']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-			
+		$this->data['views']['Sisley']['title'] ="Sisley";
+		$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
+		$medias = $this->getSanPhanMoi("sortsanphammoiLancome");
+		$arr = array('',0,'',$template,$medias);
+		$this->data['views']['Lancome']['title'] ="Lancome";
+		$this->data['views']['Lancome']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
+		$medias = $this->getSanPhanMoi("sortsanphammoiEsteeLauder");
+		$arr = array('',0,'',$template,$medias);
+		$this->data['views']['EsteeLauder']['title'] ="Estee Lauder";
+		$this->data['views']['EsteeLauder']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		
 		$this->id="content";
 		$this->template="sitebar/gallery.tpl";
 		$this->render();
 	}
-	function getSanPhanMoi()
+	function getSanPhanMoi($code)
 	{
 		$this->load->model('core/sitemap');
 		$this->load->model('core/media');
 		$data_media = array();
-		$listmediaid = $this->model_core_media->getInformation("sortsanphammoi","sort");
+		$listmediaid = $this->model_core_media->getInformation($code,"sort");
 		$arrmediaid = array();
 		
 		$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
