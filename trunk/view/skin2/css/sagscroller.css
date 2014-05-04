@@ -1,8 +1,8 @@
 /*default CSS for SAG scroller*/
 
 .sagscroller{
-
-height:250px;
+width: 190px; /*width of scroller*/
+height:500px;
 overflow:hidden;
 position:relative;
 }
