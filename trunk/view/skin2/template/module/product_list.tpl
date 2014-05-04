@@ -25,11 +25,16 @@ if(count($medias))
                     <div align="center">
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
                         	<h6>
-                            	<?php echo $this->document->productName($media)?>
+                            	<?php echo $media['title']?> - <?php echo $media['code']?>
+                                <?php echo $media['brand']?>
+                                <?php echo $media['color']?>
                             </h6>
                             
-                            <?php if($media['brand']!="") echo "<h6>".$this->document->getCategory($media['brand'])."</h6>"?>
+                            
                         </a>
+                        <?php foreach($media['data_samplecode'] as $me){?>
+                        <div><?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?></div>
+                        <?php } ?>
                     </div>
                     <?php $cls = '';?>
                     <?php if($media['pricepromotion']!=0){ ?>
