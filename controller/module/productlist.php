@@ -278,15 +278,8 @@ class ControllerModuleProductlist extends Controller
 			$link = $this->document->createLink($sitemapid,$media['alias']);
 			
 			$imagethumbnail = "";
-			
-			//if($media['imagepath'] != "" )
-			{
-				$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
-				$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
-			}
-			
-			
-			
+			$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
+			$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
 			
 			$properties = $this->string->referSiteMapToArray($media['groupkeys']);
 			$this->data['medias'][$i] =$media;
@@ -296,7 +289,8 @@ class ControllerModuleProductlist extends Controller
 			$this->data['medias'][$i]['imagetpreview']= $imagetpreview;
 			$this->data['medias'][$i]['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");
 			
-			
+			$where = " AND code = '".$media['code']."' AND mediaid <> '".$media['mediaid']."' AND sizes <> '' AND price > 0";
+			$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
 		}
 			
 			
