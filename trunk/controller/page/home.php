@@ -3,7 +3,7 @@ class ControllerPageHome extends Controller
 {
 	function __construct() 
 	{
-		//$this->iscache = true;
+		$this->iscache = true;
 	 	$this->name ="PageHome";
    	}
 	public function index()

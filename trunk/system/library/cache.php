@@ -1,6 +1,6 @@
 <?php
 final class Cache { 
-	private $expire = 86400;
+	private $expire = 3600;
 
   	public function __construct() {
 		$files = glob(DIR_CACHE . '*');
@@ -31,7 +31,8 @@ final class Cache {
 
   	public function set($key, $value) {
     	$this->delete($key);
-		
+		if (!is_dir(DIR_CACHE))
+			mkdir( DIR_CACHE , 0777 );
 		$file = DIR_CACHE . 'cache.' . $key . '.' . (time() + $this->expire);
     	
 		$handle = fopen($file, 'w');
