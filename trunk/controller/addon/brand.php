@@ -51,9 +51,25 @@ class ControllerAddonBrand extends Controller
 				$orderby = " ORDER BY `price` DESC";
 				break;
 		}
-		
+		$data_media = array();
+			
+		$listmediaid = $this->model_core_media->getInformation("sort".$categoryid,"sort");
+		if($listmediaid!="")
+		{
+			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
+			foreach($arrmediaid as $mediaid)
+			{
+				$media = $this->model_core_media->getItem($mediaid);
+				if($media['status'] == 'active' && $media['imageid']>0)
+					$data_media[] = $media;
+			}
+			
+			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
+			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
+			
+		}
 		$medias = $this->model_core_media->getList($where.$orderby);
-		
+		$medias = array_merge($data_media,$medias);
 		if(count($listparent))
 		{
 			$data = array();
