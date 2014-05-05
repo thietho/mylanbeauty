@@ -3,12 +3,12 @@ class ControllerPageHome extends Controller
 {
 	function __construct() 
 	{
-		$this->iscache = true;
+		//$this->iscache = true;
 	 	$this->name ="PageHome";
    	}
 	public function index()
 	{
-		//if($this->cachehtml->iscacht($this->name) == false)
+		if($this->cachehtml->iscacht($this->name) == false)
 		{
 			//Brand
 			$template = array(
@@ -42,16 +42,9 @@ class ControllerPageHome extends Controller
 			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			
 			
-			$template = array(
-								  'template' => "module/product_list.tpl",
-								  'width' => 180,
-								  'height' =>180,
-								  'widthpreview' => 450,
-								  'heightpreview' =>450
-								  );
+			
 					  
 			$this->load->model('core/sitemap');
-			//$listroot = $this->model_core_sitemap->getListByParent("sanpham", $this->member->getSiteId());
 			$data_sitemap = array();
 			$this->model_core_sitemap->getTreeSitemap("sanpham", $data_sitemap, $this->member->getSiteId());
 			
@@ -59,23 +52,12 @@ class ControllerPageHome extends Controller
 			{
 				if($sitemap['countchild'] == 0)
 				{
-					//$sitemap = $this->model_core_sitemap->getItem("mypham",$this->member->getSiteId());
-					$medias = $this->getProduct($sitemap['sitemapid'],"");
-					$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
-					$this->data['producthome'][$sitemap['sitemapid']]['title'] = $sitemap['sitemapname'];
-					$this->data['producthome'][$sitemap['sitemapid']]['data'] = $this->loadModule('module/productlist','getAll',$arr);
+					
+					/**/
 				}
 			}
-			/*$sitemap = $this->model_core_sitemap->getItem("trangdiem",$this->member->getSiteId());
-			$medias = $this->getProduct($sitemap['sitemapid'],"");
-			$arr = array("",12,$sitemap['sitemapname'],$template,$medias);
-			$this->data['producthome']['trangdiem'] = $this->loadModule('module/productlist','index',$arr);*/
 			
-			/*$medias = $this->getProduct("sanphamkhuyenmai");
-			$arr = array("",12,"Sản phẩm khuyến mãi",$template,$medias);
-			$this->data['producthome']['sanphamkhuyenmai'] = $this->loadModule('module/productlist','index',$arr);*/
-			/*$arr = array("gioithieu");
-			$this->data['producthome'] = $this->loadModule('module/information','index',$arr);*/
+			
 			//
 			$this->loadSiteBar();
 			
@@ -86,7 +68,28 @@ class ControllerPageHome extends Controller
 		$this->layout="layout/home";
 		$this->render();
 	}
-	
+	public function loadGroup()
+	{
+		$sitemapid = $this->request->get['sitemapid'];
+		$this->load->model('core/sitemap');
+		$siteid = $this->member->getSiteId();
+		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);
+		$medias = $this->getProduct($sitemap['sitemapid'],"");
+		$template = array(
+								  'template' => "module/product_list.tpl",
+								  'width' => 180,
+								  'height' =>180,
+								  'widthpreview' => 450,
+								  'heightpreview' =>450
+								  );
+		$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
+		
+		$this->data['output'] = "<h1>".$sitemap['sitemapname']."</h1>";
+       	$this->data['output'] .= $this->loadModule('module/productlist','getAll',$arr);
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
+	}
 	private function loadSiteBar()
 	{
 		//Left sitebar
