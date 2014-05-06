@@ -60,6 +60,7 @@ function loadGroup()
 				
 				$('#loading').remove();
 				$('#ben-maincontent .ben-section-content').append(html);
+				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
 				pageload.index++;
 				if(pageload.index >= pageload.arr.length)
 				{
