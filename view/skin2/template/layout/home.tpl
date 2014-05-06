@@ -97,14 +97,7 @@ var loading = '<center id="loading"><img src="<?php echo DIR_IMAGE?>loading.gif"
 	});
 </script>
 <script language="javascript">
-$(function() {
-	$(".ben-datepicker").datepicker({
-			changeMonth: true,
-			changeYear: true,
-			dateFormat: 'dd-mm-yy',
-			
-			});
-	});
+
 </script>
 
 
