@@ -21,7 +21,7 @@
                 <?php } ?>
                 <?php } ?>
             </div>
-            <center><input type="button" id="btn-XemTiep" class="ben-button" value="Xem tiếp"/></center>
+            
             
         	
         </div>
@@ -37,12 +37,50 @@
 
 </div>
 <script language="javascript">
-$('#btn-XemTiep').click(function(e) {
-    $('#ben-maincontent .ben-section-content').append(loading);
-	$.get("?route=page/home/loadGroup&sitemapid=my-pham-danh-cho-nam",function(html){
-			
-			$('#loading').remove();
-			$('#ben-maincontent .ben-section-content').append(html);
-		});
+function LoadPage()
+{
+	this.arr = new Array();
+	this.index = 0;
+	this.flag = true;
+}
+var pageload = new LoadPage();
+</script>
+<?php foreach($arrsitemapid as $key => $sitemapid){?>
+<script language="javascript">
+pageload.arr.push("<?php echo $sitemapid?>");
+</script>
+<?php }?>
+<script language="javascript">
+function loadGroup()
+{
+	if(pageload.flag == true)
+	{
+		$('#ben-maincontent .ben-section-content').append(loading);
+		$.get("?route=page/home/loadGroup&sitemapid="+ pageload.arr[pageload.index],function(html){
+				
+				$('#loading').remove();
+				$('#ben-maincontent .ben-section-content').append(html);
+				pageload.index++;
+				if(pageload.index >= pageload.arr.length)
+				{
+					$('#btn-XemTiep').remove();
+					
+				}
+				pageload.flag = true;
+				//console.log("aa"+pageload.flag);
+				
+			});
+	}
+	pageload.flag = false;
+}
+
+$(document).scroll(function(e) {
+	if($(document).scrollTop() + window.innerHeight > $('#ben-maincontent .ben-section-content').innerHeight())
+	{
+		
+		loadGroup();
+		
+		
+	}
 });
 </script>

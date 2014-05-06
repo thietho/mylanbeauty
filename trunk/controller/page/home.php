@@ -47,18 +47,16 @@ class ControllerPageHome extends Controller
 			$this->load->model('core/sitemap');
 			$data_sitemap = array();
 			$this->model_core_sitemap->getTreeSitemap("sanpham", $data_sitemap, $this->member->getSiteId());
-			
+			$this->data['arrsitemapid'] = array();
 			foreach($data_sitemap as $sitemap)
 			{
 				if($sitemap['countchild'] == 0)
 				{
-					
-					/**/
+					$this->data['arrsitemapid'][] = $sitemap['sitemapid'];
 				}
 			}
 			
 			
-			//
 			$this->loadSiteBar();
 			
 		}
