@@ -33,7 +33,7 @@ var sagscroller2=new sagscroller({
 </script>
 <div class="ben-section">
     <div class="ben-section-content">
-    	<div class="ben-section-title"><?php echo $item['title']?></div>
+    	<div class="ben-section-title"><a href="<?php echo $item['link']?>"><?php echo $item['title']?></a></div>
         <div id="<?php echo $brand?>" class="sagscroller">
             <ul>
                 <?php echo $item['data']?>
