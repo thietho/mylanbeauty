@@ -1,6 +1,6 @@
 <?php
 final class Cachehtml { 
-	private $expire = 30;
+	private $expire = 3600;
 
   	public function __construct() {
 		$files = glob(DIR_CACHEHTML . '*');

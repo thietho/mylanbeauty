@@ -1,58 +1,69 @@
 <?php
 class ControllerSitebarGallery extends Controller
 {
+	function __construct() 
+	{
+		$this->iscache = true;
+		/*$arr=array();
+		foreach($_GET as $key => $val)
+			$arr[] = $key."=".$val;*/
+	 	$this->name ="SitebarGallery";
+   	}
 	public function index()
 	{
-		//San pham moi
-		$template = array(
-							  'template' => "sitebar/product_list.tpl",
-							  'width' => 60,
-							  'height' =>60,
-							  'widthpreview' => 450,
-							  'heightpreview' =>450
-							  );
-					  
-		$medias = $this->getSanPhanMoi("sortsanphammoiSisley");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['Sisley']['title'] ="Sisley";
-		$this->data['views']['Sisley']['link'] = $this->document->createLink('brand','Sisley');
-		$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiLancome");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['Lancome']['title'] ="Lancome";
-		$this->data['views']['Lancome']['link'] = $this->document->createLink('brand','Lancome');
-		$this->data['views']['Lancome']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiEsteeLauder");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['EsteeLauder']['title'] ="Estee Lauder";
-		$this->data['views']['EsteeLauder']['link'] = $this->document->createLink('brand','EsteeLauder');
-		$this->data['views']['EsteeLauder']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiClinique");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['Clinique']['title'] ="Clinique";
-		$this->data['views']['Clinique']['link'] = $this->document->createLink('brand','Clinique');
-		$this->data['views']['Clinique']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiClarins");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['Clarins']['title'] ="Clarins";
-		$this->data['views']['Clarins']['link'] = $this->document->createLink('brand','Clarins');
-		$this->data['views']['Clarins']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiShishedo");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['Shishedo']['title'] ="Shishedo";
-		$this->data['views']['Shishedo']['link'] = $this->document->createLink('brand','Shishedo');
-		$this->data['views']['Shishedo']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-		
-		$medias = $this->getSanPhanMoi("sortsanphammoiVictoriaSecrect");
-		$arr = array('',0,'',$template,$medias);
-		$this->data['views']['VictoriaSecrect']['title'] ="Victoria Secrect";
-		$this->data['views']['VictoriaSecrect']['link'] = $this->document->createLink('brand','VictoriaSecrect');
-		$this->data['views']['VictoriaSecrect']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		if($this->cachehtml->iscacht($this->name) == false)
+		{
+			//San pham moi
+			$template = array(
+								  'template' => "sitebar/product_list.tpl",
+								  'width' => 60,
+								  'height' =>60,
+								  'widthpreview' => 450,
+								  'heightpreview' =>450
+								  );
+						  
+			$medias = $this->getSanPhanMoi("sortsanphammoiSisley");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['Sisley']['title'] ="Sisley";
+			$this->data['views']['Sisley']['link'] = $this->document->createLink('brand','Sisley');
+			$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiLancome");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['Lancome']['title'] ="Lancome";
+			$this->data['views']['Lancome']['link'] = $this->document->createLink('brand','Lancome');
+			$this->data['views']['Lancome']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiEsteeLauder");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['EsteeLauder']['title'] ="Estee Lauder";
+			$this->data['views']['EsteeLauder']['link'] = $this->document->createLink('brand','EsteeLauder');
+			$this->data['views']['EsteeLauder']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiClinique");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['Clinique']['title'] ="Clinique";
+			$this->data['views']['Clinique']['link'] = $this->document->createLink('brand','Clinique');
+			$this->data['views']['Clinique']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiClarins");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['Clarins']['title'] ="Clarins";
+			$this->data['views']['Clarins']['link'] = $this->document->createLink('brand','Clarins');
+			$this->data['views']['Clarins']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiShishedo");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['Shishedo']['title'] ="Shishedo";
+			$this->data['views']['Shishedo']['link'] = $this->document->createLink('brand','Shishedo');
+			$this->data['views']['Shishedo']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			
+			$medias = $this->getSanPhanMoi("sortsanphammoiVictoriaSecrect");
+			$arr = array('',0,'',$template,$medias);
+			$this->data['views']['VictoriaSecrect']['title'] ="Victoria Secrect";
+			$this->data['views']['VictoriaSecrect']['link'] = $this->document->createLink('brand','VictoriaSecrect');
+			$this->data['views']['VictoriaSecrect']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+		}
 		
 		$this->id="content";
 		$this->template="sitebar/gallery.tpl";
