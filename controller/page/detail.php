@@ -34,8 +34,12 @@ class ControllerPageDetail extends Controller
 				switch($sitemap['moduleid'])
 				{
 					case "":
-						
-						$this->data['module'] = $this->loadModule('addon/'.$this->document->sitemapid);
+						if(file_exists($this->document->sitemapid.".html"))
+						{
+							//$this->response->redirect($this->document->sitemapid.".html");
+						}
+						else
+							$this->data['module'] = $this->loadModule('addon/'.$this->document->sitemapid);
 					break;
 					case "module/information":
 						$this->data['module'] = $this->loadModule('module/information');
