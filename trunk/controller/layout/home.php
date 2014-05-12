@@ -4,6 +4,16 @@ class ControllerLayoutHome extends Controller
 	public function index()
 	{
 		
+		if(file_exists($_GET['sitemapid'].".html"))
+		{
+			
+			$this->data['output'] = file_get_contents($_GET['sitemapid'].".html");
+			$this->template="common/output.tpl";
+			$this->render();
+			
+		}
+		else
+		{				
 		$this->data['title'] = $this->document->title;
 		$this->data['url'] = HTTP_SERVER.substr($_SERVER[REQUEST_URI],1);
 		if($this->document->meta_description == "")
@@ -41,6 +51,7 @@ class ControllerLayoutHome extends Controller
 			'common/footer'
 		);
 		$this->render();
+		}
 	}
 }
 ?>

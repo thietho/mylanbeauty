@@ -34,7 +34,10 @@ if(count($medias))
                         </a>
                         <?php if(count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
-                        <div><?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?></div>
+                        <div>
+                        	<?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?> <?php echo $this->document->setup['Currency']?>
+                            <?php if($me['discountpercent']) echo "Giảm ".$this->string->numberFormate($me['discountpercent'])."%";?>
+                        </div>
                         <?php } ?>
                         <?php } ?>
                     </div>
