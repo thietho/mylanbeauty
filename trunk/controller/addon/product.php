@@ -5,7 +5,7 @@ class ControllerAddonProduct extends Controller
 	public function index()
 	{
 		
-		$this->document->breadcrumb .= "Tìm kiếm sản phẩm";
+		$this->document->breadcrumb = "Tìm kiếm sản phẩm";
 		$this->getList();
 		$this->id="content";
 		$this->template="common/output.tpl";
@@ -18,66 +18,86 @@ class ControllerAddonProduct extends Controller
 		$this->load->model("core/sitemap");
 		$this->load->helper('image');
 		$donvi = 1000;
-		$para = $this->string->referSiteMapToArray($_GET['search']);
-		if(count($para))
+		//$para = $this->string->referSiteMapToArray($_GET['search']);
+		
+		$keyword = urldecode($_GET['keyword']);
+		$loaisp = urldecode($_GET['loaisp']);
+		$nhanhieu = urldecode($_GET['nhanhieu']);
+		$gia = urldecode($_GET['gia']);
+		if($keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
-			foreach($para as $val)
-			{
-				$ar = split("=",$val);
-				$datasearch[$ar[0]] = $ar[1];	
-			}
-			
-			$_GET = $datasearch;
+			$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
+			return;
+		}
+		
+		$where = " AND mediatype = 'module/product' AND mediaparent = ''";
+		if($keyword !="")
+		{
+			$arrkey = split(' ', $keyword);
 			$arr = array();
+			$arrcode = array();
+			$arrbarcode = array();
+			$arrref = array();
+			$arrsummary = array();
+			$arrdescription = array();
 			
-			foreach($datasearch as $key => $item)
+			foreach($arrkey as $key)
 			{
-				if($item !="" && $key != "gia" && $key != "keyword" && $key != "loaisp")
-					$arr[] = " AND groupkeys like '%[".$item."]%'";
-					
-				if($key == "loaisp")
-					$arr[] = " AND refersitemap like '%[".$item."]%'";
-				
+				$arr[] = "title like '%".$key."%'";
 			}
-			
-			
-			
-			$where = implode("",$arr);
-			if($datasearch["keyword"]!="")
+			foreach($arrkey as $key)
 			{
-				
-				$where .= " AND ( title like '%".$datasearch["keyword"]."%' OR summary like '%".$datasearch["keyword"]."%' OR description like '%".$datasearch["keyword"]."%')";
+				$arrcode[] = "code like '%".$key."%'";
 			}
+			foreach($arrkey as $key)
+			{
+				$arrbarcode[] = "barcode like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrref[] = "ref like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrsummary[] = "summary like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrdescription[] = "description like '%".$key."%'";
+			}
+			$where .= " AND (
+								(". implode(" AND ",$arr). ") 
+								OR (". implode(" AND ",$arrcode). ") 
+								OR (". implode(" AND ",$arrbarcode). ") 
+								OR (". implode(" AND ",$arrref). ") 
+								OR (". implode(" AND ",$arrsummary). ") 
+								OR (". implode(" AND ",$arrdescription). ") 
+							)";
 		}
-		
-		$siteid = $this->member->getSiteId();
-		
-		$arrsitemap = $this->model_core_sitemap->getListByModule('module/product', $siteid);
-		foreach($arrsitemap as $item)
-			$listsitemapid[] = $item['sitemapid'];
-		$arr = array();
-		foreach($listsitemapid as $item)
+		if($loaisp)
 		{
-			$arr[] = " refersitemap like '%[".$item."]%'";
+			$where .= " AND refersitemap like '%[".$loaisp."]%'";
 		}
-		$hasprice = false;
-		if($datasearch['gia'] != "")
+		if($nhanhieu)
 		{
-			$hasprice = true;
+			$where .= " AND brand like '".$nhanhieu."'";
+		}
+		if($gia)
+		{
 			$arrgia = split("-",$datasearch['gia']);
 			$giatu = (int)$arrgia[0];
 			$giaden = (int)$arrgia[1];
+			$whereprice=" AND mediatype = 'module/product'";
 			if($giatu)
 				$whereprice = " AND price >= '".$giatu*$donvi ."'";
 			if($giaden)
 				$whereprice.= " AND price <= '".$giaden*$donvi ."'";
-			$whereprice;
+			
 			$mediaprice = $this->model_core_media->getList($whereprice);
 			
 			$listparent = $this->string->matrixToArray($mediaprice,"mediaparent");
+			
 		}
-		
-		$where .= "AND (". implode($arr," OR ").")";
 		
 		$medias = $this->model_core_media->getList($where);
 		
@@ -110,10 +130,8 @@ class ControllerAddonProduct extends Controller
 							  'widthpreview' => 450,
 						  	  'heightpreview' =>450
 							  );
-		$arr = array("",12,"Kết quả tìm kiếm",$template,$medias);
-		$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
-			
-			
+		$arr = array("",'',"Kết quả tìm kiếm",$template,$medias);
+		$this->data['output'] = $this->loadModule('module/productlist','getAll',$arr);
 	}
 	
 	public function getViewList()
