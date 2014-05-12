@@ -17,7 +17,7 @@ final class MailSMTP {
 		$mail->Port = 587; // set the port to use
 		$mail->SMTPAuth = true; // turn on SMTP authentication
 		$mail->SMTPSecure = '';
-		$mail->Username = "cosmetics@mylanbeauty.net"; // your SMTP username or your gmail username
+		$mail->Username = "info@mylanbeauty.net"; // your SMTP username or your gmail username
 		$mail->Password = "LanTran1981";
 		
 		$from = "cosmetics@mylanbeauty.net"; // Reply to this email
