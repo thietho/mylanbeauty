@@ -1,5 +1,5 @@
 <div class="ben-section">
-    <div id="ben-searchform" class="ben-section-content">
+    <form id="ben-searchform" class="ben-section-content" action="<?php echo $this->document->createLink('product')?>">
     	<div class="ben-section-title">Tìm kiếm sản phẩm</div>
         <p>
             <select name="loaisp" id="loaisp">
@@ -33,20 +33,20 @@
                 <?php } ?>
             </select>
         </p>
-    	<input type="text" class="ben-textbox" id="txt_search" name="txt_search" value="<?php echo $_GET['keyword']?>">
-        <input type="button" class="ben-button" id="btnSearch" value="Tìm">
-    </div>
+    	<input type="text" class="ben-textbox" id="keyword" name="keyword" >
+        <input type="submit" class="ben-button" id="btnSearch" value="Tìm">
+    </form>
 </div>
 <script language="javascript">
 $("#btnSearch").click(function(){
-	var url =  HTTP_SERVER+"product/search/";
+	/*var url =  HTTP_SERVER+"product/search/";
 	var keyword = trim($("#txt_search").val()," ");
 	
 	if($("#loaisp").val() != "")
-		url += "[loaisp=" + $("#loaisp").val()+"]";
+		url += "[loaisp=" + $("#loaisp").val()+"]";*/
 	/*if($("#nhomhuong").val() != "")
 		url += "[nhomhuong="+ $("#nhomhuong").val()+"]";*/
-	if($("#nhanhieu").val() != "")
+	/*if($("#nhanhieu").val() != "")
 		url += "[nhanhieu=" + $("#nhanhieu").val()+"]";
 	if($("#gia").val() != "")
 		url += "[gia=" + $("#gia").val()+"]";
@@ -59,11 +59,11 @@ $("#btnSearch").click(function(){
 		url += "&opendialog=true";
 	}
 	
-	window.location = url+".html";
+	window.location = url+".html";*/
 });
 $("#loaisp").val("<?php echo $_GET['loaisp']?>");
 $("#nhomhuong").val("<?php echo $_GET['nhomhuong']?>");
 $("#nhanhieu").val("<?php echo $_GET['nhanhieu']?>");
 $("#gia").val("<?php echo $_GET['gia']?>");
-$("#keyword").val("<?php echo $_GET['keyword']?>");
+$("#keyword").val("<?php echo urldecode($_GET['keyword'])?>");
 </script>
