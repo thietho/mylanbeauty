@@ -289,8 +289,10 @@ class ControllerModuleProductlist extends Controller
 			$this->data['medias'][$i]['imagetpreview']= $imagetpreview;
 			$this->data['medias'][$i]['statusdate']= $this->date->formatMySQLDate($media['statusdate'], 'longdate', "/");
 			
-			$where = " AND code = '".$media['code']."' AND mediaid <> '".$media['mediaid']."' AND sizes <> '' AND price > 0";
-			$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
+			//$where = " AND mediaparent = '".$media['mediaid']."' AND sizes <> '' AND price > 0";
+			//$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
+			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid']);
+			
 		}
 			
 			

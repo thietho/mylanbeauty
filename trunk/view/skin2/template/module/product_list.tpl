@@ -32,10 +32,13 @@ if(count($medias))
                             
                             
                         </a>
-                        <?php foreach($media['data_samplecode'] as $me){?>
+                        <?php if(count($media['childs'])){ ?>
+                        <?php foreach($media['childs'] as $me){?>
                         <div><?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?></div>
                         <?php } ?>
+                        <?php } ?>
                     </div>
+                    <?php if(count($media['childs'])==0){ ?>
                     <?php $cls = '';?>
                     <?php if($media['pricepromotion']!=0){ ?>
                     <div align="center" class="product-pricepromotion">
@@ -47,10 +50,13 @@ if(count($medias))
                     </div>
                     <?php } ?>
                     <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
-                    <div align="center">
+                    <center>
                     	<?php if($media['noteprice']!=""){ ?>
                         (<?php echo $media['noteprice']?>)<br />
                         <?php }?>
+                    </center>
+                    <?php } ?>
+                    <div align="center">
                         <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                 </td>
