@@ -57,6 +57,9 @@ if(count($medias))
                     	<?php if($media['noteprice']!=""){ ?>
                         (<?php echo $media['noteprice']?>)<br />
                         <?php }?>
+                        <?php if($media['noted']!=""){ ?>
+                        <em><?php echo $media['noted']?></em>
+                        <?php }?>
                     </center>
                     <?php } ?>
                     <div align="center">
