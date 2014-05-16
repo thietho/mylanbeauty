@@ -60,7 +60,7 @@ class ControllerAddonBrand extends Controller
 			foreach($arrmediaid as $mediaid)
 			{
 				$media = $this->model_core_media->getItem($mediaid);
-				if($media['status'] == 'active' && $media['imageid']>0)
+				if($media['status'] == 'active' && $media['imagepath'] != "")
 					$data_media[] = $media;
 			}
 			
