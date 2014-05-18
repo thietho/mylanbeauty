@@ -26,12 +26,15 @@
             </div>
         	<div class="button right">
             	<?php if($dialog==true){ ?>
-            	
+            	<?php if($this->user->checkPermission("quanlykho/nhacungcap/insert")==true){ ?>
+                <input class="button" value="Thêm" type="button" onclick="showNhaCungCapForm('','searchForm()')">
+                <?php } ?>
+                
                 <?php }else{ ?>
                 
                
                 <?php if($this->user->checkPermission("quanlykho/nhacungcap/insert")==true){ ?>
-                <input class="button" value="Thêm" type="button" onclick="linkto('<?php echo $insert?>')">
+                <input class="button" value="Thêm" type="button" onclick="showNhaCungCapForm('','searchForm()')">
                 <?php } ?>
                 <?php if($this->user->checkPermission("quanlykho/nhacungcap/delete")==true){ ?>
             	<input class="button" type="button" name="delete_all" value="Xóa" onclick="deleteitem()"/>
@@ -117,7 +120,34 @@ function searchForm()
 	$('#listsanpham').html(loading);
 	$('#listsanpham').load("?route=quanlykho/nhacungcap/getList"+url);
 }
-
+function viewCongNoNCC(id)
+{
+	$("#popup").attr('title','Công nợ');
+				$( "#popup" ).dialog({
+					autoOpen: false,
+					show: "blind",
+					hide: "explode",
+					width: $(document).width()-100,
+					height: window.innerHeight,
+					modal: true,
+					buttons: {
+						'Đóng': function() {
+							$( this ).dialog( "close" );
+							
+						},
+						
+						'In': function(){
+							openDialog("?route=quanlykho/nhacungcap/getCongNo&nhacungcapid="+id+"&dialog=print",800,500)
+							
+						},
+					}
+				});
+			
+				
+	$("#popup-content").load("?route=quanlykho/nhacungcap/getCongNo&nhacungcapid="+id+"&dialog=true",function(){
+		$("#popup").dialog("open");	
+	});
+}
 function moveto(url,eid)
 {
 	$(eid).html(loading);

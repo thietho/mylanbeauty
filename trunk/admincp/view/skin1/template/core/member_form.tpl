@@ -8,8 +8,7 @@
     	<form id="frm" name="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         
         	<div class="button right">
-            	<input type="button" value="Save" class="button" onclick="save()"/>
-     	        <input type="button" value="Cancel" class="button" onclick="linkto('<?php echo $cancel?>')"/>   
+            	
      	        <input type="hidden" name="id" value="<?php echo $user['id']?>" />   
                 <input type="hidden" name="usertypeid" value="member" />   
             </div>
@@ -22,7 +21,7 @@
                 <p>
             		<label>Full name</label><br />
 					<input type="text" name="fullname" value="<?php echo $user['fullname']?>" class="text" size=60 autocomplete="on" />
-                    <i class="error"><?php echo $error['fullname']?></i>
+                    
             	</p>
                 <p>
             		<label>Birthday</label><br />
@@ -41,12 +40,12 @@
                 <p>
             		<label>Email</label><br />
 					<input type="text" name="email" value="<?php echo $user['email']?>" class="text" size=60 />
-                    <i class="error"><?php echo $error['email']?></i>
+                    
             	</p>
                 <p>
             		<label>Phone</label><br />
 					<input type="text" name="phone" value="<?php echo $user['phone']?>" class="text" size=60 />
-                    <i class="error"><?php echo $error['phone']?></i>
+                    
             	</p>
                 <p>
             		<label>Address</label><br />
@@ -75,27 +74,3 @@
     </div>
     
 </div>
-<script language="javascript">
-function save()
-{
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
-	
-	$.post("?route=core/member/save", $("#frm").serialize(),
-		function(data){
-			var arr = data.split("-");
-			if(arr[0] == "true")
-			{
-				window.location = "?route=core/member";
-			}
-			else
-			{
-			
-				$('#error').html(data).show('slow');
-				$.unblockUI();
-				
-			}
-			
-		}
-	);
-}
-</script>

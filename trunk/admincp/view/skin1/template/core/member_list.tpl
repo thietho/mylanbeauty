@@ -9,12 +9,16 @@
         	<div class="button right">
                	<?php if($dialog!=true){ ?>
                 <?php if($this->user->checkPermission("core/member/insert")==true){ ?>
-                <input type="button" class="button" value="Thêm" onclick="window.location='<?php echo $insert?>'" />
+                <input type="button" class="button" value="Thêm" onclick="showMemberForm('','searchForm()')" />
                 <?php } ?>
                 <?php if($this->user->checkPermission("core/member/delete")==true){ ?>
             	<input class="button" type="button" name="delete_all" value="Xóa" onclick="deleteUser()"/>  
                 <?php } ?>
-                <?php }?>
+                <?php } else { ?>
+                <?php if($this->user->checkPermission("core/member/insert")==true){ ?>
+                <input type="button" class="button" value="Thêm" onclick="showMemberForm('','searchForm()')" />
+                <?php } ?>
+                <?php } ?>
             </div>
             <div class="clearer">^&nbsp;</div>
             <div id="ben-search">
@@ -152,17 +156,15 @@ function viewCongNo(id)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					buttons: {
 						'Đóng': function() {
 							$( this ).dialog( "close" );
 							
 						},
-						'Thanh toán công nợ':function(){
-							
-						},
+						
 						'In': function(){
 							openDialog("?route=core/member/getCongNo&khachhangid="+id+"&dialog=print",800,500)
 							
@@ -170,9 +172,10 @@ function viewCongNo(id)
 					}
 				});
 			
-				
+	$("#popup").dialog("open");	
+	$("#popup-content").html(loading);			
 	$("#popup-content").load("?route=core/member/getCongNo&khachhangid="+id+"&dialog=true",function(){
-		$("#popup").dialog("open");	
+		
 	});
 }
 

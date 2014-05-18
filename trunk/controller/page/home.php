@@ -12,6 +12,7 @@ class ControllerPageHome extends Controller
    	}
 	public function index()
 	{
+		print_r($this->string->browser_info());
 		if($this->cachehtml->iscacht($this->name) == false)
 		{
 			//Brand

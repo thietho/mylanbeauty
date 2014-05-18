@@ -3,6 +3,47 @@ $this->load->model("quanlykho/donvitinh");
 $this->load->model("core/file");
 class ModelCoreMedia extends ModelCoreFile 
 { 
+	private $arr_col = array(
+							'mediaid',
+							'barcode',
+							'ref',
+							'code',
+							'sizes',
+							'unit',
+							'color',
+							'material',
+							'brand',
+							'mediaparent',
+							'mediatype',
+							'refersitemap',
+							'userid',
+							'title',
+							'summary',
+							'description',
+							'alias',
+							'keyword',
+							'metadescription',
+							'author',
+							'source',
+							'saleprice',
+							'price',
+							'noteprice',
+							'discountpercent',
+							'pricepromotion',
+							'imageid',
+							'imagepath',
+							'fileid',
+							'filepath',
+							'groupkeys',
+							'viewcount',
+							'position',
+							'status',
+							'temp',
+							'statusdate',
+							'statusby',
+							'updateddate',
+							'noted'
+							);
 	public function getItem($mediaid, $where="")
 	{
 		$query = $this->db->query("Select `media`.* 
@@ -29,7 +70,7 @@ class ModelCoreMedia extends ModelCoreFile
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
-		
+		//echo $sql;
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
@@ -244,94 +285,13 @@ class ModelCoreMedia extends ModelCoreFile
 		return $this->db->getNextIdVarChar("media","mediaid",$prefix);	
 	}
 	
-	public function insertTemp($data)
-	{
-		$mediaid = $this->nextID($this->user->getSiteId().time());
-		$mediaparent=$this->db->escape(@$data['mediaparent']);
-		$mediatype=$this->db->escape(@$data['mediatype']);
-		$refersitemap=$this->db->escape(@$data['refersitemap']);
-		$userid=$this->db->escape(@$data['userid']);
-		
-		$title=$this->db->escape(@$data['title']);
-		$summary=$this->db->escape(@$data['summary']);
-		$price=$this->db->escape(@$data['price']);
-		$description=(@$data['description']);
-		$author=$this->db->escape(@$data['author']);
-		$source=$this->db->escape(@$data['source']);
-		
-		$imageid=(int)@$data['imageid'];
-		$imagepath=$this->db->escape(@$data['imagepath']);
-		$fileid=(int)@$data['fileid'];
-		$filepath=$this->db->escape(@$data['filepath']);
-		
-		$groupkeys=$this->db->escape(@$data['groupkeys']);
-		$viewcount=0;
-		$position=(int)@$data['position'];
-		$status="delete";
-		$temp = "temp";
-		$statusdate = $this->date->getToday();
-		$statusby=$this->db->escape(@$data['userid']);
-		$updateddate = $this->date->getToday();
-		
-		$field=array(
-						'mediaid',
-						'mediaparent',
-						'mediatype',
-						'refersitemap',
-						'userid',
-						'title',
-						'summary',
-						'price',
-						'description',
-						'author',
-						'source',
-						'imageid',
-						'imagepath',
-						'fileid',
-						'filepath',
-						'groupkeys',
-						'viewcount',
-						'position',
-						'status',
-						'temp',
-						'statusdate',
-						'statusby',
-						'updateddate'
-					);
-		$value=array(
-						$mediaid,
-						$mediaparent,
-						$mediatype,
-						$refersitemap,
-						$userid,
-						$title,
-						$summary,
-						$price,
-						$description,
-						$author,
-						$source,
-						$imageid,
-						$imagepath,
-						$fileid,
-						$filepath,
-						$groupkeys,
-						$viewcount,
-						$position,
-						$status,
-						$temp,
-						$statusdate,
-						$statusby,
-						$updateddate
-					);
-		$this->db->insertData("media",$field,$value);
-		$this->updateFileTemp($imageid);
-		$this->updateFileTemp($fileid);
-		return $mediaid;
-	}
-	
 	public function insert($data)
 	{
-		$mediaid = $this->nextID($this->user->getSiteId().time());
+		$date = getdate();
+		
+		$mediaid = $this->db->escape(@$data['mediaid']);
+		if($mediaid == "")
+			$mediaid = $this->nextID($date['year'].$this->date->numberFormate($date['mon']));
 		$code = $this->db->escape(@$data['code']);
 		$sizes = $this->db->escape(@$data['sizes']);
 		$unit = $this->db->escape(@$data['unit']);
@@ -344,7 +304,9 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$title=$this->db->escape(@$data['title']);
 		$summary=$this->db->escape(@$data['summary']);
-		$price=$this->db->escape(@$data['price']);
+		$saleprice=$this->db->escape(@$data['saleprice']);
+		$price=$this->db->escape(@$this->string->toNumber($data['price']));
+		$discountpercent=$this->db->escape(@$this->string->toNumber($data['discountpercent']));
 		$pricepromotion=$this->db->escape(@$this->string->toNumber($data['pricepromotion']));
 		$description=(@$data['description']);
 		$author=$this->db->escape(@$data['author']);
@@ -358,7 +320,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$groupkeys=$this->db->escape(@$data['groupkeys']);
 		$viewcount=0;
 		$position=(int)@$data['position'];
-		$status="delete";
+		$status="active";
 		$statusdate = $this->date->getToday();
 		$statusby=$this->db->escape(@$data['userid']);
 		$updateddate = $this->date->getToday();
@@ -376,7 +338,9 @@ class ModelCoreMedia extends ModelCoreFile
 						'userid',
 						'title',
 						'summary',
+						'saleprice',
 						'price',
+						'discountpercent',
 						'pricepromotion',
 						'description',
 						'author',
@@ -406,7 +370,9 @@ class ModelCoreMedia extends ModelCoreFile
 						$userid,
 						$title,
 						$summary,
+						$saleprice,
 						$price,
+						$discountpercent,
 						$pricepromotion,
 						$description,
 						$author,
@@ -458,7 +424,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$imagepath=$this->db->escape(@$data['imagepath']);
 		$fileid=(int)@$data['fileid'];
 		$filepath=$this->db->escape(@$data['filepath']);
-		$status=$this->db->escape(@$data['status']);;
+		//$status=$this->db->escape(@$data['status']);;
 		$groupkeys=$this->db->escape(@$data['groupkeys']);
 		$tagkeyword=$this->db->escape(@$data['tagkeyword']);
 		
@@ -468,7 +434,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$viewcount=(int)@$data['viewcount'];
 
 		$updateddate = $this->date->getToday();
-		
+		$noted=$this->db->escape(@$data['noted']);
 		$field=array(
 						'code',
 						'sizes',
@@ -495,8 +461,9 @@ class ModelCoreMedia extends ModelCoreFile
 						'fileid',
 						'filepath',
 						'groupkeys',
-						'status',
-						'updateddate'
+						//'status',
+						'updateddate',
+						'noted'
 					);
 		$value=array(
 						$code,
@@ -524,13 +491,64 @@ class ModelCoreMedia extends ModelCoreFile
 						$fileid,
 						$filepath,
 						$groupkeys,
-						$status,
-						$updateddate
+						//$status,
+						$updateddate,
+						$noted
 					);
 		
 		$where="mediaid = '".$mediaid."'";
 		$this->db->updateData('media',$field,$value,$where);
 		return true;
+	}
+	
+	public function save($data)
+	{
+		$media = $this->getItem($data['mediaid']);
+		
+		$date = getdate();
+		if($data['mediaid'] == "")
+				$data['mediaid'] = $this->nextID($date['year'].$this->date->numberFormate($date['mon']));
+		$data['price']=$this->db->escape(@$this->string->toNumber($data['price']));
+		$data['discountpercent']=$this->db->escape(@$this->string->toNumber($data['discountpercent']));
+		$data['pricepromotion']=$this->db->escape(@$this->string->toNumber($data['pricepromotion']));
+		$data['updateddate'] = $this->date->getToday();
+		
+		$value = array();
+		if(count($media))
+		{
+			foreach($media as $col => $val)
+			{
+				if(isset($data[$col]))
+					$media[$col] = $data[$col];
+			}
+			$data = $media;
+		}
+		else
+		{
+			$data['statusby']=$this->db->escape(@$data['userid']);
+			$data['status']="active";
+			$data['statusdate'] = $this->date->getToday();
+		}
+		
+		foreach($this->arr_col as $col)
+		{
+			$value[] = $this->db->escape(@$data[$col]);
+		}
+		
+
+		$field=$this->arr_col;
+		
+		if(count($media) == 0)
+		{
+			$data['id'] = $this->db->insertData("media",$field,$value);
+		}
+		else
+		{
+			$where="mediaid = '".$data['mediaid']."'";
+			$this->db->updateData("media",$field,$value,$where);
+		}
+		
+		return $data['id'];
 	}
 	
 	public function saveAttachment($mediaid,$listfile)
@@ -581,7 +599,34 @@ class ModelCoreMedia extends ModelCoreFile
 			$this->db->insertData("media_information",$field,$value);	
 		}
 	}
-	
+	public function updateInforChild($mediaid)
+	{
+		$data_child = $this->getListByParent($mediaid);
+		$ref = '';
+		if(count($data_child))
+		{
+			$arrcol = array(
+							'barcode',
+							'ref',
+							'sizes',
+							'color',
+							'material'
+							);
+			$arr = array();			
+			foreach($arrcol as $col)	
+				$arr[$col] = $this->string->matrixToArray($data_child,$col);
+			//print_r($arr);
+			//$media = $this->getItem($mediaid);
+			
+			foreach($arr as $col => $val)
+			{
+				//$this->updateCol($mediaid,$col,$this->string->arrayToString($val));
+				$ref .= $this->string->arrayToString($val);
+			}
+			$this->updateCol($mediaid,"ref",$ref);
+		}
+		
+	}
 	public function delete($mediaid)
 	{
 		$status="delete";
@@ -666,7 +711,7 @@ class ModelCoreMedia extends ModelCoreFile
 	{
 		$sql = "SELECT sum(soluong) as soluong, madonvi
 				FROM  `qlkphieunhapxuat_media` 
-				WHERE mediaid = '".$mediaid."' AND loaiphieu='".$loaiphieu."'
+				WHERE mediaid = '".$mediaid."' AND loaiphieu like '".$loaiphieu."%'
 				Group by madonvi
 				";
 		$query = $this->db->query($sql);
@@ -690,6 +735,8 @@ class ModelCoreMedia extends ModelCoreFile
 		$media = $this->getItem($mediaid);
 		
 		$arrnhap = $this->getSoLuong($mediaid,'NK');
+		//$arrnhapkhtra = $this->getSoLuong($mediaid,'NK-KHTL');
+		//$arrnhap = array_merge($arrnhap,$arrnhapkhtra);
 		
 		$soluongnhap = $this->model_quanlykho_donvitinh->toDonViTinh($arrnhap,$media['unit']);
 		

@@ -271,7 +271,7 @@ caption {
 
 table.data-table {
 	border: 1px solid #CCB;
-	margin-bottom: 2em;
+	
 	width: 100%;
 }
 
@@ -289,7 +289,9 @@ table.data-table tr {
 table.data-table .item:hover {
 	background:#0F0;
 }
-
+table.data-table .itemselected {
+	background:#F00;
+}
 table.data-table td,table th { /*padding: 10px;*/
 	padding:4px;
 }
@@ -445,7 +447,7 @@ input.text,textarea,select {
 }
 input.short
 {
-	width:50px;	
+	width:100px;	
 }
 input.text:focus,textarea:focus,select:focus {
 	background: #FFFFF5;
@@ -1290,9 +1292,34 @@ ul.autocomplete {
 	width:145px;	
 	height:150px;
 }
+
+
+.folderlist
+{
+	width:150px;	
+	height:150px;
+	
+}
 .filename
 {
-	display:none;	
+	margin-top: 123px;
+    position: absolute;
+    text-align: center;
+    width: 150px;
+}
+.folderlist table
+{
+	height:100%;
+	
+}
+.folderlist td
+{
+	text-align:center;
+	border:none !important;	
+}
+.folderlist tr
+{
+	border:none !important;	
 }
 .needimport
 {
@@ -1380,16 +1407,7 @@ ul.autocomplete {
 	display:none;
 	border:thin solid #999;
 }
-.selectitem
-{
-	padding:10px;
-	width:209px;
-}
 
-.filename
-{
-	display:none;	
-}
 #popup-seletetion .filelist
 {
 	height:auto;
@@ -1409,13 +1427,31 @@ ul.autocomplete {
 }
 .folderitem
 {
-	padding:2px;	
+
 }
 .selectfolder
 {
-	background:#09F;
+	background:#F00;
 }
 .selectfile
 {
 	background-color:#F00 !important;	
+}
+.progress
+{
+	width:100%;	
+	
+}
+.bar {
+    height: 18px;
+    background: green;
+	text-align:center;
+}
+.selected
+{
+	background-color:#F00 !important;
+}
+.links
+{
+	margin:5px;	
 }

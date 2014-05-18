@@ -33,22 +33,33 @@
             		<label><?php echo $dash_email ?></label><br />
 					<input type="text" name="EmailContact" value="<?php echo $item['EmailContact']?>" class="text" size=60 />
             	</p>
+                <p>
+                    <label>Keyword</label><br />
+                    <textarea name="Keyword"><?php echo $item['Keyword']?></textarea>
+                        
+                </p>
+				<p>
+                    <label>Mô tả</label><br />
+                    <textarea name="Description"><?php echo $item['Description']?></textarea>
+                        
+                </p>
             </div>
             <div>
-            	<!--<h3>Trang chủ</h3>-->
-                 <input type="hidden" id="listselectfile" name="listselectfile" />
-                 <input type="hidden" id="handler" />
-                 <input type="hidden" id="outputtype" />
+            	
                 
-                
-                 <p>
-                    <label><?php echo $lbl_image ?></label><br />
-                    <div id="brochure">
-                        <?php echo $item['brochure']?>
-                    </div>
-                    <input type="hidden" id="brochure_filepath" name="brochure" value="<?php echo $item['brochure']?>"/>
-                    <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('brochure','any')"/>
+                <?php for($i=1;$i<=4;$i++){?>
+            	<p>
+                    <label>Quảng cáo <?php echo $i?></label>
+                    <input type="hidden" id="qc<?php echo $i?>_fileid" name="qc<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/><br />
+                    	(250px x 250px)
+                        <img id="qc<?php echo $i?>_preview" src="<?php echo $qc[$i]['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qc<?php echo $i?>','single')"/>
+                        (1045px x 540px)
+                        <input type="hidden" id="qcbanner<?php echo $i?>_fileid" name="qcbanner<?php echo $i?>_fileid" value="<?php echo $qc[$i]['fileid']?>"/>
+                        <img id="qcbanner<?php echo $i?>_preview" src="<?php echo $qcbanner[$i]['imagethumbnail']?>"/>
+                        <input type="button" class="button" value="<?php echo $entry_photo ?>" onclick="browserFile('qcbanner<?php echo $i?>','single')"/>
                 </p>
+                <?php }?>
             </div>
         </form>
     
@@ -57,57 +68,7 @@
 </div>
 
 <script language="javascript">
-function browserFile(eid,type)
-{
-    $('#handler').val(eid);
-	$('#outputtype').val(type);
-	showPopup("#popup", 800, 500);
-	$("#popup").html("<img src='view/skin1/image/loadingimage.gif' />");
-	$("#popup").load("?route=core/file&dialog=true")
-		
-}
 
-function addImageTo()
-{
-	var str= trim($("#listselectfile").val(),",");
-	var arr = str.split(",");
-	
-	if(str!="")
-	{
-		for (i=0;i<arr.length;i++)
-		{
-			$.getJSON("?route=core/file/getFile&fileid="+arr[i], 
-				function(data) 
-				{
-					switch($('#outputtype').val())
-					{
-						case 'image':
-							if(isImage(data.file.extension))
-							{
-								width = "";
-								
-								width = 'width="200px"'
-								var value = "<img src='<?php echo HTTP_IMAGE?>"+data.file.filepath+"' " + width +"/>";
-								
-								$('#'+ $('#handler').val()).html(value)
-								$('#'+ $('#handler').val()+'_filepath').val(data.file.filepath);
-							}
-							else
-							{
-								alert('Bạn phải chọn file hình');	
-							}						
-							break;
-						default:
-							var value = data.file.filepath;
-								
-							$('#'+ $('#handler').val()).html(value)
-							$('#'+ $('#handler').val()+'_filepath').val(data.file.filepath);
-					}
-					
-				});
-		}
-	}
-}
 function save()
 {
 	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
@@ -118,12 +79,22 @@ function save()
 		function(data){
 			if(data == "true")
 			{
-				window.location.reload();
+				//window.location.reload();
 			}
 			$.unblockUI();
 		}
 	);
 }
+var index = 0;
+function addRow(obj)
+{
+	var str ='<tr id="row'+index+'">';
+	str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+obj.id+'"/><span id="film'+index+'_name">'+obj.moviename+'</span></td>';
+	str += '<td><img id="film'+index+'_icon" src="'+obj.icone+'"/></td>';
+	str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
+	str += '</tr>';
+	$('#listfilm').append(str);
+	index++;
+}
 
 </script>
-<script src='<?php echo DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>

@@ -1,7 +1,7 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost:81/tbsocms/admincp/');
-define('HTTP_IMAGE', 'http://localhost:81/tbsocms/file/');
+define('HTTP_SERVER', 'http://localhost:81/mylanbeauty/admincp/');
+define('HTTP_IMAGE', 'http://localhost:81/mylanbeauty/file/');
 
 // HTTPS
 define('HTTPS_SERVER', '');

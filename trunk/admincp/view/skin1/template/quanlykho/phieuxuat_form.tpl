@@ -7,15 +7,17 @@
     	<form name="frm" id="frm" action="<?php echo $action?>" method="post" enctype="multipart/form-data">
         
         	<div class="button right">
-            	<input type="button" value="Lưu" class="button" onClick="save('')"/>
-                <input type="button" value="Lưu & In" class="button" onClick="save('print')"/>
+            	<input type="button" value="Lưu" class="button" onClick="savephieu('')"/>
+                <input type="button" value="Lưu & In" class="button" onClick="savephieu('print')"/>
      	        <input type="button" value="Bỏ qua" class="button" onclick="linkto('?route=quanlykho/phieuxuat')"/>   
      	        <input type="hidden" name="id" value="<?php echo $item['id']?>">
+                <input type="hidden" name="ngaylap" value="<?php echo $item['ngaylap']?>">
+                <input type="hidden" name="loaiphieu" value="PBH">
                 
             </div>
             <div class="clearer">^&nbsp;</div>
         	<div id="error" class="error" style="display:none"></div>
-            <div id="container">
+            <div id="phieunhapxuat">
                 <ul class="tabs-nav">
                     <li class="tabs-selected"><a href="#fragment-thongtin"><span>Thông tin phiếu nhập</span></a></li>
                     <li class="tabs"><a href="#fragment-nguyenlieu"><span>Sản phẩm</span></a></li>
@@ -31,9 +33,28 @@
                     
                     <p>
                         <label>Khách hàng</label><br />
-                        <input type="hidden" id="nguoinhanid" name="nguoinhanid" value="<?php echo $item['nguoinhanid']?>" value="<?php echo $item['nguoinhanid']?>">
-                        <input type="text" id="nguoinhan" name="nguoinhan" value="<?php echo $item['nguoinhan']?>" class="text" size=60 />
+                        <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>" >
+                        <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $item['tenkhachhang']?>" class="text" size=60 />
                         <input type="button" class="button" id="btnSelectKhachHang" value="Chọn khách hàng" />
+                    </p>
+                    <p>
+                        <label>Nhà cung cấp</label><br />
+                        <span id="nhacungcapview"><?php echo $item['tennhacungcap']?></span>
+                        <input type="hidden" id="nhacungcapid" name="nhacungcapid" value="<?php echo $item['nhacungcapid']?>">
+                        <input type="hidden" id="tennhacungcap" name="tennhacungcap" value="<?php echo $item['tennhacungcap']?>">
+                        <input type="button" class="button" id="btnSeleteNhaCungCap" value="Chọn nhà cung cấp">
+                        
+                    </p>
+                    <p>
+                    	<label>Tình trạng</label><br />
+                        <select id="trangthai" name="trangthai">
+                        	<?php foreach($this->document->status_phieunhapxuat as $key => $val){?>
+                            <option value="<?php echo $key?>"><?php echo $val?></option>
+                            <?php } ?>
+                        </select>
+                        <script language="javascript">
+                        $('#trangthai').val("<?php echo $item['trangthai']?>");
+                        </script>
                     </p>
                     <p>
                         <label>Ghi chú</label><br />
@@ -47,11 +68,14 @@
                 	<table>
                     	<thead>
                             <tr>
-                                <th>Code</th>
+                                
                                 <th>Sản phẩm</th>
                                 <th>Số lượng</th>
                                 <th>Đơn vị tính</th>
                                 <th>Đơn giá</th>
+                                <th>Giảm giá%</th>
+                                <th>Giảm giá</th>
+                                
                                 <th>Thành tiền</th>
                                 <th></th>
                             </tr>
@@ -59,8 +83,24 @@
                         <tbody id="nhapkhonguyenlieu">
                         </tbody>
                         <tfoot>
-                            <tr>
+                        	<tr>
+                                
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                	
+                                    <input type="text" id="lydothu" name="lydothu" class="text" value="<?php echo $item['lydothu']?>"/>
+                                </td>
+                                <td class="number"><input type="text" class="text number"  id="thuphi" name="thuphi" value="<?php echo $this->string->numberFormate($item['thuphi'])?>"/></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td class="number">Tổng số lượng</td>
+                                <td id="sumsoluong" class="number"></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -71,7 +111,10 @@
                                 <td class="number" id="tongcong"><?php echo $this->string->numberFormate($item['tongtien'])?></td>
                                 <td></td>
                             </tr>
+                            
                             <tr>
+                                
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -81,6 +124,8 @@
                                 <td><input type="button" class="button" id="btnTrahet" value="Trả hết"/></td>
                             </tr>
                             <tr>
+                                
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -93,6 +138,8 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -117,20 +164,23 @@
 	<?php foreach($data_nhapkho as $dl){ ?>
 <script language="javascript">
 $(document).ready(function(e) {
-	objdl.addRow("<?php echo $dl['id']?>","<?php echo $dl['mediaid']?>","<?php echo $dl['code']?>","<?php echo $dl['title']?>","<?php echo $dl['soluong']?>","<?php echo $dl['madonvi']?>","<?php echo $dl['giatien']?>");
+	objdl.addRow("<?php echo $dl['id']?>","<?php echo $dl['mediaid']?>","<?php echo $dl['code']?>","<?php echo $this->document->productName($dl['mediaid'])?>","<?php echo $dl['soluong']?>","<?php echo $dl['madonvi']?>","<?php echo $dl['giatien']?>","<?php echo $dl['giamgia']?>","<?php echo $dl['phantramgiamgia']?>");
 });
 	//objdl.tinhtong(0);
 </script>
 	<?php } ?>
 <?php } ?>
-<script language="javascript" src="<?php echo HTTP_SERVER.DIR_JS?>phieunhapxuat.js"></script>
+
 <script language="javascript">
 $(document).ready(function(e) {
-    $('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
+    $('#phieunhapxuat').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
 });
 $('#btnTrahet').click(function(e) {
     $('#thanhtoan').val($('#tongcong').html());
 	$('#thanhtoan').keyup();
+});
+$('#thuphi').keyup(function(e) {
+    objdl.tinhtong(0);
 });
 $('#thanhtoan').keyup(function(e) {
     var tongcong = Number(stringtoNumber($('#tongcong').html()));
@@ -147,21 +197,22 @@ $('#btnSelectKhachHang').click(function(e) {
 			show: "blind",
 			hide: "explode",
 			width: 900,
-			height: 600,
+			height: window.innerHeight,
 			modal: true,
 		});
 	
-		
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);
 		$("#popup-content").load("?route=core/member&opendialog=true",function(){
-			$("#popup").dialog("open");
+			
 		});
 });
 function intSelectMember()
 {
 	$('.item').click(function(e) {
 		
-        $('#nguoinhanid').val($(this).attr('id'));
-		$('#nguoinhan').val($(this).attr('fullname'));
+        $('#khachhangid').val($(this).attr('id'));
+		$('#tenkhachhang').val($(this).attr('fullname'));
 		
 		$("#popup").dialog( "close" );
     });
@@ -170,8 +221,34 @@ $('#btnAddRow').click(function(e) {
 	browseProduct();
 });
 
-
-function save(type)
+$('#btnSeleteNhaCungCap').click(function(e) {
+    $("#popup").attr('title','Chọn nhà cung cấp');
+		$( "#popup" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: 900,
+			height: window.innerHeight,
+			modal: true,
+		});
+	
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);
+		$("#popup-content").load("?route=quanlykho/nhacungcap&opendialog=true",function(){
+			
+		});
+});
+function intSelectNhaCungCap()
+{
+	$('.item').click(function(e) {
+        $('#nhacungcapid').val($(this).attr('id'));
+		$('#tennhacungcap').val($(this).attr('tennhacungcap'));
+		$('#nhacungcapview').html($(this).attr('tennhacungcap'));
+		$('#nguoinhan').val($(this).attr('tennhacungcap'));
+		$("#popup").dialog( "close" );
+    });
+}
+function savephieu(type)
 {
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 	
@@ -194,7 +271,7 @@ function save(type)
 							show: "blind",
 							hide: "explode",
 							width: 900,
-							height: 600,
+							height: window.innerHeight,
 							modal: true,
 							close: function(ev, ui){
 									window.location = "?route=quanlykho/phieuxuat";
@@ -215,9 +292,10 @@ function save(type)
 							}
 						});
 					
-						
+						$("#popup").dialog("open");
+						$("#popup-content").html(loading);
 						$("#popup-content").load("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=true",function(){
-							$("#popup").dialog("open");
+							
 						});
 				}
 			}

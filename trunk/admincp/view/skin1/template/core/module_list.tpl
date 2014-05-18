@@ -97,8 +97,8 @@ function Module()
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -114,9 +114,10 @@ function Module()
 						}
 					});
 				
-					
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);			
 		$("#popup-content").load('?route=core/module/update&moduleid='+moduleid,function(){
-			$("#popup").dialog("open");	
+			
 		});
 		
 		
@@ -129,8 +130,8 @@ function Module()
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -146,9 +147,10 @@ function Module()
 						}
 					});
 				
-					
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);			
 		$("#popup-content").load('?route=core/module/insert&parent='+parent,function(){
-			$("#popup").dialog("open");	
+			
 		});
 		
 	}
@@ -160,8 +162,8 @@ function Module()
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -177,9 +179,10 @@ function Module()
 						}
 					});
 				
-					
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);			
 		$("#popup-content").load('?route=core/module/move&id='+id,function(){
-			$("#popup").dialog("open");	
+			
 		});
 		
 		
@@ -192,8 +195,8 @@ function Module()
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -209,9 +212,10 @@ function Module()
 						}
 					});
 				
-					
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);				
 		$("#popup-content").load('?route=core/module/permission&id='+id,function(){
-			$("#popup").dialog("open");	
+			
 		});
 		
 		

@@ -31,19 +31,16 @@ class ControllerAddonOrder extends Controller
 		
 		foreach($this->data['detail'] as $key => $item)
 		{
-			$parent = $this->model_core_media->getItem($item['mediaparent']);
-			if(count($parent)==0)
+			$media = $this->model_core_media->getItem($item['mediaid']);
+			
+			$imagepreview = "<img width=100 src='".HelperImage::resizePNG($media['imagepath'], 180, 180)."' >";
+			$this->data['detail'][$key]['imagepreview'] = $imagepreview;
+			foreach($media as $k => $val)
 			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $item['title'];
+				$this->data['detail'][$key][$k] = $val;	
 			}
-			else
-			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($parent['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $parent['title'] ." - ". $item['title'];
-			}
+			
+			
 		}
 		
 		$this->id='content';
@@ -71,8 +68,8 @@ class ControllerAddonOrder extends Controller
 		$data['nhacungcapid'] = "";
 		$data['tennhacungcap'] = "";
 		$data['nguoigiao'] = $order['order']['shippername'];
-		$data['nguoinhanid'] = $member['id'];
-		$data['nguoinhan'] = $order['order']['customername'];
+		$data['khachhangid'] = $member['id'];
+		$data['tenkhachhang'] = $order['order']['customername'];
 		if($order['order']['receiver']!="" && $order['order']['customername'] != $order['order']['receiver'])
 			$data['nguoinhan'] .= " - người nhận: ".$order['order']['receiver'];
 		$data['tongtien'] = $tongtien;
@@ -81,7 +78,7 @@ class ControllerAddonOrder extends Controller
 		if($order['order']['notes'])
 			$data['ghichu'] .= " - ". $order['order']['notes'];
 		$phieuid = $this->model_quanlykho_phieunhapxuat->save($data);
-		print_r($data);
+		
 		$data_ct = array();
 		foreach($order['detail'] as $item)
 		{
@@ -143,18 +140,13 @@ class ControllerAddonOrder extends Controller
 			$this->data['order']['text_active'] = "Checked";
 		foreach($this->data['detail'] as $key => $item)
 		{
-			$parent = $this->model_core_media->getItem($item['mediaparent']);
-			if(count($parent)==0)
+			$media = $this->model_core_media->getItem($item['mediaid']);
+			
+			$imagepreview = "<img width=100 src='".HelperImage::resizePNG($media['imagepath'], 180, 180)."' >";
+			$this->data['detail'][$key]['imagepreview'] = $imagepreview;
+			foreach($media as $k => $val)
 			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $item['title'];
-			}
-			else
-			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($parent['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $parent['title'] ." - ". $item['title'];
+				$this->data['detail'][$key][$k] = $val;	
 			}
 		}
 		
@@ -248,18 +240,13 @@ class ControllerAddonOrder extends Controller
 		
 		foreach($this->data['detail'] as $key => $item)
 		{
-			$parent = $this->model_core_media->getItem($item['mediaparent']);
-			if(count($parent)==0)
+			$media = $this->model_core_media->getItem($item['mediaid']);
+			
+			$imagepreview = "<img width=100 src='".HelperImage::resizePNG($media['imagepath'], 180, 180)."' >";
+			$this->data['detail'][$key]['imagepreview'] = $imagepreview;
+			foreach($media as $k => $val)
 			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $item['title'];
-			}
-			else
-			{
-				$imagepreview = "<img width=100 src='".HelperImage::resizePNG($parent['imagepath'], 180, 180)."' >";
-				$this->data['detail'][$key]['imagepreview'] = $imagepreview;
-				$this->data['detail'][$key]['title'] = $parent['title'] ." - ". $item['title'];
+				$this->data['detail'][$key][$k] = $val;	
 			}
 		}
 		
@@ -306,9 +293,10 @@ class ControllerAddonOrder extends Controller
 		
 		$arr_id = $data['id'];
 		$arr_mediaid = $data['mediaid'];
-		$arr_madonvi = $data['madonvi'];
-		$arr_quantity = $data['quantity'];
-		$arr_price = $data['price'];
+		$arr_madonvi = $data['dlmadonvi'];
+		$arr_quantity = $data['soluong'];
+		$arr_price = $data['giatien'];
+		$arr_discount = $data['giamgia'];
 		
 		foreach($arr_mediaid as $key => $mediaid)
 		{
@@ -318,7 +306,7 @@ class ControllerAddonOrder extends Controller
 			$orderpro['unit'] = $arr_madonvi[$key];
 			$orderpro['quantity'] = $arr_quantity[$key];
 			$orderpro['price'] = $arr_price[$key];
-			$orderpro['discount'] = 0;
+			$orderpro['discount'] = $arr_discount[$key];
 			
 			$this->model_addon_order->saveOrderProduct($orderpro);
 		}
@@ -409,17 +397,19 @@ class ControllerAddonOrder extends Controller
 		$this->load->model("core/sitemap");
 		$this->load->helper('image');
 		
-		
-		
-		
 		$keyword = urldecode($this->request->get['keyword']);
 		$sitemapid = urldecode($this->request->get['sitemapid']);
 		$arrkey = split(' ', $keyword);
-		$where = "";
+		$where = " AND mediatype = 'module/product'";
 		if($keyword !="")
 		{
 			$arr = array();
 			$arrcode = array();
+			$arrbarcode = array();
+			$arrref = array();
+			$arrcolor = array();
+			$arrsizes = array();
+			$arrmaterial = array();
 			foreach($arrkey as $key)
 			{
 				$arr[] = "title like '%".$key."%'";
@@ -428,8 +418,38 @@ class ControllerAddonOrder extends Controller
 			{
 				$arrcode[] = "code like '%".$key."%'";
 			}
-			$where .= " AND ((". implode(" AND ",$arr). ") OR (". implode(" AND ",$arrcode). "))";
-			//$where .= " AND ( title like '%".$keyword."%' OR summary like '%".$keyword."%' OR description like '%".$keyword."%')";
+			foreach($arrkey as $key)
+			{
+				$arrbarcode[] = "barcode like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrref[] = "ref like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrref[] = "ref like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrcolor[] = "color like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrsizes[] = "sizes like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrmaterial[] = "material like '%".$key."%'";
+			}
+			$where .= " AND ((". implode(" AND ",$arr). ") 
+									OR (". implode(" AND ",$arrcode). ") 
+									OR (". implode(" AND ",$arrbarcode). ") 
+									OR (". implode(" AND ",$arrref). ") 
+									OR (". implode(" AND ",$arrcolor). ") 
+									OR (". implode(" AND ",$arrsizes). ") 
+									OR (". implode(" AND ",$arrmaterial). ") 
+							)";
 		}
 		$siteid = $this->user->getSiteId();
 		if($sitemapid == "")
@@ -454,7 +474,7 @@ class ControllerAddonOrder extends Controller
 			$where .= "AND (". implode($arr," OR ").")";
 		
 		
-		$where .= " AND mediaparent='' Order by position, statusdate DESC";
+		$where .= "  Order by position, statusdate DESC";
 		$this->data['medias'] = $this->model_core_media->getList($where);
 		foreach($this->data['medias'] as $i => $media)
 		{
@@ -462,12 +482,13 @@ class ControllerAddonOrder extends Controller
 				$this->data['medias'][$i]['imagepreview'] = HelperImage::resizePNG($this->data['medias'][$i]['imagepath'], 100, 100);
 				
 			
-			
+			$this->data['medias'][$i]['tonkho'] = $this->model_core_media->getTonKho($media['mediaid']);
 			$data_child = $this->model_core_media->getListByParent($media['mediaid']," Order by position");
 			foreach($data_child as $key =>$child)
 			{
 				if($child['imagepath'])
 					$data_child[$key]['imagepreview'] = HelperImage::resizePNG($child['imagepath'], 100, 100);
+				$data_child[$key]['tonkho'] = $this->model_core_media->getTonKho($child['mediaid']);
 			}
 			$this->data['medias'][$i]['child'] = $data_child;
 			

@@ -19,6 +19,7 @@
                         <th>Công nợ</th>
                         <th>Số ngày công nợ</th>
                         <th>Ngày đến hạn thanh toán công nợ</th>
+                        <th>Tình trạng</th>
                         <?php if($dialog!=true){ ?>
                         <th>Control</th>     
                         <?php } ?>
@@ -36,15 +37,16 @@
                         <td class="check-column"><input class="inputchk" type="checkbox" name="delete[<?php echo $item['id']?>]" value="<?php echo $item['id']?>" ></td>
                         <?php } ?>
                         <td><center><?php echo $key+1 ?></center></td>
-                        <td><a onclick="view(<?php echo $item['id']?>)"><?php echo $item['maphieu']?></a></td>
+                        <td><a onclick="objdl.viewPX(<?php echo $item['id']?>)"><?php echo $item['maphieu']?></a></td>
                         <td><?php echo $this->date->formatMySQLDate($item['ngaylap'],'longdate')?></td>
                        	<td><?php echo $item['nguoithuchien']?></td>
-                        <td><?php echo $item['nguoinhan']?></td>
+                        <td><?php echo $item['tenkhachhang']?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['tongtien'])?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['thanhtoan'])?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['congno'])?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['songaycongno'])?></td>
                         <td align="center"><?php echo $this->date->formatMySQLDate($this->date->addday($item['ngaylap'],$item['songaycongno']))?></td>
+                        <td><?php echo $this->document->status_phieunhapxuat[$item['trangthai']]?></td>
                         <?php if($dialog!=true){ ?>
                         <td class="link-control">
                             <?php if($this->user->checkPermission("quanlykho/phieunhap/update")==true){ ?>
