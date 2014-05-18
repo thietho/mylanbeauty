@@ -90,14 +90,16 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 		$where = " AND loaiphieu='".$this->loaiphieu."'";
 		
 		$datasearchlike['maphieu'] = urldecode($this->request->get['maphieu']);
-		$datasearchlike['nguoinhan'] = urldecode($this->request->get['nguoinhan']);
+		$datasearchlike['trangthai'] = urldecode($this->request->get['trangthai']);
+		
+		$datasearchlike['tenkhachhang'] = urldecode($this->request->get['tenkhachhang']);
 		$datasearchlike['nguoithuchien'] = urldecode($this->request->get['nguoithuchien']);
 		
 		$arr = array();
 		foreach($datasearchlike as $key => $item)
 		{
 			if($item !="")
-				$arr[] = " AND " . $key ." like '".$item."%'";
+				$arr[] = " AND " . $key ." like '%".$item."%'";
 		}
 		
 		$where .= implode("",$arr);
@@ -111,6 +113,7 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 		{
 			$where .= " AND ngaylap <= '".$denngay." 24:00:00'";
 		}
+		//echo $where;
 		$rows = $this->model_quanlykho_phieunhapxuat->getList($where);
 		//Page
 		$page = $this->request->get['page'];		
@@ -174,9 +177,30 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$this->data['item']['imagethumbnail'] = HelperImage::resizePNG($this->data['item']['imagepath'], 200, 200);
 			$where = " AND phieuid = '".$id."'";
 			$this->data['data_nhapkho'] = $this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
-			
-			
     	}
+		else
+		{
+			if(isset($_SESSION['productlist']))
+			{
+				$medias = $_SESSION['productlist'];
+				$i=0;
+				foreach($medias as $media)
+				{
+					$this->data['data_nhapkho'][$i]['mediaid']=$media['mediaid'];
+					$this->data['data_nhapkho'][$i]['code']=$media['code'];
+					$this->data['data_nhapkho'][$i]['title']=$media['title'];
+					if($media['color'])
+						$this->data['data_nhapkho'][$i]['title'].= " - ".$media['color'];
+					$this->data['data_nhapkho'][$i]['soluong']=$media['qty'];
+					$this->data['data_nhapkho'][$i]['madonvi']=$media['unit'];
+					$price = $media['price'];
+					/*if($media['pricepromotion'])
+						$price = $media['pricepromotion'];*/
+					$this->data['data_nhapkho'][$i]['giatien']=$price;
+					$i++;
+				}
+			}
+		}
 		
 		$this->id='content';
 		$this->template='quanlykho/phieuxuat_form.tpl';
@@ -195,9 +219,9 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$data['nguoithuchienid'] = $nhanvien['id'];
 			$data['nguoithuchien'] = $nhanvien['hoten'];
 			
-			$data['loaiphieu'] = $this->loaiphieu;
+			//$data['loaiphieu'] = $this->loaiphieu;
 			$data['id'] = $this->model_quanlykho_phieunhapxuat->save($data);
-			
+			$phieu = $this->model_quanlykho_phieunhapxuat->getItem($data['id']);
 			//Xoa dinh luong
 			$delnhapkho = $data['delnhapkho'];
 			if($delnhapkho)
@@ -219,6 +243,8 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$arr_soluong = $data['soluong'];
 			$arr_madonvi = $data['dlmadonvi'];
 			$arr_giatien = $data['giatien'];
+			$arr_giamgia = $data['giamgia'];
+			$arr_phantramgiamgia = $data['phantramgiamgia'];
 			foreach($arr_mediaid as $i => $mediaid)
 			{
 				$dl['id'] = $nhapkhoid[$i];
@@ -229,7 +255,20 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 				$dl['soluong'] = $arr_soluong[$i];
 				$dl['madonvi'] = $arr_madonvi[$i];
 				$dl['giatien'] = $arr_giatien[$i];
-				$dl['loaiphieu'] = $this->loaiphieu;
+				$dl['giamgia'] = $arr_giamgia[$i];
+				$dl['phantramgiamgia'] = $arr_phantramgiamgia[$i];
+				$dl['loaiphieu'] = $phieu['loaiphieu'];
+				
+				$dl['maphieu'] = $phieu['maphieu'];
+				$dl['ngaylap'] = $phieu['ngaylap'];
+				$dl['nguoilap'] = $phieu['nguoilap'];
+				$dl['nhacungcapid'] = $phieu['nhacungcapid'];
+				$dl['tennhacungcap'] = $phieu['tennhacungcap'];
+				$dl['khachhangid'] = $phieu['khachhangid'];
+				$dl['tenkhachhang'] = $phieu['tenkhachhang'];
+				$dl['nguoigiao'] = $phieu['nguoigiao'];
+				$dl['nguoinhanid'] = $phieu['nguoinhanid'];
+				$dl['nguoinhan'] = $phieu['nguoinhan'];
 				$this->model_quanlykho_phieunhapxuat->savePhieuNhapXuatMedia($dl);
 				$tongtien += $this->string->toNumber($dl['soluong'])*$this->string->toNumber($dl['giatien']);
 				
@@ -237,6 +276,10 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			//$this->model_quanlykho_phieunhapxuat->updateCol($phieuid,'tongtien',$tongtien);
 			//$this->model_quanlykho_phieunhapxuat->updateCol($phieuid,'congno',$tongtien- $this->string->toNumber($data['thanhtoan']));
 			$this->data['output'] = "true-".$data['id'];
+			if(isset($_SESSION['productlist']))
+			{
+				unset($_SESSION['productlist']);	
+			}
 		}
 		else
 		{
@@ -255,9 +298,9 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 		
 		
     	
-		if ($data['nguoinhan'] == "") 
+		if ($data['tenkhachhang'] == "") 
 		{
-      		$this->error['nguoinhan'] = "Bạn chưa nhập tên người nhận";
+      		$this->error['tenkhachhang'] = "Bạn chưa nhập khách hàng";
     	}
 
 		if (count($this->error)==0) {

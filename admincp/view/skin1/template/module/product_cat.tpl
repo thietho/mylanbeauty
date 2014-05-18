@@ -21,7 +21,7 @@ var CLASSES = ($.treeview.classes = {
 </script>
 <h3>Danh mục sản phẩm</h3>
 <?php if($this->user->checkPermission("module/product/addcat")==true){ ?>
-<a class="showproduct" href="?route=module/product">Tất cả</a><a class='addcat' cparent=''><img src="<?php echo DIR_IMAGE?>icon/add.png" width="19px"></a>
+<a class="showproduct" href="?route=module/product">Tất cả</a><a class='addcat' cparent="<?php echo $root?>"><img src="<?php echo DIR_IMAGE?>icon/add.png" width="19px"></a>
 <?php } ?>
 <ul id="group0">
 	<?php echo $catshow?>
@@ -39,8 +39,8 @@ $('.addcat').click(function(e) {
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -74,9 +74,10 @@ $('.addcat').click(function(e) {
 						}
 					});
 				
-					
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);		
 		$("#popup-content").load('?route=module/product/addcat&parent='+parent,function(){
-			$("#popup").dialog("open");	
+			
 		});
 });
 $('.editcat').click(function(e) {
@@ -86,8 +87,8 @@ $('.editcat').click(function(e) {
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
-						width: 800,
-						height: 500,
+						width: $(document).width()-100,
+						height: window.innerHeight,
 						modal: true,
 						buttons: {
 							
@@ -121,9 +122,10 @@ $('.editcat').click(function(e) {
 						}
 					});
 				
-					
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);		
 		$("#popup-content").load('?route=module/product/editcat&sitemapid='+sitemapid,function(){
-			$("#popup").dialog("open");	
+			
 		});
 });
 $('.delcat').click(function(e) {

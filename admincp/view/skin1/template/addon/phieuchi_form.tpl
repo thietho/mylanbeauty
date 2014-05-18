@@ -97,13 +97,14 @@ $('#btnSelectKhachHang').click(function(e) {
 			show: "blind",
 			hide: "explode",
 			width: 900,
-			height: 600,
+			height: window.innerHeight,
 			modal: true,
 		});
 	
-		
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);
 		$("#popup-content").load("?route=core/member&opendialog=true",function(){
-			$("#popup").dialog("open");
+			
 		});
 });
 function intSelectMember()
@@ -131,15 +132,16 @@ $('#btnSelectNhaCungCap').click(function(e) {
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
-			height: 600,
+			width: $(document).width()-100,
+			height: window.innerHeight,
 			modal: true,
 			
 		});
 	
-		
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);
 		$("#popup-content").load("?route=quanlykho/nhacungcap&opendialog=true",function(){
-			$("#popup").dialog("open");	
+			
 		});
 });
 function intSelectNhaCungCap()
@@ -167,15 +169,16 @@ $('#btnSelectNhanVien').click(function(e) {
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
-			height: 600,
+			width: $(document).width()-100,
+			height: window.innerHeight,
 			modal: true,
 			
 		});
 	
-		
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);	
 		$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
-			$("#popup").dialog("open");	
+			
 		});
 });
 $('#btnSelectNguoiChi').click(function(e) {
@@ -185,15 +188,16 @@ $('#btnSelectNguoiChi').click(function(e) {
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
-			height: 600,
+			width: $(document).width()-100,
+			height: window.innerHeight,
 			modal: true,
 			
 		});
 	
-		
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);	
 		$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
-			$("#popup").dialog("open");	
+			
 		});
 });
 function intSelectNhanVien()
@@ -259,8 +263,8 @@ function view(maphieu)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					close: function(event, ui) {
 						window.location = "?route=addon/phieuchi";
@@ -277,9 +281,10 @@ function view(maphieu)
 					}
 				});
 			
-				
+	$("#popup").dialog("open");
+	$("#popup-content").html(loading);			
 	$("#popup-content").load("?route=addon/phieuchi/view&maphieu="+maphieu+"&dialog=true",function(){
-		$("#popup").dialog("open");	
+		
 	});
 }
 </script>

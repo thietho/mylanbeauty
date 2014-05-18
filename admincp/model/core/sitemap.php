@@ -7,19 +7,19 @@ class ModelCoreSitemap extends Model
 							'module/information' => 'Information Page',
 							'module/register' => 'Register Page',
 							'module/news'=>'News',
-							'module/event' => 'Event',
-							'module/banner'=>'Banner',
-							'module/album'=>'Album',
-							'module/video'=>'Video',
-							'module/audio'=>'Audio',
+							//'module/event' => 'Event',
+							//'module/banner'=>'Banner',
+							//'module/album'=>'Album',
+							//'module/video'=>'Video',
+							//'module/audio'=>'Audio',
 							'module/product'=>'Product',
-							'module/download'=>'Download',
+							//'module/download'=>'Download',
 							'module/contact'=>'Contact',
 							'module/link'=>'Web URL',
-							'module/traning'=>'Traning',
-							'module/question'=>'Questions',
+							//'module/traning'=>'Traning',
+							//'module/question'=>'Questions',
 							'module/location'=>'Location',
-							
+							'module/forward'=>'Forward',
 							);
 	private $moduleaddon = array(
 								 /*"core/changeskin" => "Change skin",*/
@@ -212,6 +212,7 @@ class ModelCoreSitemap extends Model
 		$othername = $this->db->escape(@$data['othername']);
 		$position=(int)@$data['position'];
 		$moduleid=$this->db->escape(@$data['moduleid']);
+		$forward = $this->db->escape(@$data['forward']);
 		$imageid=(int)@$data['imageid'];
 		$imagepath = $this->db->escape(@$data['imagepath']);
 		$status=$this->db->escape(@$data['status']);
@@ -223,6 +224,7 @@ class ModelCoreSitemap extends Model
 						"othername",
 						"position",
 						"moduleid",
+						"forward",
 						"imageid",
 						"imagepath",
 						"status"
@@ -235,6 +237,7 @@ class ModelCoreSitemap extends Model
 						$othername,
 						$position,
 						$moduleid,
+						$forward,
 						$imageid,
 						$imagepath,
 						$status
@@ -252,6 +255,7 @@ class ModelCoreSitemap extends Model
 		$othername = $this->db->escape(@$data['othername']);
 		
 		$moduleid=$this->db->escape(@$data['moduleid']);
+		$forward = $this->db->escape(@$data['forward']);
 		$imageid=(int)@$data['imageid'];
 		$imagepath = $this->db->escape(@$data['imagepath']);
 		$status=$this->db->escape(@$data['status']);
@@ -263,6 +267,7 @@ class ModelCoreSitemap extends Model
 						"othername",
 						
 						"moduleid",
+						"forward",
 						"imageid",
 						"imagepath",
 						"status"
@@ -275,6 +280,7 @@ class ModelCoreSitemap extends Model
 						$othername,
 						
 						$moduleid,
+						$forward,
 						$imageid,
 						$imagepath,
 						$status
@@ -290,6 +296,18 @@ class ModelCoreSitemap extends Model
 					);
 		$value=array(
 						$position
+					);
+		$where="sitemapid = '".$sitmapid."' AND siteid = '".$siteid."'";
+		$this->db->updateData('sitemap',$field,$value,$where);
+	}
+	
+	public function updateCol($sitmapid,$col,$val, $siteid)
+	{
+		$field=array(
+						$col
+					);
+		$value=array(
+						$val
 					);
 		$where="sitemapid = '".$sitmapid."' AND siteid = '".$siteid."'";
 		$this->db->updateData('sitemap',$field,$value,$where);
@@ -313,7 +331,7 @@ class ModelCoreSitemap extends Model
 	//Cac ham duyet cay sitemap//////////////////////////////////////////////////////////////
 	
 	
-	function getTreeSitemap($id, &$data, $siteid, $level=-1, $path="", $parentpath="")
+	function getTreeSitemap($id, &$data, $siteid=SITEID, $level=-1, $path="", $parentpath="")
 	{
 		$arr=$this->getItem($id, $siteid);
 		

@@ -159,7 +159,7 @@ $('#btnAddRow').click(function(e) {
 			show: "blind",
 			hide: "explode",
 			width: 900,
-			height: 600,
+			height: window.innerHeight,
 			modal: true,
 			buttons: {
 				
@@ -197,9 +197,10 @@ $('#btnAddRow').click(function(e) {
 			}
 		});
 	
-		
+		$("#popup").dialog("open");
+		$("#popup-content").html(loading);
 		$("#popup-content").load("?route=quanlykho/nguyenlieu&opendialog=true",function(){
-			$("#popup").dialog("open");
+			
 		});
 });
 function intSelectNguyenLieu()
@@ -225,15 +226,16 @@ function browserFileImage()
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 800,
-			height: 600,
+			width: $(document).width()-100,
+			height: window.innerHeight,
 			modal: true,
 			
 		});
 	
-		
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);	
 		$("#popup-content").load("?route=core/file&dialog=true&type=single",function(){
-			$("#popup").dialog("open");	
+			
 		});
 }
 function intSeleteFile()

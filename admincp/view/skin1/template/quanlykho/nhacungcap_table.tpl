@@ -17,6 +17,7 @@
                         <th>Người liên hệ</th>
                         <th>Số điện thoại liên hệ</th>
                         <th>Email liên hệ</th>
+                        <th>Công nợ</th>
                         <th>Ghi chú</th>
                         <?php if($dialog!=true){ ?>
                         <th>Control</th>     
@@ -42,11 +43,13 @@
                        	<td><?php echo $item['nguoilienhe']?></td>
                         <td><?php echo $item['sodienthoainguoilienhe']?></td>
                         <td><?php echo $item['emailnguoilienhe']?></td>
+                        
+                        <td class="number"><a onclick="viewCongNoNCC(<?php echo $item['id']?>)"><?php echo $this->string->numberFormate($item['congno'])?></a></td>
                         <td><?php echo $item['ghichu']?></td>
                         <?php if($dialog!=true){ ?>
                         <td class="link-control">
                             <?php if($this->user->checkPermission("quanlykho/sanpham/update")==true){ ?>
-                            <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="window.location='<?php echo $item['link_edit']?>'"/>
+                            <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="showNhaCungCapForm(<?php echo $item['id']?>,'searchForm()')"/>
                             <?php } ?>
                            
                             

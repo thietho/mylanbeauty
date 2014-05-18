@@ -162,20 +162,20 @@ class ControllerModulePagedetail extends Controller
 		if($listfile)
 			$listfileid=split(",",$listfile);
 			
-		array_unshift($listfileid,$this->data['post']['imageid']);
+		array_unshift($listfileid,$this->data['post']['imagepath']);
 		
 		$this->data['subimage']=array();
 		$this->data['attachment']=array();
 		
 		foreach($listfileid as $key => $item)
 		{
-			$file = $this->model_core_file->getFile($item);
+			$file = pathinfo($item);
 			if($this->string->isImage($file['extension']))
 			{
-				$this->data['subimage'][$key] = $file;
-				$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], $template['width'], $template['height']);
-				$this->data['subimage'][$key]['icon'] = HelperImage::resizePNG($file['filepath'], 60, 60);	
-				$this->data['subimage'][$key]['imagepreview'] = HelperImage::resizePNG($file['filepath'],  800, 800);
+				//$this->data['subimage'][$key] = $file;
+				$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($item, $template['width'], $template['height']);
+				$this->data['subimage'][$key]['icon'] = HelperImage::resizePNG($item, 60, 60);	
+				$this->data['subimage'][$key]['imagepreview'] = HelperImage::resizePNG($item,  800, 800);
 			}
 			
 			if(!$this->string->isImage($file['extension']))

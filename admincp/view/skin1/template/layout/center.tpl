@@ -10,7 +10,7 @@
 	<link rel='stylesheet' type='text/css' href='<?php echo DIR_CSS?>blockui.css'>
 	<link rel='stylesheet' type='text/css' href='<?php echo DIR_CSS?>jquery-ui.css'>
     <link rel='stylesheet' type='text/css' href='<?php echo DIR_CSS?>jquery.tabs.css'>
-    
+    <link rel='stylesheet' type='text/css' href='<?php echo DIR_CSS?>jquery.contextMenu.css'>
     
    	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js" type="text/javascript"></script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>jquery-ui.js" type="text/javascript"></script>
@@ -18,7 +18,7 @@
 	<script src="<?php echo DIR_JS?>jquery.cookie.js" type="text/javascript"></script>
     <script src="<?php echo DIR_JS?>jquery.treeview.js" type="text/javascript"></script>
     <script src="<?php echo DIR_JS?>jquery.treeview.edit.js" type="text/javascript"></script>
-    
+    <script src="<?php echo DIR_JS?>jquery.contextMenu.js" type="text/javascript"></script>
    
     <script type='text/javascript' language='javascript' src='<?php echo DIR_JS?>jquery.blockUI.js'></script>
 	
@@ -26,9 +26,9 @@
     <script src="<?php echo DIR_JS?>common.js" type="text/javascript"></script>
     <script src="<?php echo DIR_JS?>media.js" type="text/javascript"></script>
     <script src="<?php echo DIR_JS?>control.js" type="text/javascript"></script>
-
+	<script language="javascript" src="<?php echo HTTP_SERVER.DIR_JS?>phieunhapxuat.js"></script>
     <script src="<?php echo DIR_JS?>menu-collapsed.js" type="text/javascript"></script>
-
+	<script src="<?php echo DIR_JS?>order.js" type="text/javascript"></script>
 	
 	<title>HL Solutions Content Management System</title>
 
@@ -45,6 +45,7 @@
 
 <script language="javascript">
 var loading = '<center><img src="<?php echo DIR_IMAGE?>loading.gif"></center>';
+var HTTP_IMAGE = '<?php echo HTTP_IMAGE?>';
 </script>
 <body>
 <div id="header"><?php echo $header?></div>
@@ -57,7 +58,8 @@ var loading = '<center><img src="<?php echo DIR_IMAGE?>loading.gif"></center>';
 </div>
 
 <div id="footer"><?php echo $footer?></div>
-
+	<input type="hidden" id="handler" />
+	<input type="hidden" id="outputtype" />
 </div>
 
 </body>

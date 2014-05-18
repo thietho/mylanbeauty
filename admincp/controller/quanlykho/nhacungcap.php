@@ -19,6 +19,8 @@ class ControllerQuanlykhoNhaCungcap extends Controller
 		$this->load->model("core/category");
 		
 		$this->load->model("quanlykho/donvitinh");
+		$this->load->model("addon/thuchi");
+		$this->load->model("quanlykho/phieunhapxuat");
 		
 		$this->data['loaisanpham'] = array();
 		$this->model_core_category->getTree("sanpham",$this->data['loaisanpham']);
@@ -121,8 +123,10 @@ class ControllerQuanlykhoNhaCungcap extends Controller
 			//
 			
 			$imagepreview = "";
-			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['datas'][$i]['imagepath'], 100, 0);
 			
+			$this->data['datas'][$i]['imagethumbnail'] = HelperImage::resizePNG($this->data['datas'][$i]['imagepath'], 100, 0);
+			$arr = array($this->data['datas'][$i]['id']);
+			$this->data['datas'][$i]['congno'] = $this->loadModule("quanlykho/nhacungcap","getCongNo",$arr);
 		}
 		$this->data['refres']=$_SERVER['QUERY_STRING'];
 		$this->id='content';
@@ -137,6 +141,66 @@ class ControllerQuanlykhoNhaCungcap extends Controller
 		$this->render();
 	}
 	
+	public function getCongNo($id='')
+	{
+		if($id=="")
+			$id=$this->request->get['nhacungcapid'];
+		
+		$this->data['nhacungcap'] = $this->model_quanlykho_nhacungcap->getItem($id);
+		//Lay tat ca phieu chi thanhtoanncc
+		$where = " AND makhachhang = 'NCC-".$id."' AND loaithuchi = 'chi' AND taikhoanthuchi = 'thanhtoanncc'";
+		$this->data['data_phieuchi'] = $this->model_addon_thuchi->getList($where);
+		$tongchi = 0;
+		foreach($this->data['data_phieuchi'] as $item)
+		{
+			$tongchi += $item['quidoi'];	
+		}
+		
+		//Lay tat ca phieu nhap hang
+		$where = " AND loaiphieu = 'NK' AND nhacungcapid = '".$id."'";
+		$this->data['data_phieunhapkho'] = $this->model_quanlykho_phieunhapxuat->getList($where);
+		$tongno = 0;
+		foreach($this->data['data_phieunhapkho'] as $item)
+		{
+			$tongno += $item['congno'];	
+		}
+		
+		//Lay tat ca phieu xuat hang
+		$where = " AND loaiphieu = 'PBH' AND nhacungcapid = '".$id."'";
+		$this->data['data_phieubanhang'] = $this->model_quanlykho_phieunhapxuat->getList($where);
+		$tongban = 0;
+		foreach($this->data['data_phieubanhang'] as $item)
+		{
+			$tongban += $item['congno'];	
+		}
+		$congno = $tongno - $tongchi - $tongban;
+		
+		if($this->request->get['nhacungcapid'])
+		{
+			
+			$this->data['tongno'] = $tongno;
+			$this->data['tongchi'] = $tongchi;
+			$this->data['tongban'] = $tongban;
+			
+			
+			$this->data['congno'] = $congno;
+			$this->id='content';
+			$this->template="quanlykho/nhacungcap_congno.tpl";
+			if($_GET['dialog']=='print')
+			{
+				$this->layout='layout/print';
+			}
+			$this->render();
+		}
+		else
+		{
+			$this->data['output'] = $congno;
+			$this->id='content';
+			$this->template='common/output.tpl';
+			$this->render();
+			
+		}
+	}
 	
 	private function getForm()
 	{
@@ -152,7 +216,7 @@ class ControllerQuanlykhoNhaCungcap extends Controller
 		
 		$this->id='content';
 		$this->template='quanlykho/nhacungcap_form.tpl';
-		$this->layout="layout/center";
+		
 		
 		$this->render();
 	}
@@ -209,12 +273,6 @@ class ControllerQuanlykhoNhaCungcap extends Controller
 	  		return FALSE;
 		}
 	}
-	
-	
-	
-	
-	
-	
 	//Cac ham xu ly tren form
 	
 	

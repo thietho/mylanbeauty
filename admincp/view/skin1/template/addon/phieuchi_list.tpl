@@ -78,7 +78,10 @@
                         <td><?php echo $item['chungtulienquan']?></td>
                         <td><?php echo $item['nguoithuchien']?></td>
                         <td><?php echo $item['tenkhachhang']?></td>
-                        <td><?php echo $this->document->getCategory($item['taikhoanthuchi'])?></td>
+                        <td>
+                        	<?php echo $this->document->getCategory($item['taikhoanthuchi'])?>
+                            <?php if($item['lydo']) echo " - ".$item['lydo']?>
+                        </td>
                         
                         <td class="number"><?php echo $this->string->numberFormate($item['sotien'])?></td>
                         <td class="link-control">
@@ -129,8 +132,8 @@ function view(maphieu)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					buttons: {
 						'Đóng': function() {
@@ -144,9 +147,10 @@ function view(maphieu)
 					}
 				});
 			
-				
+	$("#popup").dialog("open");	
+	$("#popup-content").html(loading);		
 	$("#popup-content").load("?route=addon/phieuchi/view&maphieu="+maphieu+"&dialog=true",function(){
-		$("#popup").dialog("open");	
+		
 	});
 }
 function searchForm()

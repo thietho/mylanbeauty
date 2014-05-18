@@ -40,9 +40,11 @@ function getPosOfNode(idparent,eid)
 
 function setCKEditorType(strID, intType)
 {
-	//obj = CKEDITOR.instances[strID]
-	if (CKEDITOR.instances[strID]) {
-		window.location.reload();
+	obj = CKEDITOR.instances[strID]
+	if (obj) {
+		//console.log(obj)
+		CKEDITOR.remove(obj);
+		
 	}
 	switch (intType)
 	{
@@ -359,19 +361,258 @@ function logout()
 		}
 	);	
 }
-function numToString(n,minl)
+
+function selectFilm(eid,type)
 {
-	var s = String(n);
-	if(s.length<=minl)
-	{
-		s = "0"+s;	
-	}
-	return s;
-}
-function toPhpTime(time)
-{
-	var d = new Date(time);
+    $('#handler').val(eid);
+	$('#outputtype').val(type);
+	$('body').append('<div id="filmform" style="display:none"></div>');
+	var eid = "#filmform";
+	$(eid).attr('title','Chọn film');
+		$( eid ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: $(document).width()-100,
+			height: window.innerHeight,
+			modal: true,
+			close:function()
+				{
+					$(eid).remove();
+				},
+			
+		});
 	
-	var s= d.getFullYear()+"-"+ numToString(d.getMonth() + 1 ,2) +"-"+ numToString(d.getDate(),2)+ " "+ d.getHours()+":"+ d.getMinutes()+":"+d.getSeconds();
-	return s;
+		$(eid).dialog("open");
+		$(eid).html(loading);
+		$(eid).load("?route=lotte/movie&opendialog=true",function(){
+				
+		});
+		
 }
+
+function browserFile(eid,type)
+{
+    $('#handler').val(eid);
+	$('#outputtype').val(type);
+	$("#popup").attr('title','Chọn hình');
+		switch(type)
+		{
+			case "single":
+			case "editor":
+			case "video":
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				
+			});
+			break;
+			case "multi":
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				buttons:
+				{
+					"Chọn":function()
+					{
+						$('.selectfile').each(function(index, element) {
+							var filepath = $(this).attr('filepath');
+							var filename = $(this).attr('filename');
+							var imagethumbnail = $(this).attr('imagethumbnail');
+                            $('#attachment').append(attachment.creatAttachmentRow(filepath,filename,imagethumbnail));
+                        });
+						$("#popup").dialog( "close" );
+					},
+					"Bỏ qua":function()
+					{
+						$("#popup").dialog( "close" );
+					}
+				}
+			});
+			break;
+		}
+	
+		$("#popup").dialog("open");	
+		$("#popup-content").html(loading);
+		$("#popup-content").load("?route=core/file&dialog=true&type="+type,function(){
+			
+		});
+		
+}
+function intSeleteFile(type)
+{
+	
+	switch(type)
+	{
+		case "single":
+			$('.fileitem').dblclick(function(e) {
+				$('#'+ $('#handler').val()+'_fileid').val($(this).attr('id'));
+				$('#'+ $('#handler').val()).html($(this).attr('filepath'));
+				$('#'+ $('#handler').val()+'_filepath').val($(this).attr('filepath'));
+				$('#'+ $('#handler').val()+'_preview').attr('src',$(this).attr('imagethumbnail'));
+				
+				/*$('#imagepreview').attr('src',$(this).attr('imagethumbnail'));
+				$('#imageid').val(this.id);
+				$('#imagepath').val($(this).attr('filepath'));
+				$('#imagethumbnail').val($(this).attr('imagethumbnail'));*/
+				$("#popup").dialog( "close" );
+				
+				
+			});			
+			break;
+			
+		case "editor":
+			$('.filelist').click(function(e) {
+
+				
+				width = "";
+							
+				var value = "<img src='"+ HTTP_IMAGE+$(this).attr('filepath')+"'/>";
+				
+				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
+				
+				
+				// Check the active editing mode.
+				if (oEditor.mode == 'wysiwyg' )
+				{
+					// Insert the desired HTML.
+					oEditor.insertHtml( value ) ;
+					
+					var temp = oEditor.getData()
+					oEditor.setData( temp );
+				}
+				else
+					alert( 'You must be on WYSIWYG mode!' ) ;
+				$("#popup").dialog( "close" );
+			});			
+			break;
+		case "video":
+			$('.filelist').click(function(e) {
+
+				
+				width = "";
+							
+				
+				//var str = '<video width="100%" controls="true" src="'+ HTTP_IMAGE+$(this).attr('filepath')+'" type="video/mp4"></video>';
+               var str = '<embed width="790" height="444" wmode="transparent" flashvars="file='+ HTTP_IMAGE+$(this).attr('filepath')+'&amp;image=&amp;provider=video" allowfullscreen="false" allowscriptaccess="always" src="'+HTTP_DOMAIN+'component/player/mediaplayer.swf" name="player2" type="application/x-shockwave-flash">';
+                
+				var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
+				
+				oEditor.insertHtml( str );
+				// Check the active editing mode.
+				/*if (oEditor.mode == 'wysiwyg' )
+				{
+					// Insert the desired HTML.
+					
+					
+					//var temp = oEditor.getData()
+					//oEditor.setData( temp );
+				}
+				else
+					alert( 'You must be on WYSIWYG mode!' ) ;*/
+				$("#popup").dialog( "close" );
+			});			
+			break;
+		case "multi":
+			$('.filelist').click(function(e) {
+                //$('#popup-seletetion').append($(this))
+            });
+			break;
+	}
+}
+
+function addImageTo()
+{
+	var str= trim($("#listselectfile").val(),",");
+	var arr = str.split(",");
+	
+	if(str!="")
+	{
+		for (i=0;i<arr.length;i++)
+		{
+			$.getJSON("?route=core/file/getFile&fileid="+arr[i], 
+				function(data) 
+				{
+					switch($('#outputtype').val())
+					{
+						case 'image':
+							if(isImage(data.file.extension))
+							{
+								width = "";
+								
+								width = 'width="200px"'
+								var value = "<img src='<?php echo HTTP_IMAGE?>"+data.file.filepath+"' " + width +"/>";
+								
+								$('#'+ $('#handler').val()).html(value)
+								$('#'+ $('#handler').val()+'_filepath').val(data.file.filepath);
+							}
+							else
+							{
+								alert('Bạn phải chọn file hình');	
+							}						
+							break;
+						default:
+							var value = data.file.filepath;
+								
+							$('#'+ $('#handler').val()).html(value)
+							$('#'+ $('#handler').val()+'_filepath').val(data.file.filepath);
+					}
+					
+				});
+		}
+	}
+}
+
+function Attachment()
+{
+	this.index = 0;
+	this.removeAttachmentRow = function(index)
+	{
+		$("#delfile").append('<input type="hidden" id="attimageid'+attachment.index+'" name="delfile['+index+']" value="'+$("#attimageid"+index).val()+'" />');
+		$("#attrows"+index).html("")
+	}
+	this.creatAttachmentRow = function(iid,path,thums)
+	{
+		
+		row = '<div id="attrows'+attachment.index+'"><img src="'+thums+'" /><input type="hidden" id="attimageid'+attachment.index+'" name="attimageid['+attachment.index+']" value="'+iid+'" />'+path+' <a id="removerow'+attachment.index+'" onclick="attachment.removeAttachmentRow('+attachment.index+')" class="button" >Remove</a></div>';
+		attachment.index++;
+		return row;	
+	}
+	this.creatAttachmentRowView = function(iid,name,path,thums)
+	{
+		row = '<div id="attrows'+attachment.index+'"><img src="'+thums+'" /><input type="hidden" id="attimageid'+attachment.index+'" name="attimageid['+attachment.index+']" value="'+iid+'" />'+'<a href="'+path+'" target="_blank">'+name+'</a>';
+		attachment.index++;
+		return row;
+	}
+
+}
+var attachment = new Attachment();
+
+$.xhrPool = [];
+$.xhrPool.abortAll = function() {
+    $(this).each(function(idx, jqXHR) {
+        jqXHR.abort();
+    });
+    $.xhrPool = [];
+};
+
+$.ajaxSetup({
+    beforeSend: function(jqXHR) {
+        $.xhrPool.push(jqXHR);
+		console.log($.xhrPool);
+    },
+    complete: function(jqXHR) {
+        var index = $.xhrPool.indexOf(jqXHR);
+        if (index > -1) {
+            $.xhrPool.splice(index, 1);
+        }
+    }
+});

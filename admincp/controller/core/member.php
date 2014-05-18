@@ -145,7 +145,7 @@ class ControllerCoreMember extends Controller
 		{
 			$where .= " AND status like '".$data['status']."'";
 		}
-		
+		$where .= " Order by fullname";
 		$rows = $this->model_core_user->getList($where);
 		//Page
 		$page = $this->request->get['page'];		
@@ -225,12 +225,23 @@ class ControllerCoreMember extends Controller
 		{
 			$tongno += $item['congno'];	
 		}
-		$congno = $tongno + $tongtrano - $tongthu - $tongvay;
+		//Lay tat ca phieu tra hang
+		$where = " AND loaiphieu = 'NK-KHTL' AND khachhangid = '".$id."'";
+		$this->data['data_phieutrahang'] = $this->model_quanlykho_phieunhapxuat->getList($where);
+		
+		$tongnotrahang = 0;
+		foreach($this->data['data_phieutrahang'] as $item)
+		{
+			$tongnotrahang += $item['congno'];	
+		}
+		
+		$congno = $tongno + $tongtrano - $tongthu - $tongvay - $tongnotrahang;
 		
 		if($this->request->get['khachhangid'])
 		{
 			
 			$this->data['tongno'] = $tongno;
+			$this->data['tongnotrahang'] = $tongnotrahang;
 			$this->data['tongtrano'] = $tongtrano;
 			$this->data['tongphieuthu'] = $tongthu;
 			$this->data['tongvay'] = $tongvay;
@@ -271,7 +282,7 @@ class ControllerCoreMember extends Controller
 		
 		$this->id='content';
 		$this->template='core/member_form.tpl';
-		$this->layout=$this->user->getLayout();
+		//$this->layout=$this->user->getLayout();
 		
 		$this->render();
 	}

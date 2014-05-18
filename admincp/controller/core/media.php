@@ -8,6 +8,7 @@ class ControllerCoreMedia extends Controller
 		$this->load->model("core/media");
 		$this->load->model("quanlykho/donvitinh");
 		$this->load->model("core/sitemap");
+		$this->load->model("core/category");
 		$this->load->helper('image');
 		
 		$this->data['module'] = array(
@@ -129,21 +130,12 @@ class ControllerCoreMedia extends Controller
 				$this->data['medias'][$i]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($this->data['medias'][$i]['imagepath'], 100, 100)."' >";
 				
 			}
-			if(count($sitemap)==0)
-			{
-				$mediaid = $this->data['medias'][$i]['mediaid'];
-				$sitemapid = str_replace($this->user->getSiteId(),"",$mediaid);
-				$sitemap = $this->model_core_sitemap->getItem($sitemapid,$this->user->getSiteId());
-				
-				$this->data['medias'][$i]['link_edit'] = $this->url->http($sitemap['moduleid'].'/update&sitemapid='.$sitemapid);
-				$this->data['medias'][$i]['text_edit'] = "Edit";
-			}
-			else
-			{
-				$this->data['medias'][$i]['link_edit'] = $this->url->http($sitemap['moduleid'].'/update&mediaid='.$this->data['medias'][$i]['mediaid']);
+			
+			
+			$this->data['medias'][$i]['link_edit'] = $this->url->http($this->data['medias'][$i]['mediatype'].'/update&mediaid='.$this->data['medias'][$i]['mediaid']);
 				$this->data['medias'][$i]['text_edit'] = "Edit";	
-			}
-			$this->data['medias'][$i]['type'] = $sitemap['moduleid'];
+			
+			//$this->data['medias'][$i]['type'] = $sitemap['moduleid'];
 			$this->data['medias'][$i]['typename'] = $this->model_core_sitemap->getModuleName($sitemap['moduleid']);
 			
 			
@@ -217,6 +209,115 @@ class ControllerCoreMedia extends Controller
 		$this->id="content";
 		$this->template="common/output.tpl";
 		$this->render();
+	}
+	
+	public function importProduct()
+	{
+		$data = $this->request->post;
+		if($this->validateImportProduct($data))
+		{
+			//Lay lai danh muc
+			$refersitemap = $data['refersitemap'];
+			if($refersitemap!="")
+			{
+				$arrsitemapname = split(',',$refersitemap);
+				$arrsitemapid = array();
+				foreach($arrsitemapname as $sitemapname)
+				{
+					$where = " AND sitemapname = '".$sitemapname."'";
+					$sitemap = $this->model_core_sitemap->getList($this->user->getSiteId(), $where);
+					$arrsitemapid[] = $sitemap[0]['sitemapid'];
+				}
+				$refersitemap = $this->string->arrayToString($arrsitemapid);
+				
+			}
+			$data['refersitemap'] = $refersitemap;
+			//Lay nhan hieu
+			$brand = $data['brand'];
+			if($brand!="")
+			{
+				$where = " AND categoryname = '".$brand."'";
+				$data_ca = $this->model_core_category->getList($where);
+				$brand = $data_ca[0]['categoryid'];
+			}
+			$data['brand'] = $brand;
+			//Don vi
+			$unit = $data['unit'];
+			if($unit!="")
+			{
+				$where = " AND tendonvitinh	 = '".$unit."'";
+				$data_unit = $this->model_quanlykho_donvitinh->getList($where);
+				$unit = $data_unit[0]['madonvi'];
+			}
+			$data['unit'] = $unit;
+			//Sale price
+			$saleprice = $data['saleprice'];
+			$arrsaleprice = array();
+			if($saleprice!="")
+			{
+				$arr = split(',',$saleprice);
+				print_r($arr);
+				foreach($arr as $val)
+				{
+					if($val!="")
+					{
+						$ar = split('-',$val);
+						
+						$donvi = $ar[0];
+						$price = $ar[1];
+						$where = " AND tendonvitinh	 = '".$donvi."'";
+						$data_unit = $this->model_quanlykho_donvitinh->getList($where);
+						$unit = $data_unit[0]['madonvi'];
+						$arrsaleprice[$unit]=$price;
+					}
+				}
+				$saleprice = json_encode($arrsaleprice);
+			}
+			echo $data['saleprice'] = $saleprice;
+			
+			$media = $this->model_core_media->getItem($data['mediaid']);
+			$data['mediatype'] = "module/product";
+			if(count($media)==0)
+			{
+				
+				$mediaid = $this->model_core_media->insert($data);
+			}
+			else
+			{
+				$mediaid = $data['mediaid'];
+				foreach($data as $key => $val)
+				{
+					$this->model_core_media->updateCol($mediaid,$key,$val);
+				}
+			}
+			//$mediaid = $this->model_core_media->insert($data);
+			//$this->model_core_media->updateStatus($mediaid, "active");
+			$data['error'] = "";
+			
+		}
+		else
+		{
+			foreach($this->error as $item)
+			{
+				$data['error'] .= $item."\n";
+			}
+		}
+		$this->data['output'] = json_encode($data);
+		$this->id="content";
+		$this->template="common/output.tpl";
+		$this->render();
+	}
+	private function validateImportProduct($data)
+	{
+		if ($data['title'] == "")
+		{
+			$this->error['title'] = "Bạn chưa nhập tên sản phẩm";
+		}
+		if (count($this->error)==0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 	function validateAddProductQuick($data)
 	{
@@ -305,7 +406,34 @@ class ControllerCoreMedia extends Controller
 		$this->template="common/output.tpl";
 		$this->render();	
 	}
-	
+	public function enterGroup()
+	{
+		$data = $this->request->post;
+		$mediaid =$data['mediaid'];
+		$col = $data['col'];
+		$val = $data['val'];
+		$this->model_core_media->updateCol($mediaid,$col,$val);
+		$this->model_core_media->updateInforChild($val);
+		$this->data['output'] = 'true';
+		$this->id="sitemap";
+		$this->template="common/output.tpl";
+		$this->render();	
+	}
+	public function outGroup()
+	{
+		$data = $this->request->post;
+		$mediaid =$data['mediaid'];
+		$media = $this->model_core_media->getItem($mediaid);
+		$col = $data['col'];
+		$val = $data['val'];
+		$this->model_core_media->updateCol($mediaid,$col,$val);
+		
+		$this->model_core_media->updateInforChild($media['mediaparent']);
+		$this->data['output'] = 'true';
+		$this->id="sitemap";
+		$this->template="common/output.tpl";
+		$this->render();	
+	}
 	//Cac ham xu ly tren form
 	public function getMedia()
 	{

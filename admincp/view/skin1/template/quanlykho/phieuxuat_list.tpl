@@ -8,10 +8,10 @@
         	<div id="ben-search">
             	<label>Mã phiếu</label>
                 <input type="text" id="maphieu" name="maphieu" class="text" value="" />
-                <label>Người bán</label>
-                <input type="text" id="nguoithuchien" name="nguoithuchien" class="text" value="" />
+                <!--<label>Người bán</label>
+                <input type="text" id="nguoithuchien" name="nguoithuchien" class="text" value="" />-->
                 <label>Khách hàng</label>
-                <input type="text" id="nguoinhan" name="nguoinhan" class="text" value="" />
+                <input type="text" id="tenkhachhang" name="tenkhachhang" class="text" value="" />
                 <label>Từ ngày</label>
                 <input type="text" class="text date" id="tungay" />
                 <script language="javascript">
@@ -34,6 +34,13 @@
 								});
 						});
 				 </script>
+                <label>Tình trạng</label>
+                <select id="trangthai" name="trangthai">
+                	<option value=""></option>
+                    <?php foreach($this->document->status_phieunhapxuat as $key => $val){?>
+                    <option value="<?php echo $key?>"><?php echo $val?></option>
+                    <?php } ?>
+                </select>
                 <br />
                 <input type="button" class="button" name="btnSearch" value="Tìm" onclick="searchForm()"/>
                 <input type="button" class="button" name="btnSearch" value="Xem tất cả" onclick="viewAll()"/>
@@ -117,18 +124,20 @@ function searchForm()
 	if($("#frm_phieunhap #maphieu").val() != "")
 		url += "&maphieu=" + $("#frm_phieunhap #maphieu").val();
 	
-	if($("#frm_phieunhap #nguoithuchien").val() != "")
-		url += "&nguoithuchien="+ encodeURI($("#frm_phieunhap #nguoithuchien").val());
+	if($("#frm_phieunhap #tenkhachhang").val() != "")
+		url += "&tenkhachhang="+ encodeURI($("#frm_phieunhap #tenkhachhang").val());
 	
 	if($("#frm_phieunhap #tungay").val() != "")
 		url += "&tungay="+ encodeURI($("#frm_phieunhap #tungay").val());
 	if($("#frm_phieunhap #denngay").val() != "")
 		url += "&denngay="+ encodeURI($("#frm_phieunhap #denngay").val());
-	
+	if($("#frm_phieunhap #trangthai").val() != "")
+		url += "&trangthai="+ encodeURI($("#frm_phieunhap #trangthai").val());
 	if("<?php echo $_GET['opendialog']?>" == "true")
 	{
 		url += "&opendialog=true";
 	}
+	//console.log(url);
 	loadData("?route=quanlykho/phieuxuat/getList"+url);
 }
 
@@ -146,35 +155,7 @@ function searchForm()
 	});
 <?php } ?>
 
-function view(id)
-{
-	$("#popup").attr('title','Phiếu nhập kho');
-	$( "#popup" ).dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "explode",
-		width: 900,
-		height: 600,
-		modal: true,
-		buttons: {
-			
-			'In':function()
-			{
-				openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print",800,500)
-				
-			},
-			'Đóng': function() 
-			{
-				
-				$( this ).dialog( "close" );
-				
-			},
-		}
-	});
-	$("#popup-content").load("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=true",function(){
-		$("#popup").dialog("open");
-	});
-}
+
 function moveto(url,eid)
 {
 	$(eid).html(loading);

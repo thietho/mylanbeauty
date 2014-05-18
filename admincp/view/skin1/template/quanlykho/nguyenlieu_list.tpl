@@ -139,8 +139,8 @@ function viewTonKho(id)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					buttons: {
 						
@@ -166,8 +166,8 @@ function importNguyenLieu(id)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					buttons: {
 						
@@ -211,8 +211,8 @@ function exportNguyenLieu(id)
 					autoOpen: false,
 					show: "blind",
 					hide: "explode",
-					width: 800,
-					height: 500,
+					width: $(document).width()-100,
+					height: window.innerHeight,
 					modal: true,
 					buttons: {
 						
