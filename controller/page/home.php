@@ -12,7 +12,7 @@ class ControllerPageHome extends Controller
    	}
 	public function index()
 	{
-		print_r($this->string->browser_info());
+		//print_r($this->string->browser_info());
 		if($this->cachehtml->iscacht($this->name) == false)
 		{
 			//Brand
@@ -149,7 +149,8 @@ class ControllerPageHome extends Controller
 		$listmediaidsanphamhot = $this->model_core_media->getInformation("sortsanphamhot","sort");
 		$arrmediaidsanphamhot = $this->string->referSiteMapToArray($listmediaidsanphamhot);
 			
-
+		$where = " AND mediatype = 'module/product'";
+		$where .= " AND mediaparent = ''";
 		if($listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
@@ -159,7 +160,7 @@ class ControllerPageHome extends Controller
 				if($media['status']== 'active' && !in_array($media['mediaid'],$arrmediaidsanphamhot))
 					$data_media[] = $media;
 			}
-			
+			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
 		}
 		
 		$siteid = $this->member->getSiteId();
@@ -171,8 +172,7 @@ class ControllerPageHome extends Controller
 			$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
 		}
 		
-		$where = " AND mediatype = 'module/product'";
-		$where .= " AND mediaparent = ''";
+		
 		
 		if(count($arrsitemapid))
 		{
