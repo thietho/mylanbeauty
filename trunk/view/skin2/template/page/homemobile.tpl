@@ -44,7 +44,7 @@ function loadGroup()
 	if(pageload.flag == true)
 	{
 		$('#ben-maincontent .ben-section-content').append(loading);
-		$.get("?route=page/home/loadGroup&sitemapid="+ pageload.arr[pageload.index],function(html){
+		$.get("?route=page/home/loadGroup&device=mobile&sitemapid="+ pageload.arr[pageload.index],function(html){
 				
 				$('#loading').remove();
 				$('#ben-maincontent .ben-section-content').append(html);

@@ -132,12 +132,13 @@ class ControllerPageHome extends Controller
 	public function loadGroup()
 	{
 		$sitemapid = $this->request->get['sitemapid'];
+		$device = $this->request->get['device'];
 		$this->load->model('core/sitemap');
 		$siteid = $this->member->getSiteId();
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$medias = $this->getProduct($sitemap['sitemapid'],"");
 		$template = array(
-								  'template' => "module/product_list.tpl",
+								  'template' => "module/product".$device."_list.tpl",
 								  'width' => 180,
 								  'height' =>180,
 								  'widthpreview' => 450,
