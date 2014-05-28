@@ -28,8 +28,9 @@ html {
 body {
 	background:#FFF;
 	color: #444;
-	font: normal 75% Arial, Tahoma, Helvetica, sans-serif;
+	font: normal 100% Arial, Tahoma, Helvetica, sans-serif;
 	line-height: 1.5;
+	min-width:480px;
 }
 
 
@@ -311,7 +312,7 @@ input.ben-textbox, textarea, select {
 	background: #FCFCFC;
 	border: 1px inset #AAA;
 	margin: 0.2em 0;
-	padding: 4px 10px;
+	padding: 4px 2px;
 	font-size:2em;
 	border-radius:10px;
 }
@@ -382,7 +383,7 @@ input.ben-button:active {border-style: inset;}
 
 #ben-main {
 	margin: 0 auto;
-	width: 640px;
+	width: 100%;
 }
 
 
@@ -406,18 +407,20 @@ input.ben-button:active {border-style: inset;}
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
-	width: 640px;
+	width: 100%;
 	padding-bottom: 0px;
+	
 }
 #ben-mainmenu
 {
 	background:#000;
 	border-radius:5px;
 	opacity:0.7;
+	padding:0 5px;
 }
 #ben-mainmenu table
 {
-	width:auto;	
+	
 }
 #ben-mainmenu a
 {
@@ -539,7 +542,7 @@ display:block;
 /*---------- BODY AREA ------------*/
 #ben-content 
 {
-	width:640px;
+	width:100%;
 	
 }
 
@@ -648,7 +651,7 @@ display:block;
 	color: #000;
 	
 	margin:0 auto;
-	width:640px;
+	width:100%;
 	height:110px;
 	font-size:1.2em;
 }
@@ -817,5 +820,5 @@ ul#menu li ul li div:hover {
 }
 #keyword
 {
-	width:465px;
+	width:100%;
 }

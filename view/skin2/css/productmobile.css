@@ -1,6 +1,11 @@
 .product
 {
-	margin:3px;	
+	margin:3px;
+	
+}
+.product td
+{
+	vertical-align:top;
 }
 .tip {
     background: none repeat scroll 0 0 #1D1D1D;
@@ -13,7 +18,7 @@
 }
 .product-list-image
 {
-	height:195px;	
+	
 }
 .product-right
 {
@@ -28,6 +33,7 @@
 	color:#fff;
 	font-size:0.8em;
 	margin-left:130px;
+	font-size:0.7em;
 }
 .product-price
 {

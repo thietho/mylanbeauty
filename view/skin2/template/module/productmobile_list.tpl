@@ -7,7 +7,7 @@ if(count($medias))
     <div class="product link_hover" data-tooltip="sticky1" ref="<?php echo $media['imagetpreview']?>" title="<?php echo $this->document->productName($media)?>">
         <table>
             <tr class="product-list-image">
-                <td>
+                <td width="180px">
                 	
                 	<?php if($media['discountpercent']){ ?>
                 	<div class="flagdiscount ben-icon">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
@@ -19,18 +19,19 @@ if(count($medias))
                     <?php }?>
                     	
                 </td>
-            </tr>
-            <tr>
+            
                 <td>
-                    <div align="center">
+                    <div>
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
+                        	<?php if(count($media['childs'])){ ?>
                         	<h6>
                             	<?php echo $media['title']?> - <?php echo $media['code']?>
                                 <?php echo $media['brand']?>
                                 <?php echo $media['color']?>
                             </h6>
-                            
-                            
+                            <?php }else{ ?>
+                            <h6><?php echo $this->document->productName($media)?></h6>
+                            <?php } ?>
                         </a>
                         <?php if(count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
@@ -44,7 +45,7 @@ if(count($medias))
                     <?php if(count($media['childs'])==0){ ?>
                     <?php $cls = '';?>
                     <?php if($media['pricepromotion']!=0){ ?>
-                    <div align="center" class="product-pricepromotion">
+                    <div class="product-pricepromotion">
                         	
                         	<?php if($media['pricepromotion']){ ?>
                             <?php $cls = 'product-price-no';?>
@@ -52,17 +53,17 @@ if(count($medias))
                             <?php } ?>
                     </div>
                     <?php } ?>
-                    <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
-                    <center>
+                    <div class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
+                    
                     	<?php if($media['noteprice']!=""){ ?>
                         (<?php echo $media['noteprice']?>)<br />
                         <?php }?>
                         <?php if($media['noted']!=""){ ?>
                         <em><?php echo $media['noted']?></em>
                         <?php }?>
-                    </center>
+                    
                     <?php } ?>
-                    <div align="center">
+                    <div>
                         <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                 </td>
