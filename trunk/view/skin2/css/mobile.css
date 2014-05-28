@@ -397,8 +397,8 @@ input.ben-button:active {border-style: inset;}
 
 #ben-header-support
 {
-	margin-left:680px;	
-	position:absolute;
+	
+	
 	
 }
 /* Optional Top */
@@ -409,7 +409,7 @@ input.ben-button:active {border-style: inset;}
 }
 #ben-mainmenu
 {
-	margin-left:300px;
+	background:#000;
 }
 #ben-mainmenu a
 {
