@@ -20,7 +20,10 @@
 <div id="ben-mainmenu">
     <table>
         <tr>
-            <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-menu.png" height="50px"/></td>
+            <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-menu.png"/></td>
+            <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-cart.png" /></td>
+            <td><input type="text" class="ben-textbox" id="keyword" name="keyword"/></td>
+            <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-search.png" /></td>
         </tr>
     </table>
 </div>
