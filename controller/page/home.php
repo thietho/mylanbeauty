@@ -30,7 +30,7 @@ class ControllerPageHome extends Controller
 			
 			//San pham moi
 			$template = array(
-								  'template' => "module/product_list.tpl",
+								  'template' => "module/productmobile_list.tpl",
 								  'width' => 180,
 								  'height' =>180,
 								  'widthpreview' => 450,

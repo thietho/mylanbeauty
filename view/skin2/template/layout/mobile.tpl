@@ -30,7 +30,7 @@
 	</script>
 <![endif]-->
 <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_CSS?>mobile.css'>
-<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_CSS?>product.css'>
+<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_CSS?>productmobile.css'>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.js'></script>
 <script language="javascript">
 var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
