@@ -238,7 +238,7 @@ class ModelCoreMedia extends ModelCoreFile
 	public function getListByParent($parent,$w ="" ,$order="")
 	{
 		$where = "AND mediaparent = '".$parent."'".$w;		
-		return $this->getList($where,$order);		
+		return $this->getList($where,0,0,$order);		
 		
 		
 	}
