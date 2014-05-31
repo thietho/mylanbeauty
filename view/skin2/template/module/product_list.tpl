@@ -35,8 +35,20 @@ if(count($medias))
                         <?php if(count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
                         <div>
-                        	<?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?> <?php echo $this->document->setup['Currency']?>
-                            <?php if($me['discountpercent']) echo "Giảm ".$this->string->numberFormate($me['discountpercent'])."%";?>
+                        	<?php echo $me['sizes']?>:
+                            <?php $cls = '';?>
+                            <?php if($me['pricepromotion']) $cls = 'class="product-price-no"'; ?>
+                           
+                            
+                            <span <?php echo $cls?>>
+                            	<?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?>
+                            </span>
+                            <?php if($me['pricepromotion']){ ?>
+                            <span class="product-pricepromotion">
+                        	<?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
+                            </span>
+                            <?php } ?>
+                            
                         </div>
                         <?php } ?>
                         <?php } ?>
@@ -48,11 +60,11 @@ if(count($medias))
                         	
                         	<?php if($media['pricepromotion']){ ?>
                             <?php $cls = 'product-price-no';?>
-                        	<?php echo $this->string->numberFormate($media['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
+                        	<?php echo $this->string->numberFormate($media['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
                             <?php } ?>
                     </div>
                     <?php } ?>
-                    <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
+                    <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></div>
                     <center>
                     	<?php if($media['noteprice']!=""){ ?>
                         (<?php echo $media['noteprice']?>)<br />
