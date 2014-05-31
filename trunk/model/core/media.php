@@ -35,7 +35,7 @@ class ModelCoreMedia extends ModelCoreFile
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
-		//echo $sql;
+		//echo $sql."<br>";
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
@@ -237,7 +237,7 @@ class ModelCoreMedia extends ModelCoreFile
 	
 	public function getListByParent($parent,$w ="" ,$order="")
 	{
-		$where = "AND mediaparent = '".$parent."'".$w;		
+		$where = "AND mediaparent = '".$parent."'".$w;	
 		return $this->getList($where,0,0,$order);		
 		
 		

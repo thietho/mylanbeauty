@@ -37,10 +37,10 @@ if(count($medias))
                         <div>
                         	<?php echo $me['sizes']?>:
                             <?php $cls = '';?>
-                            <?php if($me['pricepromotion']) $cls = 'class="product-price-no"'; ?>
+                            <?php if($me['pricepromotion']) $cls = 'product-price-no'; else $cls = 'product-pricepromotion'?>
                            
                             
-                            <span <?php echo $cls?>>
+                            <span class="<?php echo $cls?>" >
                             	<?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?>
                             </span>
                             <?php if($me['pricepromotion']){ ?>
