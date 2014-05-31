@@ -62,13 +62,20 @@ if(count($medias))
                             <?php $cls = 'product-price-no';?>
                         	<?php echo $this->string->numberFormate($media['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
                             <?php } ?>
+                            <?php if($media['noteprice']!=""){ ?>
+                            (<?php echo $media['noteprice']?>)
+                            <?php }?>
                     </div>
                     <?php } ?>
-                    <div align="center" class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></div>
-                    <center>
-                    	<?php if($media['noteprice']!=""){ ?>
-                        (<?php echo $media['noteprice']?>)<br />
+                    <div align="center" class="product-price <?php echo $cls?>">
+                    	<?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?>
+                        <?php if($media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
+                        (<?php echo $media['noteprice']?>)
                         <?php }?>
+                    </div>
+                        
+                    <center>
+                    	
                         <?php if($media['noted']!=""){ ?>
                         <em><?php echo $media['noted']?></em>
                         <?php }?>
