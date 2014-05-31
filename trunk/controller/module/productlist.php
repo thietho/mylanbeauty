@@ -291,7 +291,7 @@ class ControllerModuleProductlist extends Controller
 			
 			//$where = " AND mediaparent = '".$media['mediaid']."' AND sizes <> '' AND price > 0";
 			//$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
-			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid']);
+			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid'],'',' Order by sizes');
 			
 		}
 			
