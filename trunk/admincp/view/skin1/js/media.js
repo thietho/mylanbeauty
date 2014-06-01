@@ -109,6 +109,15 @@ function showProductForm(mediaid,mediaparentid,funcname)
 				
 				'Lưu':function()
 				{
+					
+					var oEditor = CKEDITOR.instances['description'] ;
+					var pageValue = oEditor.getData();
+					$('textarea#description').val(pageValue);
+					
+					var oEditor = CKEDITOR.instances['summary'] ;
+					var pageValue = oEditor.getData();
+					$('textarea#summary').val(pageValue);
+					
 					$.post("?route=core/postcontent/savepost",$('#frmPost').serialize(),
 					function(data)
 					{

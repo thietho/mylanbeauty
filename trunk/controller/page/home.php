@@ -13,8 +13,8 @@ class ControllerPageHome extends Controller
 	public function index()
 	{
 		//print_r($this->string->browser_info());
-		//$this->destop();
-		$this->mobile();
+		$this->destop();
+		//$this->mobile();
 	}
 	public function mobile()
 	{
@@ -88,8 +88,8 @@ class ControllerPageHome extends Controller
 		
 			$arr = array("bannerhome",0,"",$template);
 			$this->data['bannerhome'] = $this->loadModule('module/block','getList',$arr);
-			//San pham moi
-			$template = array(
+			//San pham hot
+			/*$template = array(
 								  'template' => "module/product_list.tpl",
 								  'width' => 180,
 								  'height' =>180,
@@ -101,7 +101,7 @@ class ControllerPageHome extends Controller
 			
 			$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
 			$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
-			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);*/
 			
 			
 			
@@ -118,7 +118,7 @@ class ControllerPageHome extends Controller
 				}
 			}
 			
-			
+			$this->loadBrand();
 			$this->loadSiteBar();
 			
 		}
@@ -127,6 +127,29 @@ class ControllerPageHome extends Controller
 		$this->template="page/home.tpl";
 		$this->layout="layout/home";
 		$this->render();
+	}
+	
+	public function loadBrand()
+	{
+		$arrbrand = array(
+							"EsteeLauder",
+							"Lancome",
+							"Clarins",
+							"Dior",
+							"Chanel",
+							"Sisley",
+							"Clinique",
+							"LOccitane",
+							"Shishedo",
+							"VictoriaSecrect",
+							"bathandbodyworks"
+							);
+		foreach($arrbrand as $brand)
+		{
+			$arr = array("",$brand);
+			$this->data['producthome'][$brand]['title'] =$this->document->getCategory($brand);
+			$this->data['producthome'][$brand]['data'] = $this->loadModule('addon/brand','getList',$arr);
+		}
 	}
 	
 	public function loadGroup()
