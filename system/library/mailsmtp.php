@@ -20,7 +20,7 @@ final class MailSMTP {
 		$mail->Username = "info@mylanbeauty.net"; // your SMTP username or your gmail username
 		$mail->Password = "LanTran1981";
 		
-		$from = "cosmetics@mylanbeauty.net"; // Reply to this email
+		$from = "info@mylanbeauty.net"; // Reply to this email
 		$arremail = split(',',$data['to']);
 		$to=$arremail[0]; // Recipients email ID
 		$name= $data['name']; // Recipient's name
