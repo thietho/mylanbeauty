@@ -157,15 +157,15 @@ $("#ben-next").click(function(){
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
                         	<?php foreach($loaisp as $it){ ?>
-                            <?php echo $it['sitemapname'].'<br />'; ?>
+                            <strong><?php echo $it['sitemapname'].'<br />'; ?></strong>
                             <?php } ?>
                         </td>
                     </tr>
                     <tr>
-                    	<td><strong>Nhản hiệu:</strong></td>
+                    	<td><strong>Nhãn hiệu:</strong></td>
                         <td>
                         	
-                            <a href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>" title="<?php echo $this->document->getCategory($post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a>
+                            <strong><a class="brand" href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>" title="<?php echo $this->document->getCategory($post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a></strong>
                             
                         </td>
                     </tr>
@@ -230,8 +230,8 @@ $("#ben-next").click(function(){
             <thead>
                 <tr>
                     <th>Sẩn phẩm</th>
-                    
                     <th>Giá bán</th>
+                    <th>Giảm</th>
                     <th>Khuyến mãi</th>
                     <th></th>
                 </tr>
@@ -242,20 +242,36 @@ $("#ben-next").click(function(){
                 <?php foreach($priceproduct as $val){ ?>
                 <tr>
                     <td>
-                    	<?php echo $this->document->productName($val['mediaid'])?>
+                    	<?php echo $val['code']." ".$val['sizes']?>
+                        <?php if($val['noteprice']!=""){ ?>
+                            (<?php echo $val['noteprice']?>)
+                        <?php }?>
                     	<?php if($val['tenkhuyenmai']){ ?>
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                         <?php } ?>
                     </td>
                     
                     <td class="number">
+                    	<?php $cls = '';?>
+                            <?php if($val['pricepromotion']!=0){ ?>
+                            <?php $cls = 'product-price-no';?>
+                        <?php } ?>
                         <?php if($val['price']!=0){ ?>
-                        <?php echo $this->string->numberFormate($val['price'])?> <?php echo $this->document->setup['Currency']?>
+                        <span class="<?php echo $cls?>"><?php echo $this->string->numberFormate($val['price'])?><?php echo $this->document->setup['Currency']?></span>
+                        <?php } ?>
+                    </td>
+                    <td class="number">
+                        <?php if($val['discountpercent']!=0){ ?>
+                        <span class="product-pricepromotion">
+                        -<?php echo $this->string->numberFormate($val['discountpercent'])?>%
+                        </span>
                         <?php } ?>
                     </td>
                     <td class="number">
                         <?php if($val['pricepromotion']!=0){ ?>
+                        <span class="product-pricepromotion">
                         <?php echo $this->string->numberFormate($val['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
+                        </span>
                         <?php } ?>
                     </td>
                     <td><input type="button" class="ben-button ben-center" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
