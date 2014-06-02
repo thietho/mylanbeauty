@@ -194,7 +194,7 @@ class ControllerModulePagedetail extends Controller
 		}
 		
 		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'module/product' "," Order by position");
-		
+		usort($this->data['priceproduct'],array("ControllerModulePagedetail", "cmp"));
 		foreach($this->data['priceproduct'] as $key => $item)
 		{
 			
@@ -249,6 +249,16 @@ class ControllerModulePagedetail extends Controller
 		$this->id="news";
 		$this->template=$template['template'];
 		$this->render();
+	}
+	
+	private function cmp($mediaa,$mediab)
+	{
+		$a = (int)$mediaa['sizes'];
+		$b = (int)$mediab['sizes'];
+		if ($a == $b) {
+        return 0;
+		}
+		return ($a < $b) ? -1 : 1;	
 	}
 }
 ?>
