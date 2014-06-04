@@ -238,7 +238,7 @@ class ControllerModulePagedetail extends Controller
 		
 		if($this->data['post']['code'] != "")
 		{
-			$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = ''";
+			$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = '' AND mediaid <> '".$this->data['post']['mediaid']."'";
 			$this->data['data_samplecode'] = $this->model_core_media->getList($where);
 			foreach($this->data['data_samplecode'] as $i => $item)
 			{
