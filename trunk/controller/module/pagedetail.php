@@ -218,15 +218,13 @@ class ControllerModulePagedetail extends Controller
 		$arr = array($this->document->sitemapid,9,"",$temp,$this->data['othernews']);*/
 		//$this->data['other'] = $this->loadModule('module/productlist','index',$arr);
 		//Load san phang cung hieu
-		$nhanhieuid = "";
-		foreach($this->data['nhanhieu'] as $nhanhieu)
+		$nhanhieuid = $this->data['post']['brand'];
+		if($nhanhieuid)
 		{
-			if(in_array($nhanhieu['categoryid'],$this->data['properties']))
-				$nhanhieuid = $nhanhieu['categoryid'];
+			$where = " AND mediaid not like '".$mediaid."'";
+			$arr = array($where,$nhanhieuid);
+			$this->data['saphamcungnhanhieu'] = $this->loadModule('addon/brand','getList',$arr);
 		}
-		$where = " AND mediaid not like '".$mediaid."'";
-		$arr = array($where,$nhanhieuid);
-		$this->data['saphamcungnhanhieu'] = $this->loadModule('addon/brand','getList',$arr);
 		//Load comemnt
 		$temp = array(
 						  'template' => "module/comment_list.tpl"
