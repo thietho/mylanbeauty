@@ -458,11 +458,12 @@ z-index:100;
 
 #ben-main-nav a{
 display:block;
-padding:5px 3px;
+padding: 5px 0px 5px 11px;
 color:#000;
 text-decoration:none;
 text-transform:uppercase;
 font-weight:bold;
+text-shadow:1px 0;
 }
 
 #ben-main-nav a:hover{
