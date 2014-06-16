@@ -9,6 +9,7 @@
             | <a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức">Tin tức</a>
             | <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
             | <a href="<?php echo $this->document->createLink('lienhe')?>" title="Liên hệ">Liên hệ</a>
+            | <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
             | <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
             <?php if(!$this->member->isLogged()){?>
             | <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>
