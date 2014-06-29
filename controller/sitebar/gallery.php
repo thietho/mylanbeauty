@@ -3,7 +3,7 @@ class ControllerSitebarGallery extends Controller
 {
 	function __construct() 
 	{
-		$this->iscache = true;
+		//$this->iscache = true;
 		/*$arr=array();
 		foreach($_GET as $key => $val)
 			$arr[] = $key."=".$val;*/
@@ -16,6 +16,7 @@ class ControllerSitebarGallery extends Controller
 			//San pham moi
 			//$this->load->model('core/sitemap');
 			$this->load->model('core/media');
+			$this->load->helper('image');
 			$template = array(
 								  'template' => "sitebar/product_list.tpl",
 								  'width' => 60,
@@ -33,16 +34,16 @@ class ControllerSitebarGallery extends Controller
 								"Shishedo",
 								"VictoriaSecrect"
 								);			  
-			
+			$this->data['views'] = array();
 			foreach($arrbrandid as $brandid)
 			{
 				$medias = $this->getSanPhanMoi("sortsanphammoi".$brandid);
 				$arr = array('',0,'',$template,$medias);
 				$media = $this->model_core_media->getItem(SITEID."cat".$brandid);
-				$this->data['views']['Sisley']['logo'] = HelperImage::resizePNG($media['imagepath'],200,200);
-				$this->data['views']['Sisley']['title'] ="Sisley";
-				$this->data['views']['Sisley']['link'] = $this->document->createLink('brand','Sisley');
-				$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+				$this->data['views'][$brandid]['logo'] = HelperImage::resizePNG($media['imagepath'],190,190);
+				$this->data['views'][$brandid]['title'] ="Sisley";
+				$this->data['views'][$brandid]['link'] = $this->document->createLink('brand','Sisley');
+				$this->data['views'][$brandid]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			}
 			
 			
@@ -84,7 +85,7 @@ class ControllerSitebarGallery extends Controller
 		}
 		
 		$this->id="content";
-		$this->template="sitebar/gallery.tpl";
+		$this->template="sitebar/gallery1.tpl";
 		$this->render();
 	}
 	function getSanPhanMoi($code)
