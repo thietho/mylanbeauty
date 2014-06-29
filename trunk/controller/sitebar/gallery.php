@@ -27,10 +27,10 @@ class ControllerSitebarGallery extends Controller
 						  
 			$arrbrandid = array(
 								"Sisley",
-								"Lancome",
 								"EsteeLauder",
-								"Clinique",
+								"Lancome",
 								"Clarins",
+								"Clinique",
 								"Shishedo",
 								"VictoriaSecrect"
 								);			  
