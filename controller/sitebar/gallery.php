@@ -14,6 +14,8 @@ class ControllerSitebarGallery extends Controller
 		if($this->cachehtml->iscacht($this->name) == false)
 		{
 			//San pham moi
+			//$this->load->model('core/sitemap');
+			$this->load->model('core/media');
 			$template = array(
 								  'template' => "sitebar/product_list.tpl",
 								  'width' => 60,
@@ -22,13 +24,29 @@ class ControllerSitebarGallery extends Controller
 								  'heightpreview' =>450
 								  );
 						  
-			$medias = $this->getSanPhanMoi("sortsanphammoiSisley");
-			$arr = array('',0,'',$template,$medias);
-			$this->data['views']['Sisley']['title'] ="Sisley";
-			$this->data['views']['Sisley']['link'] = $this->document->createLink('brand','Sisley');
-			$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			$arrbrandid = array(
+								"Sisley",
+								"Lancome",
+								"EsteeLauder",
+								"Clinique",
+								"Clarins",
+								"Shishedo",
+								"VictoriaSecrect"
+								);			  
 			
-			$medias = $this->getSanPhanMoi("sortsanphammoiLancome");
+			foreach($arrbrandid as $brandid)
+			{
+				$medias = $this->getSanPhanMoi("sortsanphammoi".$brandid);
+				$arr = array('',0,'',$template,$medias);
+				$media = $this->model_core_media->getItem(SITEID."cat".$brandid);
+				$this->data['views']['Sisley']['logo'] = HelperImage::resizePNG($media['imagepath'],200,200);
+				$this->data['views']['Sisley']['title'] ="Sisley";
+				$this->data['views']['Sisley']['link'] = $this->document->createLink('brand','Sisley');
+				$this->data['views']['Sisley']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			}
+			
+			
+			/*$medias = $this->getSanPhanMoi("sortsanphammoiLancome");
 			$arr = array('',0,'',$template,$medias);
 			$this->data['views']['Lancome']['title'] ="Lancome";
 			$this->data['views']['Lancome']['link'] = $this->document->createLink('brand','Lancome');
@@ -62,7 +80,7 @@ class ControllerSitebarGallery extends Controller
 			$arr = array('',0,'',$template,$medias);
 			$this->data['views']['VictoriaSecrect']['title'] ="Victoria Secrect";
 			$this->data['views']['VictoriaSecrect']['link'] = $this->document->createLink('brand','VictoriaSecrect');
-			$this->data['views']['VictoriaSecrect']['data'] = $this->loadModule('module/productlist','getAll',$arr);
+			$this->data['views']['VictoriaSecrect']['data'] = $this->loadModule('module/productlist','getAll',$arr);*/
 		}
 		
 		$this->id="content";
