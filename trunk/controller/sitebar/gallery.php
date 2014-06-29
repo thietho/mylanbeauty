@@ -27,12 +27,15 @@ class ControllerSitebarGallery extends Controller
 						  
 			$arrbrandid = array(
 								"Sisley",
+								"Dior",
+								"Chanel",
 								"EsteeLauder",
 								"Lancome",
 								"Clarins",
 								"Clinique",
 								"Shishedo",
-								"VictoriaSecrect"
+								"VictoriaSecrect",
+								"LOccitane"
 								);			  
 			$this->data['views'] = array();
 			foreach($arrbrandid as $brandid)

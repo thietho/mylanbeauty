@@ -34,8 +34,7 @@
         <div class="ben-navigation">
     
             <ul id="ben-main-nav">
-            	<li><a href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a></li>
-                <li><a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a></li>
+            	
                 <?php echo $mainmenu?>
                 
             </ul>
