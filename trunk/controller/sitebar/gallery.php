@@ -44,8 +44,8 @@ class ControllerSitebarGallery extends Controller
 				$arr = array('',0,'',$template,$medias);
 				$media = $this->model_core_media->getItem(SITEID."cat".$brandid);
 				$this->data['views'][$brandid]['logo'] = HelperImage::resizePNG($media['imagepath'],190,190);
-				$this->data['views'][$brandid]['title'] ="Sisley";
-				$this->data['views'][$brandid]['link'] = $this->document->createLink('brand','Sisley');
+				$this->data['views'][$brandid]['title'] = $this->document->getCategory($brandid);
+				$this->data['views'][$brandid]['link'] = $this->document->createLink('brand',$brandid);
 				$this->data['views'][$brandid]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			}
 			
