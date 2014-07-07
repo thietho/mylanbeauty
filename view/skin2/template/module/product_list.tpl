@@ -41,7 +41,11 @@ if(count($medias))
                            
                             
                             <span class="<?php echo $cls?>" >
+                            	<?php if($me['price']){?>
                             	<?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?>
+                                <?php }else{ ?>
+                                Giá đang cập nhật
+                                <?php } ?>
                             </span>
                             <?php if($me['pricepromotion']){ ?>
                             <span class="product-pricepromotion">
@@ -68,10 +72,14 @@ if(count($medias))
                     </div>
                     <?php } ?>
                     <div align="center" class="product-price <?php echo $cls?>">
+                    	<?php if($media['price']){?>
                     	<?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?>
                         <?php if($media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
                         (<?php echo $media['noteprice']?>)
                         <?php }?>
+                        <?php }else{ ?>
+                        Giá đang cập nhật
+                        <?php } ?>
                     </div>
                         
                     <center>
