@@ -190,8 +190,11 @@ $("#ben-next").click(function(){
                             <?php echo $this->string->numberFormate($post['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
                             </span>
                             <?php } ?>
-                                
+                            <?php if($post['price']){ ?>
                             <span  class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?></span>
+                            <?php }else{ ?>
+                            Giá đang cập nhật
+                            <?php }?>
                             <input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
                         </td>
                     </tr>
