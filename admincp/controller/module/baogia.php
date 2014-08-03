@@ -1,7 +1,6 @@
 <?php
 class ControllerModuleProduct extends Controller
 {
-	private $error = array();
 	function __construct() 
 	{
 		$this->load->model("core/module");
@@ -15,7 +14,7 @@ class ControllerModuleProduct extends Controller
 		$this->load->model("quanlykho/phieunhapxuat");
 		$this->load->model("core/sitemap");
 		$this->load->model("core/media");
-		$this->load->model("module/baogia");
+		$this->load->model("core/media");
 		$this->load->model("core/user");
 		$this->load->helper('image');
 		$this->load->model("core/category");
@@ -655,18 +654,16 @@ class ControllerModuleProduct extends Controller
 		$objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', 'ID')
 			->setCellValue('B1', 'IDParent')
-			->setCellValue('C1', 'Model')
+			->setCellValue('C1', 'Mã sản phẩm')
             ->setCellValue('D1', 'Tên sản phẩm')
-			->setCellValue('E1', 'Qui cách')
-			->setCellValue('F1', 'Màu sắc')
-			->setCellValue('G1', 'Chất liệu')
-            ->setCellValue('H1', 'ĐVT')
-			->setCellValue('I1', 'Nhãn hiệu')
-            ->setCellValue('J1', 'Danh mục')
-			->setCellValue('K1', 'Giá bán')
-			->setCellValue('L1', 'Giá bán tại cửa hàng')
-			->setCellValue('M1', 'Giảm giá%')
-			->setCellValue('N1', 'Giá khuyến mãi')
+			->setCellValue('E1', 'Màu sắc')
+            ->setCellValue('F1', 'ĐVT')
+			->setCellValue('G1', 'Nhãn hiệu')
+            ->setCellValue('H1', 'Danh mục')
+			->setCellValue('I1', 'Giá bán')
+			->setCellValue('J1', 'Giá bán tại cửa hàng')
+			->setCellValue('K1', 'Giảm giá%')
+			->setCellValue('L1', 'Giá khuyến mãi')
 			
 			;
 		$objPHPExcel->getActiveSheet()->getStyle('A1:L1')->getFont()->setBold(true);
@@ -727,16 +724,14 @@ class ControllerModuleProduct extends Controller
 				->setCellValue('B'.$key, $media['mediaparent'])
 				->setCellValue('C'.$key, $media['code'])
 				->setCellValue('D'.$key, $media['title'])
-				->setCellValue('E'.$key, $media['sizes'])
-				->setCellValue('F'.$key, $media['color'])
-				->setCellValue('G'.$key, $media['material'])
-				->setCellValue('H'.$key, $unit)
-				->setCellValue('I'.$key, $brand)
-				->setCellValue('J'.$key, $danhmuc)
-				->setCellValue('K'.$key, $media['price'])
-				->setCellValue('L'.$key, $shop)
-				->setCellValue('M'.$key, $media['discountpercent'])
-				->setCellValue('N'.$key, $media['pricepromotion'])
+				->setCellValue('E'.$key, $media['color'])
+				->setCellValue('F'.$key, $unit)
+				->setCellValue('G'.$key, $brand)
+				->setCellValue('H'.$key, $danhmuc)
+				->setCellValue('I'.$key, $media['price'])
+				->setCellValue('J'.$key, $shop)
+				->setCellValue('K'.$key, $media['discountpercent'])
+				->setCellValue('L'.$key, $media['pricepromotion'])
 				
 				;
 			$key++;
@@ -753,150 +748,13 @@ class ControllerModuleProduct extends Controller
 		$this->template='common/output.tpl';
 		$this->render();
 	}
-	public function listBaoGia()
-	{
-		$where = " Order by id desc";
-		$this->data['data_baogia'] = $this->model_module_baogia->getList($where);
-		
-		$this->id='content';
-		$this->template='module/product_baogia_list.tpl';
-		$this->render();
-	}
 	public function baogiaForm()
 	{
-		$id = $this->request->get['baogiaid'];
-		if($id)
-		{
-			$this->data['item'] =$this->model_module_baogia->getItem($id);
-			$where = " AND baogiaid = '".$id."'";
-			$this->data['detail'] = $this->model_module_baogia->getBaoGiaMediaList($where);
-			//print_r($this->data['detail']);
-			foreach($this->data['detail'] as $i =>$item)
-			{
-				$media = $this->model_core_media->getItem($item['mediaid']);	
-				foreach($media as $key => $val)
-				{
-					if($key !="id")
-						$this->data['detail'][$i][$key] = $val;
-				}
-			}
-			
-		}
-		else
-		{
-			$this->data['medias'] = $_SESSION['productlist'];
-		}
+		$id = $this->request->get['id'];
+		$this->data['medias'] = $_SESSION['productlist'];
 		$this->id='content';
 		$this->template='module/product_baogia_form.tpl';
 		$this->layout='layout/center';
-		$this->render();
-	}
-	
-	public function savebaogia()
-	{
-		$data = $this->request->post;
-		if($this->validateBaoGia($data))
-		{
-			//Xoa
-			$arrdelid = split(",",$data['delid']);
-			foreach($arrdelid as $id)
-			{
-				if($id)
-					$this->model_module_baogia->deleteBaoGiaMedia($id);
-			}
-			$data['ngaybaogia'] = $this->date->formatViewDate($data['ngaybaogia']);
-			$data['id'] = $this->model_module_baogia->save($data);
-			$arr_id = $data['arrid'];
-			$arr_mediaid = $data['mediaid'];
-			$arr_gia = $data['gia'];
-			$arr_ghichu = $data['arrghichu'];
-			foreach($arr_mediaid as $key => $mediaid)
-			{
-				$detail['id'] = $arr_id[$key];
-				$detail['baogiaid'] = $data['id'];
-				$detail['mediaid'] = $arr_mediaid[$key];
-				$detail['gia'] = $this->string->toNumber($arr_gia[$key]);
-				$detail['ghichu'] = $arr_ghichu[$key];
-				$this->model_module_baogia->saveBaoGiaMedia($detail);
-			}
-			$data['error'] = "";
-		}
-		else
-		{
-			foreach($this->error as $item)
-			{
-				$data['error'] .= $item."<br>";
-			}	
-		}
-		$this->data['output'] = json_encode($data);
-		$this->id='content';
-		$this->template='common/output.tpl';
-		$this->render();
-	}
-	private function validateBaoGia($data)
-	{
-		if ($data['ngaybaogia'] == "") 
-		{
-      		$this->error['ngaybaogia'] = "Bạn chưa nhập ngày báo giá";
-    	}
-
-		if (count($this->error)==0) {
-	  		return TRUE;
-		} else {
-	  		return FALSE;
-		}
-	}
-	public function delBaoGia()
-	{
-		$data = $this->request->post;
-		$arrbaogiaid = $data['arrbaogiaid'];
-		foreach($arrbaogiaid as $baogiaid)
-		{
-			$this->model_module_baogia->delete($baogiaid);
-		}
-		$this->data['output'] = '';
-		$this->id='content';
-		$this->template='common/output.tpl';
-		$this->render();
-	}
-	public function viewBaoGia()
-	{
-		$baogiaid = $this->request->get['baogiaid'];
-		$this->data['item'] =$this->model_module_baogia->getItem($baogiaid);
-		$where = " AND baogiaid = '".$baogiaid."'";
-		$this->data['detail'] = $this->model_module_baogia->getBaoGiaMediaList($where);
-		$siteid = $this->user->getSiteId();
-		
-		$sitemaps = array();
-		$this->model_core_sitemap->getTreeSitemap("",$sitemaps,$siteid);
-		$this->data['sitemaps'] = array();
-		foreach($sitemaps as $sitemap)
-		{
-			$this->data['sitemaps'][$sitemap['sitemapid']] = array();
-		}
-		
-		foreach($this->data['detail'] as $item)
-		{
-			$media = $this->model_core_media->getItem($item['mediaid']);
-			$sitemap = $this->string->referSiteMapToArray($media['refersitemap']);
-			
-			if($sitemap[0]=="")
-			{
-				$parent = $this->model_core_media->getItem($media['mediaparent']);
-				$sitemap = $this->string->referSiteMapToArray($parent['refersitemap']);
-			}
-			$media['gia'] = $item['gia'];
-			$media['ghichu'] = $item['ghichu'];
-			$media['imagepreview'] = HelperImage::resizePNG($media['imagepath'], 100, 100);
-			$this->data['sitemaps']["".$sitemap[0]][] = $media;
-		}
-		//print_r($this->data['sitemaps']);
-		
-		//print_r($this->data['baogiadetail']);
-		$this->id='content';
-		$this->template='module/product_baogia_view.tpl';
-		if($_GET['opendialog'] == 'print')
-			$this->layout="layout/print";
 		$this->render();
 	}
 }

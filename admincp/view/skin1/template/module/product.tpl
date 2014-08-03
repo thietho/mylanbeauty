@@ -42,6 +42,8 @@
                 <a class="button" id="btnExport" onclick="pro.exportData()">Export</a>
                
                 <?php } ?>
+                <a class="button" onclick="pro.showDanhMuc()">Danh mục sản phẩm</a>
+                <a class="button" onclick="pro.viewListBaoGia()">Danh sách báo giá</a>
                 <a class="button" onclick="pro.viewListSelect()">Xem danh sách</a>
                 <?php if($this->user->checkPermission("module/product/update")==true){ ?>
                 <a class="button" onclick="pro.updatePosition()"><?php echo $button_updateposition?></a>
@@ -61,6 +63,7 @@
             </form>
         </div>
         <div class="clearer">^&nbsp;</div>
+        
     </div>
 </div>
 <script language="javascript">
@@ -72,9 +75,36 @@ $('#search select').change(function(e) {
 function Product()
 {
 	this.open = "<?php echo $this->request->get['open']?>";
-	console.log(this.open);
+	//console.log(this.open);
 	this.url = "?route=module/product/getList";
 	this.page = 0;
+	this.createData = function(obj)
+	{
+		var db = openDatabase('mydb', '1.0', 'ClientDB', 2 * 1024 * 1024);
+		db.transaction(function (tx) {
+		   tx.executeSql('CREATE TABLE IF NOT EXISTS media (id unique, mediaid, barcode, ref, code, sizes, unit, color, material, brand, mediaparent, mediatype, refersitemap, userid, title, summary, description, metadescription, alias, keyword, author, source, saleprice, price, noteprice, discountpercent, pricepromotion, imageid, imagepath, fileid, filepath, groupkeys, viewcount, position, status, temp, statusdate, statusby, updateddate, noted)');
+		   
+		   for(i in obj)
+		   {
+			   tx.executeSql('INSERT INTO media (id, mediaid, barcode, ref, code, sizes, unit, color, material, brand, mediaparent, mediatype, refersitemap, userid, title, summary, description, metadescription, alias, keyword, author, source, saleprice, price, noteprice, discountpercent, pricepromotion, imageid, imagepath, fileid, filepath, groupkeys, viewcount, position, status, temp, statusdate, statusby, updateddate, noted) VALUES ('+ obj[i].id +', '+ obj[i].mediaid +', '+ obj[i].barcode +', '+ obj[i].ref +', '+ obj[i].code +', '+ obj[i].sizes +', '+ obj[i].unit +', '+ obj[i].color +', '+ obj[i].material +', '+ obj[i].brand +', '+ obj[i].mediaparent +', '+ obj[i].mediatype +', '+ obj[i].refersitemap +', '+ obj[i].userid +', '+ obj[i].title +', '+ obj[i].summary +', '+ obj[i].description +', '+ obj[i].metadescription +', '+ obj[i].alias +', '+ obj[i].keyword +', '+ obj[i].author +', '+ obj[i].source +', '+ obj[i].saleprice +', '+ obj[i].price +', '+ obj[i].noteprice +', '+ obj[i].discountpercent +', '+ obj[i].pricepromotion +', '+ obj[i].imageid +', '+ obj[i].imagepath +', '+ obj[i].fileid +', '+ obj[i].filepath +', '+ obj[i].groupkeys +', '+ obj[i].viewcount +', '+ obj[i].position +', '+ obj[i].status +', '+ obj[i].temp +', '+ obj[i].statusdate +', '+ obj[i].statusby +', '+ obj[i].updateddate +', '+ obj[i].noted +')');
+		   }
+		   
+		   tx.executeSql('SELECT * FROM media', [], function (tx, results) {
+				var len = results.rows.length, i;
+				
+				msg = "<p>Found rows: " + len + "</p>";
+				document.querySelector('#resulttable').innerHTML +=  msg;
+				for (i = 0; i < len; i++){
+					msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+					document.querySelector('#resulttable').innerHTML +=  msg;
+				}
+			}, null);
+		});
+		
+		db.transaction(function (tx) {
+			
+		});
+	}
 	this.loadProduct = function(url)
 	{
 		//$('#showsanpham').html(loading);
@@ -118,6 +148,39 @@ function Product()
 		url += "&page=" + Number(control.getParam("page",control.getUrl()));
 		return url
 	}
+	this.showDanhMuc = function()
+	{
+		$('body').append('<div id="showdanhmuc" style="display:none"></div>');
+		var eid = "#showdanhmuc";
+		$(eid).attr('title','Danh mục sản phẩm');
+			$(eid).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				close:function()
+				{
+					$(eid).remove();
+				},
+				buttons: {
+					
+					
+					'Đóng': function() 
+					{
+						
+						$( eid ).dialog( "close" );
+					},
+				}
+			});
+		
+			$(eid).dialog("open");
+			$(eid).html(loading);
+			$(eid).load("?route=module/product/productCat",function(){
+				
+			});
+	}
 	this.addToList = function(mediaid)
 	{
 		$.blockUI({ message: "<h1>Please wait...</h1>" }); 
@@ -151,6 +214,10 @@ function Product()
 				width: $(document).width()-100,
 				height: window.innerHeight,
 				modal: true,
+				close:function()
+				{
+					$(eid).remove();
+				},
 				buttons: {
 					'Xóa khỏi danh sách':function()
 					{
@@ -159,6 +226,11 @@ function Product()
                             pro.removeListItem(meidaid);
                         });
 						pro.viewListSelect();
+					},
+					'Lập báo giá':function()
+					{
+						//pro.baogiaForm('');
+						window.location = "?route=module/product/baogiaForm";
 					},
 					'Lập phiếu nhập kho':function()
 					{
@@ -182,6 +254,98 @@ function Product()
 			$(eid).load("?route=module/product/listProductSelected",function(){
 				
 			});
+	}
+	this.viewListBaoGia = function()
+	{
+		$('body').append('<div id="listbaogia" style="display:none"></div>');
+		var eid = "#listbaogia";
+		$(eid).attr('title','Danh sách báo giá');
+			$(eid).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				close:function()
+				{
+					$(eid).remove();
+				},
+				buttons: {
+					'Xóa':function()
+					{
+						var arr = new Array();
+						$('.rowselect').each(function(index, element) {
+							if(this.checked)
+							{
+								arr.push(this.value);
+							}
+						});
+						$.post("?route=module/product/delBaoGia",
+								{
+									arrbaogiaid:arr
+								},
+								function(data){
+									$(eid).html(loading);
+									$(eid).load("?route=module/product/listBaoGia");
+								});
+					},
+					'Lập báo giá':function()
+					{
+						
+						window.location = "?route=module/product/baogiaForm";
+					},
+					'Đóng': function() 
+					{
+						
+						$( eid ).dialog( "close" );
+					},
+				}
+			});
+		
+			$(eid).dialog("open");
+			$(eid).html(loading);
+			$(eid).load("?route=module/product/listBaoGia",function(){
+				
+			});
+	}
+	this.viewBaoGia = function(baogiaid)
+	{
+		$('body').append('<div id="baogiaview" style="display:none"></div>');
+		var eid = "#baogiaview";
+		$(eid).attr('title','Danh sách báo giá');
+			$(eid).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: 1000,
+				height: window.innerHeight,
+				modal: true,
+				close:function()
+				{
+					$(eid).remove();
+				},
+				buttons: {
+					'In':function()
+					{
+						openDialog("?route=module/product/viewBaoGia&baogiaid="+baogiaid+"&opendialog=print",800,500)
+					},
+					'Chỉnh sửa':function()
+					{
+						
+						window.location = "?route=module/product/baogiaForm&baogiaid="+baogiaid;
+					},
+					'Đóng': function() 
+					{
+						
+						$( eid ).dialog( "close" );
+					},
+				}
+			});
+		
+			$(eid).dialog("open");
+			$(eid).html(loading);
+			$(eid).load("?route=module/product/viewBaoGia&baogiaid="+baogiaid);
 	}
 	this.enterGroup = function(mediaid)
 	{
@@ -434,7 +598,7 @@ var pro = new Product();
 $(document).ready(function(e) {
     //$('#showdanhmuc').load('?route=module/product/productCat');
 	pro.page = Number(control.getParam("page",control.getUrl()));
-	
+		
 	pro.searchForm();
 	//console.log("aa");
 	$('#btnSearch').click(function(e) {
