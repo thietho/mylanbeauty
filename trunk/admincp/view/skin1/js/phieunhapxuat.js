@@ -95,6 +95,10 @@ function PhieuNhapXuat()
 		});
 		$('#sumsoluong').html(formateNumber(sum));
 	}
+	this.printPX = function(listid)
+	{
+		openDialog("?route=quanlykho/phieuxuat/printlist&listid="+listid+"&opendialog=print",800,500)
+	}
 	this.viewPX = function(id)
 	{
 		var eid = "popupviewphieu";
@@ -104,7 +108,7 @@ function PhieuNhapXuat()
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 900,
+			width: 1000,
 			height: window.innerHeight,
 			modal: true,
 			close:function()
@@ -116,6 +120,11 @@ function PhieuNhapXuat()
 				'In':function()
 				{
 					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print",800,500)
+					
+				},
+				'In giảm giá':function()
+				{
+					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print&show=giamgia",800,500)
 					
 				},
 				'Đóng': function() 
@@ -142,7 +151,7 @@ function PhieuNhapXuat()
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 900,
+			width: 1000,
 			height: window.innerHeight,
 			modal: true,
 			close:function()
@@ -154,6 +163,11 @@ function PhieuNhapXuat()
 				'In':function()
 				{
 					openDialog("?route=quanlykho/phieunhap/view&id="+id+"&opendialog=print",800,500)
+					
+				},
+				'In giảm giá':function()
+				{
+					openDialog("?route=quanlykho/phieunhap/view&id="+id+"&opendialog=print&show=giamgia",800,500)
 					
 				},
 				'Đóng': function() 
@@ -220,6 +234,22 @@ function PhieuNhapXuat()
 	this.save = function(type)
 	{
 		
+	}
+	this.getProbyMediaId = function(str)
+	{
+		
+		arr = str.split("-");
+		$.getJSON("?route=core/media/getMedia&col=mediaid&val="+encodeURI(arr[0]),function(data)
+		{			
+			var giagiam = 0;
+			if(data.medias[0].pricepromotion > 0)
+			{
+				giagiam = data.medias[0].price - data.medias[0].pricepromotion;
+			}
+			objdl.addRow(0,data.medias[0].mediaid,data.medias[0].code,data.medias[0].productName,1,data.medias[0].madonvi,data.medias[0].price,giagiam,data.medias[0].discountpercent);
+			//alert($('#txt_ref').val());
+			$('#txt_ref').val('');
+		});
 	}
 }
 

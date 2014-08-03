@@ -354,7 +354,7 @@ function callAtt(pos)
               		<?php if($hasSummary) {?>
                     <p>
                         <label><?php echo $entry_summary?></label><br>
-                        <textarea class="text" rows="3" cols="70" id="summary" name="summary"><?php echo $post['summary']?></textarea>
+                        <textarea class="text editor" rows="3" cols="70" id="summary" name="summary"><?php echo $post['summary']?></textarea>
 <script language="javascript">
 $(document).ready(function(e) {
     setCKEditorType('summary',2);
@@ -431,7 +431,7 @@ $(document).ready(function(e) {
                 
             	<div>
                 	<p>
-                        <textarea name="description" id="description" ><?php echo $post['description']?></textarea>
+                        <textarea name="description" id="description" class="editor"><?php echo $post['description']?></textarea>
                     </p>
                 </div>
             </div>
@@ -583,7 +583,7 @@ function removeSubInfor(mediaid)
 </script>
 <script language="javascript">
 $(document).ready(function() { 
-	setCKEditorType('sub_description',2);
+	//setCKEditorType('sub_description',2);
 	$("#subinforlist").load("?route=core/postcontent/loadSubInfor&mediaid="+$("#mediaid").val());
 })
 </script>
@@ -694,9 +694,7 @@ function save()
 
 
 $(document).ready(function() { 
-	
-	
-	$('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
+	$('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });	
 	
 });
 </script>

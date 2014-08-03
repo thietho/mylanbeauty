@@ -31,25 +31,38 @@
                         </select>
                         
                     </p>
-                    <p id="f-NK-KHTL" class="nhapxuat">
-                        <label>Khách hàng</label><br />
-                        <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>" >
-                        <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $item['tenkhachhang']?>" class="text" size=60 />
-                        <input type="button" class="button" id="btnSelectKhachHang" value="Chọn khách hàng" />
-                    </p>
-                    <p id="f-NK" class="nhapxuat">
-                        <label>Nhà cung cấp</label><br />
-                        <span id="nhacungcapview"><?php echo $item['tennhacungcap']?></span>
-                        <input type="hidden" id="nhacungcapid" name="nhacungcapid" value="<?php echo $item['nhacungcapid']?>">
-                        <input type="hidden" id="tennhacungcap" name="tennhacungcap" value="<?php echo $item['tennhacungcap']?>">
-                        <input type="button" class="button" id="btnSeleteNhaCungCap" value="Chọn nhà cung cấp">
-                        
-                    </p>
-                    <p>
-                        <label>Người giao</label><br />
-                        <input type="text" id="nguoigiao" name="nguoigiao" value="<?php echo $item['nguoigiao']?>" class="text" size=60 />
-                        
-                    </p>
+                    <div id="f-NK-KHTL" class="nhapxuat">
+                        <p>
+                            <label>Khách hàng</label><br />
+                            <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>" >
+                            <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $item['tenkhachhang']?>" class="text" size=60 />
+                            <input type="button" class="button" id="btnSelectKhachHang" value="Chọn khách hàng" />
+                        </p>
+                        <p>
+                            <label>Điện thoại</label><br />
+                            <input type="text" id="dienthoai" name="dienthoai" value="<?php echo $item['dienthoai']?>" class="text" size=60 />
+                        </p>
+                        <p>
+                            <label>Địa chỉ</label><br />
+                            <input type="text" id="diachi" name="diachi" value="<?php echo $item['diachi']?>" class="text" size=60 />
+                        </p>
+                    </div>
+                    <div id="f-NK" class="nhapxuat">
+                    	<p>
+                            <label>Nhà cung cấp</label><br />
+                            <span id="nhacungcapview"><?php echo $item['tennhacungcap']?></span>
+                            <input type="hidden" id="nhacungcapid" name="nhacungcapid" value="<?php echo $item['nhacungcapid']?>">
+                            <input type="hidden" id="tennhacungcap" name="tennhacungcap" value="<?php echo $item['tennhacungcap']?>">
+                            <input type="button" class="button" id="btnSeleteNhaCungCap" value="Chọn nhà cung cấp">
+                            
+                        </p>
+                        <p>
+                            <label>Người giao</label><br />
+                            <input type="text" id="nguoigiao" name="nguoigiao" value="<?php echo $item['nguoigiao']?>" class="text" size=60 />
+                            
+                        </p>
+                    </div>
+                    
                     <p>
                         <label>Người nhận</label><br />
                         <input type="hidden" id="nguoinhanid" name="nguoinhanid" value="<?php echo $item['nguoinhanid']?>" value="<?php echo $item['nguoinhanid']?>">
@@ -95,6 +108,12 @@
                         </tbody>
                         <tfoot>
                         	<tr>
+                            	<td colspan="8">
+                                	<input type="text" id="txt_ref" class="text" size="100"/>
+                                    
+                                </td>
+                            </tr>
+                        	<tr>
                                 
                                 <td></td>
                                 <td></td>
@@ -132,6 +151,28 @@
                                 <td class="number">Thanh toán</td>
                                 <td class="number"><input type="text" class="text number"  id="thanhtoan" name="thanhtoan" value="<?php echo $this->string->numberFormate($item['thanhtoan'])?>"/></td>
                                 <td><input type="button" class="button" id="btnTrahet" value="Trả hết"/></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="number">Ngày thanh toán</td>
+                                <td class="number">
+                                	<input type="text" class="text"  id="ngaythanhtoan" name="ngaythanhtoan" value="<?php echo $this->date->formatMySQLDate($item['ngaythanhtoan'])?>"/>
+                                    <script language="javascript">
+										$(function() {
+											$("#ngaythanhtoan").datepicker({
+													changeMonth: true,
+													changeYear: true,
+													dateFormat: 'dd-mm-yy'
+													});
+											});
+									 </script>
+                                </td>
+                                <td></td>
                             </tr>
                             <tr>
                                 
@@ -190,7 +231,7 @@ $('#btnSelectKhachHang').click(function(e) {
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 900,
+			width: 1000,
 			height: window.innerHeight,
 			modal: true,
 		});
@@ -275,7 +316,7 @@ $('#btnSeleteNhaCungCap').click(function(e) {
 			autoOpen: false,
 			show: "blind",
 			hide: "explode",
-			width: 900,
+			width: 1000,
 			height: window.innerHeight,
 			modal: true,
 		});
@@ -329,7 +370,7 @@ function savephieu(type)
 							autoOpen: false,
 							show: "blind",
 							hide: "explode",
-							width: 900,
+							width: 1000,
 							height: window.innerHeight,
 							modal: true,
 							close: function(ev, ui){
@@ -391,6 +432,75 @@ var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
 $(document).ready(function(e) {
     $('#phieunhapxuat').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
 	$('#loaiphieu').change();
+});
+$(function() {
+	var cache = {};
+	$( "#txt_ref" ).autocomplete({
+		minLength: 2,
+		select: function( event, ui ) {
+			//console.log(ui.item.id);
+			objdl.getProbyMediaId(ui.item.id);
+			/*var obj = ui.item.data
+			var giagiam = 0;
+			if(obj.pricepromotion > 0)
+			{
+				giagiam = obj.price - obj.pricepromotion;
+			}
+			objdl.addRow('',obj.mediaid,obj.code,obj.productName,1,obj.unit,obj.price,giagiam,obj.discountpercent);
+			setTimeout("$('#txt_ref').val('')",1000);*/
+		},
+		source: function( request, response ) {
+		var term = request.term;
+		if ( term in cache ) {
+			response( cache[ term ] );
+			return;
+		}
+		$.getJSON( "?route=core/media/getProduct", request, function( data, status, xhr ) {
+			cache[ term ] = data;
+			response( data );
+			});
+		}
+	});
+	$("#tenkhachhang").autocomplete({
+		minLength: 2,
+		select: function( event, ui ) {
+			//console.log(ui.item.id);
+			//objdl.getProbyMediaId(ui.item.id);
+			//alert(ui.item.data.fullname);
+			$('#khachhangid').val(ui.item.id);
+			$('#dienthoai').val(ui.item.data.phone);
+			$('#diachi').val(ui.item.data.address);
+		},
+		source: function( request, response ) {
+		var term = request.term;
+		if ( term in cache ) {
+			response( cache[ term ] );
+			return;
+		}
+		$.getJSON( "?route=core/member/getMember", request, function( data, status, xhr ) {
+			cache[ term ] = data;
+			response( data );
+			});
+		}
+	});
+	$("#nguoinhan").autocomplete({
+		minLength: 2,
+		select: function( event, ui ) {
+			$('#nguoinhanid').val(ui.item.id);
+			$('#nguoinhan').val(ui.item.value);
+		},
+		source: function( request, response ) {
+		var term = request.term;
+		if ( term in cache ) {
+			response( cache[ term ] );
+			return;
+		}
+		$.getJSON( "?route=quanlykho/nhanvien/getNhanVienByName", request, function( data, status, xhr ) {
+			cache[ term ] = data;
+			response( data );
+			});
+		}
+	});
 });
 </script>
 
