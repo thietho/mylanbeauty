@@ -403,6 +403,10 @@ input.ben-button:active {border-style: inset;}
 	position:absolute;
 	
 }
+.support-title
+{
+	width:300px;	
+}
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
