@@ -370,14 +370,14 @@ input.ben-button:active {border-style: inset;}
 #ben-body
 {
 	margin: 0 auto;
-	width: 1262px;	
-	background:url(../image/bg-body.png) repeat-x;
+	
+	background:url(../image/bg-body.png) no-repeat top center;
 }
 #ben-bottom
 {
 	margin: 0 auto;
-	width: 1262px;	
-	background:url(../image/bg-bottom.png) repeat-x;
+	
+	background:url(../image/bg-bottom.png) no-repeat bottom center;
 }
 
 #ben-main {
