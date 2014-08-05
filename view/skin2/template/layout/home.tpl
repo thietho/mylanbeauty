@@ -101,7 +101,7 @@ var loading = '<center id="loading"><img src="<?php echo DIR_IMAGE?>loading.gif"
 </script>
 
 
-<body>
+<body onload="fixlayout();">
 
 <div style="display:none"><?php echo $meta_keyword?></div>
 <div id="ben-body">

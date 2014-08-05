@@ -382,7 +382,9 @@ input.ben-button:active {border-style: inset;}
 
 #ben-main {
 	margin: 0 auto;
-	width: 1000px;
+	/*max-width: 1000px;
+	min-width: 790px;*/
+	width:1000px
 }
 
 
@@ -393,14 +395,14 @@ input.ben-button:active {border-style: inset;}
 /* Header */
 #ben-header 
 {
-	padding:5px;
-	height:200px;
+	background:url(../image/logo.png) no-repeat;
+	height:266px;
 }
 
 #ben-header-support
 {
 	margin-left:680px;	
-	position:absolute;
+	
 	
 }
 .support-title
@@ -410,12 +412,12 @@ input.ben-button:active {border-style: inset;}
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
-	width: 1000px;
+	
 	padding-bottom: 0px;
 }
 #ben-mainmenu
 {
-	margin-left:300px;
+	text-align:right;
 }
 #ben-mainmenu a
 {
@@ -444,9 +446,7 @@ input.ben-button:active {border-style: inset;}
 /* Main Level 1 */
 .ben-navigation
 {
-	position:absolute;
-	margin-left:240px;
-	margin-top:159px;
+	margin-top:20px;
 	background:url(../image/bg-menumain.png) repeat-x;
 	width:755px;
 }
@@ -539,7 +539,7 @@ display:block;
 /*---------- BODY AREA ------------*/
 #ben-content 
 {
-	width:1000px;
+	margin-top:-66px;
 	
 }
 
@@ -548,7 +548,7 @@ display:block;
 .ben-three-columns #ben-maincontent
 {
 	width:785px; 
-	margin-left:5px;
+	
 	
 }
 .ben-three-columns-right #ben-maincontent{width:520px; margin-right:20px}
@@ -556,7 +556,7 @@ display:block;
 
 /* Sidebar */
 #ben-sidebar{} /*Div chua 2 sidebar*/
-.ben-sidebar{width:210px;background:#FFF;}
+.ben-sidebar{width:210px;}
 
 
 /* Columns */
@@ -648,7 +648,7 @@ display:block;
 	color: #000;
 	
 	margin:0 auto;
-	width:1000px;
+	
 	height:110px;
 	font-size:1.2em;
 }
@@ -813,5 +813,6 @@ ul#menu li ul li div:hover {
 }
 #ben-promotion
 {
-	position:absolute;width:755px;text-align:center;margin-top:60px;margin-left:240px;
+	text-align:right;
+	margin-top:20px;
 }

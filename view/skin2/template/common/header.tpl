@@ -1,8 +1,6 @@
 <div id="ben-header">
     <div id="ben-top">
-    	<div class="ben-left" id="ben-logo">
-            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="mylanbeauty.net" />
-        </div>
+    	
         <div id="ben-mainmenu">
         	<a href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a>
             | <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
@@ -31,7 +29,7 @@
         <div id="ben-promotion">
         	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>promotion.png" alt="GIẢM ĐẾN 50% (Cam kết bán hàng chính hãng 100%)" />
         </div>
-        <div class="ben-navigation">
+        <div class="ben-navigation ben-right">
     
             <ul id="ben-main-nav">
             	
@@ -42,7 +40,7 @@
             <div class="clearer">&nbsp;</div>
     
         </div>
-        
+        <div class="clearer">&nbsp;</div>
     </div>
 </div>
 
