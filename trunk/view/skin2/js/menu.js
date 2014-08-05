@@ -9,18 +9,5 @@ $(" #ben-main-nav li").hover(function(){
 
 $(document).ready(function(){					
 	mainmenu();
-	fixlayout();
-});
-$(function(){
 	
-	$(window).resize(function(e) {
-		fixlayout();
-    });	
 });
-function fixlayout()
-{
-	if($(this).width()<1000)
-		$('.ben-sidebar').hide();
-	else
-		$('.ben-sidebar').show();
-}

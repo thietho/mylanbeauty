@@ -301,7 +301,12 @@ function numberMod()
 	});
 }
 $(document).ready(function(){
-	numberMod()		   
+	numberMod();
+	
+	$(window).resize(function(e) {
+		fixlayout();
+    });
+		   
 });
 
 function printObject(o) {
@@ -349,4 +354,19 @@ function toPhpTime(time)
 	
 	var s= d.getFullYear()+"-"+ numToString(d.getMonth() + 1 ,2) +"-"+ numToString(d.getDate(),2)+ " "+ d.getHours()+":"+ d.getMinutes()+":"+d.getSeconds();
 	return s;
+}
+
+function fixlayout()
+{
+	//alert($('body').width());
+	/*if($('body').width()<1000)
+	{
+		$('.ben-sidebar').hide();
+		//$('#ben-logo img').css('height','100px');
+	}
+	else
+	{
+		$('.ben-sidebar').show();
+	}*/
+	
 }

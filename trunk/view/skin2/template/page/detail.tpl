@@ -6,7 +6,7 @@
         <?php } ?>
     </div>
     <?php }?>
-	<div class="ben-left" id="ben-maincontent">
+	<div class="ben-right" id="ben-maincontent">
     	<div class="ben-section">
         
         	<div class="ben-section-title"><?php echo $brand?></div>
