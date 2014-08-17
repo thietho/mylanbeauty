@@ -17,7 +17,7 @@ class ControllerAddonBrand extends Controller
 		
 		if($categoryid=="")
 		{
-			$arr = split("-",$this->request->get['id']);
+			@$arr = split("-",$this->request->get['id']);
 			$categoryid = $arr[0];
 			$sitemapid = $arr[1];
 		}
