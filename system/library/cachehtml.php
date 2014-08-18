@@ -52,7 +52,7 @@ final class Cachehtml {
 
   	public function set($key, $value) {
 		
-    	$key = eregi_replace('[/]', '_', $key);
+    	@$key = eregi_replace('[/]', '_', $key);
 		
 		if (!is_dir(DIR_CACHEHTML))
 			mkdir( DIR_CACHEHTML , 0777 );

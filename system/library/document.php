@@ -185,7 +185,7 @@ final class Document {
 			$productname .= " ".$media['sizes'];
 		if($media['color'])
 			$productname .= " ".$media['color'];
-		return $productname;	
+		return $productname;
 		
 	}
 	public function getNhanVien($id,$name = 'hoten')
@@ -215,7 +215,14 @@ final class Document {
 		$query = $this->db->query($sql);
 		return $query->row[$name];
 	}
-	
+	public function getCustomer($id,$name = 'fullname')
+	{
+		$sql = "Select `user`.* 
+									from `user` 
+									where id ='".$id."' ";
+		$query = $this->db->query($sql);
+		return $query->row[$name];
+	}
 	public function getModule($id,$name = 'modulename')
 	{
 		$query = $this->db->query("Select `module`.* 
@@ -302,13 +309,13 @@ final class Document {
 	public function getPara()
 	{
 		$uri = $_SERVER['REQUEST_URI'];
-		$arr = split("\?",$uri);
+		@$arr = split("\?",$uri);
 		
-		$listpara = split("&",$arr[1]);
+		@$listpara = split("&",$arr[1]);
 		$para = array();
 		foreach($listpara as $val)
 		{
-			$ar = split("=",$val);	
+			@$ar = split("=",$val);	
 			$para[$ar[0]] = $ar[1];
 		}
 		return $para;
