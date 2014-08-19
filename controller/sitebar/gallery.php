@@ -26,6 +26,7 @@ class ControllerSitebarGallery extends Controller
 								  );
 						  
 			$arrbrandid = array(
+								"Guerlain",
 								"Sisley",
 								"Chanel",
 								"Dior",
@@ -47,7 +48,7 @@ class ControllerSitebarGallery extends Controller
 				$this->data['views'][$brandid]['logo'] = HelperImage::resizePNG($media['imagepath'],190,190);
 				$this->data['views'][$brandid]['title'] = $this->document->getCategory($brandid);
 				$this->data['views'][$brandid]['link'] = $this->document->createLink('brand',$brandid);
-				$this->data['views'][$brandid]['data'] = $this->loadModule('module/productlist','getAll',$arr);
+				//$this->data['views'][$brandid]['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			}
 		}
 		
