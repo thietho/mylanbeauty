@@ -33,7 +33,7 @@ class ControllerAddonProduct extends Controller
 		$where = " AND mediatype = 'module/product' AND mediaparent = ''";
 		if($keyword !="")
 		{
-			$arrkey = split(' ', $keyword);
+			@$arrkey = split(' ', $keyword);
 			$arr = array();
 			$arrcode = array();
 			$arrbarcode = array();
