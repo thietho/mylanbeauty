@@ -1,0 +1,36 @@
+/*default CSS for SAG scroller*/
+
+.sagscroller{
+width: 190px; /*width of scroller*/
+height:500px;
+overflow:hidden;
+position:relative;
+}
+
+.sagscroller a{
+font-weight:bold;
+}
+
+.sagscroller ul{
+position:absolute;
+margin:0;
+padding:0;
+background:white;
+list-style:none;
+width: 100%;
+}
+
+.sagscroller ul li{
+display:block;
+}
+
+.sagscroller ul li .rsscontent{ /*div containing body of each RSS entry*/
+font-size:90%;
+}
+
+.sagscroller ul li .rsslabel{ /*div containing label of each RSS entry*/
+margin-top:5px;
+background: #eee;
+font-size:12px;
+clear: both;
+}
