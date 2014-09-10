@@ -1,30 +1,4 @@
-<style>
-.ben-brand
-{
-	list-style-type:none;	
-}
-.ben-brand li
-{
-	float:left;	
-	
-}
-.ben-subbrand
-{
-	list-style-type:none;
-	display:none;
-	position:absolute;	
-	background:#000000;
-	z-index:10;
-}
-.ben-space
-{
-	margin:6px;	
-}
-.ben-subbrand li
-{
-	float:none;	
-}
-</style>
+
 <ul class="ben-brand">
 <?php foreach($datas as $key => $item){?>
 	<?php if($item['parent'] == "nhanhieu"){ ?>

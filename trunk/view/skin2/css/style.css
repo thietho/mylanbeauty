@@ -462,7 +462,7 @@ z-index:100;
 
 #ben-main-nav a{
 display:block;
-padding: 5px 0px 5px 11px;
+padding: 5px 0px 5px 8px;
 color:#000;
 text-decoration:none;
 text-transform:uppercase;
@@ -502,7 +502,32 @@ margin-left:0px;
 height:auto;
 float:left;
 }
+.ben-space
+{
+	margin:3px;	
+}
+.ben-brand
+{
+	list-style-type:none;	
+}
+.ben-brand li
+{
+	float:left;	
+	
+}
+.ben-subbrand
+{
+	list-style-type:none;
+	display:none;
+	position:absolute;	
+	background:#000000;
+	z-index:10;
+}
 
+.ben-subbrand li
+{
+	float:none;	
+}
 #ben-main-nav ul ul{
 top:auto;
 }	
