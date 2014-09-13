@@ -160,7 +160,7 @@ class ControllerModulePagedetail extends Controller
 		$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
 		$listfileid=array();
 		if($listfile)
-			$listfileid=split(",",$listfile);
+			@$listfileid=split(",",$listfile);
 			
 		array_unshift($listfileid,$this->data['post']['imagepath']);
 		
