@@ -12,8 +12,8 @@ class ModelAddonRequest extends Model
 							'note',
 							'attachments',
 							'datesend',
-							'status'
-							
+							'status',
+							'reply'
 							);
 	public function getItem($id)
 	{
