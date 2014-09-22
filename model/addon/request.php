@@ -5,8 +5,10 @@ class ModelAddonRequest extends Model
 							
 							'fullname',
 							'phone',
+							'address',
 							'skinstatus',
 							'birthday',
+							'cosused',
 							'coscur',
 							'unknownorigin',
 							'note',

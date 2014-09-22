@@ -4,15 +4,22 @@
     	<div id="error" class="ben-error" style="display:none"></div>
     	<table>
         	<tr>
-            	<td width="40%"><label>Họ và tên</label> <input type="text" id="fullname" name="fullname" class="ben-textbox"></td>
-                <td><label>Số điện thoại</label> <input type="text" id="phone" name="phone" class="ben-textbox"></td>
+            	<td width="40%"><label>Họ và tên</label> <input type="text" id="fullname" name="fullname" class="ben-textbox" style="width:75%"></td>
+                <td><label>Số điện thoại</label> <input type="text" id="phone" name="phone" class="ben-textbox" style="width:80%"></td>
+            </tr>
+            <tr>
+            	<td colspan="2">
+                	<label>Địa chỉ</label>
+                    <input type="text" id="address" name="address" class="ben-textbox" style="width:100%">
+                </td>
+                
             </tr>
             <tr>
             	<td colspan="2">
                 	<label>Tình trạng da</label>
                     <p>
                         <?php foreach($skinstatus as $status){ ?>
-                        <div class="ben-left" style="width:25%"><input type="checkbox" name="skinstatus" value="<?php echo $status?>"><?php echo $status?></div>
+                        <div class="ben-left" style="width:25%"><input type="checkbox" name="skinstatus[]" value="<?php echo $status?>"><?php echo $status?></div>
                         <?php } ?>
                         <div class="clearer">&nbsp;</div>
                     </p>
@@ -22,6 +29,15 @@
            	<tr>
             	<td>
                 	<label>Ngày sinh</label>
+                    <script language="javascript">
+						$(function() {
+							$("#birthday").datepicker({
+									changeMonth: true,
+									changeYear: true,
+									dateFormat: 'dd-mm-yy'
+									});
+							});
+					 </script>
                     <input type="text" id="birthday" name="birthday" class="ben-textbox">
                 </td>
                 <td>
@@ -34,13 +50,6 @@
             	<td colspan="2">
                 	<label>Mỹ phẩm đã từng dùng</label>
                     <input type="text" id="cosused" name="cosused" class="ben-textbox" style="width:100%">
-                </td>
-                
-            </tr>
-            <tr>
-            	<td colspan="2">
-                	<label>Mỹ phẩm đã từng dùng</label>
-                    <input type="text" id="coscur" name="coscur" class="ben-textbox" style="width:100%">
                 </td>
                 
             </tr>
@@ -75,15 +84,14 @@
 </div>
 <div class="clearer">&nbsp;</div>
 <script language="javascript">
-$("#btnActive").click(function(){
+$("#btnSend").click(function(){
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 	
-	$.post("<?php echo HTTP_SERVER?>?route=addon/active/active", $("#frmRequest").serialize(),
+	$.post("<?php echo HTTP_SERVER?>?route=addon/request/send", $("#frmRequest").serialize(),
 		function(data){
 			if(data == "true")
 			{
-				alert("Bạn đã kích hoạt tài khoản thành công!");
-				window.location = "<?php echo $this->document->createLink('login')?>";
+				
 			}
 			else
 			{
