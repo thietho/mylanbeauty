@@ -6,7 +6,7 @@ class ControllerAddonRequest extends Controller
 	{
 		
 		$this->document->breadcrumb .= " » Yêu cầu tư vấn";
-		$this->document->title .= $this->document->breadcrumb;
+		$this->document->title .= " » Yêu cầu tư vấn";
 		$this->data['skinstatus'] = array("Khô","Dầu","Nhại cảm","Hổn hợp dầu","Hổn hợp khô","Da yếu","Da mụn","Da mỏng");
 		$this->id="content";
 		$this->template="addon/request.tpl";

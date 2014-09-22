@@ -6,7 +6,7 @@ class ModelAddonRequest extends Model
 							'fullname',
 							'phone',
 							'skinstatus',
-							'birthyear',
+							'birthday',
 							'coscur',
 							'unknownorigin',
 							'note',

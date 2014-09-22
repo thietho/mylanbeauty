@@ -1,5 +1,5 @@
 <div>
-	<h1><center>CHĂM SÓC KHÁCH HÀNG</center></h1>
+	<h1><center>TƯ VẤN CHĂM SÓC DA</center></h1>
 	<form id="frmRequest" method="post">
     	<div id="error" class="ben-error" style="display:none"></div>
     	<table>
@@ -21,14 +21,28 @@
             </tr>
            	<tr>
             	<td>
-                	<label>Năm sinh</label>
-                    <input type="text" id="birthyear" name="birthyear" class="ben-textbox">
+                	<label>Ngày sinh</label>
+                    <input type="text" id="birthday" name="birthday" class="ben-textbox">
                 </td>
                 <td>
-                	<label>Đã từng dùng qua mỹ phẩm không rỏ nguồn góc</label>
+                	<label>Đã sử dụng qua kem đặc/kem làm trắng nhanh</label>
                     <input type="radio" id="unknownorigin" name="unknownorigin" value="1"> Có
                     <input type="radio" id="unknownorigin" name="unknownorigin" value="0"> Không
                 </td>
+            </tr>
+            <tr>
+            	<td colspan="2">
+                	<label>Mỹ phẩm đã từng dùng</label>
+                    <input type="text" id="cosused" name="cosused" class="ben-textbox" style="width:100%">
+                </td>
+                
+            </tr>
+            <tr>
+            	<td colspan="2">
+                	<label>Mỹ phẩm đã từng dùng</label>
+                    <input type="text" id="coscur" name="coscur" class="ben-textbox" style="width:100%">
+                </td>
+                
             </tr>
             <tr>
             	<td colspan="2">
