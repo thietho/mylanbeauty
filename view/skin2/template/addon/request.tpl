@@ -70,6 +70,7 @@
             	<td colspan="2">
                 	<label>Đính kèm file</label>
                     <input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
+                    <div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div>
                 </td> 
             </tr>
             <tr>
@@ -83,6 +84,65 @@
     </form>
 </div>
 <div class="clearer">&nbsp;</div>
+<script language="javascript">
+$(function () {
+    $('#fileupload').fileupload({
+		// Uncomment the following to send cross-domain cookies:
+		//xhrFields: {withCredentials: true},
+		url: '?route=common/uploadfile&folder=' + encodeURI(file.path.join("/")),
+        dataType: 'json',
+		/*add: function (e, data) {
+			//alert(data.files[0].name)
+			var t =posk++;
+			
+			var str = '<tr>';
+			str += '<td>'+data.files[0].name+'</td>';
+			str += '<td id="btn'+t+'"></td>';
+			str += '<td><div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div></td>';
+			str += '</tr>'
+			$('#listfile').append(str);
+            data.context = $('<button class="btnUpload" id="up'+t+'" ref="'+t+'"/>').text('Upload')
+                .appendTo($('#btn'+t))
+                .click(function () {
+					cur = t;
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },*/
+        done: function (e, data) {
+            /*$.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });*/
+			/*var fileid = response.files[i].imageid;
+				var folderid = $('#folderidcur').val();
+			$.get("?route=core/file/updateFolder&fileid="+fileid+"&folderid="+folderid,
+				function(){
+					 file.showList("?route=core/file/getList&folderid="+folderid);
+				});*/
+			
+			file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
+        },
+		progressall: function (e, data) {
+			//showProgress(cur,e, data)
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('.bar').html(progress+"%");
+			$('.progress .bar').css(
+				'width',
+				progress + '%'
+			);
+		}
+    });
+});
+function showProgress(id,e, data)
+{
+	var progress = parseInt(data.loaded / data.total * 100, 10);
+	$('#progress'+cur+' .bar').css(
+				'width',
+				progress + '%'
+	);
+}
+</script>
+
 <script language="javascript">
 $("#btnSend").click(function(){
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 

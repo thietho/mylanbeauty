@@ -4,7 +4,7 @@ class ControllerAddonRequest extends Controller
 	private $error = array();
 	public function index()
 	{
-		
+		print_r($_SESSION);
 		$this->document->breadcrumb .= " » Yêu cầu tư vấn";
 		$this->document->title .= " » Yêu cầu tư vấn";
 		$this->data['skinstatus'] = array("Khô","Dầu","Nhại cảm","Hổn hợp dầu","Hổn hợp khô","Da yếu","Da mụn","Da mỏng");
@@ -22,6 +22,7 @@ class ControllerAddonRequest extends Controller
 			$this->load->model("addon/request");
 			$data['birthday'] = $this->date->formatViewDate($data['birthday']);
 			$data['skinstatus'] = $this->string->arrayToString($data['skinstatus']);
+			$data['datesend'] = $this->date->getToday();
 			$data['id'] = $this->model_addon_request->save($data);
 			print_r($data);
 		}
