@@ -1,3 +1,16 @@
+<style>
+.progress
+{
+	width:100%;	
+	
+}
+.bar {
+    height: 18px;
+    background: green;
+	text-align:center;
+}
+</style>
+
 <div>
 	<h1><center>TƯ VẤN CHĂM SÓC DA</center></h1>
 	<form id="frmRequest" method="post">
@@ -89,7 +102,7 @@ $(function () {
     $('#fileupload').fileupload({
 		// Uncomment the following to send cross-domain cookies:
 		//xhrFields: {withCredentials: true},
-		url: '?route=common/uploadfile&folder=' + encodeURI(file.path.join("/")),
+		url: '?route=common/uploadfile&folder=test',
         dataType: 'json',
 		/*add: function (e, data) {
 			//alert(data.files[0].name)
@@ -120,7 +133,7 @@ $(function () {
 					 file.showList("?route=core/file/getList&folderid="+folderid);
 				});*/
 			
-			file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
+			file.showList("?route=core/file/getList&folder=test");
         },
 		progressall: function (e, data) {
 			//showProgress(cur,e, data)
