@@ -13,8 +13,8 @@ class ControllerPageHome extends Controller
 	public function index()
 	{
 		//print_r($this->string->browser_info());
-		$this->destop();
-		//$this->mobile();
+		//$this->destop();
+		$this->mobile();
 	}
 	public function mobile()
 	{
