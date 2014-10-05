@@ -84,7 +84,7 @@ class ControllerAddonProduct extends Controller
 		}
 		if($gia)
 		{
-			$arrgia = split("-",$datasearch['gia']);
+			@$arrgia = split("-",$datasearch['gia']);
 			$giatu = (int)$arrgia[0];
 			$giaden = (int)$arrgia[1];
 			$whereprice=" AND mediatype = 'module/product'";
