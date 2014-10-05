@@ -23,7 +23,7 @@
             <td width="50px"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-menu.png"/></td>
             <td width="50px"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-cart.png" /></td>
             <td><input type="text" class="ben-textbox" id="keyword" name="keyword"/></td>
-            <td width="50px"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-search.png" /></td>
+            <td width="50px"><a  href="#"><img id="btnSearch" src="<?php echo HTTP_SERVER.DIR_IMAGE?>mobile/icon-search.png" /></a></td>
         </tr>
     </table>
 </div>

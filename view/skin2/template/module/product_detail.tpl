@@ -317,41 +317,27 @@ $("#ben-next").click(function(){
 <form id="frmComment">
 <input type="hidden" name="mediaid" value="<?php echo $post['mediaid']?>" />
 <div class="ben-post ben-comment">
-	<table>
-    	<tr>
-        	<td>
-            	<table>
-                	<tr>
-                    	<td>Họ tên:</td>
-                        <td><input type="text" class="ben-textbox" name="fullname" /></td>
-                    </tr>
-                    <tr>
-                    	<td>Đánh giá:</td>
-                        <td>
-                        	<select name="level" class="ben-textbox">
-                            	<option value="">Chưa đánh giá</option>
-                                <?php for($i=1;$i<=5;$i++){ ?>
-                                <option value="<?php echo $i?>"><?php echo $i?> sao</option>
-                                <?php } ?>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td>Email:</td>
-                        <td><input type="text" class="ben-textbox" name="email"/></td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-            	<table>
-                	<tr>
-                    	<td>Nội dung:</td>
-                        <td><textarea name="description" class="ben-textbox"></textarea></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+	<p>
+    	<label>Họ tên</label><br>
+        <input type="text" class="ben-textbox" name="fullname" />
+    </p>
+    <p>
+    	<label>Đánh giá</label><br>
+        <select name="level" class="ben-textbox">
+            <option value="">Chưa đánh giá</option>
+            <?php for($i=1;$i<=5;$i++){ ?>
+            <option value="<?php echo $i?>"><?php echo $i?> sao</option>
+            <?php } ?>
+        </select>
+    </p>
+    <p>
+    	<label>Email</label><br>
+        <input type="text" class="ben-textbox" name="email"/>
+    </p>
+    <p>
+    	<label>Nội dung</label><br>
+        <textarea name="description" class="ben-textbox"></textarea>
+    </p>
     <input type="button" class="ben-button ben-center" value="Gửi nhận xét" onclick="sendComment()"/>
 </div>
 </form>
