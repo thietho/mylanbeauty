@@ -447,7 +447,7 @@ input.ben-button:active {border-style: inset;}
 .ben-navigation
 {
 	margin-top:20px;
-	background:url(../image/bg-menumain.png) repeat-x;
+	
 	width:755px;
 }
 #ben-main-nav, #ben-main-nav ul{
@@ -653,7 +653,7 @@ display:block;
 	text-transform:uppercase;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;text-align:center;text-transform:uppercase;}
-#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:29px;}
+#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:29px;opacity:0.8}
 #ben-searchform select 
 {
 	width:186px;
