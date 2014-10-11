@@ -104,7 +104,20 @@ class ControllerPageHome extends Controller
 			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);*/
 			
 			
-			
+			$this->data['arrbrand'] = array(
+							"Sisley",
+							"Lancome",
+							"Clarins",
+							"Dior",
+							"EsteeLauder",
+							"Chanel",
+							
+							"Clinique",
+							"LOccitane",
+							"Shishedo",
+							"VictoriaSecrect",
+							"bathandbodyworks"
+							);
 					  
 			$this->load->model('core/sitemap');
 			$data_sitemap = array();
@@ -118,7 +131,7 @@ class ControllerPageHome extends Controller
 				}
 			}
 			
-			$this->loadBrand();
+			//$this->loadBrand();
 			$this->loadSiteBar();
 			
 		}
@@ -131,7 +144,7 @@ class ControllerPageHome extends Controller
 	
 	public function loadBrand()
 	{
-		$arrbrand = array(
+		/*$arrbrand = array(
 							"EsteeLauder",
 							"Lancome",
 							"Clarins",
@@ -149,7 +162,14 @@ class ControllerPageHome extends Controller
 			$arr = array("",$brand);
 			$this->data['producthome'][$brand]['title'] =$this->document->getCategory($brand);
 			$this->data['producthome'][$brand]['data'] = $this->loadModule('addon/brand','getList',$arr);
-		}
+		}*/
+		$brand = $this->request->get['brand'];
+		$arr = array("",$brand);
+		$this->data['output'] = "<h1>".$this->document->getCategory($brand)."</h1>";
+       	$this->data['output'] .= $this->loadModule('addon/brand','getList',$arr);
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
 	}
 	
 	public function loadGroup()
