@@ -1,49 +1,71 @@
-<div id="ben-header">
-    <div id="ben-top">
-    	<div class="ben-left" id="ben-logo">
-            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="mylanbeauty.net" />
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Sản phẩm">Sản phẩm <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                        	<li><a href="#">Action</a></li>
+                        	<li><a href="#">Another action</a></li>
+                        	<li><a href="#">Something else here</a></li>
+                        	<li class="divider"></li>
+                        	<li class="dropdown-header">Nav header</li>
+                        	<li><a href="#">Separated link</a> <span class="caret"></span></li>
+                        	<li><a href="#">One more separated link</a></li>
+                      	</ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức">Tin tức</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('lienhe')?>" title="Liên hệ">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
+            
+                    </li>
+                    <?php if(!$this->member->isLogged()){?>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>          
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('register')?>" title="Đăng ký">Đăng ký</a>          
+                    </li>
+                    <?php }else{ ?>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo $this->document->getUser($this->member->getUserName())?></a>          
+                    </li>
+                    <li>
+                        <a href="#" onclick="logout()" title="Đăng xuất">Đăng xuất</a>          
+                    </li>
+                    <?php }?>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div id="ben-mainmenu">
-        	<a href="<?php echo HTTP_SERVER?>" title="Trang chủ">Trang chủ</a>
-            | <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
-            | <a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức">Tin tức</a>
-            | <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
-            | <a href="<?php echo $this->document->createLink('lienhe')?>" title="Liên hệ">Liên hệ</a>
-            | <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
-            | <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
-            <?php if(!$this->member->isLogged()){?>
-            | <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>
-            | <a href="<?php echo $this->document->createLink('register')?>" title="Đăng ký">Đăng ký</a>
-            <?php }else{ ?>
-            | <a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo $this->document->getUser($this->member->getUserName())?></a>
-            | <a href="#" onclick="logout()" title="Đăng xuất">Đăng xuất</a>
-            <?php }?>
-    	</div>
-        <!--<div class="ben-left" id="ben-site-title">
-        	<h1>Website đang hoàng thiện <br />và tiếp tục cập nhật sản phẩm mới liên tục</h1>
-            <h1><?php echo $this->document->setup['Slogan']?></h1>
-        </div>-->
-        
-        <div id="ben-header-support" class="ben-right">
-        	<?php echo $supportonline?>
-        </div>
-        <div class="clearer">&nbsp;</div>
-        <div id="ben-promotion">
-        	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>promotion.png" alt="GIẢM ĐẾN 50% (Cam kết bán hàng chính hãng 100%)" />
-        </div>
-        <div class="ben-navigation">
-    
-            <ul id="ben-main-nav">
-            	
-                <?php echo $mainmenu?>
-                
-            </ul>
-    
-            <div class="clearer">&nbsp;</div>
-    
-        </div>
-        
-    </div>
-</div>
-
-<script src="<?php echo HTTP_SERVER.DIR_JS?>menu.js" language="javascript"></script>
+        <!-- /.container -->
+    </nav>
