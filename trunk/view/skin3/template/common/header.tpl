@@ -16,6 +16,7 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
+                        
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Sản phẩm">Sản phẩm <span class="caret"></span></a>
@@ -29,25 +30,8 @@
                         	<li><a href="#">One more separated link</a></li>
                       	</ul>
                     </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức">Tin tức</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('lienhe')?>" title="Liên hệ">Liên hệ</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('khuyen-mai')?>" title="Khuyến mãi">Khuyến mãi</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
-            
-                    </li>
+                    
+                    
                     <?php if(!$this->member->isLogged()){?>
                     <li>
                         <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>          

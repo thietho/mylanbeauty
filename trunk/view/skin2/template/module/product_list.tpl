@@ -1,3 +1,4 @@
+<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_JS?>jquery-tooltip.js'></script>
 <?php
 if(count($medias))
 {
