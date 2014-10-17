@@ -69,7 +69,6 @@ function loadBrand()
 				}
 				pageload.flag = true;
 				//console.log("aa"+pageload.flag);
-				
 			});
 	}
 	pageload.flag = false;

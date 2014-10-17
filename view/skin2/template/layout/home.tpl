@@ -136,15 +136,7 @@ var loading = '<center id="loading"><img src="<?php echo DIR_IMAGE?>loading.gif"
 </div>
 <script language="javascript">
 
-$(document).ready(function(){
-	$(".link_hover").hover(function(){
-		var img = '<img src="'+$(this).attr('ref')+'">';
-		var text = '<h5>'+$(this).attr('title')+'</h5>';
-		$('#sticky1').html(img+text);
-		
-	});
 
-});
 	
 
 </script>
