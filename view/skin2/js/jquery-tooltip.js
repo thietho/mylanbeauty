@@ -52,7 +52,7 @@ var stickytooltip={
 			var $alltips=$tooltip.find('div.atip')
 			if (!stickytooltip.rightclickstick)
 				stickytooltip.stickynotice1[1]=''
-			stickytooltip.stickynotice1=stickytooltip.stickynotice1.join(' ')
+			//stickytooltip.stickynotice1=stickytooltip.stickynotice1.join(' ')
 			stickytooltip.hidebox($, $tooltip)
 			$targets.bind('mouseenter', function(e){
 				$alltips.hide().filter('#'+$(this).attr('data-tooltip')).show()
