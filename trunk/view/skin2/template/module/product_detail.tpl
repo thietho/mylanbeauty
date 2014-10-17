@@ -62,25 +62,16 @@
         </div>
 <script language="javascript">
 $(document).ready(function() { 
-$(".ben-icon-item").click(function(){
-	var arr = this.id.split("-");
-	var key = arr[1];
-	$("#product-preview").html($("#preview-"+key).html());
-	$(".zoom").fancybox({
-			'overlayShow'	: true,
-			'transitionIn'	: 'elastic',
-			'transitionOut'	: 'elastic'
-		});
-});
-
-	
-	$('#ben-container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
-	
-	$(".zoom").fancybox({
-			'overlayShow'	: true,
-			'transitionIn'	: 'elastic',
-			'transitionOut'	: 'elastic'
-		});
+	$(".ben-icon-item").click(function(){
+		var arr = this.id.split("-");
+		var key = arr[1];
+		$("#product-preview").html($("#preview-"+key).html());
+		$(".zoom").fancybox({
+				'overlayShow'	: true,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'elastic'
+			});
+	});
 });
 </script>
 <script language="javascript">
@@ -285,24 +276,7 @@ $("#ben-next").click(function(){
         </table>
     </div>
     <?php } ?>
-    <?php if(count($child)){ ?>
-    <div id="subinfo">
-                
-                
-        <ul>
-            <?php foreach($child as $key => $item){ ?>
-                <li><a href="#fragment-<?php echo $key?>"><span><?php echo $item['title']?></span></a></li>	
-            <?php } ?>
-        </ul>
-       
-        <?php foreach($child as $key => $item){ ?>
-        <div id="fragment-<?php echo $key?>">
-            <?php echo html_entity_decode($item['description'])?>
-        </div>
-        <?php } ?>
-                
-    </div>
-    <?php } ?>
+    
     
     
     
@@ -346,12 +320,6 @@ $(".product-icon").click(function(){
 	var arr = this.id.split("-");
 	var key = arr[1];
 	$("#product-preview").attr("src",$("#preview-"+key).attr("src"));
-});
-
-
-$(document).ready(function() { 
-	$('#subinfo').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
-	
 });
 function xemkhuyenmai(makhuyenmai)
 {

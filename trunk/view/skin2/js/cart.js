@@ -48,7 +48,7 @@ function Cart()
 				
 					
 					$("#ben-popup-content").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
-						$("#ben-popup").dialog("open");	
+						
 					});
 					cart.load()
 					
