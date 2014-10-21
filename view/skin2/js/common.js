@@ -108,47 +108,6 @@ function importJavaScript(jsFile) {
 }
 
 
-function showPopup(popupid, width, height, overlayclose )
-{
-	$(document).ready(function() { 
-		$.blockUI({ 
-			message: $(popupid),
-			css: { 
-				top:  ($(window).height() - height) /2 + 'px', 
-				left: ($(window).width() - width) /2 + 'px', 
-				width: width+'px',
-				height: height+'px'
-			} 			
-		});
-		
-		if(overlayclose != false)
-		{
-			$('.blockOverlay').attr('title','Click to close').click(function(){closePopup();});  
-		}
-	});	
-}
-
-function closePopup()
-{
-	$.unblockUI();
-}
-
-function loadPopup(id)
-{
-	$("#popupbody").load("index.php?route=core/fileadjust&id="+id);
-	
-	$.blockUI(
-	{ 
-		message: $('#popup'),
-		css: { 
-			top:  ($(window).height() - 500) /2 + 'px', 
-			left: ($(window).width() - 600) /2 + 'px', 
-			width: '700px',
-			height: '500px'
-			}
-	});
-}
-
 function postStringData(object) {
 	var str = "";
 	$(object).each(function(){

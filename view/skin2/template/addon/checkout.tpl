@@ -107,7 +107,8 @@
 <div class="clearer">&nbsp;</div>
 <script language="javascript">
 $("#btnCheckout").click(function(){
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.blockUI({ message: "<h1>Please wait...</h1>" });
+	
 	$('#orderdate').val(toPhpTime(Date.now()));
 	$.post("<?php echo HTTP_SERVER?>?route=addon/checkout/checkout", $("#frmCheckOut").serialize(),
 		function(data){

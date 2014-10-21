@@ -5,7 +5,7 @@ class ControllerAddonCheckout extends Controller
 	public function index()
 	{
 		$this->document->breadcrumb .= "Thông tin đơn hàng";
-		$this->document->title .= $this->document->breadcrumb;
+		$this->document->title .= "Thông tin đơn hàng";
 		$this->getList();
 		$this->getMemberInfor();
 		$this->id="content";

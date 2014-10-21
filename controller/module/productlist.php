@@ -293,7 +293,16 @@ class ControllerModuleProductlist extends Controller
 			//$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
 			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid'],'',' Order by sizes');
 			usort($this->data['medias'][$i]['childs'],array("ControllerModuleProductlist", "cmp"));
-			
+			$discountpercent = 0;
+			if(count($this->data['medias'][$i]['childs']))
+			{
+				foreach($this->data['medias'][$i]['childs'] as $child)
+				{
+					if($child['discountpercent'])
+						$discountpercent = $child['discountpercent'];
+				}
+				$this->data['medias'][$i]['discountpercent'] = $discountpercent;
+			}
 		}
 			
 			

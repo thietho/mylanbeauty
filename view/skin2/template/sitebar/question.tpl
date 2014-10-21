@@ -33,7 +33,7 @@ $("#btnTraLoi").click(function(){
 			if(data == "true")
 			{
 				$("#question_result").load("<?php echo HTTP_SERVER?>?route=sitebar/question/viewresult&questionid=<?php echo $medias[0]['mediaid']?>",function(){
-					showPopup("#question_result",500,500,true)		
+					//showPopup("#question_result",500,500,true)		
 					
 				});
 			}
