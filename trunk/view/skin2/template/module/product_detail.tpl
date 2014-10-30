@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_VIEW?>css/colorbox.css" />
+<script src="<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.colorbox.js"></script>
 <h3><?php echo $sitemap['sitemapname'] ?></h3>
 
 <h2><?php echo $sitemap['breadcrumb']?></h2>
@@ -62,15 +64,12 @@
         </div>
 <script language="javascript">
 $(document).ready(function() { 
+	$(".zoom").colorbox({rel:'zoom'});
 	$(".ben-icon-item").click(function(){
 		var arr = this.id.split("-");
 		var key = arr[1];
 		$("#product-preview").html($("#preview-"+key).html());
-		$(".zoom").fancybox({
-				'overlayShow'	: true,
-				'transitionIn'	: 'elastic',
-				'transitionOut'	: 'elastic'
-			});
+		$(".zoom").colorbox({rel:'zoom'});
 	});
 });
 </script>
@@ -236,7 +235,7 @@ $("#ben-next").click(function(){
                 <?php foreach($priceproduct as $val){ ?>
                 <tr>
                     <td>
-                    	<?php echo $val['code']." ".$val['sizes']?>
+                    	<?php echo $this->document->productName($val)?>
                         <?php if($val['noteprice']!=""){ ?>
                             (<?php echo $val['noteprice']?>)
                         <?php }?>
