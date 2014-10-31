@@ -1,4 +1,4 @@
-
+<script language="javascript" src="<?php echo HTTP_SERVER.DIR_JS?>phieunhapxuat.js"></script>
 <div class="section" id="sitemaplist">
 
 	<div class="section-title"><?php echo $this->document->title?></div>
