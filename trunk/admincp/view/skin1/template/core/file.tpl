@@ -1,7 +1,4 @@
 <script src='<?php echo DIR_JS?>jquery.fileupload.js' type='text/javascript' language='javascript'> </script>
-
-
-
 <div id="frmfile">
 <table width="100%" class="data-table">
 	<tr>
