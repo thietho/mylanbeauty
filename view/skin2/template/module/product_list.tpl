@@ -26,9 +26,13 @@ if(count($medias))
                     <div align="center">
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
                         	<h6>
+                            	<?php if(count($media['childs'])){ ?>
                             	<?php echo $media['title']?> - <?php echo $media['code']?>
                                 <?php echo $media['brand']?>
                                 <?php echo $media['color']?>
+                                <?php }else{ ?>
+                                <?php echo $this->document->productName($media)?>
+                                <?php } ?>
                             </h6>
                             
                             
@@ -37,6 +41,7 @@ if(count($medias))
                         <?php foreach($media['childs'] as $me){?>
                         <div>
                         	<?php echo $me['sizes']?>:
+                            
                             <?php $cls = '';?>
                             <?php if($me['pricepromotion']) $cls = 'product-price-no'; else $cls = 'product-pricepromotion'?>
                            
@@ -51,6 +56,9 @@ if(count($medias))
                             <?php if($me['pricepromotion']){ ?>
                             <span class="product-pricepromotion">
                         	<?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
+                            <?php if($me['noteprice']!=""){ ?>
+                            (<?php echo $me['noteprice']?>)
+                            <?php }?>
                             </span>
                             <?php } ?>
                             
