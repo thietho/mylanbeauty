@@ -105,6 +105,7 @@ class ControllerPageHome extends Controller
 			
 			
 			$this->data['arrbrand'] = array(
+							"Guerlain",
 							"Sisley",
 							"Lancome",
 							"Clarins",
