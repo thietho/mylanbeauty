@@ -30,11 +30,11 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo HTTP_SERVER.DIR_CSS?>bootstrap.min.css" rel="stylesheet">
-
+    <link href="<?php echo HTTP_SERVER.DIR_CSS?>bootstrap.css" rel="stylesheet">
+	
     <!-- Custom CSS -->
-    <link href="<?php echo HTTP_SERVER.DIR_CSS?>shop-homepage.css" rel="stylesheet">
-
+    <link href="<?php echo HTTP_SERVER.DIR_CSS?>style.css" rel="stylesheet">
+	<link href="<?php echo HTTP_SERVER.DIR_CSS?>menu.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -244,8 +244,8 @@
     <script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo HTTP_SERVER.DIR_JS?>bootstrap.min.js"></script>
-
+    <script src="<?php echo HTTP_SERVER.DIR_JS?>bootstrap.js"></script>
+    <script src="<?php echo HTTP_SERVER.DIR_JS?>menu.js"></script>
 </body>
 
 </html>
