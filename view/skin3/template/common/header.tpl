@@ -1,4 +1,5 @@
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -15,19 +16,41 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
-                        
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Sản phẩm">Sản phẩm <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                        	<li><a href="#">Action</a></li>
-                        	<li><a href="#">Another action</a></li>
-                        	<li><a href="#">Something else here</a></li>
-                        	<li class="divider"></li>
-                        	<li class="dropdown-header">Nav header</li>
-                        	<li><a href="#">Separated link</a> <span class="caret"></span></li>
-                        	<li><a href="#">One more separated link</a></li>
-                      	</ul>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
+                    </li>
+                    <li class="dropdown" style="position:relative">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Click Here <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="trigger right-caret">Level 1</a>
+                                <ul class="dropdown-menu sub-menu">
+                                    <li><a href="#">Level 2</a></li>
+                                    <li>
+                                        <a class="trigger right-caret">Level 2</a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li><a href="#">Level 3</a></li>
+                                            <li><a href="#">Level 3</a></li>
+                                            <li>
+                                                <a class="trigger right-caret">Level 3</a>
+                                                <ul class="dropdown-menu sub-menu">
+                                                    <li><a href="#">Level 4</a></li>
+                                                    <li><a href="#">Level 4</a></li>
+                                                    <li><a href="#">Level 4</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Level 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Level 1</a></li>
+                            <li><a href="#">Level 1</a></li>
+                        </ul>
                     </li>
                     
                     
