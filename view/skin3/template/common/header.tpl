@@ -24,7 +24,7 @@
                         <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
                     </li>
                     <li class="dropdown" style="position:relative">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Click Here <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="trigger right-caret">Level 1</a>
