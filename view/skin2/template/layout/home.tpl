@@ -19,7 +19,7 @@
 <meta property="og:url" content="<?php echo $url?>">
 <meta property="og:description" content="<?php echo $meta_description?>">
 <?php echo $meta_image?>
-
+<meta name="google-site-verification" content="yqhMNGN6WGMm8jAKo0k6AHUjo71zXAQN7uEHPuo-BG8" />
 </head>
 
 <!--[if lt IE 7]>
