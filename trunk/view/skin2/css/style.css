@@ -513,6 +513,7 @@ float:left;
 .ben-brand li
 {
 	float:left;	
+	white-space:nowrap;
 	
 }
 .ben-subbrand
