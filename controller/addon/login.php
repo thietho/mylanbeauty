@@ -7,6 +7,7 @@ class ControllerAddonLogin extends Controller
 		$this->document->sitebar['login'] = "hide";
 		$this->document->breadcrumb .= "Đăng nhập";
 		$this->document->title .= $this->document->breadcrumb;
+		
 		$this->id="content";
 		$this->template="addon/login.tpl";
 		$this->render();
@@ -19,7 +20,7 @@ class ControllerAddonLogin extends Controller
 		{
 			$username = $data['username'];
 			$password = $data['password'];
-			if($this->member->login($username, $password))
+			if($this->chkLogin($username, $password))
 			{
 				if($data['remember'] == 1)
 				{
@@ -43,6 +44,23 @@ class ControllerAddonLogin extends Controller
 		$this->render();
 	}
 	
+	public function chkLogin($username,$pwd)
+	{
+		$this->load->model("core/user");
+		//echo $username;
+		$user = $this->model_core_user->getItemByUserName($username);
+		
+		if(md5($pwd) == $user['password'])
+		{
+			//Login thanh cong
+			$this->session->set('member',$user);
+			
+			return true;
+			
+		}
+		else
+			return false;
+	}
 	private function validateForm($data)
 	{
 		
