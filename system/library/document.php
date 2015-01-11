@@ -66,6 +66,10 @@ final class Document {
 						'module/product'=>'Product',
 						'module/news'=>'News'
 						);
+	public $shoptype = array(
+						'retail' => "Cửa hàng bán lẻ",
+						'saleoflot' => "Cửa hàng bán sỉ"
+						);
 	public function toVND($value,$donvi)
 	{
 		if($donvi == "VND")
@@ -237,13 +241,6 @@ final class Document {
 									where moduleid ='".$moduleid."' ");
 		return $query->row[$name];	
 	}
-	public function getTenDonVi($madonvi)
-	{
-		$query = $this->db->query("Select `qlkdonvitinh`.* 
-									from `qlkdonvitinh` 
-									where madonvi ='".$madonvi."' ");
-		return $query->row['tendonvitinh'];	
-	}
 	
 	public function getDonViTinh($madonvi,$name="tendonvitinh")
 	{
@@ -328,6 +325,116 @@ final class Document {
 		
 		return $uri;
 	}
+	public function httppost($url,$data)
+	{
+		$options = array(
+			'http' => array(
+				'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+				'method'  => 'POST',
+				'content' => http_build_query($data),
+			),
+		);
+		//print_r($options);
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		return $result;
+	}
 	
+	public function httpget($url,$data)
+	{
+		$options = array(
+			'http' => array(
+				'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+				'method'  => 'GET',
+				'content' => http_build_query($data),
+			),
+		);
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		return $result;
+	}
+	public function objectToArray(&$obj)
+	{
+		
+		
+		foreach($obj as $key => $item)
+		{
+			
+			if(is_object($item))
+			{	
+				$obj[$key] = (array)$item;
+				$this->objectToArray($item);
+			}
+		}
+	}
+	public function select($sql)
+	{
+		$url = HTTP_SERVICE.'?route=core/db/select';
+		$data = array('sql' => base64_encode($sql));
+		$str = $this->httppost($url,$data);
+		$tb = json_decode($str);
+		$this->objectToArray($tb);
+		return $tb;
+	}
+	public function insertData($table,$field,$value)
+	{
+		$url = HTTP_SERVICE.'?route=core/db/insertData';
+		$da = array(
+						'table'=>$table,
+						'field'=>$field,
+						'value'=>$value
+					);
+		
+		$id = $this->httppost($url,$da);
+		return $id;
+	}
+	public function updateData($table,$field,$value,$where)
+	{
+		$url = HTTP_SERVICE.'?route=core/db/updateData';
+		$da = array(
+						'table'=>$table,
+						'field'=>$field,
+						'value'=>$value,
+						'where'=> base64_encode($where)
+					);
+		
+		$id = $this->httppost($url,$da);
+	}
+	public function deleteData($table,$where)
+	{
+		$url = HTTP_SERVICE.'?route=core/db/deleteData';
+		$da = array(
+						'table'=>$table,
+						'where'=> base64_encode($where)
+					);
+		
+		$id = $this->httppost($url,$da);
+	}
+	
+	public function getNextIdVarChar($tablename,$tableid,$temp)
+	{
+	 	//echo $temp;
+		$sql="SELECT $tableid FROM `$tablename` WHERE $tableid LIKE '$temp%'";
+		$mid=$this->select($sql);
+		
+		//echo count($mid);
+		if(count($mid)==0)
+			return $temp."1";
+		
+		$mnum=array();
+		for($i=0; $i<count($mid); $i++)
+		{
+			//echo $mid[$i][$tableid];
+			//echo substr($mid[$i][$tableid],strlen($temp));
+			array_push($mnum,substr($mid[$i][$tableid],strlen($temp)));
+		}
+		$max=0;
+		//print_r($mnum);
+		for($i=0; $i<count($mnum); $i++)
+			if($max<intval($mnum[$i]))
+				$max=intval($mnum[$i]);
+		$nextid=$max+1;
+		return $temp.$nextid;
+	}
 }
 ?>
