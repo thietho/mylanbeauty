@@ -5,58 +5,29 @@ class ModelCoreUser extends ModelCoreFile
 	public function getList($where="")
 	{
 		$sql="Select * from `user` WHERE deletedby ='' ".$where;
-		$tb = $this->document->select($sql);
-		return $tb;
-		
-		//$query = $this->db->query($sql);
-		//print_r($query->rows);
-		//return $query->rows;
-		
-		
-	}
-	
-	public function getId($id)
-	{
-		/*$id=$this->db->escape(@$id);
-		$query = $this->db->query("Select * from `user` where id = '".$id."'");
-		return $query->row;*/
-		$sql="Select * from `user` where id = '".$id."'";
-		$tb = $this->document->select($sql);
-		return $tb[0];
-		
+		$query = $this->db->query($sql);
+		return $query->rows;
 	}
 	
 	public function getItem($userid)
 	{
-		$sql = "Select * from `user` where userid = '".$userid."'";
-		$tb = $this->document->select($sql);
-		return $tb[0];
-		
-		/*$userid=$this->db->escape(@$userid);
+		$userid=$this->db->escape(@$userid);
 		$query = $this->db->query("Select * from `user` where userid = '".$userid."'");
-		return $query->row;*/
+		return $query->row;
 	}
 	
 	public function getItemByUserName($username)
 	{
-		$sql = "Select * from `user` where username = '".$username."' AND deletedby =''";
-		$tb = $this->document->select($sql);
-		return $tb[0];
-		
-		/*$username=$this->db->escape(@$username);
+		$username=$this->db->escape(@$username);
 		$query = $this->db->query("Select * from `user` where username = '".$username."' AND deletedby =''");
-		return $query->row;*/
+		return $query->row;
 	}
 	
 	public function getItemByEmail($email)
 	{
-		$sql = "Select * from `user` where email = '".$email."' AND deletedby =''";
-		$tb = $this->document->select($sql);
-		return $tb[0];
-		
-		/*$email=$this->db->escape(@$email);
+		$email=$this->db->escape(@$email);
 		$query = $this->db->query("Select * from `user` where email = '".$email."' AND deletedby =''");
-		return $query->row;*/
+		return $query->row;
 	}
 	
 	public function insertUser($data)
@@ -82,8 +53,7 @@ class ModelCoreUser extends ModelCoreFile
 		$updatedby=$this->user->getId();
 		$deletedby="";
 		$userip=$this->db->escape(@$this->request->server['REMOTE_ADDR']);
-		$assignid=$this->db->escape(@$data['assignid']);
-		$commissions=$this->db->escape(@$data['commissions']);
+		
 		$field=array(
 						'`userid`',
 						'`username`',
@@ -105,9 +75,7 @@ class ModelCoreUser extends ModelCoreFile
 						'`activeby`',
 						'`updatedby`',
 						'`deletedby`',
-						'`userip`',
-						'`assignid`',
-						'`commissions`'
+						'`userip`'
 					);
 		$value=array(
 						$userid,
@@ -130,20 +98,20 @@ class ModelCoreUser extends ModelCoreFile
 						$activeby,
 						$updatedby,
 						$deletedby,
-						$userip,
-						$assignid,
-						$commissions
+						$userip
 					);
-		
-		//$id = $this->db->insertData("user",$field,$value);
-		$id = $this->document->insertData("user",$field,$value);
-		return $id;
-		
+		$arr = $this->getItemByUserName($username);
+		if(count($arr)==0)
+		{
+			$this->db->insertData("user",$field,$value);
+			return $userid;
+		}
+		else
+			return $arr['userid'];
 	}
 	
 	public function updateuser($data)
 	{
-		$id=$this->db->escape(@$data['id']);
 		$userid=$this->db->escape(@$data['userid']);
 		$username=$this->db->escape(@$data['username']);
 		$usertypeid=$this->db->escape(@$data['usertypeid']);
@@ -165,8 +133,7 @@ class ModelCoreUser extends ModelCoreFile
 		$updatedby=$this->user->getId();
 		$deletedby="";
 		$userip=$this->db->escape(@$this->request->server['REMOTE_ADDR']);
-		$assignid=$this->db->escape(@$data['assignid']);
-		$commissions=$this->db->escape(@$data['commissions']);
+		
 		$field=array(
 						'`userid`',
 						'`username`',
@@ -188,9 +155,7 @@ class ModelCoreUser extends ModelCoreFile
 						'`activeby`',
 						'`updatedby`',
 						'`deletedby`',
-						'`userip`',
-						'`assignid`',
-						'`commissions`'
+						'`userip`'
 					);
 		$value=array(
 						$userid,
@@ -213,13 +178,10 @@ class ModelCoreUser extends ModelCoreFile
 						$activeby,
 						$updatedby,
 						$deletedby,
-						$userip,
-						$assignid,
-						$commissions
+						$userip
 					);
-		$where="id = '".$id."'";
-		//$this->db->updateData("user",$field,$value,$where);
-		$this->document->updateData("user",$field,$value,$where);
+		$where="userid = '".$userid."'";
+		$this->db->updateData("user",$field,$value,$where);
 	}
 	
 	public function updatestatus($data)
@@ -249,24 +211,24 @@ class ModelCoreUser extends ModelCoreFile
 						$userip
 					);
 		$where="userid = '".$userid."'";
-		//$this->db->updateData("user",$field,$value,$where);
-		$this->document->updateData("user",$field,$value,$where);
+		$this->db->updateData("user",$field,$value,$where);
 	}	
 	
-	public function updateCol($id,$col,$val)
+	public function updatecol($userid,$colname,$val)
 	{
-		$id = $this->db->escape(@$id);
-		$col = $this->db->escape(@$col);
-		$val = $this->db->escape(@$val);
+		$userid=$this->db->escape(@$userid);
+		$colname=$this->db->escape(@$colname);
+		$val=$this->db->escape(@$val);
+		
 		$field=array(
-						$col
+						$colname
 					);
 		$value=array(
+						
 						$val
 					);
-		$where="id = '".$id."'";
-		//$this->db->updateData("user",$field,$value,$where);
-		$this->document->updateData("user",$field,$value,$where);
+		$where="userid = '".$userid."'";
+		$this->db->updateData("user",$field,$value,$where);
 	}	
 	
 	public function deleteuser($userid)
@@ -292,17 +254,9 @@ class ModelCoreUser extends ModelCoreFile
 						$userip
 					);
 		$where="userid = '".$userid."'";
-		//$this->db->updateData("user",$field,$value,$where);
-		$this->document->updateData("user",$field,$value,$where);
+		$this->db->updateData("user",$field,$value,$where);
 	}
-	public function destroy($id)
-	{
-		$id=$this->db->escape(@$id);
-		
-		$where="id = '".$id."'";
-		//$this->db->deleteData("user",$where);
-		$this->document->deleteData("user",$where);
-	}
+	
 	public function deleteusers($data)
 	{
 		foreach($data as $userid)
@@ -333,8 +287,8 @@ class ModelCoreUser extends ModelCoreFile
 	{
 		$userid=$this->db->escape(@$data['userid']);
 		$password=$this->db->escape(@$data['password']);
-		$updateddate=$this->db->escape(@$data['updateddate']);
-		$updatedby=$this->db->escape(@$data['updatedby']);
+		$updateddate=$this->date->getToday();
+		$updatedby=$userid;
 		
 		$field=array(
 						'password',
@@ -348,22 +302,16 @@ class ModelCoreUser extends ModelCoreFile
 						
 					);
 		$where="userid = '".$userid."'";
-		//$this->db->updateData("user",$field,$value,$where);	
-		$this->document->updateData("user",$field,$value,$where);	
+		$this->db->updateData("user",$field,$value,$where);	
+			
 	}
 	
 	public function getInformation($userid,$fieldname)
 	{
-		/*$sql = "Select * from user_information where userid = '".$userid."' and fieldname = '".$fieldname."'";
+		$sql = "Select * from user_information where userid = '".$userid."' and fieldname = '".$fieldname."'";
 		$query = $this->db->query($sql);
 		$info = $query->row;
-		return $info['fieldvalue'];*/
-		
-		$sql = "Select * from user_information where userid = '".$userid."' and fieldname = '".$fieldname."'";
-		$tb = $this->document->select($sql);
-		$info = $tb[0];
 		return $info['fieldvalue'];
-		
 	}
 	
 	public function saveInformation($userid, $fieldname, $fieldvalue)
@@ -387,15 +335,11 @@ class ModelCoreUser extends ModelCoreFile
 		if(count($info) > 0)
 		{
 			$where="userid = '".$userid."' AND fieldname = '".$fieldname."'";
-			//$this->db->updateData('user_information',$field,$value,$where);
-			$this->document->updateData('user_information',$field,$value,$where);
-			
-			
+			$this->db->updateData('user_information',$field,$value,$where);
 		}
 		else
 		{
-			//$this->db->insertData("user_information",$field,$value);
-			$this->document->insertData("user_information",$field,$value);
+			$this->db->insertData("user_information",$field,$value);	
 		}
 	}
 }

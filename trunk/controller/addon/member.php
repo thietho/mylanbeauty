@@ -7,7 +7,7 @@ class ControllerAddonMember extends Controller
 		$this->document->breadcrumb .= "Thông tin thành viên";
 		$this->document->title .= $this->document->breadcrumb;
 		$this->load->model("core/user");
-		$this->data['member'] = $this->model_core_user->getItem($this->member->getId());
+		$this->data['member'] = $this->member->data;
 		$this->id="content";
 		$this->template="addon/member.tpl";
 		$this->render();

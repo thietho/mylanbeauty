@@ -15,9 +15,9 @@ class ControllerAddonHistoryorder extends Controller
 	private function getList()
 	{
 		$this->load->model("core/user");
-		$this->data['member'] = $this->model_core_user->getItem($this->member->getId());
+		$this->data['member'] = $this->member->data;
 		$this->load->model("addon/order");
-		$where = "AND userid = '".$this->member->getId()."'";
+		$where = "AND userid = '".$this->data['member']['username']."'";
 		$this->data['orders'] = $this->model_addon_order->getList($where);
 	}
 }
