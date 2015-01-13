@@ -17,6 +17,8 @@ class ModelQuanlykhoNhacungcap extends Model
 		$sql = "Select `qlknhacungcap`.*
 									from `qlknhacungcap` 
 									where id ='".$id."' ".$where;
+		//$tb = $this->document->select($sql);
+		//return $tb[0];
 		$query = $this->db->query($sql);
 		return $query->row;
 	}
@@ -37,7 +39,8 @@ class ModelQuanlykhoNhacungcap extends Model
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
-		
+		//$tb = $this->document->select($sql);
+		//return $tb;
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
@@ -55,11 +58,13 @@ class ModelQuanlykhoNhacungcap extends Model
 		if((int)$data['id'] == 0)
 		{
 			$data['id'] = $this->db->insertData("qlknhacungcap",$field,$value);
+			//$data['id'] = $this->document->insertData("qlknhacungcap",$field,$value);
 		}
 		else
 		{
 			$where="id = '".$data['id']."'";
 			$this->db->updateData("qlknhacungcap",$field,$value,$where);
+			//$this->document->updateData("qlknhacungcap",$field,$value,$where);
 		}
 		return $data['id'];
 	}
@@ -67,5 +72,6 @@ class ModelQuanlykhoNhacungcap extends Model
 	{
 		$where="id = '".$id."'";
 		$this->db->deleteData("qlknhacungcap",$where);
+		//$this->document->deleteData("qlknhacungcap",$where);
 	}
 }

@@ -166,9 +166,10 @@ function postStringData(object) {
 	});
 	return str;
 }
-
+var win;
 function openDialog(url,width,height) {
-    var result = window.showModalDialog(url, "", "dialogWidth:"+width+"px; dialogHeight:"+height+"px;");
+    //var result = window.showModalDialog(url, "", "dialogWidth:"+width+"px; dialogHeight:"+height+"px;");
+	win = window.open(url, "_blank", "toolbar=no, scrollbars=yes, resizable=yes, top=0, left=0, width="+width+", height="+height);
 }
 function daysInMonth(month,year) 
 {
@@ -393,57 +394,64 @@ function selectFilm(eid,type)
 
 function browserFile(eid,type)
 {
+	
     $('#handler').val(eid);
 	$('#outputtype').val(type);
-	$("#popup").attr('title','Chọn hình');
-		switch(type)
-		{
-			case "single":
-			case "editor":
-			case "video":
-			$( "#popup" ).dialog({
-				
-				width: $(document).width()-100,
-				height: window.innerHeight,
-				
-				
-			});
-			break;
-			case "multi":
-			$( "#popup" ).dialog({
-				autoOpen: false,
-				show: "blind",
-				hide: "explode",
-				width: $(document).width()-100,
-				height: window.innerHeight,
-				modal: true,
-				buttons:
-				{
-					"Chọn":function()
-					{
-						$('.selectfile').each(function(index, element) {
-							var filepath = $(this).attr('filepath');
-							var filename = $(this).attr('filename');
-							var imagethumbnail = $(this).attr('imagethumbnail');
-                            $('#attachment').append(attachment.creatAttachmentRow(filepath,filename,imagethumbnail));
-                        });
-						$("#popup").dialog( "close" );
-					},
-					"Bỏ qua":function()
-					{
-						$("#popup").dialog( "close" );
-					}
-				}
-			});
-			break;
-		}
+	var eid = "fileform";
+	$('body').append('<div id="'+eid+'" style="display:none"></div>');
+	$("#"+eid).attr('title','Chọn hình');
 	
-		$("#popup").dialog("open");	
-		$("#popup-content").html(loading);
-		$("#popup-content").load("?route=core/file&dialog=true&type="+type,function(){
+	switch(type)
+	{
+		case "single":
+		case "editor":
+		case "video":
+		
+		$("#"+eid).dialog({
+			
+			width: $(document).width()-100,
+			height: window.innerHeight,
+			
 			
 		});
-		
+		break;
+		case "multi":
+		$("#"+eid).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: $(document).width()-100,
+			height: window.innerHeight,
+			modal: true,
+			close:function()
+			{
+				$("#"+eid).remove();
+			},
+			buttons:
+			{
+				"Chọn":function()
+				{
+					$('.selectfile').each(function(index, element) {
+						var filepath = $(this).attr('filepath');
+						var filename = $(this).attr('filename');
+						var imagethumbnail = $(this).attr('imagethumbnail');
+						$('#attachment').append(attachment.creatAttachmentRow(filepath,filename,imagethumbnail));
+					});
+					$("#"+eid).dialog( "close" );
+				},
+				"Bỏ qua":function()
+				{
+					$("#"+eid).dialog( "close" );
+				}
+			}
+		});
+		break;
+	}
+	
+	$("#"+eid).dialog("open");	
+	$("#"+eid).html(loading);
+	$("#"+eid).load("?route=core/file&dialog=true&type="+type);
+	
 }
 function intSeleteFile(type)
 {
@@ -461,7 +469,8 @@ function intSeleteFile(type)
 				$('#imageid').val(this.id);
 				$('#imagepath').val($(this).attr('filepath'));
 				$('#imagethumbnail').val($(this).attr('imagethumbnail'));*/
-				$("#popup").dialog( "close" );
+				
+				$("#fileform").dialog( "close" );
 				
 				
 			});			
@@ -489,7 +498,7 @@ function intSeleteFile(type)
 				}
 				else
 					alert( 'You must be on WYSIWYG mode!' ) ;
-				$("#popup").dialog( "close" );
+				$("#fileform").dialog( "close" );
 			});			
 			break;
 		case "video":
@@ -516,7 +525,7 @@ function intSeleteFile(type)
 				}
 				else
 					alert( 'You must be on WYSIWYG mode!' ) ;*/
-				$("#popup").dialog( "close" );
+				$("#fileform").dialog( "close" );
 			});			
 			break;
 		case "multi":
@@ -568,7 +577,20 @@ function addImageTo()
 		}
 	}
 }
-
+function toPhpTime(t)
+{
+	var d = new Date(t);
+	var date = d.getFullYear()+"-"+ (d.getMonth()<10?"0"+(d.getMonth()+1):d.getMonth()+1) +"-"+(d.getDate()<10?"0"+d.getDate():d.getDate());
+	var time = (d.getHours()<10?"0"+d.getHours():d.getHours())+":"+(d.getMinutes()<10?"0"+d.getMinutes():d.getMinutes())+":"+ (d.getSeconds()<10?"0"+d.getSeconds():d.getSeconds());
+	
+	return date+" "+time;
+}
+function intToDate(n)
+{
+	var d = new Date(n);
+	var date =(d.getDate()<10?"0"+d.getDate():d.getDate())+"-"+(d.getMonth()<10?"0"+(d.getMonth()+1):d.getMonth()+1)+"-"+d.getFullYear();
+	return date;
+}
 function Attachment()
 {
 	this.index = 0;
@@ -605,7 +627,7 @@ $.xhrPool.abortAll = function() {
 $.ajaxSetup({
     beforeSend: function(jqXHR) {
         $.xhrPool.push(jqXHR);
-		//console.log($.xhrPool);
+		console.log($.xhrPool);
     },
     complete: function(jqXHR) {
         var index = $.xhrPool.indexOf(jqXHR);

@@ -299,7 +299,7 @@ class ControllerCorePostcontent extends Controller
 		$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
 		$listfileid=array();
 		if($listfile)
-			$listfileid=split(",",$listfile);
+			@$listfileid=split(",",$listfile);
 		$this->data['attachment']=array();
 		foreach($listfileid as $key => $item)
 		{
@@ -395,7 +395,14 @@ class ControllerCorePostcontent extends Controller
 				}
 				$data['saleprice'] = json_encode($data['saleprice']);
 			}
-			
+			if(count($data['retail']))
+			{
+				foreach($data['retail'] as $key => $val)
+				{
+					$data['retail'][$key] = $this->string->toNumber($val);
+				}
+				$data['retail'] = json_encode($data['retail']);
+			}
 			
 			if($data['price'] == "")
 				$data['price'] = $this->data['post']['mainprice'];
@@ -603,7 +610,7 @@ class ControllerCorePostcontent extends Controller
 		$para = $this->string->referSiteMapToArray($media['summary']);
 		foreach($para as $val)
 		{
-			$ar = split("=",$val);
+			@$ar = split("=",$val);
 			$media[$ar[0]] = $ar[1];	
 		}
 		

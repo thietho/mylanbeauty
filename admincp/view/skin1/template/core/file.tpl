@@ -1,4 +1,18 @@
-<script src='<?php echo DIR_JS?>jquery.fileupload.js' type='text/javascript' language='javascript'> </script>
+<style>
+.progress
+{
+	width:100%;	
+	
+}
+.bar {
+    height: 18px;
+    background: green;
+	text-align:center;
+}
+</style>
+
+
+
 <div id="frmfile">
 <table width="100%" class="data-table">
 	<tr>

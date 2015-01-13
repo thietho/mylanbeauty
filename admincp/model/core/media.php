@@ -26,6 +26,7 @@ class ModelCoreMedia extends ModelCoreFile
 							'author',
 							'source',
 							'saleprice',
+							'retail',
 							'price',
 							'noteprice',
 							'discountpercent',
@@ -714,9 +715,9 @@ class ModelCoreMedia extends ModelCoreFile
 				WHERE mediaid = '".$mediaid."' AND loaiphieu like '".$loaiphieu."%'
 				Group by madonvi
 				";
+		//$tb = $this->document->select($sql);
+		//return $tb;
 		$query = $this->db->query($sql);
-		$query->rows;
-		
 		return $query->rows;
 	}
 	

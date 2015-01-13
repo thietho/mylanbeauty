@@ -8,7 +8,7 @@ function PhieuNhapXuat()
 		row +='<td><input type="hidden" id="nhapkhoid-'+ this.index +'" name="nhapkhoid['+ this.index +']" value="'+ id +'" /><input type="hidden" id="mediaid-'+ this.index +'" name="mediaid['+ this.index +']" value="'+ mediaid +'" /><input type="hidden" id="title-'+ this.index +'" name="title['+ this.index +']" value="'+ title +'" />'+ title +'</td>';
 		
 		row +='<td class="number"><input type="text" id="soluong-'+ this.index +'" name="soluong['+ this.index +']" value="'+soluong+'" class="text number short soluong" ref="'+ this.index +'"/></td>';
-		row +='<td class="number"><select mediaid="'+mediaid+'" id="madonvi-'+ this.index +'" name="dlmadonvi['+ this.index +']" value="'+madonvi+'"></section></td>';
+		row +='<td class="number"><select mediaid="'+mediaid+'" class="madonvi" id="madonvi-'+ this.index +'" name="dlmadonvi['+ this.index +']" value="'+madonvi+'" ref="'+ this.index +'"></select></td>';
 		row +='<td class="number"><input type="text" id="giatien-'+ this.index +'" name="giatien['+ this.index +']" value="'+giatien+'" class="text number short giatien" ref="'+ this.index +'"/></td>';
 		row +='<td class="number"><input type="text" id="phantramgiamgia-'+ this.index +'" name="phantramgiamgia['+ this.index +']" value="'+phantramgiamgia+'" class="text number short phantramgiamgia" ref="'+ this.index +'"/></td>';
 		row +='<td class="number"><input type="text" id="giamgia-'+ this.index +'" name="giamgia['+ this.index +']" value="'+ giamgia +'" class="text number short giamgia" ref="'+ this.index +'"/></td>';
@@ -18,6 +18,15 @@ function PhieuNhapXuat()
 		row+='</tr>'
 		$('#nhapkhonguyenlieu').append(row);
 		var str = '#madonvi-'+ this.index;
+		var curpos = this.index;
+		
+		$('.madonvi').change(function(e) {
+			var pos = $(this).attr('ref');
+			
+			objdl.getPrice(pos,mediaid,this.value);
+			
+        });
+		
 		$.getJSON("?route=core/media/getListDonVi&mediaid="+ mediaid,
 			function(data){
 				html = "";
@@ -28,7 +37,10 @@ function PhieuNhapXuat()
 				}
 				$(str).html(html);
 				$(str).val(madonvi);
+				if(id == 0)
+					objdl.getPrice(curpos,mediaid,madonvi);
 			});
+		
 		objdl.tinhtong(this.index);
 		this.index++;
 		$('.soluong').keyup(function(e) {
@@ -61,6 +73,25 @@ function PhieuNhapXuat()
 			objdl.tinhtong(pos);
         });
 		numberReady();
+	}
+	this.getPrice = function(pos,mediaid,madonvi)
+	{
+		
+		$.getJSON("?route=core/media/getMedia&col=mediaid&val="+ mediaid,
+			function(data)
+			{
+				
+				var saleprice = $.parseJSON(data.medias[0].saleprice);
+				price = saleprice[madonvi];
+				
+				if(Number(price) == 0 || price == undefined)
+				{
+					price = data.medias[0].price;
+				}
+				$('#giatien-'+pos).val(price);
+				
+				numberReady();
+			});
 	}
 	this.removeRow = function(pos)
 	{
@@ -99,8 +130,13 @@ function PhieuNhapXuat()
 	{
 		openDialog("?route=quanlykho/phieuxuat/printlist&listid="+listid+"&opendialog=print",800,500)
 	}
-	this.viewPX = function(id)
+	this.printPXDisCount = function(listid)
 	{
+		openDialog("?route=quanlykho/phieuxuat/printlist&listid="+listid+"&opendialog=print&show=giamgia",800,500)
+	}
+	this.viewPX = function(id,callback)
+	{
+		
 		var eid = "popupviewphieu";
 		$('body').append('<div id="'+eid+'" style="display:none"></div>');
 		$("#"+eid).attr('title','Phiếu bán hàng');
@@ -114,18 +150,20 @@ function PhieuNhapXuat()
 			close:function()
 				{
 					$('#'+eid).remove();
+					if(callback!="")
+					{
+						setTimeout(callback,100);
+					}
 				},
 			buttons: {
 				
 				'In':function()
 				{
-					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print",800,500)
-					
+					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print",800,500);
 				},
 				'In giảm giá':function()
 				{
-					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print&show=giamgia",800,500)
-					
+					openDialog("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=print&show=giamgia",800,500);
 				},
 				'Đóng': function() 
 				{
