@@ -9,6 +9,7 @@
                         <?php } ?>
                         <th>STT</th>
                         <th>Tên cửa hàng</th>
+                        <th>Loại</th>
                         <th>Địa chỉ</th>
                         <th>Điện thoại</th>
                         <th>Nhân viên</th>
@@ -30,6 +31,7 @@
                         <?php } ?>
                         <td><?php echo $key+1 ?></td>
                         <td><?php echo $item['shopname']?></td>
+                        <td><?php echo $this->document->shoptype[$item['shoptype']]?></td>
                         <td><?php echo $item['address']?></td>
                         <td><?php echo $item['phone']?></td>
                        	<td>
@@ -39,8 +41,9 @@
                             	<li>
                                 	<?php echo $this->document->getNhanVien($staffid)?>
                                     (<?php echo $this->document->getNhanVien($staffid,'username')?>)
+                                    <?php if($this->user->checkPermission("sales/shop/removestaff")==true){ ?>
                                     <input type="button" class="button" value="Xóa" onclick=" removeStaff(<?php echo $staffid?>)"/>
-                                    
+                                    <?php } ?>
                                 </li>
                             <?php } ?>
                             </ul>
@@ -51,9 +54,15 @@
                             <?php if($this->user->checkPermission("sales/shop/update")==true){ ?>
                             <input type="button" class="button" name="btnEdit" value="<?php echo $item['text_edit']?>" onclick="window.location='<?php echo $item['link_edit']?>'"/>
                             <?php } ?>
-                            
+                            <?php if($this->user->checkPermission("sales/shop/addstaff")==true){ ?>
                             <input type="button" class="button" name="btnAddStaff" value="Thêm nhân viên vào cửa hàng" onclick="selectNhanVien(<?php echo $item['id']?>)"/>
-                            
+                            <?php } ?>
+                            <?php if($this->user->checkPermission("sales/shop/export")==true){ ?>
+                            <input type="button" class="button" name="btnExportShop" value="Xuất hàng cho cửa hàng" onclick="window.location = '?route=sales/shop/export&shopid=<?php echo $item['id']?>'"/>
+                            <?php } ?>
+                            <?php if($this->user->checkPermission("sales/shop/import")==true){ ?>
+                            <input type="button" class="button" name="btnImportShop" value="Nhập kho từ cửa hàng" onclick="window.location = '?route=sales/shop/import&shopid=<?php echo $item['id']?>'"/>
+                            <?php } ?>
                         </td>
                         <?php } ?>
                     </tr>

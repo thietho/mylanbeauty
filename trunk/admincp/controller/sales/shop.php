@@ -231,5 +231,15 @@ class ControllerSalesShop extends Controller
 		$this->template='common/output.tpl';
 		$this->render();
 	}
+	public function export()
+	{
+		
+		$this->data['item'] = $this->model_sales_shop->getItem($this->request->get['shopid']);
+		$this->data['item']['ngaylap'] = $this->date->getToday();
+		$this->id='content';
+		$this->template="sales/shop_export.tpl";
+		$this->layout="layout/center";
+		$this->render();
+	}
 }
 ?>

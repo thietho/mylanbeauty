@@ -14,6 +14,8 @@
                         <th>Ngày bán</th>
                         <th>Người bán</th>
                         <th>Khách hàng</th>
+                        <th>Số ĐT</th>
+                        <th>Địa chỉ</th>
                         <th>Tổng tiền bán</th>
                         <th>Thanh toán</th>
                         <th>Công nợ</th>
@@ -37,10 +39,12 @@
                         <td class="check-column"><input class="inputchk" type="checkbox" name="delete[<?php echo $item['id']?>]" value="<?php echo $item['id']?>" ></td>
                         <?php } ?>
                         <td><center><?php echo $key+1 ?></center></td>
-                        <td><a onclick="objdl.viewPX(<?php echo $item['id']?>)"><?php echo $item['maphieu']?></a></td>
-                        <td><?php echo $this->date->formatMySQLDate($item['ngaylap'],'longdate')?></td>
+                        <td><a onclick="objdl.viewPX(<?php echo $item['id']?>,'')"><?php echo $item['maphieu']?></a></td>
+                        <td><?php echo $this->date->formatMySQLDate($item['ngaylap'])?></td>
                        	<td><?php echo $item['nguoithuchien']?></td>
                         <td><?php echo $item['tenkhachhang']?></td>
+                        <td><?php echo $item['dienthoai']?></td>
+                        <td><?php echo $item['diachi']?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['tongtien'])?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['thanhtoan'])?></td>
                         <td class="number"><?php echo $this->string->numberFormate($item['congno'])?></td>

@@ -16,7 +16,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		$this->data['loaiphieu'] = array(
 								"NK" => "Nhập từ nhà cung cấp",
 								"NK-KHTL" => "Khách hàng trả hàng",
-								
+								//"NK-CH" => "Nhập kho từ cửa hàng",
 								);
 		
 		$this->load->model("quanlykho/phieunhapxuat");
@@ -167,6 +167,8 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		
 		$this->id='content';
 		$this->template='quanlykho/phieunhap_view.tpl';
+		if($_GET['show']=="giamgia")
+			$this->template='quanlykho/phieuxuat_view1.tpl';
 		if($_GET['opendialog'] == 'print')
 			$this->layout="layout/print";
 		$this->render();
@@ -184,10 +186,12 @@ class ControllerQuanlykhoPhieunhap extends Controller
     	}
 		else
 		{
+			$this->data['item']['ngaylap'] = $this->date->getToday();
 			if(isset($_SESSION['productlist']))
 			{
 				$medias = $_SESSION['productlist'];
 				$i=0;
+				
 				foreach($medias as $media)
 				{
 					$this->data['data_nhapkho'][$i]['mediaid']=$media['mediaid'];
@@ -220,6 +224,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
 			
 			//$data['loaiphieu'] = $this->loaiphieu;
+			$data['ngaylap'] = $this->date->formatViewDate($data['ngaylap']);
 			$data['ngaythanhtoan'] = $this->date->formatViewDate($data['ngaythanhtoan']);
 			$data['id'] = $this->model_quanlykho_phieunhapxuat->save($data);
 			
@@ -228,7 +233,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 			$delnhapkho = $data['delnhapkho'];
 			if($delnhapkho)
 			{
-				$arr_nhapkhoid = split(",",$delnhapkho);
+				@$arr_nhapkhoid = split(",",$delnhapkho);
 				if(count($arr_nhapkhoid))
 				{
 					foreach($arr_nhapkhoid as $nhapkhoid)

@@ -180,14 +180,25 @@ $('#title').change(function(e) {
 									{
 										
 										$.getJSON("?route=quanlykho/donvitinh/getListDonVi&madonvi="+ this.value,function(data){
+											var str = "<table>";
+											str+= '<tr>';
+											str+= '<td></td>';
+											str+= '<td>Sỉ</td>';
+											str+= '<td>Lẻ</td>';
+											str+= '</tr>';
 											for(i in data)
 											{
-												var str = "";
-												str+='<input type="text" id="saleprice-'+data[i].madonvi+'" name="saleprice['+data[i].madonvi+']" class="text number">/'+data[i].tendonvitinh+'<br>'
-												$('#giaban').append(str);
-												numberReady();
+												str += '<tr>';
+												str+= '<td>'+data[i].tendonvitinh+'</td>';
+												str+= '<td><input type="text" id="saleprice-'+data[i].madonvi+'" name="saleprice['+data[i].madonvi+']" class="text number"></td>';
+												str+= '<td><input type="text" id="retail-'+data[i].madonvi+'" name="retail['+data[i].madonvi+']" class="text number"></td>';
+												
+												str+=  '</tr>';
+												
 											}
-											
+											str += "</table>";
+											$('#giaban').append(str);
+											numberReady();
 											<?php if($post["saleprice"]!=""){ ?>
 												
 											var saleprice = $.parseJSON('<?php echo $post["saleprice"]?>');
@@ -195,6 +206,17 @@ $('#title').change(function(e) {
 											{
 												//alert(saleprice[i])
 												$('#saleprice-'+i).val(saleprice[i]);
+											}
+											
+											<?php } ?>
+											
+											<?php if($post["retail"]!=""){ ?>
+												
+											var retail = $.parseJSON('<?php echo $post["retail"]?>');
+											for(i in retail)
+											{
+												//alert(saleprice[i])
+												$('#retail-'+i).val(retail[i]);
 											}
 											
 											<?php } ?>
@@ -355,11 +377,13 @@ function callAtt(pos)
                     <p>
                         <label><?php echo $entry_summary?></label><br>
                         <textarea class="text editor" rows="3" cols="70" id="summary" name="summary"><?php echo $post['summary']?></textarea>
+<?php if($_GET['dialog']==""){ ?>
 <script language="javascript">
 $(document).ready(function(e) {
     setCKEditorType('summary',2);
 });
 </script>
+<?php } ?>
                     </p>
                     <?php } ?>
                     <?php if($hasSEO) {?>
@@ -435,11 +459,13 @@ $(document).ready(function(e) {
                     </p>
                 </div>
             </div>
+            <?php if($_GET['dialog']==""){ ?>
             <script language="javascript">
 			$(document).ready(function(e) {
                 setCKEditorType('description',2);
             });
 			</script>
+            <?php } ?>
             <?php }?>
             <?php if($hasVideo) {?>
             <div id="fragment-video">
@@ -678,7 +704,7 @@ function save()
 			var obj = $.parseJSON(data);
 			if(obj.error=="")
 			{
-				window.location = "<?php echo $DIR_CANCEL.'&page='.$_GET['page']?>";
+				window.location = "<?php echo $DIR_CANCEL?>";
 			}
 			else
 			{
@@ -698,30 +724,4 @@ $(document).ready(function() {
 	
 });
 </script>
-<?php if($hasFile) {?>
 
-<?php if($hasSubInfor) {?>
-<script src="<?php echo DIR_JS?>uploadsubimage.js" type="text/javascript"></script>
-<?php } ?>
-
-<?php }?>
-<?php if($hasVideo) {?>
-<script src="<?php echo DIR_JS?>uploadvideo.js" type="text/javascript"></script>
-<?php }?>
-<?php if($hasAudio) {?>
-<script src="<?php echo DIR_JS?>uploadaudio.js" type="text/javascript"></script>
-<?php }?>
-<script language="javascript">
-
-
-
-
-
-
-
-
-
-
-
-
-</script>

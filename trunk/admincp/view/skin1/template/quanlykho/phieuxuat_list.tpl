@@ -12,6 +12,10 @@
                 <input type="text" id="nguoithuchien" name="nguoithuchien" class="text" value="" />-->
                 <label>Khách hàng</label>
                 <input type="text" id="tenkhachhang" name="tenkhachhang" class="text" value="" />
+                <label>Số điện thoại</label>
+                <input type="text" id="dienthoai" name="dienthoai" class="text" value="" />
+                <label>Địa chỉ</label>
+                <input type="text" id="diachi" name="diachi" class="text" value="" />
                 <label>Từ ngày</label>
                 <input type="text" class="text date" id="tungay" />
                 <script language="javascript">
@@ -51,6 +55,7 @@
             	
                 <?php }else{ ?>
                 <input class="button" id="btnPrint" value="In" type="button">
+                <input class="button" id="btnPrintDiscount" value="In giảm giá" type="button">
                 <?php if($this->user->checkPermission("quanlykho/phieuxuat/insert")==true){ ?>
                 <input class="button" value="Thêm" type="button" onclick="linkto('<?php echo $insert?>')">
                 <?php } ?>
@@ -82,6 +87,17 @@ $('#btnPrint').click(function(e) {
     });
 	
 	objdl.printPX(arrid.join("-"));
+});
+$('#btnPrintDiscount').click(function(e) {
+	var arrid = new Array();
+    $('.inputchk').each(function(index, element) {
+        if(this.checked)
+		{
+			arrid.push(this.value);	
+		}
+    });
+	
+	objdl.printPXDisCount(arrid.join("-"));
 });
 function deleteitem()
 {
@@ -143,6 +159,10 @@ function createParam()
 	
 	if($("#frm_phieunhap #tenkhachhang").val() != "")
 		url += "&tenkhachhang="+ encodeURI($("#frm_phieunhap #tenkhachhang").val());
+	if($("#frm_phieunhap #dienthoai").val() != "")
+		url += "&dienthoai="+ encodeURI($("#frm_phieunhap #dienthoai").val());
+	if($("#frm_phieunhap #diachi").val() != "")
+		url += "&diachi="+ encodeURI($("#frm_phieunhap #diachi").val());
 	
 	if($("#frm_phieunhap #tungay").val() != "")
 		url += "&tungay="+ encodeURI($("#frm_phieunhap #tungay").val());

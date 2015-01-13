@@ -1,4 +1,4 @@
-<script language="javascript" src="<?php echo HTTP_SERVER.DIR_JS?>phieunhapxuat.js"></script>
+
 <div class="section" id="sitemaplist">
 
 	<div class="section-title"><?php echo $this->document->title?></div>
@@ -12,7 +12,7 @@
                 <input type="button" value="Lưu & In" class="button" onClick="savephieu('print')"/>
      	        <input type="button" value="Bỏ qua" class="button" onclick="linkto('?route=quanlykho/phieunhap')"/>   
      	        <input type="hidden" name="id" value="<?php echo $item['id']?>">
-                <input type="hidden" name="ngaylap" value="<?php echo $item['ngaylap']?>">
+                
                 
             </div>
             <div class="clearer">^&nbsp;</div>
@@ -23,6 +23,20 @@
                     <li class="tabs"><a href="#fragment-nguyenlieu"><span>Sản phẩm</span></a></li>
                 </ul>
                 <div id="fragment-thongtin">
+                	<p>
+                    	<label>Ngày nhập</label><br />
+                        
+                        <input type="text" class="text"  id="ngaylap" name="ngaylap" value="<?php echo $this->date->formatMySQLDate($item['ngaylap'])?>"/>
+						<script language="javascript">
+                            $(function() {
+                                $("#ngaylap").datepicker({
+                                        changeMonth: true,
+                                        changeYear: true,
+                                        dateFormat: 'dd-mm-yy'
+                                        });
+                                });
+                         </script>
+                    </p>
                     <p>
                     	<label>Loại phiếu</label><br />
                         <select id="loaiphieu" name="loaiphieu">
@@ -219,136 +233,27 @@
 <script language="javascript">
 $(document).ready(function(e) {
 	objdl.addRow("<?php echo $dl['id']?>","<?php echo $dl['mediaid']?>","<?php echo $dl['code']?>","<?php echo $this->document->productName($dl['mediaid'])?>","<?php echo $dl['soluong']?>","<?php echo $dl['madonvi']?>","<?php echo $dl['giatien']?>","<?php echo $dl['giamgia']?>","<?php echo $dl['phantramgiamgia']?>");
+	
+	
 });
 </script>
 	<?php } ?>
 <?php } ?>
-
 <script language="javascript">
-
-$('#btnSelectKhachHang').click(function(e) {
-    $("#popup").attr('title','Chọn khách hàng');
-		$( "#popup" ).dialog({
-			autoOpen: false,
-			show: "blind",
-			hide: "explode",
-			width: 1000,
-			height: window.innerHeight,
-			modal: true,
-		});
-	
-		$("#popup").dialog("open");
-		$("#popup-content").html(loading);
-		$("#popup-content").load("?route=core/member&opendialog=true",function(){
-			
-		});
-});
-$('#btnSelectNhanVienNhan').click(function(e) {
-	handle = "nguoinhan";
-    $("#popup").attr('title','Chọn nhân viên');
-		$( "#popup" ).dialog({
-			autoOpen: false,
-			show: "blind",
-			hide: "explode",
-			width: $(document).width()-100,
-			height: window.innerHeight,
-			modal: true,
-			
-		});
-	
-		$("#popup").dialog("open");	
-		$("#popup-content").html(loading);
-		$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
-			
-		});
-});
-function intSelectMember()
-{
-	$('.item').click(function(e) {
-		
-        $('#khachhangid').val($(this).attr('id'));
-		$('#tenkhachhang').val($(this).attr('fullname'));
-		
-		$("#popup").dialog( "close" );
-    });
-}
-function intSelectNhanVien()
-{
-	switch(handle)
+$('#phieunhapxuat').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
+$("#nhapkhonguyenlieu").sortable();
+$('#loaiphieu').change(function(e) {
+	$('.nhapxuat').hide();
+    $('#f-'+$('#loaiphieu').val()).show();
+	switch(this.value)
 	{
-		case "nguoithuchien":
-			$('.item').click(function(e) {
-				$("#nguoithuchienid").val($(this).attr('id'));
-				$("#nguoithuchien").val($(this).attr('hoten'));
-				$("#popup").dialog( "close" );
-			});
+		case "NK":
+			$('#f-NK').show();
 			break;
-		case "nguoinhan":
-			$('.item').click(function(e) {
-				$("#nguoinhanid").val($(this).attr('id'));
-				$("#nguoinhan").val($(this).attr('hoten'));
-				
-				$("#popup").dialog( "close" );
-			});
-			break;	
+		case "NK-KHTL":
+			$('#f-NK-KHTL').show();
 	}
-			
-}
-
-$('#btnTrahet').click(function(e) {
-    $('#thanhtoan').val($('#tongcong').html());
-	$('#thanhtoan').keyup();
 });
-$('#thuphi').keyup(function(e) {
-    objdl.tinhtong(0);
-});
-$('#thanhtoan').keyup(function(e) {
-    var tongcong = Number(stringtoNumber($('#tongcong').html()));
-	var thanhtoan = Number(stringtoNumber($('#thanhtoan').val()));
-	var congno = tongcong - thanhtoan;
-	$('#congno').val(congno);
-	$('#lbl-congno').html(formateNumber(congno));
-});
-
-
-$('#btnSeleteNhaCungCap').click(function(e) {
-    $("#popup").attr('title','Chọn nhà cung cấp');
-		$( "#popup" ).dialog({
-			autoOpen: false,
-			show: "blind",
-			hide: "explode",
-			width: 1000,
-			height: window.innerHeight,
-			modal: true,
-		});
-	
-		$("#popup").dialog("open");
-		$("#popup-content").html(loading);
-		$("#popup-content").load("?route=quanlykho/nhacungcap&opendialog=true",function(){
-			
-		});
-});
-function intSelectNhaCungCap()
-{
-	$('.item').click(function(e) {
-        $('#nhacungcapid').val($(this).attr('id'));
-		$('#tennhacungcap').val($(this).attr('tennhacungcap'));
-		$('#nhacungcapview').html($(this).attr('tennhacungcap'));
-		$("#popup").dialog( "close" );
-    });
-}
-$('#btnAddRow').click(function(e) {
-	browseProduct();
-});
-$('#btnImport').click(function(e) {
-    objdl.importDetail();
-});
-$('#btnGetFomat').click(function(e) {
-    $.get("?route=quanlykho/phieunhap/getFileFormate",function(data){
-		window.location = "download.php?url="+ encodeURI(data);
-	});	
-});
-
 function savephieu(type)
 {
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
@@ -366,38 +271,8 @@ function savephieu(type)
 					case "print":
 						$.unblockUI();
 						var id = arr[1];
-						$("#popup").attr('title','Phiếu nhập kho');
-						$( "#popup" ).dialog({
-							autoOpen: false,
-							show: "blind",
-							hide: "explode",
-							width: 1000,
-							height: window.innerHeight,
-							modal: true,
-							close: function(ev, ui){
-									window.location = "?route=quanlykho/phieunhap";
-								},
-							buttons: {
-								
-								'In':function()
-								{
-									openDialog("?route=quanlykho/phieunhap/view&id="+id+"&opendialog=print",800,500)
-									window.location = "?route=quanlykho/phieunhap";
-								},
-								'Đóng': function() 
-								{
-									
-									$( this ).dialog( "close" );
-									window.location = "?route=quanlykho/phieunhap";
-								},
-							}
-						});
-					
-						$("#popup").dialog("open");
-						$("#popup-content").html(loading);
-						$("#popup-content").load("?route=quanlykho/phieunhap/view&id="+id+"&opendialog=true",function(){
-							
-						});
+						objdl.viewPX(id,"window.location = '?route=quanlykho/phieunhap'");
+						
 				}
 			}
 			else
@@ -411,29 +286,7 @@ function savephieu(type)
 		}
 	);
 }
-$('#loaiphieu').val("<?php echo $item['loaiphieu']?>")
-$('#loaiphieu').change(function(e) {
-	$('.nhapxuat').hide();
-    $('#f-'+$('#loaiphieu').val()).show();
-	switch(this.value)
-	{
-		case "NK":
-			$('#khachhangid').val('');
-			$('#tenkhachhang').val('');
-			break;
-		case "NK-KHTL":
-			$('#nhacungcapid').val('');
-			$('#tennhacungcap').val('');
-			$('#nhacungcapview').html('');
-	}
-});
-
-
-var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
-$(document).ready(function(e) {
-    $('#phieunhapxuat').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
-	$('#loaiphieu').change();
-});
+//
 $(function() {
 	var cache = {};
 	$( "#txt_ref" ).autocomplete({
@@ -484,11 +337,11 @@ $(function() {
 			});
 		}
 	});
-	$("#nguoinhan").autocomplete({
+	$("#nguoithuchien").autocomplete({
 		minLength: 2,
 		select: function( event, ui ) {
-			$('#nguoinhanid').val(ui.item.id);
-			$('#nguoinhan').val(ui.item.value);
+			$('#nguoithuchienid').val(ui.item.id);
+			$('#nguoithuchien').val(ui.item.value);
 		},
 		source: function( request, response ) {
 		var term = request.term;
@@ -503,5 +356,147 @@ $(function() {
 		}
 	});
 });
-</script>
+$(document).ready(function(e) {
+	$('#btnTrahet').click(function(e) {
+		$('#thanhtoan').val($('#tongcong').html());
+		$('#thanhtoan').keyup();
+	});
+	$('#thuphi').keyup(function(e) {
+		objdl.tinhtong(0);
+	});
+	$('#thanhtoan').keyup(function(e) {
+		var tongcong = Number(stringtoNumber($('#tongcong').html()));
+		var thanhtoan = Number(stringtoNumber($('#thanhtoan').val()));
+		var congno = tongcong - thanhtoan;
+		$('#congno').val(congno);
+		$('#lbl-congno').html(formateNumber(congno));
+	});
+	$('#btnSelectNhanVien').click(function(e) {
+		handle = "nguoinhan";
+		$("#popup").attr('title','Chọn nhân viên');
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				
+			});
+		
+			$("#popup").dialog("open");	
+			$("#popup-content").html(loading);
+			$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
+				
+			});
+	});
+	$('#btnSelectNhanVienNhan').click(function(e) {
+		handle = "nguoinhan";
+		$("#popup").attr('title','Chọn nhân viên');
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: $(document).width()-100,
+				height: window.innerHeight,
+				modal: true,
+				
+			});
+		
+			$("#popup").dialog("open");	
+			$("#popup-content").html(loading);
+			$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
+				
+			});
+	});
+	
+	$('#btnSelectKhachHang').click(function(e) {
+		$("#popup").attr('title','Chọn khách hàng');
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: 1000,
+				height: window.innerHeight,
+				modal: true,
+			});
+		
+			$("#popup").dialog("open");
+			$("#popup-content").html(loading);
+			$("#popup-content").load("?route=core/member&opendialog=true",function(){
+				
+			});
+	});
+	
+	$('#btnAddRow').click(function(e) {
+		browseProduct();
+	});
+	
+	$('#btnSeleteNhaCungCap').click(function(e) {
+		$("#popup").attr('title','Chọn nhà cung cấp');
+			$( "#popup" ).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode",
+				width: 1000,
+				height: window.innerHeight,
+				modal: true,
+			});
+		
+			$("#popup").dialog("open");
+			$("#popup-content").html(loading);
+			$("#popup-content").load("?route=quanlykho/nhacungcap&opendialog=true",function(){
+				
+			});
+	});
+	
+	
+	$('#loaiphieu').val("<?php echo $item['loaiphieu']?>").change();
+        
+});
 
+
+function intSelectMember()
+{
+	$('.item').click(function(e) {
+		
+		$('#khachhangid').val($(this).attr('id'));
+		$('#tenkhachhang').val($(this).attr('fullname'));
+		$('#dienthoai').val($(this).attr('phone'));
+		$('#diachi').val($(this).attr('address'));
+		$("#popup").dialog( "close" );
+	});
+}
+function intSelectNhaCungCap()
+{
+	$('.item').click(function(e) {
+		$('#nhacungcapid').val($(this).attr('id'));
+		$('#tennhacungcap').val($(this).attr('tennhacungcap'));
+		$('#nhacungcapview').html($(this).attr('tennhacungcap'));
+		$('#nguoinhan').val($(this).attr('tennhacungcap'));
+		$("#popup").dialog( "close" );
+	});
+}
+function intSelectNhanVien()
+{
+	switch(handle)
+	{
+		case "nguoithuchien":
+			$('.item').click(function(e) {
+				$("#nguoithuchienid").val($(this).attr('id'));
+				$("#nguoithuchien").val($(this).attr('hoten'));
+				$("#popup").dialog( "close" );
+			});
+			break;
+		case "nguoinhan":
+			$('.item').click(function(e) {
+				$("#nguoinhanid").val($(this).attr('id'));
+				$("#nguoinhan").val($(this).attr('hoten'));
+				
+				$("#popup").dialog( "close" );
+			});
+			break;	
+	}
+			
+}
+</script>

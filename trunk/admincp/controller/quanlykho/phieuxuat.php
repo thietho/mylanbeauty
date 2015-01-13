@@ -2,7 +2,7 @@
 class ControllerQuanlykhoPhieuxuat extends Controller
 {
 	private $error = array();
-	private $loaiphieu = "PBH";
+	private $loaiphieu = array('PBH','THNCC');
 	function __construct() 
 	{
 		
@@ -14,7 +14,12 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$this->response->redirect('?route=page/home');
 		}
 		
-		
+		$this->data['loaiphieu'] = array(
+								"PBH" => "Phiếu bán hàng",
+								//"XCH" => "Phiếu xuất ra cửa hàng",
+								"THNCC" => "Phiếu xuất trả nhà cung cấp",
+								
+								);
 		$this->load->model("quanlykho/phieunhapxuat");
 		$this->load->helper('image');
 		$this->load->model("core/category");
@@ -96,12 +101,14 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 	private function loadData()
 	{
 		
-		$where = " AND loaiphieu='".$this->loaiphieu."'";
+		$where = " AND loaiphieu in ('". implode("','", $this->loaiphieu) ."') ";
 		
 		$datasearchlike['maphieu'] = urldecode($this->request->get['maphieu']);
 		$datasearchlike['trangthai'] = urldecode($this->request->get['trangthai']);
 		
 		$datasearchlike['tenkhachhang'] = urldecode($this->request->get['tenkhachhang']);
+		$datasearchlike['dienthoai'] = urldecode($this->request->get['dienthoai']);
+		$datasearchlike['diachi'] = urldecode($this->request->get['diachi']);
 		$datasearchlike['nguoithuchien'] = urldecode($this->request->get['nguoithuchien']);
 		
 		$arr = array();
@@ -189,7 +196,7 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 	public function printlist()
 	{
 		$listid = $this->request->get['listid'];
-		$arrid = split("-",$listid);
+		@$arrid = split("-",$listid);
 		
 		foreach($arrid as $key => $id)
 		{
@@ -215,6 +222,8 @@ class ControllerQuanlykhoPhieuxuat extends Controller
     	}
 		else
 		{
+			
+			//$this->data['item']['ngaylap'] = $this->date->getToday();
 			if(isset($_SESSION['productlist']))
 			{
 				$medias = $_SESSION['productlist'];
@@ -251,6 +260,7 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 		if($this->validateForm($data))
 		{
 			$nhanvien = $this->user->getNhanVien();
+			$data['ngaylap'] = $this->date->formatViewDate($data['ngaylap']);
 			$data['ngaythanhtoan'] = $this->date->formatViewDate($data['ngaythanhtoan']);
 			if($data['nguoithuchien']=="")
 			{
@@ -264,7 +274,7 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$delnhapkho = $data['delnhapkho'];
 			if($delnhapkho)
 			{
-				$arr_nhapkhoid = split(",",$delnhapkho);
+				@$arr_nhapkhoid = split(",",$delnhapkho);
 				if(count($arr_nhapkhoid))
 				{
 					foreach($arr_nhapkhoid as $nhapkhoid)
