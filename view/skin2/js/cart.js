@@ -51,7 +51,7 @@ function Cart()
 						
 					});
 					cart.load()
-					
+					$("#ben-popup").dialog("open");
 				}
 				
 			}
