@@ -40,8 +40,11 @@ if(count($medias))
                         <?php if(count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
                         <div>
-                        	<?php echo $me['sizes']?>:
-                            
+                        	<?php echo $me['sizes']?>
+                            <?php 
+                            if($me['color'])
+								echo " ".$me['color'];
+                            ?>:
                             <?php $cls = '';?>
                             <?php if($me['pricepromotion']) $cls = 'product-price-no'; else $cls = 'product-pricepromotion'?>
                            
