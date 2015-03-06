@@ -37,7 +37,7 @@ if(count($medias))
                             
                             
                         </a>
-                        <?php if(count($media['childs'])){ ?>
+                        <?php if(count($media['childs']) && $media['displaytype']==''){ ?>
                         <?php foreach($media['childs'] as $me){?>
                         <div>
                         	<?php echo $me['sizes']?>
@@ -67,9 +67,9 @@ if(count($medias))
                             
                         </div>
                         <?php } ?>
-                        <?php } ?>
+                    <?php } ?>
                     </div>
-                    <?php if(count($media['childs'])==0){ ?>
+                    <?php if(count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
                     <?php $cls = '';?>
                     <?php if($media['pricepromotion']!=0){ ?>
                     <div align="center" class="product-pricepromotion">
