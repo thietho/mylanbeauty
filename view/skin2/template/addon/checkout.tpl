@@ -14,7 +14,7 @@
 	<?php 
     	$sum = 0;
     	foreach($medias as $media) {
-        $sum = $media['price'] * $media['qty'];
+        $sum += $media['price'] * $media['qty'];
     ?>
         <tr>
             <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
