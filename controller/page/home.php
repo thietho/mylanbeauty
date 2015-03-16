@@ -105,6 +105,7 @@ class ControllerPageHome extends Controller
 			
 			
 			$this->data['arrbrand'] = array(
+							"Shishedo",
 							"Guerlain",
 							"Sisley",
 							"Lancome",
@@ -115,7 +116,7 @@ class ControllerPageHome extends Controller
 							
 							"Clinique",
 							"LOccitane",
-							"Shishedo",
+							
 							"VictoriaSecrect",
 							"bathandbodyworks"
 							);
