@@ -237,7 +237,7 @@ $("#ben-next").click(function(){
                     <td>
                     	<?php echo $this->document->productName($val)?>
                         <?php if($val['noteprice']!=""){ ?>
-                            (<?php echo $val['noteprice']?>)
+                            (<?php echo $this->document->getCategory($val['noteprice'])?>)
                         <?php }?>
                     	<?php if($val['tenkhuyenmai']){ ?>
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
