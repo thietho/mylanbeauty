@@ -74,6 +74,23 @@ function PhieuNhapXuat()
         });
 		numberReady();
 	}
+	this.addGroup = function(id,title,soluong,madonvi,giatien,giamgia,phantramgiamgia)
+	{
+		var row = '<tr id="row'+ this.index +'">';
+		row +='<td><input type="hidden" id="nhapkhoid-'+ this.index +'" name="nhapkhoid['+ this.index +']" value="'+ id +'" /><input type="text" class="text" id="title-'+ this.index +'" name="title['+ this.index +']" value="'+ title +'" /></td>';
+		
+		row +='<td class="number"><input type="text" id="soluong-'+ this.index +'" name="soluong['+ this.index +']" value="'+soluong+'" class="text number short soluong" ref="'+ this.index +'"/></td>';
+		row +='<td class="number"><select mediaid="'+mediaid+'" class="madonvi" id="madonvi-'+ this.index +'" name="dlmadonvi['+ this.index +']" value="'+madonvi+'" ref="'+ this.index +'"></select></td>';
+		row +='<td class="number"><input type="text" id="giatien-'+ this.index +'" name="giatien['+ this.index +']" value="'+giatien+'" class="text number short giatien" ref="'+ this.index +'"/></td>';
+		row +='<td class="number"><input type="text" id="phantramgiamgia-'+ this.index +'" name="phantramgiamgia['+ this.index +']" value="'+phantramgiamgia+'" class="text number short phantramgiamgia" ref="'+ this.index +'"/></td>';
+		row +='<td class="number"><input type="text" id="giamgia-'+ this.index +'" name="giamgia['+ this.index +']" value="'+ giamgia +'" class="text number short giamgia" ref="'+ this.index +'"/></td>';
+		
+		row += '<td class="number thanhtien" id="thanhtien-'+ this.index +'"></td>';
+		row +='<td><input type="button" class="button" value="Xóa" onclick="objdl.removeRow('+ this.index +')"/></td>';
+		row+='</tr>';
+		$('#nhapkhonguyenlieu').append(row);
+		this.index++;
+	}
 	this.getPrice = function(pos,mediaid,madonvi)
 	{
 		
