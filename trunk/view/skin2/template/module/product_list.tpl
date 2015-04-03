@@ -28,7 +28,7 @@ if(count($medias))
                         	<h6>
                             	<?php if(count($media['childs'])){ ?>
                             	<?php echo $media['title']?> - <?php echo $media['code']?>
-                                <?php echo $media['brand']?>
+                                <?php echo $this->document->getCategory($media['brand'])?>
                                 <?php echo $media['color']?>
                                 <?php }else{ ?>
                                 <?php echo $this->document->productName($media)?>
