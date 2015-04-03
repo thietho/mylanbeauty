@@ -35,7 +35,7 @@ class ControllerSitebarGallery extends Controller
 								"Lancome",
 								"Clarins",
 								"Clinique",
-								"Shishedo",
+								"Shiseido",
 								"VictoriaSecrect",
 								"LOccitane"
 								);			  

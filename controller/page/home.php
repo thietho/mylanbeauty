@@ -109,7 +109,7 @@ class ControllerPageHome extends Controller
 							"Guerlain",
 							"Lancome",
 							"Clarins",
-							"Shishedo",
+							"Shiseido",
 							"Dior",
 							"EsteeLauder",
 							"Chanel",
