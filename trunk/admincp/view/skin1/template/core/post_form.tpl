@@ -250,7 +250,18 @@ $('#title').change(function(e) {
                         <p>
                             <label><?php echo $text_price?></label><br>
                             <input class="text number" type="text" id="price" name="price" value="<?php echo $post['price']?>"/>
-                            <input class="text short" type="text" id="noteprice" name="noteprice" value="<?php echo $post['noteprice']?>" />
+                            <select id="noteprice" name="noteprice">
+                            	<option value=""></option>
+                            <?php foreach($producttype as $it){ ?>
+                        
+                        		<option value="<?php echo $it['categoryid']?>"><?php echo $it['categoryname']?></option>
+                            
+                            <?php } ?>
+                            </select>
+                            <script language="javascript">
+							$('#noteprice').val("<?php echo $post['noteprice']?>");
+							</script>
+                            
                         </p>
                         <p>
                             <label>Phần trăm giảm giá</label><br>
@@ -261,18 +272,35 @@ $('#title').change(function(e) {
                             <input class="text number" type="text" id="pricepromotion" name="pricepromotion" value="<?php echo $post['pricepromotion']?>" />
                         </p>
                         <script language="javascript">
+						$('#price').keyup(function(e) {
+                            $('#discountpercent').keyup();
+                        });
 						$('#discountpercent').keyup(function(e) {
-                            var price = Number(stringtoNumber($('#price').val()));
-							var discountpercent = Number(stringtoNumber($('#discountpercent').val()));
-							var pricepromotion = price*( 1- discountpercent/100);
-							$('#pricepromotion').val(formateNumber(pricepromotion));
+							if(this.value == 0)
+							{
+								$('#pricepromotion').val('0');
+							}
+							else
+							{
+								var price = Number(stringtoNumber($('#price').val()));
+								var discountpercent = Number(stringtoNumber($('#discountpercent').val()));
+								var pricepromotion = price*( 1- discountpercent/100);
+								$('#pricepromotion').val(formateNumber(pricepromotion));
+							}
                         });
 						
 						$('#pricepromotion').keyup(function(e) {
-                            var price = Number(stringtoNumber($('#price').val()));
-							var pricepromotion = Number(stringtoNumber($('#pricepromotion').val()));
-							var discountpercent = (1- pricepromotion/price)*100;
-							$('#discountpercent').val(formateNumber(discountpercent));
+							if(this.value == 0)
+							{
+								$('#discountpercent').val('0');
+							}
+							else
+							{
+								var price = Number(stringtoNumber($('#price').val()));
+								var pricepromotion = Number(stringtoNumber($('#pricepromotion').val()));
+								var discountpercent = (1- pricepromotion/price)*100;
+								$('#discountpercent').val(formateNumber(discountpercent));
+							}
                         });
 						</script>
                         <?php } ?>

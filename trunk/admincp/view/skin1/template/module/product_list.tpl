@@ -27,12 +27,51 @@
                     <input type="button" class="button" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo $media['mediaid']?>')"/>
                     <input type="button" class="button selectProduct" value="Chọn" ref="<?php echo $media['mediaid']?>" image="<?php echo $media['imagepreview']?>" code="<?php echo $media['code']?>" unit="<?php echo $media['unit']?>" title="<?php echo $this->document->productName($media)?>" price="<?php echo $media['price']?>" pricepromotion="<?php echo $media['pricepromotion']?>" discountpercent="<?php echo $media['discountpercent']?>" productname="<?php echo $this->document->productName($media)?>" brandname="<?php echo $this->document->getCategory($media['brand'])?>"/>
                     <?php } ?>
+                    <div>
+                    	Hiển thị:
+                        <select id="displaytype<?php echo $media['mediaid']?>" mediaid="<?php echo $media['mediaid']?>">
+                        	<?php foreach($this->document->productdisplay as $key => $val){ ?>
+                            <option value="<?php echo $key?>"><?php echo $val?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                     <?php if(count($media['child'])){ ?>
-                    <table>
+                    <script language="javascript">
+					$("#displaytype<?php echo $media['mediaid']?>").val("<?php echo $media['displaytype']?>");
+					$("#productsize<?php echo $media['mediaid']?>").sortable({
+						update: function( event, ui )
+						{
+							var arrid = new Array();
+							var arrpos = new Array();
+							$(this).children('table').each(function(index, element) {
+								arrid.push($(this).attr('mediaid'));
+								arrpos.push($(this).attr('position'));
+								
+							});
+							$.post("?route=module/product/updatePosition",
+								{
+									mediaid:arrid,
+									position:arrpos
+								},
+								function(){
+								
+							});
+						}
+					});
+					
+					$("#displaytype<?php echo $media['mediaid']?>").change(function(e) {
+						
+                        $.post("?route=core/media/updateCol",{mediaid:$(this).attr('mediaid'),col:'displaytype',val:this.value});
+                    });
+					</script>
+                    
+                    <div id="productsize<?php echo $media['mediaid']?>">
                     <?php foreach($media['child'] as $k => $child){ ?>
+                    
+                    <table id="child<?php echo $child['mediaid']?>" mediaid="<?php echo $child['mediaid']?>" position="<?php echo $k?>">
                     	<tr>
                         	<td>
-                            	<?php echo $child['sizes']?> <?php echo $child['color']?> <?php echo $child['material']?> : <?php echo $this->string->numberFormate($child['price'])?><?php if($child['noteprice']!="") echo "(".$child['noteprice'].")";?><br />
+                            	<?php echo $child['sizes']?> <?php echo $child['color']?> <?php echo $child['material']?> : <?php echo $this->string->numberFormate($child['price'])?><?php if($child['noteprice']!="") echo "(".$this->document->getCategory($child['noteprice']).")";?><br />
                                 Giảm: <?php echo $this->string->numberFormate($child['discountpercent'])?>%<br />
                                 Giá khuyến mãi: <?php echo $this->string->numberFormate($child['pricepromotion'])?><br />
                                 <?php if($child['tonkho']) echo "Tồn: ".$child['tonkho']?>
@@ -47,14 +86,17 @@
                             	<input type="button" class="button addToList" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo $child['mediaid']?>')"/>
                                 <input type="button" class="button" value="Xóa" onclick="pro.delete('<?php echo $child['mediaid']?>')"/>
                                 <input type="button" class="button" value="Ra ngoài nhóm" onclick="pro.outGroup('<?php echo $child['mediaid']?>')"/>
+                                <?php if($this->user->checkPermission("module/product/history")==true){ ?>
                                 <input type="button" class="button" value="Lịch sử" onclick="pro.history('<?php echo $child['mediaid']?>')"/>
+                                <?php } ?>
                                 <input type="button" class="button selectProduct" value="Chọn" ref="<?php echo $child['mediaid']?>" image="<?php echo $child['imagepreview']?>" code="<?php echo $child['code']?>" unit="<?php echo $child['unit']?>" title="<?php echo $this->document->productName($child)?>" price="<?php echo $child['price']?>" pricepromotion="<?php echo $child['pricepromotion']?>" discountpercent="<?php echo $child['discountpercent']?>" productname="<?php echo $this->document->productName($child)?>" brandname="<?php echo $this->document->getCategory($child['brand'])?>"/>
                             </td>
                         
                         
                         </tr>
-                    <?php } ?>
                     </table>
+                    <?php } ?>
+                    </div>
                     <?php } ?>
                 </td>
                 <td width="150px">
@@ -101,6 +143,7 @@
 <script language="javascript">
 
 $(function(){
+	
     $.contextMenu({
         selector: '.listitem', 
         callback: function(key, options) {
@@ -143,7 +186,9 @@ $(function(){
 			<?php if($this->user->checkPermission("module/product/insert")==true){ ?>
             "addSizes": {name: "Thêm qui cách"},
             <?php } ?>
+			<?php if($this->user->checkPermission("module/product/history")==true){ ?>
 			"viewHistory": {name: "Lịch sử"},
+			<?php } ?>
 			<?php if($this->user->checkPermission("module/product/deleted")==true){ ?>
 			"del": {name: "Xóa"},
 			<?php } ?>
@@ -157,7 +202,7 @@ $(function(){
 		obj.title = $(this).attr('title');
 		obj.code = $(this).attr('code');
 		obj.unit = $(this).attr('unit');
-		console.log(obj.mediaid);
+		//console.log(obj.mediaid);
 		obj.price = $(this).attr('price');
 		
 		obj.pricepromotion = $(this).attr('pricepromotion');
