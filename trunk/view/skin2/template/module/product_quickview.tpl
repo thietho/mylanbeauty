@@ -149,7 +149,7 @@
                         <?php } ?>
                     </td>
                     <td>
-                    	<img src="<?php echo $val['icon']?>" onClick="$('#mainimage').attr('src','<?php echo $val['imagepreview']?>')">
+                    	<img src="<?php echo $val['icon']?>" onClick="$('#mainimage').attr('src','<?php echo $val['imagethumbnail']?>')">
                     </td>
                     <td class="number">
                     	<?php $cls = '';?>

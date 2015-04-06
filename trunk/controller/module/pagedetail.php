@@ -201,7 +201,8 @@ class ControllerModulePagedetail extends Controller
 		{
 			
 			$this->data['priceproduct'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
-			$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
+			$this->data['priceproduct'][$key]['imagethumbnail'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
+			$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], 800, 800);
 			$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
 			$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
 		}
