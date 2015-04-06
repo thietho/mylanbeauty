@@ -101,8 +101,11 @@ class ControllerModuleProductlist extends Controller
 			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 			$sitemapid = $arr[0];
 			
-			
-			$link = $this->document->createLink($sitemapid,$media['alias']);
+			if($media['alias'] == "")
+				$s = $media['mediaid'];
+			else
+				$s = $media['mediaid']."-".$media['alias'];
+			$link = $this->document->createLink($sitemapid,$s);
 			$imagethumbnail = "";
 			
 			//if($media['imagepath'] != "" )
@@ -275,7 +278,12 @@ class ControllerModuleProductlist extends Controller
 			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 			$sitemapid = $arr[0];
 			
-			$link = $this->document->createLink($sitemapid,$media['alias']);
+			if($media['alias'] == "")
+				$s = $media['mediaid'];
+			else
+				$s = $media['mediaid']."-".$media['alias'];
+			$link = $this->document->createLink($sitemapid,$s);
+			
 			
 			$imagethumbnail = "";
 			$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);

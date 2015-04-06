@@ -25,6 +25,7 @@ $(document).ready(function() {
         //Absolute position the tooltip according to mouse position
         tip.css({  top: mousey, left: mousex });
     });
+	
 });
 function Product()
 {
@@ -49,6 +50,7 @@ function Product()
 		});
 		$("#"+eid).dialog("open");
 		$("#"+eid).html(loading);
-		$("#"+eid).load("?route=");
+		$("#"+eid).load("?route=module/product/quickView&id="+mediaid);
 	}
 }
+var pro = new Product();
