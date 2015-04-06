@@ -117,10 +117,11 @@ class ControllerModulePagedetail extends Controller
 		{
 			$id = $media['alias'];	
 		}
-		$mediaid = $id;
+		$arr = split("-",$id);
+		$mediaid = $arr[0];
 		$siteid = $this->member->getSiteId();
 		
-		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
+		$this->data['post'] = $this->model_core_media->getItem($mediaid);
 		if(count($this->data['post']) == 0)
 			$this->response->redirect(HTTP_SERVER);
 		$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
@@ -190,7 +191,8 @@ class ControllerModulePagedetail extends Controller
 		$this->data['child'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'subinfor'"," Order by position");
 		foreach($this->data['child'] as $key => $item)
 		{
-			$this->data['child'][$key]['imagepreview'] = "<img width=100 src='".HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height'])."' >";
+			$this->data['child'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
+			$this->data['child'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
 		}
 		
 		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'module/product' "," Order by position");
@@ -198,7 +200,8 @@ class ControllerModulePagedetail extends Controller
 		foreach($this->data['priceproduct'] as $key => $item)
 		{
 			
-			
+			$this->data['priceproduct'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
+			$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
 			$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
 			$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
 		}

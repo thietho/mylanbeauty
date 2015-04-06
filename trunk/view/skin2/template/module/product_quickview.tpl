@@ -15,14 +15,12 @@
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-new.png" />
         </div>
         <?php } ?>
-        <?php if($media['imagethumbnail'] !=""){ ?>
-        <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
-        <?php }?>
+        
     	<?php if($post['imagethumbnail'] !=""){ ?>
         <div class="product-mainimage">
         	<table>
             	<tr valign="middle">
-                	<td id="product-preview" height="250px" align="center"><a class="zoom" href="<?php echo $post['imagepreview']?>"><img  src="<?php echo $post['imagethumbnail']?>" /></a></td>
+                	<td id="product-preview" height="250px" align="center"><img id="mainimage" src="<?php echo $post['imagethumbnail']?>" /></td>
                 </tr>
             </table>
 	        
@@ -30,18 +28,6 @@
         
         <?php }?>
         
-        
-<script language="javascript">
-$(document).ready(function() { 
-	$(".zoom").colorbox({rel:'zoom'});
-	$(".ben-icon-item").click(function(){
-		var arr = this.id.split("-");
-		var key = arr[1];
-		$("#product-preview").html($("#preview-"+key).html());
-		$(".zoom").colorbox({rel:'zoom'});
-	});
-});
-</script>
 
         
      
@@ -141,6 +127,7 @@ $(document).ready(function() {
             <thead>
                 <tr>
                     <th>Sẩn phẩm</th>
+                    <th>Hình</th>
                     <th>Giá bán</th>
                     <th>Giảm</th>
                     <th>Khuyến mãi</th>
@@ -161,7 +148,9 @@ $(document).ready(function() {
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                         <?php } ?>
                     </td>
-                    
+                    <td>
+                    	<img src="<?php echo $val['icon']?>" onClick="$('#mainimage').attr('src','<?php echo $val['imagepreview']?>')">
+                    </td>
                     <td class="number">
                     	<?php $cls = '';?>
                             <?php if($val['pricepromotion']!=0){ ?>

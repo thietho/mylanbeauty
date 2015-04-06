@@ -60,7 +60,7 @@ var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 
 </script>
 <script type="text/javascript">
-var loading = '<center id="loading"><img src="<?php echo DIR_IMAGE?>loading.gif"></center>';
+var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loading.gif"></center>';
 </script>
 <script language="javascript">
 

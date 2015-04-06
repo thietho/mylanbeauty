@@ -106,7 +106,7 @@ if(count($medias))
                     </div>
                     <?php if($media['displaytype']=='compact'){ ?>
                     <div align="center">
-                    	<a onClick="">Xem nhanh</a>
+                    	<a onClick="pro.quickView(<?php echo $media['mediaid']?>)">Xem nhanh</a>
                     </div>
                     <?php }?>
                 </td>
