@@ -69,8 +69,15 @@ $(document).ready(function() {
 		var arr = this.id.split("-");
 		var key = arr[1];
 		$("#product-preview").html($("#preview-"+key).html());
+		$("#product-preview").children('a').addClass('zoom');
 		$(".zoom").colorbox({rel:'zoom'});
 	});
+	$(".ben-sub-item").click(function(e) {
+        var key = $(this).attr('pos');
+		$("#product-preview").html($("#previewsub-"+key).html());
+		$("#product-preview").children('a').addClass('zoom');
+		$(".zoom").colorbox({rel:'zoom'});
+    });
 });
 </script>
 <script language="javascript">
@@ -122,7 +129,12 @@ $("#ben-next").click(function(){
         <div style="display:none">
             <?php foreach($subimage as $key => $val){ ?>
             <div  id="preview-<?php echo $key?>">
-                <a class="zoom" href="<?php echo $val['imagepreview']?>"><img src="<?php echo $val['imagethumbnail']?>" /></a>
+                <a href="<?php echo $val['imagepreview']?>"><img src="<?php echo $val['imagethumbnail']?>" /></a>
+            </div>
+            <?php } ?>
+            <?php foreach($priceproduct as $key => $val){ ?>
+            <div  id="previewsub-<?php echo $key?>">
+                <a href="<?php echo $val['imagepreview']?>"><img src="<?php echo $val['imagethumbnail']?>" /></a>
             </div>
             <?php } ?>
         </div>
@@ -223,6 +235,7 @@ $("#ben-next").click(function(){
             <thead>
                 <tr>
                     <th>Sẩn phẩm</th>
+                    <th>Hình</th>
                     <th>Giá bán</th>
                     <th>Giảm</th>
                     <th>Khuyến mãi</th>
@@ -232,7 +245,7 @@ $("#ben-next").click(function(){
             <tbody>
                 
                 
-                <?php foreach($priceproduct as $val){ ?>
+                <?php foreach($priceproduct as $key => $val){ ?>
                 <tr>
                     <td>
                     	<?php echo $this->document->productName($val)?>
@@ -243,7 +256,9 @@ $("#ben-next").click(function(){
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                         <?php } ?>
                     </td>
-                    
+                    <td>
+                    	<img src="<?php echo $val['icon']?>" class="ben-sub-item" pos="<?php echo $key?>" >
+                    </td>
                     <td class="number">
                     	<?php $cls = '';?>
                             <?php if($val['pricepromotion']!=0){ ?>
