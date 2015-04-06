@@ -50,7 +50,7 @@
                     <div id="f-PBH" class="nhapxuat">
                         <p>
                             <label>Khách hàng</label><br />
-                            <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>" >
+                            <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>">
                             <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $item['tenkhachhang']?>" class="text" size=60 />
                             <input type="button" class="button" id="btnSelectKhachHang" value="Chọn khách hàng" />
                         </p>
@@ -217,7 +217,6 @@
                     </table>
                     <input type="hidden" id="delnhapkho" name="delnhapkho" />
                     <input type="button" class="button" id="btnAddRow" value="Thêm dòng"/>
-                    <input type="button" class="button" id="btnAddGroup" value="Thêm nhóm"/>
                 </div>
            </div>
             
@@ -431,7 +430,9 @@ $(document).ready(function(e) {
 	$('#btnAddRow').click(function(e) {
 		browseProduct();
 	});
-	
+	$('#btnAddGroup').click(function(e) {
+        objdl.addGroup('','',0,'',0,0,0);
+    });
 	$('#btnSeleteNhaCungCap').click(function(e) {
 		$("#popup").attr('title','Chọn nhà cung cấp');
 			$( "#popup" ).dialog({

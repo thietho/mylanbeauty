@@ -211,7 +211,7 @@ class ControllerModuleProduct extends Controller
 				$this->data['medias'][$i]['groupkeys'] = implode(",",$arrstatus);
 			$mediaid = $this->data['medias'][$i]['mediaid'];
 			$this->data['medias'][$i]['tonkho'] = $this->model_core_media->getTonKho($mediaid);
-			$data_child = $this->model_core_media->getListByParent($mediaid);
+			$data_child = $this->model_core_media->getListByParent($mediaid,"ORDER BY `position` ASC ");
 			foreach($data_child as $key =>$child)
 			{
 				$data_child[$key]['imagepreview'] = HelperImage::resizePNG($child['imagepath'], 100, 100);
@@ -261,7 +261,7 @@ class ControllerModuleProduct extends Controller
 			$arrsitemapid = $this->string->matrixToArray($data,"sitemapid");
 		}
 		$arr = array();
-		$where = " AND mediaparent = '' AND mediatype = 'module/product' ";
+		$where = " AND mediaparent = '' AND mediatype = 'module/product' AND status = 'active' AND imagepath <> ''";
 		if($sitemapid)
 			foreach($arrsitemapid as $sitemapid)
 			{
@@ -526,11 +526,27 @@ class ControllerModuleProduct extends Controller
 		$this->template='common/output.tpl';
 		$this->render();
 	}
-	public function updateQty()
+	public function updateProductList()
 	{
 		$mediaid = $this->request->get['mediaid'];
-		$qty = $this->request->get['qty'];
-		$_SESSION['productlist'][$mediaid]['qty'] = $qty;
+		$col = $this->request->get['col'];
+		$val = $this->request->get['val'];
+		$_SESSION['productlist'][$mediaid][$col] = $val;
+		
+		$this->data['output'] = "true";
+		$this->id='content';
+		$this->template='common/output.tpl';
+		$this->render();
+	}
+	public function updatePosition()
+	{
+		$arrmediaid = $this->request->post['mediaid'];
+		$arrposition = $this->request->post['position'];
+		foreach($arrmediaid as $key => $mediaid)
+		{
+			
+			$this->model_core_media->updateCol($mediaid,'position',$key + 1);
+		}
 		
 		$this->data['output'] = "true";
 		$this->id='content';
