@@ -104,6 +104,11 @@ if(count($medias))
                     <div align="center">
                         <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
+                    <?php if($media['displaytype']=='compact'){ ?>
+                    <div align="center">
+                    	<a onClick="">Xem nhanh</a>
+                    </div>
+                    <?php }?>
                 </td>
             </tr>
         </table>

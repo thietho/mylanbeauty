@@ -26,3 +26,29 @@ $(document).ready(function() {
         tip.css({  top: mousey, left: mousex });
     });
 });
+function Product()
+{
+	this.quickView = function(mediaid)
+	{
+		var eid = "popupquickView";
+		$('body').append('<div id="'+eid+'" style="display:none"></div>');
+		$("#"+eid).attr('title','Sản phẩm');
+		$( "#"+eid ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: 800,
+			height: window.innerHeight,
+			modal: true,
+			close:function()
+				{
+					$('#'+eid).remove();
+					
+				},
+			
+		});
+		$("#"+eid).dialog("open");
+		$("#"+eid).html(loading);
+		$("#"+eid).load("?route=");
+	}
+}
