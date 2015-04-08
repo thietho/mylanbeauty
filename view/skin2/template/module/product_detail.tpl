@@ -212,7 +212,7 @@ $("#ben-next").click(function(){
             <?php if(count($data_samplecode)>1){ ?>
             <p>
             	<?php foreach($data_samplecode as $key => $item){?>
-                <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
+                <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['mediaid'].'-'.$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
                 <?php } ?>
             </p>
             <?php } ?>
