@@ -280,6 +280,15 @@ final class Document {
 		return $query->row[$name];
 	}
 	
+	public function getShop($id,$name = 'shopname')
+	{
+		$sql = "Select `shop`.* 
+									from `shop` 
+									where id ='".$id."' ";
+		$query = $this->db->query($sql);
+		return $query->row[$name];
+	}
+	
 	public function createLink($sitemap="",$id="",$key = "",$val = "")
 	{
 		$link = HTTP_SERVER;
@@ -379,6 +388,7 @@ final class Document {
 		$str = $this->httppost($url,$data);
 		$tb = json_decode($str);
 		$this->objectToArray($tb);
+		
 		return $tb;
 	}
 	public function insertData($table,$field,$value)
