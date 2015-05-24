@@ -12,7 +12,7 @@
         	<div class="ben-section-title"><?php echo $brand?></div>
             
             <div class="ben-section-content">
-            	<!--<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'banner-thongbao.jpg'?>" width="767px"/>-->
+            	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannersale50.png'?>"/>
             	<?php echo $bannerhome?>
                 
             </div>
