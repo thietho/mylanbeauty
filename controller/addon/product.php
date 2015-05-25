@@ -40,7 +40,9 @@ class ControllerAddonProduct extends Controller
 			$arrref = array();
 			$arrsummary = array();
 			$arrdescription = array();
-			
+			$arrcolor = array();
+			$arrsizes = array();
+			$arrmaterial = array();
 			foreach($arrkey as $key)
 			{
 				$arr[] = "title like '%".$key."%'";
@@ -65,6 +67,18 @@ class ControllerAddonProduct extends Controller
 			{
 				$arrdescription[] = "description like '%".$key."%'";
 			}
+			foreach($arrkey as $key)
+			{
+				$arrcolor[] = "color like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrsizes[] = "sizes like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrmaterial[] = "material like '%".$key."%'";
+			}
 			$where .= " AND (
 								(". implode(" AND ",$arr). ") 
 								OR (". implode(" AND ",$arrcode). ") 
@@ -72,6 +86,9 @@ class ControllerAddonProduct extends Controller
 								OR (". implode(" AND ",$arrref). ") 
 								OR (". implode(" AND ",$arrsummary). ") 
 								OR (". implode(" AND ",$arrdescription). ") 
+								OR (". implode(" AND ",$arrcolor). ") 
+								OR (". implode(" AND ",$arrsizes). ") 
+								OR (". implode(" AND ",$arrmaterial). ") 
 							)";
 		}
 		if($loaisp)
