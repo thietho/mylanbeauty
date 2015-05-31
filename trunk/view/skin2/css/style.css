@@ -573,10 +573,9 @@ display:block;
 .ben-two-columns #ben-maincontent{width: 750px;}
 .ben-three-columns #ben-maincontent
 {
-	width:785px; 
-	
-	
+	width:785px;
 }
+
 .ben-three-columns-right #ben-maincontent{width:520px; margin-right:20px}
 
 
@@ -821,7 +820,10 @@ ul#menu li ul li div:hover {
 	border:thin solid;
 	padding:5px;
 }
-
+.ben-editor img
+{
+	max-width:100%;
+}
 .ben-data-table td,th
 {
 	padding:10px;
