@@ -3,7 +3,7 @@
             
 
             <div id="ben-maincontent" class="col-md-12">
-
+				<img class="img-responsive" src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannersale50.png'?>"/>
                 <?php echo $bannerhome?>
 
                 

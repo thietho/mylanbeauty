@@ -14,6 +14,7 @@
 			$this->id="header";
 			$this->template="common/header.tpl";
 			$this->data['mainmenu'] = $this->getMenu("sanpham");
+			$this->data['brand'] = $this->getBrand("nhanhieu");
 			$this->render();
 		}
 		
@@ -59,6 +60,42 @@
 					$str .= "<ul>";
 					$str .= $this->getMenu($item['sitemapid']);
 					$str .= "</ul>";
+				}
+
+				$str .= "</li>";
+			}
+			
+			return $str;
+			
+		}
+		public function getBrand($parentid)
+		{
+			$this->load->model("core/category");
+			
+			$str = "";
+			
+			
+			$cats = $this->model_core_category->getChild($parentid);
+			
+			foreach($cats as $item)
+			{
+				$childs = $this->model_core_category->getChild($item['categoryid']);
+				
+				$str .= "<li>";
+				if(count($childs) > 0)
+				{
+					$link = '<a class="trigger right-caret">'.$item['categoryname'].'</a>';	
+				}
+				else
+				{
+					$link = "<a href='".$this->document->createLink('brand',$item['categoryid'])."' title='".$item['categoryname']."'>".$item['categoryname']."</a>";	
+				}
+				$str .= $link;
+				if(count($childs) > 0)
+				{
+					$str .= '<ul>';
+					$str .= $this->getBrand($item['categoryid']);
+					$str .= '</ul>';
 				}
 
 				$str .= "</li>";
