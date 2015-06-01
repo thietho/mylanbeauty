@@ -22,12 +22,12 @@ body {
 }
 
 .caption {
-    height: 130px;
+    height: 265px;
     overflow: hidden;
 }
 
 .caption h4 {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 .thumbnail img {
@@ -51,4 +51,30 @@ body {
 
 footer {
     margin: 50px 0;
+}
+
+.product-pricepromotion
+{
+	color:#F00;
+	
+	font-weight:bold;
+	
+}
+.product-price-no
+{
+	text-decoration:line-through;	
+}
+.flagdiscount
+{
+	background:url(../image/flag-discount.png) no-repeat;
+	width:47px;
+	height:24px;
+	padding-left:22px;
+	color:#fff;
+	font-size:0.8em;
+	position:absolute;
+}
+.number
+{
+	text-align:right;	
 }

@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Mỹ Lan Beauty</a>
+                <a class="navbar-brand" href="<?php echo HTTP_SERVER?>">Mỹ Lan Beauty</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,39 +21,23 @@
                         <a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a>
                     </li>
                     <li>
-                        <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng</a>
+                        <a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng">Giỏ hàng <span id="cartcout" class="badge"></span></a>
                     </li>
                     <li class="dropdown" style="position:relative">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản phẩm <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="trigger right-caret">Level 1</a>
-                                <ul class="dropdown-menu sub-menu">
-                                    <li><a href="#">Level 2</a></li>
-                                    <li>
-                                        <a class="trigger right-caret">Level 2</a>
-                                        <ul class="dropdown-menu sub-menu">
-                                            <li><a href="#">Level 3</a></li>
-                                            <li><a href="#">Level 3</a></li>
-                                            <li>
-                                                <a class="trigger right-caret">Level 3</a>
-                                                <ul class="dropdown-menu sub-menu">
-                                                    <li><a href="#">Level 4</a></li>
-                                                    <li><a href="#">Level 4</a></li>
-                                                    <li><a href="#">Level 4</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Level 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Level 1</a></li>
-                            <li><a href="#">Level 1</a></li>
+                            <?php echo $mainmenu?>
                         </ul>
                     </li>
-                    
-                    
+                     <li class="dropdown" style="position:relative">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thương hiệu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <?php echo $brand?>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->document->createLink('searchproduct')?>" title="Tìm kiếm">Tìm kiếm</a>
+                    </li>
                     <?php if(!$this->member->isLogged()){?>
                     <li>
                         <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>          
@@ -63,7 +47,7 @@
                     </li>
                     <?php }else{ ?>
                     <li>
-                        <a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo $this->document->getUser($this->member->getUserName())?></a>          
+                        <a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo $this->member->data['fullname']?></a>          
                     </li>
                     <li>
                         <a href="#" onclick="logout()" title="Đăng xuất">Đăng xuất</a>          

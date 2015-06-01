@@ -2,37 +2,37 @@ function Cart()
 {
 	this.load = function()
 	{
-		$("#sitebarcartlist").load(HTTP_SERVER+"?route=sitebar/cart/getList");
+		//$("#sitebarcartlist").load(HTTP_SERVER+"?route=sitebar/cart/getList");
 			
 		$.ajax({
-			url: HTTP_SERVER+"?route=sitebar/cart/getCount",
+			url: HTTP_SERVER+"?route=addon/cart/getCount",
 			cache: false,
 			success: function(html){
 				$("#cartcout").html(html);
-				if(html == 0)
-					$("#ben-cart").hide();
-				else
-				{
-					$("#ben-cart").show();
-				}
+				
 			}
 		});
 	}
 	this.add = function(mediaid)
 	{
-		
+		var eid = "mediaform";
+		$('body').append('<div id="'+eid+'" style="display:none"></div>');
 		$.get(HTTP_SERVER+"?route=addon/cart/add&mediaid="+mediaid,
 			function(data){
 				if(data == "true")
 				{
-					$("#ben-popup").attr('title','Thông tin đặt hàng');
-					$( "#ben-popup" ).dialog({
+					$("#"+eid).attr('title','Thông tin đặt hàng');
+					$( "#"+eid ).dialog({
 						autoOpen: false,
 						show: "blind",
 						hide: "explode",
 						width: 550,
 						height: 300,
 						modal: true,
+						close:function()
+						{
+							$("#"+eid).remove();
+						},
 						buttons: {
 							
 							
@@ -46,9 +46,9 @@ function Cart()
 						}
 					});
 				
-					
-					$("#ben-popup-content").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
-						$("#ben-popup").dialog("open");	
+					$("#"+eid).dialog("open");	
+					$("#"+eid).load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
+						
 					});
 					cart.load()
 					
