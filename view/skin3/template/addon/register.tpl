@@ -1,40 +1,37 @@
-<script src='<?php echo HTTP_SERVER.DIR_JS?>ui.datepicker.js' type='text/javascript' language='javascript'> </script>
-<div>
-	<h3>Đăng ký thành viên</h3>
-    <div id="error" class="ben-error" style="display:none"></div>
-	<form id="frmRegister" method="post">
-    	
-    	<table class="ben-form">
-        	<tr>
-            	<td><label>Tên đăng nhập</label></td>
-                <td><input type="text" id="username" name="username" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Mật khẩu</label></td>
-                <td><input type="password" id="password" name="password" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Xác nhận mật khẩu</label></td>
-                <td><input type="password" id="confirmpassword" name="confirmpassword" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Họ và tên</label></td>
-                <td><input type="text" id="fullname" name="fullname" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Email</label></td>
-                <td><input type="text" id="email" name="email" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Địa chỉ</label></td>
-                <td><input type="text" id="address" name="address" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Điện thoại</label></td>
-                <td><input type="text" id="phone" name="phone" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td><label>Ngày sinh</label></td>
+<div class="col-md-4 col-md-offset-4">
+    <div>
+        <form id="frmRegister" method="post" role="form">
+            <div id="error" class="ben-error" style="display:none"></div>
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" id="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Xác nhận mật khẩu</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <input type="text" id="fullname" name="fullname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <input type="text" id="address" name="address" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Điện thoại</label>
+                <input type="text" id="phone" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh</label>
                 <script language="javascript">
 					$(function() {
 						$("#birthday").datepicker({
@@ -44,34 +41,29 @@
 								});
 						});
 				 </script>
-                <td><input type="text" id="birthday" name="birthday" class="ben-textbox" size="40"></td>
-            </tr>
-            
-            <tr>
-            	<td></td>
-                <td>
-                	<div class="ben-dieukhoan">
-                    	<?php echo $dieukhoan?>
-                	</div>
-                </td>
-            </tr>
-            <tr>
-            	<td></td>
-                <td>
-                	<input type="checkbox" id="chkaccept" name="chkaccept" value="accept" class="ben-textbox">
+                <input type="text" id="birthday" name="birthday" class="form-control">
+            </div>
+            <div class="form-group">
+                
+				<?php echo $dieukhoan?>
+                
+            </div>
+            <div class="checkbox">
+            	<label>
+                    <input type="checkbox" id="chkaccept" name="chkaccept" value="accept" >
                     Tôi đồng ý với điều khoản trên
-                </td>
-            </tr>
-            <tr>
-            	<td></td>
-                <td>
-                	<input type="button" id="btnRegister" name="btnRegister" class="ben-button" value="Đăng ký">
-                </td>
-            </tr>
-        </table>
-    </form>
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="button" id="btnRegister" name="btnRegister" class="btn btn-lg btn-success btn-block" value="Đăng ký">
+            </div>
+            
+           
+        </form>
+    </div>
+
 </div>
-<div class="clearer">&nbsp;</div>
+
 <script language="javascript">
 $("#btnRegister").click(function(){
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
@@ -80,8 +72,9 @@ $("#btnRegister").click(function(){
 		function(data){
 			if(data == "true")
 			{
-				$('#error').html("Bạn đã đăng ký thành công! Mã kích hoạt tài khoản đã đươc gửi tới email của bạn! <a href='<?php echo $this->document->createLink('active')?>'>Kích hoạt tài khoản click vào đây</a>").show('slow');
-				$("#frmRegister").hide();
+				//$('#error').html("Bạn đã đăng ký thành công! Mã kích hoạt tài khoản đã đươc gửi tới email của bạn! <a href='<?php echo $this->document->createLink('active')?>'>Kích hoạt tài khoản click vào đây</a>").show('slow');
+				//$("#frmRegister").hide();
+				window.location = '<?php echo $this->document->createLink("successfulregistration")?>';
 			}
 			else
 			{

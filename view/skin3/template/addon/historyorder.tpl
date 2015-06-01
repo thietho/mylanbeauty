@@ -1,5 +1,5 @@
-<div>
-    <table class="ben-table">
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
 		<thead>
         	<tr>
                 <th>Mã đơn hàng</th>

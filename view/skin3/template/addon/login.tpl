@@ -1,32 +1,33 @@
-<div>
-	<h3>Thành viên đã đăng ký</h3>
-    <p>Nếu bạn đã đăng ký với chúng tôi, hãy đăng nhập phía dưới.</p>
-</div>
-<div>
-    <form id="frmLogin" method="post">
-    	<div id="error" class="ben-error" style="display:none"></div>
-        <table class="ben-form">
-            <tr>
-                <td><label>Tên đăng nhập</label></td>
-                <td><input type="text" id="username" name="username" class="ben-textbox"></td>
-            </tr>
-            <tr>
-                <td><label>Mật khẩu</label></td>
-                <td><input type="password" id="password" name="password" class="ben-textbox"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <p>
-                        <input type="button" class="ben-button" id="btnLogin" value="Đăng nhập"> <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
-                    </p>
-                    
-                    <input type="checkbox" name="remember" value="1"> Ghi nhớ
-                    
-                </td>
-            </tr>
-        </table>
-    </form>
+<div class="col-md-4 col-md-offset-4">
+    <div>
+        <h3>Thành viên đã đăng ký</h3>
+        <p>Nếu bạn đã đăng ký với chúng tôi, hãy đăng nhập phía dưới.</p>
+    </div>
+    <div>
+        <form id="frmLogin" method="post" role="form">
+        	<div class="form-group has-error">
+            	<label id="error" class="control-label" style="display:none"></label>
+            </div>
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" id="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input type="button" class="btn btn-lg btn-success btn-block" id="btnLogin" value="Đăng nhập">
+                <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
+                <a href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="remember" value="1"> Ghi nhớ
+            </div>
+        </form>
+    </div>
+
 </div>
 <script language="javascript">
 $("#btnLogin").click(function(){

@@ -1,27 +1,26 @@
-<div>
-	<form id="frmActive" method="post">
-    	<div id="error" class="ben-error" style="display:none"></div>
-    	<table>
-        	<tr>
-            	<td class="ben-right"><label>Tên đăng nhập</label></td>
-                <td><input type="text" id="username" name="username" class="ben-textbox" size="40"></td>
-            </tr>
-            <tr>
-            	<td class="ben-right"><label>Mã kích hoạt</label></td>
-                <td><input type="text" id="activecode" name="activecode" class="ben-textbox" size="40"></td>
-            </tr>
-           
-            <tr>
-            	<td class="ben-right"></td>
-                <td>
-                	<input type="button" id="btnActive" name="btnActive" class="ben-button" value="Kích hoạt">
-                    
-                </td>
-            </tr>
-        </table>
-    </form>
+<div class="col-md-4 col-md-offset-4">
+    
+    <div>
+        <form id="frmActive" method="post" role="form">
+        	<div class="form-group has-error">
+            	<label id="error" class="control-label" style="display:none"></label>
+            </div>
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" id="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Mã kích hoạt</label>
+                <input type="text" id="activecode" name="activecode" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input type="button" class="btn btn-lg btn-success btn-block" id="btnActive" value="Kích hoạt">
+            </div>
+        </form>
+    </div>
+
 </div>
-<div class="clearer">&nbsp;</div>
 <script language="javascript">
 $("#btnActive").click(function(){
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 

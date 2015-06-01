@@ -1,4 +1,4 @@
-<script src='<?php echo HTTP_SERVER.DIR_JS?>ui.datepicker.js' type='text/javascript' language='javascript'> </script>
+
 <style>
 .text
 {
@@ -10,10 +10,11 @@
 	cursor:pointer;
 }
 </style>
-<div>
-	<form id="frmRegister" method="post">
+<div class="col-md-8 col-md-offset-2">
+	<div>
+    	<form id="frmRegister" method="post">
     	<div id="error" class="ben-error" style="display:none"></div>
-    	<table class="ben-form">
+    	<table class="table">
         	<tr>
             	<td><label>Tên đăng nhập</label></td>
                 <td><?php echo $member['username']?></td>
@@ -48,19 +49,7 @@
 				 </script>
                 <td id="birthday" class="date"><?php echo $this->date->formatMySQLDate($member['birthday'])?></td>
             </tr>
-            <tr>
-            	<td><label>Ngày sinh của bé</label></td>
-                <script language="javascript">
-					$(function() {
-						$("#birthdaykids").datepicker({
-								changeMonth: true,
-								changeYear: true,
-								dateFormat: 'dd-mm-yy'
-								});
-						});
-				 </script>
-                <td id="birthdaykids" class="date"><?php echo $this->date->formatMySQLDate($member['birthdaykids'])?></td>
-            </tr>
+            
             <tr>
             	<td><label>Ảnh đại diện</label></td>
                 <td>
@@ -83,8 +72,9 @@
             
         </table>
     </form>
+    </div>
 </div>
-<div class="clearer">&nbsp;</div>
+
 <script src='<?php echo HTTP_SERVER.DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>
 <script type="text/javascript" charset="utf-8">
 var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
@@ -94,8 +84,8 @@ function editText(eid)
 	if(isedit)
 	{
 		var text = $("#"+eid).html();
-		var html = '<input type="text" class="ben-textbox" size="50" id="text-'+eid+'" value="'+text+'">';
-		html+=' <input id="btnSaveInfor" type="button" class="ben-button" value="Save" onclick="saveInfor(\''+eid+'\')">';
+		var html = '<input type="text" class="form-control" size="50" id="text-'+eid+'" value="'+text+'">';
+		html+=' <input id="btnSaveInfor" type="button" class="btn btn-default" value="Save" onclick="saveInfor(\''+eid+'\')">';
 		
 						
 		$("#"+eid).html(html);
@@ -116,8 +106,8 @@ function editDate(eid)
 	if(isedit)
 	{
 		var text = $("#"+eid).html();
-		var html = '<input type="text" class="ben-textbox" id="text-'+eid+'" value="'+text+'">';
-		html+=' <input id="btnSaveInfor" type="button" class="ben-button" value="Save" onclick="saveDate(\''+eid+'\')">';
+		var html = '<input type="text" class="form-control" id="text-'+eid+'" value="'+text+'">';
+		html+=' <input id="btnSaveInfor" type="button" class="btn btn-default" value="Save" onclick="saveDate(\''+eid+'\')">';
 		
 		$("#"+eid).html(html);
 		$("#text-"+eid).datepicker({
