@@ -30,7 +30,7 @@ $filename = DIR_FILE."db/setting.json";;
 
 /*if($setting->skin=="")
 	$setting->skin="skin1";*/
-$skin = 'skin2';
+
 require_once DIR_COMPONENT.'MobileDetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
@@ -39,9 +39,11 @@ switch($deviceType)
 {
 	case 'phone':
 		$skin = 'skin3';
+		define('IMG_PROLIST', '320');
 		break;
 	default:
 		$skin = 'skin2';
+		define('IMG_PROLIST', '180');
 }
 
 define('DIR_VIEW','view/'.$skin.'/');

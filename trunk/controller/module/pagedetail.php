@@ -216,8 +216,8 @@ class ControllerModulePagedetail extends Controller
 		
 		/*$temp = array(
 						  'template' => "module/product_list.tpl",
-						  'width' => 170,
-						  'height' =>170
+						  'width' => IMG_PROLIST,
+						  'height' =>IMG_PROLIST
 						  );
 		$arr = array($this->document->sitemapid,9,"",$temp,$this->data['othernews']);*/
 		//$this->data['other'] = $this->loadModule('module/productlist','index',$arr);
