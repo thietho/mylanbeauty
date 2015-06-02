@@ -126,8 +126,8 @@ class ControllerPageDetail extends Controller
 						{
 							$template = array(
 											  'template' => "module/product_list.tpl",
-											  'width' => 180,
-											  'height' =>180,
+											  'width' => IMG_PROLIST,
+											  'height' =>IMG_PROLIST,
 											  'widthpreview' => 450,
 											  'heightpreview' =>450
 											  );
@@ -296,8 +296,8 @@ class ControllerPageDetail extends Controller
 						{
 							$template = array(
 											  'template' => "module/product_list.tpl",
-											  'width' => 180,
-											  'height' =>180,
+											  'width' => IMG_PROLIST,
+											  'height' =>IMG_PROLIST,
 											  'widthpreview' => 450,
 											  'heightpreview' =>450
 											  );

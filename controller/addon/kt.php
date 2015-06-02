@@ -81,8 +81,8 @@ class ControllerAddonKt extends Controller
 		
 		$template = array(
 							  'template' => "module/product_list.tpl",
-							  'width' => 108,
-							  'height' =>108,
+							  'width' => IMG_PROLIST,
+							  'height' =>IMG_PROLIST,
 							  'widthpreview' => 450,
 						 	  'heightpreview' =>450
 							  );
