@@ -446,7 +446,7 @@ input.ben-button:active {border-style: inset;}
 /* Main Level 1 */
 .ben-navigation
 {
-	margin-top:20px;
+	margin-top:106px;
 	
 	width:755px;
 }
@@ -653,7 +653,7 @@ display:block;
 	text-transform:uppercase;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;text-align:center;text-transform:uppercase;}
-#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:29px;opacity:0.8}
+#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:29px;}
 #ben-searchform select 
 {
 	width:186px;
@@ -842,5 +842,5 @@ ul#menu li ul li div:hover {
 #ben-promotion
 {
 	text-align:right;
-	margin-top:20px;
+	margin-top:9px;
 }
