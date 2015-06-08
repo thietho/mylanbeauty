@@ -37,14 +37,14 @@ $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') 
 $scriptVersion = $detect->getScriptVersion();
 switch($deviceType) 
 {
-	case 'phone':
+	/*case 'phone':
 	default:
 		$skin = 'skin4';
 		define('IMG_PROLIST', '320');
-		break;
-	/*default:
+		break;*/
+	default:
 		$skin = 'skin2';
-		define('IMG_PROLIST', '180');*/
+		define('IMG_PROLIST', '180');
 }
 
 define('DIR_VIEW','view/'.$skin.'/');

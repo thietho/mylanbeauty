@@ -27,9 +27,9 @@
         </div>
         <div class="clearer">&nbsp;</div>
         <div id="ben-promotion">
-        	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>promotion.png" alt="GIẢM ĐẾN 50% (Cam kết bán hàng chính hãng 100%)" />
+        	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg" alt="GIẢM ĐẾN 50% (Cam kết bán hàng chính hãng 100%)" />
         </div>
-        <div class="ben-navigation ben-right">
+        <!--<div class="ben-navigation ben-right">
     
             <ul id="ben-main-nav">
             	
@@ -39,7 +39,7 @@
     
             <div class="clearer">&nbsp;</div>
     
-        </div>
+        </div>-->
         <div class="clearer">&nbsp;</div>
     </div>
 </div>

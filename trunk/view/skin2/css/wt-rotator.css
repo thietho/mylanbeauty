@@ -1,11 +1,11 @@
 .wt-rotator{
 font-family:Arial,Helvetica,sans-serif;
 font-size:12px;
-background-color:#000;
-border:1px solid #000;
+
+
 position:relative;
-width:765px;
-height:300px;
+width:767px;
+height:272px;
 overflow:hidden;
 }
 .wt-rotator a{

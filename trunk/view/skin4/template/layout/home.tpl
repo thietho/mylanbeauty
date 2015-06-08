@@ -51,7 +51,7 @@
 		
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannersale50.png">
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner.jpg">
-        <div class="ui-grid-b ui-responsive">
+        <div class="ui-grid-a ui-responsive">
         	<div class="ui-block-a">
         		<div class="jqm-block-content">
         			<h3>Pages &amp; Navigation</h3>
@@ -74,7 +74,7 @@
         		</div>
         	</div>        	
         	
-        	<div class="ui-block-c">
+        	<div class="ui-block-b">
         		<div class="jqm-block-content">
         			<h3>CSS Framework</h3>
 
@@ -84,7 +84,29 @@
         			<p><a href="grids/" data-ajax="false">Grids</a></p>
         			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
         		</div>
-        	</div>      
+        	</div> 
+            <div class="ui-block-b">
+        		<div class="jqm-block-content">
+        			<h3>CSS Framework</h3>
+
+        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
+        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
+        			<p><a href="icons/" data-ajax="false">Icons</a></p>
+        			<p><a href="grids/" data-ajax="false">Grids</a></p>
+        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
+        		</div>
+        	</div>
+            <div class="ui-block-b">
+        		<div class="jqm-block-content">
+        			<h3>CSS Framework</h3>
+
+        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
+        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
+        			<p><a href="icons/" data-ajax="false">Icons</a></p>
+        			<p><a href="grids/" data-ajax="false">Grids</a></p>
+        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
+        		</div>
+        	</div>     
         </div>
 
 	</div><!-- /content -->
