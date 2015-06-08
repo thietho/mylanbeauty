@@ -70,6 +70,8 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 <body onload="fixlayout();">
 
 <div style="display:none"><?php echo $meta_keyword?></div>
+<div class="hl-site hl-left"></div>
+<div class="hl-site hl-right"></div>
 <div id="ben-body">
     <div id="ben-main">
         
@@ -102,7 +104,13 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 </div>
 <script language="javascript">
 
-
-	
-
+$(window).resize(function(e) {
+    fixSite()
+});
+function fixSite()
+{
+	var wsite = ($(document).innerWidth() - $('#ben-main').outerWidth())/2;
+	$('.hl-site').width(wsite + 5);
+}
+fixSite();
 </script>

@@ -384,11 +384,23 @@ input.ben-button:active {border-style: inset;}
 	margin: 0 auto;
 	/*max-width: 1000px;
 	min-width: 790px;*/
-	width:1000px
+	width:1000px;
 }
-
-
-
+.hl-site
+{
+	position:fixed;
+	background:#a4a9ae;
+	opacity:0.21;
+	height:100%;	
+}
+.hl-left
+{
+	
+}
+.hl-right
+{
+	right:0;	
+}
 
 
 /*---------- HEADER AREA ------------*/
@@ -515,6 +527,7 @@ float:left;
 {
 	font-weight:bold;
 	text-align:center;
+	font-size:1.1em;
 }
 .ben-subbrand
 {
@@ -639,7 +652,7 @@ display:block;
 {
 	margin-top:74px;	
 }
-#ben-maincontent .ben-section-content{padding:5px 10px}
+#ben-maincontent .ben-section-content{padding:5px 0px 5px 15px}
 
 .ben-section-title {
 	background:#000;
@@ -655,7 +668,7 @@ display:block;
 	text-transform:uppercase;
 }
 .ben-sidebar .ben-section-title {margin-bottom: 8px;text-align:center;text-transform:uppercase;}
-#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:10px;opacity:0.8;margin-right:10px}
+#ben-maincontent .ben-section-title {margin-bottom: 8px;padding-left:10px;opacity:0.8;margin-right:5px}
 #ben-searchform select 
 {
 	width:186px;
@@ -846,4 +859,8 @@ ul#menu li ul li div:hover {
 	position:absolute;
 	margin-left:301px;
 	margin-top:15px;
+}
+.Sisley
+{
+	font-size:1.2em;	
 }

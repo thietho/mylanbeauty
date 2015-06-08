@@ -5,7 +5,7 @@
 	<?php if($item['parent'] == "nhanhieu"){ ?>
 		<td>
     	<?php if($item['categoryid'] != 'brandother'){ ?>
-        <a href="<?php echo $this->document->createLink('brand',$item['categoryid'])?>" title="<?php echo $item['categoryname']?>"><?php echo $item['categoryname']?></a>
+        <a href="<?php echo $this->document->createLink('brand',$item['categoryid'])?>" class="<?php echo $item['categoryid']?>" title="<?php echo $item['categoryname']?>"><?php echo $item['categoryname']?></a>
         <?php }else{ ?>
         <a title="<?php echo $item['categoryname']?>">...</a>
         <?php } ?>
