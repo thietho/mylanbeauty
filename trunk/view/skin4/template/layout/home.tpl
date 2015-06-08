@@ -27,7 +27,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jquery.mobile-1.4.5.css">
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jqm-demos.css">
-    
+    <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>style.css">
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>index.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>/jquery.mobile-1.4.5.js"></script>
@@ -36,9 +36,10 @@
 <body>
 <div data-role="page" class="jqm-demos jqm-home">
 	
-	<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>promotion.png">
+	<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
     
 	<div data-role="header" class="jqm-header">
+    	<div id="hotline">0903 767 580 - 0906 83 69 93</div>
 		<h2><a href="<?php echo HTTP_SERVER?>"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
 		
 		<a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
@@ -49,8 +50,8 @@
 
 		<h1>Trang chủ</h1>
 		
-        <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannersale50.png">
-        <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner.jpg">
+        <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
+        <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
         <div class="ui-grid-a ui-responsive">
         	<div class="ui-block-a">
         		<div class="jqm-block-content">
