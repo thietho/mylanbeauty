@@ -41,7 +41,8 @@
 	<div data-role="header" class="jqm-header">
     	<div id="hotline">0903 767 580 - 0906 83 69 93</div>
 		<h2><a href="<?php echo HTTP_SERVER?>"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
-		
+		<div id="supportonline" >
+	<a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
 		<a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
 		<a href="#" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-right">Search</a>
 	</div><!-- /header -->
@@ -49,7 +50,13 @@
 	<div role="main" class="ui-content jqm-content">
 
 		<h1>Trang chủ</h1>
-		
+		<div class="ui-grid-d ui-responsive">
+            <div class="ui-block-a"><div class="ui-body ui-body-d">A</div></div>
+            <div class="ui-block-b"><div class="ui-body ui-body-d">B</div></div>
+            <div class="ui-block-c"><div class="ui-body ui-body-d">C</div></div>
+            <div class="ui-block-d"><div class="ui-body ui-body-d">D</div></div>
+            <div class="ui-block-e"><div class="ui-body ui-body-d">E</div></div>
+        </div>
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
         <div class="ui-grid-a ui-responsive">

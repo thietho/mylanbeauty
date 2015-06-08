@@ -38,12 +38,13 @@ $scriptVersion = $detect->getScriptVersion();
 switch($deviceType) 
 {
 	case 'phone':
+	default:
 		$skin = 'skin4';
 		define('IMG_PROLIST', '320');
 		break;
-	default:
+	/*default:
 		$skin = 'skin2';
-		define('IMG_PROLIST', '180');
+		define('IMG_PROLIST', '180');*/
 }
 
 define('DIR_VIEW','view/'.$skin.'/');
