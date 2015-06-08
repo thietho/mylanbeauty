@@ -1,8 +1,9 @@
 
-<ul class="ben-brand">
+<table class="ben-brand">
+	<tr>
 <?php foreach($datas as $key => $item){?>
 	<?php if($item['parent'] == "nhanhieu"){ ?>
-	<li>
+		<td>
     	<?php if($item['categoryid'] != 'brandother'){ ?>
         <a href="<?php echo $this->document->createLink('brand',$item['categoryid'])?>" title="<?php echo $item['categoryname']?>"><?php echo $item['categoryname']?></a>
         <?php }else{ ?>
@@ -30,13 +31,13 @@
         <?php
             }
         ?>
-    </li>
+    	</td>
 <?php } ?>
 	<?php } ?>
-	<div class="clearer">&nbsp;</div>
-</ul>
+	</tr>
+</table>
 <script language="javascript">
-$(".ben-brand li").hover(
+$(".ben-brand td").hover(
 	function(){
 		$(this).children(".ben-subbrand").show();
 	},
