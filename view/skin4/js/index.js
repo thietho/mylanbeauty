@@ -215,7 +215,7 @@ if ( location.protocol.substr(0,4)  === 'file' ||
 	});
 }
 
-$( document ).on( "pagecreate", ".jqm-demos", function( event ) {
+$( document ).on( "pagecreate", ".jqm-hl", function( event ) {
 	var search,
 		page = $( this ),
 		that = this,
@@ -294,7 +294,7 @@ $( document ).on( "pagecreate", ".jqm-demos", function( event ) {
 	}
 
 	// Search results page get search query string and enter it into filter then trigger keyup to filter
-	if ( $( event.target ).hasClass( "jqm-demos-search-results") ) {
+	if ( $( event.target ).hasClass( "jqm-hl-search-results") ) {
 		search = $.mobile.path.parseUrl( window.location.href ).search.split( "=" )[ 1 ];
 		setTimeout(function() {
 			e = $.Event( "keyup" );
@@ -305,7 +305,7 @@ $( document ).on( "pagecreate", ".jqm-demos", function( event ) {
 });
 
 // Append keywords list to each list item
-$( document ).one( "pagecreate", ".jqm-demos", function( event ) {
+$( document ).one( "pagecreate", ".jqm-hl", function( event ) {
 	$( this ).find( ".jqm-search-results-list li, .jqm-search li" ).each(function() {
 		var text = $( this ).attr( "data-filtertext" );
 

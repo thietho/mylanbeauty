@@ -1,28 +1,28 @@
 /* JQM Demos custom CSS */
 
 /* Header */
-.jqm-demos .jqm-header {
+.jqm-hl .jqm-header {
 	background: #fff;
 	
 }
-.jqm-demos .jqm-header h2 {
+.jqm-hl .jqm-header h2 {
 	padding: .4em 0 .1em;
 	margin: 0 3em;
 }
-.jqm-demos .jqm-header h2 a {
+.jqm-hl .jqm-header h2 a {
 	display: inline-block;
 	text-decoration: none;
 	min-height: 40px;
 }
-.jqm-demos .jqm-header h2 img {
+.jqm-hl .jqm-header h2 img {
 	display: block;
 	width: 140px;
 	height: auto;
 }
-.jqm-demos .jqm-header h2 > img {
+.jqm-hl .jqm-header h2 > img {
 	display: inline-block;
 }
-.jqm-demos .jqm-header p {
+.jqm-hl .jqm-header p {
 	position: absolute;
 	bottom: -2em;
 	left: 1em;
@@ -32,7 +32,7 @@
 	font-weight: 300;
 	text-transform: uppercase;
 }
-.jqm-demos .jqm-header .ui-btn {
+.jqm-hl .jqm-header .ui-btn {
 	width: 2em;
 	height: 2em;
 	background: none;
@@ -46,22 +46,22 @@
 }
 
 /* Footer */
-.jqm-demos .jqm-footer.ui-footer {
+.jqm-hl .jqm-footer.ui-footer {
 	position: absolute;
 	bottom: 0;
 	padding-bottom: 0;
 }
-.jqm-demos .jqm-footer {
+.jqm-hl .jqm-footer {
 	border-top: 1px solid #3eb249;
 }
-.jqm-demos .jqm-footer p {
+.jqm-hl .jqm-footer p {
 	font-size: .8em;
 	color: #999;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	margin: 0 1.25em 1.25em;
 }
-.jqm-demos .jqm-footer p:first-child {
+.jqm-hl .jqm-footer p:first-child {
 	font-size: 1em;
 	color: #666;
 	font-weight: 400;
@@ -69,25 +69,25 @@
 }
 
 /* Content */
-.jqm-demos .jqm-content {
+.jqm-hl .jqm-content {
 	
 }
-.jqm-demos .jqm-content > h1,
-.jqm-demos .jqm-content > h2,
-.jqm-demos .jqm-content > h3,
-.jqm-demos .jqm-content > p,
-.jqm-demos .jqm-content > ul li,
-.jqm-demos .jqm-content > a {
+.jqm-hl .jqm-content > h1,
+.jqm-hl .jqm-content > h2,
+.jqm-hl .jqm-content > h3,
+.jqm-hl .jqm-content > p,
+.jqm-hl .jqm-content > ul li,
+.jqm-hl .jqm-content > a {
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-weight: 300;
 }
-.jqm-demos .jqm-content > h1 {
+.jqm-hl .jqm-content > h1 {
 	font-size: 1.2em;
 	margin: 0 0 .625em;
 	text-transform:uppercase;
 	font-weight:bold;
 }
-.jqm-demos .jqm-content > h2 {
+.jqm-hl .jqm-content > h2 {
 	color: #3eb249;
 	background-color: transparent;
 	border-bottom: 1px solid #ddd;
@@ -95,40 +95,40 @@
 	padding-bottom: .2em;
 	margin: 0 0 .7375em;
 }
-.jqm-demos .jqm-content > h3 {
+.jqm-hl .jqm-content > h3 {
 	color: #3eb249;
 	background-color: transparent;
 	font-size: 1.4em;
 	margin: 0 0 1em;
 }
-.jqm-demos .jqm-content > p {
+.jqm-hl .jqm-content > p {
 	font-size: 1.2em;
 	line-height: 1.5;
 }
-.jqm-demos .jqm-content > ul:not(.jqm-list) li {
+.jqm-hl .jqm-content > ul:not(.jqm-list) li {
 	font-size: 1.2em;
 	line-height: 1.5;
 }
-.jqm-demos .jqm-content > p {
+.jqm-hl .jqm-content > p {
 	margin: 0 0 1.25em;
 }
-.jqm-demos .jqm-content > ul,
-.jqm-demos .jqm-content > ol {
+.jqm-hl .jqm-content > ul,
+.jqm-hl .jqm-content > ol {
 	padding-left: 1.3em;
 }
-.jqm-demos .jqm-content > .ui-listview {
+.jqm-hl .jqm-content > .ui-listview {
 	padding-left: 0;
 }
-.jqm-demos .jqm-content > a,
-.jqm-demos .jqm-content > p a,
-.jqm-demos .jqm-content > ul:not(.jqm-list) li a {
+.jqm-hl .jqm-content > a,
+.jqm-hl .jqm-content > p a,
+.jqm-hl .jqm-content > ul:not(.jqm-list) li a {
 	font-weight: 400;
 	text-decoration: none;
 }
-.jqm-demos .jqm-content strong {
+.jqm-hl .jqm-content strong {
 	font-weight: 700;
 }
-.jqm-demos .jqm-content > p strong {
+.jqm-hl .jqm-content > p strong {
 	font-weight: 400;
 }
 
@@ -192,24 +192,24 @@
 }
 
 /* Lists */
-.jqm-demos .jqm-search .jqm-list {
+.jqm-hl .jqm-search .jqm-list {
 	margin: 0 -1em 1em;
 }
-.jqm-demos .jqm-list .ui-btn,
-.jqm-demos .jqm-list .ui-btn:visited,
-.jqm-demos .jqm-list .ui-li-divider {
+.jqm-hl .jqm-list .ui-btn,
+.jqm-hl .jqm-list .ui-btn:visited,
+.jqm-hl .jqm-list .ui-li-divider {
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	text-shadow: none !important;
 }
-.jqm-demos .jqm-list .ui-btn:hover,
-.jqm-demos .jqm-list .ui-btn:active {
+.jqm-hl .jqm-list .ui-btn:hover,
+.jqm-hl .jqm-list .ui-btn:active {
 	color: #3388cc;
 }
-.jqm-demos .jqm-list .ui-btn.ui-btn-active {
+.jqm-hl .jqm-list .ui-btn.ui-btn-active {
 	color: #fff;
 }
-.jqm-demos .jqm-list .ui-li-divider {
+.jqm-hl .jqm-list .ui-li-divider {
 	color: #3eb249;
 }
 
@@ -237,13 +237,13 @@
 	opacity: .4;
 	filter: Alpha(Opacity=40);
 }
-.jqm-demos .jqm-navmenu-panel.jqm-panel-page-nav {
+.jqm-hl .jqm-navmenu-panel.jqm-panel-page-nav {
 	display: none;
 	position: absolute;
 	top: 178px;
 	left: 12px;
 }
-.jqm-demos .jqm-navmenu-panel.jqm-panel-page-nav ul li:first-child a{
+.jqm-hl .jqm-navmenu-panel.jqm-panel-page-nav ul li:first-child a{
 	border-top: none;
 }
 /* Search */
@@ -281,7 +281,7 @@
 }
 
 /* Quick links */
-.jqm-demos .jqm-content .jqm-deeplink {
+.jqm-hl .jqm-content .jqm-deeplink {
 	display: block;
 	color: #999;
 	font-weight: 300;
@@ -290,7 +290,7 @@
 	padding-top: .2em;
 	margin: 0 0 1.5em;
 }
-.jqm-demos .jqm-content .jqm-deeplink:after {
+.jqm-hl .jqm-content .jqm-deeplink:after {
 	content: "";
 	display: block;
 	float: right;
@@ -304,29 +304,29 @@
 }
 
 /* View source links */
-.jqm-demos .jqm-content .jqm-view-source-link,
-.jqm-demos .jqm-content .jqm-view-source-link:visited,
-.jqm-demos .jqm-content .jqm-view-source-link:hover,
-.jqm-demos .jqm-content .jqm-view-source-link:active {
+.jqm-hl .jqm-content .jqm-view-source-link,
+.jqm-hl .jqm-content .jqm-view-source-link:visited,
+.jqm-hl .jqm-content .jqm-view-source-link:hover,
+.jqm-hl .jqm-content .jqm-view-source-link:active {
 	color: #3eb249;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-weight: 400;
 	margin: 2em 0 1.5em 1em;
 }
-.jqm-demos .jqm-content .jqm-view-source-link.ui-btn-active:link {
+.jqm-hl .jqm-content .jqm-view-source-link.ui-btn-active:link {
 	color: #fff;
 }
 
 @media (min-width: 60em) {
-	.jqm-demos .jqm-header h2 {
+	.jqm-hl .jqm-header h2 {
 		padding: 1em 0 .7em;
 		margin: 0 1em 0 3%;
 		text-align: left;
 	}
-	.jqm-demos .jqm-header h2 img {
+	.jqm-hl .jqm-header h2 img {
 		
 	}
-	.jqm-demos .jqm-header p {
+	.jqm-hl .jqm-header p {
 		bottom: auto;
 		left: auto;
 		top: 50%;
@@ -334,21 +334,21 @@
 		font-size: 1.2em;
 		margin-top: -.625em;
 	}
-	.jqm-demos .jqm-navmenu-link {
+	.jqm-hl .jqm-navmenu-link {
 		display: none;
 	}
-	.jqm-demos .jqm-search-link {
+	.jqm-hl .jqm-search-link {
 		right: 3%;
 	}
-	.jqm-demos .jqm-footer p {
+	.jqm-hl .jqm-footer p {
 		float: right;
 		margin: 1.5em 3% 1.5em 1.5em;
 	}
-	.jqm-demos .jqm-footer p:first-child {
+	.jqm-hl .jqm-footer p:first-child {
 		float: left;
 		margin: 1.25em 1.25em 1.25em 3%;
 	}
-	.jqm-demos .jqm-navmenu-panel {
+	.jqm-hl .jqm-navmenu-panel {
 		visibility: visible;
 		position: relative;
 		left: 0;
@@ -366,24 +366,25 @@
 		-moz-box-shadow: none;
 		box-shadow: none;
 	}
-	.jqm-demos.jqm-panel-page .jqm-navmenu-panel {
+	.jqm-hl.jqm-panel-page .jqm-navmenu-panel {
 		display: none;
 	}
-	html .jqm-demos.jqm-panel-page .jqm-navmenu-panel.jqm-panel-page-nav {
+	html .jqm-hl.jqm-panel-page .jqm-navmenu-panel.jqm-panel-page-nav {
 		display: block;
 	}
-	.jqm-demos .jqm-navmenu-panel .ui-panel-inner {
+	.jqm-hl .jqm-navmenu-panel .ui-panel-inner {
 		margin-top: 3em;
 		margin-bottom: 3em;
 	}
-	.jqm-demos .jqm-content {
+	.jqm-hl .jqm-content {
 		width: 67%;
 		padding-top: 2em;
 		padding-left: 5%;
 		padding-right: 3%;
 		float: right;
+		overflow:hidden;
 	}
-    .jqm-demos .jqm-content.jqm-fullwidth {
+    .jqm-hl .jqm-content.jqm-fullwidth {
 		width: auto;
 		padding-left: 15%;
 		padding-right: 15%;
