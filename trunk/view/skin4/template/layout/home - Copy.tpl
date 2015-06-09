@@ -26,7 +26,7 @@
 	<title>jQuery Mobile Demos</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jquery.mobile-1.4.5.css">
-	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jqm-hl.css">
+	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jqm-demos.css">
     <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>style.css">
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>index.js"></script>
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-<div data-role="page" class="jqm-hl jqm-home">
+<div data-role="page" class="jqm-demos jqm-home">
 	
 	<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
     
@@ -50,53 +50,15 @@
 	<div role="main" class="ui-content jqm-content">
 
 		<h1>Trang chủ</h1>
-        <div class="hl-brand">
-        	<a href="#">Sisley</a>
-            <span>|</span>
-            <a href="#">Guerlain</a>
-            <span>|</span>
-            <a href="#">Lancome</a>
-            <span>|</span>
-            <a href="#">Clarins</a>
-            <span>|</span>
-            <a href="#">Estee Lauder</a>
-            <span>|</span>
-            <a href="#">Clinique</a>
-            <span>|</span>
-            <a href="#">CK</a>
-            <span>|</span>
-            <a href="#">...</a>
+		<div class="ui-grid-d">
+            <div class="ui-block-a"><div class="ui-body ui-body-d">A</div></div>
+            <div class="ui-block-b"><div class="ui-body ui-body-d">B</div></div>
+            <div class="ui-block-c"><div class="ui-body ui-body-d">C</div></div>
+            <div class="ui-block-d"><div class="ui-body ui-body-d">D</div></div>
+            <div class="ui-block-e"><div class="ui-body ui-body-d">E</div></div>
         </div>
-        <!--<div class="ui-grid-c hl-brand" >
-        	<div class="ui-block-a">
-            	<a href="#" class="ui-btn ui-corner-all">Sisley</a>
-            </div>
-            <div class="ui-block-b">
-            	<a href="#" class="ui-btn ui-corner-all">Guerlain</a>
-            </div>
-            <div class="ui-block-c">
-            	<a href="#" class="ui-btn ui-corner-all">Lancome</a>
-            </div>
-            <div class="ui-block-d">
-            	<a href="#" class="ui-btn ui-corner-all">Clarins</a>
-            </div>
-            <div class="ui-block-a">
-            	<a href="#" class="ui-btn ui-corner-all">Estee Lauder</a>
-            </div>
-            <div class="ui-block-b">
-            	<a href="#" class="ui-btn ui-corner-all">Clinique</a>
-            </div>
-            <div class="ui-block-c">
-            	<a href="#" class="ui-btn ui-corner-all">CK</a>
-            </div>
-            <div class="ui-block-d">
-            	<a href="#" class="ui-btn ui-corner-all">...</a>
-            </div>
-        </div>-->
-        
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
-        
         <div class="ui-grid-a ui-responsive">
         	<div class="ui-block-a">
         		<div class="jqm-block-content">

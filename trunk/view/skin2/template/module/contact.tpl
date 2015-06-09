@@ -37,7 +37,7 @@ function sendMessage()
 </script>
 
 <div class="ben-post">
-<h3>Thông tin liên hệ</h3>
+
 <p>
     <?php echo $post['description']?>
 </p>

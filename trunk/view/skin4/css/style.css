@@ -1,4 +1,16 @@
 /* CSS Document */
+.hl-brand a
+{
+	text-transform:uppercase;
+	
+	color:#333 !important;
+	text-decoration:none;
+	display:inline-block;
+}
+.hl-brand span
+{
+	margin:0 5px;	
+}
 #hotline
 {
 	text-align:right;
