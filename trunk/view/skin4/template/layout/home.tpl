@@ -61,7 +61,7 @@
             	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
         	</div>
             <div class="ui-block-d">
-            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.png" /></a>
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
         	</div>
             <div class="ui-block-a">
             	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
