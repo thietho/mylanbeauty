@@ -71,6 +71,7 @@
 /* Content */
 .jqm-hl .jqm-content {
 	background:#FFF;
+	overflow:hidden;
 }
 .jqm-hl .jqm-content > h1,
 .jqm-hl .jqm-content > h2,
