@@ -50,6 +50,32 @@
 	<div role="main" class="ui-content jqm-content">
 
 		<h1>Trang chủ</h1>
+        <div class="ui-grid-c hl-brand">
+        	<div class="ui-block-a">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
+        	</div>
+            <div class="ui-block-b">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
+        	</div>
+            <div class="ui-block-c">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
+        	</div>
+            <div class="ui-block-d">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.png" /></a>
+        	</div>
+            <div class="ui-block-a">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
+        	</div>
+            <div class="ui-block-b">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
+        	</div>
+            <div class="ui-block-c">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
+        	</div>
+            <div class="ui-block-d">
+            	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
+        	</div>
+        </div>    
         <div class="hl-brand">
         	<a href="#">Sisley</a>
             <span>|</span>
@@ -59,11 +85,12 @@
             <span>|</span>
             <a href="#">Clarins</a>
             <span>|</span>
+            <a href="#">Shiseido</a>
+            <span>|</span>
             <a href="#">Estee Lauder</a>
             <span>|</span>
             <a href="#">Clinique</a>
-            <span>|</span>
-            <a href="#">CK</a>
+            
             <span>|</span>
             <a href="#">...</a>
         </div>

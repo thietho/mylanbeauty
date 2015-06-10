@@ -11,6 +11,15 @@
 {
 	margin:0 5px;	
 }
+.hl-brand img
+{
+	width:90%;
+	margin-bottom:1em;
+}	
+.hl-brand div
+{
+	text-align:center;
+}
 #hotline
 {
 	text-align:right;

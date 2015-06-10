@@ -70,7 +70,7 @@
 
 /* Content */
 .jqm-hl .jqm-content {
-	
+	background:#FFF;
 }
 .jqm-hl .jqm-content > h1,
 .jqm-hl .jqm-content > h2,
@@ -383,6 +383,7 @@
 		padding-right: 3%;
 		float: right;
 		overflow:hidden;
+		background:#FFF;
 	}
     .jqm-hl .jqm-content.jqm-fullwidth {
 		width: auto;
