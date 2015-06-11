@@ -3,6 +3,7 @@
 <head>
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="icon">
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="shortcut icon">
+<link rel="shortcut icon" href="favicon.ico">
 <title><?php echo $title?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="INDEX,FOLLOW" />
@@ -13,18 +14,16 @@
 <meta name="revisit-after" content="7" />
 <meta name="creator" content="Ho Lan Solutions" />
 <meta name="publisher" content="Ho Lan Solutions" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
 <meta property="og:title" content="<?php echo $title?>">
 <meta property="og:type" content="Website">
 <meta property="og:url" content="<?php echo $url?>">
 <meta property="og:description" content="<?php echo $meta_description?>">
 <?php echo $meta_image?>
 <meta name="google-site-verification" content="yqhMNGN6WGMm8jAKo0k6AHUjo71zXAQN7uEHPuo-BG8" />
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>jQuery Mobile Demos</title>
-	<link rel="shortcut icon" href="favicon.ico">
+	
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jquery.mobile-1.4.5.css">
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jqm-hl.css">
     <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>style.css">
@@ -77,112 +76,46 @@
             	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
         	</div>
         </div>
-        <!--<div class="hl-brand">
-        	<a href="#">Sisley</a>
-            <span>|</span>
-            <a href="#">Guerlain</a>
-            <span>|</span>
-            <a href="#">Lancome</a>
-            <span>|</span>
-            <a href="#">Clarins</a>
-            <span>|</span>
-            <a href="#">Shiseido</a>
-            <span>|</span>
-            <a href="#">Estee Lauder</a>
-            <span>|</span>
-            <a href="#">Clinique</a>
-            
-            <span>|</span>
-            <a href="#">...</a>
-        </div>-->
-        <!--<div class="ui-grid-c hl-brand" >
-        	<div class="ui-block-a">
-            	<a href="#" class="ui-btn ui-corner-all">Sisley</a>
-            </div>
-            <div class="ui-block-b">
-            	<a href="#" class="ui-btn ui-corner-all">Guerlain</a>
-            </div>
-            <div class="ui-block-c">
-            	<a href="#" class="ui-btn ui-corner-all">Lancome</a>
-            </div>
-            <div class="ui-block-d">
-            	<a href="#" class="ui-btn ui-corner-all">Clarins</a>
-            </div>
-            <div class="ui-block-a">
-            	<a href="#" class="ui-btn ui-corner-all">Estee Lauder</a>
-            </div>
-            <div class="ui-block-b">
-            	<a href="#" class="ui-btn ui-corner-all">Clinique</a>
-            </div>
-            <div class="ui-block-c">
-            	<a href="#" class="ui-btn ui-corner-all">CK</a>
-            </div>
-            <div class="ui-block-d">
-            	<a href="#" class="ui-btn ui-corner-all">...</a>
-            </div>
-        </div>-->
+        
         
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
         <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
         
-        <div class="ui-grid-a ui-responsive">
+        <div class="ui-grid-a ui-responsive product-list">
         	<div class="ui-block-a">
         		<div class="jqm-block-content">
-        			<h3>Pages &amp; Navigation</h3>
-
-        			<p><a href="pages/" data-ajax="false">Pages</a></p>
-        			<p><a href="navigation/" data-ajax="false">Navigation</a></p>
-        			<p><a href="loader/" data-ajax="false">Loader</a></p>
-        			<p><a href="transitions/" data-ajax="false">Transitions</a></p>
+        			<h3>Kem dưỡng da</h3>
+                    <p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
+                    
+        			<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/ALL DAY ALL YEAR Essential anti aging daytime skincare.jpg"></a>
+                    <div class="price-group">
+                        <p class="price">4ml : <span class="shop">140,000đ</span></p>
+                        <p class="price">10ml : <span class="shop">400,000đ</span></p>
+                        <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
+                        <p class="price">10ml : <span class="shop">400,000đ</span></p>
+                        <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
+        			</div>
         		</div>
         	</div>
         	<div class="ui-block-b">
         		<div class="jqm-block-content">
-        			<h3>CSS Framework</h3>
-
-        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
-        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
-        			<p><a href="icons/" data-ajax="false">Icons</a></p>
-        			<p><a href="grids/" data-ajax="false">Grids</a></p>
-        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
+        			<h3>Mặt nạ thải độc tố</h3>
+        			<p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/BLACK ROSE CREAM MASK.jpg"></a>
+                    <div class="price-group">
+                        
+                        <p class="price">10ml : <span class="shop">250,000đ</span></p>
+                        <p class="price">60ml : <span class="genuine">3,090,000đ</span> <span class="shop">2,626,500đ</span></p>
+                    </div>
+        			
         		</div>
         	</div>        	
         	
-        	<div class="ui-block-b">
-        		<div class="jqm-block-content">
-        			<h3>CSS Framework</h3>
-
-        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
-        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
-        			<p><a href="icons/" data-ajax="false">Icons</a></p>
-        			<p><a href="grids/" data-ajax="false">Grids</a></p>
-        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
-        		</div>
-        	</div> 
-            <div class="ui-block-b">
-        		<div class="jqm-block-content">
-        			<h3>CSS Framework</h3>
-
-        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
-        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
-        			<p><a href="icons/" data-ajax="false">Icons</a></p>
-        			<p><a href="grids/" data-ajax="false">Grids</a></p>
-        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
-        		</div>
-        	</div>
-            <div class="ui-block-b">
-        		<div class="jqm-block-content">
-        			<h3>CSS Framework</h3>
-
-        			<p><a href="theme-default/" data-ajax="false">Theming</a></p>
-        			<p><a href="button-markup/" data-ajax="false">Buttons</a></p>
-        			<p><a href="icons/" data-ajax="false">Icons</a></p>
-        			<p><a href="grids/" data-ajax="false">Grids</a></p>
-        			<p><a href="../body-bar-classes/" data-ajax="false">Body and bar classes</a></p>
-        		</div>
-        	</div>     
+        	 
+            
         </div>
-
+        
+		
 	</div><!-- /content -->
 	    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
 	    	<ul class="jqm-list ui-alt-icon ui-nodisc-icon">
