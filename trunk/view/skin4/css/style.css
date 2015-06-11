@@ -30,3 +30,23 @@
 {
 	text-align:right;	
 }
+.product-list img
+{
+	width:100%;
+}
+.product-list .price
+{
+	
+}
+.product-list .genuine
+{
+	text-decoration:line-through;	
+}
+.product-list .shop
+{
+	color:red;
+}
+.product-list .price-group
+{
+	height:7em;	
+}
