@@ -1,91 +1,70 @@
-		<div class="row">
 
-            
-
-            <div id="ben-maincontent" class="col-md-12">
-				<img class="img-responsive" src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannersale50.png'?>"/>
-                <?php echo $bannerhome?>
-
+            <h1>Trang chủ</h1>
+            <div class="ui-grid-c hl-brand">
+                <div class="ui-block-a">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
+                </div>
+                <div class="ui-block-d">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
+                </div>
                 
-
+                
             </div>
-
-        </div>
-<script language="javascript">
-function LoadPage()
-{
-	this.arr = new Array();
-	this.index = 0;
-	this.flag = true;
-}
-var pageload = new LoadPage();
-</script>
-<?php foreach($arrbrand as $key => $brand){?>
-<script language="javascript">
-pageload.arr.push("<?php echo $brand?>");
-</script>
-<?php }?>
-<?php foreach($arrsitemapid as $key => $sitemapid){?>
-<script language="javascript">
-pageload.arr.push("<?php echo $sitemapid?>");
-</script>
-<?php }?>
-<script language="javascript">
-function loadBrand()
-{
-	if(pageload.flag == true)
-	{
-		$('#ben-maincontent').append(loading);
-		$.get("?route=page/home/loadBrand&brand="+ pageload.arr[pageload.index],function(html){
-				
-				$('#loading').remove();
-				$('#ben-maincontent').append(html);
-				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
-				pageload.index++;
-				if(pageload.index >= pageload.arr.length)
-				{
-					$('#btn-XemTiep').remove();
-					
-				}
-				pageload.flag = true;
-				//console.log("aa"+pageload.flag);
-			});
-	}
-	pageload.flag = false;
-}
-function loadGroup()
-{
-	if(pageload.flag == true)
-	{
-		$('#ben-maincontent').append(loading);
-		$.get("?route=page/home/loadGroup&sitemapid="+ pageload.arr[pageload.index],function(html){
-				
-				$('#loading').remove();
-				$('#ben-maincontent').append(html);
-				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
-				pageload.index++;
-				if(pageload.index >= pageload.arr.length)
-				{
-					$('#btn-XemTiep').remove();
-					
-				}
-				pageload.flag = true;
-				//console.log("aa"+pageload.flag);
-				
-			});
-	}
-	pageload.flag = false;
-}
-$(document).ready(function(e) {
-    loadBrand();
-});
-$(document).scroll(function(e) {
-	if($(document).scrollTop() + window.innerHeight > $('#ben-maincontent').innerHeight())
-	{
-		
-		loadBrand();
-		
-		
-	}
-});
-</script>
+            <div class="ui-grid-b hl-brand">
+                <div class="ui-block-a">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
+                </div>
+            </div>
+            
+            
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
+            
+            <div class="ui-grid-a ui-responsive product-list">
+                <div class="ui-block-a">
+                    <div class="jqm-block-content">
+                        <h3>Kem dưỡng da</h3>
+                        <p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
+                        
+                        <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/ALL DAY ALL YEAR Essential anti aging daytime skincare.jpg"></a>
+                        <div class="price-group">
+                            <p class="price">4ml : <span class="shop">140,000đ</span></p>
+                            <p class="price">10ml : <span class="shop">400,000đ</span></p>
+                            <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
+                            <p class="price">10ml : <span class="shop">400,000đ</span></p>
+                            <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="jqm-block-content">
+                        <h3>Mặt nạ thải độc tố</h3>
+                        <p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
+                        <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/BLACK ROSE CREAM MASK.jpg"></a>
+                        <div class="price-group">
+                            
+                            <p class="price">10ml : <span class="shop">250,000đ</span></p>
+                            <p class="price">60ml : <span class="genuine">3,090,000đ</span> <span class="shop">2,626,500đ</span></p>
+                        </div>
+                        
+                    </div>
+                </div>        	
+                
+                 
+                
+            </div>
+            
+            
+    
