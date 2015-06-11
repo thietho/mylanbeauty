@@ -77,7 +77,7 @@
             	<a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
         	</div>
         </div>
-        <div class="hl-brand">
+        <!--<div class="hl-brand">
         	<a href="#">Sisley</a>
             <span>|</span>
             <a href="#">Guerlain</a>
@@ -94,7 +94,7 @@
             
             <span>|</span>
             <a href="#">...</a>
-        </div>
+        </div>-->
         <!--<div class="ui-grid-c hl-brand" >
         	<div class="ui-block-a">
             	<a href="#" class="ui-btn ui-corner-all">Sisley</a>
