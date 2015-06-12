@@ -1,4 +1,4 @@
-<div class="col-md-4 col-md-offset-4">
+<div>
     <div>
         <h3>Thành viên đã đăng ký</h3>
         <p>Nếu bạn đã đăng ký với chúng tôi, hãy đăng nhập phía dưới.</p>
@@ -10,20 +10,26 @@
             </div>
             <div class="form-group">
                 <label>Tên đăng nhập</label>
-                <input type="text" id="username" name="username" class="form-control">
+                <input type="text" id="username" name="username">
             </div>
             <div class="form-group">
                 <label>Mật khẩu</label>
-                <input type="password" id="password" name="password" class="form-control">
+                <input type="password" id="password" name="password">
             </div>
             
-            <div class="form-group">
-                <input type="button" class="btn btn-lg btn-success btn-block" id="btnLogin" value="Đăng nhập">
-                <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
-                <a href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
+            <div>
+                <input type="button" class="ui-btn ui-corner-all" id="btnLogin" value="Đăng nhập">
+                <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
+                <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
             </div>
-            <div class="form-group">
-                <input type="checkbox" name="remember" value="1"> Ghi nhớ
+            <div class="checkbox">
+            	
+                <label>
+            		<input type="checkbox" name="remember" id="remember" value="1">
+                    Ghi nhớ
+                </label>
+                
+                
             </div>
         </form>
     </div>
@@ -31,7 +37,7 @@
 </div>
 <script language="javascript">
 $("#btnLogin").click(function(){
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	
 	
 	$.post("<?php echo HTTP_SERVER?>?route=addon/login/login", $("#frmLogin").serialize(),
 		function(data){
@@ -49,7 +55,7 @@ $("#btnLogin").click(function(){
 				
 				
 			}
-			$.unblockUI();
+			
 		}
 	);					   
 });

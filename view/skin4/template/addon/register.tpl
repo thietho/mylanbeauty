@@ -1,7 +1,9 @@
 <div class="col-md-4 col-md-offset-4">
     <div>
         <form id="frmRegister" method="post" role="form">
-            <div id="error" class="ben-error" style="display:none"></div>
+            <div class="form-group has-error">
+            	<label id="error" class="control-label" style="display:none"></label>
+            </div>
             <div class="form-group">
                 <label>Tên đăng nhập</label>
                 <input type="text" id="username" name="username" class="form-control">
@@ -20,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" id="email" name="email" class="form-control">
+                <input type="email" id="email" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <label>Địa chỉ</label>
@@ -31,17 +33,10 @@
                 <input type="text" id="phone" name="phone" class="form-control">
             </div>
             <div class="form-group">
-                <label>Ngày sinh</label>
-                <script language="javascript">
-					$(function() {
-						$("#birthday").datepicker({
-								changeMonth: true,
-								changeYear: true,
-								dateFormat: 'dd-mm-yy'
-								});
-						});
-				 </script>
-                <input type="text" id="birthday" name="birthday" class="form-control">
+                <label for="date">Ngày sinh</label>
+                
+                <input type="date" id="birthday" name="birthday" value="">
+                
             </div>
             <div class="form-group">
                 
@@ -66,7 +61,7 @@
 
 <script language="javascript">
 $("#btnRegister").click(function(){
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	
 	
 	$.post("<?php echo HTTP_SERVER?>?route=addon/register/save", $("#frmRegister").serialize(),
 		function(data){
@@ -83,7 +78,7 @@ $("#btnRegister").click(function(){
 				
 				
 			}
-			$.unblockUI();
+			
 		}
 	);					   
 });

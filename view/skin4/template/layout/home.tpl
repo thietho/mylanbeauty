@@ -30,6 +30,12 @@
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>index.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>/jquery.mobile-1.4.5.js"></script>
+    <script language="javascript">
+	var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
+	var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loading.gif"></center>';
+	</script>
+    <script src="<?php echo HTTP_SERVER.DIR_JS?>common.js"></script>
+    <script src="<?php echo HTTP_SERVER.DIR_JS?>cart.js"></script>
 </head>
 
 <body>

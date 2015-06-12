@@ -32,39 +32,85 @@
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
             
-            <div class="ui-grid-a ui-responsive product-list">
-                <div class="ui-block-a">
-                    <div class="jqm-block-content">
-                        <h3>Kem dưỡng da</h3>
-                        <p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
-                        
-                        <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/ALL DAY ALL YEAR Essential anti aging daytime skincare.jpg"></a>
-                        <div class="price-group">
-                            <p class="price">4ml : <span class="shop">140,000đ</span></p>
-                            <p class="price">10ml : <span class="shop">400,000đ</span></p>
-                            <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
-                            <p class="price">10ml : <span class="shop">400,000đ</span></p>
-                            <p class="price">50ml : <span class="genuine">7,000,000đ</span> <span class="shop">5,950,000đ</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui-block-b">
-                    <div class="jqm-block-content">
-                        <h3>Mặt nạ thải độc tố</h3>
-                        <p class="title">Kem ngày bảo vệ da, chống lão hóa toàn phần - ALL DAY ALL YEAR Essential anti-aging daytime skincare</p>
-                        <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>product/BLACK ROSE CREAM MASK.jpg"></a>
-                        <div class="price-group">
-                            
-                            <p class="price">10ml : <span class="shop">250,000đ</span></p>
-                            <p class="price">60ml : <span class="genuine">3,090,000đ</span> <span class="shop">2,626,500đ</span></p>
-                        </div>
-                        
-                    </div>
-                </div>        	
-                
-                 
-                
+            <div id="hl-home">
             </div>
             
-            
+<script language="javascript">
+function LoadPage()
+{
+	this.arr = new Array();
+	this.index = 0;
+	this.flag = true;
+}
+var pageload = new LoadPage();
+</script>
+<?php foreach($arrbrand as $key => $brand){?>
+<script language="javascript">
+pageload.arr.push("<?php echo $brand?>");
+</script>
+<?php }?>
+<?php foreach($arrsitemapid as $key => $sitemapid){?>
+<script language="javascript">
+pageload.arr.push("<?php echo $sitemapid?>");
+</script>
+<?php }?>
+<script language="javascript">
+function loadBrand()
+{
+	if(pageload.flag == true)
+	{
+		$('#hl-home').append(loading);
+		$.get("?route=page/home/loadBrand&brand="+ pageload.arr[pageload.index],function(html){
+				
+				$('#loading').remove();
+				$('#hl-home').append(html);
+				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
+				pageload.index++;
+				if(pageload.index >= pageload.arr.length)
+				{
+					$('#btn-XemTiep').remove();
+					
+				}
+				pageload.flag = true;
+				//console.log("aa"+pageload.flag);
+			});
+	}
+	pageload.flag = false;
+}
+function loadGroup()
+{
+	if(pageload.flag == true)
+	{
+		$('#hl-home').append(loading);
+		$.get("?route=page/home/loadGroup&sitemapid="+ pageload.arr[pageload.index],function(html){
+				
+				$('#loading').remove();
+				$('#hl-home').append(html);
+				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
+				pageload.index++;
+				if(pageload.index >= pageload.arr.length)
+				{
+					$('#btn-XemTiep').remove();
+					
+				}
+				pageload.flag = true;
+				//console.log("aa"+pageload.flag);
+				
+			});
+	}
+	pageload.flag = false;
+}
+$(document).ready(function(e) {
+    loadBrand();
+});
+$(document).scroll(function(e) {
+	if($(document).scrollTop() + window.innerHeight > $('#hl-home').innerHeight())
+	{
+		
+		loadBrand();
+		
+		
+	}
+});
+</script>            
     
