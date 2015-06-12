@@ -1,83 +1,57 @@
 <?php
 if(count($medias))
 {
+	
 ?>
-				<div class="row">
-					<?php foreach($medias as $media) {?>
-                    <div class="col-sm-3 col-lg-3 col-md-3">
-                        <div class="thumbnail">
-                        	<?php if($media['discountpercent']){ ?>
-                            <div class="flagdiscount">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
-                            <?php } ?>
-                            <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
-                            
-                            <div class="caption">
-                                
-                                <h4><a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><?php echo $this->document->productName($media)?></a>
-                                </h4>
-                                <center>
-                                <?php if(count($media['childs'])){ ?>
-                                <?php foreach($media['childs'] as $me){?>
-                                <h4>
-                                    <?php echo $me['sizes']?>:
-                                    
-                                    <?php $cls = '';?>
-                                    <?php if($me['pricepromotion']) $cls = 'product-price-no'; else $cls = 'product-pricepromotion'?>
-                                   
-                                    
-                                    <span class="<?php echo $cls?>" >
-                                        <?php if($me['price']){?>
-                                        <?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?>
-                                        <?php }else{ ?>
-                                        Giá đang cập nhật
-                                        <?php } ?>
-                                    </span>
-                                    <?php if($me['pricepromotion']){ ?>
-                                    <span class="product-pricepromotion">
-                                    <?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
-                                    <?php if($me['noteprice']!=""){ ?>
-                                    (<?php echo $me['noteprice']?>)
-                                    <?php }?>
-                                    </span>
-                                    <?php } ?>
-                                    
-                                </h4>
-                                <?php } ?>
-                                <?php }else{ ?>
-                                <?php if($media['pricepromotion']!=0){ ?>
-                                <h4 align="center" class="product-pricepromotion">
-                                        
-                                        <?php if($media['pricepromotion']){ ?>
-                                        <?php $cls = 'product-price-no';?>
-                                        <?php echo $this->string->numberFormate($media['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
-                                        <?php } ?>
-                                        <?php if($media['noteprice']!=""){ ?>
-                                        (<?php echo $media['noteprice']?>)
-                                        <?php }?>
-                                </h4>
-                                <?php } ?>
-                                <h4 align="center" class="product-price <?php echo $cls?>">
-                                    <?php if($media['price']){?>
-                                    <?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?>
-                                    <?php if($media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
-                                    (<?php echo $media['noteprice']?>)
-                                    <?php }?>
+			<div class="ui-grid-a ui-responsive product-list">
+					<?php foreach($medias as $key => $media) {?>
+                    
+                    <?php 
+                    $block = "ui-block-a";
+                    if($key/2 != 0)
+                    	$block = "ui-block-b";
+                    ?>
+                <div class="<?php echo $block?>">
+                    <div class="jqm-block-content">
+                        <h3>Kem dưỡng da</h3>
+                        <p class="title"><a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><?php echo $this->document->productName($media)?></p>
+                        
+                        <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
+                        <div class="price-group">
+                        	<?php if(count($media['childs'])){ ?>
+                            	<?php foreach($media['childs'] as $me){?>
+                                	<p class="price"><?php echo $me['sizes']?>:
+                                    <?php if($me['price'] == 0){ ?>
+                                    	Giá đang cập nhật
                                     <?php }else{ ?>
-                                    Giá đang cập nhật
+                                    	<?php if($me['pricepromotion'] == 0){ ?>
+                                        	<span class="shop"><?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?></span>
+                                        <?php }else{ ?>
+                                        	<span class="genuine"><?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?></span>
+                                    		<span class="shop"><?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span>
+                                        <?php } ?>
                                     <?php } ?>
-                                </h4>
+                                    </p>
                                 <?php } ?>
-                                </center>
-                            </div>
-                            
+                            <?php }else{ ?>
+                            	<?php if($media['price'] == 0){ ?>
+                                	Giá đang cập nhật
+                                <?php }else{ ?>
+                                	<?php if($media['pricepromotion']==0){ ?>
+                                    	<p class="price"><span class="shop"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></span></p>
+                                    <?php }else{ ?>
+                                    	<span class="genuine"><?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?></span>
+                                    	<span class="shop"><?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span>
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>      
                         </div>
                     </div>
-					<?php } ?>
-                    
-
                 </div>
+					<?php } ?>
+			</div>
 
-				<?php echo $pager?>
+				
 <?php
 }
 ?>
