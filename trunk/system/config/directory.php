@@ -39,21 +39,23 @@ switch($deviceType)
 {
 	case 'phone':
 	default:
-		$skin = 'skin4';
+		
+		define('SKIN', 'skin4');
 		define('IMG_PROLIST', '320');
 		break;
 	/*default:
-		$skin = 'skin2';
+		
+		define('SKIN', 'skin2');
 		define('IMG_PROLIST', '180');*/
 }
 
-define('DIR_VIEW','view/'.$skin.'/');
-define('DIR_TEMPLATE','view/'.$skin.'/template/');
-define('DIR_IMAGE', 'view/'.$skin.'/image/');
-define('DIR_FLASH', 'view/'.$skin.'/flash/');
-define('DIR_CSS', 'view/'.$skin.'/css/');
-define('DIR_JS', 'view/'.$skin.'/js/');
-define('DIR_XML', 'view/'.$skin.'/xml/');
+define('DIR_VIEW','view/'.SKIN.'/');
+define('DIR_TEMPLATE','view/'.SKIN.'/template/');
+define('DIR_IMAGE', 'view/'.SKIN.'/image/');
+define('DIR_FLASH', 'view/'.SKIN.'/flash/');
+define('DIR_CSS', 'view/'.SKIN.'/css/');
+define('DIR_JS', 'view/'.SKIN.'/js/');
+define('DIR_XML', 'view/'.SKIN.'/xml/');
 
 /*define('DIR_VIEW','view/skin1/');
 define('DIR_TEMPLATE','view/skin1/template/');
