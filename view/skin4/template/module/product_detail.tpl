@@ -8,7 +8,7 @@
             <div class="ui-grid-a ui-responsive">
             	<div class="ui-block-a">
                 	<div class="jqm-block-content">
-                    	<img style="width:100%" src="<?php echo $post['imagepreview']?>" alt="<?php echo $this->document->productName($post['mediaid'])?>">
+                    	<img style="width:100%" src="<?php echo $post['imagepreview']?>" alt="<?php echo $this->document->productName($post)?>">
                     </div>
                 </div>
                 <div class="ui-block-b">
@@ -83,7 +83,8 @@
                             <?php foreach($priceproduct as $val){ ?>
                             <tr>
                                 <td>
-                                    <?php echo $val['code']." ".$val['sizes']?>
+                                	<?php echo $this->document->productName($val)?>
+                                    
                                     <?php if($val['noteprice']!=""){ ?>
                                         (<?php echo $val['noteprice']?>)
                                     <?php }?>
