@@ -39,9 +39,14 @@ a
 {
 	width:100%;
 }
+.product-list .title
+{
+	height:auto;	
+}
+
 .product-list .price
 {
-	
+	text-align:center;
 }
 .product-list .genuine
 {
@@ -62,4 +67,8 @@ a
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;
 	}	
+	.product-list .title
+	{
+		height:6em;	
+	}
 }
