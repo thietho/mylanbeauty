@@ -1,4 +1,9 @@
 /* CSS Document */
+a
+{
+	color:#333 !important;
+	text-decoration:none;
+}
 .hl-brand a
 {
 	text-transform:uppercase;

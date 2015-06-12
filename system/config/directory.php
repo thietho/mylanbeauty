@@ -41,7 +41,7 @@ switch($deviceType)
 	default:
 		
 		define('SKIN', 'skin4');
-		define('IMG_PROLIST', '320');
+		define('IMG_PROLIST', '550');
 		break;
 	/*default:
 		
