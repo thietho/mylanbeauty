@@ -40,13 +40,13 @@
                     <p>
                     	<label>Loại phiếu</label><br />
                         <select id="loaiphieu" name="loaiphieu">
-                        <?php foreach($loaiphieu as $key =>  $val){ ?>
-                        	<option value="<?php echo $key?>"><?php echo $val?></option>
+                        <?php foreach($loaiphieu as $val){ ?>
+                        	<option value="<?php echo $val['categoryid']?>"><?php echo $val['categoryname']?></option>
                         <?php } ?>
                         </select>
                         
                     </p>
-                    <div id="f-NK-KHTL" class="nhapxuat">
+                    <div id="f-NK-KHTL">
                         <p>
                             <label>Khách hàng</label><br />
                             <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>" >
@@ -62,7 +62,7 @@
                             <input type="text" id="diachi" name="diachi" value="<?php echo $item['diachi']?>" class="text" size=60 />
                         </p>
                     </div>
-                    <div id="f-NK" class="nhapxuat">
+                    <div id="f-NK">
                     	<p>
                             <label>Nhà cung cấp</label><br />
                             <span id="nhacungcapview"><?php echo $item['tennhacungcap']?></span>
@@ -77,13 +77,20 @@
                             
                         </p>
                     </div>
+                    <div id="f-NK-CH">
+                    	
+                        <select id="shopid" name="shopid">
+                            <option value="">Chọn cửa hàng</option>
+                            <?php foreach($data_shop as $shop){ ?>
+                            <option value="<?php echo $shop['id']?>"><?php echo $shop['shopname']?></option>
+                            <?php }?>
+                        </select>
+                        <script language="javascript">
+                        $('#shopid').val("<?php echo $item['shopid']?>");
+                        </script>
+                       
+                    </div>
                     
-                    <p>
-                        <label>Người nhận</label><br />
-                        <input type="hidden" id="nguoinhanid" name="nguoinhanid" value="<?php echo $item['nguoinhanid']?>" value="<?php echo $item['nguoinhanid']?>">
-                        <input type="text" id="nguoinhan" name="nguoinhan" value="<?php echo $item['nguoinhan']?>" class="text" size=60 />
-                        <input type="button" class="button" id="btnSelectNhanVienNhan" value="Chọn nhân viên nhận"/>
-                    </p>
                     <p>
                     	<label>Tình trạng</label><br />
                         <select id="trangthai" name="trangthai">
@@ -260,27 +267,34 @@ function savephieu(type)
 	
 	$.post("?route=quanlykho/phieunhap/save", $("#frm").serialize(),
 		function(data){
-			var arr = data.split("-");
-			if(arr[0] == "true")
+			var obj = $.parseJSON(data);
+			if(obj.error == "")
 			{
+				phieuid = obj.id;
+				objdl.delDetail($('#delnhapkho').val());
+				
 				switch(type)
 				{
 					case "":
-						window.location = "?route=quanlykho/phieunhap";
+						objdl.saveDetail(obj,'window.location = "?route=quanlykho/phieunhap";');
+						
 						break;
 					case "print":
-						$.unblockUI();
-						var id = arr[1];
-						objdl.viewPX(id,"window.location = '?route=quanlykho/phieunhap'");
+						objdl.saveDetail(obj,function(){
+							var id = obj.id;
+							objdl.viewPN(id,"window.location = '?route=quanlykho/phieunhap'");
+						});
+						
 						
 				}
+				
 			}
 			else
 			{
 			
 				$('#error').html(data).show('slow');
-				$.unblockUI();
 				
+				$.unblockUI();
 			}
 			
 		}
@@ -477,26 +491,5 @@ function intSelectNhaCungCap()
 		$("#popup").dialog( "close" );
 	});
 }
-function intSelectNhanVien()
-{
-	switch(handle)
-	{
-		case "nguoithuchien":
-			$('.item').click(function(e) {
-				$("#nguoithuchienid").val($(this).attr('id'));
-				$("#nguoithuchien").val($(this).attr('hoten'));
-				$("#popup").dialog( "close" );
-			});
-			break;
-		case "nguoinhan":
-			$('.item').click(function(e) {
-				$("#nguoinhanid").val($(this).attr('id'));
-				$("#nguoinhan").val($(this).attr('hoten'));
-				
-				$("#popup").dialog( "close" );
-			});
-			break;	
-	}
-			
-}
+
 </script>

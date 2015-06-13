@@ -23,7 +23,13 @@
 </div>
 <script language="javascript">
 $("#btnActive").click(function(){
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.mobile.loading( "show", {
+            text: "Loading",
+            textVisible: true,
+            theme: 'b',
+            textonly: false,
+            html: processing
+    });
 	
 	$.get("<?php echo HTTP_SERVER?>?route=addon/active/active", $("#frmActive").serialize(),
 		function(data){
@@ -39,7 +45,7 @@ $("#btnActive").click(function(){
 				
 				
 			}
-			$.unblockUI();
+			$.mobile.loading( "hide" );
 		}
 	);					   
 });

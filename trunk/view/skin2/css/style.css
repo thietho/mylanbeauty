@@ -608,7 +608,7 @@ display:block;
 
 /* Posts - News list */
 .ben-post {margin-bottom: 20px;margin-right:10px}
-
+.ben-post ul{margin-left:2em}
 .ben-post img.ben-left{margin-bottom:1em}
 
 .ben-post-title {}

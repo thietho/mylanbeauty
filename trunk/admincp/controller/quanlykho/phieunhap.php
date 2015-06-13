@@ -13,22 +13,31 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
 			$this->response->redirect('?route=page/home');
 		}
-		$this->data['loaiphieu'] = array(
+		/*$this->data['loaiphieu'] = array(
 								"NK" => "Nhập từ nhà cung cấp",
 								"NK-KHTL" => "Khách hàng trả hàng",
-								//"NK-CH" => "Nhập kho từ cửa hàng",
-								);
+								"NK-CH" => "Nhập kho từ cửa hàng",
+								);*/
 		
 		$this->load->model("quanlykho/phieunhapxuat");
 		$this->load->helper('image');
 		$this->load->model("core/category");
-		
+		$this->load->model("core/media");
+		$this->load->model("sales/shop");
 		$this->load->model("quanlykho/donvitinh");
+		
+		$this->data['loaiphieu'] = array();
+		$this->model_core_category->getTree("import",$this->data['loaiphieu']);
+		unset($this->data['loaiphieu'][0]);
 		
 		$this->data['loaisanpham'] = array();
 		$this->model_core_category->getTree("sanpham",$this->data['loaisanpham']);
 		unset($this->data['loaisanpham'][0]);
+		
 		$this->data['donvitinh'] = $this->model_quanlykho_donvitinh->getList();
+		
+		$where = " ORDER BY shopname";
+		$this->data['data_shop'] = $this->model_sales_shop->getList($where);
 		
    	}
 	public function index()
@@ -90,10 +99,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 	{
 		
 		$arr = array();
-		foreach($this->data['loaiphieu'] as $key => $val)
-			$arr[] = $key;
-		$this->data['datas'] = array();
-		$where = " AND loaiphieu in ('". implode("','", $arr) ."')";
+		$where = " AND loaiphieu like 'NK%' Or loaiphieu like 'CH-NK'";
 		
 		$datasearchlike['maphieu'] = urldecode($this->request->get['maphieu']);
 		$datasearchlike['trangthai'] = urldecode($this->request->get['trangthai']);
@@ -118,6 +124,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
 			$where .= " AND ngaylap <= '".$denngay." 24:00:00'";
 		}
+		
 		$rows = $this->model_quanlykho_phieunhapxuat->getList($where);
 		//Page
 		$page = $this->request->get['page'];		
@@ -181,7 +188,7 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
       		$this->data['item'] = $this->model_quanlykho_phieunhapxuat->getItem($id);
 			
-			$where = " AND phieuid = '".$id."'";
+			$where = " AND phieuid = '".$id."'  ORDER BY `vitri` ASC";
 			$this->data['data_nhapkho'] = $this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
     	}
 		else
@@ -219,70 +226,26 @@ class ControllerQuanlykhoPhieunhap extends Controller
 	public function save()
 	{
 		$data = $this->request->post;
-		
+		//print_r($data);
 		if($this->validateForm($data))
 		{
-			
-			//$data['loaiphieu'] = $this->loaiphieu;
+			$nhanvien = $this->user->getNhanVien();
 			$data['ngaylap'] = $this->date->formatViewDate($data['ngaylap']);
 			$data['ngaythanhtoan'] = $this->date->formatViewDate($data['ngaythanhtoan']);
+			if($data['nguoithuchien']=="")
+			{
+				$data['nguoithuchienid'] = $nhanvien['id'];
+				$data['nguoithuchien'] = $nhanvien['hoten'];
+			}
+			//$data['loaiphieu'] = $this->loaiphieu;
 			$data['id'] = $this->model_quanlykho_phieunhapxuat->save($data);
-			
 			$phieu = $this->model_quanlykho_phieunhapxuat->getItem($data['id']);
-			//Xoa dinh luong
-			$delnhapkho = $data['delnhapkho'];
-			if($delnhapkho)
-			{
-				@$arr_nhapkhoid = split(",",$delnhapkho);
-				if(count($arr_nhapkhoid))
-				{
-					foreach($arr_nhapkhoid as $nhapkhoid)
-						$this->model_quanlykho_phieunhapxuat->deletePhieuNhapXuatMedia($nhapkhoid);
-				}
-			}
-			//Save chi tiet phieu nhap
-			$tongtien = 0;
-			$nhapkhoid = $data['nhapkhoid'];
-			$phieuid = $data['id'];
-			$arr_mediaid = $data['mediaid'];
-			$arr_code = $data['code'];
-			$arr_title = $data['title'];
-			$arr_soluong = $data['soluong'];
-			$arr_madonvi = $data['dlmadonvi'];
-			$arr_giatien = $data['giatien'];
-			$arr_giamgia = $data['giamgia'];
-			$arr_phantramgiamgia = $data['phantramgiamgia'];
-			foreach($arr_mediaid as $i => $mediaid)
-			{
-				$dl['id'] = $nhapkhoid[$i];
-				$dl['phieuid'] = $phieuid;
-				$dl['mediaid'] = $mediaid;
-				$dl['code'] = $arr_code[$i];
-				$dl['title'] = $arr_title[$i];
-				$dl['soluong'] = $arr_soluong[$i];
-				$dl['madonvi'] = $arr_madonvi[$i];
-				$dl['giatien'] = $arr_giatien[$i];
-				$dl['giamgia'] = $arr_giamgia[$i];
-				$dl['phantramgiamgia'] = $arr_phantramgiamgia[$i];
-				$dl['loaiphieu'] = $phieu['loaiphieu'];
-				
-				$dl['maphieu'] = $phieu['maphieu'];
-				$dl['ngaylap'] = $phieu['ngaylap'];
-				$dl['nguoilap'] = $phieu['nguoilap'];
-				$dl['nhacungcapid'] = $phieu['nhacungcapid'];
-				$dl['tennhacungcap'] = $phieu['tennhacungcap'];
-				$dl['khachhangid'] = $phieu['khachhangid'];
-				$dl['tenkhachhang'] = $phieu['tenkhachhang'];
-				$dl['nguoigiao'] = $phieu['nguoigiao'];
-				$dl['nguoinhanid'] = $phieu['nguoinhanid'];
-				$dl['nguoinhan'] = $phieu['nguoinhan'];
-				
-				$this->model_quanlykho_phieunhapxuat->savePhieuNhapXuatMedia($dl);
-				$tongtien += $this->string->toNumber($dl['soluong'])*$this->string->toNumber($dl['giatien']);
-				
-			}
+			
+			
+			$phieu['error'] = '';
 			//$this->model_quanlykho_phieunhapxuat->updateCol($phieuid,'tongtien',$tongtien);
-			$this->data['output'] = "true-".$data['id'];
+			//$this->model_quanlykho_phieunhapxuat->updateCol($phieuid,'congno',$tongtien- $this->string->toNumber($data['thanhtoan']));
+			$this->data['output'] = json_encode($phieu);
 			if(isset($_SESSION['productlist']))
 			{
 				unset($_SESSION['productlist']);	
@@ -292,8 +255,9 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				$phieu['error'] .= $item."<br>";
 			}
+			$this->data['output'] = json_encode($phieu);
 		}
 		$this->id='content';
 		$this->template='common/output.tpl';
@@ -313,10 +277,10 @@ class ControllerQuanlykhoPhieunhap extends Controller
 		{
       		$this->error['nguoigiao'] = "Bạn chưa nhập tên người giao";
     	}*/
-		if ($data['nguoinhan'] == "") 
+		/*if ($data['nguoinhan'] == "") 
 		{
       		$this->error['nguoinhan'] = "Bạn chưa nhập tên người nhận";
-    	}
+    	}*/
 
 		if (count($this->error)==0) {
 	  		return TRUE;

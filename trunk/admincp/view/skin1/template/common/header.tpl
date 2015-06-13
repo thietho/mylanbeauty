@@ -27,7 +27,19 @@
     <div class="right">
         <table>
             <tr>
-                <td><a href="?route=page/home"><img class="png" src="<?php echo DIR_IMAGE?>home.png" alt="" /></a></td>
+                <td>
+                	<a href="?route=page/home"><img class="png" src="<?php echo DIR_IMAGE?>home.png" alt="" /></a>
+                </td>
+                <?php if($this->user->checkPermission("core/notification/systemCheck")==true){ ?>
+                <td>
+                	<div id="hl-notification">
+                    	<div id="notification-number"></div>
+                        <div id="notification-content"></div>
+                    	<img class="png" src="<?php echo DIR_IMAGE?>notification-icon.png" alt="" />
+                        
+                    </div>
+                </td>
+                <?php } ?>
                 <td>
                     
                     <ul class="nicelist">
@@ -47,3 +59,21 @@
     <div class="clearer">&nbsp;</div>
 
 </div>
+<?php if($this->user->checkPermission("core/notification/systemCheck")==true){ ?>
+<script language="javascript">
+$('#hl-notification').hover(
+	function(e)
+	{
+		$('#notification-content').show();
+		
+	},
+	function(e)
+	{
+		$('#notification-content').hide();
+	});
+$(document).ready(function(e) {
+	setTimeout('no.systemCheck();',5000);
+    
+});
+</script>
+<?php } ?>

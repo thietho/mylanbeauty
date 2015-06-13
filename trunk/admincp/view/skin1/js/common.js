@@ -399,12 +399,13 @@ function browserFile(eid,type)
 	$('#outputtype').val(type);
 	var eid = "fileform";
 	$('body').append('<div id="'+eid+'" style="display:none"></div>');
+	$('body').css('overflow','hidden');
 	$("#"+eid).attr('title','Chọn hình');
 	
 	switch(type)
 	{
 		case "single":
-		case "editor":
+		
 		case "video":
 		
 		$("#"+eid).dialog({
@@ -413,6 +414,55 @@ function browserFile(eid,type)
 			height: window.innerHeight,
 			
 			
+		});
+		break;
+		case "editor":
+		$("#"+eid).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: $(document).width()-100,
+			height: window.innerHeight,
+			modal: true,
+			close:function()
+			{
+				$("#"+eid).remove();
+				$('body').css('overflow','auto');
+			},
+			buttons:
+			{
+				"Chọn":function()
+				{
+					var value = "";
+					$('.selectfile').each(function(index, element) {
+						width = "";
+							
+						value += "<img src='"+ HTTP_IMAGE+$(this).attr('filepath')+"'/>";
+						
+					});
+					
+					
+					var oEditor = CKEDITOR.instances[''+$('#handler').val()] ;
+					
+					
+					// Check the active editing mode.
+					if (oEditor.mode == 'wysiwyg' )
+					{
+						// Insert the desired HTML.
+						oEditor.insertHtml( value ) ;
+						
+						var temp = oEditor.getData()
+						oEditor.setData( temp );
+					}
+					else
+						alert( 'You must be on WYSIWYG mode!' ) ;
+					$("#"+eid).dialog( "close" );
+				},
+				"Bỏ qua":function()
+				{
+					$("#"+eid).dialog( "close" );
+				}
+			}
 		});
 		break;
 		case "multi":
@@ -426,6 +476,7 @@ function browserFile(eid,type)
 			close:function()
 			{
 				$("#"+eid).remove();
+				$('body').css('overflow','auto');
 			},
 			buttons:
 			{
@@ -636,3 +687,157 @@ $.ajaxSetup({
         }
     }
 });
+function Notification()
+{
+	this.count = 0;
+	this.systemCheck = function()
+	{
+		this.count = 0;
+		$.getJSON("?route=core/notification/systemCheckMinSize",function(data){
+			
+			var str = '<ul class="notification-content">';
+			if(data.minsizeactive.length>0)
+			{
+				str += '<li><strong>Các sản phẩm mini size có tồn mà đang bị ẩn ('+ data.minsizeactive.length +')</strong>';
+				str += '<ul>';
+				for(i in data.minsizeactive)
+				{
+					
+					no.count++;
+					str += '<li>'+ data.minsizeactive[i].productName+' tồn: '+ data.minsizeactive[i].inventory +'</li>';
+				}
+				str += '</ul>';
+				str += '</li>';
+			}
+			
+			if(data.minsizehide.length>0)
+			{
+				str += '<li><strong>Các sản phẩm mini size đã hết hàng chưa ẩn ('+ data.minsizehide.length +')</strong>';
+				str += '<ul>';
+				for(i in data.minsizehide)
+				{
+					
+					no.count++;
+					str += '<li>'+ data.minsizehide[i].productName+' tồn: '+ data.minsizehide[i].inventory +'</li>';
+				}
+				str += '</ul>';
+				str += '</li>';
+			}
+			//
+			/*
+			
+			str += '<li><strong>Các sản phẩm chưa có giá</strong>';
+			str += '<ul>';
+			for(i in data.productprice)
+			{
+				
+				count++;
+				str += '<li>'+ data.productprice[i].productName +'</li>';
+			}
+			str += '</ul>';
+			str += '</li>';
+			
+			str += '<li><strong>Các sản phẩm đang active mà chưa có hình</strong>';
+			str += '<ul>';
+			for(i in data.productimage)
+			{
+				
+				count++;
+				str += '<li>'+ data.productimage[i].productName +'</li>';
+			}
+			str += '</ul>';
+			str += '</li>';*/
+			
+			str += '</ul>';
+			$('#notification-content').html(str);
+			no.systemCheckInventory();
+		});
+	}
+	this.systemCheckInventory = function()
+	{
+		//Các sản phẩm tồn âm kho
+		$.getJSON("?route=core/notification/systemCheckInventory",function(data){
+			if(data.productinventory.length>0)
+			{
+				str = '<li><strong>Các sản phẩm tồn âm kho ('+ data.productinventory.length +')</strong>';
+				if(data.productinventory.length>0)
+				{
+					
+					str += '<ul>';
+					for(i in data.productinventory)
+					{
+						
+						no.count++;
+						str += '<li>'+ data.productinventory[i].productName+' tồn: '+ data.productinventory[i].inventory +'</li>';
+					}
+					str += '</ul>';
+					str += '</li>';
+				}
+				$('.notification-content').append(str);
+			}
+			
+			if(data.productprice.length>0)
+			{
+				str = '<li><strong>Các sản phẩm có tồn mà chưa có giá ('+ data.productprice.length +')</strong>';
+				if(data.productprice.length>0)
+				{
+					
+					str += '<ul>';
+					for(i in data.productprice)
+					{
+						
+						no.count++;
+						str += '<li>'+ data.productprice[i].productName +'</li>';
+					}
+					str += '</ul>';
+					str += '</li>';
+				}
+				$('.notification-content').append(str);
+			}
+			if(data.productimage.length>0)
+			{
+				str = '<li><strong>Các sản phẩm có tồn mà chưa có hình ('+ data.productimage.length +')</strong>';
+				if(data.productimage.length>0)
+				{
+					
+					str += '<ul>';
+					for(i in data.productimage)
+					{
+						
+						no.count++;
+						str += '<li>'+ data.productimage[i].productName+' tồn: '+ data.productimage[i].inventory +'</li>';
+					}
+					str += '</ul>';
+					str += '</li>';
+				}
+				$('.notification-content').append(str);
+			}
+			no.effect();
+	
+		});
+	}
+	this.effect = function()
+	{
+		if(no.count)
+			$('#notification-number').html(this.count).show();
+		$('.notification-content li ul').hide();
+		$('.notification-content li strong').click(function(e) {
+			//alert($('.notification-content li ul').html())
+			
+			$(this).parent().children('ul').toggle(
+			function(e)
+			{
+				if($(this).css('display')== 'block')
+				{
+					$('#notification-content').height(window.innerHeight - 100);
+				}
+				else
+				{
+					$('#notification-content').css('height','auto');
+				}
+			});
+			
+		});
+	}
+}
+var no = new Notification();

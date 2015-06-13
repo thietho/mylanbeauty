@@ -1,5 +1,5 @@
 
-<div class="section" id="sitemaplist">
+<div class="section">
 
 	<div class="section-title"><?php echo $this->document->title?></div>
     
@@ -41,18 +41,18 @@
                     <p>
                     	<label>Loại phiếu</label><br />
                         <select id="loaiphieu" name="loaiphieu">
-                        <?php foreach($loaiphieu as $key =>  $val){ ?>
-                        	<option value="<?php echo $key?>"><?php echo $val?></option>
+                        <?php foreach($loaiphieu as $val){ ?>
+                        	<option value="<?php echo $val['categoryid']?>"><?php echo $val['categoryname']?></option>
                         <?php } ?>
                         </select>
                         
                     </p>
-                    <div id="f-PBH" class="nhapxuat">
+                    <div id="f-PX-PBH" class="nhapxuat">
                         <p>
                             <label>Khách hàng</label><br />
                             <input type="hidden" id="khachhangid" name="khachhangid" value="<?php echo $item['khachhangid']?>">
                             <input type="text" id="tenkhachhang" name="tenkhachhang" value="<?php echo $item['tenkhachhang']?>" class="text" size=60 />
-                            <input type="button" class="button" id="btnSelectKhachHang" value="Chọn khách hàng" />
+                            <a class="button" id="btnSelectKhachHang" >Chọn khách hàng</a>
                         </p>
                         <p>
                             <label>Điện thoại</label><br />
@@ -63,23 +63,30 @@
                             <input type="text" id="diachi" name="diachi" value="<?php echo $item['diachi']?>" class="text" size=60 />
                         </p>
                     </div>
-                    
-                    <div id="f-THNCC" class="nhapxuat">
+                    <div id="f-PX-XCH" class="nhapxuat">
+                    	
+                        <select id="shopid" name="shopid">
+                            <option value="">Chọn cửa hàng</option>
+                            <?php foreach($data_shop as $shop){ ?>
+                            <option value="<?php echo $shop['id']?>"><?php echo $shop['shopname']?></option>
+                            <?php }?>
+                        </select>
+                        <script language="javascript">
+                        $('#shopid').val("<?php echo $item['shopid']?>");
+                        </script>
+                       
+                    </div>
+                    <div id="f-PX-THNCC" class="nhapxuat">
                         <p>
                             <label>Nhà cung cấp</label><br />
                             <span id="nhacungcapview"><?php echo $item['tennhacungcap']?></span>
                             <input type="hidden" id="nhacungcapid" name="nhacungcapid" value="<?php echo $item['nhacungcapid']?>">
                             <input type="hidden" id="tennhacungcap" name="tennhacungcap" value="<?php echo $item['tennhacungcap']?>">
-                            <input type="button" class="button" id="btnSeleteNhaCungCap" value="Chọn nhà cung cấp">
+                            <a class="button" id="btnSeleteNhaCungCap">Chọn nhà cung cấp</a>
                             
                         </p>
                     </div>
-                    <p>
-                        <label>Người bán</label><br />
-                        <input type="hidden" id="nguoithuchienid" name="nguoithuchienid" value="<?php echo $item['nguoithuchienid']?>" value="<?php echo $item['nguoithuchienid']?>">
-                        <input type="text" id="nguoithuchien" name="nguoithuchien" value="<?php echo $item['nguoithuchien']?>" class="text" size=60 <?php echo $readonly?>/>
-                        <input type="button" class="button" id="btnSelectNhanVien" value="Chọn nhân viên" />
-                    </p>
+                    
                     
                     
                     <p>
@@ -240,45 +247,57 @@ $(document).ready(function(e) {
 <script language="javascript">
 $('#phieunhapxuat').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
 $("#nhapkhonguyenlieu").sortable();
+
 $('#loaiphieu').change(function(e) {
 	$('.nhapxuat').hide();
-    $('#f-'+$('#loaiphieu').val()).show();
-	switch(this.value)
-	{
-		case "PBH":
-			$('#f-PBH').show();
-			break;
-		case "THNCC":
-			$('#f-THNCC').show();
-	}
+	$('#f-'+$('#loaiphieu').val()).show('slow',function(){
+		$('.nhapxuat input').val('');
+		$('.nhapxuat select').val('');
+		$('.nhapxuat span').html('');
+		
+	});
 });
+$('.nhapxuat').hide();
+$("#f-<?php echo $item['loaiphieu']?>").show();
+<?php if($item['loaiphieu']){ ?>
+$('#loaiphieu').val("<?php echo $item['loaiphieu']?>");
+<?php } else{ ?>
+$('#loaiphieu').change();
+<?php }?>
 function savephieu(type)
 {
 	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 	
 	$.post("?route=quanlykho/phieuxuat/save", $("#frm").serialize(),
 		function(data){
-			var arr = data.split("-");
-			if(arr[0] == "true")
+			var obj = $.parseJSON(data);
+			if(obj.error == "")
 			{
+				phieuid = obj.id;
+				objdl.delDetail($('#delnhapkho').val());
+				
 				switch(type)
 				{
 					case "":
-						window.location = "?route=quanlykho/phieuxuat";
+						objdl.saveDetail(obj,'window.location = "?route=quanlykho/phieuxuat";');
+						
 						break;
 					case "print":
-						$.unblockUI();
-						var id = arr[1];
-						objdl.viewPX(id,"window.location = '?route=quanlykho/phieuxuat'");
+						objdl.saveDetail(obj,function(){
+							var id = obj.id;
+							objdl.viewPX(id,"window.location = '?route=quanlykho/phieuxuat'");
+						});
+						
 						
 				}
+				
 			}
 			else
 			{
 			
 				$('#error').html(data).show('slow');
-				$.unblockUI();
 				
+				$.unblockUI();
 			}
 			
 		}
@@ -370,44 +389,8 @@ $(document).ready(function(e) {
 		$('#congno').val(congno);
 		$('#lbl-congno').html(formateNumber(congno));
 	});
-	$('#btnSelectNhanVien').click(function(e) {
-		handle = "nguoinhan";
-		$("#popup").attr('title','Chọn nhân viên');
-			$( "#popup" ).dialog({
-				autoOpen: false,
-				show: "blind",
-				hide: "explode",
-				width: $(document).width()-100,
-				height: window.innerHeight,
-				modal: true,
-				
-			});
-		
-			$("#popup").dialog("open");	
-			$("#popup-content").html(loading);
-			$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
-				
-			});
-	});
-	$('#btnSelectNhanVienNhan').click(function(e) {
-		handle = "nguoinhan";
-		$("#popup").attr('title','Chọn nhân viên');
-			$( "#popup" ).dialog({
-				autoOpen: false,
-				show: "blind",
-				hide: "explode",
-				width: $(document).width()-100,
-				height: window.innerHeight,
-				modal: true,
-				
-			});
-		
-			$("#popup").dialog("open");	
-			$("#popup-content").html(loading);
-			$("#popup-content").load("?route=quanlykho/nhanvien&opendialog=true",function(){
-				
-			});
-	});
+	
+	
 	
 	$('#btnSelectKhachHang').click(function(e) {
 		$("#popup").attr('title','Chọn khách hàng');
@@ -452,7 +435,6 @@ $(document).ready(function(e) {
 	});
 	
 	
-	$('#loaiphieu').val("<?php echo $item['loaiphieu']?>").change();
     if($('#ngaylap').val()=='')
 		$('#ngaylap').val(intToDate(Date.now()));
 });
@@ -479,27 +461,6 @@ function intSelectNhaCungCap()
 		$("#popup").dialog( "close" );
 	});
 }
-function intSelectNhanVien()
-{
-	switch(handle)
-	{
-		case "nguoithuchien":
-			$('.item').click(function(e) {
-				$("#nguoithuchienid").val($(this).attr('id'));
-				$("#nguoithuchien").val($(this).attr('hoten'));
-				$("#popup").dialog( "close" );
-			});
-			break;
-		case "nguoinhan":
-			$('.item').click(function(e) {
-				$("#nguoinhanid").val($(this).attr('id'));
-				$("#nguoinhan").val($(this).attr('hoten'));
-				
-				$("#popup").dialog( "close" );
-			});
-			break;	
-	}
-			
-}
+
 </script>
 

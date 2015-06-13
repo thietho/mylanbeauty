@@ -18,10 +18,15 @@
         <li><a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng">Cách thức mua hàng</a></li>
     	<li><a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng" data-ajax="false">Giỏ hàng</a></li>
         <?php if(!$this->member->isLogged()){?>
-        <li><a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập" data-ajax="false">Đăng nhập</a></li>
+        <li><a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập" data-ajax="false">Đăng nhập <?php echo $this->member->getUserName();?> sdfsdf</a></li>
         <li><a href="<?php echo $this->document->createLink('register')?>" title="Đăng ký" data-ajax="false">Đăng ký</a></li>
         
-        <?php } ?>
+        <?php }else{ ?>
+        <li><a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên" data-ajax="false"><?php echo $this->member->data['fullname']?></a></li>
+        <li><a href="#" onclick="logout()" title="Đăng xuất" data-ajax="false">Đăng xuất</a></li>
+            
+          
+        <?php }?>
     	<li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
             <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed">
                 <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d">

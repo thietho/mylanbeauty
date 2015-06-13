@@ -9,7 +9,7 @@
             
         	<div id="search">
             	<label>Từ khóa:</label>
-                <input type="text" class="text" id="keyword" size="100"/>
+                <input type="text" class="text" id="keyword" size="100" placeholder="Tìm kiếm sản phẩm"/>
                 <select id="brand">
                 	<option value="">Tất cả nhản hiệu</option>
                     <?php foreach($nhanhieu as $it){ ?>
@@ -46,6 +46,7 @@
                 <a class="button" onclick="pro.viewListBaoGia()">Danh sách báo giá</a>
                 <a class="button" onclick="pro.viewListSelect()">Xem danh sách</a>
                 <?php if($this->user->checkPermission("module/product/update")==true){ ?>
+                <a class="button" onclick="pro.updateInventory()">Cập nhật tồn kho</a>
                 <a class="button" onclick="pro.updatePosition()"><?php echo $button_updateposition?></a>
                 <a class="button" href="?route=module/information&goback=module/product">Biên tập nội dung</a>
                 
@@ -558,6 +559,13 @@ function Product()
 			window.location = "download.php?url="+ encodeURI(data);
 		});	
 	}
+	this.updateInventory = function()
+	{
+		$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
+		$.get("?route=module/product/updateInventory",function(data){
+			$.unblockUI();
+		});	
+	}
 	this.showListSort = function()
 	{
 		var eid = "listsort";
@@ -622,7 +630,7 @@ $(document).ready(function(e) {
 		pro.searchForm();
 		//window.location = "?route=module/product";
     });
-	$('#keyword').keyup(function(e) {
+	$('#search #keyword').keyup(function(e) {
         if(e.keyCode == 13)
 			pro.searchForm();
     });

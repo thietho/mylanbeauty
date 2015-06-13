@@ -12,6 +12,10 @@ class ControllerThongkeBanhang extends Controller
 			$this->response->redirect('?route=page/home');
 		}
 		$this->load->model("quanlykho/donvitinh");
+		$this->load->model("core/category");
+		$this->data['loaiphieu'] = array();
+		$this->model_core_category->getTree("export",$this->data['loaiphieu']);
+		unset($this->data['loaiphieu'][0]);
 	}
 	public function index()
 	{
@@ -27,7 +31,7 @@ class ControllerThongkeBanhang extends Controller
 		$data = $this->request->post;
 		$tungay = $this->date->formatViewDate($data['tungay']);
 		$denngay = $this->date->formatViewDate($data['denngay']);
-		$where = " AND loaiphieu = 'PBH'";
+		$where = " AND loaiphieu in ('PX-PBH','CH-BH')";
 		if($tungay != "")
 		{
 			$where .= " AND ngaylap >= '".$tungay."'";
@@ -36,7 +40,7 @@ class ControllerThongkeBanhang extends Controller
 		{
 			$where .= " AND ngaylap < '".$denngay." 24:00:00'";
 		}
-		$data_banhang = $this->model_quanlykho_phieunhapxuat->thongke($where ." Order by ngaylap");
+		$data_banhang = $this->model_quanlykho_phieunhapxuat->thongke($where ." Order by ngaylap,phieuid");
 		if(count($data_banhang))
 		{
 			$arrdate = array();

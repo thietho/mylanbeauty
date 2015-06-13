@@ -4,7 +4,7 @@ function PhieuNhapXuat()
 	this.addRow = function(id,mediaid,code,title,soluong,madonvi,giatien,giamgia,phantramgiamgia)
 	{
 		
-		var row = '<tr id="row'+ this.index +'">';
+		var row = '<tr class="itemdetail" id="row'+ this.index +'" index="'+ this.index +'">';
 		row +='<td><input type="hidden" id="nhapkhoid-'+ this.index +'" name="nhapkhoid['+ this.index +']" value="'+ id +'" /><input type="hidden" id="mediaid-'+ this.index +'" name="mediaid['+ this.index +']" value="'+ mediaid +'" /><input type="hidden" id="title-'+ this.index +'" name="title['+ this.index +']" value="'+ title +'" />'+ title +'</td>';
 		
 		row +='<td class="number"><input type="text" id="soluong-'+ this.index +'" name="soluong['+ this.index +']" value="'+soluong+'" class="text number short soluong" ref="'+ this.index +'"/></td>';
@@ -14,7 +14,7 @@ function PhieuNhapXuat()
 		row +='<td class="number"><input type="text" id="giamgia-'+ this.index +'" name="giamgia['+ this.index +']" value="'+ giamgia +'" class="text number short giamgia" ref="'+ this.index +'"/></td>';
 		
 		row += '<td class="number thanhtien" id="thanhtien-'+ this.index +'"></td>';
-		row +='<td><input type="button" class="button" value="Xóa" onclick="objdl.removeRow('+ this.index +')"/></td>';
+		row +='<td><input type="button" class="button" value="X" onclick="objdl.removeRow('+ this.index +')"/></td>';
 		row+='</tr>'
 		$('#nhapkhonguyenlieu').append(row);
 		var str = '#madonvi-'+ this.index;
@@ -189,6 +189,7 @@ function PhieuNhapXuat()
 		
 		var eid = "popupviewphieu";
 		$('body').append('<div id="'+eid+'" style="display:none"></div>');
+		$('body').css('overflow','hidden');
 		$("#"+eid).attr('title','Phiếu bán hàng');
 		$( "#"+eid ).dialog({
 			autoOpen: false,
@@ -200,6 +201,7 @@ function PhieuNhapXuat()
 			close:function()
 				{
 					$('#'+eid).remove();
+					$('body').css('overflow','auto');
 					if(callback!="")
 					{
 						setTimeout(callback,100);
@@ -225,15 +227,14 @@ function PhieuNhapXuat()
 		});
 		$("#"+eid).dialog("open");
 		$("#"+eid).html(loading);
-		$("#"+eid).load("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=true",function(){
-			
-		});
+		$("#"+eid).load("?route=quanlykho/phieuxuat/view&id="+id+"&opendialog=true");
 	}
 	
 	this.viewPN = function(id)
 	{
 		var eid = "popupviewphieu";
 		$('body').append('<div id="'+eid+'" style="display:none"></div>');
+		$('body').css('overflow','hidden');
 		$("#"+eid).attr('title','Phiếu nhập kho');
 		$( "#"+eid ).dialog({
 			autoOpen: false,
@@ -245,6 +246,7 @@ function PhieuNhapXuat()
 			close:function()
 				{
 					$('#'+eid).remove();
+					$('body').css('overflow','auto');
 				},
 			buttons: {
 				
@@ -319,9 +321,70 @@ function PhieuNhapXuat()
 				
 			});
 	}
-	this.save = function(type)
+	this.delDetail = function(listid)
+	{
+		$.post("?route=quanlykho/phieuxuat/delDetail",
+			{
+				delnhapkho:listid	
+			});
+	}
+	this.saveItem = function(obj,p,callback)
 	{
 		
+		if(p < this.listrows.length)
+		{
+			pos = this.listrows[p];
+			//$.blockUI({ message: "<h1>Please wait..."+pos+"</h1>" }); 
+			var percent = Math.round( (p + 1) / Number(this.listrows.length)*100 );
+			$('.blockMsg').html("<h1>Please wait..."+ percent +"%</h1>");
+			$.post("?route=quanlykho/phieuxuat/saveDetail",
+			{
+				id:$('#nhapkhoid-'+ pos).val(),
+				phieuid:obj.id,
+				maphieu:obj.maphieu,
+				loaiphieu:obj.loaiphieu,
+				ngaylap:obj.ngaylap,
+				nguoilap:obj.nguoilap,
+				nhacungcapid:obj.nhacungcapid,
+				tennhacungcap:obj.tennhacungcap,
+				khachhangid:obj.khachhangid,
+				tenkhachhang:obj.tenkhachhang,
+				shopid:obj.shopid,
+				mediaid:$('#mediaid-'+pos).val(),
+				title:$('#title-'+pos).val(),
+				soluong:$('#soluong-'+pos).val(),
+				madonvi:$('#madonvi-'+pos).val(),
+				giatien:$('#giatien-'+pos).val(),
+				phantramgiamgia:$('#phantramgiamgia-'+pos).val(),
+				giamgia:$('#giamgia-'+pos).val(),
+				vitri:p
+			},
+			function(data)
+			{
+				
+				objdl.saveItem(obj,p+1,callback);
+				
+				
+			});
+		}
+		else
+		{
+			$.unblockUI();
+			if(callback !='')
+				setTimeout(callback,0);
+		}
+		
+	}
+	this.listrows = new Array();
+	this.saveDetail = function(obj,callback)
+	{
+		var arr = new Array();
+		
+		$('.itemdetail').each(function(index, element) {
+            arr.push($(this).attr('index'));
+        });
+		this.listrows = arr;
+		this.saveItem(obj,0,callback);
 	}
 	this.getProbyMediaId = function(str)
 	{

@@ -1,6 +1,7 @@
 function showFile(filepath)
 {
 	$('body').append('<div id="fileinfor" style="display:none"></div>');
+	$('body').css('overflow','hidden');
 		var eid = "#fileinfor";
 		$(eid).attr('title','Thông tin file');
 			$(eid).dialog({
@@ -12,6 +13,7 @@ function showFile(filepath)
 				close:function()
 				{
 					$(eid).remove();
+					$('body').css('overflow','auto');
 				},
 				modal: true,
 				buttons: {
@@ -39,7 +41,7 @@ function showMediaForm(fileid)
 {
 	var eid = "mediaform";
 	$('body').append('<div id="'+eid+'" style="display:none"></div>');
-	
+	$('body').css('overflow','hidden');
 	$("#"+eid).attr('title','Thông tin file');
 		$("#"+eid).dialog({
 			autoOpen: false,
@@ -51,6 +53,7 @@ function showMediaForm(fileid)
 			close:function()
 				{
 					$("#"+eid).remove();
+					$('body').css('overflow','auto');
 				},
 			buttons: {
 				
@@ -92,7 +95,7 @@ function showProductForm(mediaid,mediaparentid,funcname)
 {
 	var eid = "mediaform";
 	$('body').append('<div id="'+eid+'" style="display:none"></div>');
-	
+	$('body').css('overflow','hidden');
 	$("#"+eid).attr('title','Thông tin sản phẩm');
 		$("#"+eid).dialog({
 			autoOpen: false,
@@ -104,6 +107,7 @@ function showProductForm(mediaid,mediaparentid,funcname)
 			close:function()
 				{
 					$("#"+eid).remove();
+					$('body').css('overflow','auto');
 				},
 			buttons: {
 				'Sưa với editor':function()
@@ -155,7 +159,9 @@ function showProductForm(mediaid,mediaparentid,funcname)
 						{
 							$('#error').html(obj.error).show('slow');
 						}
+						no.systemCheck();
 						$.unblockUI();
+						
 					});
 					
 				},
@@ -551,6 +557,7 @@ function saveMedia()
 function browseProduct()
 {
 	$('body').append('<div id="popupbrowseproduct" style="display:none"></div>');
+	$('body').css('overflow','hidden');
 	$("#popupbrowseproduct").attr('title','Chọn sản phẩm');
 		$("#popupbrowseproduct").dialog({
 			autoOpen: false,
@@ -562,6 +569,7 @@ function browseProduct()
 			close:function()
 				{
 					$('#popupbrowseproduct').remove();
+					$('body').css('overflow','auto');
 				},
 			
 		});
@@ -598,7 +606,7 @@ function showMemberForm(memberid,strFun)
 					
 					$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 	
-					$.post("?route=core/member/save", $("#frm").serialize(),
+					$.post("?route=core/member/save", $("#frmMember").serialize(),
 						function(data){
 							var arr = data.split("-");
 							if(arr[0] == "true")

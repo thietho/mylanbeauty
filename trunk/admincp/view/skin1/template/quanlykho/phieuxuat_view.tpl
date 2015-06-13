@@ -6,7 +6,8 @@
 	<tr>
     	<td>
             <div class="cusinfo">
-                <label>Khách hàng:</label> <?php echo $item['tenkhachhang']?> - <label>ĐT:</label> <?php echo $item['dienthoai']?>
+                <label>Khách hàng:</label> <?php echo $item['tenkhachhang']?>
+                - <label>ĐT:</label> <?php echo $item['dienthoai']?>
             </div>
             <div class="cusinfo">
                 <label>Địa chỉ:</label> <?php echo $item['diachi']?>
@@ -63,7 +64,7 @@
             
         </tr>
         <?php } ?>
-        <?php if($item['thuphi'] != 0){ ?>
+        <?php if($item['thuphi'] != 0 || $item['lydothu']!=''){ ?>
         <tr>
             
            	<td><center><?php echo $key+2?></center></td>
