@@ -12,6 +12,10 @@ class ControllerAddonLogin extends Controller
 		if($this->request->post['username'])
 		{
 			$this->login();
+			if(count($this->error) == 0)
+			{
+				$this->response->redirect(HTTP_SERVER);
+			}
 			$this->data['error'] = $this->error;
 			
 		}
