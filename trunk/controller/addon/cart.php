@@ -4,8 +4,8 @@ class ControllerAddonCart extends Controller
 	private $error = array();
 	public function index()
 	{
-		$this->document->breadcrumb .= "Giỏ hàng";
-		$this->document->title .= $this->document->breadcrumb;
+		$this->document->breadcrumb .= " » Giỏ hàng";
+		$this->document->title .= " - Giỏ hàng";
 		$this->id="content";
 		$this->template="addon/cart.tpl";
 		$this->render();

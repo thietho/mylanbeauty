@@ -24,7 +24,7 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$sql = "Select `media`.* 
 									from `media` 
-									where status like 'active' AND imagepath <> '' " . $where ;
+									where status like 'active' " . $where ;
 		if($order == "")
 		{
 			$order = " Order by position, statusdate DESC";

@@ -51,16 +51,16 @@ class ControllerModuleProductlist extends Controller
 		switch($order)
 		{
 			case "az":
-				$orderby = " ORDER BY `title` ASC";
+				$orderby = " AND imagepath <> '' ORDER BY `title` ASC";
 				break;
 			case "gt":
-				$orderby = " ORDER BY `price` ASC";
+				$orderby = " AND imagepath <> '' ORDER BY `price` ASC";
 				break;
 			case "gg":
-				$orderby = " ORDER BY `price` DESC";
+				$orderby = " AND imagepath <> '' ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = " ORDER BY `updateddate` DESC";
+				$orderby = " AND imagepath <> '' ORDER BY `updateddate` DESC";
 		}
 		
 		
@@ -202,16 +202,16 @@ class ControllerModuleProductlist extends Controller
 		switch($order)
 		{
 			case "az":
-				$orderby = " ORDER BY `title` ASC";
+				$orderby = " AND imagepath <> '' ORDER BY `title` ASC";
 				break;
 			case "gt":
-				$orderby = " ORDER BY `price` ASC";
+				$orderby = " AND imagepath <> '' ORDER BY `price` ASC";
 				break;
 			case "gg":
-				$orderby = " ORDER BY `price` DESC";
+				$orderby = " AND imagepath <> '' ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = " ORDER BY position,`title` DESC";
+				$orderby = " AND imagepath <> '' ORDER BY position,`title` DESC";
 		}
 		
 		
