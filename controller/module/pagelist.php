@@ -13,6 +13,7 @@ class ControllerModulePagelist extends Controller
 		if($headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
 		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
+		$this->document->breadcrumb .= " » ".$this->data['sitemap']['sitemapname'];
 		$step = (int)$this->request->get['step'];
 		$to = $count;
 		
