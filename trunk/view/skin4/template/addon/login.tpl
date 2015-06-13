@@ -6,7 +6,7 @@
     <div>
         <form id="frmLogin" method="post" role="form">
         	<div class="form-group has-error">
-            	<label id="error" class="control-label" style="display:none"></label>
+            	<label id="hl-error" class="control-label" style="display:none"></label>
             </div>
             <div class="form-group">
                 <label>Tên đăng nhập</label>
@@ -38,7 +38,13 @@
 <script language="javascript">
 $("#btnLogin").click(function(){
 	
-	
+	$.mobile.loading( "show", {
+            text: "Loading",
+            textVisible: true,
+            theme: 'b',
+            textonly: false,
+            html: processing
+    });
 	$.post("<?php echo HTTP_SERVER?>?route=addon/login/login", $("#frmLogin").serialize(),
 		function(data){
 			if(data == "true")
@@ -51,11 +57,11 @@ $("#btnLogin").click(function(){
 			else
 			{
 				
-				$('#error').html(data).show('slow');
+				$('#hl-error').html(data).show('slow');
 				
 				
 			}
-			
+			$.mobile.loading( "hide" );
 		}
 	);					   
 });

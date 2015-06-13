@@ -33,6 +33,7 @@
     <script language="javascript">
 	var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 	var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loading.gif"></center>';
+	var processing = '<span class="ui-bar ui-shadow ui-overlay-d ui-corner-all"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png"><br><h2>Đang xử lý xin vui lòng đợi</h2></span>';
 	</script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>common.js"></script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>cart.js"></script>

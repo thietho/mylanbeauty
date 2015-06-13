@@ -734,3 +734,11 @@
 	color: #fff;
 	text-shadow: none;
 }
+.ui-loader-verbose
+{
+	width:auto;	
+}
+#hl-error
+{
+	color:red;	
+}

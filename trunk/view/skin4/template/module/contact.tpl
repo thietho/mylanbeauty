@@ -14,38 +14,46 @@ function GetKey(evt)
 }
 function sendMessage()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.mobile.loading( "show", {
+            text: "Loading",
+            textVisible: true,
+            theme: 'b',
+            textonly: false,
+            html: processing
+    });
 	$.post(HTTP_SERVER+"?route=module/contact/sendMessage", 
-			$("#contractForm").serialize(), 
-			function(data)
+		$("#contractForm").serialize(), 
+		function(data)
+		{
+			if(data!="true")
 			{
-				if(data!="true")
-				{
-					$('.ben-error').html(data)
-					$('.ben-error').fadeIn("slow")
-					
-				}
-				else
-				{
-					alert("<?php echo $war_contactsuccess?>")
-					window.location.reload();
-				}
-				$.unblockUI();
+				$('#hl-error').html(data);
+				$('#hl-error').fadeIn("slow");
+				
 			}
+			else
+			{
+				alert("<?php echo $war_contactsuccess?>")
+				window.location.reload();
+			}
+			$.mobile.loading( "hide" );
+		}
 	);
 }
 </script>
 
 <div class="ben-post">
-<h3>Thông tin liên hệ</h3>
 <p>
     <?php echo $post['description']?>
 </p>
 
 <div class="clearer">&nbsp;</div>
-<div class="ben-error ben-hidden"></div>
+
 <form method="post" action="" id="contractForm" name="contractForm">
 <div>
+	<div class="form-group has-error">
+        <label id="hl-error" class="control-label" style="display:none"></label>
+    </div>
     <input type="hidden" name="sitemapid" value="<?php echo $this->document->sitemapid;?>" />
     <div class="ben-left contact-left">
         <p>
