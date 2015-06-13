@@ -8,10 +8,12 @@ class ControllerAddonLogin extends Controller
 		$this->document->breadcrumb .= " » Đăng nhập";
 		$this->document->title .= " - Đăng nhập";
 		$this->data['error'] = array();
+		
 		if($this->request->post['username'])
 		{
 			$this->login();
 			$this->data['error'] = $this->error;
+			
 		}
 		
 		$this->id="content";
@@ -36,7 +38,7 @@ class ControllerAddonLogin extends Controller
 				$this->data['output'] = "true";
 			}
 			else
-				$this->data['output'] = "Mật khẩu không đúng";
+				$this->error['passfalse'] = "Mật khẩu không đúng";
 		}
 		else
 		{
