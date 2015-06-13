@@ -313,7 +313,13 @@ function printObject(o) {
 }
 function logout()
 {
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.mobile.loading( "show", {
+            text: "Loading",
+            textVisible: true,
+            theme: 'b',
+            textonly: false,
+            html: processing
+    });
 	
 	$.get(HTTP_SERVER+"?route=sitebar/login/logout", 
 		function(data){
@@ -330,7 +336,7 @@ function logout()
 				
 				
 			}
-			$.unblockUI();
+			$.mobile.loading( "hide" );
 		}
 	);	
 }

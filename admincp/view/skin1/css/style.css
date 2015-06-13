@@ -1455,3 +1455,25 @@ ul.autocomplete {
 {
 	margin:5px;	
 }
+#notification-number
+{
+	position:absolute;
+	background:red;
+	border-radius: 20px;
+    font-weight: bold;
+    padding: 2px;
+	color:#fff;
+	border:#fff thick double;
+	display:none;
+}
+#notification-content
+{
+	position:absolute;
+	display:none;
+	background:#fff;
+	
+	overflow:auto;
+	border:#999 thin solid;
+	padding:5px;
+	border-radius:5px;
+}

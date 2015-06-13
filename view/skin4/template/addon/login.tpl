@@ -1,12 +1,17 @@
+<?php echo $this->member->getUserName() ?>
 <div>
     <div>
         <h3>Thành viên đã đăng ký</h3>
         <p>Nếu bạn đã đăng ký với chúng tôi, hãy đăng nhập phía dưới.</p>
     </div>
     <div>
-        <form id="frmLogin" method="post" role="form">
+        <form id="frmLogin" method="post" role="form" action="">
         	<div class="form-group has-error">
-            	<label id="hl-error" class="control-label" style="display:none"></label>
+            	<label id="hl-error" class="control-label" style="display:none">
+                
+                	<?php implode("<br>",error);?>
+                
+                </label>
             </div>
             <div class="form-group">
                 <label>Tên đăng nhập</label>
@@ -18,7 +23,7 @@
             </div>
             
             <div>
-                <input type="button" class="ui-btn ui-corner-all" id="btnLogin" value="Đăng nhập">
+                <input type="submit" class="ui-btn ui-corner-all" id="btnLogin" value="Đăng nhập">
                 <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
                 <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
             </div>
@@ -35,8 +40,16 @@
     </div>
 
 </div>
+<?php if(count($error)){ ?>
 <script language="javascript">
-$("#btnLogin").click(function(){
+$(document).ready(function(e) {
+	
+    $('#hl-error').show();
+});
+</script>
+<?php } ?>
+<script language="javascript">
+/*$("#btnLogin").click(function(){
 	
 	$.mobile.loading( "show", {
             text: "Loading",
@@ -64,5 +77,6 @@ $("#btnLogin").click(function(){
 			$.mobile.loading( "hide" );
 		}
 	);					   
-});
+});*/
+
 </script>

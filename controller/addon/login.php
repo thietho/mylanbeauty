@@ -7,6 +7,12 @@ class ControllerAddonLogin extends Controller
 		$this->document->sitebar['login'] = "hide";
 		$this->document->breadcrumb .= " » Đăng nhập";
 		$this->document->title .= " - Đăng nhập";
+		$this->data['error'] = array();
+		if($this->request->post['username'])
+		{
+			$this->login();
+			$this->data['error'] = $this->error;
+		}
 		
 		$this->id="content";
 		$this->template="addon/login.tpl";
