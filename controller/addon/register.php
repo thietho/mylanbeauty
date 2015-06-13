@@ -4,9 +4,10 @@ class ControllerAddonRegister extends Controller
 	private $error = array();
 	public function index()
 	{
-		$this->document->breadcrumb .= "Đăng ký thành viên";
-		$arr = array("dieu-khoan-dang-ky");
-		$this->data['dieukhoan'] = $this->loadModule('module/information','index',$arr);
+		$this->document->breadcrumb .= " » Đăng ký thành viên";
+		$this->document->title .= " - Đăng ký thành viên";
+		//$arr = array("dieu-khoan-dang-ky");
+		//$this->data['dieukhoan'] = $this->loadModule('module/information','index',$arr);
 		$this->id="content";
 		$this->template="addon/register.tpl";
 		$this->render();

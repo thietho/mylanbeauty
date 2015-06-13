@@ -5,8 +5,8 @@ class ControllerAddonLogin extends Controller
 	public function index()
 	{
 		$this->document->sitebar['login'] = "hide";
-		$this->document->breadcrumb .= "Đăng nhập";
-		$this->document->title .= $this->document->breadcrumb;
+		$this->document->breadcrumb .= " » Đăng nhập";
+		$this->document->title .= " - Đăng nhập";
 		
 		$this->id="content";
 		$this->template="addon/login.tpl";
