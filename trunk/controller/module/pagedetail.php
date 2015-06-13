@@ -13,10 +13,13 @@ class ControllerModulePagedetail extends Controller
 		$mediaid = $id;
 		$siteid = $this->member->getSiteId();
 		
+		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['post'] = $this->model_core_media->getByAlias($mediaid);
 		if(count($this->data['post']) == 0)
 			$this->response->redirect(HTTP_SERVER);
 		$this->document->title = "Mỹ Lan Beauty Shop - ".$this->data['post']['title'];
+		
+		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
 		$this->document->meta_keyword = $this->data['post']['keyword'];
 		$this->document->meta_description = $this->data['post']['metadescription'];
 		if(count($this->data['post']) == 0)
