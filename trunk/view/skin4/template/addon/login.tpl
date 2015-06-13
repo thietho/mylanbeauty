@@ -1,11 +1,11 @@
-<?php echo $this->member->getUserName() ?>
+
 <div>
     <div>
         <h3>Thành viên đã đăng ký</h3>
         <p>Nếu bạn đã đăng ký với chúng tôi, hãy đăng nhập phía dưới.</p>
     </div>
     <div>
-    	<?php print_r($this->member->getUserName())?>
+    	
         <form id="frmLogin" method="post" role="form" action="" data-ajax="false">
         	<div class="form-group has-error">
             	<label id="hl-error" class="control-label" style="display:none">

@@ -164,7 +164,7 @@ class ClassConnect
 			}
 			else{ $sql .= $fields." = ".$values ; }	
 			$sql .= " WHERE ".$where." = '".$whereValue."'";
-			//echo $sql;
+			echo $sql;
 			$thucthi=mysql_query($sql, $conn) or die("<br><b>ERROR (SQL Error):</b> ".mysql_error()) ;
 			//mysql_close($conn) ;
 			return $thucthi;

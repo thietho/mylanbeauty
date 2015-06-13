@@ -56,7 +56,9 @@ final class Member {
 		
 		if(count($this->session->data['member']))
 		{
-			print_r($this->session->data['member']);
+			$sql="SELECT * FROM user WHERE id = '" . $this->session->data['member']['id'] . "' AND status = 'active' AND deletedby = ''";
+	   		$query = $this->db->query($sql);
+			$this->session->set('member',$query->row);
 			$this->userid = $this->session->data['member']['userid'];
 			$this->username = $this->session->data['member']['username'];
 			$this->usertypeid = $this->session->data['member']['usertypeid'];
@@ -101,9 +103,8 @@ final class Member {
   	}
 	
   	public function logout() {
-		unset($_SESSION['safemode']);
-		unset($_SESSION['memberid']);
-		unset($this->session->data['memberid']);	
+		//$this->session->data['member'] = array();
+		$this->session->set('member',array());
 		$this->userid = '';
 		$this->username = '';
 		$this->safemode = false;

@@ -38,15 +38,7 @@
             </tr>
             <tr>
             	<td><label>Ngày sinh</label></td>
-                <script language="javascript">
-					$(function() {
-						$("#birthday").datepicker({
-								changeMonth: true,
-								changeYear: true,
-								dateFormat: 'dd-mm-yy'
-								});
-						});
-				 </script>
+                
                 <td id="birthday" class="date"><?php echo $this->date->formatMySQLDate($member['birthday'])?></td>
             </tr>
             
