@@ -829,7 +829,10 @@ ul#menu li ul li div:hover {
 {
 	margin-bottom:10px;	
 }
-
+.ben-editor
+{
+	padding-right:30px;	
+}
 .ben-editor td
 {
 	border:thin solid;
