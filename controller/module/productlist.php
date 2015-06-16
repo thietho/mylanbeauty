@@ -202,16 +202,16 @@ class ControllerModuleProductlist extends Controller
 		switch($order)
 		{
 			case "az":
-				$orderby = " AND imagepath <> '' ORDER BY `title` ASC";
+				$orderby = " ORDER BY `title` ASC";
 				break;
 			case "gt":
-				$orderby = " AND imagepath <> '' ORDER BY `price` ASC";
+				$orderby = " ORDER BY `price` ASC";
 				break;
 			case "gg":
-				$orderby = " AND imagepath <> '' ORDER BY `price` DESC";
+				$orderby = " ORDER BY `price` DESC";
 				break;
 			default:
-				$orderby = " AND imagepath <> '' ORDER BY position,`title` DESC";
+				$orderby = " ORDER BY position,`title` DESC";
 		}
 		
 		
@@ -261,7 +261,7 @@ class ControllerModuleProductlist extends Controller
 			}
 			//echo $where."<br>";
 			$data = array();
-			$data = $this->model_core_media->getList($where);
+			$data = $this->model_core_media->getList($where." AND imagepath <> ''");
 			$medias = array_merge($data_media,$data);
 		}
 		
