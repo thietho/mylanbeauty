@@ -15,45 +15,25 @@ function Cart()
 	}
 	this.add = function(mediaid)
 	{
-		var eid = "mediaform";
-		$('body').append('<div id="'+eid+'" style="display:none"></div>');
+		$.mobile.loading( "show", {
+	            text: "Loading",
+	            textVisible: true,
+	            theme: 'b',
+	            textonly: false,
+	            html: processing
+	    });
 		$.get(HTTP_SERVER+"?route=addon/cart/add&mediaid="+mediaid,
+			
 			function(data){
+				
 				if(data == "true")
 				{
-					$("#"+eid).attr('title','Thông tin đặt hàng');
-					$( "#"+eid ).dialog({
-						autoOpen: false,
-						show: "blind",
-						hide: "explode",
-						width: 550,
-						height: 300,
-						modal: true,
-						close:function()
-						{
-							$("#"+eid).remove();
-						},
-						buttons: {
-							
-							
-							'Đóng': function() {
-								$( this ).dialog( "close" );
-							},
-							'Xem giỏ hàng': function(){
-								window.location = HTTP_SERVER+'cart_'+ Date.now() +'.html';	
-							},
-							
-						}
-					});
-				
-					$("#"+eid).dialog("open");	
-					$("#"+eid).load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
-						
-					});
+					$("#warring").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid);
+					
 					cart.load()
 					
 				}
-				
+				//$.mobile.loading( "hide" );
 			}
 		);
 	}

@@ -42,7 +42,7 @@
                                 <?php }else{ ?>
                                 Giá đang cập nhật
                                 <?php }?>
-                                <input type="button" class="btn btn-default" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
+                                <input type="button" class="ui-btn" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
                          </li>
                         <?php } ?>
                     </ul>
@@ -116,7 +116,10 @@
                                     </span>
                                     <?php } ?>
                                 </td>
-                                <td><input type="button" class="ui-btn" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
+                                <td>
+                                	<input type="button" class="ui-btn" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng">
+                                    <a href="#popupCloseRight" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" onclick="cart.add('<?php echo $val['mediaid']?>')">Đặt hàng</a>
+                                </td>
                             </tr>
                             <?php } ?>
                             
@@ -125,4 +128,3 @@
                 </div>
                 <?php }?>
             </div>
-        
