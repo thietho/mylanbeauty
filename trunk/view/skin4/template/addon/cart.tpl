@@ -9,8 +9,9 @@
 
 </div>
 <div align="center">
-	<input type="button" class="btn btn-default" value="Tiếp tục mua hàng" onclick="window.location='<?php echo HTTP_SERVER?>'"/>
-    <input type="button" class="btn btn-default" value="Thanh toán" onclick="window.location='<?php echo $this->document->createLink('checkout')?>'"/>
+	<a href="<?php echo HTTP_SERVER?>" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Tiếp tục mua hàng</a>
+    <a href="<?php echo $this->document->createLink('checkout')?>" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Thanh toán</a>
+	
 </div>
 <script language="javascript">
 $(document).ready(function() {
