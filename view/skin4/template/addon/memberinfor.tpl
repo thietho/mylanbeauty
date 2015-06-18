@@ -64,6 +64,7 @@
             
         </table>
     </form>
+    
     </div>
 </div>
 
@@ -97,16 +98,11 @@ function editDate(eid)
 {
 	if(isedit)
 	{
-		var text = $("#"+eid).html();
-		var html = '<input type="text" class="form-control" id="text-'+eid+'" value="'+text+'">';
+		var text = dateDMYtoYMD($("#"+eid).html());
+		var html = '<input type="date" class="form-control" id="text-'+eid+'" value="'+text+'">';
 		html+=' <input id="btnSaveInfor" type="button" class="btn btn-default" value="Save" onclick="saveDate(\''+eid+'\')">';
 		
 		$("#"+eid).html(html);
-		$("#text-"+eid).datepicker({
-			changeMonth: true,
-			changeYear: true,
-			dateFormat: 'dd-mm-yy'
-		});
 		$("#"+eid).unbind('click');
 		
 	}
@@ -129,6 +125,7 @@ function saveInfor(eid)
 			
 		}
 	);
+	
 	$("#"+eid).html($("#text-"+eid).val());
 	$("#"+eid).bind('click', function() {
 		 editText(this.id);
@@ -138,7 +135,7 @@ function saveInfor(eid)
 function saveDate(eid)
 {
 	isedit = false;
-	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveDate", { userid: "<?php echo $member['username']?>", colname: eid , value: $("#text-"+eid).val()},
+	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveDate", { userid: "<?php echo $member['username']?>", colname: eid , value: dateYMDtoDMY($("#text-"+eid).val())},
 		function(data){
 			if(data == "true")
 			{
@@ -147,7 +144,7 @@ function saveDate(eid)
 			
 		}
 	);
-	$("#"+eid).html($("#text-"+eid).val());
+	$("#"+eid).html(dateYMDtoDMY($("#text-"+eid).val()));
 	$("#"+eid).bind('click', function() {
 		 editDate(this.id);
 		 isedit = true;

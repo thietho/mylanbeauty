@@ -1,9 +1,9 @@
-<div class="col-md-12">
+<div>
 	
     <h4>Thông tin đơn hàng</h4>
-    <table class="table">
+    <table class="ui-responsive ui-table ui-table-reflow">
         <tr>
-            <td width="150px"><label>Mã đơn hàng:</label></td>
+            <td><label>Mã đơn hàng:</label></td>
             <td><?php echo $order['orderid']?></td>
         </tr>
         <tr>
@@ -29,9 +29,9 @@
         
     </table>
     <h4>Thông tin nhận hàng</h4>
-    <table class="ben-form">
+    <table class="ui-responsive ui-table ui-table-reflow">
         <tr>
-            <td width="150px"><label>Người nhận hàng:</label></td>
+            <td><label>Người nhận hàng:</label></td>
             <td><?php echo $order['receiver']?></td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@
     </table>
 
     <h4>Chi tiết đơn hàng</h4>
-    <table class="table">
+    <table class="ui-responsive ui-table ui-table-reflow">
         <thead>
             <tr>
                 <th>Hình</th>

@@ -356,3 +356,13 @@ function toPhpTime(time)
 	var s= d.getFullYear()+"-"+ numToString(d.getMonth() + 1 ,2) +"-"+ numToString(d.getDate(),2)+ " "+ d.getHours()+":"+ d.getMinutes()+":"+d.getSeconds();
 	return s;
 }
+function dateDMYtoYMD(strdate)
+{
+	var arr = strdate.split('-');
+	return arr[2]+'-'+arr[1]+'-'+arr[0];
+}
+function dateYMDtoDMY(strdate)
+{
+	var arr = strdate.split('-');
+	return arr[2]+'-'+arr[1]+'-'+arr[0];
+}

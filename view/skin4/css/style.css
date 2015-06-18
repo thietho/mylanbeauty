@@ -63,6 +63,11 @@ a
 .ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     padding-left:2em;
 }
+.number
+{
+	text-align:right;
+	width:3em;	
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;

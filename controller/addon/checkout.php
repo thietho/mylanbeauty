@@ -4,8 +4,8 @@ class ControllerAddonCheckout extends Controller
 	private $error = array();
 	public function index()
 	{
-		$this->document->breadcrumb .= "Thông tin đơn hàng";
-		$this->document->title .= "Thông tin đơn hàng";
+		$this->document->breadcrumb .= " » Thông tin đơn hàng";
+		$this->document->title .= " - Thông tin đơn hàng";
 		$this->getList();
 		$this->getMemberInfor();
 		$this->id="content";
