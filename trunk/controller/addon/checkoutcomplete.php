@@ -4,8 +4,8 @@ class ControllerAddonCheckoutcomplete extends Controller
 	private $error = array();
 	public function index()
 	{
-		$this->document->breadcrumb .= "Hoàn tất thanh toán";
-		$this->document->title .= $this->document->breadcrumb;
+		$this->document->breadcrumb .= " » Hoàn tất thanh toán";
+		$this->document->title .= " - Hoàn tất thanh toán";
 		$orderid = $this->request->get['id'];
 		$this->getOrder($orderid);
 		$this->id="content";

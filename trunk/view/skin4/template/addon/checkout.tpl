@@ -1,5 +1,5 @@
-<div class="table-responsive">
-<table class="table table-striped table-bordered table-hover">
+<div>
+<table class="ui-responsive ui-table ui-table-reflow">
 	<thead>
         <tr>
             <th>Hình</th>
@@ -14,7 +14,7 @@
 	<?php 
     	$sum = 0;
     	foreach($medias as $media) {
-        $sum = $media['price'] * $media['qty'];
+        $sum += $media['price'] * $media['qty'];
     ?>
         <tr>
             <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
@@ -100,7 +100,13 @@
 <div class="clearer">&nbsp;</div>
 <script language="javascript">
 $("#btnCheckout").click(function(){
-	$.blockUI({ message: "<h1>Please wait...</h1>" }); 
+	$.mobile.loading( "show", {
+            text: "Loading",
+            textVisible: true,
+            theme: 'b',
+            textonly: false,
+            html: processing
+    });
 	$('#orderdate').val(toPhpTime(Date.now()));
 	$.post("<?php echo HTTP_SERVER?>?route=addon/checkout/checkout", $("#frmCheckOut").serialize(),
 		function(data){
@@ -116,7 +122,7 @@ $("#btnCheckout").click(function(){
 				
 				
 			}
-			$.unblockUI();
+			$.mobile.loading( "hide" );
 		}
 	);					   
 });

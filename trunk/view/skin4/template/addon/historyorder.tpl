@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
+    <table class="ui-responsive ui-table ui-table-reflow">
 		<thead>
         	<tr>
                 <th>Mã đơn hàng</th>
