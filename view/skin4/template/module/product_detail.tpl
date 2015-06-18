@@ -118,7 +118,7 @@
                                 </td>
                                 <td>
                                 	<input type="button" class="ui-btn" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng">
-                                    <a href="#popupCloseRight" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" onclick="cart.add('<?php echo $val['mediaid']?>')">Đặt hàng</a>
+                                    
                                 </td>
                             </tr>
                             <?php } ?>

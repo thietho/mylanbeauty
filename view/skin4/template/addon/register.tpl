@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label>Điện thoại</label>
-                <input type="text" id="phone" name="phone" class="form-control">
+                <input type="tel" id="phone" name="phone" class="form-control">
             </div>
             <div class="form-group">
                 <label for="date">Ngày sinh</label>
