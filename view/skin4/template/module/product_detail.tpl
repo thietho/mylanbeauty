@@ -29,40 +29,26 @@
                         </li>
                         <?php } ?>
                         <?php if(count($priceproduct) == 0){ ?>
-                        <li><strong>Giá:</strong>
-                                <?php $cls = '';?>
-                                <?php if($post['pricepromotion']!=0){ ?>
-                                <?php $cls = 'product-price-no';?>
-                                <span class="product-pricepromotion">
-                                <?php echo $this->string->numberFormate($post['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
-                                </span>
-                                <?php } ?>
-                                <?php if($post['price']){ ?>
-                                <span  class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?></span>
+                        <li class="price-group"><strong>Giá:
+                        		<?php if($post['price'] == 0){ ?>
+                                	<span class="price">Giá đang cập nhật</span>
                                 <?php }else{ ?>
-                                Giá đang cập nhật
-                                <?php }?>
+                                	<?php if($post['pricepromotion']==0){ ?>
+                                    	<span class="price"><span class="shop"><?php echo $this->string->numberFormate($post['price'])?><?php echo $this->document->setup['Currency']?></span></span>
+                                    <?php }else{ ?>
+                                    	<span class="price"><span class="genuine"><?php echo $this->string->numberFormate($post['price'])?><?php echo $this->document->setup['Currency']?></span>
+                                        Giảm <?php echo $this->string->numberFormate($post['discountpercent'])?>%
+                                        <span class="shop"><?php echo $this->string->numberFormate($post['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span></span>
+                                    <?php } ?>
+                                <?php } ?>
+                                </strong>
                                 <input type="button" class="ui-btn" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
                          </li>
                         <?php } ?>
                     </ul>
                     <?php echo $post['summary']?>
                 </div>
-            </div>
-            
-
-            <div>
-            	
-            	
-                <?php if(count($data_samplecode)>1){ ?>
-                <p>
-                    <?php foreach($data_samplecode as $key => $item){?>
-                    <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
-                    <?php } ?>
-                </p>
-                <?php } ?>
-                
-            </div>
+            </div> 
 			<div class="col-md-12">
             	<?php echo $post['description']?>
                 <?php if(count($priceproduct)){ ?>
@@ -127,4 +113,14 @@
                     </table>
                 </div>
                 <?php }?>
+            </div>
+            <div>
+                <?php if(count($data_samplecode)>1){ ?>
+                <h3>Các sản phẩm cùng loại</h3>
+                <p>
+                    <?php foreach($data_samplecode as $key => $item){?>
+                    <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['mediaid'].'-'.$item['alias'])?>" data-ajax="false" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
+                    <?php } ?>
+                </p>
+                <?php } ?>
             </div>
