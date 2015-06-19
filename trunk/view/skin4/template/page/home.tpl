@@ -2,35 +2,35 @@
             <h1>Trang chủ</h1>
             <div class="ui-grid-c hl-brand">
                 <div class="ui-block-a">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Sisley')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Guerlain')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Lancome')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
                 </div>
                 <div class="ui-block-d">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Lancome')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
                 </div>
                 
                 
             </div>
             <div class="ui-grid-b hl-brand">
                 <div class="ui-block-a">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Shiseido')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','EsteeLauder')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="#"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Clinique')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
                 </div>
             </div>
             
             
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
-            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop21.jpg">
+            <?php echo $bannerhome?>
             
             <div id="hl-home">
             </div>

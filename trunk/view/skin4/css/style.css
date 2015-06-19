@@ -44,19 +44,19 @@ a
 	height:auto;	
 }
 
-.product-list .price
+.price-group .price
 {
 	text-align:center;
 }
-.product-list .genuine
+.price-group .genuine
 {
 	text-decoration:line-through;	
 }
-.product-list .shop
+.price-group .shop
 {
 	color:red;
 }
-.product-list .price-group
+.price-group
 {
 	height:7em;	
 }

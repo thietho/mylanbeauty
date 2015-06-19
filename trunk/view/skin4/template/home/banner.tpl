@@ -1,5 +1,7 @@
 
 <?php if(count($medias)){ ?>
+	<script src="<?php echo HTTP_SERVER.DIR_JS?>bootstrap.js"></script>
+    <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>bootstrap.css">
 	<div class="row carousel-holder">
 
                     <div class="col-md-12">
