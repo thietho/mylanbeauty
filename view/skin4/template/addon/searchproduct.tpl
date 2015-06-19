@@ -1,17 +1,17 @@
 <div class="col-md-4 col-md-offset-4">
-    <form id="ben-searchform" action="">
+    <form id="hl-searchform" action="" data-ajax="false">
     	<div class="form-group input-group">
             
             <input type="text" id="keyword" name="keyword" class="form-control">
             <span class="input-group-btn">
             	
-                <button class="btn btn-default" type="submit" id="btnSearch">
-                <i class="fa fa-search">Tìm kiếm</i>
+                <button class="ui-btn" type="submit" id="btnSearch">
+                Tìm kiếm
                 </button>
             </span>
         </div>
     	<div class="form-group">
-            <select name="loaisp" id="loaisp" class="form-control" onChange="$('#ben-searchform').submit()">
+            <select name="loaisp" id="loaisp" class="form-control" onChange="$('#hl-searchform').submit()">
                 <option value="">Loại sản phẩm</option>
                 <?php foreach($loaisp as $it){ ?>
                 <option value="<?php echo $it['sitemapid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['sitemapname']?></option>                        
@@ -19,24 +19,13 @@
             </select>
         </div>
         <div class="form-group">
-            <select name="nhanhieu" id="nhanhieu" class="form-control" onChange="$('#ben-searchform').submit()">
+            <select name="nhanhieu" id="nhanhieu" class="form-control" onChange="$('#hl-searchform').submit()">
                 <option value="">Nhãn hiệu</option>
                 <?php foreach($nhanhieu as $it){ ?>
                 <option value="<?php echo $it['categoryid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
                 <?php } ?>
             </select>
         </div>
-        <!--<div class="form-group">
-            <select name="gia" id="gia" class="form-control">
-                <option value="">Chọn giá</option>
-                <?php foreach($gia as $it){ ?>
-                <option value="<?php echo $it['categoryid']?>"><?php echo $this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo $it['categoryname']?></option>                        
-                <?php } ?>
-            </select>
-        </div>-->
-        
-    	
-        
     </form>
 </div>
 <div class="col-md-12">
