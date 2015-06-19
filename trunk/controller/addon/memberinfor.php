@@ -4,10 +4,10 @@ class ControllerAddonMemberinfor extends Controller
 	private $error = array();
 	public function index()
 	{
-		$this->document->breadcrumb .= '<a href="'.$this->document->createLink('member').'">Thông tin thành viên </a> » Thông tin cá nhân';
+		$this->document->breadcrumb .= ' » <a href="'.$this->document->createLink('member').'">Thông tin thành viên </a> » Thông tin cá nhân';
 		$this->data['DIR_UPLOADPHOTO'] = HTTP_SERVER."index.php?route=common/uploadpreview";
 		$this->getMemberInfor();
-		$this->document->title .= "Thông tin cá nhân";
+		$this->document->title .= " - Thông tin thành viên";
 		$this->id="content";
 		$this->template="addon/memberinfor.tpl";
 		$this->render();

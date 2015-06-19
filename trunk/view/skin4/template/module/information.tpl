@@ -1,5 +1,5 @@
 <?php if($this->document->sitemapid != "faq"){ ?>
-<div class="ben-editor">
+<div class="hl-editor">
     <p>
         <?php echo $post['description']?>
     </p>

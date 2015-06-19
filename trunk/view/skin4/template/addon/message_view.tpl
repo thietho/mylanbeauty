@@ -1,5 +1,5 @@
 <h2><?php echo $item['title']?></h2>
-<div class="ben-editor">
+<div class="hl-editor">
     <p>
         <?php echo html_entity_decode($item['description'])?>
     </p>

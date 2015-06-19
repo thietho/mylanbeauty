@@ -15,6 +15,7 @@ function Cart()
 	}
 	this.add = function(mediaid)
 	{
+		
 		$.mobile.loading( "show", {
 	            text: "Loading",
 	            textVisible: true,
@@ -29,7 +30,7 @@ function Cart()
 				if(data == "true")
 				{
 					$("#warring").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
-						setTimeout('$.mobile.loading( "hide" );',3000)	
+						setTimeout('$.mobile.loading( "hide" );',3000);
 					});
 					
 					cart.load()
