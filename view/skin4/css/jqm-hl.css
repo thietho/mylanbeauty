@@ -736,7 +736,8 @@
 }
 .ui-loader-verbose
 {
-	width:auto;	
+	width:18em;
+	
 }
 #hl-error
 {

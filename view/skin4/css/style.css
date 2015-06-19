@@ -68,6 +68,10 @@ a
 	text-align:right;
 	width:3em;	
 }
+.hl-editor img
+{
+	width:100%;
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;

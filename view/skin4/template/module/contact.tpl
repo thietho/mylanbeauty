@@ -42,7 +42,7 @@ function sendMessage()
 }
 </script>
 
-<div class="ben-post">
+<div class="hl-editor">
 <p>
     <?php echo $post['description']?>
 </p>
