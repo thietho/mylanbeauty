@@ -61,31 +61,13 @@
 				 </script>
                 <td id="birthdaykids" class="date"><?php echo $this->date->formatMySQLDate($member['birthdaykids'])?></td>
             </tr>
-            <tr>
-            	<td><label>Ảnh đại diện</label></td>
-                <td>
-                	<p id="pnImage">
-                        
-                        <input id="btnAddImage" type="button" class="ben-button" value="Select photo"><br />
-                        
-                        <img id="preview" src="<?php echo $member['imagethumbnail']?>" />
-                        <input type="hidden" id="imagepath" name="imagepath" value="<?php echo $member['imagepath']?>" />
-                        <input type="hidden" id="imageid" name="imageid" value="<?php echo $member['imageid']?>" />
-                        <input type="hidden" id="imagethumbnail" name="imagethumbnail" value="<?php echo $member['imagethumbnail']?>" />
-                    </p>
-                        
-                        
-                    <div id="errorupload" class="error" style="display:none"></div>
-                    
-                    <div class="loadingimage" style="display:none"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loadingimage.gif"></div>
-                </td>
-            </tr>
+            
             
         </table>
     </form>
 </div>
 <div class="clearer">&nbsp;</div>
-<script src='<?php echo HTTP_SERVER.DIR_JS?>ajaxupload.js' type='text/javascript' language='javascript'> </script>
+
 <script type="text/javascript" charset="utf-8">
 var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
 var isedit = true
@@ -186,5 +168,3 @@ function callbackfunc(objfile)
 }
 
 </script>
-
-<script src="<?php echo HTTP_SERVER.DIR_JS?>uploadpreview.js" type="text/javascript"></script>
