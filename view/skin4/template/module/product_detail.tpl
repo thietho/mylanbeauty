@@ -124,4 +124,5 @@
                 </p>
                 <?php } ?>
             </div>
-
+<h3>Sản phẩm cùng nhãn hiệu</h3>
+<?php echo $saphamcungnhanhieu?>
