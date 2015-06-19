@@ -1,16 +1,9 @@
 <div class="col-md-4 col-md-offset-4">
     <form id="hl-searchform" action="" data-ajax="false">
-    	<div class="form-group input-group">
-            
-            <input type="text" id="keyword" name="keyword" class="form-control">
-            <span class="input-group-btn">
-            	
-                <button class="ui-btn" type="submit" id="btnSearch">
-                Tìm kiếm
-                </button>
-            </span>
+    	<div>
+            <input type="text" id="keyword" name="keyword" class="form-control" placeholder="Từ khóa tìm kiếm">
         </div>
-    	<div class="form-group">
+    	<div>
             <select name="loaisp" id="loaisp" class="form-control" onChange="$('#hl-searchform').submit()">
                 <option value="">Loại sản phẩm</option>
                 <?php foreach($loaisp as $it){ ?>
@@ -18,7 +11,7 @@
                 <?php } ?>
             </select>
         </div>
-        <div class="form-group">
+        <div>
             <select name="nhanhieu" id="nhanhieu" class="form-control" onChange="$('#hl-searchform').submit()">
                 <option value="">Nhãn hiệu</option>
                 <?php foreach($nhanhieu as $it){ ?>
@@ -32,6 +25,9 @@
 	<?php echo $searchresult?>
 </div>
 <script language="javascript">
+$('#hl-searchform').submit(function(e) {
+    
+});
 $("#btnSearch").click(function(){
 	/*var url =  HTTP_SERVER+"product/search/";
 	var keyword = trim($("#txt_search").val()," ");
