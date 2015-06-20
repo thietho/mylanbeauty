@@ -3,7 +3,7 @@ if(count($medias))
 {
 	
 ?>
-			<div class="ui-grid-a ui-responsive product-list">
+			<div class="ui-grid-a product-list">
 					<?php foreach($medias as $key => $media) {?>
                     
                     <?php 
