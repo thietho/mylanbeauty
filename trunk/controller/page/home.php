@@ -167,8 +167,16 @@ class ControllerPageHome extends Controller
 		}*/
 		$brand = $this->request->get['brand'];
 		$arr = array("",$brand);
-		$this->data['output'] = "<h1>".$this->document->getCategory($brand)."</h1>";
-       	$this->data['output'] .= $this->loadModule('addon/brand','getList',$arr);
+		if(file_exists(DIR_IMAGE.'logo/'.$brand.'.jpg'))
+		{
+			$this->data['output'] = '<div class="hl-home-brand"><img src="'.HTTP_SERVER.DIR_IMAGE.'logo/'.$brand.'.jpg"></div>';
+		}
+		else
+		{
+			$this->data['output'] = "<h1>".$this->document->getCategory($brand)."</h1>";
+		}
+		
+		$this->data['output'] .= $this->loadModule('addon/brand','getList',$arr);
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();

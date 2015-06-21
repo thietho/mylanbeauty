@@ -83,8 +83,8 @@
 	font-weight: 300;
 }
 .jqm-hl .jqm-content > h1 {
-	font-size: 1.2em;
-	margin: 0 0 .625em;
+	font-size: 1em;
+	
 	text-transform:uppercase;
 	font-weight:bold;
 }
