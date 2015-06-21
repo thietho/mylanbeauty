@@ -13,8 +13,11 @@ if(count($medias))
                     ?>
                 <div class="<?php echo $block?>">
                     <div class="jqm-block-content">
-                        <h3><?php echo $this->document->getCategory($media['brand'])?></h3>
-                        <p class="title"><a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-ajax="false"><?php echo $this->document->productName($media)?></p>
+                        
+                        <p class="title">
+                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-ajax="false"><?php echo $this->document->productName($media)?>
+                            <?php if($media['brand']) echo "(".$this->document->getCategory($media['brand']).")"?>
+                        </p>
                         
                         <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-ajax="false"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                         <div class="price-group">

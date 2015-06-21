@@ -80,6 +80,10 @@ h1
 {
 	text-transform:uppercase;	
 }
+.hl-home-brand img
+{
+	width:12em;
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;
