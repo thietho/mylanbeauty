@@ -43,7 +43,10 @@ a
 {
 	height:auto;	
 }
-
+.product-list .title a
+{
+	font-weight:bold;	
+}
 .price-group .price
 {
 	text-align:center;
