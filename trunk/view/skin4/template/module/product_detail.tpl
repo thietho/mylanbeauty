@@ -2,9 +2,9 @@
 
         
         
-			<h2>
+			<h3>
                 <?php echo $this->document->productName($post['mediaid'])?>
-            </h2>
+            </h3>
             <div class="ui-grid-a ui-responsive">
             	<div class="ui-block-a">
                 	<div class="jqm-block-content">

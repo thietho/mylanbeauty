@@ -1,3 +1,0 @@
-<br />
-<b>Warning</b>:  readfile(http://soft.mylanbeauty.net/file/upload/Dream Angels Heavenly_coolingMist.jpg) [<a href='function.readfile'>function.readfile</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
- in <b>/home/tbsovgsy/public_html/khachhang/mylanbeauty.net/admincp/download.php</b> on line <b>59</b><br />
