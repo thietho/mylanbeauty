@@ -97,8 +97,8 @@
 	margin: 0 0 .7375em;
 }
 .jqm-hl .jqm-content > h3 {
-	color: #3eb249;
-	background-color: transparent;
+	
+	font-weight:bold;
 	font-size: 1.4em;
 	margin: 0 0 1em;
 }

@@ -1,5 +1,7 @@
 
-            <h1>Trang chủ</h1>
+            <h1 style="float:left">Trang chủ</h1>
+            <h1 style="float:right"><a href="ortherbrand.html" data-transition="flip">Các nhãn hiệu khác</a></h1>
+            <div style="clear:both"></div>
             <div class="ui-grid-c hl-brand">
                 <div class="ui-block-a">
                     <a href="<?php echo $this->document->createLink('brand','Sisley')?>" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>

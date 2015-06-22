@@ -17,58 +17,7 @@ class ControllerPageHome extends Controller
 		$this->destop();
 		//$this->mobile();
 	}
-	public function mobile()
-	{
-		if($this->cachehtml->iscacht($this->name) == false)
-		{
-			//Brand
-			$template = array(
-						  'template' => "module/category_brand.tpl"
-						  );
-		
-			$arr = array("nhanhieu",$template);
-			$this->data['brand'] = $this->loadModule('module/category','getList',$arr);
-			
-			//San pham moi
-			$template = array(
-								  'template' => "module/productmobile_list.tpl",
-								  'width' => 180,
-								  'height' =>180,
-								  'widthpreview' => 450,
-								  'heightpreview' =>450
-								  );
-						  
-			$medias = $this->getSanPhanHot();
-			
-			$arr = array($sitemap['sitemapid'],0,$sitemap['sitemapname'],$template,$medias);
-			$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
-			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);
-			
-			
-			
-					  
-			$this->load->model('core/sitemap');
-			$data_sitemap = array();
-			$this->model_core_sitemap->getTreeSitemap("sanpham", $data_sitemap, $this->member->getSiteId());
-			$this->data['arrsitemapid'] = array();
-			foreach($data_sitemap as $sitemap)
-			{
-				if($sitemap['countchild'] == 0)
-				{
-					$this->data['arrsitemapid'][] = $sitemap['sitemapid'];
-				}
-			}
-			
-			
-			$this->loadSiteBar();
-			
-		}
-		$this->document->title .= $this->document->setup['Title'];
-		$this->id="content";
-		$this->template="page/homemobile.tpl";
-		$this->layout="layout/mobile";
-		$this->render();
-	}
+	
 	public function destop()
 	{
 		if($this->cachehtml->iscacht($this->name) == false)
@@ -104,7 +53,7 @@ class ControllerPageHome extends Controller
 			$this->data['producthome']['sanphamhot']['title'] ="Sản phẩm hot";
 			$this->data['producthome']['sanphamhot']['data'] = $this->loadModule('module/productlist','getAll',$arr);*/
 			
-			
+			//$this->data['ortherbrand'] .= $this->loadModule('addon/ortherbrand');
 			$this->data['arrbrand'] = array(
 							"Sisley",
 							"Guerlain",
@@ -305,6 +254,5 @@ class ControllerPageHome extends Controller
 		$data_media = array_merge($data_media,$data);
 		return $data_media;
 	}
-	
 }
 ?>
