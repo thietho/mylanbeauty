@@ -15,11 +15,11 @@ if(count($medias))
                     <div class="jqm-block-content">
                         
                         <p class="title">
-                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-ajax="false"><?php echo $this->document->productName($media)?>
+                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip"><?php echo $this->document->productName($media)?>
                             <?php if($media['brand']) echo $this->document->getCategory($media['brand'])?></a>
                         </p>
                         
-                        <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-ajax="false"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
+                        <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                         <div class="price-group">
                         	<?php if(count($media['childs'])){ ?>
                             	<?php foreach($media['childs'] as $me){?>
