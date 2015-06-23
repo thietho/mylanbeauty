@@ -56,7 +56,7 @@
 				if($item['moduleid'] != "group")
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
-					$link = "<a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."' title='".$item['sitemapname']."' data-ajax='false'>".html_entity_decode($item['sitemapname'])."</a>";
+					$link = "<a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."' title='".$item['sitemapname']."' data-transition='flip'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
 				if($item['moduleid'] == "homepage"){
 					$link = "<a ".$currenttab." href='".HTTP_SERVER."'>".html_entity_decode($item['sitemapname'])."</a>";
@@ -106,7 +106,7 @@
 				if(count($childs)==0)
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
-					$link = "<li><a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."' title='".$item['sitemapname']."' data-ajax='false'>".html_entity_decode($item['sitemapname'])."</a>";
+					$link = "<li><a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."' title='".$item['sitemapname']."' data-transition='flip'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
 				else
 				{
@@ -161,7 +161,7 @@
 				if(count($childs)==0)
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
-					$link = "<li><a ".$currenttab." href='".$this->document->createLink('brand',$item['categoryid'])."' title='".$item['categoryname']."' data-ajax='false'>".html_entity_decode($item['categoryname'])."</a>";
+					$link = "<li><a ".$currenttab." href='".$this->document->createLink('brand',$item['categoryid'])."' title='".$item['categoryname']."' data-transition='flip'>".html_entity_decode($item['categoryname'])."</a>";
 				}
 				else
 				{
