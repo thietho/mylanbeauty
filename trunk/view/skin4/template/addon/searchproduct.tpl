@@ -1,4 +1,4 @@
-<div class="col-md-4 col-md-offset-4">
+<div>
     <form id="hl-searchform" action="" data-ajax="false">
     	<div>
             <input type="text" id="keyword" name="keyword" class="form-control" placeholder="Từ khóa tìm kiếm">
