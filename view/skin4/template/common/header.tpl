@@ -18,7 +18,7 @@
         <li><a href="<?php echo $this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng" data-transition="flip">Cách thức mua hàng</a></li>
     	<li><a href="<?php echo $this->document->createLink('cart')?>" title="Giỏ hàng" data-transition="flip">Giỏ hàng</a></li>
         <?php if(!$this->member->isLogged()){?>
-        <li><a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập" data-transition="flip">Đăng nhập</a></li>
+        <li><a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập" data-ajax="false">Đăng nhập</a></li>
         <li><a href="<?php echo $this->document->createLink('register')?>" title="Đăng ký" data-ajax="false">Đăng ký</a></li>
         
         <?php }else{ ?>

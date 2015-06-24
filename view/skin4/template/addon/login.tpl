@@ -24,13 +24,12 @@
             </div>
             
             <div>
-                <input type="submit" class="ui-btn ui-corner-all" id="btnLogin" value="Đăng nhập" data-ajax="false">
-                <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
-                <a class="ui-btn ui-btn-inline ui-corner-all" href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
+                <input type="submit" class="ui-btn ui-input-btn ui-corner-all ui-shadow" id="btnLogin" value="Đăng nhập" data-ajax="false">
+                <a class="ui-btn ui-input-btn ui-corner-all ui-shadow" href="<?php echo $this->document->createLink('register')?>" data-transition="flip">Đăng ký</a>
             </div>
-            <div class="checkbox">
+            <div class="ui-checkbox">
             	
-                <label>
+                <label class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">
             		<input type="checkbox" name="remember" id="remember" value="1">
                     Ghi nhớ
                 </label>
