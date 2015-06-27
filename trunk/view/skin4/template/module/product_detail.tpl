@@ -57,6 +57,7 @@
                         <thead>
                             <tr>
                                 <th>Sẩn phẩm</th>
+                                <th>Hình</th>
                                 <th>Giá bán</th>
                                 <th>Giảm</th>
                                 <th>Khuyến mãi</th>
@@ -78,7 +79,15 @@
                                     <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                                     <?php } ?>
                                 </td>
-                                
+                                <td>
+                                	<a href="#<?php echo $val['mediaid']?>" data-rel="popup" data-position-to="window" >
+                                    	<img src="<?php echo $val['icon']?>" title="<?php echo $this->document->productName($val)?>" >
+                                    </a>
+                                    <div data-role="popup" id="<?php echo $val['mediaid']?>" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                                    	<img src="<?php echo $val['imagepreview']?>" alt="<?php echo $this->document->productName($val)?>">
+                                    </div>
+                                </td>
                                 <td class="number">
                                     <?php $cls = '';?>
                                         <?php if($val['pricepromotion']!=0){ ?>

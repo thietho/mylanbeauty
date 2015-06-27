@@ -303,7 +303,7 @@ $("#ben-next").click(function(){
 <?php echo $comment?>
 <div class=" ben-section-title">Gửi Nhận xét về <?php echo $this->document->productName($post)?></div>
 <div id="comment-warning" class="ben-error ben-hidden"></div>
-<form id="frmComment">
+<!--<form id="frmComment">
 <input type="hidden" name="mediaid" value="<?php echo $post['mediaid']?>" />
 <div class="ben-post ben-comment">
 	<p>
@@ -329,7 +329,7 @@ $("#ben-next").click(function(){
     </p>
     <input type="button" class="ben-button ben-center" value="Gửi nhận xét" onclick="sendComment()"/>
 </div>
-</form>
+</form>-->
 <script language="javascript">
 $(".product-icon").click(function(){
 	var arr = this.id.split("-");
