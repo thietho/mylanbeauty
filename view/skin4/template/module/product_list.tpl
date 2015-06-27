@@ -21,9 +21,14 @@ if(count($medias))
                         
                         <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                         <div class="price-group">
-                        	<?php if(count($media['childs'])){ ?>
+                        	<?php if(count($media['childs']) && $media['displaytype']==''){ ?>
                             	<?php foreach($media['childs'] as $me){?>
-                                	<p class="price"><?php echo $me['sizes']?>:
+                                	<p class="price">
+                                    <?php echo $me['sizes']?>
+                                    <?php 
+                                    if($me['color'])
+                                        echo " ".$me['color'];
+                                    ?>:
                                     <?php if($me['price'] == 0){ ?>
                                     	Giá đang cập nhật
                                     <?php }else{ ?>
@@ -39,7 +44,8 @@ if(count($medias))
                                     <?php } ?>
                                     </p>
                                 <?php } ?>
-                            <?php }else{ ?>
+                            <?php } ?>
+                            <?php if(count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
                             	<?php if($media['price'] == 0){ ?>
                                 	<p class="price">Giá đang cập nhật</p>
                                 <?php }else{ ?>
