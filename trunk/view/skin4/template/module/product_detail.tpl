@@ -8,7 +8,13 @@
             <div class="ui-grid-a ui-responsive">
             	<div class="ui-block-a">
                 	<div class="jqm-block-content">
+                    	<a href="#<?php echo $post['mediaid']?>" data-rel="popup" data-position-to="window" >
                     	<img style="width:100%" src="<?php echo $post['imagepreview']?>" alt="<?php echo $this->document->productName($post)?>">
+                    	</a>
+                        <div data-role="popup" id="<?php echo $post['mediaid']?>" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                            <img src="<?php echo $post['imagepreview']?>" alt="<?php echo $this->document->productName($post)?>">
+                        </div>
                     </div>
                 </div>
                 <div class="ui-block-b">
