@@ -87,6 +87,17 @@ h1
 {
 	width:12em;
 }
+#hl-categories
+{
+	list-style-type:none;	
+}
+
+#hl-categories li
+{
+	float:left;
+	padding:0.2em 0;
+	width:50%;	
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;
@@ -94,5 +105,11 @@ h1
 	.product-list .title
 	{
 		height:6em;	
+	}
+	#hl-categories li
+	{
+		float:left;
+		padding:0.2em 0;
+		width:25%;	
 	}
 }
