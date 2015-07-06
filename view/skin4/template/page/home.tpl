@@ -1,6 +1,6 @@
 
             <h1 style="float:left">Trang chủ</h1>
-            <h1 style="float:right;font-size:0.7em"><a href="ortherbrand.html" data-transition="flip">Các nhãn hiệu khác</a></h1>
+            <h1 style="float:right;font-size:0.7em"><a href="<?php echo $this->document->createLink('ortherbrand')?>" data-transition="flip">Các nhãn hiệu khác</a></h1>
             <div style="clear:both"></div>
             <div class="ui-grid-c hl-brand">
                 <div class="ui-block-a">
@@ -105,7 +105,7 @@ function loadGroup()
 $(document).ready(function(e) {
     loadBrand();
 });
-$(document).scroll(function(e) {
+/*$(document).scroll(function(e) {
 	if($(document).scrollTop() + window.innerHeight > $('#hl-home').innerHeight())
 	{
 		
@@ -113,6 +113,6 @@ $(document).scroll(function(e) {
 		
 		
 	}
-});
+});*/
 </script>            
     
