@@ -89,7 +89,8 @@ h1
 }
 #hl-categories
 {
-	list-style-type:none;	
+	list-style-type:none;
+	padding:1em;
 }
 
 #hl-categories li
@@ -97,6 +98,14 @@ h1
 	float:left;
 	padding:0.2em 0;
 	width:50%;	
+}
+#hl-categories li:last-child
+{
+	float:none;
+}
+#hl-page-sileder
+{
+	background:#FFF;	
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
