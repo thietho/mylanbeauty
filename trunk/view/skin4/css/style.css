@@ -90,7 +90,7 @@ h1
 #hl-categories
 {
 	list-style-type:none;
-	padding:1em;
+	padding:0 1em;
 }
 
 #hl-categories li
@@ -99,13 +99,29 @@ h1
 	padding:0.2em 0;
 	width:50%;	
 }
-#hl-categories li:last-child
+
+#hl-sitemap
 {
-	float:none;
+	list-style-type:square;
+	list-style-position:inside;
+	padding:0 1em;
+	color:red;
 }
+#hl-sitemap li
+{
+	float:left;
+	padding:0.2em 0;
+	width:50%;	
+}
+
 #hl-page-sileder
 {
 	background:#FFF;	
+}
+#hl-page-sileder h3
+{
+	
+	text-transform:uppercase;
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
@@ -116,6 +132,12 @@ h1
 		height:6em;	
 	}
 	#hl-categories li
+	{
+		float:left;
+		padding:0.2em 0;
+		width:25%;	
+	}
+	#hl-sitemap li
 	{
 		float:left;
 		padding:0.2em 0;

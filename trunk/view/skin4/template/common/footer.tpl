@@ -29,7 +29,7 @@
     </div>
     <h3 class="ui-bar ui-bar-a">Các chuyên mục</h3>
     <div>
-        <ul id="hl-categories">
+        <ul id="hl-sitemap">
             <li><a href="<?php echo HTTP_SERVER?>" data-transition="flip">Trang chủ</a></li>
             <li><a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu" data-transition="flip">Giới thiệu</a></li>
             <li><a href="<?php echo $this->document->createLink('tin-tuc')?>" title="Tin tức" data-transition="flip">Tin tức</a></li>
@@ -48,6 +48,12 @@
                 
               
             <?php }?>
+            
+        </ul>
+    </div>
+    <h3 class="ui-bar ui-bar-a">Các danh mục</h3>
+    <div>
+        <ul id="hl-categories">
             <?php foreach($sitemaps as $sitemap){ ?>
                 <?php if($sitemap['countchild'] == 0){ ?>
             <li><a href="<?php echo $this->document->createLink($sitemap['sitemapid'])?>" title="<?php echo $sitemap['sitemapname']?>" data-transition="flip"><?php echo $sitemap['sitemapname']?></a></li>
