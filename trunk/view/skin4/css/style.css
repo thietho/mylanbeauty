@@ -89,7 +89,8 @@ h1
 }
 #hl-categories
 {
-	list-style-type:none;
+	list-style-type:disc;
+	list-style-position:inside;
 	padding:0 1em;
 }
 
