@@ -532,17 +532,23 @@ float:left;
 .ben-subbrand
 {
 	list-style-type:none;
-	display:none;
 	position:absolute;	
-	background:#000000;
+	margin-left:566px;
+	margin-top:-15px;
 	z-index:1000;
-	margin-left:-133px;
+	display:none;
+	text-transform:uppercase;
 	text-align:left;
 }
-
+.ben-subbrand a
+{
+	color:#FFF;
+	font-size:1.2em;
+}
 .ben-subbrand li
 {
-	float:none;	
+	float:none;
+	padding:2px;
 }
 #ben-main-nav ul ul{
 top:auto;
