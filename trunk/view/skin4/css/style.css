@@ -124,6 +124,22 @@ h1
 	
 	text-transform:uppercase;
 }
+#hl-control
+{
+	position:fixed;
+	right:0;
+	text-align:center;
+	z-index:1000;
+}
+#hl-control div
+{
+	padding:10px;	
+}
+#hl-control img
+{
+	width:1.3em;
+	opacity:0.8;
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;
