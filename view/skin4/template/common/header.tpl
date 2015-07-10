@@ -1,3 +1,8 @@
+<div id="hl-control">
+	<div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>/control/gotop.png"></div>
+    
+    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>/control/gobottom.png"></div>
+</div>
 		<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         <div data-role="header" class="jqm-header">
             <div id="hotline">0903 767 580 - 0906 83 69 93</div>
