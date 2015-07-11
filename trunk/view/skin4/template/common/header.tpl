@@ -67,11 +67,14 @@
 	</ul>
 </div>
 <script language="javascript">
+
 $(document).ready(function(e) {
     setControl();
 	
 	
+	
 });
+
 function setControl()
 {
 	var hcontrol = $('.hl-control').height() /2 ;
@@ -80,8 +83,16 @@ function setControl()
 	$('.btnGoTop').click(function(e) {
         $(document).scrollTop(0);
     });
+	var posdown = 0;
 	$('.btnGoBottom').click(function(e) {
-        $(document).scrollTop($(document).height());
+        //$(document).scrollTop($(document).height());
+		$('.footerbrand').each(function(index, element) {
+            if($(this).position().top>0);
+				posdown =$(this).position().top;
+			
+        });
+		
+		$(document).scrollTop(posdown);
     });
 }
 /*$(document).ajaxComplete(function(){
@@ -95,6 +106,7 @@ function setControl()
 $(document).bind("pagehide", function(event, ui) {
   $(ui.nextPage).animationComplete(function() {
     //alert('Animation completed');
+	
 	setControl()
   });
 });
