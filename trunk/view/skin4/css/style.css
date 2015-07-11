@@ -27,7 +27,7 @@ a
 }
 #hotline
 {
-	text-align:right;
+	float:right;
 	font-size:0.7em;
 	color:#b61219;
 }
@@ -124,21 +124,22 @@ h1
 	
 	text-transform:uppercase;
 }
-#hl-control
+.hl-control
 {
 	position:fixed;
 	right:0;
 	text-align:center;
 	z-index:1000;
 }
-#hl-control div
+.hl-control div
 {
 	padding:10px;	
 }
-#hl-control img
+.hl-control img
 {
 	width:1.3em;
 	opacity:0.8;
+	cursor:pointer;
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{

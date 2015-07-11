@@ -1,11 +1,19 @@
-<div id="hl-control">
-	<div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>/control/gotop.png"></div>
+<div class="hl-control">
+	<div><img class="btnGoTop" src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png"></div>
     
-    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>/control/gobottom.png"></div>
+    <div><img class="btnGoBottom" src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png"></div>
 </div>
 		<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         <div data-role="header" class="jqm-header">
-            <div id="hotline">0903 767 580 - 0906 83 69 93</div>
+            <div id="hotline">
+            	<table>
+                	<tr>
+                    	<td>0903 767 580 - 0906 83 69 93</td>
+                        <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>viber.png" title="Viber"></td>
+                        <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>zalo.png" title="Zalo"></td>
+                    </tr>
+                </table>
+            </div>
             <h2><a href="<?php echo HTTP_SERVER?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
             <div id="supportonline" >
         <a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
@@ -58,3 +66,38 @@
     	</li> 
 	</ul>
 </div>
+<script language="javascript">
+$(document).ready(function(e) {
+    setControl();
+	
+	
+});
+function setControl()
+{
+	var hcontrol = $('.hl-control').height() /2 ;
+	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');
+	
+	$('.btnGoTop').click(function(e) {
+        $(document).scrollTop(0);
+    });
+	$('.btnGoBottom').click(function(e) {
+        $(document).scrollTop($(document).height());
+    });
+}
+/*$(document).ajaxComplete(function(){
+    setTimeout(function()
+				{
+					moveControl();
+				},2000);
+	
+	
+});*/
+$(document).bind("pagehide", function(event, ui) {
+  $(ui.nextPage).animationComplete(function() {
+    //alert('Animation completed');
+	setControl()
+  });
+});
+window.addEventListener('resize',setControl);
+
+</script>
