@@ -1,5 +1,5 @@
 <div id="hl-page-sileder">
-    <h3 class="ui-bar ui-bar-a">Các nhãn hiệu</h3>
+    <h3 class="ui-bar ui-bar-a footerbrand">Các nhãn hiệu</h3>
     <div class="ui-grid-c hl-brand">
         <div class="ui-block-a">
             <a href="<?php echo $this->document->createLink('brand','Sisley')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
