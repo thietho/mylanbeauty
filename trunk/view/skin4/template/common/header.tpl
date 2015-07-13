@@ -1,7 +1,7 @@
 <div class="hl-control">
-	<div><img class="btnGoTop" src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png"></div>
-    
-    <div><img class="btnGoBottom" src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png"></div>
+	<div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png" onClick="goTop()"></div>
+    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/return.png" onClick="goReturn()"></div>
+    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png" onClick="goBottom()"></div>
 </div>
 		<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         <div data-role="header" class="jqm-header">
@@ -74,35 +74,38 @@ $(document).ready(function(e) {
 	
 	
 });
-
+var pcurr = 0;
 function setControl()
 {
 	var hcontrol = $('.hl-control').height() /2 ;
-	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');
-	
-	$('.btnGoTop').click(function(e) {
-        $(document).scrollTop(0);
-    });
-	var posdown = 0;
-	$('.btnGoBottom').click(function(e) {
-        //$(document).scrollTop($(document).height());
-		$('.footerbrand').each(function(index, element) {
-            if($(this).position().top>0);
-				posdown =$(this).position().top;
-			
-        });
-		
-		$(document).scrollTop(posdown);
-    });
+	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');	
 }
-/*$(document).ajaxComplete(function(){
-    setTimeout(function()
-				{
-					moveControl();
-				},2000);
+
+function goTop()
+{
+	 $(document).scrollTop(0);
+	 pcurr = $(document).scrollTop();
+}
+function goBottom()
+{
+	$('.footerbrand').each(function(index, element) {
+		if($(this).position().top>0);
+		{
+			posdown =$(this).position().top;
+			
+			
+		}
+	});
 	
+	pcurr = $(document).scrollTop();
+	$(document).scrollTop(posdown);
+		
 	
-});*/
+}
+function goReturn()
+{
+	$(document).scrollTop(pcurr);
+}
 $(document).bind("pagehide", function(event, ui) {
   $(ui.nextPage).animationComplete(function() {
     //alert('Animation completed');
