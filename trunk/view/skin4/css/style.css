@@ -27,9 +27,10 @@ a
 }
 #hotline
 {
-	float:right;
+	position:absolute;
 	font-size:0.7em;
 	color:#b61219;
+	right:0;
 }
 #supportonline
 {
@@ -140,6 +141,13 @@ h1
 	zoom:0.6;
 	opacity:0.8;
 	cursor:pointer;
+}
+.flagdiscount
+{
+	position:absolute;
+	background: url(../image/flag-discount.png) no-repeat ;
+	padding:14px 5px 15px;
+	color:#FFF;
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
