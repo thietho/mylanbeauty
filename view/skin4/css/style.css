@@ -133,11 +133,11 @@ h1
 }
 .hl-control div
 {
-	padding:10px;	
+	padding:5px;	
 }
 .hl-control img
 {
-	width:2em;
+	zoom:0.6;
 	opacity:0.8;
 	cursor:pointer;
 }
