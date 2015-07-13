@@ -9,8 +9,6 @@
             	<table>
                 	<tr>
                     	<td>0903 767 580 - 0906 83 69 93</td>
-                        <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>viber.png" title="Viber"></td>
-                        <td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>zalo.png" title="Zalo"></td>
                     </tr>
                 </table>
             </div>
