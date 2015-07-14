@@ -134,19 +134,20 @@ h1
 }
 .hl-control div
 {
-	padding:5px;	
+	padding:8px;
+	cursor:pointer;	
 }
 .hl-control img
 {
 	zoom:0.6;
 	opacity:0.8;
-	cursor:pointer;
+	
 }
 .flagdiscount
 {
 	position:absolute;
 	background: url(../image/flag-discount.png) no-repeat ;
-	padding:14px 5px 15px;
+	padding:14px 9px 15px;
 	color:#FFF;
 }
 @media (min-width: 60em) {
