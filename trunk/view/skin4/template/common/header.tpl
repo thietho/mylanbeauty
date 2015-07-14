@@ -1,7 +1,7 @@
 <div class="hl-control">
-	<div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png" onClick="goTop()"></div>
-    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/return.png" onClick="goReturn()"></div>
-    <div><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png" onClick="goBottom()"></div>
+	<div onClick="goTop()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png"></div>
+    <div onClick="goReturn()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/return.png"></div>
+    <div onClick="goBottom()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png"></div>
 </div>
 		<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         <div data-role="header" class="jqm-header">
@@ -81,8 +81,9 @@ function setControl()
 
 function goTop()
 {
-	 $(document).scrollTop(0);
-	 pcurr = $(document).scrollTop();
+	pcurr = $(document).scrollTop();
+	$(document).scrollTop(0);
+	 
 }
 function goBottom()
 {
