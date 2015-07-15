@@ -134,14 +134,21 @@ h1
 }
 .hl-control div
 {
-	padding:8px;
+	padding:10px 8px;
 	cursor:pointer;	
 }
+
 .hl-control img
 {
 	zoom:0.6;
-	opacity:0.8;
+	opacity:0.4;
 	
+}
+.hl-home-icon
+{
+	position:absolute;
+	z-index:100;
+	left:20px;
 }
 .flagdiscount
 {
