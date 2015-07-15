@@ -13,7 +13,7 @@
                     <a href="<?php echo $this->document->createLink('brand','Lancome')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
                 </div>
                 <div class="ui-block-d">
-                    <a href="<?php echo $this->document->createLink('brand','Lancome')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','Clarins')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
                 </div>
                 
                 

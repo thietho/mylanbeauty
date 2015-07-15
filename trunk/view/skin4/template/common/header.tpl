@@ -2,10 +2,13 @@
 	<div onClick="goTop()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png"></div>
     <div onClick="goReturn()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/return.png"></div>
     <div onClick="goBottom()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png"></div>
-</div>
-		<img width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
+</div>	
+		
+		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
+        
         <div data-role="header" class="jqm-header">
-            <div id="hotline">
+        	
+            <div id="hotline" class="hotline">
             	<table>
                 	<tr>
                     	<td>0903 767 580 - 0906 83 69 93</td>
@@ -13,8 +16,8 @@
                 </table>
             </div>
             <h2><a href="<?php echo HTTP_SERVER?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
-            <div id="supportonline" >
-        <a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
+        <div id="supportonline" class="supportonline">
+        	<a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
             <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
             <a href="<?php echo $this->document->createLink('searchproduct')?>" data-ajax="false" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-right">Search</a>
         </div>
@@ -75,8 +78,23 @@ $(document).ready(function(e) {
 var pcurr = 0;
 function setControl()
 {
-	var hcontrol = $('.hl-control').height() /2 ;
-	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');	
+	/*var hcontrol = $('.hl-control').height() /2 ;
+	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');	*/
+	/*var hcontrol = $('.hl-control').height() ;
+	$('.hl-control').css('top',(window.innerHeight - hcontrol)+'px');*/
+	var top = 0;
+	//alert($('.ui-icon-search').position().top);
+	$('.supportonline').each(function(index, element) {
+		
+        if($(this).position().top>0);
+		{
+			top =$(this).position().top - 50;
+			
+		}
+    });
+	$('.hl-control').css('top', top+'px');
+	
+	
 }
 
 function goTop()
