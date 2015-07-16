@@ -16,11 +16,12 @@
                 </table>
             </div>
             <h2><a href="<?php echo HTTP_SERVER?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
-        <div id="supportonline" class="supportonline">
+        	<div id="supportonline" class="supportonline">
         	<a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
             <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
-            <a href="<?php echo $this->document->createLink('searchproduct')?>" data-ajax="false" class="jqm-search-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-right">Search</a>
+            
         </div>
+        <a href="<?php echo $this->document->createLink('searchproduct')?>" data-ajax="false" class="ui-btn ui-btn-icon-notext ui-corner-all ui-icon-search ui-nodisc-icon ui-alt-icon hl-search">Search</a>
         <!--Menu-->
 <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
     <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
@@ -67,13 +68,7 @@
     	</li> 
 	</ul>
 </div>
-<table class="hl-header">
-    <tr>
-        <td><h1 onClick="goBottom()">CÁC THƯƠNG HIỆU</h1></td>
-        <td align="center"><h1 onClick="goMenu()">CÁC CHUYÊN MỤC</h1></td>
-        <td align="right"><h1 onClick="goCat()">DANH MỤC SẢN PHẨM</h1></td>
-    </tr>
-</table>
+
 <script language="javascript">
 
 $(document).ready(function(e) {

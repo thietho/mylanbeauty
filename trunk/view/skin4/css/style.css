@@ -166,10 +166,17 @@ h1
 	width:100%;	
 }
 .hl-header td > h1 {
-	font-size: 0.7em;
-	
+	font-size: 0.65em;
 	text-transform:uppercase;
 	font-weight:bold;
+}
+.hl-search
+{
+	position:absolute;
+	z-index:10;
+	border:none;
+	background-color:#FFF;
+	margin:-30px 20px;	
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{

@@ -3,7 +3,7 @@ class ControllerAddonSearchproduct extends Controller
 {
 	public function index()
 	{
-		$this->document->breadcrumb .= "Tìm kiếm sản phẩm";
+		$this->document->breadcrumb .= "  » Tìm kiếm sản phẩm";
 		$this->load->model("core/category");
 		$this->load->model("core/sitemap");
 		$this->data['loaisp'] = array();
