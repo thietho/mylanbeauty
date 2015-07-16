@@ -28,14 +28,15 @@
         <div class="ui-block-a">
             <a href="<?php echo $this->document->createLink('brand','Clinique')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
         </div>
+        
         <div class="ui-block-b">
-            <a href="<?php echo $this->document->createLink('brand','ck')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ck.jpg" /></a>
-        </div>
-        <div class="ui-block-c">
             <a href="<?php echo $this->document->createLink('brand','ElizabethArden')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ElizabethArden.jpg" /></a>
         </div>
+        <div class="ui-block-c">
+            <a href="<?php echo $this->document->createLink('ortherbrand')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
+        </div>
     </div>
-    <h3 class="ui-bar ui-bar-a">Các chuyên mục</h3>
+    <h3 class="ui-bar ui-bar-a footermenu">Các chuyên mục</h3>
     <div>
         <ul id="hl-sitemap">
             <li><a href="<?php echo HTTP_SERVER?>" data-transition="flip">Trang chủ</a></li>
@@ -59,7 +60,7 @@
             
         </ul>
     </div>
-    <h3 class="ui-bar ui-bar-a">Các danh mục</h3>
+    <h3 class="ui-bar ui-bar-a footercategories">Danh mục sản phẩm</h3>
     <div>
         <ul id="hl-categories">
             <?php foreach($sitemaps as $sitemap){ ?>

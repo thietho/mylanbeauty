@@ -16,8 +16,8 @@
 }
 .jqm-hl .jqm-header h2 img {
 	display: block;
-	
-	height: auto;
+	height:230px;
+	margin-top:1em;
 }
 .jqm-hl .jqm-header h2 > img {
 	display: inline-block;
@@ -84,11 +84,11 @@
 	font-weight: 300;
 }
 .jqm-hl .jqm-content > h1 {
-	font-size: 1em;
-	
+	font-size: 0.8em;
 	text-transform:uppercase;
 	font-weight:bold;
 }
+
 .jqm-hl .jqm-content > h2 {
 	color: #3eb249;
 	background-color: transparent;
