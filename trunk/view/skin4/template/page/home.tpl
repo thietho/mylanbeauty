@@ -1,7 +1,8 @@
-
-            <h1 style="float:left">Các thương hiệu</h1>
-            <h1 style="float:right;font-size:0.7em"><a href="<?php echo $this->document->createLink('ortherbrand')?>" data-transition="flip">Các hiệu khác</a></h1>
-            <div style="clear:both"></div>
+			
+            
+            
+            
+            <div style="clear:both;height:0.5em"></div>
             <div class="ui-grid-b hl-brand">
                 <div class="ui-block-a">
                     <a href="<?php echo $this->document->createLink('brand','Sisley')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
@@ -34,10 +35,10 @@
                     <a href="<?php echo $this->document->createLink('brand','Clinique')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<?php echo $this->document->createLink('brand','ck')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ck.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('brand','ElizabethArden')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ElizabethArden.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="<?php echo $this->document->createLink('brand','ElizabethArden')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ElizabethArden.jpg" /></a>
+                    <a href="<?php echo $this->document->createLink('ortherbrand')?>" data-transition="flip"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
                 </div>
             </div>
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
