@@ -39,14 +39,14 @@ switch($deviceType)
 {
 	case 'phone':	
 	case 'tablet':
-	default:
+	
 		define('SKIN', 'skin4');
 		define('IMG_PROLIST', '550');
 		break;
-	/*default:
+	default:
 		
 		define('SKIN', 'skin2');
-		define('IMG_PROLIST', '180');*/
+		define('IMG_PROLIST', '180');
 }
 
 define('DIR_VIEW','view/'.SKIN.'/');
