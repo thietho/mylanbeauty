@@ -175,8 +175,10 @@ h1
 	position:absolute;
 	z-index:10;
 	border:none;
-	background-color:#FFF;
-	margin:-30px 20px;	
+	background-color:transparent !important;
+	margin:-28px 9px;
+	zoom:1.5;
+	opacity:0.6;	
 }
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
