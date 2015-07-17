@@ -658,13 +658,13 @@ $( document ).on( "pagebeforecreate", "[data-role='page']", function() {
 
 $( document ).on( "pagecreate", function( e ) {
 	// prevent page scroll while scrolling source code
-	$( document ).on( "mousewheel", ".jqm-view-source .ui-collapsible-content", function( event, delta ) {
+	/*$( document ).on( "mousewheel", ".jqm-view-source .ui-collapsible-content", function( event, delta ) {
 		if ( delta > 0 && $( this ).scrollTop() === 0 ) {
 			event.preventDefault();
 		} else if ( delta < 0 &&  $( this ).scrollTop() === $( this ).get( 0 ).scrollHeight - $( this ).innerHeight() ) {
 			event.preventDefault();
 		}
-	});
+	});*/
 
 	// reposition when switching between html / js / css
 	$( e.target ).delegate( ".jqm-view-source .ui-collapsible", "expand", function() {
