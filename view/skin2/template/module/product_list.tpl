@@ -106,7 +106,18 @@ if(count($medias))
                     </div>
                     <?php if($media['displaytype']=='compact'){ ?>
                     <div align="center">
-                    	<a onClick="pro.quickView(<?php echo $media['mediaid']?>)">Xem nhanh</a>
+                    	
+                    	<?php foreach($media['childs'] as $me){ ?>
+                            <?php if($me['colorcode']!=''){ ?>
+                            
+                                <img class="hl-color-icon" style="background-color:<?php echo $me['colorcode']?>">
+                                <?php echo $me['color']?>
+                            
+                            <?php }?>
+                        <?php } ?>
+                        <div style="clear:both"></div>
+                        
+                    	<!--<a onClick="pro.quickView(<?php echo $media['mediaid']?>)">Xem nhanh</a>-->
                     </div>
                     <?php }?>
                 </td>

@@ -258,7 +258,12 @@ $("#ben-next").click(function(){
                         <?php } ?>
                     </td>
                     <td>
-                    	<img src="<?php echo $val['icon']?>" class="ben-sub-item" pos="<?php echo $key?>" >
+                    	<?php if($val['colorcode']==''){ ?>
+                        <img src="<?php echo $val['icon']?>" class="ben-sub-item" pos="<?php echo $key?>" >
+                        <?php }else{ ?>
+                        <img style="background-color:<?php echo $val['colorcode']?>;width:50px;height:50px" class="ben-sub-item" pos="<?php echo $key?>">
+                        <?php } ?>
+                    	
                     </td>
                     <td class="number">
                     	<?php $cls = '';?>

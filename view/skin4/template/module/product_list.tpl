@@ -70,6 +70,16 @@ if(count($medias))
                                         <span class="shop"><?php echo $this->string->numberFormate($media['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span></p>
                                     <?php } ?>
                                 <?php } ?>
+                                <center>
+                                <?php foreach($media['childs'] as $me){ ?>
+                                	<?php if($me['colorcode']!=''){ ?>
+                                    
+                                        <img class="hl-color-icon" style="background-color:<?php echo $me['colorcode']?>">
+                                        <?php echo $me['color']?>
+                                    
+                                    <?php }?>
+                                <?php } ?>
+                                </center>
                             <?php } ?>      
                         </div>
                     </div>

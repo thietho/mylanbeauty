@@ -87,7 +87,11 @@
                                 </td>
                                 <td>
                                 	<a href="#<?php echo $val['mediaid']?>" data-rel="popup" data-position-to="window" >
+                                    	<?php if($val['colorcode']==''){ ?>
                                     	<img src="<?php echo $val['icon']?>" title="<?php echo $this->document->productName($val)?>" >
+                                        <?php }else{ ?>
+                                        <img style="background-color:<?php echo $val['colorcode']?>;width:50px;height:50px" >
+                                        <?php } ?>
                                     </a>
                                     <div data-role="popup" id="<?php echo $val['mediaid']?>" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
                                         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>

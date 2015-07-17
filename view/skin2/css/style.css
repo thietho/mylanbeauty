@@ -873,3 +873,15 @@ ul#menu li ul li div:hover {
 {
 	font-size:1.2em;	
 }
+.hl-color-group
+{
+	float:left;
+	margin:5px;
+}
+.hl-color-icon
+{
+	width:1em;
+	height:1em;
+	border-radius:1em;
+	
+}
