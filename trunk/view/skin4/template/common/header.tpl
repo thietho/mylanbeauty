@@ -153,6 +153,18 @@ function goReturn()
 {
 	$(document).scrollTop(pcurr);
 }
+function goBreadcrumb()
+{
+	$('.hl-breadcrumb').each(function(index, element) {
+		if($(this).position().top>0);
+		{
+			posdown =$(this).position().top;
+		}
+	});
+	
+	pcurr = $(document).scrollTop();
+	$(document).scrollTop(posdown);
+}
 $(document).bind("pagehide", function(event, ui) {
   $(ui.nextPage).animationComplete(function() {
     //alert('Animation completed');
@@ -160,6 +172,7 @@ $(document).bind("pagehide", function(event, ui) {
 	setControl()
   });
 });
+
 window.addEventListener('resize',setControl);
 
 </script>

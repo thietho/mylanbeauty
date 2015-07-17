@@ -299,11 +299,11 @@ $("#ben-next").click(function(){
     <div class="clearer">&nbsp;</div>
 </div>
 
-
+<!--
 <?php echo $comment?>
 <div class=" ben-section-title">Gửi Nhận xét về <?php echo $this->document->productName($post)?></div>
 <div id="comment-warning" class="ben-error ben-hidden"></div>
-<!--<form id="frmComment">
+<form id="frmComment">
 <input type="hidden" name="mediaid" value="<?php echo $post['mediaid']?>" />
 <div class="ben-post ben-comment">
 	<p>
