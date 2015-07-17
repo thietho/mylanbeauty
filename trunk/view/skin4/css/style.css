@@ -181,6 +181,14 @@ h1
 	zoom:1.5;
 	opacity:0.6;	
 }
+
+.hl-color-icon
+{
+	width:1em !important;
+	height:1em;
+	border-radius:1em;
+	
+}
 @media (min-width: 60em) {
 	.ui-collapsible-content > .ui-listview .ui-collapsible-content > .ui-listview a{
     	padding-left:5em;
