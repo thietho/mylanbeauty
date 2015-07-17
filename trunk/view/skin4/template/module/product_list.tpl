@@ -15,8 +15,19 @@ if(count($medias))
                     <div class="jqm-block-content">
                         
                         <p class="title">
-                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip"><?php echo $this->document->productName($media)?>
-                            <?php if($media['brand']) echo $this->document->getCategory($media['brand'])?></a>
+                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip">
+                            <?php 
+                            	$productname = $media['title'];
+                                if($media['code'])
+                                    $productname .= "<strong> - ".$media['code']."</strong>";
+                                if($media['sizes'])
+                                    $productname .= " <strong>".$media['sizes']."</strong>";
+                                if($media['color'])
+                                    $productname .= " <strong>".$media['color']."</strong>";
+                                echo $productname;
+                            ?>
+                            
+                            <strong><?php if($media['brand']) echo $this->document->getCategory($media['brand'])?></strong></a>
                         </p>
                         <?php if($media['discountpercent']){ ?>
                         <div class="flagdiscount">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
@@ -28,8 +39,8 @@ if(count($medias))
                                 	<p class="price">
                                     <?php echo $me['sizes']?>
                                     <?php 
-                                    if($me['color'])
-                                        echo " ".$me['color'];
+                                    //if($me['color'])
+                                        //echo " ".$me['color'];
                                     ?>:
                                     <?php if($me['price'] == 0){ ?>
                                     	Giá đang cập nhật
@@ -40,7 +51,7 @@ if(count($medias))
                                         <?php }else{ ?>
                                         	
                                         	<span class="genuine"><?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?></span>
-                                            -<?php echo $this->string->numberFormate($me['discountpercent'])?>%
+                                            -
                                     		<span class="shop"><?php echo $this->string->numberFormate($me['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span>
                                         <?php } ?>
                                     <?php } ?>
@@ -55,7 +66,7 @@ if(count($medias))
                                     	<p class="price"><span class="shop"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></span></p>
                                     <?php }else{ ?>
                                     	<p class="price"><span class="genuine"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></span>
-                                        Giảm <?php echo $this->string->numberFormate($media['discountpercent'])?>%
+                                        
                                         <span class="shop"><?php echo $this->string->numberFormate($media['pricepromotion'])?><?php echo $this->document->setup['Currency']?></span></p>
                                     <?php } ?>
                                 <?php } ?>

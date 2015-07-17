@@ -47,8 +47,9 @@ a
 }
 .product-list .title a
 {
-	font-weight:bold;	
+	font-size:.8em
 }
+
 .price-group .price
 {
 	text-align:center;
