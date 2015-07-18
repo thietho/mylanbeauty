@@ -2,9 +2,23 @@
 
         
         
-			<h3>
+			<!--<h3>
                 <?php echo $this->document->productName($post['mediaid'])?>
-            </h3>
+            </h3>-->
+            <div class="title">
+            	
+            <?php 
+                $productname = $post['title'];
+                if($post['code'])
+                    $productname .= "<strong> - ".$post['code']."</strong>";
+                if($post['sizes'])
+                    $productname .= " <strong>".$post['sizes']."</strong>";
+                if($post['color'])
+                    $productname .= " <strong>".$post['color']."</strong>";
+                echo $productname;
+            ?>
+            	
+            </div>
             <div class="ui-grid-a ui-responsive">
             	<div class="ui-block-a">
                 	<div class="jqm-block-content">
