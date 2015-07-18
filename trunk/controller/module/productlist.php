@@ -313,7 +313,21 @@ class ControllerModuleProductlist extends Controller
 			}
 		}
 			
+		$id = $_GET['id'];
+		if($id!="")
+		{
 			
+			$arr = split('-',$id);
+			
+			$mediaid = $arr[0];
+			foreach($this->data['medias'] as $i => $media)
+			{
+				if($media['mediaid'] == $mediaid)
+				{
+					unset($this->data['medias'][$i]);
+				}
+			}
+		}
 			
 		
 		
