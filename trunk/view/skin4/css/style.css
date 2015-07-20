@@ -133,13 +133,27 @@ h1
 	right:0;
 	text-align:center;
 	z-index:1000;
-}
-.hl-control div
-{
-	padding:10px 8px;
 	cursor:pointer;	
+	opacity: .7;
+  	width: 45px;
+  	height: 45px;
+	border-radius:4px;
 }
-
+.goTop
+{
+	top:0px;
+	background:#f0f0f0 url(../image/control/gotop.png) 16px 18px no-repeat;
+}
+.goReturn
+{
+	
+	background:#f0f0f0 url(../image/control/return.png) 16px 16px no-repeat;
+}
+.goBottom
+{
+	bottom:0px;
+	background:#f0f0f0 url(../image/control/gobottom.png) 16px 18px no-repeat;
+}
 .hl-control img
 {
 	zoom:0.6;
