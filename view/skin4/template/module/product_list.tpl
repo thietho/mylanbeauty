@@ -79,8 +79,12 @@ if(count($medias))
                                     
                                     <?php }?>
                                 <?php } ?>
+                                	
                                 </center>
-                            <?php } ?>      
+                            <?php } ?>
+                            <center>
+                            	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip">Chi tiết</a>    
+                            </center>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
-<div class="hl-control">
-	<div onClick="goTop()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gotop.png"></div>
-    <div onClick="goReturn()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/return.png"></div>
-    <div onClick="goBottom()"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>control/gobottom.png"></div>
-</div>	
+
+	<div class="hl-control goTop" onClick="goTop()"></div>
+    <!--<div class="hl-control goReturn" onClick="goReturn()"></div>-->
+    <div class="hl-control goBottom" onClick="goBottom()"></div>
+	
 		
 		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         
@@ -80,11 +80,11 @@ $(document).ready(function(e) {
 var pcurr = 0;
 function setControl()
 {
-	/*var hcontrol = $('.hl-control').height() /2 ;
-	$('.hl-control').css('top',(window.innerHeight/2 - hcontrol)+'px');	*/
+	/*var hcontrol = $('.goReturn').height() /2 ;
+	$('.goReturn').css('top',(window.innerHeight/2 - hcontrol)+'px');*/
 	/*var hcontrol = $('.hl-control').height() ;
 	$('.hl-control').css('top',(window.innerHeight - hcontrol)+'px');*/
-	var top = 0;
+	/*var top = 0;
 	//alert($('.ui-icon-search').position().top);
 	$('.supportonline').each(function(index, element) {
 		
@@ -94,7 +94,7 @@ function setControl()
 			
 		}
     });
-	$('.hl-control').css('top', top+'px');
+	$('.hl-control').css('top', top+'px');*/
 	
 	
 }
