@@ -15,7 +15,7 @@ if(count($medias))
                     <div class="jqm-block-content">
                         
                         <p class="title">
-                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip">
+                        	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="fade">
                             <?php 
                             	$productname = $media['title'];
                                 if($media['code'])
@@ -32,7 +32,7 @@ if(count($medias))
                         <?php if($media['discountpercent']){ ?>
                         <div class="flagdiscount">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
                         <?php } ?>
-                        <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
+                        <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="fade"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                         <div class="price-group">
                         	<?php if(count($media['childs']) && $media['displaytype']==''){ ?>
                             	<?php foreach($media['childs'] as $me){?>
@@ -83,7 +83,7 @@ if(count($medias))
                                 </center>
                             <?php } ?>
                             <center>
-                            	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="flip">Chi tiết</a>    
+                            	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="fade">Chi tiết</a>    
                             </center>
                         </div>
                     </div>

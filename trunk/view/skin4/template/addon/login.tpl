@@ -25,7 +25,7 @@
             
             <div>
                 <input type="submit" class="ui-btn ui-input-btn ui-corner-all ui-shadow" id="btnLogin" value="Đăng nhập" data-ajax="false">
-                <a class="ui-btn ui-input-btn ui-corner-all ui-shadow" href="<?php echo $this->document->createLink('register')?>" data-transition="flip">Đăng ký</a>
+                <a class="ui-btn ui-input-btn ui-corner-all ui-shadow" href="<?php echo $this->document->createLink('register')?>" data-transition="fade">Đăng ký</a>
             </div>
             <div class="ui-checkbox">
             	
