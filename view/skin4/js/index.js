@@ -248,6 +248,7 @@ $( document ).on( "pagecreate", ".jqm-hl", function( event ) {
 	})
 
 	$( ".jqm-navmenu-link" ).on( "click", function() {
+		$.mobile.defaultHomeScroll = 0;
 		page.find( ".jqm-navmenu-panel:not(.jqm-panel-page-nav)" ).panel( "open" );
 	});
 
