@@ -164,6 +164,7 @@ function goBreadcrumb()
 	});
 	
 	pcurr = $(document).scrollTop();
+	$(document).scrollTop(posdown);
 	$.mobile.defaultHomeScroll = posdown;
 }
 $(document).bind("pagehide", function(event, ui) {
