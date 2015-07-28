@@ -111,7 +111,7 @@ if(count($medias))
                             <?php if($me['colorcode']!=''){ ?>
                             
                                 <img class="hl-color-icon" style="background-color:<?php echo $me['colorcode']?>">
-                                <?php echo $me['color']?>
+                                
                             
                             <?php }?>
                         <?php } ?>
