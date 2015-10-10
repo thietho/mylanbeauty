@@ -6,7 +6,7 @@ class ControllerModuleProduct extends Controller
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
 		$this->load->helper('image');
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		
 		$siteid = $this->user->getSiteId();

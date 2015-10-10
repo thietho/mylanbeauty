@@ -9,7 +9,7 @@
             	
             	
                 <?php foreach($producthome as $key => $item){ ?>
-                <?php if($item['data']){ ?>
+                <?php if(@$item['data']){ ?>
                 <h1><?php echo $item['title']?></h1>
             	<?php echo $item['data']?>
                 <?php } ?>
@@ -64,7 +64,7 @@ function loadGroup()
 }
 
 $(document).scroll(function(e) {
-	if($(document).scrollTop() + window.innerHeight > $('#ben-maincontent .ben-section-content').innerHeight())
+	if(@$(document).scrollTop() + window.innerHeight > $('#ben-maincontent .ben-section-content').innerHeight())
 	{
 		
 		loadGroup();

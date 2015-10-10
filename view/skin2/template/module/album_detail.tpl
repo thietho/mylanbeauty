@@ -53,7 +53,7 @@
         display: block;
       }
   </style>
-<h2><?php echo $post['title']?></h2>
+<h2><?php echo @$post['title']?></h2>
 <div id="gallery" class="ad-gallery">
     <div class="ad-image-wrapper"></div>
     
@@ -61,11 +61,11 @@
         <div class="ad-thumbs">
             <ul class="ad-thumb-list">
             	<?php 
-                if(count($subimage))
+                if(@count($subimage))
                 foreach($subimage as $key => $val){ ?>
                 <li>
-                    <a href="<?php echo $val['imagepreview']?>">
-                    	<img src="<?php echo $val['imagethumbnail']?>" height="60px">
+                    <a href="<?php echo @$val['imagepreview']?>">
+                    	<img src="<?php echo @$val['imagethumbnail']?>" height="60px">
                     </a>
                 </li>
                <?php } ?>

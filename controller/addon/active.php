@@ -4,7 +4,7 @@ class ControllerAddonActive extends Controller
 	private $error = array();
 	public function index()
 	{
-		if($this->member->isLogged())
+		if(@$this->member->isLogged())
 			$this->response->redirect($this->document->createLink('member'));
 		$this->document->breadcrumb .= " » Kích hoạt tài khoản";
 		$this->document->title .= " - Kích hoạt tài khoản";
@@ -16,12 +16,12 @@ class ControllerAddonActive extends Controller
 	
 	public function active()
 	{
-		$data = $this->request->get;
-		if($this->validateForm($data))
+		@$data = $this->request->get;
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("core/user");
 			$activecode = $this->model_core_user->getInformation($data['username'], "activecode");
-			if($data['activecode'] == $activecode)
+			if(@$data['activecode'] == $activecode)
 			{
 				//Kich hoat tai khoang
 				$user['userid'] = $data['username'];
@@ -65,7 +65,7 @@ class ControllerAddonActive extends Controller
 		{
 			$this->load->model("core/user");
 			$activecode = $this->model_core_user->getInformation($data['username'], "activecode");
-			if($activecode == "")
+			if(@$activecode == "")
 				$this->error['activecode'] = "tài khoản của bạn đã kích hoạt rồi";
 		}
 		

@@ -22,7 +22,7 @@ class ControllerCommonWarring extends Controller
 		{
 			$media['imagethumbnail'] = HelperImage::resizePNG($parent['imagepath'], 100, 100);
 			$title = $parent['title'];
-			if($media['title'] !="")
+			if(@$media['title'] !="")
 				$title .= "-". $media['title'];
 			$media['title'] = $title;
 		}
@@ -38,7 +38,7 @@ class ControllerCommonWarring extends Controller
 	public function cart()
 	{
 		
-		$data = $this->request->get;
+		@$data = $this->request->get;
 		if(!isset($_SESSION['cart']))
 		{
 			$_SESSION['cart'] = array();	

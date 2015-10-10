@@ -12,7 +12,7 @@ class ControllerModuleProductlist extends Controller
 		$this->data['statuspro'] = array();
 		$this->model_core_category->getTree("status",$this->data['statuspro']);
 		unset($this->data['statuspro'][0]);
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		
 		
@@ -25,11 +25,11 @@ class ControllerModuleProductlist extends Controller
 		$siteid = $this->user->getSiteId();
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
-		if($headername!="")
+		if(@$headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
 		
 		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
-		$step = (int)$this->request->get['step'];
+		@$step = (int)$this->request->get['step'];
 		$to = $count;
 		//$_GET = $this->document->getPara();
 		//Get list
@@ -46,7 +46,7 @@ class ControllerModuleProductlist extends Controller
 		$queryoptions['mediaparent'] = '';
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $listsitemap;
-		$order = $_GET['order'];
+		@$order = $_GET['order'];
 		$orderby = "";
 		switch($order)
 		{
@@ -101,14 +101,14 @@ class ControllerModuleProductlist extends Controller
 			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 			$sitemapid = $arr[0];
 			
-			if($media['alias'] == "")
+			if(@$media['alias'] == "")
 				$s = $media['mediaid'];
 			else
 				$s = $media['mediaid']."-".$media['alias'];
 			$link = $this->document->createLink($sitemapid,$s);
 			$imagethumbnail = "";
 			
-			//if($media['imagepath'] != "" )
+			//if(@$media['imagepath'] != "" )
 			{
 				$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 				$imagetpreview = HelperImage::resizePNG($media['imagepath'], $template['widthpreview'], $template['heightpreview']);
@@ -171,16 +171,16 @@ class ControllerModuleProductlist extends Controller
 		$this->data['statuspro'] = array();
 		$this->model_core_category->getTree("status",$this->data['statuspro']);
 		unset($this->data['statuspro'][0]);
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		
 		$siteid = $this->user->getSiteId();
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
-		if($headername!="")
+		if(@$headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
 		$this->data['sitemap']['sitemapname'];
-		$step = (int)$this->request->get['step'];
+		@$step = (int)$this->request->get['step'];
 		$to = $count;
 		
 		//Get list
@@ -190,14 +190,14 @@ class ControllerModuleProductlist extends Controller
 		if(count($child))
 		{
 			foreach($child as $item)
-				$listsitemap[] = $item['sitemapid'];
+				@$listsitemap[] = $item['sitemapid'];
 		}
 		
 		
 		
 		
 		
-		$order = $_GET['order'];
+		@$order = $_GET['order'];
 		$orderby = "";
 		switch($order)
 		{
@@ -221,13 +221,13 @@ class ControllerModuleProductlist extends Controller
 			$data_media = array();
 			
 			$listmediaid = $this->model_core_media->getInformation("sort".$sitemapid,"sort");
-			if($listmediaid!="")
+			if(@$listmediaid!="")
 			{
 				$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
 				foreach($arrmediaid as $mediaid)
 				{
 					$media = $this->model_core_media->getItem($mediaid);
-					if($media['status']== 'active')
+					if(@$media['status']== 'active')
 					$data_media[] = $media;
 				}
 				
@@ -236,7 +236,7 @@ class ControllerModuleProductlist extends Controller
 			$siteid = $this->member->getSiteId();
 			$sitemaps = array();
 			
-			if($sitemapid != "")
+			if(@$sitemapid != "")
 			{
 				$this->model_core_sitemap->getTreeSitemap($sitemapid,$sitemaps, $siteid);
 				$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");
@@ -254,7 +254,7 @@ class ControllerModuleProductlist extends Controller
 				$where .= "AND (". implode($arr," OR ").")";
 			}
 			
-			if($listmediaid!="")
+			if(@$listmediaid!="")
 			{
 				$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
 				$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
@@ -278,7 +278,7 @@ class ControllerModuleProductlist extends Controller
 			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 			$sitemapid = $arr[0];
 			
-			if($media['alias'] == "")
+			if(@$media['alias'] == "")
 				$s = $media['mediaid'];
 			else
 				$s = $media['mediaid']."-".$media['alias'];
@@ -306,23 +306,23 @@ class ControllerModuleProductlist extends Controller
 			{
 				foreach($this->data['medias'][$i]['childs'] as $child)
 				{
-					if($child['discountpercent'])
+					if(@$child['discountpercent'])
 						$discountpercent = $child['discountpercent'];
 				}
 				$this->data['medias'][$i]['discountpercent'] = $discountpercent;
 			}
 		}
 			
-		$id = $_GET['id'];
-		if($id!="")
+		@$id = $_GET['id'];
+		if(@$id!="")
 		{
 			
-			$arr = split('-',$id);
+			@$arr = split('-',$id);
 			
 			$mediaid = $arr[0];
 			foreach($this->data['medias'] as $i => $media)
 			{
-				if($media['mediaid'] == $mediaid)
+				if(@$media['mediaid'] == $mediaid)
 				{
 					unset($this->data['medias'][$i]);
 				}
@@ -331,7 +331,7 @@ class ControllerModuleProductlist extends Controller
 			
 		
 		
-		$this->data['status'] = $template['status'];
+		@$this->data['status'] = $template['status'];
 		$this->id="news";
 		$this->template=$template['template'];
 		$this->render();
@@ -341,7 +341,7 @@ class ControllerModuleProductlist extends Controller
 	{
 		$a = (int)$mediaa['sizes'];
 		$b = (int)$mediab['sizes'];
-		if ($a == $b) {
+		if(@$a == $b) {
         return 0;
 		}
 		return ($a < $b) ? -1 : 1;	

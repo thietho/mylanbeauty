@@ -17,11 +17,11 @@
         $sum += $media['price'] * $media['qty'];
     ?>
         <tr>
-            <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
-            <td><?php echo $this->document->productName($media['mediaid'])?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['price'])?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['qty'])?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['price'] * $media['qty'])?></td>
+            <td><img src="<?php echo @$media['imagethumbnail']?>" class="ben-center"/></td>
+            <td><?php echo @$this->document->productName($media['mediaid'])?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['price'])?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['qty'])?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['price'] * $media['qty'])?></td>
             
         </tr>
     <?php } ?>
@@ -32,7 +32,7 @@
             <td></td>
             <td></td>
             <td>Tông cộng</td>
-            <td class="number"><?php echo $this->string->numberFormate($sum)?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($sum)?></td>
         </tr>
     </tfoot>
 </table>
@@ -43,23 +43,23 @@
         <h2>Thông tin khách hàng</h2>
     	<table class="ben-form">
         	
-            <input type="hidden" id="userid" name="userid" value="<?php echo $member['username']?>" size="40">
+            <input type="hidden" id="userid" name="userid" value="<?php echo @$member['username']?>" size="40">
             <input type="hidden" id="orderdate" name="orderdate" >
             <tr>
             	<td width="200px"><label>Họ và tên</label></td>
-                <td><input type="text" id="customername" name="customername" value="<?php echo $member['fullname']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
+                <td><input type="text" id="customername" name="customername" value="<?php echo @$member['fullname']?>" class="ben-textbox" size="40" <?php echo @$readonly?>></td>
             </tr>
             <tr>
             	<td><label>Email</label></td>
-                <td><input type="text" id="email" name="email" value="<?php echo $member['email']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
+                <td><input type="text" id="email" name="email" value="<?php echo @$member['email']?>" class="ben-textbox" size="40" <?php echo @$readonly?>></td>
             </tr>
             <tr>
             	<td><label>Địa chỉ</label></td>
-                <td><input type="text" id="address" name="address" value="<?php echo $member['address']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
+                <td><input type="text" id="address" name="address" value="<?php echo @$member['address']?>" class="ben-textbox" size="40" <?php echo @$readonly?>></td>
             </tr>
             <tr>
             	<td ><label>Điện thoại</label></td>
-                <td><input type="text" id="phone" name="phone" value="<?php echo $member['phone']?>" class="ben-textbox" size="40" <?php echo $readonly?>></td>
+                <td><input type="text" id="phone" name="phone" value="<?php echo @$member['phone']?>" class="ben-textbox" size="40" <?php echo @$readonly?>></td>
             </tr>
             
 		</table>
@@ -72,7 +72,7 @@
             </tr>
             <tr>
             	<td>Số điện thoại</td>
-                <td><input type="text" id="receiverphone" name="receiverphone" class="ben-textbox" size="40" <?php echo $readonly?>></td>
+                <td><input type="text" id="receiverphone" name="receiverphone" class="ben-textbox" size="40" <?php echo @$readonly?>></td>
             </tr>
             <tr>
             	<td>Địa chỉ giao hàng</td>
@@ -82,7 +82,7 @@
             	<td>Phương thức thanh toán</td>
                 <td>
                 	<?php foreach($this->document->paymenttype as $key => $val){ ?>
-                    <input type="radio" name="paymenttype" value="<?php echo $key?>" /> <?php echo $val?><br />
+                    <input type="radio" name="paymenttype" value="<?php echo @$key?>" /> <?php echo @$val?><br />
                     <?php } ?>
                 	
                 </td>

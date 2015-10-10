@@ -44,7 +44,7 @@ class ModelCoreSitemap extends Model
 	public function getListByParent($parentid, $siteid, $status = "Active")
 	{
 		$where = " AND sitemapparent = '".$parentid."' ";
-		if($status != "")
+		if(@$status != "")
 		{
 			$where .= " AND `sitemap`.status = '".$status."' ";
 		}
@@ -73,10 +73,10 @@ class ModelCoreSitemap extends Model
 	
 	function getTreeSitemapEdit($id, $hidenid, &$data, $siteid)
 	{
-		if($id!=$hidenid)
+		if(@$id!=$hidenid)
 		{
 			$arr=$this->getItem($id, $siteid);
-			if($id!="")
+			if(@$id!="")
 				array_push($data,$arr);
 				
 			$rows = $this->getListByParent($id, $siteid);
@@ -104,22 +104,22 @@ class ModelCoreSitemap extends Model
 	
 	public function getRoot($id, $siteid,$deeproot = 0)
 	{
-		if($id == "") return 'index';
+		if(@$id == "") return 'index';
 		$row=$this->getItem($id, $siteid);
 		
-		if($row['sitemapparent'] == "")
+		if(@$row['sitemapparent'] == "")
 		{
-			return $row['sitemapid'];
+			return @$row['sitemapid'];
 		}
 		while($row['sitemapparent']!="")
 		{
 			$deep = $this->getDeep($row['sitemapid'], $siteid);
-			if($deep == $deeproot)
-				return $row['sitemapid'];
+			if(@$deep == $deeproot)
+				return @$row['sitemapid'];
 			$row=$this->getItem($row['sitemapparent'], $siteid);
 			
 		}
-		return $row['sitemapid'];
+		return @$row['sitemapid'];
 	}
 	
 	public function getPath($id, $siteid)
@@ -127,7 +127,7 @@ class ModelCoreSitemap extends Model
 		$arr=array();
 		$row=$this->getItem($id, $siteid);
 		array_push($arr,$row);
-		while($row['sitemapparent']!="")
+		while(@$row['sitemapparent']!="")
 		{
 			$row=$this->getItem($row['sitemapparent'], $siteid);
 			array_push($arr,$row);
@@ -141,9 +141,9 @@ class ModelCoreSitemap extends Model
 		$strBreadcrumb = "<a href='".HTTP_SERVER."'>Trang chủ</a>";
 		for($i=count($data)-1 - $end;$i>=0;$i--)
 		{
-			$link = "".$data[$i]['sitemapname']."";
+			@$link = "".$data[$i]['sitemapname']."";
 			
-			$link = "<a href='index.php?route=page/detail&sitemapid=".$data[$i]['sitemapid']."'>".$data[$i]['sitemapname']."</a>";
+			@$link = "<a href='index.php?route=page/detail&sitemapid=".$data[$i]['sitemapid']."'>".$data[$i]['sitemapname']."</a>";
 		
 			$strBreadcrumb .= " &#187; ".$link; 
 		}
@@ -164,7 +164,7 @@ class ModelCoreSitemap extends Model
 		while(count($arr))
 		{
 			$position=array_pop($arr);
-			if($position!="")
+			if(@$position!="")
 				$path.="-".$position;
 		}
 		//echo $path."<br>";
@@ -286,9 +286,9 @@ class ModelCoreSitemap extends Model
 		
 		$arr['countchild'] = count($rows);
 		
-		if($arr['sitemapparent'] != "") $parentpath .= "-".$arr['sitemapparent'];
+		if(@$arr['sitemapparent'] != "") $parentpath .= "-".$arr['sitemapparent'];
 		
-		if($id!="")
+		if(@$id!="")
 		{
 			$level += 1;
 			$path .= "-".$id;

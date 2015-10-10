@@ -9,7 +9,7 @@ class ControllerAddonLogin extends Controller
 		$this->document->title .= " - Đăng nhập";
 		$this->data['error'] = array();
 		
-		if($this->request->post['username'])
+		if(@$this->request->post['username'])
 		{
 			$this->login();
 			if(count($this->error) == 0)
@@ -28,13 +28,13 @@ class ControllerAddonLogin extends Controller
 	public function login()
 	{
 		$data = $this->request->post;
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$username = $data['username'];
 			$password = $data['password'];
-			if($this->chkLogin($username, $password))
+			if(@$this->chkLogin($username, $password))
 			{
-				if($data['remember'] == 1)
+				if(@$data['remember'] == 1)
 				{
 					setcookie('username', $data['username'],time()+3600);
 					setcookie('password', $data['password'],time()+3600);
@@ -85,7 +85,7 @@ class ControllerAddonLogin extends Controller
 		{
 			$this->load->model('core/user');
 			$activecode = $this->model_core_user->getInformation(trim($data['username']),"activecode");
-			if($activecode != "")
+			if(@$activecode != "")
 				$this->error['username'] = "tài khoản của bạn chưa được kích hoạt! <a href='".$this->document->createLink('active')."'>Kích hoạt tài khoản click vào đây</a>";
 		}
 		if(trim($data['password']) =="")

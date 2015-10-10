@@ -26,7 +26,7 @@ class ControllerAddonCheckout extends Controller
 	private function getMemberInfor()
 	{
 		$this->load->model("core/user");
-		if($this->member->getId())
+		if(@$this->member->getId())
 		{
 			$this->data['member'] = $this->model_core_user->getItem($this->member->getId());
 		
@@ -37,7 +37,7 @@ class ControllerAddonCheckout extends Controller
 	public function checkout()
 	{
 		$data = $this->request->post;
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("addon/order");
 			//Luu thong tin don hang
@@ -100,7 +100,7 @@ class ControllerAddonCheckout extends Controller
       		$this->error['customername'] = "Bạn chưa nhập họ tên";
     	}
 		
-		if ($data['email'] == "") 
+		if(@$data['email'] == "") 
 		{
       		$this->error['email'] = "Bạn chưa nhập email";
     	}

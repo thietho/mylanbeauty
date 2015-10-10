@@ -7,9 +7,9 @@ class ControllerAddonBrandinfor extends Controller
 		$this->load->model("core/media");
 		$this->load->model("core/category");
 		$this->load->helper('image');
-		$id = $this->request->get['id'];
+		@$id = $this->request->get['id'];
 		$mediaid = $this->member->getSiteId()."cat".$id;
-		$this->data['media'] = $this->model_core_media->getItem($mediaid);
+		@$this->data['media'] = $this->model_core_media->getItem($mediaid);
 		
 		$this->document->title .= $this->document->productName($this->data['media']['mediaid']);
 		

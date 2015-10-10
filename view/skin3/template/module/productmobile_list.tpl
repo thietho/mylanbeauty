@@ -1,5 +1,5 @@
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 <div id="listpoduct">
@@ -23,7 +23,7 @@ if(count($medias))
                 <td>
                     <div>
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
-                        	<?php if(count($media['childs'])){ ?>
+                        	<?php if(@count($media['childs'])){ ?>
                         	<h6>
                             	<?php echo $media['title']?> - <?php echo $media['code']?>
                                 <?php echo $media['brand']?>
@@ -33,7 +33,7 @@ if(count($medias))
                             <h6><?php echo $this->document->productName($media)?></h6>
                             <?php } ?>
                         </a>
-                        <?php if(count($media['childs'])){ ?>
+                        <?php if(@count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
                         <div>
                         	<?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?> <?php echo $this->document->setup['Currency']?>
@@ -42,7 +42,7 @@ if(count($medias))
                         <?php } ?>
                         <?php } ?>
                     </div>
-                    <?php if(count($media['childs'])==0){ ?>
+                    <?php if(@count($media['childs'])==0){ ?>
                     <?php $cls = '';?>
                     <?php if($media['pricepromotion']!=0){ ?>
                     <div class="product-pricepromotion">

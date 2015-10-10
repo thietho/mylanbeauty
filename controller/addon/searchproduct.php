@@ -23,7 +23,7 @@ class ControllerAddonSearchproduct extends Controller
 		$this->model_core_category->getTree("gia",$this->data['gia']);
 		unset($this->data['gia'][0]);
 		
-		if($_GET['keyword'] !='' || $_GET['loaisp'] != '' || $_GET['nhanhieu'] !='')
+		if(@$_GET['keyword'] !='' || $_GET['loaisp'] != '' || $_GET['nhanhieu'] !='')
 		{
 			$this->getList();	
 		}
@@ -46,14 +46,14 @@ class ControllerAddonSearchproduct extends Controller
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
 		$gia = urldecode($_GET['gia']);
-		if($keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
+		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
 			$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
 		}
 		
 		$where = " AND mediatype = 'module/product' AND mediaparent = ''";
-		if($keyword !="")
+		if(@$keyword !="")
 		{
 			@$arrkey = split(' ', $keyword);
 			$arr = array();
@@ -96,23 +96,23 @@ class ControllerAddonSearchproduct extends Controller
 								OR (". implode(" AND ",$arrdescription). ") 
 							)";
 		}
-		if($loaisp)
+		if(@$loaisp)
 		{
 			$where .= " AND refersitemap like '%[".$loaisp."]%'";
 		}
-		if($nhanhieu)
+		if(@$nhanhieu)
 		{
 			$where .= " AND brand like '".$nhanhieu."'";
 		}
-		/*if($gia)
+		/*if(@$gia)
 		{
 			@$arrgia = split("-",$datasearch['gia']);
 			$giatu = (int)$arrgia[0];
 			$giaden = (int)$arrgia[1];
 			$whereprice=" AND mediatype = 'module/product'";
-			if($giatu)
+			if(@$giatu)
 				$whereprice = " AND price >= '".$giatu*$donvi ."'";
-			if($giaden)
+			if(@$giaden)
 				$whereprice.= " AND price <= '".$giaden*$donvi ."'";
 			
 			$mediaprice = $this->model_core_media->getList($whereprice);
@@ -141,7 +141,7 @@ class ControllerAddonSearchproduct extends Controller
 		}
 		else
 		{
-			if($hasprice)
+			if(@$hasprice)
 				$medias = array();	
 		}
 		

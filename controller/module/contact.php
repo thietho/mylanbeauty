@@ -80,18 +80,18 @@ class ControllerModuleContact extends Controller
 	{
 		$err = array();
 		
-		if($data['fullname'] == "")
+		if(@$data['fullname'] == "")
 			$err["fullname"] = $this->data['war_fullnamenotnull'];
-		if($data['email'] == "")
+		if(@$data['email'] == "")
 			$err["email"] = $this->data['war_emailnotnull'];
 		else
-			if ($this->validation->_checkEmail($data['email']) == false )
+			if(@$this->validation->_checkEmail($data['email']) == false )
 				$err["email"] = $this->data['war_emailnotformate'];
-		if($data['address'] == "")
+		if(@$data['address'] == "")
 			$err["address"] = $this->data['war_addressnotnull'];
-		if($data['phone'] == "")
+		if(@$data['phone'] == "")
 			$err["phone"] = $this->data['war_phonenotnull'];
-		if($data['description'] == "")
+		if(@$data['description'] == "")
 			$err["description"] = $this->data['war_descriptionnotnull'];
 		return $err;
 	}
@@ -121,23 +121,23 @@ class ControllerModuleContact extends Controller
 			$email = $this->model_core_media->getInformation("setting", 'EmailContact');
 			/*$email1 = $email;
 			$arrmail = array();
-			if($email1)
+			if(@$email1)
 				$arrmail[] = $email1;
-			if($email2)
+			if(@$email2)
 				$arrmail[] = $email2;
-			if($email3)
+			if(@$email3)
 				$arrmail[] = $email3;*/
 			
 			$this->load->model("core/message");
 			$message['to']="admin," .$email ;
 			$message['from']='"'.$data['hoten'].'" '.$data['email'];
-			if($sitemapid!="")
+			if(@$sitemapid!="")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($sitemapid,$this->member->getSiteId());
 				$message['title'] = "Thong tin dang ky khoa hoc ".$sitemap['sitemapname'];
 				$message['description']="Đăng ký chương trình: ".$sitemap['sitemapname']."<br>";
 			}
-			if($mediaid!="")
+			if(@$mediaid!="")
 			{
 				$media = $this->model_core_media->getItem($mediaid);
 				$message['title'] = "Thong tin dang ky hoi thao ";
@@ -176,19 +176,19 @@ class ControllerModuleContact extends Controller
 	{
 		$err = array();
 		
-		if($data['hoten'] == "")
+		if(@$data['hoten'] == "")
 			$err["hoten"] = $this->data['war_fullnamenotnull'];
-		if($data['ngaysinh'] == "")
+		if(@$data['ngaysinh'] == "")
 			$err["ngaysinh"] = "Bạn chưa nhập ngày sinh";
-		if($data['diachi'] == "")
+		if(@$data['diachi'] == "")
 			$err["diachi"] = "Bạn chưa nhập địa chỉ liên hệ";
-		if($data['email'] == "")
+		if(@$data['email'] == "")
 			$err["email"] = $this->data['war_emailnotnull'];
 		else
-			if ($this->validation->_checkEmail($data['email']) == false )
+			if(@$this->validation->_checkEmail($data['email']) == false )
 				$err["email"] = $this->data['war_emailnotformate'];
 		
-		if($data['didong'] == "")
+		if(@$data['didong'] == "")
 			$err["didong"] = $this->data['war_phonenotnull'];
 		
 		return $err;

@@ -4,7 +4,7 @@
     	<table>
         	<tr>
             	<td><label>Tên đăng nhập</label></td>
-                <td><?php echo $this->member->data['username']?></td>
+                <td><?php echo @$this->member->data['username']?></td>
             </tr>
             <tr>
             	<td><label>Mật khẩu củ</label></td>
@@ -38,7 +38,7 @@ $("#btnChangepass").click(function(){
 			if(data == "true")
 			{
 				alert("Bạn đã đổi mật khẩu thành công!");
-				window.location = "<?php echo $this->document->createLink('memberinfor')?>";
+				window.location = "<?php echo @$this->document->createLink('memberinfor')?>";
 			}
 			else
 			{

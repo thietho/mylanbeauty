@@ -28,7 +28,7 @@ class ControllerSitebarQuestion extends Controller
 			$link = $this->document->createLink($sitemapid,$media['alias']);
 			
 			$imagethumbnail = "";
-			if($media['imagepath'] != ""  )
+			if(@$media['imagepath'] != ""  )
 			{
 				$imagethumbnail = HelperImage::resizePNG($media['imagepath'], 228,228);
 			}
@@ -79,7 +79,7 @@ class ControllerSitebarQuestion extends Controller
 		$this->load->helper('image');
 		$mediaid = $this->request->get['questionid'];
 		
-		$this->data['media'] = $this->model_core_media->getItem($mediaid);
+		@$this->data['media'] = $this->model_core_media->getItem($mediaid);
 		$child = $this->model_core_media->getListByParent($this->data['media']['mediaid'],"","Order by position");
 		$sum = 0;
 		foreach($child as $key => $item)

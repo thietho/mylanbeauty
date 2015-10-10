@@ -88,7 +88,7 @@ function setControl()
 	//alert($('.ui-icon-search').position().top);
 	$('.supportonline').each(function(index, element) {
 		
-        if($(this).position().top>0);
+        if(@$(this).position().top>0);
 		{
 			top =$(this).position().top - 50;
 			
@@ -108,7 +108,7 @@ function goTop()
 function goBottom()
 {
 	$('.footerbrand').each(function(index, element) {
-		if($(this).position().top>0);
+		if(@$(this).position().top>0);
 		{
 			posdown =$(this).position().top;
 			
@@ -124,7 +124,7 @@ function goBottom()
 function goCat()
 {
 	$('.footercategories').each(function(index, element) {
-		if($(this).position().top>0);
+		if(@$(this).position().top>0);
 		{
 			posdown =$(this).position().top;
 			
@@ -138,7 +138,7 @@ function goCat()
 function goMenu()
 {
 	$('.footermenu').each(function(index, element) {
-		if($(this).position().top>0);
+		if(@$(this).position().top>0);
 		{
 			posdown =$(this).position().top;
 			
@@ -157,7 +157,7 @@ function goBreadcrumb()
 {
 	
 	$('.hl-breadcrumb').each(function(index, element) {
-		if($(this).position().top>0);
+		if(@$(this).position().top>0);
 		{
 			posdown =$(this).position().top;
 		}

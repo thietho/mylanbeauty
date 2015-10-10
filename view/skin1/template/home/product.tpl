@@ -1,6 +1,6 @@
 <h1><?php echo $sitemap['sitemapname']?></h1>
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 <div id="listpoduct">

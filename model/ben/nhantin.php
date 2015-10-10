@@ -16,7 +16,7 @@ class ModelBenNhantin extends Model
 		$sql = "Select `ben_nhantin`.* 
 									from `ben_nhantin` 
 									where 1=1 " . $where . $order;
-		if($to > 0)
+		if(@$to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}

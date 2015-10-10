@@ -1,4 +1,4 @@
-<?php if(count($medias)){ ?>
+<?php if(@count($medias)){ ?>
 <div class="ben-section">
 
 	<div class="ben-section-title"><?php echo $sitemap['sitemapname']?></div>

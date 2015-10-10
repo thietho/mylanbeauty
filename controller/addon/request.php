@@ -17,7 +17,7 @@ class ControllerAddonRequest extends Controller
 	{
 		$data = $this->request->post;
 		
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("addon/request");
 			$data['birthday'] = $this->date->formatViewDate($data['birthday']);

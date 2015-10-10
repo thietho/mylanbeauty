@@ -11,7 +11,7 @@ class ControllerSitebarGallery extends Controller
    	}
 	public function index()
 	{
-		if($this->cachehtml->iscacht($this->name) == false)
+		if(@$this->cachehtml->iscacht($this->name) == false)
 		{
 			//San pham moi
 			//$this->load->model('core/sitemap');
@@ -68,7 +68,7 @@ class ControllerSitebarGallery extends Controller
 		foreach($arrmediaid as $mediaid)
 		{
 			$media = $this->model_core_media->getItem($mediaid);
-			if($media['status']== 'active')
+			if(@$media['status']== 'active')
 				$data_media[] = $media;
 		}
 			

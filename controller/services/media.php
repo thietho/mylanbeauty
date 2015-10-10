@@ -3,17 +3,17 @@ class ControllerServicesMedia extends Controller
 {	
 	public function getMedias()
 	{
-		$col = $this->request->get['col'];
-		$val = $this->request->get['val'];
-		$operator = $this->request->get['operator'];
-		$from = (int)@$this->request->get['from']; 
-		$to = (int)@$this->request->get['to'];
-		$operator = $this->request->get['operator'];
-		if($operator == "")
+		@$col = $this->request->get['col'];
+		@$val = $this->request->get['val'];
+		@$operator = $this->request->get['operator'];
+		@$from = (int)@$this->request->get['from']; 
+		@$to = (int)@$this->request->get['to'];
+		@$operator = $this->request->get['operator'];
+		if(@$operator == "")
 			$operator = "equal";
 		$this->load->model("core/media");
 		$where = "";
-		if($col !="")
+		if(@$col !="")
 		{
 			switch($operator)
 			{

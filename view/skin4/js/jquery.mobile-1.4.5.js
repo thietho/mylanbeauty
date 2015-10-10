@@ -10224,7 +10224,7 @@ $.widget( "mobile.selectmenu", $.extend( {
 
 	_refreshButton: function() {
 		this.setButtonText();
-		this.setButtonCount();
+		this.setButton@count();
 	},
 
 	refresh: function() {
@@ -11547,7 +11547,7 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 		indices = this.selectedIndices();
 
 		self.setButtonText();
-		self.setButtonCount();
+		self.setButton@count();
 
 		self.list.find( "li:not(.ui-li-divider)" )
 			.find( "a" ).removeClass( $.mobile.activeBtnClass ).end()

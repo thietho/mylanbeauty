@@ -1,5 +1,5 @@
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 <div id="listpoduct">
@@ -9,11 +9,11 @@ if(count($medias))
             <tr class="product-list-image">
                 <td width="180px">
                 	
-                	<?php if($media['discountpercent']){ ?>
+                	<?php if(@$media['discountpercent']){ ?>
                 	<div class="flagdiscount ben-icon">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
                     <?php } ?>
                 	
-                    <?php if($media['imagethumbnail'] !=""){ ?>
+                    <?php if(@$media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                     
                     <?php }?>
@@ -23,7 +23,7 @@ if(count($medias))
                 <td>
                     <div>
                     	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>">
-                        	<?php if(count($media['childs'])){ ?>
+                        	<?php if(@count($media['childs'])){ ?>
                         	<h6>
                             	<?php echo $media['title']?> - <?php echo $media['code']?>
                                 <?php echo $media['brand']?>
@@ -33,21 +33,21 @@ if(count($medias))
                             <h6><?php echo $this->document->productName($media)?></h6>
                             <?php } ?>
                         </a>
-                        <?php if(count($media['childs'])){ ?>
+                        <?php if(@count($media['childs'])){ ?>
                         <?php foreach($media['childs'] as $me){?>
                         <div>
                         	<?php echo $me['sizes']?>:<?php echo $this->string->numberFormate($me['price'])?> <?php echo $this->document->setup['Currency']?>
-                            <?php if($me['discountpercent']) echo "Giảm ".$this->string->numberFormate($me['discountpercent'])."%";?>
+                            <?php if(@$me['discountpercent']) echo "Giảm ".$this->string->numberFormate($me['discountpercent'])."%";?>
                         </div>
                         <?php } ?>
                         <?php } ?>
                     </div>
-                    <?php if(count($media['childs'])==0){ ?>
+                    <?php if(@count($media['childs'])==0){ ?>
                     <?php $cls = '';?>
-                    <?php if($media['pricepromotion']!=0){ ?>
+                    <?php if(@$media['pricepromotion']!=0){ ?>
                     <div class="product-pricepromotion">
                         	
-                        	<?php if($media['pricepromotion']){ ?>
+                        	<?php if(@$media['pricepromotion']){ ?>
                             <?php $cls = 'product-price-no';?>
                         	<?php echo $this->string->numberFormate($media['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
                             <?php } ?>
@@ -55,16 +55,16 @@ if(count($medias))
                     <?php } ?>
                     <div class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($media['price'])?> <?php echo $this->document->setup['Currency']?></div>
                     
-                    	<?php if($media['noteprice']!=""){ ?>
+                    	<?php if(@$media['noteprice']!=""){ ?>
                         (<?php echo $media['noteprice']?>)<br />
                         <?php }?>
-                        <?php if($media['noted']!=""){ ?>
+                        <?php if(@$media['noted']!=""){ ?>
                         <em><?php echo $media['noted']?></em>
                         <?php }?>
                     
                     <?php } ?>
                     <div>
-                        <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if($media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
+                        <a href="<?php echo $media['link']?>" title="<?php echo $media['title']?><?php if(@$media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo $media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                 </td>
             </tr>

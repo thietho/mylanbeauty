@@ -18,7 +18,7 @@
 </p>
 <div class="ben-hline"></div>
 
-<?php if($othernews) {?>
+<?php if(@$othernews) {?>
 <h3>Các tin khác</h3>             
 <div>
     <ul>

@@ -1,5 +1,5 @@
 <div class="ben-post">
-	<?php if($media['imagethumbnail'] !=""){ ?>
+	<?php if(@$media['imagethumbnail'] !=""){ ?>
 	<img src='<?php echo $media['imagethumbnail']?>' class='ben-left' />
     <?php }?>
     <a href="<?php echo $media['link']?>"><h3><?php echo $media['title']?></h3></a>

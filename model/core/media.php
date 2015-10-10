@@ -25,13 +25,13 @@ class ModelCoreMedia extends ModelCoreFile
 		$sql = "Select `media`.* 
 									from `media` 
 									where status like 'active' " . $where ;
-		if($order == "")
+		if(@$order == "")
 		{
 			$order = " Order by position, statusdate DESC";
 			
 		}
 		$sql .= $order;
-		if($to > 0)
+		if(@$to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
@@ -45,7 +45,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$sql = "Select `media`.* 
 									from `media` 
 									where status not like 'delete' " . $where ;
-		if($to > 0)
+		if(@$to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
@@ -61,19 +61,19 @@ class ModelCoreMedia extends ModelCoreFile
 		$from = (int)$step * (int)$to;
 		
 		//All Options
-		$keyword = $options['keyword'];
-		$mediaparent = $options['mediaparent'];
-		$mediatype = $options['mediatype'];
-		$day = $options['day'];
-		$month = $options['month'];
-		$year = $options['year'];
-		$refersitemap = $options['refersitemap'];
-		$groupkeys = $options['groupkeys'];
+		@$keyword = $options['keyword'];
+		@$mediaparent = $options['mediaparent'];
+		@$mediatype = $options['mediatype'];
+		@$day = $options['day'];
+		@$month = $options['month'];
+		@$year = $options['year'];
+		@$refersitemap = $options['refersitemap'];
+		@$groupkeys = $options['groupkeys'];
 		
 		//Where Command
 		$where = "";
 		//keyword
-		if($keyword !="")
+		if(@$keyword !="")
 		{
 			$where .= " AND ( title like '%".$keyword."%' OR summary like '%".$keyword."%' OR description like '%".$keyword."%')";
 		}
@@ -85,7 +85,7 @@ class ModelCoreMedia extends ModelCoreFile
 				$where .= " AND mediaparent ='".$item."'";
 			}
 		}
-		elseif($mediaparent != "%")
+		elseif(@$mediaparent != "%")
 		{
 			$where .= " AND mediaparent ='".$mediaparent."'";
 		}
@@ -98,13 +98,13 @@ class ModelCoreMedia extends ModelCoreFile
 				$where .= " AND mediatype ='".$item."'";
 			}
 		}
-		elseif($mediatype != "%")
+		elseif(@$mediatype != "%")
 		{
 			$where .= " AND mediatype ='".$mediatype."'";
 		}
 		
 		//Date
-		if($month != "" && $day != "" && $year != "")
+		if(@$month != "" && $day != "" && $year != "")
 		{
 			$php_start_time = mktime(0,0,0, $month, $day, $year);
 			$php_end_time = $php_start_time + (24 * 60 * 60); // Add 1 day to start date.
@@ -124,7 +124,7 @@ class ModelCoreMedia extends ModelCoreFile
 			
 			$where .= "AND (". implode($arr," OR ").")";
 		}
-		elseif($refersitemap != "%")
+		elseif(@$refersitemap != "%")
 		{
 			$where .= " AND refersitemap like '%[".$refersitemap."]%'";
 		}
@@ -139,7 +139,7 @@ class ModelCoreMedia extends ModelCoreFile
 			
 			$where .= "AND (". implode($arr," OR ").")";
 		}
-		elseif($groupkeys != "")
+		elseif(@$groupkeys != "")
 		{
 			$where .= " AND groupkeys like '%[".$groupkeys."]%'";
 		}
@@ -150,13 +150,13 @@ class ModelCoreMedia extends ModelCoreFile
 	public function getOthersMedia($mediaid, $options, $to=20)
 	{
 		//All Options
-		$mediaparent = $options['mediaparent'];
-		$mediatype = $options['mediatype'];
-		$day = $options['day'];
-		$month = $options['month'];
-		$year = $options['year'];
-		$date = $options['date'];
-		$refersitemap = $options['refersitemap'];
+		@$mediaparent = $options['mediaparent'];
+		@$mediatype = $options['mediatype'];
+		@$day = $options['day'];
+		@$month = $options['month'];
+		@$year = $options['year'];
+		@$date = $options['date'];
+		@$refersitemap = $options['refersitemap'];
 		
 		//Where Command
 		$where = " AND mediaid != '".$mediaid."'";
@@ -169,7 +169,7 @@ class ModelCoreMedia extends ModelCoreFile
 				$where .= " AND mediaparent ='".$item."'";
 			}
 		}
-		elseif($mediaparent != "%")
+		elseif(@$mediaparent != "%")
 		{
 			$where .= " AND mediaparent ='".$mediaparent."'";
 		}
@@ -182,17 +182,17 @@ class ModelCoreMedia extends ModelCoreFile
 				$where .= " AND mediatype ='".$item."'";
 			}
 		}
-		elseif($mediatype != "%")
+		elseif(@$mediatype != "%")
 		{
 			$where .= " AND mediatype ='".$mediatype."'";
 		}
 		
 		//Date
-		if($date != "")
+		if(@$date != "")
 		{
 			$where .= " AND statusdate < '".$date."'";
 		}
-		elseif($month != "" && $day != "" && $year != "")
+		elseif(@$month != "" && $day != "" && $year != "")
 		{
 			$php_start_time = mktime(0,0,0, $month, $day, $year);
 			$start_date = date('Y-m-d', $php_start_time) . ' 000000';
@@ -209,7 +209,7 @@ class ModelCoreMedia extends ModelCoreFile
 			
 			$where .= "AND (". implode($arr," OR ").")";
 		}
-		elseif($refersitemap != "%")
+		elseif(@$refersitemap != "%")
 		{
 			$where .= " AND refersitemap like '%[".$refersitemap."]%'";
 		}
@@ -399,7 +399,7 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$this->updateFileTemp($imageid);
 		
-		if($mediaparent != "")
+		if(@$mediaparent != "")
 		{
 			$this->updateCreatedDate($mediaparent);
 		}
@@ -423,7 +423,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$sql = "Select * from media_information where mediaid = '".$mediaid."' and fieldname = '".$fieldname."'";
 		$query = $this->db->query($sql);
 		$info = $query->row;
-		return $info['fieldvalue'];
+		return @$info['fieldvalue'];
 	}
 	
 	public function saveInformation($mediaid, $fieldname, $fieldvalue)
@@ -461,7 +461,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$statusdate = $this->date->getToday();
 		$statusby=$this->user->getId();
 		
-		if($mediaid != "")
+		if(@$mediaid != "")
 		{
 			$sql = "Update `media` set status='".$status."', statusdate='".$statusdate."', statusby='".$statusby."' where mediaid = '".$mediaid."'";
 			$this->db->query($sql);
@@ -470,7 +470,7 @@ class ModelCoreMedia extends ModelCoreFile
 	
 	public function removeSitemap($mediaid, $sitemapid)
 	{	
-		if($mediaid != "")
+		if(@$mediaid != "")
 		{
 			$media = $this->getItem($mediaid);
 			$refersitemap = $this->getReferSitemapString($sitemapid, $media['refersitemap'], "delete");
@@ -490,11 +490,11 @@ class ModelCoreMedia extends ModelCoreFile
 	{
 		$sitemapid = "[".$sitemapid."]";
 		$pos = strrpos($oldReferSitemap, $sitemapid);
-		if ($pos === false) {
-			if($type=="add"){ 
+		if(@$pos === false) {
+			if(@$type=="add"){ 
 				$oldReferSitemap .= $sitemapid;
 			}
-		}elseif($type=="delete")
+		}elseif(@$type=="delete")
 		{
 			$oldReferSitemap = str_replace($sitemapid, "", $oldReferSitemap);
 		}
@@ -506,7 +506,7 @@ class ModelCoreMedia extends ModelCoreFile
 	{
 		$step = (int)$step;
 		$result = array();
-		if($index > -1)
+		if(@$index > -1)
 		{
 			$alink = "";
 			$newstep = $step + 1;
@@ -515,8 +515,8 @@ class ModelCoreMedia extends ModelCoreFile
 			$newerlist = $this->model_core_media->getPaginationList($queryoptions, $newstep, $to);
 			$olderlist = $this->model_core_media->getPaginationList($queryoptions, $oldstep, $to);
 			
-			$newerid = (float)$medias[0]['id'];
-			$olderid = (float)$medias[$index]['id'];
+			@$newerid = (float)$medias[0]['id'];
+			@$olderid = (float)$medias[$index]['id'];
 			
 			if(count($newerlist) > 0 && $newstep >= 0)
 			{

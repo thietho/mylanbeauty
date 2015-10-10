@@ -1,1 +1,1 @@
-<?php echo $saphamcungnhanhieu?>
+<?php echo @$saphamcungnhanhieu?>

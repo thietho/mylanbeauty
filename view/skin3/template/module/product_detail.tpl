@@ -27,7 +27,7 @@
                             
                     </li>
                     <?php } ?>
-                    <?php if(count($priceproduct) == 0){ ?>
+                    <?php if(@count($priceproduct) == 0){ ?>
                     <li><strong>Giá:</strong>
                         	<?php $cls = '';?>
                             <?php if($post['pricepromotion']!=0){ ?>
@@ -45,7 +45,7 @@
                      </li>
                     <?php } ?>
                 </ul>
-                <?php if(count($data_samplecode)>1){ ?>
+                <?php if(@count($data_samplecode)>1){ ?>
                 <p>
                     <?php foreach($data_samplecode as $key => $item){?>
                     <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
@@ -56,7 +56,7 @@
             </div>
 			<div class="col-md-12">
             	<?php echo $post['description']?>
-                <?php if(count($priceproduct)){ ?>
+                <?php if(@count($priceproduct)){ ?>
                 <div id="listprice">
                     <table>
                         <thead>

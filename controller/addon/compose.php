@@ -58,12 +58,12 @@ class ControllerAddonCompose extends Controller
 	{
     	$error = array();
 		
-		if($data['title'] =="")
+		if(@$data['title'] =="")
 		{
 			$error['title'] = "Bạn chưa nhập tiêu đề";
 		}
 		
-		if($data['description']=="")
+		if(@$data['description']=="")
 		{
 			$error['description'] = "Bạn chưa nhập nội dung";
 		}

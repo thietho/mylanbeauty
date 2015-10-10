@@ -61,7 +61,7 @@
         <div class="ad-thumbs">
             <ul class="ad-thumb-list">
             	<?php 
-                if(count($subimage))
+                if(@count($subimage))
                 foreach($subimage as $key => $val){ ?>
                 <li>
                     <a href="<?php echo $val['imagepreview']?>">

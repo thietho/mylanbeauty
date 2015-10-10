@@ -1,11 +1,11 @@
-<?php if($this->document->sitemapid != "faq"){ ?>
+<?php if(@$this->document->sitemapid != "faq"){ ?>
 <div class="hl-editor">
     <p>
         <?php echo $post['description']?>
     </p>
 </div>
 <?php } ?>
-<?php if(count($child)){ ?>
+<?php if(@count($child)){ ?>
 <style>
 .faq-item
 {

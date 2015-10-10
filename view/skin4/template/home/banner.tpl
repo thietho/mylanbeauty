@@ -1,5 +1,5 @@
 
-<?php if(count($medias)){ ?>
+<?php if(@count($medias)){ ?>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>bootstrap.js"></script>
     <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>bootstrap.css">
 	<div class="row carousel-holder">
@@ -8,13 +8,13 @@
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                             	<?php foreach($medias as $key => $media) {?>
-                                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $key?>" <?php if($key==0) echo 'class="active"'; ?>></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="<?php echo $key?>" <?php if(@$key==0) echo 'class="active"'; ?>></li>
                                 <?php } ?>
                                 
                             </ol>
                             <div class="carousel-inner">
                             	<?php foreach($medias as $key => $media) {?>
-                                <div class="item <?php if($key==0) echo 'active'; ?>">
+                                <div class="item <?php if(@$key==0) echo 'active'; ?>">
                                     <img class="slide-image" src="<?php echo $media['imagethumbnail']?>" alt="">
                                 </div>
                                 <?php } ?>

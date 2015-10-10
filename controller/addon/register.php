@@ -25,7 +25,7 @@ class ControllerAddonRegister extends Controller
 	public function save()
 	{
 		$data = $this->request->post;
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("core/user");
 			$this->load->model("core/media");
@@ -94,7 +94,7 @@ class ControllerAddonRegister extends Controller
 		
 		if(trim($data['password']) !="" && trim($data['confirmpassword']) !="" ) 
 		{
-			if($data['password'] != $data['confirmpassword'])
+			if(@$data['password'] != $data['confirmpassword'])
 			{
 				$this->error['confirmpassword'] = "Xát nhận mật khẩu không đúng";
 			}
@@ -105,7 +105,7 @@ class ControllerAddonRegister extends Controller
       		$this->error['fullname'] = "Bạn chưa nhập họ tên";
     	}
 		
-		if ($data['email'] == "") 
+		if(@$data['email'] == "") 
 		{
       		$this->error['email'] = "Bạn chưa nhập email";
     	}

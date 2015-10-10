@@ -6,15 +6,15 @@ class ControllerModulePagelist extends Controller
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
 		$this->load->helper('image');
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
 		$siteid = $this->member->getSiteId();
 		$this->data['sitemap'] = $this->model_core_sitemap->getItem($sitemapid, $siteid);
-		if($headername!="")
+		if(@$headername!="")
 			$this->data['sitemap']['sitemapname'] = $headername;
 		$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
 		$this->data['sitemap']['breadcrumb'] = $this->model_core_sitemap->getBreadcrumb($sitemapid, $siteid);
-		$step = (int)$this->request->get['step'];
+		@$step = (int)$this->request->get['step'];
 		$to = $count;
 		
 		//Get list
@@ -23,7 +23,7 @@ class ControllerModulePagelist extends Controller
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $sitemapid;
 		
-		if($mediaid == "")
+		if(@$mediaid == "")
 		{
 			$medias = $this->model_core_media->getPaginationList($queryoptions, $step, $to);
 			
@@ -43,7 +43,7 @@ class ControllerModulePagelist extends Controller
 				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
-				if($media['imagepath'] != "" && $template['width'] >0 )
+				if(@$media['imagepath'] != "" && $template['width'] >0 )
 				{
 					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 				}

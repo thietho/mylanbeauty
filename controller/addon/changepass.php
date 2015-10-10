@@ -14,7 +14,7 @@ class ControllerAddonChangepass extends Controller
 	public function change()
 	{
 		$data = $this->request->post;
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("core/user");
 			$user['userid'] = $this->member->getId();
@@ -58,7 +58,7 @@ class ControllerAddonChangepass extends Controller
     	}
 		else
 		{
-			if($data['newpassword']!=$data['confirmpassword'])
+			if(@$data['newpassword']!=$data['confirmpassword'])
 			{
 				$this->error['newpassword'] = "Xác nhận mật khẩu không đúng";
 			}

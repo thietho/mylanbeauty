@@ -1,5 +1,5 @@
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
     <?php foreach($medias as $media) {?>

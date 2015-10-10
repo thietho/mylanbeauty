@@ -13,7 +13,7 @@ class ControllerModuleComment extends Controller
 	public function sendComment()
 	{
 		$data = $this->request->post;
-		if($this->validateForm($data))
+		if(@$this->validateForm($data))
 		{
 			$this->load->model("core/comment");
 			$data['userid'] = $this->member->getUserName();
@@ -54,7 +54,7 @@ class ControllerModuleComment extends Controller
       		$this->error['level'] = "Bạn chưa đánh giá";
     	}
 		
-		if ($data['email'] == "") 
+		if(@$data['email'] == "") 
 		{
       		$this->error['email'] = "Bạn chưa nhập email";
     	}
@@ -83,8 +83,8 @@ class ControllerModuleComment extends Controller
 	{
 		$this->load->model("core/comment");
 		$where.=" ORDER BY `commentdate` DESC";
-		$this->data['comments'] = $this->model_core_comment->getList($where);
-		$this->data['title'] = $template['title'];
+		@$this->data['comments'] = $this->model_core_comment->getList($where);
+		@$this->data['title'] = $template['title'];
 		$this->id="content";
 		$this->template=$template['template'];
 		$this->render();

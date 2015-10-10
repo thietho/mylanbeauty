@@ -24,14 +24,14 @@ class ControllerAddonProduct extends Controller
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
 		$gia = urldecode($_GET['gia']);
-		if($keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
+		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
 			$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
 		}
 		
 		$where = " AND mediatype = 'module/product' AND mediaparent = ''";
-		if($keyword !="")
+		if(@$keyword !="")
 		{
 			@$arrkey = split(' ', $keyword);
 			$arr = array();
@@ -91,23 +91,23 @@ class ControllerAddonProduct extends Controller
 								OR (". implode(" AND ",$arrmaterial). ") 
 							)";
 		}
-		if($loaisp)
+		if(@$loaisp)
 		{
 			$where .= " AND refersitemap like '%[".$loaisp."]%'";
 		}
-		if($nhanhieu)
+		if(@$nhanhieu)
 		{
 			$where .= " AND brand like '".$nhanhieu."'";
 		}
-		if($gia)
+		if(@$gia)
 		{
 			@$arrgia = split("-",$datasearch['gia']);
 			$giatu = (int)$arrgia[0];
 			$giaden = (int)$arrgia[1];
 			$whereprice=" AND mediatype = 'module/product'";
-			if($giatu)
+			if(@$giatu)
 				$whereprice = " AND price >= '".$giatu*$donvi ."'";
-			if($giaden)
+			if(@$giaden)
 				$whereprice.= " AND price <= '".$giaden*$donvi ."'";
 			
 			$mediaprice = $this->model_core_media->getList($whereprice);
@@ -118,7 +118,7 @@ class ControllerAddonProduct extends Controller
 		
 		$medias = $this->model_core_media->getList($where);
 		
-		if(count($listparent))
+		if(@count($listparent))
 		{
 			$data = array();
 			foreach($medias as $key =>$item)
@@ -136,7 +136,7 @@ class ControllerAddonProduct extends Controller
 		}
 		else
 		{
-			if($hasprice)
+			if(@$hasprice)
 				$medias = array();	
 		}
 		
@@ -168,7 +168,7 @@ class ControllerAddonProduct extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->helper('image');
-		$data = $this->request->get;
+		@$data = $this->request->get;
 		if(!isset($_SESSION['proviews']))
 		{
 			$_SESSION['proviews'] = array();	

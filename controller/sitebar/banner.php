@@ -28,7 +28,7 @@ class ControllerSitebarBanner extends Controller
 			$link = $this->document->createLink($sitemapid,$media['alias']);
 			
 			$imagethumbnail = "";
-			if($media['imagepath'] != ""  )
+			if(@$media['imagepath'] != ""  )
 			{
 				$imagethumbnail = HelperImage::resizePNG($media['imagepath'], 198,198);
 			}

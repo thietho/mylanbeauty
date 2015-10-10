@@ -2,12 +2,12 @@
     <table class="ben-brand">
         <tr>
     <?php foreach($datas as $key => $item){?>
-        <?php if($item['parent'] == "nhanhieu"){ ?>
+        <?php if(@$item['parent'] == "nhanhieu"){ ?>
             <td>
-            <?php if($item['categoryid'] != 'brandother'){ ?>
-            <a href="<?php echo $this->document->createLink('brand',$item['categoryid'])?>" class="<?php echo $item['categoryid']?>" title="<?php echo $item['categoryname']?>"><?php echo $item['categoryname']?></a>
+            <?php if(@$item['categoryid'] != 'brandother'){ ?>
+            <a href="<?php echo @$this->document->createLink('brand',$item['categoryid'])?>" class="<?php echo @$item['categoryid']?>" title="<?php echo @$item['categoryname']?>"><?php echo @$item['categoryname']?></a>
             <?php }else{ ?>
-            <a class="<?php echo $item['categoryid']?>" title="<?php echo $item['categoryname']?>">...</a>
+            <a class="<?php echo @$item['categoryid']?>" title="<?php echo @$item['categoryname']?>">...</a>
             <?php } ?>
             
             </td>
@@ -18,7 +18,7 @@
 </div>
 			<?php 
                 $arr = $this->string->array_Filter($datas,'parent','brandother');
-                if(count($arr))
+                if(@count($arr))
                 {
             ?>
             <ul class="ben-subbrand ben-section-title">
@@ -27,7 +27,7 @@
                     {
             ?>
                 <li>
-                    <a href="<?php echo $this->document->createLink('brand',$val['categoryid'])?>" title="<?php echo $val['categoryname']?>"><?php echo $val['categoryname']?></a>
+                    <a href="<?php echo @$this->document->createLink('brand',$val['categoryid'])?>" title="<?php echo @$val['categoryname']?>"><?php echo @$val['categoryname']?></a>
                 </li>
             <?php
                     }

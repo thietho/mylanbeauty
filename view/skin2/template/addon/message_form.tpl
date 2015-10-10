@@ -20,7 +20,7 @@
             
             <div id="fragment-1">
             	<div id="error" class="ben-error" style="display:none"></div>
-                <div style="<?php echo $displaynews?>">
+                <div style="<?php echo @$displaynews?>">
         			
                     <div>
                         
@@ -70,7 +70,7 @@
 <script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.tabs.pack.js" type="text/javascript"></script>
 
 <script type="text/javascript" charset="utf-8">
-var DIR_UPLOADATTACHMENT = "<?php echo $DIR_UPLOADATTACHMENT?>";
+var DIR_UPLOADATTACHMENT = "<?php echo @$DIR_UPLOADATTACHMENT?>";
 $(document).ready(function() { 
 	setCKEditorType('description',2);
 	$('#container').tabs({ fxSlide: true, fxFade: true, fxSpeed: 'slow' });
@@ -86,7 +86,7 @@ function sendMessage()
 		function(data){
 			if(data == "true")
 			{
-				window.location = "<?php echo $this->document->createLink('message')?>";
+				window.location = "<?php echo @$this->document->createLink('message')?>";
 			}
 			else
 			{

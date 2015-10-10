@@ -10,7 +10,7 @@ class ControllerModuleInformation extends Controller
 	{
 		$this->load->model("core/media");
 		
-		if($sitemapid=="")
+		if(@$sitemapid=="")
 			$sitemapid = $this->document->sitemapid;
 		//$sitemapid = $this->document->sitemapid;
 		$siteid = $this->user->getSiteId();

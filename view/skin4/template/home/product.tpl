@@ -1,6 +1,6 @@
 <h2><?php echo $sitemap['sitemapname']?></h2>
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 <div id="listpoduct">
@@ -24,7 +24,7 @@ if(count($medias))
                     	<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-new.png" />
                     </div>
                     <?php } ?>
-                    <?php if($media['imagethumbnail'] !=""){ ?>
+                    <?php if(@$media['imagethumbnail'] !=""){ ?>
                     <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
                     
                     <?php }?>

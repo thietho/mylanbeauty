@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_VIEW?>css/colorbox.css" />
 <script src="<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.colorbox.js"></script>
-<h3><?php echo $sitemap['sitemapname'] ?></h3>
+<h3><?php echo @$sitemap['sitemapname'] ?></h3>
 
-<h2><?php echo $sitemap['breadcrumb']?></h2>
+<h2><?php echo @$sitemap['breadcrumb']?></h2>
 <div class="ben-post">
 	<div class="ben-left product-left">
     	<?php if(in_array("sanphamhot",$properties)){ ?>
@@ -20,14 +20,14 @@
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-new.png" />
         </div>
         <?php } ?>
-        <?php if($media['imagethumbnail'] !=""){ ?>
-        <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
+        <?php if(@$media['imagethumbnail'] !=""){ ?>
+        <a class="islink" href="<?php echo @$media['link']?>"><img src='<?php echo @$media['imagethumbnail']?>' class='ben-center' /></a>
         <?php }?>
-    	<?php if($post['imagethumbnail'] !=""){ ?>
+    	<?php if(@$post['imagethumbnail'] !=""){ ?>
         <div class="product-mainimage">
         	<table>
             	<tr valign="middle">
-                	<td id="product-preview" height="250px" align="center"><a class="zoom" href="<?php echo $post['imagepreview']?>"><img  src="<?php echo $post['imagethumbnail']?>" /></a></td>
+                	<td id="product-preview" height="250px" align="center"><a class="zoom" href="<?php echo @$post['imagepreview']?>"><img  src="<?php echo @$post['imagethumbnail']?>" /></a></td>
                 </tr>
             </table>
 	        
@@ -48,7 +48,7 @@
                                    
                                     <?php foreach($subimage as $key => $val){ ?>
                                     <td>
-                                        <img  id="icon-<?php echo $key?>" class="ben-icon-item" src="<?php echo $val['icon']?>" title="<?php echo $this->document->productName($post['mediaid'])?>" alt="<?php echo $this->document->productName($post['mediaid'])?>"/>
+                                        <img  id="icon-<?php echo @$key?>" class="ben-icon-item" src="<?php echo @$val['icon']?>" title="<?php echo @$this->document->productName($post['mediaid'])?>" alt="<?php echo @$this->document->productName($post['mediaid'])?>"/>
                                     </td>
                                     <?php } ?>
                                 </tr>
@@ -128,13 +128,13 @@ $("#ben-next").click(function(){
 </script>
         <div style="display:none">
             <?php foreach($subimage as $key => $val){ ?>
-            <div  id="preview-<?php echo $key?>">
-                <a href="<?php echo $val['imagepreview']?>"><img src="<?php echo $val['imagethumbnail']?>" /></a>
+            <div  id="preview-<?php echo @$key?>">
+                <a href="<?php echo @$val['imagepreview']?>"><img src="<?php echo @$val['imagethumbnail']?>" /></a>
             </div>
             <?php } ?>
             <?php foreach($priceproduct as $key => $val){ ?>
-            <div  id="previewsub-<?php echo $key?>">
-                <a href="<?php echo $val['imagepreview']?>"><img src="<?php echo $val['imagethumbnail']?>" /></a>
+            <div  id="previewsub-<?php echo @$key?>">
+                <a href="<?php echo @$val['imagepreview']?>"><img src="<?php echo @$val['imagethumbnail']?>" /></a>
             </div>
             <?php } ?>
         </div>
@@ -142,14 +142,14 @@ $("#ben-next").click(function(){
     </div>
     <div class="ben-right product-right">
         <h2>
-        	<?php echo $this->document->productName($post['mediaid'])?>
+        	<?php echo @$this->document->productName($post['mediaid'])?>
         </h2>
-        <?php if($post['noted']!="") echo "<h4>".$post['noted']."</h4>";?>
+        <?php if(@$post['noted']!="") echo "<h4>".$post['noted']."</h4>";?>
         
-        <!--<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $post['link']?>" target="_blank">
+        <!--<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo @$post['link']?>" target="_blank">
     		<img src="<?php echo HTTP_SERVER.DIR_IMAGE?>facebook.gif" />
     	</a>-->
-        <div class="fb-like" data-href="<?php echo $post['link']?>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+        <div class="fb-like" data-href="<?php echo @$post['link']?>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
         
         <div class="ben-post-body">
         	<p>
@@ -159,7 +159,7 @@ $("#ben-next").click(function(){
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
                         	<?php foreach($loaisp as $it){ ?>
-                            <strong><?php echo $it['sitemapname'].'<br />'; ?></strong>
+                            <strong><?php echo @$it['sitemapname'].'<br />'; ?></strong>
                             <?php } ?>
                         </td>
                     </tr>
@@ -167,38 +167,38 @@ $("#ben-next").click(function(){
                     	<td><strong>Nhãn hiệu:</strong></td>
                         <td>
                         	
-                            <strong><a class="brand" href="<?php echo $this->document->createLink('brandinfor',$post['brand'])?>" title="<?php echo $this->document->getCategory($post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a></strong>
+                            <strong><a class="brand" href="<?php echo @$this->document->createLink('brandinfor',$post['brand'])?>" title="<?php echo @$this->document->getCategory($post['brand'])?>"><?php echo @$this->document->getCategory($post['brand'])?></a></strong>
                             
                         </td>
                     </tr>
-                    <?php if($post['color'] != ""){ ?>
+                    <?php if(@$post['color'] != ""){ ?>
                     <tr>
                     	<td><strong>Màu:</strong></td>
                         <td>
                         	
-                            <?php echo $post['color']?>
+                            <?php echo @$post['color']?>
                             
                         </td>
                     </tr>
                     <?php } ?>
-                    <?php if(count($priceproduct) == 0){ ?>
+                    <?php if(@count($priceproduct) == 0){ ?>
                     <tr>
                     	<td><strong>Giá:</strong></td>
                         <td>
                         	<?php $cls = '';?>
-                            <?php if($post['discountpercent']) echo "Giảm ".$post['discountpercent']."%"?>
-                            <?php if($post['pricepromotion']!=0){ ?>
+                            <?php if(@$post['discountpercent']) echo "Giảm ".$post['discountpercent']."%"?>
+                            <?php if(@$post['pricepromotion']!=0){ ?>
                             <?php $cls = 'product-price-no';?>
                             <span class="product-pricepromotion">
-                            <?php echo $this->string->numberFormate($post['pricepromotion'])?> <?php echo $this->document->setup['Currency']?>
+                            <?php echo @$this->string->numberFormate($post['pricepromotion'])?> <?php echo @$this->document->setup['Currency']?>
                             </span>
                             <?php } ?>
-                            <?php if($post['price']){ ?>
-                            <span  class="product-price <?php echo $cls?>"><?php echo $this->string->numberFormate($post['price'])?> <?php echo $this->document->setup['Currency']?></span>
+                            <?php if(@$post['price']){ ?>
+                            <span  class="product-price <?php echo @$cls?>"><?php echo @$this->string->numberFormate($post['price'])?> <?php echo @$this->document->setup['Currency']?></span>
                             <?php }else{ ?>
                             Giá đang cập nhật
                             <?php }?>
-                            <input type="button" class="ben-button" onclick="cart.add('<?php echo $post['mediaid']?>')" value="Đặt hàng">
+                            <input type="button" class="ben-button" onclick="cart.add('<?php echo @$post['mediaid']?>')" value="Đặt hàng">
                         </td>
                     </tr>
                     <?php } ?>
@@ -207,13 +207,13 @@ $("#ben-next").click(function(){
                 
             </p>
             <p class="short_intro">
-            	<?php echo $post['summary']?>
+            	<?php echo @$post['summary']?>
                 
             </p>
-            <?php if(count($data_samplecode)>1){ ?>
+            <?php if(@count($data_samplecode)>1){ ?>
             <p>
             	<?php foreach($data_samplecode as $key => $item){?>
-                <a href="<?php echo $this->document->createLink($this->document->sitemapid,$item['mediaid'].'-'.$item['alias'])?>" title="<?php echo $item['color']?>"><img src="<?php echo $item['icon']?>" /></a>
+                <a href="<?php echo @$this->document->createLink($this->document->sitemapid,$item['mediaid'].'-'.$item['alias'])?>" title="<?php echo @$item['color']?>"><img src="<?php echo @$item['icon']?>" /></a>
                 <?php } ?>
             </p>
             <?php } ?>
@@ -224,13 +224,13 @@ $("#ben-next").click(function(){
 
     <div class="ben-hline"></div>
     <p>
-        <?php echo $post['description']?>
+        <?php echo @$post['description']?>
     </p>
     
     <p class="ben-text-right">
-        <b><?php echo $post['source']?></b>
+        <b><?php echo @$post['source']?></b>
     </p>
-    <?php if(count($priceproduct)){ ?>
+    <?php if(@count($priceproduct)){ ?>
     <div id="listprice">
         <table>
             <thead>
@@ -249,46 +249,46 @@ $("#ben-next").click(function(){
                 <?php foreach($priceproduct as $key => $val){ ?>
                 <tr>
                     <td>
-                    	<?php echo $this->document->productName($val)?>
-                        <?php if($val['noteprice']!=""){ ?>
-                            (<?php echo $this->document->getCategory($val['noteprice'])?>)
+                    	<?php echo @$this->document->productName($val)?>
+                        <?php if(@$val['noteprice']!=""){ ?>
+                            (<?php echo @$this->document->getCategory($val['noteprice'])?>)
                         <?php }?>
-                    	<?php if($val['tenkhuyenmai']){ ?>
-                        <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
+                    	<?php if(@$val['tenkhuyenmai']){ ?>
+                        <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo @$val['makhuyenmai']?>')"><?php echo @$val['tenkhuyenmai']?></a></p>
                         <?php } ?>
                     </td>
                     <td>
-                    	<?php if($val['colorcode']==''){ ?>
-                        <img src="<?php echo $val['icon']?>" class="ben-sub-item" pos="<?php echo $key?>" >
+                    	<?php if(@$val['colorcode']==''){ ?>
+                        <img src="<?php echo @$val['icon']?>" class="ben-sub-item" pos="<?php echo @$key?>" >
                         <?php }else{ ?>
-                        <img style="background-color:<?php echo $val['colorcode']?>;width:50px;height:50px" class="ben-sub-item" pos="<?php echo $key?>">
+                        <img style="background-color:<?php echo @$val['colorcode']?>;width:50px;height:50px" class="ben-sub-item" pos="<?php echo @$key?>">
                         <?php } ?>
                     	
                     </td>
                     <td class="number">
                     	<?php $cls = '';?>
-                            <?php if($val['pricepromotion']!=0){ ?>
+                            <?php if(@$val['pricepromotion']!=0){ ?>
                             <?php $cls = 'product-price-no';?>
                         <?php } ?>
-                        <?php if($val['price']!=0){ ?>
-                        <span class="<?php echo $cls?>"><?php echo $this->string->numberFormate($val['price'])?><?php echo $this->document->setup['Currency']?></span>
+                        <?php if(@$val['price']!=0){ ?>
+                        <span class="<?php echo @$cls?>"><?php echo @$this->string->numberFormate($val['price'])?><?php echo @$this->document->setup['Currency']?></span>
                         <?php } ?>
                     </td>
                     <td class="number">
-                        <?php if($val['discountpercent']!=0){ ?>
+                        <?php if(@$val['discountpercent']!=0){ ?>
                         <span class="product-pricepromotion">
-                        -<?php echo $this->string->numberFormate($val['discountpercent'])?>%
+                        -<?php echo @$this->string->numberFormate($val['discountpercent'])?>%
                         </span>
                         <?php } ?>
                     </td>
                     <td class="number">
-                        <?php if($val['pricepromotion']!=0){ ?>
+                        <?php if(@$val['pricepromotion']!=0){ ?>
                         <span class="product-pricepromotion">
-                        <?php echo $this->string->numberFormate($val['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
+                        <?php echo @$this->string->numberFormate($val['pricepromotion'])?><?php echo @$this->document->setup['Currency']?>
                         </span>
                         <?php } ?>
                     </td>
-                    <td><input type="button" class="ben-button ben-center" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
+                    <td><input type="button" class="ben-button ben-center" onclick="cart.add('<?php echo @$val['mediaid']?>')" value="Đặt hàng"></td>
                 </tr>
                 <?php } ?>
                 
@@ -305,11 +305,11 @@ $("#ben-next").click(function(){
 </div>
 
 <!--
-<?php echo $comment?>
-<div class=" ben-section-title">Gửi Nhận xét về <?php echo $this->document->productName($post)?></div>
+<?php echo @$comment?>
+<div class=" ben-section-title">Gửi Nhận xét về <?php echo @$this->document->productName($post)?></div>
 <div id="comment-warning" class="ben-error ben-hidden"></div>
 <form id="frmComment">
-<input type="hidden" name="mediaid" value="<?php echo $post['mediaid']?>" />
+<input type="hidden" name="mediaid" value="<?php echo @$post['mediaid']?>" />
 <div class="ben-post ben-comment">
 	<p>
     	<label>Họ tên</label><br>
@@ -320,7 +320,7 @@ $("#ben-next").click(function(){
         <select name="level" class="ben-textbox">
             <option value="">Chưa đánh giá</option>
             <?php for($i=1;$i<=5;$i++){ ?>
-            <option value="<?php echo $i?>"><?php echo $i?> sao</option>
+            <option value="<?php echo @$i?>"><?php echo @$i?> sao</option>
             <?php } ?>
         </select>
     </p>
@@ -394,4 +394,4 @@ function sendComment()
 }
 </script>
 <div class=" ben-section-title">Sản phẩm cùng nhãn hiệu</div>
-<?php echo $saphamcungnhanhieu?>
+<?php echo @$saphamcungnhanhieu?>

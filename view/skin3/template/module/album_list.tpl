@@ -1,6 +1,6 @@
 <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_VIEW?>css/album.css'>
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 <div>

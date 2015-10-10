@@ -1,5 +1,5 @@
 <?php
-if(count($medias))
+if(@count($medias))
 {
 ?>
 				<div class="row">
@@ -16,7 +16,7 @@ if(count($medias))
                                 <h4><a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>"><?php echo $this->document->productName($media)?></a>
                                 </h4>
                                 <center>
-                                <?php if(count($media['childs'])){ ?>
+                                <?php if(@count($media['childs'])){ ?>
                                 <?php foreach($media['childs'] as $me){?>
                                 <h4>
                                     <?php echo $me['sizes']?>:

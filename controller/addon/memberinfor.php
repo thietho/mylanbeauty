@@ -51,7 +51,7 @@ class ControllerAddonMemberinfor extends Controller
 		$data = $this->request->post;
 		$this->load->model("core/user");
 		$data['value'] = $this->date->formatViewDate($data['value']);
-		if($data['colname'] !='birthdaykids')
+		if(@$data['colname'] !='birthdaykids')
 			$this->model_core_user->updatecol($data['userid'],$data['colname'],$data['value']);
 		else
 			$this->model_core_user->saveInformation($data['userid'], $data['colname'], $data['value']);

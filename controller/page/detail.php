@@ -17,13 +17,13 @@ class ControllerPageDetail extends Controller
 	}
 	public function mobile()
 	{
-		if($this->cachehtml->iscacht($this->name) == false)
+		if(@$this->cachehtml->iscacht($this->name) == false)
 		{
 			$this->load->model("core/sitemap");
-			$this->document->sitemapid = $this->request->get['sitemapid'];
+			@$this->document->sitemapid = $this->request->get['sitemapid'];
 			$siteid = $this->member->getSiteId();
 			
-			$id = $this->request->get['id'];
+			@$id = $this->request->get['id'];
 			
 			$this->document->breadcrumb = $this->model_core_sitemap->getBreadcrumb($this->document->sitemapid, $siteid, 1);
 			$template = array(
@@ -32,7 +32,7 @@ class ControllerPageDetail extends Controller
 			
 			$arr = array("nhanhieu",$template);
 			$this->data['brand'] = $this->loadModule('module/category','getList',$arr);
-			if($this->document->sitemapid != "")
+			if(@$this->document->sitemapid != "")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($this->document->sitemapid, $siteid);
 				$this->document->title = $this->document->setup['Title'];
@@ -53,7 +53,7 @@ class ControllerPageDetail extends Controller
 						$this->data['module'] = $this->loadModule('module/location');
 					break;
 					case "module/banner":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -76,7 +76,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/news":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -99,7 +99,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/video":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -122,7 +122,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/product":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/product_list.tpl",
@@ -147,7 +147,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/album":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/album_list.tpl",
@@ -186,14 +186,14 @@ class ControllerPageDetail extends Controller
 	}
 	public function destop()
 	{
-		if($this->cachehtml->iscacht($this->name) == false)
+		if(@$this->cachehtml->iscacht($this->name) == false)
 		{
 			$this->load->model("core/sitemap");
-			$this->document->sitemapid = $this->request->get['sitemapid'];
+			@$this->document->sitemapid = $this->request->get['sitemapid'];
 			$siteid = $this->member->getSiteId();
 			
 			
-			$id = $this->request->get['id'];
+			@$id = $this->request->get['id'];
 			
 			$this->document->breadcrumb = $this->model_core_sitemap->getBreadcrumb($this->document->sitemapid, $siteid, 1);
 			$template = array(
@@ -202,11 +202,11 @@ class ControllerPageDetail extends Controller
 			
 			$arr = array("nhanhieu",$template);
 			$this->data['brand'] = $this->loadModule('module/category','getList',$arr);
-			if($this->document->sitemapid != "")
+			if(@$this->document->sitemapid != "")
 			{
 				$sitemap = $this->model_core_sitemap->getItem($this->document->sitemapid, $siteid);
 				$this->document->title = $this->document->setup['Title'];
-				switch($sitemap['moduleid'])
+				switch(@$sitemap['moduleid'])
 				{
 					case "":
 						if(file_exists($this->document->sitemapid.".html"))
@@ -223,7 +223,7 @@ class ControllerPageDetail extends Controller
 						$this->data['module'] = $this->loadModule('module/location');
 					break;
 					case "module/banner":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -246,7 +246,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/news":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -269,7 +269,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/video":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/news_list.tpl",
@@ -292,7 +292,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/product":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/product_list.tpl",
@@ -317,7 +317,7 @@ class ControllerPageDetail extends Controller
 						}
 					break;
 					case "module/album":
-						if($id == "")
+						if(@$id == "")
 						{
 							$template = array(
 											  'template' => "module/album_list.tpl",

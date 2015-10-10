@@ -50,7 +50,7 @@ class ControllerCommonTygia extends Controller
 	{
 		foreach($ar as $item)
 		{
-			if($item[$att]==$value)
+			if(@$item[$att]==$value)
 				return $item;
 		}
 		return false;

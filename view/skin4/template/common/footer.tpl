@@ -64,7 +64,7 @@
     <div>
         <ul id="hl-categories">
             <?php foreach($sitemaps as $sitemap){ ?>
-                <?php if($sitemap['countchild'] == 0){ ?>
+                <?php if(@$sitemap['countchild'] == 0){ ?>
             <li><a href="<?php echo $this->document->createLink($sitemap['sitemapid'])?>" title="<?php echo $sitemap['sitemapname']?>" data-transition="fade"><?php echo $sitemap['sitemapname']?></a></li>
                 <?php } ?>
             <?php } ?>

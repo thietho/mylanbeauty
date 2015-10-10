@@ -6,7 +6,7 @@ class ControllerAddonCheckoutcomplete extends Controller
 	{
 		$this->document->breadcrumb .= " » Hoàn tất thanh toán";
 		$this->document->title .= " - Hoàn tất thanh toán";
-		$orderid = $this->request->get['id'];
+		@$orderid = $this->request->get['id'];
 		$this->getOrder($orderid);
 		$this->id="content";
 		$this->template="addon/checkoutcomplete.tpl";

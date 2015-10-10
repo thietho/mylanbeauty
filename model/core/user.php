@@ -274,7 +274,7 @@ class ModelCoreUser extends ModelCoreFile
 		else
 		{
 			
-			if( $contain['password']== $Pass)
+			if(@$contain['password']== $Pass)
 			{
 				return true;
 			}

@@ -32,7 +32,7 @@
                 	<label>Tình trạng da</label>
                     <p>
                         <?php foreach($skinstatus as $status){ ?>
-                        <div class="ben-left" style="width:25%"><input type="checkbox" name="skinstatus[]" value="<?php echo $status?>"><?php echo $status?></div>
+                        <div class="ben-left" style="width:25%"><input type="checkbox" name="skinstatus[]" value="<?php echo @$status?>"><?php echo @$status?></div>
                         <?php } ?>
                         <div class="clearer">&nbsp;</div>
                     </p>

@@ -40,7 +40,7 @@
     </div>
 
 </div>
-<?php if(count($error)){ ?>
+<?php if(@count($error)){ ?>
 <script language="javascript">
 $(document).ready(function(e) {
 	

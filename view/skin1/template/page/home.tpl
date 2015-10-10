@@ -1,5 +1,5 @@
 <div class="ben-three-columns">
-	<?php if(count($leftsitebar)){ ?>
+	<?php if(@count($leftsitebar)){ ?>
 	<div class="ben-sidebar ben-left">
     	<?php foreach($leftsitebar as $item){ ?>
         <?php echo $item?>
@@ -23,7 +23,7 @@
         	
         </div>
     </div>
-    <?php if(count($rightsitebar)){ ?>
+    <?php if(@count($rightsitebar)){ ?>
     <div class="ben-sidebar ben-right">
     	<?php foreach($rightsitebar as $item){ ?>
         <?php echo $item?>

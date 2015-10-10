@@ -1,11 +1,11 @@
-<?php if($this->document->sitemapid != "faq"){ ?>
+<?php if(@$this->document->sitemapid != "faq"){ ?>
 <div class="ben-editor">
     <p>
-        <?php echo $post['description']?>
+        <?php echo @$post['description']?>
     </p>
 </div>
 <?php } ?>
-<?php if(count($child)){ ?>
+<?php if(@count($child)){ ?>
 <style>
 .faq-item
 {
@@ -15,8 +15,8 @@
 <div>
 	<?php foreach($child as $item){ ?>
     <p>
-    	<a class="faq-title" href="#<?php echo $item['mediaid']?>" rel="<?php echo $item['mediaid']?>"><?php echo $item['title']?></a>
-        <div id="faq-item-<?php echo $item['mediaid']?>" class="faq-item">
+    	<a class="faq-title" href="#<?php echo @$item['mediaid']?>" rel="<?php echo @$item['mediaid']?>"><?php echo @$item['title']?></a>
+        <div id="faq-item-<?php echo @$item['mediaid']?>" class="faq-item">
         	<?php echo html_entity_decode($item['description'])?>
         </div>
     </p>

@@ -20,7 +20,7 @@
 	 foreach($Tygia as $item)
      {
      		$sel = "";
-     		if($item['CurrencyCode'] == "USD")
+     		if(@$item['CurrencyCode'] == "USD")
             	$sel = 'selected="selected"';
 ?>
 			<option value="<?php echo $item['Buy']?>" <?php echo $sel?>><?php echo $item['CurrencyCode']?></option>

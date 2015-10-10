@@ -4,7 +4,7 @@ class ControllerAddonSearch extends Controller
 	private $error = array();
 	public function index()
 	{
-		$keyword = $this->request->get['keyword'];
+		@$keyword = $this->request->get['keyword'];
 		$this->document->breadcrumb .= "Kết quả tìm kiếm với từ khóa: '$keyword'";
 		$this->document->title .= $this->document->breadcrumb;
 		$this->getList($keyword);
@@ -29,7 +29,7 @@ class ControllerAddonSearch extends Controller
 		foreach($arrsitemap as $item)
 			$listsitemapid[] = $item['sitemapid'];
 		//$this->document->title .= " - ".$this->data['sitemap']['sitemapname'];
-		$step = (int)$this->request->get['step'];
+		@$step = (int)$this->request->get['step'];
 		$to = $count;
 		//
 		//Get list
@@ -39,7 +39,7 @@ class ControllerAddonSearch extends Controller
 		$queryoptions['mediatype'] = '%';
 		$queryoptions['refersitemap'] = $listsitemapid;
 		
-		if($mediaid == "")
+		if(@$mediaid == "")
 		{
 			$medias = $this->model_core_media->getPaginationList($queryoptions);
 			
@@ -50,7 +50,7 @@ class ControllerAddonSearch extends Controller
 			foreach($medias as $media)
 			{
 				$index += 1;
-				if($sitemapid == "")
+				if(@$sitemapid == "")
 				{
 					$arr = $this->string->referSiteMapToArray($media['refersitemap']);
 					$sitemapid = $arr[0];
@@ -58,7 +58,7 @@ class ControllerAddonSearch extends Controller
 				$link = $this->document->createLink($sitemapid,$media['alias']);
 				
 				$imagethumbnail = "";
-				if($media['imagepath'] != "" && $template['width'] >0 )
+				if(@$media['imagepath'] != "" && $template['width'] >0 )
 				{
 					$imagethumbnail = HelperImage::resizePNG($media['imagepath'], $template['width'], $template['height']);
 				}

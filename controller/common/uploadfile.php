@@ -5,12 +5,12 @@ class ControllerCommonUploadfile extends Controller
 	{	
 		
 		
-		$folder = urldecode($this->request->get['folder']);
+		@$folder = urldecode($this->request->get['folder']);
 		
 		$filepath = DIR_FILE."upload/request/";
 		if (!is_dir($filepath))
 			mkdir( $filepath , 0777 );
-		if($folder != "")
+		if(@$folder != "")
 		{
 			$filepath = DIR_FILE."upload/request/".$folder."/";
 			if (!is_dir($filepath))
@@ -18,7 +18,7 @@ class ControllerCommonUploadfile extends Controller
 		}
 		foreach($_FILES['files']['name'] as $key => $item)
 		{
-			if($_FILES['files']['name'][$key] != "")
+			if(@$_FILES['files']['name'][$key] != "")
 			{
 				$ftemp['name'] = $_FILES['files']['name'][$key];
 				$ftemp['type'] = $_FILES['files']['type'][$key];

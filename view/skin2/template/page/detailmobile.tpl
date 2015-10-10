@@ -6,8 +6,8 @@
         	
             
             <div class="ben-section-content">
-            	<h1><?php echo $this->document->breadcrumb?></h1>
-            	<?php echo $module?>
+            	<h1><?php echo @$this->document->breadcrumb?></h1>
+            	<?php echo @$module?>
             </div>
             
             

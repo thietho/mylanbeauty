@@ -1,5 +1,5 @@
 
-<?php if(count($medias)){ ?>
+<?php if(@count($medias)){ ?>
 	<div class="row carousel-holder">
 
                     <div class="col-md-12">

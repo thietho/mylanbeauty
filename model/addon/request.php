@@ -33,7 +33,7 @@ class ModelAddonRequest extends Model
 		$sql = "Select `request`.* 
 									from `request` 
 									where 1=1 " . $where ;
-		if($to > 0)
+		if(@$to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}

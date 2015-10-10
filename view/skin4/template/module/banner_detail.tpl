@@ -1,5 +1,5 @@
 <div class="ben-post">
-	<?php if($post['imagethumbnail'] !=""){ ?>
+	<?php if(@$post['imagethumbnail'] !=""){ ?>
 	<img src='<?php echo $post['imagethumbnail']?>' class='ben-alignleft' />
 	<?php }?>
     <h2><?php echo $post['title']?></h2>

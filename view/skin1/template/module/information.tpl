@@ -5,7 +5,7 @@
     </p>
 </div>
 <?php } ?>
-<?php if(count($child)){ ?>
+<?php if(@count($child)){ ?>
 <style>
 .faq-item
 {

@@ -15,12 +15,12 @@ class ControllerAddonKt extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
-		$arr = split("-",$this->request->get['id']);
+		@$arr = split("-",$this->request->get['id']);
 		$char = $arr[0];
 		$sitemapid = $arr[1];
 		$header = "Sản phẩm bắt đầu bằng chữ ".$char;
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid,$this->member->getSiteId());
-		if($sitemapid == "")	
+		if(@$sitemapid == "")	
 		{
 			$this->document->breadcrumb .= $header;
 		}
@@ -30,7 +30,7 @@ class ControllerAddonKt extends Controller
 		}
 		$where = " AND title like '".$char."%'";
 		
-		if($sitemapid)
+		if(@$sitemapid)
 			$where .= " AND refersitemap like '%[".$sitemapid."]%'";
 		else
 		{
@@ -45,7 +45,7 @@ class ControllerAddonKt extends Controller
 			
 			$where .= " AND ( ". implode($ar," OR ").")";
 		}
-		$order = $_GET['order'];
+		@$order = $_GET['order'];
 		$orderby = "";
 		switch($order)
 		{

@@ -4,7 +4,7 @@ class ControllerAddonActivelink extends Controller
 	private $error = array();
 	public function index()
 	{
-		if($this->member->isLogged())
+		if(@$this->member->isLogged())
 			$this->response->redirect($this->document->createLink('member'));
 		$this->document->breadcrumb .= " » Kích hoạt tài khoản";
 		$this->document->title .= " - Kích hoạt tài khoản";
@@ -17,11 +17,11 @@ class ControllerAddonActivelink extends Controller
 	
 	public function active()
 	{
-		$data = $this->request->get;
+		@$data = $this->request->get;
 		
 		$this->load->model("core/user");
 		$activecode = $this->model_core_user->getInformation($data['user'], "activecode");
-		if($data['code'] == md5($activecode))
+		if(@$data['code'] == md5($activecode))
 		{
 			//Kich hoat tai khoang
 			$user['userid'] = $data['user'];

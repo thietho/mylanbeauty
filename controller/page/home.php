@@ -20,7 +20,7 @@ class ControllerPageHome extends Controller
 	
 	public function destop()
 	{
-		if($this->cachehtml->iscacht($this->name) == false)
+		if(@$this->cachehtml->iscacht($this->name) == false)
 		{
 			//Brand
 			$template = array(
@@ -76,7 +76,7 @@ class ControllerPageHome extends Controller
 			$this->data['arrsitemapid'] = array();
 			foreach($data_sitemap as $sitemap)
 			{
-				if($sitemap['countchild'] == 0)
+				if(@$sitemap['countchild'] == 0)
 				{
 					$this->data['arrsitemapid'][] = $sitemap['sitemapid'];
 				}
@@ -114,7 +114,7 @@ class ControllerPageHome extends Controller
 			$this->data['producthome'][$brand]['title'] =$this->document->getCategory($brand);
 			$this->data['producthome'][$brand]['data'] = $this->loadModule('addon/brand','getList',$arr);
 		}*/
-		$brand = $this->request->get['brand'];
+		@$brand = $this->request->get['brand'];
 		$arr = array("",$brand);
 		if(file_exists(DIR_IMAGE.'logo/'.$brand.'.jpg'))
 		{
@@ -133,8 +133,8 @@ class ControllerPageHome extends Controller
 	
 	public function loadGroup()
 	{
-		$sitemapid = $this->request->get['sitemapid'];
-		$device = $this->request->get['device'];
+		@$sitemapid = $this->request->get['sitemapid'];
+		@$device = $this->request->get['device'];
 		$this->load->model('core/sitemap');
 		$siteid = $this->member->getSiteId();
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid, $siteid);
@@ -192,7 +192,7 @@ class ControllerPageHome extends Controller
 		foreach($arrmediaid as $mediaid)
 		{
 			$media = $this->model_core_media->getItem($mediaid);
-			if($media['status']== 'active')
+			if(@$media['status']== 'active')
 				$data_media[] = $media;
 		}
 			
@@ -212,13 +212,13 @@ class ControllerPageHome extends Controller
 			
 		$where = " AND mediatype = 'module/product'";
 		$where .= " AND mediaparent = ''";
-		if($listmediaid!="")
+		if(@$listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
 			foreach($arrmediaid as $mediaid)
 			{
 				$media = $this->model_core_media->getItem($mediaid);
-				if($media['status']== 'active' && !in_array($media['mediaid'],$arrmediaidsanphamhot))
+				if(@$media['status']== 'active' && !in_array($media['mediaid'],$arrmediaidsanphamhot))
 					$data_media[] = $media;
 			}
 			$where .= " AND mediaid NOT IN ('".implode("','",$arrmediaid)."')";
@@ -227,7 +227,7 @@ class ControllerPageHome extends Controller
 		$siteid = $this->member->getSiteId();
 		$sitemaps = array();
 		
-		if($rootid != "")
+		if(@$rootid != "")
 		{
 			$this->model_core_sitemap->getTreeSitemap($rootid,$sitemaps, $siteid);
 			$arrsitemapid = $this->string->matrixToArray($sitemaps,"sitemapid");

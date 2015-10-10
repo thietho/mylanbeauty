@@ -36,7 +36,7 @@
 			
 			$rootid = $this->model_core_sitemap->getRoot($this->document->sitemapid, $siteid);
 
-			if($this->document->sitemapid == "")
+			if(@$this->document->sitemapid == "")
 				$rootid = 'trangchu';
 			$str = "";
 			
@@ -48,17 +48,17 @@
 				$childs = $this->model_core_sitemap->getListByParent($item['sitemapid'], $siteid);
 				
 				$currenttab = "";
-				if($item['sitemapid'] == $rootid) 
+				if(@$item['sitemapid'] == $rootid) 
 					$currenttab = "class='current-tab'";
 				
 				$link = "<a ".$currenttab.">".$item['sitemapname']."</a>";
 				
-				if($item['moduleid'] != "group")
+				if(@$item['moduleid'] != "group")
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
 					$link = "<a ".$currenttab." href='".$this->document->createLink($item['sitemapid'])."' title='".$item['sitemapname']."' data-transition='fade'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
-				if($item['moduleid'] == "homepage"){
+				if(@$item['moduleid'] == "homepage"){
 					$link = "<a ".$currenttab." href='".HTTP_SERVER."'>".html_entity_decode($item['sitemapname'])."</a>";
 				}
 				
@@ -86,7 +86,7 @@
 			
 			$rootid = $this->model_core_sitemap->getRoot($this->document->sitemapid, $siteid);
 
-			if($this->document->sitemapid == "")
+			if(@$this->document->sitemapid == "")
 				$rootid = 'trangchu';
 			$str = "";
 			
@@ -98,7 +98,7 @@
 				$childs = $this->model_core_sitemap->getListByParent($item['sitemapid'], $siteid);
 				
 				$currenttab = "";
-				if($item['sitemapid'] == $rootid) 
+				if(@$item['sitemapid'] == $rootid) 
 					$currenttab = "class='current-tab'";
 				
 				//$link = "<a ".$currenttab.">".$item['sitemapname']."</a>";
@@ -161,7 +161,7 @@
 				if(count($childs)==0)
 				{
 					//$link = "<a ".$currenttab." href='index.php?route=page/detail&sitemapid=".$item['sitemapid']."'>".$item['sitemapname']."</a>";
-					$link = "<li><a ".$currenttab." href='".$this->document->createLink('brand',$item['categoryid'])."' title='".$item['categoryname']."' data-transition='fade'>".html_entity_decode($item['categoryname'])."</a>";
+					@$link = "<li><a ".$currenttab." href='".$this->document->createLink('brand',$item['categoryid'])."' title='".$item['categoryname']."' data-transition='fade'>".html_entity_decode($item['categoryname'])."</a>";
 				}
 				else
 				{

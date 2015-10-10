@@ -6,10 +6,10 @@ class ControllerModulePagedetail extends Controller
 		$this->load->model("core/media");
 		$this->load->helper('image');
 		
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
-		$mediaid = $this->request->get['id'];
-		$id = $this->request->get['id'];
+		@$mediaid = $this->request->get['id'];
+		@$id = $this->request->get['id'];
 		$mediaid = $id;
 		$siteid = $this->member->getSiteId();
 		
@@ -30,7 +30,7 @@ class ControllerModulePagedetail extends Controller
 		$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
 		
 		
-		if($this->data['post']['imagepath'] != "")
+		if(@$this->data['post']['imagepath'] != "")
 		{
 			$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], $template['width'], $template['height']);
 			$this->document->meta_image = $this->data['post']['imagethumbnail'];
@@ -41,8 +41,8 @@ class ControllerModulePagedetail extends Controller
 		
 		$listfile = $this->model_core_media->getInformation($this->data['post']['mediaid'], "attachment");
 		$listfileid=array();
-		if($listfile)
-			$listfileid=split(",",$listfile);
+		if(@$listfile)
+			@$listfileid=split(",",$listfile);
 			
 		
 		
@@ -52,7 +52,7 @@ class ControllerModulePagedetail extends Controller
 		foreach($listfileid as $key => $item)
 		{
 			$file = $this->model_core_file->getFile($item);
-			if($this->string->isImage($file['extension']))
+			if(@$this->string->isImage($file['extension']))
 			{
 				$this->data['subimage'][$key] = $file;
 				$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($file['filepath'], $template['width'], $template['height']);
@@ -113,14 +113,14 @@ class ControllerModulePagedetail extends Controller
 		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
 		unset($this->data['nhomhuong'][0]);
 		
-		if($sitemapid == "")
+		if(@$sitemapid == "")
 			$sitemapid = $this->document->sitemapid;
-		$id = $this->request->get['id'];
+		@$id = $this->request->get['id'];
 		if(count($media))
 		{
 			$id = $media['alias'];	
 		}
-		$arr = split("-",$id);
+		@$arr = split("-",$id);
 		$mediaid = $arr[0];
 		$siteid = $this->member->getSiteId();
 		
@@ -151,7 +151,7 @@ class ControllerModulePagedetail extends Controller
 			$this->data['loaisp'][] = $this->model_core_sitemap->getItem($item,$this->member->getSiteId());
 		}
 		
-		//if($this->data['post']['imagepath'] != "")
+		//if(@$this->data['post']['imagepath'] != "")
 		{
 			$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], $template['width'], $template['height']);
 			$this->data['post']['imagepreview'] = HelperImage::resizePNG($this->data['post']['imagepath'],  800, 800);
@@ -163,7 +163,7 @@ class ControllerModulePagedetail extends Controller
 		//Get sub attachment
 		$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
 		$listfileid=array();
-		if($listfile)
+		if(@$listfile)
 			@$listfileid=split(",",$listfile);
 			
 		array_unshift($listfileid,$this->data['post']['imagepath']);
@@ -174,7 +174,7 @@ class ControllerModulePagedetail extends Controller
 		foreach($listfileid as $key => $item)
 		{
 			$file = pathinfo($item);
-			if($this->string->isImage($file['extension']))
+			if(@$this->string->isImage($file['extension']))
 			{
 				//$this->data['subimage'][$key] = $file;
 				$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($item, $template['width'], $template['height']);
@@ -206,8 +206,8 @@ class ControllerModulePagedetail extends Controller
 			$this->data['priceproduct'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
 			$this->data['priceproduct'][$key]['imagethumbnail'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
 			$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], 800, 800);
-			$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
-			$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
+			@$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
+			@$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
 		}
 		
 		$queryoptions = array();
@@ -226,7 +226,7 @@ class ControllerModulePagedetail extends Controller
 		//$this->data['other'] = $this->loadModule('module/productlist','index',$arr);
 		//Load san phang cung hieu
 		$nhanhieuid = $this->data['post']['brand'];
-		if($nhanhieuid)
+		if(@$nhanhieuid)
 		{
 			$where = " AND mediaid not like '".$mediaid."'";
 			$arr = array($where,$nhanhieuid);
@@ -241,7 +241,7 @@ class ControllerModulePagedetail extends Controller
 		$this->data['comment'] = $this->loadModule('module/comment','getList',$arr);
 		//Cac sp cung code
 		
-		if($this->data['post']['code'] != "")
+		if(@$this->data['post']['code'] != "")
 		{
 			$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = '' AND mediaid <> '".$this->data['post']['mediaid']."'";
 			$this->data['data_samplecode'] = $this->model_core_media->getList($where);
@@ -260,7 +260,7 @@ class ControllerModulePagedetail extends Controller
 	{
 		$a = (int)$mediaa['sizes'];
 		$b = (int)$mediab['sizes'];
-		if ($a == $b) {
+		if(@$a == $b) {
         return 0;
 		}
 		return ($a < $b) ? -1 : 1;	

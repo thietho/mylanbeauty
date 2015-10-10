@@ -42,15 +42,15 @@ $("#btnSearch").click(function(){
 	/*var url =  HTTP_SERVER+"product/search/";
 	var keyword = trim($("#txt_search").val()," ");
 	
-	if($("#loaisp").val() != "")
+	if(@$("#loaisp").val() != "")
 		url += "[loaisp=" + $("#loaisp").val()+"]";*/
-	/*if($("#nhomhuong").val() != "")
+	/*if(@$("#nhomhuong").val() != "")
 		url += "[nhomhuong="+ $("#nhomhuong").val()+"]";*/
-	/*if($("#nhanhieu").val() != "")
+	/*if(@$("#nhanhieu").val() != "")
 		url += "[nhanhieu=" + $("#nhanhieu").val()+"]";
-	if($("#gia").val() != "")
+	if(@$("#gia").val() != "")
 		url += "[gia=" + $("#gia").val()+"]";
-	if($("#keyword").val() != "")
+	if(@$("#keyword").val() != "")
 		url += "[keyword=" + keyword+"]";
 	
 	

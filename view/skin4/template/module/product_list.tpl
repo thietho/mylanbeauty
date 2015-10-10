@@ -1,5 +1,5 @@
 <?php
-if(count($medias))
+if(@count($medias))
 {
 	
 ?>
@@ -8,7 +8,7 @@ if(count($medias))
                     
                     <?php 
                     $block = "ui-block-a";
-                    if( $key%2 != 0)
+                    if(@$key%2 != 0)
                     	$block = "ui-block-b";
                     ?>
                 <div class="<?php echo $block?>">
@@ -18,35 +18,35 @@ if(count($medias))
                         	<a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="fade">
                             <?php 
                             	$productname = $media['title'];
-                                if($media['code'])
+                                if(@$media['code'])
                                     $productname .= "<strong> - ".$media['code']."</strong>";
-                                if($media['sizes'])
+                                if(@$media['sizes'])
                                     $productname .= " <strong>".$media['sizes']."</strong>";
-                                if($media['color'])
+                                if(@$media['color'])
                                     $productname .= " <strong>".$media['color']."</strong>";
                                 echo $productname;
                             ?>
                             
-                            <strong><?php if($media['brand']) echo $this->document->getCategory($media['brand'])?></strong></a>
+                            <strong><?php if(@$media['brand']) echo $this->document->getCategory($media['brand'])?></strong></a>
                         </p>
-                        <?php if($media['discountpercent']){ ?>
+                        <?php if(@$media['discountpercent']){ ?>
                         <div class="flagdiscount">-<?php echo $this->string->numberFormate($media['discountpercent'])?>%</div>
                         <?php } ?>
                         <a href="<?php echo $media['link']?>" title="<?php echo $this->document->productName($media)?>" data-transition="fade"><img src='<?php echo $media['imagethumbnail']?>' alt="<?php echo $this->document->productName($media)?>" title="<?php echo $this->document->productName($media)?>"/></a>
                         <div class="price-group">
-                        	<?php if(count($media['childs']) && $media['displaytype']==''){ ?>
+                        	<?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
                             	<?php foreach($media['childs'] as $me){?>
                                 	<p class="price">
                                     <?php echo $me['sizes']?>
                                     <?php 
-                                    //if($me['color'])
+                                    //if(@$me['color'])
                                         //echo " ".$me['color'];
                                     ?>:
-                                    <?php if($me['price'] == 0){ ?>
+                                    <?php if(@$me['price'] == 0){ ?>
                                     	Giá đang cập nhật
                                     <?php }else{ ?>
                                     	
-                                    	<?php if($me['pricepromotion'] == 0){ ?>
+                                    	<?php if(@$me['pricepromotion'] == 0){ ?>
                                         	<span class="shop"><?php echo $this->string->numberFormate($me['price'])?><?php echo $this->document->setup['Currency']?></span>
                                         <?php }else{ ?>
                                         	
@@ -58,11 +58,11 @@ if(count($medias))
                                     </p>
                                 <?php } ?>
                             <?php } ?>
-                            <?php if(count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
-                            	<?php if($media['price'] == 0){ ?>
+                            <?php if(@count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
+                            	<?php if(@$media['price'] == 0){ ?>
                                 	<p class="price">Giá đang cập nhật</p>
                                 <?php }else{ ?>
-                                	<?php if($media['pricepromotion']==0){ ?>
+                                	<?php if(@$media['pricepromotion']==0){ ?>
                                     	<p class="price"><span class="shop"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></span></p>
                                     <?php }else{ ?>
                                     	<p class="price"><span class="genuine"><?php echo $this->string->numberFormate($media['price'])?><?php echo $this->document->setup['Currency']?></span>
@@ -72,7 +72,7 @@ if(count($medias))
                                 <?php } ?>
                                 <center>
                                 <?php foreach($media['childs'] as $me){ ?>
-                                	<?php if($me['colorcode']!=''){ ?>
+                                	<?php if(@$me['colorcode']!=''){ ?>
                                     
                                         <img class="hl-color-icon" style="background-color:<?php echo $me['colorcode']?>">
                                         

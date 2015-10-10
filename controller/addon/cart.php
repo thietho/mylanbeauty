@@ -28,7 +28,7 @@ class ControllerAddonCart extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->helper('image');
-		$data = $this->request->get;
+		@$data = $this->request->get;
 		if(!isset($_SESSION['cart']))
 		{
 			$_SESSION['cart'] = array();	
@@ -37,14 +37,14 @@ class ControllerAddonCart extends Controller
 		$media = $this->model_core_media->getItem($mediaid);
 		
 		$price = $media['price'];
-		if($media['pricepromotion'])
+		if(@$media['pricepromotion'])
 			$price = $media['pricepromotion'];
 		/*$parent = $this->model_core_media->getItem($media['mediaparent']);
 		if(count($parent))
 		{
 			$media['imagethumbnail'] = HelperImage::resizePNG($parent['imagepath'], 100, 100);
 			$title = $parent['title'];
-			if($media['title'] !="")
+			if(@$media['title'] !="")
 				$title .= "-". $media['title'];
 		}
 		else
@@ -53,14 +53,14 @@ class ControllerAddonCart extends Controller
 			$title = $media['title'];
 			$price = $media['price'];
 			$price = $media['price'];
-			if($media['pricepromotion'])
+			if(@$media['pricepromotion'])
 				$price = $media['pricepromotion'];
 		}*/
 		$media['imagethumbnail'] = HelperImage::resizePNG($media['imagepath'], 100, 100);
 		$title = $this->document->productName($media['mediaid']);
 		$price = $media['price'];
 		$price = $media['price'];
-		if($media['pricepromotion'])
+		if(@$media['pricepromotion'])
 			$price = $media['pricepromotion'];
 		$qty =(int)$_SESSION['cart'][$mediaid]['qty'];
 		
@@ -81,7 +81,7 @@ class ControllerAddonCart extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->helper('image');
-		$data = $this->request->get;
+		@$data = $this->request->get;
 		if(!isset($_SESSION['cart']))
 		{
 			$_SESSION['cart'] = array();	
@@ -100,7 +100,7 @@ class ControllerAddonCart extends Controller
 	
 	public function remove()
 	{
-		$data = $this->request->get;	
+		@$data = $this->request->get;	
 		$mediaid = $data['mediaid'];
 		unset($_SESSION['cart'][$mediaid]);
 		

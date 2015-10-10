@@ -11,13 +11,13 @@ class ControllerAddonMessage extends Controller
 		$this->data['DIR_UPLOADATTACHMENT'] = HTTP_SERVER."index.php?route=common/uploadattachment";
 		$this->load->model('core/message');
 		$this->load->helper('image');
-		$this->messageid = $this->request->get['id'];
+		@$this->messageid = $this->request->get['id'];
 	}
 	public function index()
 	{
 		$this->document->title .= " - Hộp thư";
 		$this->document->breadcrumb .= '<a href="'.$this->document->createLink('member').'">Thông tin thành viên </a> » '."Hộp thư";
-		if($this->messageid=="")
+		if(@$this->messageid=="")
 			$this->getList();
 		else
 		{
@@ -30,8 +30,8 @@ class ControllerAddonMessage extends Controller
 	{
 		
 		$this->data['messages'] = array();
-		$this->data['folder'] = $this->request->get['folder'];
-		if($this->data['folder'] == "")
+		@$this->data['folder'] = $this->request->get['folder'];
+		if(@$this->data['folder'] == "")
 			$this->data['folder']="inbox";
 		
 		$this->data[$this->data['folder']."class"] = "selected";
@@ -64,7 +64,7 @@ class ControllerAddonMessage extends Controller
 		//
 		$rows = $this->data['messages'];
 		//Page
-		$page = $this->request->get['page'];		
+		@$page = $this->request->get['page'];		
 		$x=$page;		
 		$limit = 20;
 		$total = count($rows); 
@@ -90,9 +90,9 @@ class ControllerAddonMessage extends Controller
 		$this->data['item'] = $this->model_core_message->getItem($this->messageid);
 		
 		$this->model_core_message->updateStatus($this->messageid,"read");
-		if($this->data['item']['attachment'] !="")
+		if(@$this->data['item']['attachment'] !="")
 		{
-			$listfileid = split(",",$this->data['item']['attachment']);
+			@$listfileid = split(",",$this->data['item']['attachment']);
 			$this->data['attachment']=array();
 			foreach($listfileid as $key => $item)
 			{
@@ -117,7 +117,7 @@ class ControllerAddonMessage extends Controller
     	if (isset($this->request->post['delete'])) {
 			foreach ($this->request->post['delete'] as $messageid) 
 			{
-				if($this->request->get['folder']!="send")
+				if(@$this->request->get['folder']!="send")
 					$this->model_core_message->delectMessage($messageid);
 				else
 					$this->model_core_message->delete($messageid);

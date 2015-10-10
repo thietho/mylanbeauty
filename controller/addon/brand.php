@@ -13,19 +13,19 @@ class ControllerAddonBrand extends Controller
 	{
 		$this->load->model("core/media");
 		$this->load->model("core/sitemap");
-		$this->data['media'] = $this->model_core_media->getItem($mediaid);
+		@$this->data['media'] = $this->model_core_media->getItem($mediaid);
 		
-		if($categoryid=="")
+		if(@$categoryid=="")
 		{
 			@$arr = split("-",$this->request->get['id']);
-			$categoryid = $arr[0];
-			$sitemapid = $arr[1];
+			@$categoryid = $arr[0];
+			@$sitemapid = $arr[1];
 		}
 		
 		$this->document->title .= " - ".$this->document->getCategory($categoryid);
 		$header = $this->document->getCategory($categoryid);
 		$sitemap = $this->model_core_sitemap->getItem($sitemapid,$this->member->getSiteId());
-		if($sitemapid == "")	
+		if(@$sitemapid == "")	
 		{
 			$this->document->breadcrumb .= ' » <a href="' .$this->document->createLink("brand",$categoryid).'">'.$header."</a>";
 		}
@@ -34,10 +34,10 @@ class ControllerAddonBrand extends Controller
 			$this->document->breadcrumb .= '<a href="' .$this->document->createLink($sitemap['sitemapid']).'">'.$sitemap['sitemapname']."</a> » ". '<a href="' .$this->document->createLink("brand",$categoryid."-".$sitemapid).'">'.$header.'</a>';
 		}
 		$where .= " AND brand like '".$categoryid."' AND mediaparent =''";
-		if($sitemapid)
+		if(@$sitemapid)
 			$where .= " AND refersitemap like '%[".$sitemapid."]%'";
 		
-		$order = $_GET['order'];
+		@$order = $_GET['order'];
 		$orderby = "";
 		switch($order)
 		{
@@ -54,13 +54,13 @@ class ControllerAddonBrand extends Controller
 		$data_media = array();
 			
 		$listmediaid = $this->model_core_media->getInformation("sort".$categoryid,"sort");
-		if($listmediaid!="")
+		if(@$listmediaid!="")
 		{
 			$arrmediaid = $this->string->referSiteMapToArray($listmediaid);
 			foreach($arrmediaid as $mediaid)
 			{
 				$media = $this->model_core_media->getItem($mediaid);
-				if($media['status'] == 'active' && $media['imagepath'] != "")
+				if(@$media['status'] == 'active' && $media['imagepath'] != "")
 					$data_media[] = $media;
 			}
 			
@@ -70,7 +70,7 @@ class ControllerAddonBrand extends Controller
 		}
 		$medias = $this->model_core_media->getList($where.$orderby);
 		$medias = array_merge($data_media,$medias);
-		if(count($listparent))
+		/*if(@count($listparent))
 		{
 			$data = array();
 			foreach($medias as $key =>$item)
@@ -85,7 +85,7 @@ class ControllerAddonBrand extends Controller
 				}
 			}
 			$medias = $data;
-		}
+		}*/
 		
 		$template = array(
 							  'template' => "module/product_list.tpl",

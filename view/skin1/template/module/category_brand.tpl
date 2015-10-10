@@ -29,7 +29,7 @@
         <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/brand/<?php echo $item['categoryid']?>"><?php echo $item['categoryname']?></a>
         <?php 
         	$arr = $this->string->array_Filter($datas,'parent',$item['categoryid']);
-            if(count($arr))
+            if(@count($arr))
             {
         ?>
         <ul class="ben-subbrand">

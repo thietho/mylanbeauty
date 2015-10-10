@@ -6,12 +6,12 @@
 </div>
 <div>
 				<?php
-		if(count($attachment)>0)
+		if(@count($attachment)>0)
 		{
 			
 			foreach($attachment as $item)
 			{
-				if(count($item))
+				if(@count($item))
 				{
 ?>
 					<p>

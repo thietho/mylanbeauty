@@ -58,7 +58,7 @@
         <?php }?>
         <div class="product-subimage">
             <?php 
-            if(count($subimage))
+            if(@count($subimage))
             foreach($subimage as $key => $val){ ?>
             <img id="icon-<?php echo $key?>" class="product-icon" src="<?php echo $val['imagethumbnail']?>" />
             <?php } ?>
@@ -127,7 +127,7 @@
         </thead>
         <tbody>
         	
-            <?php if(count($priceproduct)){ ?>
+            <?php if(@count($priceproduct)){ ?>
         	<?php foreach($priceproduct as $val){ ?>
             <tr>
             	<td><?php echo $val['title']!=""?$val['title']:$post['title'] ?></td>
@@ -154,7 +154,7 @@
     </table>
 </div>
 
-<?php if(count($child)){ ?>
+<?php if(@count($child)){ ?>
 <div id="subinfo">
         	
             

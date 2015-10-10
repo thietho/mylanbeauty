@@ -6,7 +6,7 @@
     
     	
         <p>
-        	<?php echo $media['title']?>
+        	<?php echo @$media['title']?>
         </p>
         	<p>
             <table>
@@ -14,13 +14,13 @@
             	
                 	<tr>
                     	<td>
-                        	<?php echo $answer['title']?>
+                        	<?php echo @$answer['title']?>
                         </td>
                         <td>
-                        	<div class="ben-answer" style="width:<?php echo $answer['mark']*100/$media['total']?>px">&nbsp;</div>
+                        	<div class="ben-answer" style="width:<?php echo @$answer['mark']*100/$media['total']?>px">&nbsp;</div>
                         </td>
                         <td>
-                        	<?php echo $answer['mark']?>(<?php echo $this->string->numberFormate($answer['mark']*100/$media['total'],2)?>%)
+                        	<?php echo @$answer['mark']?>(<?php echo @$this->string->numberFormate($answer['mark']*100/$media['total'],2)?>%)
                         </td>
                     </tr>
                 

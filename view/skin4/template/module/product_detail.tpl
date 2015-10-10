@@ -9,11 +9,11 @@
             	
             <?php 
                 $productname = $post['title'];
-                if($post['code'])
+                if(@$post['code'])
                     $productname .= "<strong> - ".$post['code']."</strong>";
-                if($post['sizes'])
+                if(@$post['sizes'])
                     $productname .= " <strong>".$post['sizes']."</strong>";
-                if($post['color'])
+                if(@$post['color'])
                     $productname .= " <strong>".$post['color']."</strong>";
                 echo $productname;
             ?>
@@ -42,18 +42,18 @@
                         <li>
                             <strong>Nhãn hiệu: <a class="brand" href="<?php echo $this->document->createLink('brand',$post['brand'])?>" title="<?php echo $this->document->getCategory($post['brand'])?>"><?php echo $this->document->getCategory($post['brand'])?></a></strong>
                         </li>
-                        <?php if($post['color'] != ""){ ?>
+                        <?php if(@$post['color'] != ""){ ?>
                         <li>
                             <strong>Màu: <?php echo $post['color']?></strong>
                                 
                         </li>
                         <?php } ?>
-                        <?php if(count($priceproduct) == 0){ ?>
+                        <?php if(@count($priceproduct) == 0){ ?>
                         <li class="price-group"><strong>Giá:
-                        		<?php if($post['price'] == 0){ ?>
+                        		<?php if(@$post['price'] == 0){ ?>
                                 	<span class="price">Giá đang cập nhật</span>
                                 <?php }else{ ?>
-                                	<?php if($post['pricepromotion']==0){ ?>
+                                	<?php if(@$post['pricepromotion']==0){ ?>
                                     	<span class="price"><span class="shop"><?php echo $this->string->numberFormate($post['price'])?><?php echo $this->document->setup['Currency']?></span></span>
                                     <?php }else{ ?>
                                     	<span class="price"><span class="genuine"><?php echo $this->string->numberFormate($post['price'])?><?php echo $this->document->setup['Currency']?></span>
@@ -71,7 +71,7 @@
             </div> 
 			<div class="col-md-12">
             	<?php echo $post['description']?>
-                <?php if(count($priceproduct)){ ?>
+                <?php if(@count($priceproduct)){ ?>
                 <div id="listprice">
                     <table class="ui-responsive ui-table ui-table-reflow">
                         <thead>
@@ -92,16 +92,16 @@
                                 <td>
                                 	<?php echo $this->document->productName($val)?>
                                     
-                                    <?php if($val['noteprice']!=""){ ?>
+                                    <?php if(@$val['noteprice']!=""){ ?>
                                         (<?php echo $val['noteprice']?>)
                                     <?php }?>
-                                    <?php if($val['tenkhuyenmai']){ ?>
+                                    <?php if(@$val['tenkhuyenmai']){ ?>
                                     <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo $val['makhuyenmai']?>')"><?php echo $val['tenkhuyenmai']?></a></p>
                                     <?php } ?>
                                 </td>
                                 <td>
                                 	<a href="#<?php echo $val['mediaid']?>" data-rel="popup" data-position-to="window" >
-                                    	<?php if($val['colorcode']==''){ ?>
+                                    	<?php if(@$val['colorcode']==''){ ?>
                                     	<img src="<?php echo $val['icon']?>" title="<?php echo $this->document->productName($val)?>" >
                                         <?php }else{ ?>
                                         <img style="background-color:<?php echo $val['colorcode']?>;width:50px;height:50px" >
@@ -114,22 +114,22 @@
                                 </td>
                                 <td class="number">
                                     <?php $cls = '';?>
-                                        <?php if($val['pricepromotion']!=0){ ?>
+                                        <?php if(@$val['pricepromotion']!=0){ ?>
                                         <?php $cls = 'product-price-no';?>
                                     <?php } ?>
-                                    <?php if($val['price']!=0){ ?>
+                                    <?php if(@$val['price']!=0){ ?>
                                     <span class="<?php echo $cls?>"><?php echo $this->string->numberFormate($val['price'])?><?php echo $this->document->setup['Currency']?></span>
                                     <?php } ?>
                                 </td>
                                 <td class="number">
-                                    <?php if($val['discountpercent']!=0){ ?>
+                                    <?php if(@$val['discountpercent']!=0){ ?>
                                     <span class="product-pricepromotion">
                                     -<?php echo $this->string->numberFormate($val['discountpercent'])?>%
                                     </span>
                                     <?php } ?>
                                 </td>
                                 <td class="number">
-                                    <?php if($val['pricepromotion']!=0){ ?>
+                                    <?php if(@$val['pricepromotion']!=0){ ?>
                                     <span class="product-pricepromotion">
                                     <?php echo $this->string->numberFormate($val['pricepromotion'])?><?php echo $this->document->setup['Currency']?>
                                     </span>
@@ -148,7 +148,7 @@
                 <?php }?>
             </div>
             <div>
-                <?php if(count($data_samplecode)>1){ ?>
+                <?php if(@count($data_samplecode)>1){ ?>
                 <h3>Các sản phẩm cùng loại</h3>
                 <p>
                     <?php foreach($data_samplecode as $key => $item){?>

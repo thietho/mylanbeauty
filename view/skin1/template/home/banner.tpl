@@ -1,4 +1,4 @@
-<?php if(count($medias)){ ?>
+<?php if(@count($medias)){ ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo DIR_VIEW?>css/preview.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo DIR_VIEW?>css/wt-rotator.css"/>
 	<script type="text/javascript" src="<?php echo DIR_VIEW?>js/jquery.wt-rotator.min.js"></script>

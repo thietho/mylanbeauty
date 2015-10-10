@@ -28,7 +28,7 @@
                     	foreach($messages as $item) 
                         {
                         	$read="";
-                        	if($item['status']=="")
+                        	if(@$item['status']=="")
                             	$read='class="even"';
                     ?>
                 	<tr <?php echo $read?>>
@@ -36,7 +36,7 @@
                     	
                         <td><a href="<?php echo $this->document->createLink('message',$item['messageid'])?>"><?php echo $item['title']?>&nbsp;</a></td>
                         <td><?php echo $this->date->formatMySQLDate($item['senddate'])?>&nbsp;</td>
-                        <td><?php if($item['attachment']) echo '<img src="'.HTTP_SERVER.DIR_IMAGE.'icon/dinhkem.png">';?>&nbsp;</td>
+                        <td><?php if(@$item['attachment']) echo '<img src="'.HTTP_SERVER.DIR_IMAGE.'icon/dinhkem.png">';?>&nbsp;</td>
                         
                     </tr>
                     <?php } ?>

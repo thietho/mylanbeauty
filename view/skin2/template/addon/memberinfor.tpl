@@ -16,24 +16,24 @@
     	<table class="ben-form">
         	<tr>
             	<td><label>Tên đăng nhập</label></td>
-                <td><?php echo $member['username']?></td>
+                <td><?php echo @$member['username']?></td>
             </tr>
             
             <tr>
             	<td><label>Họ và tên</label></td>
-                <td id="fullname" class="text"><?php echo $member['fullname']?></td>
+                <td id="fullname" class="text"><?php echo @$member['fullname']?></td>
             </tr>
             <tr>
             	<td><label>Email</label></td>
-                <td id="email" class="text"><?php echo $member['email']?></td>
+                <td id="email" class="text"><?php echo @$member['email']?></td>
             </tr>
             <tr>
             	<td><label>Địa chỉ</label></td>
-                <td id="address" class="text"><?php echo $member['address']?></td>
+                <td id="address" class="text"><?php echo @$member['address']?></td>
             </tr>
             <tr>
             	<td><label>Điện thoại</label></td>
-                <td id="phone" class="text"><?php echo $member['phone']?></td>
+                <td id="phone" class="text"><?php echo @$member['phone']?></td>
             </tr>
             <tr>
             	<td><label>Ngày sinh</label></td>
@@ -46,7 +46,7 @@
 								});
 						});
 				 </script>
-                <td id="birthday" class="date"><?php echo $this->date->formatMySQLDate($member['birthday'])?></td>
+                <td id="birthday" class="date"><?php echo @$this->date->formatMySQLDate($member['birthday'])?></td>
             </tr>
             
             
@@ -57,7 +57,7 @@
 <div class="clearer">&nbsp;</div>
 
 <script type="text/javascript" charset="utf-8">
-var DIR_UPLOADPHOTO = "<?php echo $DIR_UPLOADPHOTO?>";
+var DIR_UPLOADPHOTO = "<?php echo @$DIR_UPLOADPHOTO?>";
 var isedit = true
 function editText(eid)
 {
@@ -108,7 +108,7 @@ $(".date").click(function(){
 function saveInfor(eid)
 {
 	isedit = false;
-	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveInfor", { userid: "<?php echo $member['username']?>", colname: eid , value: $("#text-"+eid).val()},
+	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveInfor", { userid: "<?php echo @$member['username']?>", colname: eid , value: $("#text-"+eid).val()},
 		function(data){
 			if(data == "true")
 			{
@@ -126,7 +126,7 @@ function saveInfor(eid)
 function saveDate(eid)
 {
 	isedit = false;
-	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveDate", { userid: "<?php echo $member['username']?>", colname: eid , value: $("#text-"+eid).val()},
+	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveDate", { userid: "<?php echo @$member['username']?>", colname: eid , value: $("#text-"+eid).val()},
 		function(data){
 			if(data == "true")
 			{
@@ -144,7 +144,7 @@ function saveDate(eid)
 
 function callbackfunc(objfile)
 {
-	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveAvatar", { userid: "<?php echo $member['username']?>", imageid: objfile.imageid , imagepath: objfile.imagepath},
+	$.post("<?php echo HTTP_SERVER?>?route=addon/memberinfor/saveAvatar", { userid: "<?php echo @$member['username']?>", imageid: objfile.imageid , imagepath: objfile.imagepath},
 		function(data){
 			if(data == "true")
 			{
