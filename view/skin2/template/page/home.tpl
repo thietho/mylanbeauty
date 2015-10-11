@@ -100,7 +100,7 @@ $(document).ready(function(e) {
     loadBrand();
 });
 $(document).scroll(function(e) {
-	if(@$(document).scrollTop() + window.innerHeight > $('#ben-maincontent .ben-section-content').innerHeight())
+	if($(document).scrollTop() + window.innerHeight > $('#ben-maincontent .ben-section-content').innerHeight())
 	{
 		
 		loadBrand();

@@ -122,7 +122,7 @@ $(document).ready(function(e) {
     loadBrand();
 });
 /*$(document).scroll(function(e) {
-	if(@$(document).scrollTop() + window.innerHeight > $('#hl-home').innerHeight())
+	if($(document).scrollTop() + window.innerHeight > $('#hl-home').innerHeight())
 	{
 		
 		loadBrand();

@@ -4738,6 +4738,7 @@ $.widget( "mobile.page", {
 					direction = ( steps >= 1 )? "forward" : "back";
 
 				//update the history object
+
 				$.mobile.navigate.history.activeIndex = index;
 				$.mobile.navigate.history.previousIndex = activeIndex;
 
@@ -7964,6 +7965,7 @@ $.widget( "mobile.checkboxradio", $.extend( {
 	},
 
 	// Returns those radio buttons that are supposed to be in the same group as
+
 	// this radio button. In the case of a checkbox or a radio lacking a name
 	// attribute, it returns this.element.
 	_getInputSet: function() {
@@ -10224,7 +10226,7 @@ $.widget( "mobile.selectmenu", $.extend( {
 
 	_refreshButton: function() {
 		this.setButtonText();
-		this.setButton@count();
+		this.setButtonCount();
 	},
 
 	refresh: function() {
@@ -11547,7 +11549,7 @@ $.widget( "mobile.selectmenu", $.mobile.selectmenu, {
 		indices = this.selectedIndices();
 
 		self.setButtonText();
-		self.setButton@count();
+		self.setButtonCount();
 
 		self.list.find( "li:not(.ui-li-divider)" )
 			.find( "a" ).removeClass( $.mobile.activeBtnClass ).end()
