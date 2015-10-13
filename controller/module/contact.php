@@ -35,7 +35,7 @@ class ControllerModuleContact extends Controller
 		if(count($error))
 		{
 			foreach($error as $item)
-				$this->data['output'].=$item."<br>";
+				@$this->data['output'].=$item."<br>";
 		}
 		else
 		{
@@ -69,7 +69,7 @@ class ControllerModuleContact extends Controller
 			$mail['body'] = $this->loadModule('module/contact','createEmailTemplate',$arr);
 			$this->mailsmtp->sendMail($mail);
 			
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		$this->id="content";
 		$this->template="common/output.tpl";
@@ -103,7 +103,7 @@ class ControllerModuleContact extends Controller
 		if(count($error))
 		{
 			foreach($error as $item)
-				$this->data['output'].=$item."<br>";
+				@$this->data['output'].=$item."<br>";
 		}
 		else
 		{
@@ -165,7 +165,7 @@ class ControllerModuleContact extends Controller
 			
 			$this->mailsmtp->sendMail($mail);
 			
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		$this->id="content";
 		$this->template="common/output.tpl";

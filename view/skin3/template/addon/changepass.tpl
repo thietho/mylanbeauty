@@ -40,7 +40,7 @@ $("#btnChangepass").click(function(){
 			if(data == "true")
 			{
 				alert("Bạn đã đổi mật khẩu thành công!");
-				window.location = "<?php echo $this->document->createLink('member')?>";
+				window.location = "<?php echo @$this->document->createLink('member')?>";
 			}
 			else
 			{

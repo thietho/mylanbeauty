@@ -5,7 +5,7 @@ class ControllerCommonValidate extends Controller
 	{	
 		@$str=$this->request->get['email'];
 		if(@$this->validation->_checkEmail($str) == false )
-			$this->data['output']="Sai email";
+			@$this->data['output']="Sai email";
 		$this->id="content";
 		$this->template="common/output.tpl";
 		$this->render();
@@ -20,7 +20,7 @@ class ControllerCommonValidate extends Controller
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$this->model_core_media->saveInformation("locationallow", $data['location'], $ip);
 		
-		$this->data['output']="true";
+		@$this->data['output']="true";
 		
 		$this->id="content";
 		$this->template="common/output.tpl";

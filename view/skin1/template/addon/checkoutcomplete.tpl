@@ -4,31 +4,31 @@
     	<table class="ben-form">
         	<tr>
             	<td><label>Mã đơn hàng</label></td>
-                <td><?php echo $order['orderid']?></td>
+                <td><?php echo @$order['orderid']?></td>
             </tr>
             <tr>
             	<td><label>Họ và tên</label></td>
-                <td><?php echo $order['customername']?></td>
+                <td><?php echo @$order['customername']?></td>
             </tr>
             <tr>
             	<td><label>Địa chỉ</label></td>
-                <td><?php echo $order['address']?></td>
+                <td><?php echo @$order['address']?></td>
             </tr>
             <tr>
             	<td><label>Email</label></td>
-                <td><?php echo $order['email']?></td>
+                <td><?php echo @$order['email']?></td>
             </tr>
             <tr>
             	<td><label>Điện thoại</label></td>
-                <td><?php echo $order['phone']?></td>
+                <td><?php echo @$order['phone']?></td>
             </tr>
             <tr>
             	<td><label>Trạng thái</label></td>
-                <td><?php echo $this->document->status[$order['status']]?></td>
+                <td><?php echo @$this->document->status[$order['status']]?></td>
             </tr>
             <tr>
             	<td><label>Ghi chú</label></td>
-                <td><?php echo $order['comment']?></td>
+                <td><?php echo @$order['comment']?></td>
             </tr>
         </table>
 </div>
@@ -52,11 +52,11 @@
         $sum += $media['subtotal'];
     ?>
         <tr>
-            <td><img src="<?php echo $media['imagethumbnail']?>" class="ben-center"/></td>
-            <td><?php echo $media['title']?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['price'])?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['quantity'])?></td>
-            <td class="number"><?php echo $this->string->numberFormate($media['subtotal'])?></td>
+            <td><img src="<?php echo @$media['imagethumbnail']?>" class="ben-center"/></td>
+            <td><?php echo @$media['title']?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['price'])?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['quantity'])?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($media['subtotal'])?></td>
             
         </tr>
     <?php } ?>
@@ -67,7 +67,7 @@
             <td></td>
             <td></td>
             <td>Tông cộng</td>
-            <td class="number"><?php echo $this->string->numberFormate($sum)?></td>
+            <td class="number"><?php echo @$this->string->numberFormate($sum)?></td>
         </tr>
     </tfoot>
 </table>

@@ -37,7 +37,7 @@ class ControllerSitebarLogin extends Controller
 		
 		setcookie('username', "",time()-3600);
 		setcookie('password', "",time()-3600);
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();

@@ -87,7 +87,7 @@ class ControllerAddonKt extends Controller
 						 	  'heightpreview' =>450
 							  );
 		$arr = array("",12,$header,$template,$medias);
-		$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
+		@$this->data['output'] = $this->loadModule('module/productlist','index',$arr);
 			
 			
 	}

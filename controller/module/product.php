@@ -26,7 +26,7 @@ class ControllerModuleProduct extends Controller
 					  'height' =>250
 					  );
 		$arr = array($this->document->sitemapid,12,$template);
-		$this->data['output'] = $this->loadModule('module/pagedetail','getFormProduct',$arr);
+		@$this->data['output'] = $this->loadModule('module/pagedetail','getFormProduct',$arr);
 		
 		
 		$this->id="quickView";

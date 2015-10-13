@@ -78,13 +78,13 @@ class ControllerAddonCheckout extends Controller
 			$mail['body'] .= $this->loadModule('module/contact','createEmailTemplate',$arr);
 			$this->mailsmtp->sendMail($mail);
 			
-			$this->data['output'] = "true-".$orderid;
+			@$this->data['output'] = "true-".$orderid;
 		}
 		else
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

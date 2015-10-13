@@ -29,7 +29,7 @@
 }
 </style>
 
-<h2><?php echo $sitemap['breadcrumb']?></h2>
+<h2><?php echo @$sitemap['breadcrumb']?></h2>
 <div class="ben-post">
 	<div class="ben-left product-left">
     	<?php if(in_array("sanphamhot",$properties)){ ?>
@@ -48,11 +48,11 @@
         </div>
         <?php } ?>
         <?php if($media['imagethumbnail'] !=""){ ?>
-        <a class="islink" href="<?php echo $media['link']?>"><img src='<?php echo $media['imagethumbnail']?>' class='ben-center' /></a>
+        <a class="islink" href="<?php echo @$media['link']?>"><img src='<?php echo @$media['imagethumbnail']?>' class='ben-center' /></a>
         <?php }?>
     	<?php if($post['imagethumbnail'] !=""){ ?>
         <div class="product-mainimage">
-	        <img id="product-preview" src="<?php echo $post['imagethumbnail']?>"/>
+	        <img id="product-preview" src="<?php echo @$post['imagethumbnail']?>"/>
         </div>
         
         <?php }?>
@@ -60,17 +60,17 @@
             <?php 
             if(@count($subimage))
             foreach($subimage as $key => $val){ ?>
-            <img id="icon-<?php echo $key?>" class="product-icon" src="<?php echo $val['imagethumbnail']?>" />
+            <img id="icon-<?php echo @$key?>" class="product-icon" src="<?php echo @$val['imagethumbnail']?>" />
             <?php } ?>
         </div>
         <div style="display:none">
         	<?php foreach($subimage as $key => $val){ ?>
-            <img id="preview-<?php echo $key?>" src="<?php echo $val['imagepreview']?>" />
+            <img id="preview-<?php echo @$key?>" src="<?php echo @$val['imagepreview']?>" />
             <?php } ?>
         </div>
     </div>
     <div class="ben-right product-right">
-        <h2><?php echo $post['title']?></h2>
+        <h2><?php echo @$post['title']?></h2>
         
         <div class="ben-post-body">
         	<p>
@@ -79,7 +79,7 @@
                     	<td width="25%"><strong>Loại sản phẩm:</strong></td>
                         <td>
                         	<?php foreach($loaisp as $it){ ?>
-                            <?php echo $it['sitemapname']; ?>
+                            <?php echo @$it['sitemapname']; ?>
                             <?php } ?>
                         </td>
                     </tr>
@@ -97,7 +97,7 @@
                 
             </p>
             <p>
-            	<b><?php echo $post['summary']?></b>
+            	<b><?php echo @$post['summary']?></b>
                 
             </p>
         </div>
@@ -107,11 +107,11 @@
 </div>
 <div class="ben-hline"></div>
 <p>
-    <?php echo $post['description']?>
+    <?php echo @$post['description']?>
 </p>
 
 <p class="ben-text-right">
-	<b><?php echo $post['source']?></b>
+	<b><?php echo @$post['source']?></b>
 </p>
 
 <div id="listprice">
@@ -130,23 +130,23 @@
             <?php if(@count($priceproduct)){ ?>
         	<?php foreach($priceproduct as $val){ ?>
             <tr>
-            	<td><?php echo $val['title']!=""?$val['title']:$post['title'] ?></td>
+            	<td><?php echo @$val['title']!=""?$val['title']:$post['title'] ?></td>
                 <td class="number">
                 	<?php if($val['thitruong']!=0){ ?>
-                	<?php echo $this->string->numberFormate($val['thitruong'])?> <?php echo $this->document->setup['Currency']?>
+                	<?php echo @$this->string->numberFormate($val['thitruong'])?> <?php echo @$this->document->setup['Currency']?>
                     <?php } ?>
                 </td>
                 <td class="number">
                 	<?php if($val['gia']!=0){ ?>
-                	<?php echo $this->string->numberFormate($val['gia'])?> <?php echo $this->document->setup['Currency']?>
+                	<?php echo @$this->string->numberFormate($val['gia'])?> <?php echo @$this->document->setup['Currency']?>
                     <?php } ?>
                 </td>
                 <td class="number">
                 	<?php if($val['khuyenmai']!=0){ ?>
-                	<?php echo $this->string->numberFormate($val['khuyenmai'])?><?php echo $this->document->setup['Currency']?>
+                	<?php echo @$this->string->numberFormate($val['khuyenmai'])?><?php echo @$this->document->setup['Currency']?>
                     <?php } ?>
                 </td>
-                <td><input type="button" class="ben-button" onclick="cart.add('<?php echo $val['mediaid']?>')" value="Đặt hàng"></td>
+                <td><input type="button" class="ben-button" onclick="cart.add('<?php echo @$val['mediaid']?>')" value="Đặt hàng"></td>
             </tr>
             <?php } ?>
             <?php } ?>
@@ -160,12 +160,12 @@
             
     <ul>
     	<?php foreach($child as $key => $item){ ?>
-        	<li><a href="#fragment-<?php echo $key?>"><span><?php echo $item['title']?></span></a></li>	
+        	<li><a href="#fragment-<?php echo @$key?>"><span><?php echo @$item['title']?></span></a></li>	
         <?php } ?>
     </ul>
    
     <?php foreach($child as $key => $item){ ?>
-    <div id="fragment-<?php echo $key?>">
+    <div id="fragment-<?php echo @$key?>">
     	<?php echo html_entity_decode($item['description'])?>
     </div>
     <?php } ?>

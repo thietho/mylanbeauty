@@ -32,7 +32,7 @@ class ControllerCommonUploadfile extends Controller
 			}
 
 		}
-		$this->data['output'] = json_encode(array('files' => $_FILES['files']['name']));
+		@$this->data['output'] = json_encode(array('files' => $_FILES['files']['name']));
 		$this->id="uploadpreview";
 		$this->template="common/output.tpl";
 		$this->render();

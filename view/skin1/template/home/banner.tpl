@@ -18,12 +18,12 @@
                     <ul>
                     	<?php foreach($medias as $media) {?>
                         <li>
-                            <a href="<?php echo $media['imagethumbnail']?>"></a>
+                            <a href="<?php echo @$media['imagethumbnail']?>"></a>
                             
                             <?php if($media['title']!=""){?>
                             <div style="left:<?php echo rand(100,587)?>px; top:34px; width:306px;">
-                               <span class="cap-title"><?php echo $media['title']?></span><br/>
-                               <?php echo $media['summary']?>
+                               <span class="cap-title"><?php echo @$media['title']?></span><br/>
+                               <?php echo @$media['summary']?>
                             </div>
                             <?php }?>                          
                         </li>

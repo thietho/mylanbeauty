@@ -23,10 +23,10 @@
                 <li class="tabs"><a href="#fragment-giavang"><span>Giá vàng</span></a></li>
             </ul>
             <div id="fragment-tigia" class="tabs-container">
-            	<?php echo $tygia?>
+            	<?php echo @$tygia?>
             </div>
             <div id="fragment-giavang" class="tabs-container">
-            	<?php echo $giavang?>
+            	<?php echo @$giavang?>
             </div>
          </div>
     	

@@ -39,14 +39,14 @@ class ControllerAddonCompose extends Controller
 			$data['replyfrom']= $messageid;
 			
 			$messageid=$this->model_core_message->insert($data);
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		else
 		{
-			$this->data['output'] = "";
+			@$this->data['output'] = "";
 			foreach($error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id="content";

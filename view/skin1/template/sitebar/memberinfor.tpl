@@ -2,19 +2,19 @@
 	<div class="ben-section-title">Thông tin thành viên</div>
     <div class="ben-section-content">
     	<p>
-    		<?php echo $member['fullname']?> (<?php echo $member['username']?>)
+    		<?php echo @$member['fullname']?> (<?php echo @$member['username']?>)
     	</p>
         <p>
-        	<a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/memberinfor">Thông tin cá nhân</a>
+        	<a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/memberinfor">Thông tin cá nhân</a>
         </p>
         <p>
-        	<a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/changepass">Đổi mật khẩu</a>
+        	<a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/changepass">Đổi mật khẩu</a>
         </p>
         <p>
-        	<a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/historyorder">Lịch sử mua hàng</a>
+        	<a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/historyorder">Lịch sử mua hàng</a>
         </p>
         <p>
-        	<a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/message">Hộp thư</a>
+        	<a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/message">Hộp thư</a>
         </p>
         <p>
         	<a href="#" onclick="logout()">Đăng xuất</a>

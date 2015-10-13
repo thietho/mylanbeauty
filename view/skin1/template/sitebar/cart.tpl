@@ -3,7 +3,7 @@
     	<div class="ben-section-title">Giỏ hàng</div>
         <div id="sitebarcartlist">
         </div>
-        <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/cart">Xem giỏ hàng</a>
+        <a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/cart">Xem giỏ hàng</a>
     </div>
     
 </div>

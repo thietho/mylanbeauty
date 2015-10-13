@@ -26,7 +26,7 @@ class ControllerAddonProduct extends Controller
 		$gia = urldecode($_GET['gia']);
 		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
-			$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
+			@$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
 		}
 		
@@ -148,7 +148,7 @@ class ControllerAddonProduct extends Controller
 						  	  'heightpreview' =>450
 							  );
 		$arr = array("",'',"Kết quả tìm kiếm",$template,$medias);
-		$this->data['output'] = $this->loadModule('module/productlist','getAll',$arr);
+		@$this->data['output'] = $this->loadModule('module/productlist','getAll',$arr);
 	}
 	
 	public function getViewList()
@@ -181,7 +181,7 @@ class ControllerAddonProduct extends Controller
 		$media['link'] = $this->document->createLink($sitemapid,$media['alias']);
 		$_SESSION['proviews'][$mediaid] = $media;
 		
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();

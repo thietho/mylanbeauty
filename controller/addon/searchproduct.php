@@ -48,7 +48,7 @@ class ControllerAddonSearchproduct extends Controller
 		$gia = urldecode($_GET['gia']);
 		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
-			$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
+			@$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
 		}
 		

@@ -253,9 +253,9 @@
     </div>
     
     <div class="ben-sidebar ben-right">
-    	<?php echo $sample_defaultlist?>
-        <?php echo $sample_blanklist?>
-        <?php echo $sample_nicelist?>
+    	<?php echo @$sample_defaultlist?>
+        <?php echo @$sample_blanklist?>
+        <?php echo @$sample_nicelist?>
     </div>
     
     <div class="clearer">&nbsp;</div>

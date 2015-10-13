@@ -30,12 +30,12 @@
 		// tell the searcher to draw itself in tabbed mode
 		drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_TABBED);
 		searchControl.draw(document.getElementById("searchcontrol"), drawOptions);
-		$(".gsc-input").val("<?php echo $keyword?>");
+		$(".gsc-input").val("<?php echo @$keyword?>");
 		$(".gsc-search-box").submit();
 		$(".gsc-search-button").addClass("ben-button");
 		$(".gsc-input").addClass("ben-textbox");
 		$(".gsc-input").css("width","95%");
-		$(".gsc-search-button").val("<?php echo $button_search?>");
+		$(".gsc-search-button").val("<?php echo @$button_search?>");
 		
       }
       google.setOnLoadCallback(initialize);
@@ -69,6 +69,6 @@
 	<div id="searchcontrol"></div>
     <!--<?php foreach($searchResultsArray as $searchResults){ ?>
         <?php foreach($searchResults as $result){ ?>
-        <li><strong><a href="<?php echo $result["url"];?>"><?php echo $result["title"];?></a></strong> </li>
+        <li><strong><a href="<?php echo @$result["url"];?>"><?php echo @$result["title"];?></a></strong> </li>
         <?php } ?>
     <?php } ?>-->

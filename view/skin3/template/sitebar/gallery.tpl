@@ -24,7 +24,7 @@ var sagscroller_constants={
 <?php foreach($views as $brand => $item){?>
 <script>
 var sagscroller2=new sagscroller({
-	id:'<?php echo $brand?>',
+	id:'<?php echo @$brand?>',
 	mode: 'auto',
 	pause: 2500,
 	animatespeed: 400 //<--no comma following last option
@@ -33,10 +33,10 @@ var sagscroller2=new sagscroller({
 </script>
 <div class="ben-section">
     <div class="ben-section-content">
-    	<div class="ben-section-title"><a href="<?php echo $item['link']?>"><?php echo $item['title']?></a></div>
-        <div id="<?php echo $brand?>" class="sagscroller">
+    	<div class="ben-section-title"><a href="<?php echo @$item['link']?>"><?php echo @$item['title']?></a></div>
+        <div id="<?php echo @$brand?>" class="sagscroller">
             <ul>
-                <?php echo $item['data']?>
+                <?php echo @$item['data']?>
             </ul>
         </div>
     </div>

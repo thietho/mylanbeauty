@@ -66,7 +66,7 @@ class ControllerSitebarQuestion extends Controller
 		$mark = (int)$this->model_core_media->getInformation($answer,'mark');
 		$mark++;
 		$this->model_core_media->saveInformation($answer,'mark', $mark);
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();	

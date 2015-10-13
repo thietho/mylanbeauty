@@ -64,8 +64,8 @@ class ControllerModulePagelist extends Controller
 			
 			$pagelinks = $this->model_core_media->getPaginationLinks($index, $queryoptions, $querystring, $step, $to);
 			
-			$this->data['nextlink'] = $pagelinks['nextlink'];
-			$this->data['prevlink'] = $pagelinks['prevlink'];
+			@$this->data['nextlink'] = $pagelinks['nextlink'];
+			@$this->data['prevlink'] = $pagelinks['prevlink'];
 			
 			//Other news
 			$this->data['othernews'] = $this->model_core_media->getPaginationList($queryoptions, $step+1, $to);

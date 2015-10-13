@@ -7,7 +7,7 @@
                             <input type="button" class="buttongo" src="view/skin1/image/button_search.png" />
                         </div>
                     </div>
-					<?php echo $catalogue?>
+					<?php echo @$catalogue?>
                     
                 </div>
             </div>

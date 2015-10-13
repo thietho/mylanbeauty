@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo $direction; ?>" lang="<?php echo $language; ?>" xml:lang="<?php echo $language; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo @$direction; ?>" lang="<?php echo @$language; ?>" xml:lang="<?php echo @$language; ?>">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="INDEX,FOLLOW" />
 <meta http-equiv="REFRESH" content="5400" />
-<meta name="description" content="<?php echo $meta_description?>" />
-<meta name="keywords" content="<?php echo $meta_keyword?>" />		
-<title><?php echo $title?></title>
+<meta name="description" content="<?php echo @$meta_description?>" />
+<meta name="keywords" content="<?php echo @$meta_keyword?>" />		
+<title><?php echo @$title?></title>
 
 </head>
 
@@ -40,13 +40,13 @@ var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 <body>
 <div id="ben-main">
     
-    <?php echo $header?>
+    <?php echo @$header?>
 	
 	<div id="ben-content">
-    	<?php echo $content?>
+    	<?php echo @$content?>
     </div>
     
-    <?php echo $footer?> 
+    <?php echo @$footer?> 
 
 </div>
 

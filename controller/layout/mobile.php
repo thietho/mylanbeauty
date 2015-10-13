@@ -7,7 +7,7 @@ class ControllerLayoutMobile extends Controller
 		if(file_exists($_GET['sitemapid'].".html"))
 		{
 			
-			$this->data['output'] = file_get_contents($_GET['sitemapid'].".html");
+			@$this->data['output'] = file_get_contents($_GET['sitemapid'].".html");
 			$this->template="common/output.tpl";
 			$this->render();
 			

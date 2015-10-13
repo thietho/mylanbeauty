@@ -36,7 +36,7 @@ $("#btnActive").click(function(){
 			if(data == "true")
 			{
 				alert("Bạn đã kích hoạt tài khoản thành công!");
-				window.location = "<?php echo $this->document->createLink('login')?>";
+				window.location = "<?php echo @$this->document->createLink('login')?>";
 			}
 			else
 			{

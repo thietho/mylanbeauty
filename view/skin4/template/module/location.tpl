@@ -1,14 +1,14 @@
 <div id="desscription" style="display:none">
-	<strong><?php echo $item['title']?></strong><br><?php echo html_entity_decode($item['description'])?>
+	<strong><?php echo @$item['title']?></strong><br><?php echo html_entity_decode($item['description'])?>
 </div>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 
 var pos = 0;
 var flagedit=false;
-var x = parseFloat("<?php echo $location['x']?>");
-var y = parseFloat("<?php echo $location['y']?>");
-var zoom = parseInt("<?php echo $location['zoom']?>");
+var x = parseFloat("<?php echo @$location['x']?>");
+var y = parseFloat("<?php echo @$location['y']?>");
+var zoom = parseInt("<?php echo @$location['zoom']?>");
 	
 
 

@@ -39,7 +39,7 @@ class ControllerAddonLogin extends Controller
 					setcookie('username', $data['username'],time()+3600);
 					setcookie('password', $data['password'],time()+3600);
 				}
-				$this->data['output'] = "true";
+				@$this->data['output'] = "true";
 			}
 			else
 				$this->error['passfalse'] = "Mật khẩu không đúng";
@@ -48,7 +48,7 @@ class ControllerAddonLogin extends Controller
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

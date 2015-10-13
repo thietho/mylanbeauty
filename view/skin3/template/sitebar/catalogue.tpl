@@ -3,7 +3,7 @@
                     	
                         <div class="ben-section-content">
                         	<ul id="menu">
-                                <?php echo $menu?>
+                                <?php echo @$menu?>
                             </ul>
                         </div>
                     </div>
@@ -12,7 +12,7 @@ $(document).ready(function(){
 	
 	$('.deep2').hide('fast',function(){
 	<?php foreach($path as $item){ ?>
-	$("#<?php echo $item['sitemapid']?>").show();
+	$("#<?php echo @$item['sitemapid']?>").show();
 	<?php } ?>	
 	});
 });

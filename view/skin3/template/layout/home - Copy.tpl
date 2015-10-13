@@ -1,24 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo $direction; ?>" lang="<?php echo $language; ?>" xml:lang="<?php echo $language; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo @$direction; ?>" lang="<?php echo @$language; ?>" xml:lang="<?php echo @$language; ?>">
 <head>
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="icon">
 <link type="image/x-icon" href="<?php echo HTTP_SERVER.DIR_IMAGE?>logo-small.png" rel="shortcut icon">
-<title><?php echo $title?></title>
+<title><?php echo @$title?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="INDEX,FOLLOW" />
 <meta http-equiv="REFRESH" content="5400" />
-<meta name="description" content="<?php echo $meta_description?>" />
-<meta name="keywords" content="<?php echo $meta_keyword?>" />		
+<meta name="description" content="<?php echo @$meta_description?>" />
+<meta name="keywords" content="<?php echo @$meta_keyword?>" />		
 <meta name="author" content="Ho Lan Solutions">
 <meta name="revisit-after" content="7" />
 <meta name="creator" content="Ho Lan Solutions" />
 <meta name="publisher" content="Ho Lan Solutions" />
 
-<meta property="og:title" content="<?php echo $title?>">
+<meta property="og:title" content="<?php echo @$title?>">
 <meta property="og:type" content="Website">
-<meta property="og:url" content="<?php echo $url?>">
-<meta property="og:description" content="<?php echo $meta_description?>">
-<?php echo $meta_image?>
+<meta property="og:url" content="<?php echo @$url?>">
+<meta property="og:description" content="<?php echo @$meta_description?>">
+<?php echo @$meta_image?>
 
 </head>
 
@@ -65,13 +65,13 @@ var loading = '<center id="loading"><img src="<?php echo DIR_IMAGE?>loading.gif"
 
 <body>
 
-	<div style="display:none"><?php echo $meta_keyword?></div>
-    <?php echo $header?>
+	<div style="display:none"><?php echo @$meta_keyword?></div>
+    <?php echo @$header?>
 	
 
     <!-- Page Content -->
     <div class="container">
-		<?php echo $content?>
+		<?php echo @$content?>
     </div>
     <!-- /.container -->
 

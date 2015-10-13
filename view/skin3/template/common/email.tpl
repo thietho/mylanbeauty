@@ -6,6 +6,6 @@
 </head>
 
 <body>
-	<?php echo $description?>
+	<?php echo @$description?>
 </body>
 </html>

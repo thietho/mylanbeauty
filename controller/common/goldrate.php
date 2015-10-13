@@ -6,7 +6,7 @@ class ControllerCommonGoldrate extends Controller
 		
 		$tygiaurl ="http://www.sacombank-sbj.com/service/tygiatrongnuoc.ashx"; 
 		@$content = file_get_contents($tygiaurl);
-		$this->data['output'] = $content;
+		@$this->data['output'] = $content;
 		$this->id="content";
 		$this->template="common/goldrate.tpl";
 		$this->render();

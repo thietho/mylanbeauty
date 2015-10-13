@@ -7,7 +7,7 @@
 	 foreach($Tygia as $item)
      {
 ?>
-			<option value="<?php echo $item['Buy']?>"><?php echo $item['CurrencyCode']?></option>
+			<option value="<?php echo @$item['Buy']?>"><?php echo @$item['CurrencyCode']?></option>
 <?php
      }
 ?>
@@ -23,7 +23,7 @@
      		if($item['CurrencyCode'] == "USD")
             	$sel = 'selected="selected"';
 ?>
-			<option value="<?php echo $item['Buy']?>" <?php echo $sel?>><?php echo $item['CurrencyCode']?></option>
+			<option value="<?php echo @$item['Buy']?>" <?php echo @$sel?>><?php echo @$item['CurrencyCode']?></option>
 <?php
      }
 ?>
@@ -33,7 +33,7 @@
        
        
        
-       <p><?php echo $currencyexchange_text_amount?></p>
+       <p><?php echo @$currencyexchange_text_amount?></p>
        <p>
        	<input type="text" id="amount" class="ben-textbox number" />&nbsp;&nbsp;
         <input type="button" class="ben-button" value="Qui đổi" onclick="changeRate()"/>
@@ -44,7 +44,7 @@
       
       
       
-      <p><?php echo $currencyexchange_text_result?></p>
+      <p><?php echo @$currencyexchange_text_result?></p>
       <p>
         <input type="text" id="result" class="ben-textbox number" readonly="readonly"/>
       </p>
@@ -84,9 +84,9 @@ $(document).ready(function() {
         
 ?>
             <tr>
-                <td class="code"><?php echo $item['CurrencyCode']?></td>
-                <td class="number"><?php echo $this->string->numberFormate((double)$item['Buy'],2)?></td>
-                <td class="number"><?php echo $this->string->numberFormate((double)$item['Sell'],2)?></td>
+                <td class="code"><?php echo @$item['CurrencyCode']?></td>
+                <td class="number"><?php echo @$this->string->numberFormate((double)$item['Buy'],2)?></td>
+                <td class="number"><?php echo @$this->string->numberFormate((double)$item['Sell'],2)?></td>
             </tr>
 
 <?php

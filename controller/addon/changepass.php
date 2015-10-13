@@ -21,13 +21,13 @@ class ControllerAddonChangepass extends Controller
 			$user['password'] = md5($data['newpassword']);
 			
 			$this->model_core_user->changePassword($user);
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		else
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

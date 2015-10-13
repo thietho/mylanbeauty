@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="<?php echo $this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
+                        <a href="<?php echo @$this->document->createLink('gioithieu')?>" title="Giới thiệu">Giới thiệu</a>
                         
                     </li>
                     <li class="dropdown">
@@ -34,14 +34,14 @@
                     
                     <?php if(!$this->member->isLogged()){?>
                     <li>
-                        <a href="<?php echo $this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>          
+                        <a href="<?php echo @$this->document->createLink('login')?>" title="Đăng nhập">Đăng nhập</a>          
                     </li>
                     <li>
-                        <a href="<?php echo $this->document->createLink('register')?>" title="Đăng ký">Đăng ký</a>          
+                        <a href="<?php echo @$this->document->createLink('register')?>" title="Đăng ký">Đăng ký</a>          
                     </li>
                     <?php }else{ ?>
                     <li>
-                        <a href="<?php echo $this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo $this->document->getUser($this->member->getUserName())?></a>          
+                        <a href="<?php echo @$this->document->createLink('member')?>" title="Thông tin thành viên"><?php echo @$this->document->getUser($this->member->getUserName())?></a>          
                     </li>
                     <li>
                         <a href="#" onclick="logout()" title="Đăng xuất">Đăng xuất</a>          

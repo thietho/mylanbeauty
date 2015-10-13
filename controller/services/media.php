@@ -34,7 +34,7 @@ class ControllerServicesMedia extends Controller
 		}
 		$datas = $this->model_core_media->getList($where,$from,$to);
 		//print_r($datas);
-		$this->data['output'] = json_encode(array('medias' => $datas));
+		@$this->data['output'] = json_encode(array('medias' => $datas));
 		
 		
 		$this->id="media";

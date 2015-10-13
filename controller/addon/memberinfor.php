@@ -28,7 +28,7 @@ class ControllerAddonMemberinfor extends Controller
 		$this->load->model("core/user");
 		$this->model_core_user->updatecol($data['userid'],"imageid",$data['imageid']);
 		$this->model_core_user->updatecol($data['userid'],"imagepath",$data['imagepath']);
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
@@ -40,7 +40,7 @@ class ControllerAddonMemberinfor extends Controller
 		$this->load->model("core/user");
 		$this->model_core_user->updatecol($data['userid'],$data['colname'],$data['value']);
 		
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
@@ -55,7 +55,7 @@ class ControllerAddonMemberinfor extends Controller
 			$this->model_core_user->updatecol($data['userid'],$data['colname'],$data['value']);
 		else
 			$this->model_core_user->saveInformation($data['userid'], $data['colname'], $data['value']);
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
@@ -68,7 +68,7 @@ class ControllerAddonMemberinfor extends Controller
 		$data['value'] = $this->date->formatViewDate($data['value']);
 		
 		
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();

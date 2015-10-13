@@ -19,8 +19,8 @@
             
             <div class="form-group">
                 <input type="button" class="btn btn-lg btn-success btn-block" id="btnLogin" value="Đăng nhập">
-                <a href="<?php echo $this->document->createLink('register')?>">Đăng ký</a>
-                <a href="<?php echo $this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
+                <a href="<?php echo @$this->document->createLink('register')?>">Đăng ký</a>
+                <a href="<?php echo @$this->document->createLink('forgotpassword')?>">Quên mật khẩu</a>
             </div>
             <div class="form-group">
                 <input type="checkbox" name="remember" value="1"> Ghi nhớ

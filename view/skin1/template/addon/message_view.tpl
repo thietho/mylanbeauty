@@ -1,4 +1,4 @@
-<h2><?php echo $item['title']?></h2>
+<h2><?php echo @$item['title']?></h2>
 <div class="ben-editor">
     <p>
         <?php echo html_entity_decode($item['description'])?>
@@ -15,9 +15,9 @@
 				{
 ?>
 					<p>
-						<img src="<?php echo $item['imagethumbnail']?>" />
-                        <?php echo $item['filename']?>
-                        <a href="<?php echo HTTP_SERVER.DIR_FILE?><?php echo $item['filepath']?>" target="_blank">Download</a>
+						<img src="<?php echo @$item['imagethumbnail']?>" />
+                        <?php echo @$item['filename']?>
+                        <a href="<?php echo HTTP_SERVER.DIR_FILE?><?php echo @$item['filepath']?>" target="_blank">Download</a>
                     </p>
 <?php
 				}
@@ -26,5 +26,5 @@
 ?>
 					
 </div>
-<a class="ben-button" href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/message">Trở về</a>
+<a class="ben-button" href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/message">Trở về</a>
 <div class="clearer">&nbsp;</div>

@@ -5,7 +5,7 @@ class ControllerCommonUploadattachment extends Controller
 	{	
 		$this->load->helper('image');
 		$this->load->model('core/file');
-		//$this->data['output'] = json_encode(array('files' => $_FILES));
+		//@$this->data['output'] = json_encode(array('files' => $_FILES));
 		
 		$datas = array();
 		foreach($_FILES['image2']['name'] as $key => $item)
@@ -25,7 +25,7 @@ class ControllerCommonUploadattachment extends Controller
 					$arr = array(
 						'error' => 'Your upload image is wrong or size of this image more than 2MB!'
 					);
-					$this->data['output'] = json_encode(array('files' => $arr));
+					@$this->data['output'] = json_encode(array('files' => $arr));
 				}
 				else*/
 				{
@@ -57,7 +57,7 @@ class ControllerCommonUploadattachment extends Controller
 			}
 
 		}
-		$this->data['output'] = json_encode(array('files' => $datas));
+		@$this->data['output'] = json_encode(array('files' => $datas));
 		$this->id="uploadpreview";
 		$this->template="common/output.tpl";
 		$this->render();

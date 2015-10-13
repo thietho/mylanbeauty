@@ -14,7 +14,7 @@
     </div>
 
     <div class="ben-right" id="ben-footer-right">
-        <?php echo $supportonline?>
+        <?php echo @$supportonline?>
     
     </div>
 

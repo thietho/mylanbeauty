@@ -10,8 +10,8 @@
             	
                 <?php foreach($producthome as $key => $item){ ?>
                 <?php if($item['data']){ ?>
-                <h1><?php echo $item['title']?></h1>
-            	<?php echo $item['data']?>
+                <h1><?php echo @$item['title']?></h1>
+            	<?php echo @$item['data']?>
                 <?php } ?>
                 <?php } ?>
             </div>
@@ -35,7 +35,7 @@ var pageload = new LoadPage();
 </script>
 <?php foreach($arrsitemapid as $key => $sitemapid){?>
 <script language="javascript">
-pageload.arr.push("<?php echo $sitemapid?>");
+pageload.arr.push("<?php echo @$sitemapid?>");
 </script>
 <?php }?>
 <script language="javascript">

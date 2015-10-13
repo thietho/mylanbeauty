@@ -27,12 +27,12 @@ class ControllerAddonActive extends Controller
 				$user['userid'] = $data['username'];
 				$user['status'] = "active";
 				$this->model_core_user->updatestatus($user);
-				$this->data['output'] = "true";
+				@$this->data['output'] = "true";
 				$this->model_core_user->saveInformation($data['username'], "activecode", "");
 			}
 			else
 			{
-				$this->data['output'] = "Mã kích hoạt không đúng";
+				@$this->data['output'] = "Mã kích hoạt không đúng";
 			}
 			
 		}
@@ -40,7 +40,7 @@ class ControllerAddonActive extends Controller
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

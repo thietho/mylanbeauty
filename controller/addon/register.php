@@ -53,13 +53,13 @@ class ControllerAddonRegister extends Controller
 			$this->model_core_user->saveInformation($data['username'], "activecode", $activecode);
 			
 			$this->mailsmtp->sendMail($mail);
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		else
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

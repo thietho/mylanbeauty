@@ -73,7 +73,7 @@ $("#btnRegister").click(function(){
 		function(data){
 			if(data == "true")
 			{
-				$('#error').html("Bạn đã đăng ký thành công! Mã kích hoạt tài khoản đã đươc gửi tới email của bạn! <a href='<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/active'>Kích hoạt tài khoản click vào đây</a>").show('slow');
+				$('#error').html("Bạn đã đăng ký thành công! Mã kích hoạt tài khoản đã đươc gửi tới email của bạn! <a href='<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/active'>Kích hoạt tài khoản click vào đây</a>").show('slow');
 				$("#frmRegister").hide();
 			}
 			else

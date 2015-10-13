@@ -258,8 +258,8 @@ function ObjFile()
 		$('#pathview').html(file.path.join("/"));
 		$('#result').html(loading);
 		$("#result").load(url,function(){
-			if("<?php echo $_GET['dialog']?>" =='true')
-				intSeleteFile("<?php echo $_GET['type']?>");
+			if("<?php echo @$_GET['dialog']?>" =='true')
+				intSeleteFile("<?php echo @$_GET['type']?>");
 				$('#fileupload').fileupload({
 					// Uncomment the following to send cross-domain cookies:
 					//xhrFields: {withCredentials: true},

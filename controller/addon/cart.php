@@ -62,7 +62,7 @@ class ControllerAddonCart extends Controller
 		$price = $media['price'];
 		if(@$media['pricepromotion'])
 			$price = $media['pricepromotion'];
-		$qty =(int)$_SESSION['cart'][$mediaid]['qty'];
+		@$qty =(int)$_SESSION['cart'][$mediaid]['qty'];
 		
 		$_SESSION['cart'][$mediaid] = array(
 											'mediaid' => $mediaid,
@@ -71,7 +71,7 @@ class ControllerAddonCart extends Controller
 											'imagethumbnail' => $media['imagethumbnail'],
 											'qty' => $qty+1
 											);
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
@@ -92,7 +92,7 @@ class ControllerAddonCart extends Controller
 		$qty =  $this->string->toNumber($data['qty']);
 		$_SESSION['cart'][$mediaid]['qty'] = $qty;
 		
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();
@@ -104,7 +104,7 @@ class ControllerAddonCart extends Controller
 		$mediaid = $data['mediaid'];
 		unset($_SESSION['cart'][$mediaid]);
 		
-		$this->data['output'] = "true";
+		@$this->data['output'] = "true";
 		$this->id='content';
 		$this->template='common/output.tpl';
 		$this->render();

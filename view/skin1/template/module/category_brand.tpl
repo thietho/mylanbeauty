@@ -26,7 +26,7 @@
 	<?php if($item['parent'] == "nhanhieu"){ ?>
 	<li>
         <?php if($key > 1) echo "|";?>
-        <a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/brand/<?php echo $item['categoryid']?>"><?php echo $item['categoryname']?></a>
+        <a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/brand/<?php echo @$item['categoryid']?>"><?php echo @$item['categoryname']?></a>
         <?php 
         	$arr = $this->string->array_Filter($datas,'parent',$item['categoryid']);
             if(@count($arr))
@@ -38,7 +38,7 @@
                 {
         ?>
         	<li>
-            	<a href="<?php echo HTTP_SERVER?>site/<?php echo $this->member->getSiteId()?>/brand/<?php echo $val['categoryid']?>"><?php echo $val['categoryname']?></a>
+            	<a href="<?php echo HTTP_SERVER?>site/<?php echo @$this->member->getSiteId()?>/brand/<?php echo @$val['categoryid']?>"><?php echo @$val['categoryname']?></a>
             </li>
         <?php
                 }

@@ -28,13 +28,13 @@ class ControllerModuleComment extends Controller
 			$mail['body'] = "Ban da dang ky nhan tin tu ancaratperfume.com thanh cong";
 			$this->mailsmtp->sendMail($mail);*/
 			
-			$this->data['output'] = "true";
+			@$this->data['output'] = "true";
 		}
 		else
 		{
 			foreach($this->error as $item)
 			{
-				$this->data['output'] .= $item."<br>";
+				@$this->data['output'] .= $item."<br>";
 			}
 		}
 		$this->id='content';

@@ -4,7 +4,7 @@
 
             <div id="ben-maincontent" class="col-md-12">
 				<img class="img-responsive" src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannersale50.png'?>"/>
-                <?php echo $bannerhome?>
+                <?php echo @$bannerhome?>
 
                 
 
@@ -22,12 +22,12 @@ var pageload = new LoadPage();
 </script>
 <?php foreach($arrbrand as $key => $brand){?>
 <script language="javascript">
-pageload.arr.push("<?php echo $brand?>");
+pageload.arr.push("<?php echo @$brand?>");
 </script>
 <?php }?>
 <?php foreach($arrsitemapid as $key => $sitemapid){?>
 <script language="javascript">
-pageload.arr.push("<?php echo $sitemapid?>");
+pageload.arr.push("<?php echo @$sitemapid?>");
 </script>
 <?php }?>
 <script language="javascript">

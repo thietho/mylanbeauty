@@ -22,7 +22,7 @@ function sendMessage()
 				{
 					$('.ben-error').html(data)
 					$('.ben-error').fadeIn("slow")
-					//linkto("?<?php echo $refres?>")
+					//linkto("?<?php echo @$refres?>")
 				}
 				else
 				{
@@ -35,14 +35,14 @@ function sendMessage()
 </script>
 
 <p>
-    <?php echo $post['description']?>
+    <?php echo @$post['description']?>
 </p>
-<?php echo $sododuongdi?>
+<?php echo @$sododuongdi?>
 <div class="clearer">&nbsp;</div>
 <div class="ben-error ben-hidden"></div>
 <form method="post" action="" id="contractForm" name="contractForm">
 <div>
-    <input type="hidden" name="sitemapid" value="<?php echo $this->document->sitemapid;?>" />
+    <input type="hidden" name="sitemapid" value="<?php echo @$this->document->sitemapid;?>" />
     <p>
         <label for="input-1">Họ tên</label><br/>
         <input type="text" name="fullname" id="fullname" class="ben-textbox" size="60" onkeypress='GetKey(event)'/>
