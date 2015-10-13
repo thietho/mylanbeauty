@@ -4,14 +4,14 @@ class ControllerCommonUploadfile extends Controller
 	function index()
 	{	
 		
-		$folder = urldecode($this->request->get['folder']);
-		if($folder == "")
+		$folder = urldecode(@$this->request->get['folder']);
+		if(@$folder == "")
 			$filepath = DIR_FILE."upload/";
 		else
 			$filepath = DIR_FILE."upload/".$folder."/";
 		foreach($_FILES['files']['name'] as $key => $item)
 		{
-			if($_FILES['files']['name'][$key] != "")
+			if(@$_FILES['files']['name'][$key] != "")
 			{
 				$ftemp['name'] = $_FILES['files']['name'][$key];
 				$ftemp['type'] = $_FILES['files']['type'][$key];
@@ -25,10 +25,10 @@ class ControllerCommonUploadfile extends Controller
 			}
 
 		}
-		$this->data['output'] = json_encode(array('files' => $_FILES['files']['name']));
-		$this->id="uploadpreview";
-		$this->template="common/output.tpl";
-		$this->render();
+		@$this->data['output'] = json_encode(array('files' => $_FILES['files']['name']));
+		@$this->id="uploadpreview";
+		@$this->template="common/output.tpl";
+		@$this->render();
 	}
 	
 }

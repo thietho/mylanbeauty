@@ -1,13 +1,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo DIR_CSS?>sale.css">
 <div class="section">
-	<div class="section-title"><?php echo $this->document->title?></div>	
+	<div class="section-title"><?php echo @$this->document->title?></div>	
     <div class="section-content">					
         
         <div id="saleorder" class="left">
             <form id="frmSaleOrder">
                 <h3><center>Phiếu Bán Hàng</center></h3>
-                <input type="hidden" id="shopid" name="shopid" value="<?php echo $shopid?>">
-                <input type="hidden" id="id" name="id" value="<?php echo $item['id']?>">
+                <input type="hidden" id="shopid" name="shopid" value="<?php echo @$shopid?>">
+                <input type="hidden" id="id" name="id" value="<?php echo @$item['id']?>">
                 <input type="hidden" id="khachhangid" name="khachhangid">
                 <input type="hidden" id="loaiphieu" name="loaiphieu" value="CH-BH">
                 <div id="error" class="error"></div>
@@ -17,7 +17,7 @@
                     <tr>
                         <td><label>Ngày nhập</label></td>
                         <td>
-                            <input type="text" class="text"  id="ngaylap" name="ngaylap" value="<?php echo $this->date->formatMySQLDate($item['ngaylap'])?>"/>
+                            <input type="text" class="text"  id="ngaylap" name="ngaylap" value="<?php echo @$this->date->formatMySQLDate(@$item['ngaylap'])?>"/>
                             <script language="javascript">
                                 $(function() {
                                     $("#ngaylap").datepicker({
@@ -46,11 +46,11 @@
                         <td>
                             <select id="trangthai" name="trangthai">
                             	<?php foreach($orderstatus as $it){ ?>
-                                <option value="<?php echo $it['categoryid']?>"><?php echo $it['categoryname']?></option>
+                                <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>
                                 <?php } ?>
                                 
                             </select>
-                            <?php if($this->user->getUserTypeId()=='admin'){ ?>
+                            <?php if(@$this->user->getUserTypeId()=='admin'){ ?>
                             <a class="button" id="btnSelectKhachHang" >Chọn khách hàng</a>
                             <?php } ?>
                         </td>
@@ -72,7 +72,7 @@
                             <th>Đơn giá</th>
                             <th>Giảm giá%</th>
                             <th>Giảm giá</th>
-                            
+                            <th>Xuất từ</th>
                             <th>Thành tiền</th>
                             <th></th>
                         </tr>
@@ -93,6 +93,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td>
                                 
                                 <input type="text" id="lydothu" name="lydothu" class="text"/>
@@ -107,28 +108,31 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
                             <td class="number">
                                 Tổng cộng
                                 <input type="hidden" id="tongtien" name="tongtien"/>
                             </td>
-                            <td class="number" id="tongcong"><?php echo $this->string->numberFormate($item['tongtien'])?></td>
+                            <td class="number" id="tongcong"><?php echo @$this->string->numberFormate(@$item['tongtien'])?></td>
                             <td></td>
                         </tr>
                         
                         <tr>
                             
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><input type="button" class="button" id="btnTrahet" value="Trả hết"/></td>
                             <td class="number">Thanh toán</td>
-                            <td class="number"><input type="text" class="text number"  id="thanhtoan" name="thanhtoan" value="<?php echo $this->string->numberFormate($item['thanhtoan'])?>"/></td>
+                            <td class="number"><input type="text" class="text number"  id="thanhtoan" name="thanhtoan" value="<?php echo @$this->string->numberFormate(@$item['thanhtoan'])?>"/></td>
                             <td></td>
                         </tr>
                         
                         <tr>
                             
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -136,9 +140,9 @@
                             <td></td>
                             <td class="number">
                                 Công nợ
-                                <input type="hidden" id="congno" name="congno" value="<?php echo $item['congno']?>"/>
+                                <input type="hidden" id="congno" name="congno" value="<?php echo @$item['congno']?>"/>
                             </td>
-                            <td class="number" id="lbl-congno"><?php echo $this->string->numberFormate($item['congno'])?></td>
+                            <td class="number" id="lbl-congno"><?php echo @$this->string->numberFormate(@$item['congno'])?></td>
                             <td></td>
                         </tr>
                         
@@ -168,8 +172,8 @@
 $(document).ready(function(e) {
 	
 	$("#nhapkhonguyenlieu").sortable();
-   
-		
+	
+	
 	saleOrder.listOrder();
 	saleOrder.newOrder();
 	$('#btnTrahet').click(function(e) {
@@ -186,9 +190,11 @@ $(document).ready(function(e) {
 		$('#congno').val(congno);
 		$('#lbl-congno').html(formateNumber(congno));
 	});
+	var h = $(document).innerHeight() - $('#listorder').offset().top;
+	$('#listorder').height(h)
 });
 $('#btnAddRow').click(function(e) {
-	browseProduct();
+	browseProduct('objdl.addFunction()');
 });
 $('#btnListProducShop').click(function(e) {
     saleOrder.showShopProduct();
@@ -227,7 +233,7 @@ $(function() {
 		minLength: 2,
 		select: function( event, ui ) {
 			//console.log(ui.item.id);
-			objdl.getProbyMediaId(ui.item.id);
+			objdl.getProbyMediaIdSale(ui.item.id);
 			/*var obj = ui.item.data
 			var giagiam = 0;
 			if(obj.pricepromotion > 0)
@@ -244,6 +250,28 @@ $(function() {
 			return;
 		}
 		$.getJSON( "?route=core/media/getProduct", request, function( data, status, xhr ) {
+			cache[ term ] = data;
+			response( data );
+			});
+		}
+	});
+	$("#tenkhachhang").autocomplete({
+		minLength: 2,
+		select: function( event, ui ) {
+			//console.log(ui.item.id);
+			//objdl.getProbyMediaId(ui.item.id);
+			//alert(ui.item.data.fullname);
+			$('#khachhangid').val(ui.item.id);
+			$('#dienthoai').val(ui.item.data.phone);
+			$('#diachi').val(ui.item.data.address);
+		},
+		source: function( request, response ) {
+		var term = request.term;
+		if ( term in cache ) {
+			response( cache[ term ] );
+			return;
+		}
+		$.getJSON( "?route=core/member/getMember", request, function( data, status, xhr ) {
 			cache[ term ] = data;
 			response( data );
 			});
@@ -385,7 +413,7 @@ function SaleOrder(shopid)
 				for(i in data)
 				{
 					
-					str += '<tr class="listorder '+data[i].trangthai+'" ref="'+ data[i].id +'">';
+					str += '<tr id="order-'+data[i].id+'" class="listorder '+data[i].trangthai+'" ref="'+ data[i].id +'">';
 						str += '<td>'+data[i].maphieu+'</td>';
 						str += '<td>'+data[i].tenkhachhang+'</td>';
 						str += '<td>'+ data[i].ghichu +'</td>';
@@ -393,10 +421,17 @@ function SaleOrder(shopid)
 						
 					str += '</tr>';
 				}
+				
 			}
 			str += '</table>';
 			$('#listorder').html(str);
-			
+			//alert('aa');
+			$(".listorder").droppable({
+				accept: ".itemdetail",
+				drop: function( event, ui ) {
+					alert('ttt')
+				}
+			});
 			$('.listorder').click(function(e) {
 				$('.listorder').removeClass('ordercurrent');
                 $(this).addClass('ordercurrent');
@@ -436,7 +471,7 @@ function SaleOrder(shopid)
 				var obj = data.detail[i];
 				//alert(obj.title);
 				//objdl.addRow(obj.id,obj.mediaid,obj.code,obj.title,1,obj.unit,obj.price,giagiam,obj.discountpercent);
-				objdl.addRow(obj.id,obj.mediaid,obj.code,obj.title,obj.soluong,obj.madonvi,obj.giatien,obj.giamgia,obj.phantramgiamgia);	
+				objdl.addRowSale(obj.id,obj.mediaid,obj.code,obj.title,obj.soluong,obj.madonvi,obj.giatien,obj.giamgia,obj.phantramgiamgia,obj.xuattu);	
 			}
 			
 		});
@@ -499,8 +534,10 @@ function SaleOrder(shopid)
 							giagiam = obj.price - obj.pricepromotion;
 						}
 						if($('#nhapkhonguyenlieu').length)
-							objdl.addRow('',obj.mediaid,obj.code,obj.title,1,obj.unit,obj.price,giagiam,obj.discountpercent);
-						
+						{
+							objdl.addRowSale('',obj.mediaid,obj.code,obj.title,1,obj.unit,obj.price,giagiam,obj.discountpercent);
+							$('#searchproductpopup').dialog('close');
+						}
 						
 						
 					});

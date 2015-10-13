@@ -341,7 +341,7 @@ function printObject(o) {
 }
 function logout()
 {
-	$.blockUI({ message: "<h1><?php echo $announ_infor ?></h1>" }); 
+	$.blockUI({ message: "<h1><?php echo @$announ_infor ?></h1>" }); 
 	
 	$.get(HTTP_SERVER+"?route=sitebar/login/logout", 
 		function(data){
@@ -639,7 +639,7 @@ function toPhpTime(t)
 function intToDate(n)
 {
 	var d = new Date(n);
-	var date =(d.getDate()<10?"0"+d.getDate():d.getDate())+"-"+(d.getMonth()<10?"0"+(d.getMonth()+1):d.getMonth()+1)+"-"+d.getFullYear();
+	var date =(d.getDate()<10?"0"+d.getDate():d.getDate())+"-"+(d.getMonth()+1 < 10?"0"+(d.getMonth()+1):d.getMonth()+1)+"-"+d.getFullYear();
 	return date;
 }
 function Attachment()

@@ -3,7 +3,7 @@ class ModelQuanlykhoDonvitinh extends Model
 {
 	public function getItem($madonvi)
 	{
-		$query = $this->db->query("Select `qlkdonvitinh`.*
+		$query = @$this->db->query("Select `qlkdonvitinh`.*
 									from `qlkdonvitinh` 
 									where madonvi ='".$madonvi."' ");
 		return $query->row;
@@ -15,21 +15,21 @@ class ModelQuanlykhoDonvitinh extends Model
 		$sql = "Select `qlkdonvitinh`.*
 									from `qlkdonvitinh` 
 									where 1=1 " . $where . " Order by madonvi";
-		if($to > 0)
+		if(@$to > 0)
 		{
 			$sql .= " Limit ".$from.",".$to;
 		}
 
-		$query = $this->db->query($sql);
+		$query = @$this->db->query($sql);
 		return $query->rows;
 	}
 
 	public function insert($data)
 	{
-		$madonvi= $this->db->escape(@$data['madonvi']);
-		$tendonvitinh=$this->db->escape(@$data['tendonvitinh']);
-		$quidoi=$this->db->escape(@$this->string->toNumber($data['quidoi']));
-		$madonviquydoi=$this->db->escape(@$data['madonviquydoi']);
+		$madonvi= @$this->db->escape(@$data['madonvi']);
+		$tendonvitinh=@$this->db->escape(@$data['tendonvitinh']);
+		$quidoi=@$this->db->escape(@$this->string->toNumber($data['quidoi']));
+		$madonviquydoi=@$this->db->escape(@$data['madonviquydoi']);
 
 
 		$field=array(
@@ -44,17 +44,17 @@ class ModelQuanlykhoDonvitinh extends Model
 						$quidoi,
 						$madonviquydoi
 						);
-						$this->db->insertData("qlkdonvitinh",$field,$value);
+						@$this->db->insertData("qlkdonvitinh",$field,$value);
 
 						return $madonvi;
 	}
 
 	public function update($data)
 	{
-		$madonvi = $this->db->escape(@$data['madonvi']);
-		$tendonvitinh=$this->db->escape(@$data['tendonvitinh']);
-		$quidoi=$this->db->escape(@$this->string->toNumber($data['quidoi']));
-		$madonviquydoi=$this->db->escape(@$data['madonviquydoi']);
+		$madonvi = @$this->db->escape(@$data['madonvi']);
+		$tendonvitinh=@$this->db->escape(@$data['tendonvitinh']);
+		$quidoi=@$this->db->escape(@$this->string->toNumber($data['quidoi']));
+		$madonviquydoi=@$this->db->escape(@$data['madonviquydoi']);
 
 		$field=array(
 						'tendonvitinh',
@@ -70,7 +70,7 @@ class ModelQuanlykhoDonvitinh extends Model
 						);
 
 						$where="madonvi = '".$madonvi."'";
-						$this->db->updateData("qlkdonvitinh",$field,$value,$where);
+						@$this->db->updateData("qlkdonvitinh",$field,$value,$where);
 
 
 
@@ -80,7 +80,7 @@ class ModelQuanlykhoDonvitinh extends Model
 	public function delete($madonvi)
 	{
 		$where="madonvi = '".$madonvi."'";
-		$this->db->deleteData("qlkdonvitinh",$where);
+		@$this->db->deleteData("qlkdonvitinh",$where);
 	}
 
 	public function deletedatas($data)
@@ -88,18 +88,18 @@ class ModelQuanlykhoDonvitinh extends Model
 		if(count($data)>0)
 		{
 			foreach($data as $item)
-			$this->delete($item);
+			@$this->delete($item);
 		}
 	}
 	//
 	public function getDonViQuyDoi($madonvi)
 	{
 		$data = array();
-		$donvi = $this->getItem($madonvi);
+		$donvi = @$this->getItem($madonvi);
 		$data[] = $donvi;
 		while($donvi['madonviquydoi']!='')
 		{
-			$donvi = $this->getItem($donvi['madonviquydoi']);
+			$donvi = @$this->getItem($donvi['madonviquydoi']);
 			$data[] = $donvi;
 		}
 		return $data;
@@ -109,24 +109,24 @@ class ModelQuanlykhoDonvitinh extends Model
 	public function toDonViTinh($arr,$madonvi)
 	{
 		
-		$data_donvitinh = $this->getDonViQuyDoi($madonvi);
+		$data_donvitinh = @$this->getDonViQuyDoi($madonvi);
 		
 		foreach($data_donvitinh as $i => $donvitinh)
 		{
 			foreach($arr as $val)
 			{
-				if($val['madonvi'] == $donvitinh['madonvi'])
+				if(@$val['madonvi'] == $donvitinh['madonvi'])
 				{
 					$data_donvitinh[$i]['soluong'] = $val['soluong'];
 				}
 			}
 		}
 		
-		$data_donvitinh = $this->string->swapArray($data_donvitinh);
+		$data_donvitinh = @$this->string->swapArray($data_donvitinh);
 		
 		foreach($data_donvitinh as $i => $donvitinh)
 		{
-			if($data_donvitinh[$i+1]['quidoi'] !=0)
+			if(@$data_donvitinh[$i+1]['quidoi'] !=0)
 			{
 				
 				$phandu = $data_donvitinh[$i]['soluong'] % $data_donvitinh[$i+1]['quidoi'];
@@ -136,7 +136,7 @@ class ModelQuanlykhoDonvitinh extends Model
 				$data_donvitinh[$i+1]['soluong'] += $phannguyen;
 			}
 		}
-		return $this->string->swapArray($data_donvitinh);
+		return @$this->string->swapArray($data_donvitinh);
 	}
 	
 	public function toInt($data_donvi)
@@ -148,12 +148,12 @@ class ModelQuanlykhoDonvitinh extends Model
 			$hs = 1;
 			for($j = $i;$j<count($data_donvi);$j++)
 			{
-				if($data_donvi[$j]['quidoi']!=0)
+				if(@$data_donvi[$j]['quidoi']!=0)
 				{
 					$hs *= $data_donvi[$j]['quidoi'];
 				}
 			}
-			$soluong += $donvi['soluong'] * $hs;
+			@$soluong += $donvi['soluong'] * $hs;
 		}
 		return $soluong;
 	}
@@ -161,14 +161,14 @@ class ModelQuanlykhoDonvitinh extends Model
 	public function toDonVi($int,$madonvi)
 	{
 		
-		$data_donvitinh = $this->getDonViQuyDoi($madonvi);
-		//$data_donvitinh = $this->string->swapArray($data_donvitinh);
+		$data_donvitinh = @$this->getDonViQuyDoi($madonvi);
+		//$data_donvitinh = @$this->string->swapArray($data_donvitinh);
 		foreach($data_donvitinh as $i => $donvitinh)
 		{
 			$hs = 1;
 			for($j = $i;$j<count($data_donvitinh);$j++)
 			{
-				if($data_donvitinh[$j]['quidoi']!=0)
+				if(@$data_donvitinh[$j]['quidoi']!=0)
 				{
 					$hs *= $data_donvitinh[$j]['quidoi'];
 				}
@@ -184,7 +184,7 @@ class ModelQuanlykhoDonvitinh extends Model
 		
 		foreach($data_donvitinh as $donvitinh)
 		{
-			if($donvitinh['soluong'])
+			if(@$donvitinh['soluong'])
 				$arr[] = $donvitinh['soluong']." ".$donvitinh['tendonvitinh'];
 		}
 		

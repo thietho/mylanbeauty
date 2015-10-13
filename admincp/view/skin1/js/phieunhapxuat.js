@@ -13,7 +13,7 @@ function PhieuNhapXuat()
 		row +='<td class="number"><input type="text" id="phantramgiamgia-'+ this.index +'" name="phantramgiamgia['+ this.index +']" value="'+phantramgiamgia+'" class="text number short phantramgiamgia" ref="'+ this.index +'"/></td>';
 		row +='<td class="number"><input type="text" id="giamgia-'+ this.index +'" name="giamgia['+ this.index +']" value="'+ giamgia +'" class="text number short giamgia" ref="'+ this.index +'"/></td>';
 		
-		row += '<td class="number thanhtien" id="thanhtien-'+ this.index +'"></td>';
+		row += '<td class="number thanhtien" id="thanhtien-'+ this.index +'"><input type="hidden" id="xuattu-'+ this.index +'" name="xuattu['+ this.index +']" value="" /></td>';
 		row +='<td><input type="button" class="button" value="X" onclick="objdl.removeRow('+ this.index +')"/></td>';
 		row+='</tr>'
 		$('#nhapkhonguyenlieu').append(row);
@@ -74,22 +74,47 @@ function PhieuNhapXuat()
         });
 		numberReady();
 	}
-	this.addGroup = function(id,title,soluong,madonvi,giatien,giamgia,phantramgiamgia)
+	this.addRowSale = function(id,mediaid,code,title,soluong,madonvi,giatien,giamgia,phantramgiamgia,xuattu)
 	{
-		var row = '<tr id="row'+ this.index +'">';
-		row +='<td><input type="hidden" id="nhapkhoid-'+ this.index +'" name="nhapkhoid['+ this.index +']" value="'+ id +'" /><input type="text" class="text" style="width:100%" id="title-'+ this.index +'" name="title['+ this.index +']" value="'+ title +'" /></td>';
+		var row = '<tr class="itemdetail" id="row'+ this.index +'" index="'+ this.index +'">';
+		row +='<td><input type="hidden" id="nhapkhoid-'+ this.index +'" name="nhapkhoid['+ this.index +']" value="'+ id +'" /><input type="hidden" id="mediaid-'+ this.index +'" name="mediaid['+ this.index +']" value="'+ mediaid +'" /><input type="hidden" id="title-'+ this.index +'" name="title['+ this.index +']" value="'+ title +'" />'+ title +'</td>';
 		
 		row +='<td class="number"><input type="text" id="soluong-'+ this.index +'" name="soluong['+ this.index +']" value="'+soluong+'" class="text number short soluong" ref="'+ this.index +'"/></td>';
-		row +='<td><input type="text" id="dlmadonvi-'+ this.index +'" name="dlmadonvi['+ this.index +']" value="'+ madonvi +'" class="text short" ref="'+ this.index +'"/></td>';
+		row +='<td class="number"><select mediaid="'+mediaid+'" class="madonvi" id="madonvi-'+ this.index +'" name="dlmadonvi['+ this.index +']" value="'+madonvi+'" ref="'+ this.index +'"></select></td>';
 		row +='<td class="number"><input type="text" id="giatien-'+ this.index +'" name="giatien['+ this.index +']" value="'+giatien+'" class="text number short giatien" ref="'+ this.index +'"/></td>';
 		row +='<td class="number"><input type="text" id="phantramgiamgia-'+ this.index +'" name="phantramgiamgia['+ this.index +']" value="'+phantramgiamgia+'" class="text number short phantramgiamgia" ref="'+ this.index +'"/></td>';
 		row +='<td class="number"><input type="text" id="giamgia-'+ this.index +'" name="giamgia['+ this.index +']" value="'+ giamgia +'" class="text number short giamgia" ref="'+ this.index +'"/></td>';
-		
+		row +='<td class="number"><select mediaid="'+mediaid+'" class="xuattu" id="xuattu-'+ this.index +'" name="xuattu['+ this.index +']" ref="'+ this.index +'">';
+		row +='<option value="">Shop</option>';
+		row +='<option value="kho">Kho</option>';
+		row +='</select></td>';
 		row += '<td class="number thanhtien" id="thanhtien-'+ this.index +'"></td>';
-		row +='<td><input type="button" class="button" value="Xóa" onclick="objdl.removeRow('+ this.index +')"/></td>';
-		row+='</tr>';
-		row+='<div>ssswefgwefergerg wefgwerf efw èwerfwesdfgrwegfewgw</div>';
+		row +='<td><input type="button" class="button" value="X" onclick="objdl.removeRow('+ this.index +')"/></td>';
+		row+='</tr>'
 		$('#nhapkhonguyenlieu').append(row);
+		var str = '#madonvi-'+ this.index;
+		var curpos = this.index;
+		$('#xuattu-'+ this.index).val(xuattu);
+		$('.madonvi').change(function(e) {
+			var pos = $(this).attr('ref');
+			
+			objdl.getPrice(pos,mediaid,this.value);
+			
+        });
+		
+		$.getJSON("?route=core/media/getListDonVi&mediaid="+ mediaid,
+			function(data){
+				html = "";
+				for(i in data)
+				{
+					//alert(data[i].madonvi)
+					html += '<option value="'+data[i].madonvi+'">'+data[i].tendonvitinh+'</option>';
+				}
+				$(str).html(html);
+				$(str).val(madonvi);
+				if(id == 0)
+					objdl.getPrice(curpos,mediaid,madonvi);
+			});
 		
 		objdl.tinhtong(this.index);
 		this.index++;
@@ -357,7 +382,8 @@ function PhieuNhapXuat()
 				giatien:$('#giatien-'+pos).val(),
 				phantramgiamgia:$('#phantramgiamgia-'+pos).val(),
 				giamgia:$('#giamgia-'+pos).val(),
-				vitri:p
+				vitri:p,
+				xuattu:$('#xuattu-'+pos).val(),
 			},
 			function(data)
 			{
@@ -401,6 +427,53 @@ function PhieuNhapXuat()
 			//alert($('#txt_ref').val());
 			$('#txt_ref').val('');
 		});
+	}
+	this.getProbyMediaIdSale = function(str)
+	{
+		
+		arr = str.split("-");
+		$.getJSON("?route=core/media/getMedia&col=mediaid&val="+encodeURI(arr[0]),function(data)
+		{			
+			var giagiam = 0;
+			if(data.medias[0].pricepromotion > 0)
+			{
+				giagiam = data.medias[0].price - data.medias[0].pricepromotion;
+			}
+			objdl.addRowSale(0,data.medias[0].mediaid,data.medias[0].code,data.medias[0].productName,1,data.medias[0].madonvi,data.medias[0].price,giagiam,data.medias[0].discountpercent,'');
+			//alert($('#txt_ref').val());
+			$('#txt_ref').val('');
+		});
+	}
+	this.addFunction = function()
+	{
+		$('.selectProduct').click(function(e) {
+			var obj = new Object();
+			obj.id = 0;
+			obj.mediaid = $(this).attr('ref');
+			obj.imagepath = $(this).attr('image');
+			obj.title = $(this).attr('title');
+			obj.code = $(this).attr('code');
+			obj.unit = $(this).attr('unit');
+			//console.log(obj.mediaid);
+			obj.price = $(this).attr('price');
+			
+			obj.pricepromotion = $(this).attr('pricepromotion');
+			obj.discountpercent = $(this).attr('discountpercent');
+			obj.productname = $(this).attr('productname');
+			obj.brandname = $(this).attr('brandname');
+			
+			var giagiam = 0;
+			if(obj.pricepromotion > 0)
+			{
+				giagiam = obj.price - obj.pricepromotion;
+			}
+			if($('#nhapkhonguyenlieu').length)
+				objdl.addRow('',obj.mediaid,obj.code,obj.title,1,obj.unit,obj.price,giagiam,obj.discountpercent);
+			if($('#baogialistproduct').length)
+				$('#baogialistproduct').append(bg.newRow(obj));
+			
+			$("#popupbrowseproduct").dialog("close");
+		});		
 	}
 }
 
