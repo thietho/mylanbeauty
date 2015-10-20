@@ -25,6 +25,13 @@ a
 {
 	text-align:center;
 }
+#address
+{
+	position:absolute;
+	font-size:0.7em;
+	color:#b61219;
+	
+}
 #hotline
 {
 	position:absolute;

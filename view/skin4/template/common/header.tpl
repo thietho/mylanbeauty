@@ -7,7 +7,13 @@
 		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         
         <div data-role="header" class="jqm-header">
-        	
+        	<div id="address" class="address">
+            	<table>
+                	<tr>
+                    	<td>164 Bàn Cờ, Phường 3, Quận 3, Tp HCM</td>
+                    </tr>
+                </table>
+            </div>
             <div id="hotline" class="hotline">
             	<table>
                 	<tr>
