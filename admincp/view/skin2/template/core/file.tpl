@@ -10,58 +10,82 @@
 	text-align:center;
 }
 </style>
-
-
-
-<div id="frmfile">
-<table width="100%" class="data-table">
-	<tr>
-        <td colspan="3">
-        	
-      		<strong>File name</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
-            
-            
-            			
-            
-           
-            
-            <div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div>
-            <table>
-                <tbody id="listfile">
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    <tr>
-    	<td colspan="3">
-        	<p id="pnImage">
-                
-                
-                <input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
-               	
-                <br />
-                <div id="errorupload" class="error" style="display:none"></div>
-               
-                <?php if(@$_GET['dialog'] == ''){?>
-                
-                <?php } ?>
-                
-            </p>
-        </td>
-    </tr>
-    <tr valign="top">
-    	
-        <td style="vertical-align:top !important">
-        	
-        	
-            <div id="pathview"></div>
-        	<div id="result"></div>
-        	
-        </td>
+<div id="page-wrapper">
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+            	<?php echo @$this->document->title?>
+            </h1>
+        </div>
         
-    </tr>
-</table>
+        <!-- /.col-lg-12 -->
+    </div>
+        <!-- /.row -->
+    <div class="row">
+    	
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <div id="frmfile">
+                            <table width="100%" class="data-table">
+                                <tr>
+                                    <td colspan="3">
+                                        
+                                        <strong>File name</strong> <input type="text" name="keyword" id="keyword" class="text" />&nbsp;&nbsp;
+                                        
+                                        
+                                                    
+                                        
+                                       
+                                        
+                                        <div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div>
+                                        <table>
+                                            <tbody id="listfile">
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <p id="pnImage">
+                                            
+                                            
+                                            <input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
+                                            
+                                            <br />
+                                            <div id="errorupload" class="error" style="display:none"></div>
+                                           
+                                            <?php if(@$_GET['dialog'] == ''){?>
+                                            
+                                            <?php } ?>
+                                            
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    
+                                    <td style="vertical-align:top !important">
+                                        
+                                        
+                                        <div id="pathview"></div>
+                                        <div id="result"></div>
+                                        
+                                    </td>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+                    	
+                    </div>
+               	</div>
+            </div>
+		</div>
+	</div>
 </div>
+
 <script>
 	var imageindex = 0;
 	var DIR_UPLOADPHOTO = "<?php echo @$DIR_UPLOADPHOTO?>";
@@ -69,51 +93,7 @@
 var cur = "";
 var posk =0
 
-$(function () {
-    $('#fileupload').fileupload({
-        dataType: 'json',
-		/*add: function (e, data) {
-			//alert(data.files[0].name)
-			var t =posk++;
-			
-			var str = '<tr>';
-			str += '<td>'+data.files[0].name+'</td>';
-			str += '<td id="btn'+t+'"></td>';
-			str += '<td><div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div></td>';
-			str += '</tr>'
-			$('#listfile').append(str);
-            data.context = $('<button class="btnUpload" id="up'+t+'" ref="'+t+'"/>').text('Upload')
-                .appendTo($('#btn'+t))
-                .click(function () {
-					cur = t;
-                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-                    data.submit();
-                });
-        },*/
-        done: function (e, data) {
-            /*$.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });*/
-			/*var fileid = response.files[i].imageid;
-				var folderid = $('#folderidcur').val();
-			$.get("?route=core/file/updateFolder&fileid="+fileid+"&folderid="+folderid,
-				function(){
-					 file.showList("?route=core/file/getList&folderid="+folderid);
-				});*/
-			
-			file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
-        },
-		progressall: function (e, data) {
-			//showProgress(cur,e, data)
-			var progress = parseInt(data.loaded / data.total * 100, 10);
-			$('.bar').html(progress+"%");
-			$('.progress .bar').css(
-				'width',
-				progress + '%'
-			);
-		}
-    });
-});
+
 function showProgress(id,e, data)
 {
 	var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -464,9 +444,4 @@ var file = new ObjFile();
 $(document).ready(function() {
   	file.showList("?route=core/file/getList");
 });
-
-
-
-
-//callbackUploadFile();
 </script>

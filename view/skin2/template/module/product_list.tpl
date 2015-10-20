@@ -70,8 +70,9 @@ if(@count($medias))
                     <?php } ?>
                     </div>
                     <?php if(@count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
-                    <?php $cls = '';?>
-                    <?php if(@$media['pricepromotion']!=0){ ?>
+                    	<?php if(@count($media['childs'])==0){ ?>
+                    		<?php $cls = '';?>
+                    		<?php if(@$media['pricepromotion']!=0){ ?>
                     <div align="center" class="product-pricepromotion">
                         	
                         	<?php if(@$media['pricepromotion']){ ?>
@@ -82,18 +83,40 @@ if(@count($medias))
                             (<?php echo @$media['noteprice']?>)
                             <?php }?>
                     </div>
-                    <?php } ?>
+                    		<?php } ?>
                     <div align="center" class="product-price <?php echo @$cls?>">
-                    	<?php if(@$media['price']){?>
-                    	<?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?>
-                        <?php if(@$media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
+                    		<?php if(@$media['price']){?>
+                    		<?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?>
+                        	<?php if(@$media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
                         (<?php echo @$media['noteprice']?>)
                         <?php }?>
-                        <?php }else{ ?>
+                        	<?php }else{ ?>
                         Giá đang cập nhật
-                        <?php } ?>
+                        	<?php } ?>
                     </div>
-                        
+                        <?php }else{ ?>
+                        	<?php @$data_price = array();?>
+							<?php 
+                            	foreach($media['childs'] as $me){
+                            	if(!isset($data_price[@$me['sizes']]))
+                                {
+                                    @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']);
+                                    @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']);
+                                }
+                            } ?>
+                            <?php foreach($data_price as $size => $price){ ?>
+                            	<div align="center">
+                                	<?php 
+                                    if($price['pricepromotion']==0)
+                                    {
+                                		echo $size.' : '.$price['price'].@$this->document->setup['Currency'];
+                                    }else{
+                                    	echo $size.' : <span class="product-price-no">'.$price['price'].@$this->document->setup['Currency'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].@$this->document->setup['Currency'].'</span>';
+                                    }
+                                    ?>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
                     <center>
                     	
                         <?php if(@$media['noted']!=""){ ?>

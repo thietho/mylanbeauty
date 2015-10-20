@@ -37,7 +37,7 @@
 	 <!-- jQuery -->
      
     <script src="<?php echo DIR_JS?>jquery.js"></script>
-
+	
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo DIR_JS?>bootstrap.js"></script>
 
@@ -48,6 +48,10 @@
     <script src="<?php echo DIR_JS?>sb-admin-2.js"></script>
     <script src="<?php echo DIR_JS?>jquery.blockUI.js"></script>
     <script src="<?php echo DIR_JS?>common.js"></script>
+<script language="javascript">
+var loading = '<center><img src="<?php echo DIR_IMAGE?>loading.gif"></center>';
+var HTTP_IMAGE = '<?php echo HTTP_IMAGE?>';
+</script>
 </head>
 
 <body>

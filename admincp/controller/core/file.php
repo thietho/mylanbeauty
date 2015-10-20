@@ -25,7 +25,6 @@ class ControllerCoreFile extends Controller
 		@$this->template="core/file.tpl";
 		if(@$_GET['dialog'] == '')
 		{
-			//@$this->template="core/file_list.tpl";
 			@$this->layout="layout/center";
 		}
 		@$this->render();
