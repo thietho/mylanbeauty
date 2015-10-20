@@ -100,19 +100,20 @@ if(@count($medias))
                             	foreach($media['childs'] as $me){
                             	if(!isset($data_price[@$me['sizes']]))
                                 {
-                                    @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']);
-                                    @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']);
+                                    if($me['price'] == 0)
+                                        @$data_price[$me['sizes']]['price'] = 'Giá đang cập nhật';
+                                    else
+                                        @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
+                                    @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
                                 }
                             } ?>
                             <?php foreach($data_price as $size => $price){ ?>
                             	<div align="center">
                                 	<?php 
                                     if($price['pricepromotion']==0)
-                                    {
-                                		echo $size.' : '.$price['price'].@$this->document->setup['Currency'];
-                                    }else{
-                                    	echo $size.' : <span class="product-price-no">'.$price['price'].@$this->document->setup['Currency'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].@$this->document->setup['Currency'].'</span>';
-                                    }
+                                		echo $size.' : '.$price['price'];
+                                    else
+                                    	echo $size.' : <span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
                                     ?>
                                 </div>
                             <?php } ?>

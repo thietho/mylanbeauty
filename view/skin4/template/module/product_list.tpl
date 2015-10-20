@@ -59,17 +59,41 @@ if(@count($medias))
                                 <?php } ?>
                             <?php } ?>
                             <?php if(@count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>
-                            	<?php if(@$media['price'] == 0){ ?>
-                                	<p class="price">Giá đang cập nhật</p>
-                                <?php }else{ ?>
-                                	<?php if(@$media['pricepromotion']==0){ ?>
-                                    	<p class="price"><span class="shop"><?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?></span></p>
+                            	<?php if(@count($media['childs'])==0){ ?>
+                                    <?php if(@$media['price'] == 0){ ?>
+                                        <p class="price">Giá đang cập nhật</p>
                                     <?php }else{ ?>
-                                    	<p class="price"><span class="genuine"><?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?></span>
-                                        
-                                        <span class="shop"><?php echo @$this->string->numberFormate($media['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span></p>
+                                        <?php if(@$media['pricepromotion']==0){ ?>
+                                            <p class="price"><span class="shop"><?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?></span></p>
+                                        <?php }else{ ?>
+                                            <p class="price"><span class="genuine"><?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?></span>
+                                            
+                                            <span class="shop"><?php echo @$this->string->numberFormate($media['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span></p>
+                                        <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
+                                <?php }else{
+                                	@$data_price = array();
+                                    foreach($media['childs'] as $me)
+                                    {
+                                        if(!isset($data_price[@$me['sizes']]))
+                                        {
+                                        	if($me['price'] == 0)
+                                            	@$data_price[$me['sizes']]['price'] = 'Giá đang cập nhật';
+                                            else
+                                            	@$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
+                                            @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+                                        }
+                                    }
+                                    foreach($data_price as $size => $price)
+                                    {
+                                    	if($price['pricepromotion']==0)
+                                    		echo '<p class="price">'.$size.' : <span class="shop">'.$price['price'].'</span></p>';
+                                         else
+                                         	echo '<p class="price">'.$size.' : <span class="genuine">'.$price['price'].'</span> - <span class="shop">'.$price['pricepromotion'].'</span></p>';
+                                    }
+                                }
+                                    
+                                ?>
                                 <center>
                                 <?php foreach($media['childs'] as $me){ ?>
                                 	<?php if(@$me['colorcode']!=''){ ?>
