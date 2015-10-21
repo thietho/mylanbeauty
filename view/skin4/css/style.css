@@ -25,24 +25,17 @@ a
 {
 	text-align:center;
 }
-#address
+.header-info
 {
-	position:absolute;
-	font-size:0.7em;
-	color:#b61219;
-	
+	margin-top:0.5em;	
 }
-#hotline
+.header-info img
 {
-	position:absolute;
-	font-size:0.7em;
-	color:#b61219;
-	right:0;
+	height:12px;
 }
-#supportonline
-{
-	text-align:right;	
-	margin-top:0.5em;
+#supportonline {
+    text-align: right;
+    margin-top: 0.5em;
 }
 .product-list img
 {
@@ -148,7 +141,7 @@ h1
 }
 .goTop
 {
-	top:0px;
+	top:80px;
 	background:#f0f0f0 url(../image/control/gotop.png) 12px 13px no-repeat;
 }
 .goReturn

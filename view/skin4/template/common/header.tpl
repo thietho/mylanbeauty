@@ -7,20 +7,17 @@
 		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
         
         <div data-role="header" class="jqm-header">
-        	<div id="address" class="address">
-            	<table>
+        	<div class="header-info">
+            	<table width="100%">
                 	<tr>
-                    	<td>164 Bàn Cờ, Phường 3, Quận 3, Tp HCM</td>
+                    	<td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>hearder_address.png" alt="164 Bàn Cờ, Phường 3, Quận 3, Tp HCM" title="164 Bàn Cờ, Phường 3, Quận 3, Tp HCM"></td>
+                        <td align="right"><img  src="<?php echo HTTP_SERVER.DIR_IMAGE?>hearder_hotline.png" alt="0903 767 580 - 0906 83 69 93" title="0903 767 580 - 0906 83 69 93"></td>
                     </tr>
                 </table>
+            	
+                
             </div>
-            <div id="hotline" class="hotline">
-            	<table>
-                	<tr>
-                    	<td>0903 767 580 - 0906 83 69 93</td>
-                    </tr>
-                </table>
-            </div>
+            
             <h2><a href="<?php echo HTTP_SERVER?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
         	<div id="supportonline" class="supportonline">
         	<a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
