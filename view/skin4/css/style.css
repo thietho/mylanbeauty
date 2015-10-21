@@ -29,10 +29,7 @@ a
 {
 	margin-top:0.5em;	
 }
-.header-info img
-{
-	height:12px;
-}
+
 #supportonline {
     text-align: right;
     margin-top: 0.5em;
@@ -141,7 +138,7 @@ h1
 }
 .goTop
 {
-	top:80px;
+	top:85px;
 	background:#f0f0f0 url(../image/control/gotop.png) 12px 13px no-repeat;
 }
 .goReturn
