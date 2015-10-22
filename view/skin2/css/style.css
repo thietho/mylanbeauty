@@ -414,13 +414,14 @@ input.ben-button:active {border-style: inset;}
 #ben-header-support
 {
 	margin-right:10px;	
-	
+	margin-top:14px;
 	
 }
 .support-title
 {
-		
+	margin-top: 5px;	
 }
+
 /* Optional Top */
 #ben-top{
 	margin: 0 auto;
@@ -867,7 +868,7 @@ ul#menu li ul li div:hover {
 {
 	position:absolute;
 	margin-left:301px;
-	margin-top:15px;
+	margin-top:3px;
 }
 .Sisley
 {
