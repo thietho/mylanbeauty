@@ -110,10 +110,13 @@ if(@count($medias))
                             <?php foreach($data_price as $size => $price){ ?>
                             	<div align="center">
                                 	<?php 
+                                    $str = $size.' : ';
+                                    if($size == '')
+                                    	$str ='';
                                     if($price['pricepromotion']==0)
-                                		echo $size.' : '.$price['price'];
+                                		echo $str.$price['price'];
                                     else
-                                    	echo $size.' : <span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
+                                    	echo $str.'<span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
                                     ?>
                                 </div>
                             <?php } ?>
