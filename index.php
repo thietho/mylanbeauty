@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	ini_set('zlib_output_compression','On');
 	include('system/config/directory.php');
 	$fdenial = false;
 	/*$ip = $_SERVER['REMOTE_ADDR'];
