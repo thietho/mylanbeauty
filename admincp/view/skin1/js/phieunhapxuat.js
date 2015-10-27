@@ -26,7 +26,7 @@ function PhieuNhapXuat()
 			objdl.getPrice(pos,mediaid,this.value);
 			
         });
-		
+		$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 		$.getJSON("?route=core/media/getListDonVi&mediaid="+ mediaid,
 			function(data){
 				html = "";
@@ -39,6 +39,7 @@ function PhieuNhapXuat()
 				$(str).val(madonvi);
 				if(id == 0)
 					objdl.getPrice(curpos,mediaid,madonvi);
+				$.unblockUI();
 			});
 		
 		objdl.tinhtong(this.index);
@@ -101,7 +102,7 @@ function PhieuNhapXuat()
 			objdl.getPrice(pos,mediaid,this.value);
 			
         });
-		
+		$.blockUI({ message: "<h1>Please wait...</h1>" }); 
 		$.getJSON("?route=core/media/getListDonVi&mediaid="+ mediaid,
 			function(data){
 				html = "";
@@ -114,6 +115,7 @@ function PhieuNhapXuat()
 				$(str).val(madonvi);
 				if(id == 0)
 					objdl.getPrice(curpos,mediaid,madonvi);
+				$.unblockUI();
 			});
 		
 		objdl.tinhtong(this.index);

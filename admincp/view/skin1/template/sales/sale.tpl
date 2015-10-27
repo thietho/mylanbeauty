@@ -642,5 +642,4 @@ function SaleOrder(shopid)
 	
 }
 var saleOrder = new SaleOrder($('#shopid').val());
-
 </script>
