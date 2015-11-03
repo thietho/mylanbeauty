@@ -283,7 +283,7 @@ class ControllerCoreMember extends Controller
 			$tongno += $item['congno'];	
 		}
 		//Lay tat ca phieu tra hang
-		$where = " AND loaiphieu = 'NK-KHTL' AND khachhangid = '".$id."'";
+		$where = " AND loaiphieu IN ('NK-KHTL','CH-NK') AND khachhangid = '".$id."'";
 		if(@$tungay != "")
 		{
 			$where .= " AND ngaylap > '".$tungay."'";
@@ -295,7 +295,7 @@ class ControllerCoreMember extends Controller
 		@$this->data['data_phieutrahang'] = @$this->model_quanlykho_phieunhapxuat->getList($where);
 		
 		$tongnotrahang = 0;
-		foreach(@$this->data['data_phieutrahang'] as $item)
+		foreach(@$this->data['data_phieutrahang'] as $key => $item)
 		{
 			$where = " AND phieuid = '".$item['id']."'";
 			$data_ct = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
