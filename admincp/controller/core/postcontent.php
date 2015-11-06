@@ -401,7 +401,7 @@ class ControllerCorePostcontent extends Controller
 			
 			$data['userid'] = @$this->user->getId();
 			//$data['saleprice'] = "";
-			if(count($data['saleprice']))
+			if(count(@$data['saleprice']))
 			{
 				foreach($data['saleprice'] as $key => $val)
 				{
@@ -409,7 +409,7 @@ class ControllerCorePostcontent extends Controller
 				}
 				$data['saleprice'] = json_encode($data['saleprice']);
 			}
-			if(count($data['retail']))
+			if(count(@$data['retail']))
 			{
 				foreach($data['retail'] as $key => $val)
 				{

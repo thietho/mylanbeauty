@@ -195,7 +195,7 @@ class ControllerModuleProduct extends Controller
 				}
 				@$this->data['medias'][$i]['sitemapname'] = implode("<br>",$arrsitemapname);
 			}
-			$sitemapid = $arr[0];
+			@$sitemapid = $arr[0];
 			$sitemap = @$this->model_core_sitemap->getItem($sitemapid,@$this->user->getSiteId());
 			
 			

@@ -188,12 +188,12 @@ final class Document {
 			$media = $mediaid;	
 		}
 		$productname = $media['title'];
-		if($media['code'])
-			$productname .= " - ".$media['code'];
-		if($media['sizes'])
-			$productname .= " ".$media['sizes'];
-		if($media['color'])
-			$productname .= " ".$media['color'];
+		if(@$media['code'])
+			@$productname .= " - ".$media['code'];
+		if(@$media['sizes'])
+			@$productname .= " ".$media['sizes'];
+		if(@$media['color'])
+			@$productname .= " ".$media['color'];
 		return $productname;
 		
 	}

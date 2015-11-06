@@ -34,7 +34,7 @@ final class Image {
 			if(!file_exists($file1))
 			{
 				
-				$content = file_get_contents(IMAGE_SERVER."?path=".base64_encode($file));
+				@$content = file_get_contents(IMAGE_SERVER."?path=".base64_encode($file));
 				file_put_contents($file1,$content);	
 			}
 			$info = getimagesize($file1);

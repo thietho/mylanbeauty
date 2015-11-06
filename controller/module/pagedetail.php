@@ -182,7 +182,7 @@ class ControllerModulePagedetail extends Controller
 				$this->data['subimage'][$key]['imagepreview'] = HelperImage::resizePNG($item,  800, 800);
 			}
 			
-			if(!$this->string->isImage($file['extension']))
+			if(!$this->string->isImage(@$file['extension']))
 			{
 				$this->data['attachment'][$key] = $file;
 				$this->data['attachment'][$key]['imagethumbnail'] = DIR_IMAGE."icon/dinhkem.png";
