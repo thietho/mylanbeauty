@@ -775,12 +775,20 @@ class ModelCoreMedia extends ModelCoreFile
 		return @$this->model_quanlykho_donvitinh->toText($arr_ton);*/
 	}
 	
-	public function getShopSoLuong($shopid,$mediaid,$loaiphieu)
+	public function getShopSoLuong($shopid,$mediaid,$loaiphieu,$tungay='',$denngay='')
 	{
+		if(@$tungay != "")
+		{
+			$where .= " AND ngaylap >= '".$tungay."'";
+		}
+		if(@$denngay != "")
+		{
+			$where .= " AND ngaylap < '".$denngay." 23:59:59'";
+		}
 		$sql = "SELECT sum(soluong) as soluong, madonvi
 				FROM  `qlkphieunhapxuat_media` 
 				WHERE mediaid = '".$mediaid."' AND shopid = '".$shopid."' AND loaiphieu like '".$loaiphieu."'
-				AND xuattu like ''
+				AND xuattu like '' ".$where."
 				Group by madonvi
 				";
 		//$tb = @$this->document->select($sql);
@@ -789,25 +797,25 @@ class ModelCoreMedia extends ModelCoreFile
 		return $query->rows;
 	}
 	
-	public function getShopInventory($shopid,$mediaid)
+	public function getShopInventory($shopid,$mediaid,$tungay='',$denngay='')
 	{
 		$media = @$this->getItem($mediaid);
 		
 		//Nhap tu kho
-		$arrnhap = @$this->getShopSoLuong($shopid,$mediaid,'PX-XCH');
+		$arrnhap = @$this->getShopSoLuong($shopid,$mediaid,'PX-XCH',$tungay,$denngay);
 		$soluongnhap = @$this->model_quanlykho_donvitinh->toDonViTinh($arrnhap,$media['unit']);
 		$int_nhap = @$this->model_quanlykho_donvitinh->toInt($soluongnhap);
 		//Nhap tu NCC
-		$arrnhapncc = @$this->getShopSoLuong($shopid,$mediaid,'CH-NK');
+		$arrnhapncc = @$this->getShopSoLuong($shopid,$mediaid,'CH-NK',$tungay,$denngay);
 		$soluongnhapncc = @$this->model_quanlykho_donvitinh->toDonViTinh($arrnhapncc,$media['unit']);
 		$int_nhapncc = @$this->model_quanlykho_donvitinh->toInt($soluongnhapncc);
 		//$arr_nhap = @$this->model_quanlykho_donvitinh->toDonVi($int_nhap,$media['unit']);
 		//Xuat ban
-		$arrxuatban = @$this->getShopSoLuong($shopid,$mediaid,'CH-BH');
+		$arrxuatban = @$this->getShopSoLuong($shopid,$mediaid,'CH-BH',$tungay,$denngay);
 		$soluongxuatban = @$this->model_quanlykho_donvitinh->toDonViTinh($arrxuatban,$media['unit']);
 		$int_xuatban = @$this->model_quanlykho_donvitinh->toInt($soluongxuatban);
 		//Xuat ve kho
-		$arrxuatvekho = @$this->getShopSoLuong($shopid,$mediaid,'NK-CH');
+		$arrxuatvekho = @$this->getShopSoLuong($shopid,$mediaid,'NK-CH',$tungay,$denngay);
 		$soluongxuatvekho = @$this->model_quanlykho_donvitinh->toDonViTinh($arrxuatvekho,$media['unit']);
 		$int_xuatvekho = @$this->model_quanlykho_donvitinh->toInt($soluongxuatvekho);
 		

@@ -54,7 +54,7 @@ final class Member {
 			@$this->login($_COOKIE['username'],$_COOKIE['password']);	
 		}
 		
-		if(count($this->session->data['member']))
+		if(count(@$this->session->data['member']))
 		{
 			$sql="SELECT * FROM user WHERE id = '" . $this->session->data['member']['id'] . "' AND status = 'active' AND deletedby = ''";
 	   		$query = $this->db->query($sql);

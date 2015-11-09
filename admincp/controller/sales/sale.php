@@ -2,6 +2,7 @@
 class ControllerSalesSale extends Controller
 {
 	private $error = array();
+	private $shopid;
 	function __construct()
 	{
 		@$this->load->model("core/module");
@@ -42,6 +43,10 @@ class ControllerSalesSale extends Controller
 		
 		$this->data['sitemaps'] = array();
 		$this->model_core_sitemap->getTreeSitemap("", $this->data['sitemaps']);
+		
+		$nhanvien = @$this->user->getNhanVien();
+		$staffshop = @$this->model_sales_shop->getShopStaff($nhanvien['id']);
+		$this->shopid = $staffshop['shopid'];
 		
 	}
 	public function index()
@@ -184,10 +189,11 @@ class ControllerSalesSale extends Controller
 			$where .= "AND (". implode($arr," OR ").")";
 		
 		$keyword = urldecode(@$this->request->get['keyword']);
-		@$arrkey = split(' ', $keyword);
+		
 		
 		if(@$keyword !="")
 		{
+			@$arrkey = split(' ', $keyword);
 			$arr = array();
 			$arrcode = array();
 			$arrbarcode = array();
@@ -452,6 +458,150 @@ class ControllerSalesSale extends Controller
 		@$this->id='content';
 		@$this->template="sales/sale_product_shop.tpl";
 		@$this->render();
+	}
+	public function report()
+	{
+		@$this->id='content';
+		@$this->template="sales/sale_report.tpl";
+		@$this->layout="layout/center";
+		@$this->render();
+	}
+	public function report_view()
+	{
+		
+		$data = @$this->request->post;
+		$shopid = $this->shopid;
+		$tungay = @$this->date->formatViewDate($data['tungay']);
+		$denngay = @$this->date->formatViewDate($data['denngay']);
+		$brand = @$data['brand'];
+		$keyword = @$data['keyword'];
+		if(@$keyword !="")
+		{
+			@$arrkey = split(' ', $keyword);
+			$arr = array();
+			$arrcode = array();
+			$arrbarcode = array();
+			$arrref = array();
+			$arrcolor = array();
+			$arrsizes = array();
+			$arrmaterial = array();
+			foreach($arrkey as $key)
+			{
+				$arr[] = "title like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrcode[] = "code like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrbarcode[] = "barcode like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrref[] = "ref like '%".$key."%'";
+			}
+			
+			foreach($arrkey as $key)
+			{
+				$arrcolor[] = "color like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrsizes[] = "sizes like '%".$key."%'";
+			}
+			foreach($arrkey as $key)
+			{
+				$arrmaterial[] = "material like '%".$key."%'";
+			}
+			$where .= " AND ((". implode(" AND ",$arr). ") 
+									OR (". implode(" AND ",$arrcode). ") 
+									OR (". implode(" AND ",$arrbarcode). ") 
+									OR (". implode(" AND ",$arrref). ") 
+									OR (". implode(" AND ",$arrcolor). ") 
+									OR (". implode(" AND ",$arrsizes). ") 
+									OR (". implode(" AND ",$arrmaterial). ") 
+							)";
+			
+		}
+		if(@$brand !="")
+		{
+			$where .= " AND brand like '".$brand."'";
+		}
+		$where .= " AND mediatype = 'module/product' Order By `title`";
+		$medias = $this->model_core_media->getList($where);
+		@$this->data['data_product'] = array();
+		foreach($medias as $media)
+		{
+			$child = $this->model_core_media->getListByParent($media['mediaid']);
+			if(count($child) == 0)
+			{
+				
+				//Ton dau ky
+				$media['tondauky'] = $this->model_core_media->getShopInventory($shopid,$media['mediaid'],'',$this->date->addday($tungay,-1));
+				//Nhap trong ky
+				//Nhap tu kho
+				$arrnhap = @$this->model_core_media->getShopSoLuong($shopid,$media['mediaid'],'PX-XCH',$tungay,$denngay);
+				$soluongnhap = @$this->model_quanlykho_donvitinh->toDonViTinh($arrnhap,$media['unit']);
+				$int_nhap = @$this->model_quanlykho_donvitinh->toInt($soluongnhap);
+				//Nhap tu NCC
+				$arrnhapncc = @$this->model_core_media->getShopSoLuong($shopid,$media['mediaid'],'CH-NK',$tungay,$denngay);
+				$soluongnhapncc = @$this->model_quanlykho_donvitinh->toDonViTinh($arrnhapncc,$media['unit']);
+				$int_nhapncc = @$this->model_quanlykho_donvitinh->toInt($soluongnhapncc);
+				$media['nhaptrongky'] = $int_nhap + $int_nhapncc;
+				//Xuat trong ky
+				//Xuat ban
+				$arrxuatban = @$this->model_core_media->getShopSoLuong($shopid,$media['mediaid'],'CH-BH',$tungay,$denngay);
+				$soluongxuatban = @$this->model_quanlykho_donvitinh->toDonViTinh($arrxuatban,$media['unit']);
+				$int_xuatban = @$this->model_quanlykho_donvitinh->toInt($soluongxuatban);
+				//Xuat ve kho
+				$arrxuatvekho = @$this->model_core_media->getShopSoLuong($shopid,$media['mediaid'],'NK-CH',$tungay,$denngay);
+				$soluongxuatvekho = @$this->model_quanlykho_donvitinh->toDonViTinh($arrxuatvekho,$media['unit']);
+				$int_xuatvekho = @$this->model_quanlykho_donvitinh->toInt($soluongxuatvekho);
+				$media['xuattrongky'] = $int_xuatban + $int_xuatvekho;
+				//Ton cuoi ky
+				$media['toncuoiky'] = $media['tondauky'] + $media['nhaptrongky'] - $media['xuattrongky'];
+				@$this->data['data_product'][] = $media;
+			}
+		}
+		
+		
+		//Lay cac san pham co nhap cho shop
+		//$where = " AND shopid = '".$shopid."'";
+		
+		
+		/*if(@$tungay != "")
+		{
+			$where .= " AND ngaylap >= '".$tungay."'";
+		}
+		if(@$denngay != "")
+		{
+			$where .= " AND ngaylap < '".$denngay." 24:00:00'";
+		}*/
+		/*$where.= " Group by mediaid ";
+		$data_nhapxuatmedia = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
+		$arr_mediaid = @$this->string->matrixToArray($data_nhapxuatmedia,'mediaid');
+		
+		$where = " AND mediatype = 'module/product' AND mediaid in ('".implode("','",$arr_mediaid)."')";
+		
+		$data_product = @$this->model_core_media->getList($where);
+		$arr_brand = array();
+		foreach($data_product as $i => $media)
+		{
+			//$media['Inventory'] = @$this->model_core_media->getShopInventory($shopid,$media['mediaid']);
+			//$media['icon'] = HelperImage::resizePNG($media['imagepath'], 100, 100);		
+			@$this->data['data_product'][$media['brand']][]=$media;
+		}
+		
+		$cat = array(
+					'categoryid'=>'',
+					'categoryname' => 'Chưa có nhãn hiệu'
+					);
+		@$this->data['nhanhieu'][] = $cat;*/
+		
+		@$this->id='content';
+		@$this->template="sales/sale_report_view.tpl";
+		@$this->render();		
 	}
 }
 ?>

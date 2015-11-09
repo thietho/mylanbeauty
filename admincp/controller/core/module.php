@@ -32,7 +32,7 @@ class ControllerCoreModule extends Controller
 	{
 		@$this->data['item'] = @$this->model_core_module->getItem(@$this->request->get['id']);
 		@$this->data['modules'] = array();
-		@$this->model_core_module->getTree(0, @$this->data['modules']);
+		@$this->model_core_module->getTree(0,$this->data['modules']);
 		@$this->id='content';
 		@$this->template='core/module_move.tpl';
 		@$this->render();

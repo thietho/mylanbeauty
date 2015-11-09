@@ -1,5 +1,5 @@
 <?php
-class ControllerThongkeinventory extends Controller
+class ControllerThongkeTonkho extends Controller
 {
 	private $error = array();
 	function __construct() 

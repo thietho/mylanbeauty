@@ -53,6 +53,7 @@
                             <?php if(@$this->user->getUserTypeId()=='admin'){ ?>
                             <a class="button" id="btnSelectKhachHang" >Chọn khách hàng</a>
                             <?php } ?>
+                            <a class="button" id="btnNewOrder" onClick="saleOrder.newOrder()">Đơn hàng mới</a>
                         </td>
                     </tr>
                     <tr>
@@ -155,9 +156,10 @@
             <input type="button" class="button" id="btnListProducShop" value="Các sản phẩm đang có tại shop"/>
             <input type="button" class="button" id="btnSave" value="Lưu phiếu" onClick="saleOrder.save('')"/>
             <input type="button" class="button" id="btnSavePrint" value="Lưu & in" onClick="saleOrder.save('print')"/>
-            <input type="button" class="button" id="btnNewOrder" value="Đơn hàng mới" onClick="saleOrder.newOrder()"/>
+            
             <input type="button" class="button" id="btnDelOrder" value="Xóa đơn hàng" onClick="saleOrder.delOrder($('#frmSaleOrder #id').val())"/>
             <input type="button" class="button" id="btnListOrder" value="Danh sách đơn hàng đã bán" onClick="saleOrder.listOrderComplete()"/>
+            <input type="button" class="button" id="btnImportExportStatistics" value="Thống kê" onClick="window.location = '?route=sales/sale/report'"/>
         </div>
         
         
