@@ -466,7 +466,7 @@ class ControllerSalesSale extends Controller
 		@$this->layout="layout/center";
 		@$this->render();
 	}
-	public function report_view()
+	public function reportView()
 	{
 		
 		$data = @$this->request->post;
@@ -530,7 +530,8 @@ class ControllerSalesSale extends Controller
 		}
 		$where .= " AND mediatype = 'module/product' Order By `title`";
 		$medias = $this->model_core_media->getList($where);
-		@$this->data['data_product'] = array();
+		@$data_product = array();
+		$arrsitemap = array();
 		foreach($medias as $media)
 		{
 			$child = $this->model_core_media->getListByParent($media['mediaid']);
@@ -559,49 +560,43 @@ class ControllerSalesSale extends Controller
 				$soluongxuatvekho = @$this->model_quanlykho_donvitinh->toDonViTinh($arrxuatvekho,$media['unit']);
 				$int_xuatvekho = @$this->model_quanlykho_donvitinh->toInt($soluongxuatvekho);
 				$media['xuattrongky'] = $int_xuatban + $int_xuatvekho;
+				if(!($media['tondauky']==0 && $media['nhaptrongky'] ==0 && $media['xuattrongky'] == 0))
+				{
 				//Ton cuoi ky
-				$media['toncuoiky'] = $media['tondauky'] + $media['nhaptrongky'] - $media['xuattrongky'];
-				@$this->data['data_product'][] = $media;
+					$media['toncuoiky'] = $media['tondauky'] + $media['nhaptrongky'] - $media['xuattrongky'];
+					
+					@$data_product[] = $media;
+				}
 			}
 		}
-		
-		
-		//Lay cac san pham co nhap cho shop
-		//$where = " AND shopid = '".$shopid."'";
-		
-		
-		/*if(@$tungay != "")
+		foreach($this->data['sitemaps'] as $sitemap)
 		{
-			$where .= " AND ngaylap >= '".$tungay."'";
+			$this->data['data_product'][$sitemap['sitemapid']]= array();
 		}
-		if(@$denngay != "")
+		foreach($data_product as $media)
 		{
-			$where .= " AND ngaylap < '".$denngay." 24:00:00'";
-		}*/
-		/*$where.= " Group by mediaid ";
-		$data_nhapxuatmedia = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
-		$arr_mediaid = @$this->string->matrixToArray($data_nhapxuatmedia,'mediaid');
-		
-		$where = " AND mediatype = 'module/product' AND mediaid in ('".implode("','",$arr_mediaid)."')";
-		
-		$data_product = @$this->model_core_media->getList($where);
-		$arr_brand = array();
-		foreach($data_product as $i => $media)
-		{
-			//$media['Inventory'] = @$this->model_core_media->getShopInventory($shopid,$media['mediaid']);
-			//$media['icon'] = HelperImage::resizePNG($media['imagepath'], 100, 100);		
-			@$this->data['data_product'][$media['brand']][]=$media;
+			$arr = $this->string->referSiteMapToArray($media['refersitemap']);
+			$this->data['data_product'][$arr[0]][] = $media;
 		}
-		
-		$cat = array(
-					'categoryid'=>'',
-					'categoryname' => 'Chưa có nhãn hiệu'
-					);
-		@$this->data['nhanhieu'][] = $cat;*/
-		
+		$this->data['tungay'] = $tungay;
+		$this->data['denngay'] = $denngay;
+		//print_r($this->data['data_product']);
+		//$this->data['data_product'] = $data_product;
 		@$this->id='content';
 		@$this->template="sales/sale_report_view.tpl";
 		@$this->render();		
+	}
+	
+	public function reportViewDetail()
+	{
+		$shopid = $this->shopid;
+		@$mediaid = @$this->request->get['mediaid'];
+		@$tungay = @$this->request->get['tungay'];
+		@$denngay = @$this->request->get['denngay'];
+		
+		@$this->id='content';
+		@$this->template="sales/sale_report_view_detail.tpl";
+		@$this->render();	
 	}
 }
 ?>

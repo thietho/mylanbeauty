@@ -56,7 +56,7 @@
 <script language="javascript">
 $('#btnThongKe').click(function(e) {
 	$('#showresult').html(loading);
-    $.post("?route=sales/sale/report_view", 
+    $.post("?route=sales/sale/reportView", 
 		$("#frm_thongke").serialize(), 
 		function(html)
 		{
