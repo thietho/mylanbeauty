@@ -40,7 +40,30 @@
 </table>
 <script language="javascript">
 $('.item').dblclick(function(e) {
-    
+    var eid = "reportdetail";
+	$('body').append('<div id="'+eid+'" style="display:none"></div>');
+	$('body').css('overflow','hidden');
+	$("#"+eid).attr('title','Thông tin nhập xuất');
+		$("#"+eid).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode",
+			width: $(document).width()-100,
+			height: window.innerHeight,
+			modal: true,
+			close:function()
+				{
+					$("#"+eid).remove();
+					$('body').css('overflow','auto');
+				},
+			
+		});
+	var mediaid = $(this).attr('mediaid');
+	var tungay = $(this).attr('tungay');
+	var denngay = $(this).attr('denngay');
+	$("#"+eid).dialog("open");
+	$("#"+eid).html(loading);
+	$("#"+eid).load('?route=sales/sale/history&mediaid='+mediaid+'&tungay='+tungay+'&denngay='+denngay);	
 });
 </script>
 

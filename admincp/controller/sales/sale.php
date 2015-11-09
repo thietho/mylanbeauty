@@ -399,13 +399,26 @@ class ControllerSalesSale extends Controller
 	public function history()
 	{
 		$shopid = @$this->request->get['shopid'];
+		if($shopid == "")
+			$shopid = $this->shopid;
 		$mediaid = @$this->request->get['mediaid'];
+		@$tungay = @$this->request->get['tungay'];
+		@$denngay = @$this->request->get['denngay'];
+		$where1 = "";
+		if(@$tungay != "")
+		{
+			$where1 .= " AND ngaylap >= '".$tungay."'";
+		}
+		if(@$denngay != "")
+		{
+			$where1 .= " AND ngaylap < '".$denngay." 23:59:59'";
+		}
 		//Nhap
-		$where = " AND shopid = '".$shopid."' AND mediaid = '".$mediaid."' AND loaiphieu in ('PX-XCH','CH-NK') ORDER BY `ngaylap` DESC";
+		$where = $where1." AND shopid = '".$shopid."' AND mediaid = '".$mediaid."' AND loaiphieu in ('PX-XCH','CH-NK') ORDER BY `ngaylap` DESC";
 		$data_nhap = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
 		//Xuat
 		
-		$where = " AND shopid = '".$shopid."' AND mediaid = '".$mediaid."' AND loaiphieu in ('CH-BH','NK-CH') ORDER BY `ngaylap` DESC";
+		$where = $where1." AND shopid = '".$shopid."' AND mediaid = '".$mediaid."' AND loaiphieu in ('CH-BH','NK-CH') ORDER BY `ngaylap` DESC";
 		$data_xuat = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
 		
 		
@@ -587,16 +600,6 @@ class ControllerSalesSale extends Controller
 		@$this->render();		
 	}
 	
-	public function reportViewDetail()
-	{
-		$shopid = $this->shopid;
-		@$mediaid = @$this->request->get['mediaid'];
-		@$tungay = @$this->request->get['tungay'];
-		@$denngay = @$this->request->get['denngay'];
-		
-		@$this->id='content';
-		@$this->template="sales/sale_report_view_detail.tpl";
-		@$this->render();	
-	}
+	
 }
 ?>
