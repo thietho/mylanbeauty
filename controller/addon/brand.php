@@ -31,7 +31,7 @@ class ControllerAddonBrand extends Controller
 		}
 		else
 		{
-			$this->document->breadcrumb .= '<a href="' .$this->document->createLink($sitemap['sitemapid']).'">'.$sitemap['sitemapname']."</a> » ". '<a href="' .$this->document->createLink("brand",$categoryid."-".$sitemapid).'">'.$header.'</a>';
+			@$this->document->breadcrumb .= '<a href="' .$this->document->createLink($sitemap['sitemapid']).'">'.$sitemap['sitemapname']."</a> » ". '<a href="' .$this->document->createLink("brand",$categoryid."-".$sitemapid).'">'.$header.'</a>';
 		}
 		$where .= " AND brand like '".$categoryid."' AND mediaparent =''";
 		if(@$sitemapid)

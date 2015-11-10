@@ -539,7 +539,7 @@ class ControllerSalesSale extends Controller
 		}
 		if(@$brand !="")
 		{
-			$where .= " AND brand like '".$brand."'";
+			@$where .= " AND brand like '".$brand."'";
 		}
 		$where .= " AND mediatype = 'module/product' Order By `title`";
 		$medias = $this->model_core_media->getList($where);
