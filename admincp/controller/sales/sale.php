@@ -44,6 +44,10 @@ class ControllerSalesSale extends Controller
 		$this->data['sitemaps'] = array();
 		$this->model_core_sitemap->getTreeSitemap("", $this->data['sitemaps']);
 		
+		$this->data['shipper'] = array();
+		$this->model_core_category->getTree("shipper",$this->data['shipper']);
+		unset($this->data['shipper'][0]);
+		
 		$nhanvien = @$this->user->getNhanVien();
 		$staffshop = @$this->model_sales_shop->getShopStaff($nhanvien['id']);
 		$this->shopid = $staffshop['shopid'];
@@ -152,6 +156,7 @@ class ControllerSalesSale extends Controller
 		$id = @$this->request->get['id'];
 		$data = @$this->model_quanlykho_phieunhapxuat->getItem($id);
 		$data['ngaylap'] = @$this->date->formatMySQLDate($data['ngaylap']);
+		$data['shipdate'] = @$this->date->formatMySQLDate($data['shipdate']);
 		//Lap chi tiet
 		$where = " AND phieuid = '".$id."' ORDER BY `vitri` ASC";
 		$data['detail'] = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
@@ -284,6 +289,7 @@ class ControllerSalesSale extends Controller
 		{
 			$nhanvien = @$this->user->getNhanVien();
 			$data['ngaylap'] = @$this->date->formatViewDate($data['ngaylap']);
+			$data['shipdate'] = @$this->date->formatViewDate($data['shipdate']);
 			$data['ngaythanhtoan'] = @$this->date->formatViewDate($data['ngaythanhtoan']);
 			if(@$data['nguoithuchien']=="")
 			{
@@ -600,6 +606,44 @@ class ControllerSalesSale extends Controller
 		@$this->render();		
 	}
 	
-	
+	public function reportSale()
+	{
+		@$this->id='content';
+		@$this->template="sales/sale_report_sale.tpl";
+		@$this->layout="layout/center";
+		@$this->render();
+	}
+	public function reportSaleView()
+	{
+		$data = @$this->request->post;
+		$shopid = $this->shopid;
+		$tungay = @$this->date->formatViewDate($data['tungay']);
+		$denngay = @$this->date->formatViewDate($data['denngay']);
+		$tenkhachhang = @$data['tenkhachhang'];
+		$shipby = @$data['shipby'];
+		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH'";
+		if($tenkhachhang)
+		{
+			$where.= " AND tenkhachhang like '%".$tenkhachhang."%'";	
+		}
+		if($shipby)
+		{
+			$where.= " AND shipby like '".$shipby."'";	
+		}
+		if(@$tungay != "")
+		{
+			$where .= " AND ngaylap >= '".$tungay."'";
+		}
+		if(@$denngay != "")
+		{
+			$where .= " AND ngaylap < '".$denngay." 23:59:59'";
+		}
+		
+		$this->data['data_order'] = $this->model_quanlykho_phieunhapxuat->getList($where,0,0,"  Order by id");
+		
+		@$this->id='content';
+		@$this->template="sales/sale_report_sale_view.tpl";
+		@$this->render();
+	}
 }
 ?>

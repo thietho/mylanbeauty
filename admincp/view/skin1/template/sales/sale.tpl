@@ -57,6 +57,40 @@
                         </td>
                     </tr>
                     <tr>
+                        <td><label>Giao bởi</label></td>
+                        <td>
+                        	<table style="width:auto">
+                            	<tr>
+                                	<td>
+                                   		<select id="shipby" name="shipby">
+                                        	<option value=""></option>
+                                            <?php foreach($shipper as $it){ ?>
+                                            <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>
+                                            <?php } ?>
+                                            
+                                        </select>
+
+                                    </td>
+                                    <td><label>Ngày giao</label></td>
+                                    <td>
+                                    	<input type="text" class="text"  id="shipdate" name="shipdate" value="<?php echo @$this->date->formatMySQLDate(@$item['shipdate'])?>"/>
+										<script language="javascript">
+                                            $(function() {
+                                                $("#shipdate").datepicker({
+                                                        changeMonth: true,
+                                                        changeYear: true,
+                                                        dateFormat: 'dd-mm-yy'
+                                                        });
+                                                });
+                                         </script>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
                         <td><label>Ghi chú</label></td>
                         <td><textarea id="ghichu" name="ghichu"></textarea></td>
                     </tr>
@@ -160,6 +194,7 @@
             <input type="button" class="button" id="btnDelOrder" value="Xóa đơn hàng" onClick="saleOrder.delOrder($('#frmSaleOrder #id').val())"/>
             <input type="button" class="button" id="btnListOrder" value="Danh sách đơn hàng đã bán" onClick="saleOrder.listOrderComplete()"/>
             <input type="button" class="button" id="btnImportExportStatistics" value="Thống kê" onClick="window.location = '?route=sales/sale/report'"/>
+            <input type="button" class="button" id="btnReportSale" value="Báo cáo bán hàng" onClick="window.location = '?route=sales/sale/reportSale'"/>
         </div>
         
         
@@ -298,6 +333,8 @@ function SaleOrder(shopid)
 		
 		$('#frmSaleOrder #loaiphieu').val('CH-BH');
 		$('#frmSaleOrder #trangthai').val('new');
+		$('#frmSaleOrder #shipby').val('');
+		$('#frmSaleOrder #shipdate').val('');
 		$('#frmSaleOrder #ghichu').val('');
 		$('#frmSaleOrder #lydothu').val('');
 		$('#frmSaleOrder #thuphi').val('');
@@ -461,6 +498,8 @@ function SaleOrder(shopid)
 			$('#frmSaleOrder #shopid').val(data.shopid);
 			$('#frmSaleOrder #loaiphieu').val(data.loaiphieu);
 			$('#frmSaleOrder #trangthai').val(data.trangthai);
+			$('#frmSaleOrder #shipby').val(data.shipby);
+			$('#frmSaleOrder #shipdate').val(data.shipdate);
 			$('#frmSaleOrder #ghichu').val(data.ghichu);
 			$('#frmSaleOrder #lydothu').val(data.lydothu);
 			$('#frmSaleOrder #thuphi').val(data.thuphi);
