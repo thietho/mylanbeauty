@@ -21,7 +21,7 @@
                     Giá khuyến mãi: <?php echo @$this->string->numberFormate($media['pricepromotion'])?><br />
                     <?php echo ($media['groupkeys']!="")?$media['groupkeys']."<br>":"" ?>
                     <?php if(@$media['totalinventorytext']) echo "Tổng tồn: ".$media['totalinventorytext']."<br>"?>
-                    <?php if(@$media['inventory']) echo "Tồn tại kho: ".$media['inventorytext']?>
+                    <?php if(@$media['inventorytext']) echo "Tồn tại kho: ".$media['inventorytext']?>
                     <?php if(@$media['shopinventory']) echo $media['shopinventory']?>
                     <?php if(count($media['child'])==0){ ?>
                             
@@ -80,7 +80,7 @@
                                 Giảm: <?php echo @$this->string->numberFormate($child['discountpercent'])?>%<br />
                                 Giá khuyến mãi: <?php echo @$this->string->numberFormate($child['pricepromotion'])?><br />
                                 <?php if(@$child['totalinventorytext']!='') echo "Tổng tồn: ".$child['totalinventorytext']."<br>"?>
-                                <?php if(@$child['inventory']) echo "Tồn tại kho: ".$child['inventorytext']?>
+                                <?php if(@$child['inventorytext']) echo "Tồn tại kho: ".$child['inventorytext']?>
                                 <?php if(@$child['shopinventory']) echo $child['shopinventory']?>
                             </td>
                             <td>

@@ -200,8 +200,8 @@ class ControllerModuleProduct extends Controller
 			
 			
 			@$this->data['medias'][$i]['imagepreview'] = HelperImage::resizePNG(@$this->data['medias'][$i]['imagepath'], 100, 100);
-			
-			$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi(@$this->data['medias'][$i]['inventory'],@$this->data['medias'][$i]['unit']);
+			$inventory = @$this->model_core_media->getInventory($mediaid);
+			$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,@$this->data['medias'][$i]['unit']);
 			
 			@$this->data['medias'][$i]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);	
 			
@@ -235,7 +235,8 @@ class ControllerModuleProduct extends Controller
 				}
 				@$this->data['medias'][$i]['shopinventory'] .= $str;
 			}
-			$totalinventory = @$this->data['medias'][$i]['inventory'] + $suminvetoryshop;
+			
+			$totalinventory = $inventory + $suminvetoryshop;
 			$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,@$this->data['medias'][$i]['unit']);
 			@$this->data['medias'][$i]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
 			
@@ -244,7 +245,8 @@ class ControllerModuleProduct extends Controller
 			{
 				$data_child[$key]['imagepreview'] = HelperImage::resizePNG($child['imagepath'], 100, 100);
 				$data_child[$key]['saleprice'] = json_decode($child['saleprice']);
-				$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($data_child[$key]['inventory'],$data_child[$key]['unit']);
+				$inventory = @$this->model_core_media->getInventory($child['mediaid']);
+				$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,$data_child[$key]['unit']);
 				$data_child[$key]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);
 				$data_child[$key]['shopinventory'] = '';
 				$suminvetoryshop = 0;
@@ -261,7 +263,8 @@ class ControllerModuleProduct extends Controller
 					}
 					$data_child[$key]['shopinventory'] .= $str;
 				}
-				@$totalinventory = $data_child[$key]['inventory'] + $suminvetoryshop;
+				
+				@$totalinventory = $inventory + $suminvetoryshop;
 				@$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,$data_child[$key]['unit']);
 				@$data_child[$key]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
 				
@@ -970,25 +973,42 @@ class ControllerModuleProduct extends Controller
 		$medias = @$this->model_core_media->getList($where);
 		foreach($medias as $key => $media)
 		{
-			
-			$inventory = @$this->model_core_media->getInventory($media['mediaid']);
-			@$this->model_core_media->updateCol($media['mediaid'],'inventory',$inventory);
+			@$this->updateProductInventory($media['mediaid']);
 		}
 		
 		@$this->id='content';
 		@$this->template='common/output.tpl';
 		@$this->render();
 	}
+	public function updateProductInventory($mediaid)
+	{
+		$inventory = @$this->model_core_media->getInventory($mediaid);
+		echo $mediaid;
+		$suminvetoryshop = 0;
+		foreach(@$this->data['data_shop'] as $shop)
+		{
+			$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$mediaid);
+			$str = '';
+			$suminvetoryshop += $shopinventory;
+			
+		}
+		$totalinventory = $inventory + $suminvetoryshop;
+		@$this->model_core_media->updateCol($mediaid,'inventory',$totalinventory);
+	}
 	public function getInventory()
 	{
 		$mediaid = @$this->request->get['mediaid'];
-		$media = @$this->model_core_media->getItem($mediaid);
-		$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($media['inventory'],$media['unit']);
+		
+		//$media = @$this->model_core_media->getItem($mediaid);
+		$inventory = @$this->model_core_media->getInventory($mediaid);
+		$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,$media['unit']);
 		$inventorytext = @$this->model_quanlykho_donvitinh->toText($arr_ton);
-		@$this->data['output'] = $inventorytext;
-		@$this->id='content';
-		@$this->template='common/output.tpl';
-		@$this->render();
+		
+			@$this->data['output'] = $inventorytext;
+			@$this->id='content';
+			@$this->template='common/output.tpl';
+			@$this->render();
+	
 	}
 }
 ?>

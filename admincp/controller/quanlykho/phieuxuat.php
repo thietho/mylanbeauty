@@ -363,9 +363,10 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 					@$this->model_quanlykho_phieunhapxuat->deletePhieuNhapXuatMedia($nhapkhoid);
 					
 					@$mediaid = $ph['mediaid'];
-					//Cap nhat ton kho
-					$inventory = @$this->model_core_media->getInventory($mediaid);
-					@$this->model_core_media->updateCol($mediaid,'inventory',$inventory);
+					//Cap nhat tong ton
+					//$inventory = @$this->model_core_media->getInventory($mediaid);
+					//@$this->model_core_media->updateCol($mediaid,'inventory',$inventory);
+					
 				}
 				
 			}
@@ -382,8 +383,10 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$data['error'] = '';
 			
 			//Cap nhat ton kho
-			$inventory = @$this->model_core_media->getInventory($data['mediaid']);
-			@$this->model_core_media->updateCol($data['mediaid'],'inventory',$inventory);
+			//$inventory = @$this->model_core_media->getInventory($data['mediaid']);
+			//@$this->model_core_media->updateCol($data['mediaid'],'inventory',$inventory);
+			$arr = array($data['mediaid']);
+			$this->loadModule('module/product','updateProductInventory',$arr);
 		}
 		else
 		{
