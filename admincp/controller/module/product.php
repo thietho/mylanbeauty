@@ -983,7 +983,6 @@ class ControllerModuleProduct extends Controller
 	public function updateProductInventory($mediaid)
 	{
 		$inventory = @$this->model_core_media->getInventory($mediaid);
-		echo $mediaid;
 		$suminvetoryshop = 0;
 		foreach(@$this->data['data_shop'] as $shop)
 		{

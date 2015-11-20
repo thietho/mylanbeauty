@@ -276,7 +276,7 @@ function savephieu(type)
 				switch(type)
 				{
 					case "":
-						objdl.saveDetail(obj,'');
+						objdl.saveDetail(obj,"window.location = '?route=quanlykho/phieunhap'");
 						
 						break;
 					case "print":

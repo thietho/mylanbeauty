@@ -273,7 +273,7 @@ class ControllerCoreMedia extends Controller
 				}
 				$saleprice = json_encode($arrsaleprice);
 			}
-			echo $data['saleprice'] = $saleprice;
+			$data['saleprice'] = $saleprice;
 			
 			$media = @$this->model_core_media->getItem($data['mediaid']);
 			$data['mediatype'] = "module/product";
