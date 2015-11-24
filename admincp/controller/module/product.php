@@ -200,7 +200,8 @@ class ControllerModuleProduct extends Controller
 			
 			
 			@$this->data['medias'][$i]['imagepreview'] = HelperImage::resizePNG(@$this->data['medias'][$i]['imagepath'], 100, 100);
-			$inventory = @$this->model_core_media->getInventory($mediaid);
+			
+			$inventory = @$this->model_core_media->getInventory(@$this->data['medias'][$i]['mediaid']);
 			$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,@$this->data['medias'][$i]['unit']);
 			
 			@$this->data['medias'][$i]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);	
@@ -222,6 +223,7 @@ class ControllerModuleProduct extends Controller
 			
 			@$this->data['medias'][$i]['shopinventory'] = '';
 			$suminvetoryshop = 0;
+			$totalinventory = 0;
 			foreach(@$this->data['data_shop'] as $shop)
 			{
 				$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$mediaid);
