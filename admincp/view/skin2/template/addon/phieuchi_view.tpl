@@ -31,7 +31,7 @@
     	
         <th width="20%">Người lập phiếu</th>
         <th width="20%">Người nhận</th>
-        <th width="20%">Thủ quỷ</th>
+        <th width="20%">Thủ quỹ</th>
     </tr>
     <tr>
     	

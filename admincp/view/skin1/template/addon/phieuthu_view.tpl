@@ -29,7 +29,7 @@
         <th width="20%">Kế toán trưởng</th>
         <th width="20%">Người lập phiếu</th>
         <th width="20%">Người nộp</th>
-        <th width="20%">Thủ quỷ</th>
+        <th width="20%">Thủ quỹ</th>
     </tr>
     <tr>
     	<td align="center"><i>(Ký, Họ tên, Đóng dấu)</i></td>
