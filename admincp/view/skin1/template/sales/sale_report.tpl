@@ -64,6 +64,10 @@ $('#btnThongKe').click(function(e) {
 		}
 	);
 });
+$('#keyword').keyup(function(e) {
+    if(e.keyCode == 13)
+		$('#btnThongKe').click();
+});
 $('#btnSaveToExcel').click(function(e) {
 	tableToExcel('reportbanhang', 'Ho Lan Solutions');
 });
