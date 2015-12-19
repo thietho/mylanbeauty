@@ -43,7 +43,10 @@
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_COMPONENT?>ckeditor/ckeditor.js'></script>
 <script language="javascript">
 var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
+var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
 </script>
+<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/snow.css'>
+
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/common.js'></script>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/cart.js'></script>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/product.js'></script>
@@ -68,11 +71,14 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 
 
 <body>
-
+<div id="snowflakeContainer">
+	<p class="snowflake">*</p>
+</div>
 <div style="display:none"><?php echo @$meta_keyword?></div>
 <div class="hl-site hl-left"></div>
 <div class="hl-site hl-right"></div>
 <div id="ben-body">
+	<div id="snowContainer"></div>
     <div id="ben-main">
         
         <?php echo @$header?>
@@ -102,6 +108,8 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
         </div>
     </div>
 </div>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6.js" type="text/javascript"></script>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/prefixfree.min.js" type="text/javascript"></script>
 <script language="javascript">
 
 $(window).resize(function(e) {

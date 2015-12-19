@@ -4,7 +4,7 @@
     <div class="hl-control goBottom" onClick="goBottom()"></div>
 	
 		
-		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.jpg">
+		<img class="banner_top" width="100%" src="<?php echo HTTP_SERVER.DIR_IMAGE?>banner_top.png">
         
         <div data-role="header" class="jqm-header">
         	<div class="header-info">

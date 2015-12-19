@@ -27,16 +27,19 @@
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jquery.mobile-1.4.5.css">
 	<link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>jqm-hl.css">
     <link rel="stylesheet" href="<?php echo HTTP_SERVER.DIR_CSS?>style.css">
+    <link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/snow.css'>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>index.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>/jquery.mobile-1.4.5.js"></script>
     <script language="javascript">
 	var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
+	var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
 	var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loading.gif"></center>';
 	var processing = '<div class="ui-bar ui-shadow ui-overlay-d ui-corner-all" data-dismissible="false" id="warring"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png"><br><h2>Đang xử lý xin vui lòng đợi</h2></div>';
 	</script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>common.js"></script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>cart.js"></script>
+    
 </head>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -49,6 +52,9 @@
 
 </script>
 <body>
+	<div id="snowflakeContainer">
+        <p class="snowflake">*</p>
+    </div>
 	<div style="display:none"><?php echo @$meta_keyword?></div>
     <div data-role="page" class="jqm-hl jqm-home">
         <?php echo @$header?>
@@ -65,5 +71,6 @@
     </div><!-- /page -->
 
 </body>
-
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6.js" type="text/javascript"></script>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/prefixfree.min.js" type="text/javascript"></script>
 </html>
