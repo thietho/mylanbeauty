@@ -1,7 +1,7 @@
 <div>
 	<label>File name:</label> <?php echo @$item['filename']?><br>
     <label>File path:</label> <?php echo @$item['filepath']?><br>
-    <label>Link:</label> <?php echo HTTP_IMAGE.$item['filepath']?><br>
+    <label>Link:</label> <a href="<?php echo HTTP_IMAGE.$item['filepath']?>" target="_blank"><?php echo HTTP_IMAGE.$item['filepath']?></a><br>
     <label>File extension:</label> <?php echo @$item['extension']?><br>
     <label>File filesize:</label> <?php echo @$this->string->numberFormate($item['filesize'],2)?>K<br>
     <input type="hidden" id="filepath" value="<?php echo HTTP_IMAGE.$item['filepath']?>">

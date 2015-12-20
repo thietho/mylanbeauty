@@ -75,8 +75,8 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 	<p class="snowflake">*</p>
 </div>
 <div style="display:none"><?php echo @$meta_keyword?></div>
-<div class="hl-site hl-left"></div>
-<div class="hl-site hl-right"></div>
+<div class="hl-site hl-left"><div><div></div></div></div>
+<div class="hl-site hl-right"><div><div></div></div></div>
 <div id="ben-body">
 	<div id="snowContainer"></div>
     <div id="ben-main">
