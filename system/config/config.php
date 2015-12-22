@@ -1,6 +1,7 @@
 <?php
 // DB
 define('SITEID', 'default');
+define('TIMEZONE', 0);
 define('HTTP_SERVICE', 'http://localhost:81/tbsocms/services/');
 define('IMAGE_SERVER', 'http://mylanbeauty.net/file/');
 // DB
