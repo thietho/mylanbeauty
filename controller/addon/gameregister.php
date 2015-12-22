@@ -14,11 +14,14 @@ class ControllerAddonGameregister extends Controller
 	
 	public function send()
 	{
+		$this->load->model("addon/gameregister");
 		$data = $this->request->post;
-		
+		foreach($data as $key =>$item)
+			$data[$key] = trim($item);
+		$data['phone'] = str_replace(" ","",$data['phone']);
 		if(@$this->validateForm($data))
 		{
-			$this->load->model("addon/gameregister");
+			
 			
 			$data['registime'] = $this->date->getToday();
 			$data['id'] = $this->model_addon_gameregister->save($data);
@@ -47,17 +50,28 @@ class ControllerAddonGameregister extends Controller
 		
 		if(trim($data['phone']) =="")
 		{
-      		$this->error['phone'] = "Bạn chưa nhập số điện thoại";
+      		$this->error['phone'] = "Bạn chưa nhập số điện thoại!";
     	}
+		else
+		{
+			$where = " AND phone like '".$data['phone']."'";
+			$list = $this->model_addon_gameregister->getList($where);
+			if(count($list))
+				$this->error['phone'] = "Số điện thoại đã được sử dụng!";
+		}
 		if(trim($data['address']) =="")
 		{
       		$this->error['address'] = "Bạn chưa nhập địa chỉ";
     	}
 		if(trim($data['email']) =="")
 		{
-      		$this->error['email'] = "Bạn chưa nhập email";
+      		$this->error['email'] = "Bạn chưa nhập email!";
     	}
-		
+		else
+		{
+			if(!$this->validation->_checkEmail($data['email']))
+				$this->error['email'] = "Email không hợp lệ!";
+		}
 		if (count($this->error)==0) {
 	  		return TRUE;
 		} else {
