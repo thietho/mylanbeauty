@@ -145,7 +145,7 @@ function runMove()
 		var runTop = Number($('.run-site').css('top').replace("px",''));
 		
 		var move = Number( pTop) - Number(runTop);
-		console.log(move)
+		//console.log(move)
 		$('.run-site').animate({"top":"+="+move+"px"},"slow",function(){
 			var pTop = Number($(document).scrollTop());
 			var runTop = Number($('.run-site').css('top').replace("px",''));
