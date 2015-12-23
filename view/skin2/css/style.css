@@ -405,20 +405,31 @@ input.ben-button:active {border-style: inset;}
 	background:url(../image/bg-site.png);
 	height:100%;	
 }
-.hl-left div div
+.hl-right
+{
+	right:0;	
+}
+.run-site
+{
+	position:absolute;
+	height:100%;
+	top:0;	
+}
+.run-left
 {
 	background:url(../image/bg-left.png) no-repeat bottom right;
-	height:100%;
+	
 }
-.hl-right
+
+.run-right
 {
 	right:0;	
 	
 }
-.hl-right div div
+.run-right
 {
 	background:url(../image/bg-right.png) no-repeat bottom left;
-	height:100%;
+	
 }
 
 /*---------- HEADER AREA ------------*/

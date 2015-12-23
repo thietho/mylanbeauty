@@ -75,8 +75,11 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 	<p class="snowflake">*</p>
 </div>
 <div style="display:none"><?php echo @$meta_keyword?></div>
-<div class="hl-site hl-left"><div><div></div></div></div>
-<div class="hl-site hl-right"><div><div></div></div></div>
+<div class="hl-site hl-left"><div></div></div>
+<div class="hl-site hl-right"><div></div></div>
+
+<div class="run-site run-left"></div>
+<div class="run-site run-right"></div>
 <div id="ben-body">
 	<div id="snowContainer"></div>
     <div id="ben-main">
@@ -113,15 +116,45 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 <script language="javascript">
 
 $(window).resize(function(e) {
-    fix_Site()
+    fix_Site();
+	
 });
 function fix_Site()
 {
 	var wsite = ($(document).innerWidth() - $('#ben-main').outerWidth())/2;
 	$('.hl-site').width(wsite + 5);
+	$('.run-site').width(wsite + 5);
 }
 $(document).ready(function(e) {
     fix_Site();
+	runMove();
 });
-
+var fmove = true;
+$(document).scroll(function(e) {
+	setTimeout("runMove();",500);
+	
+});
+function runMove()
+{
+	 var pTop = Number($(document).scrollTop());
+	//alert(pTop);
+	if(fmove)
+	{
+		
+		fmove = false
+		var runTop = Number($('.run-site').css('top').replace("px",''));
+		
+		var move = Number( pTop) - Number(runTop);
+		console.log(move)
+		$('.run-site').animate({"top":"+="+move+"px"},"slow",function(){
+			var pTop = Number($(document).scrollTop());
+			var runTop = Number($('.run-site').css('top').replace("px",''));
+			//$('.hl-left').html("doctop: "+ pTop);
+			//$('.hl-left').append("<br>runtop: "+ runTop);
+			fmove=true;
+			if(pTop!=runTop)
+				setTimeout("runMove();",500);
+		});
+	}
+}
 </script>
