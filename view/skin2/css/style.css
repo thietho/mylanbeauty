@@ -411,7 +411,7 @@ input.ben-button:active {border-style: inset;}
 }
 .run-site
 {
-	position:absolute;
+	position:fixed;
 	height:100%;
 	top:0;	
 }

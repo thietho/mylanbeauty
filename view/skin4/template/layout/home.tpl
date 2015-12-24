@@ -71,6 +71,6 @@
     </div><!-- /page -->
 
 </body>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6.js" type="text/javascript"></script>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6mobi.js" type="text/javascript"></script>
 <script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/prefixfree.min.js" type="text/javascript"></script>
 </html>

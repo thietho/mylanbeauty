@@ -24,7 +24,7 @@ var browserWidth;
 var browserHeight;
 
 // Specify the number of snowflakes you want visible
-var numberOfSnowflakes = 50;
+var numberOfSnowflakes = 500;
 
 // Flag to reset the position of the snowflakes
 var resetPosition = false;
@@ -122,7 +122,7 @@ function generateSnowflakes() {
 		// set our snowflake's initial position and related properties
 	    var initialXPos = getPosition(50, browserWidth);
 	    var initialYPos = getPosition(50, browserHeight);
-	    var speed = 5+Math.random()*40;
+	    var speed = 50+Math.random()*40;
 	    
 	    // create our Snowflake object
 		var snowflakeObject = new Snowflake(snowflakeClone, 

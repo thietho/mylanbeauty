@@ -28,8 +28,8 @@ class ControllerSitebarGallery extends Controller
 			$arrbrandid = array(
 								"Guerlain",
 								"Sisley",
-								"Chanel",
-								"Dior",
+								/*"Chanel",
+								"Dior",*/
 								
 								"EsteeLauder",
 								"Lancome",

@@ -60,9 +60,9 @@ class ControllerPageHome extends Controller
 							"Lancome",
 							"Clarins",
 							"Shiseido",
-							"Dior",
+							/*"Dior",*/
 							"EsteeLauder",
-							"Chanel",
+							/*"Chanel",*/
 							"Clinique",
 							"LOccitane",
 							

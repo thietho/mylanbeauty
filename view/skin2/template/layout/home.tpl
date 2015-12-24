@@ -72,7 +72,7 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 
 <body>
 <div id="snowflakeContainer">
-	<p class="snowflake">*</p>
+	<p class="snowflake"><img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/ParticleSmoke.png" /></p>
 </div>
 <div style="display:none"><?php echo @$meta_keyword?></div>
 <div class="hl-site hl-left"><div></div></div>
@@ -127,11 +127,11 @@ function fix_Site()
 }
 $(document).ready(function(e) {
     fix_Site();
-	runMove();
+	//runMove();
 });
 var fmove = true;
 $(document).scroll(function(e) {
-	setTimeout("runMove();",500);
+	//setTimeout("runMove();",500);
 	
 });
 function runMove()

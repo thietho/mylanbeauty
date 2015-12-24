@@ -8,7 +8,7 @@ $(document).ready(
 			button_height:24,
 			button_margin:4,
 			auto_start:true,
-			delay:6000,
+			delay:4000,
 			transition:"random",
 			transition_speed:800,
 			block_size:75,
