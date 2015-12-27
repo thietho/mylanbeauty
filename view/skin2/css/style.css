@@ -389,47 +389,17 @@ input.ben-button:active {border-style: inset;}
 .hl-site
 {
 	position:fixed;
-	/*background:#a4a9ae;
-	opacity:0.21;*/
+	background:#a4a9ae;
+	opacity:0.21;
 	height:100%;
-	background:#5a0000;
-	background: linear-gradient(top, #fe0000 0%, #5a0000 100%);
-	background:-o-linear-gradient(top, #fe0000, #5a0000);
-	background:-moz-linear-gradient(top, #fe0000, #5a0000);
-	background:-webkit-gradient(linear, left top, left bottom, from(#fe0000), to(#5a0000));
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr ='#fe0000', endColorstr ='#5a0000');
-	background: -ms-linear-gradient(top, #fe0000, #5a0000);
 }
 .hl-site div
 {
-	background:url(../image/bg-site.png);
-	height:100%;	
+	
 }
 .hl-right
 {
 	right:0;	
-}
-.run-site
-{
-	position:fixed;
-	height:100%;
-	top:0;	
-}
-.run-left
-{
-	background:url(../image/bg-left.png) no-repeat bottom right;
-	
-}
-
-.run-right
-{
-	right:0;	
-	
-}
-.run-right
-{
-	background:url(../image/bg-right.png) no-repeat bottom left;
-	
 }
 
 /*---------- HEADER AREA ------------*/

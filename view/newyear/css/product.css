@@ -1,0 +1,55 @@
+.product
+{
+	width:183px;
+	height:385px;
+	border:thin solid #CCC;
+	margin:3px;
+	border-radius:5px;
+}
+.tip {
+    background: none repeat scroll 0 0 #1D1D1D;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: none;
+    padding: 5px;
+    position: absolute;
+    z-index: 1000;
+}
+.product-list-image
+{
+	height:195px;	
+}
+.product-right
+{
+	width:480px;	
+}
+.flagdiscount
+{
+	background:url(../image/flag-discount.png) no-repeat;
+	width:47px;
+	height:24px;
+	padding-left:22px;
+	color:#fff;
+	font-size:0.8em;
+	margin-left:130px;
+	position:absolute;
+}
+.product-price
+{
+	
+}
+.product-pricepromotion
+{
+	color:#F00;
+	
+	font-weight:bold;
+	
+}
+.product-price-no
+{
+	text-decoration:line-through;	
+}
+.brand
+{
+	text-transform:uppercase;	
+}

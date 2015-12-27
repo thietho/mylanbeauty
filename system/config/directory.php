@@ -45,7 +45,7 @@ switch($deviceType)
 		break;
 	default:
 		
-		define('SKIN', 'skin2');
+		define('SKIN', 'newyear');
 		define('IMG_PROLIST', '180');
 }
 

@@ -71,15 +71,12 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
 
 
 <body>
-<div id="snowflakeContainer">
-	<p class="snowflake"><img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/ParticleSmoke.png" /></p>
-</div>
-<div style="display:none"><?php echo @$meta_keyword?></div>
-<div class="hl-site hl-left"><div></div></div>
-<div class="hl-site hl-right"><div></div></div>
 
-<div class="run-site run-left"></div>
-<div class="run-site run-right"></div>
+<div style="display:none"><?php echo @$meta_keyword?></div>
+<div class="hl-site hl-left"></div>
+<div class="hl-site hl-right"></div>
+
+
 <div id="ben-body">
 	<div id="snowContainer"></div>
     <div id="ben-main">
@@ -111,8 +108,6 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
         </div>
     </div>
 </div>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6.js" type="text/javascript"></script>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/prefixfree.min.js" type="text/javascript"></script>
 <script language="javascript">
 
 $(window).resize(function(e) {
