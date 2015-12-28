@@ -100,7 +100,7 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
         
     </div>
     <aside id="library">
-      <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/nightsky.png" id="nightsky" />
+      <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/nightsky.png" id="nightsky"/>
       <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/big-glow.png" id="big-glow" />
       <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/small-glow.png" id="small-glow" />
     </aside>
@@ -138,27 +138,5 @@ $(document).scroll(function(e) {
 	//setTimeout("runMove();",500);
 	
 });
-function runMove()
-{
-	 var pTop = Number($(document).scrollTop());
-	//alert(pTop);
-	if(fmove)
-	{
-		
-		fmove = false
-		var runTop = Number($('.run-site').css('top').replace("px",''));
-		
-		var move = Number( pTop) - Number(runTop);
-		console.log(move)
-		$('.run-site').animate({"top":"+="+move+"px"},"slow",function(){
-			var pTop = Number($(document).scrollTop());
-			var runTop = Number($('.run-site').css('top').replace("px",''));
-			//$('.hl-left').html("doctop: "+ pTop);
-			//$('.hl-left').append("<br>runtop: "+ runTop);
-			fmove=true;
-			if(pTop!=runTop)
-				setTimeout("runMove();",500);
-		});
-	}
-}
+
 </script>

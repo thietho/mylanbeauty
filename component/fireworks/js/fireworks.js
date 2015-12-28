@@ -56,8 +56,8 @@ var Fireworks = (function() {
 
     // add the canvas in
     document.body.appendChild(mainCanvas);
-    document.addEventListener('mouseup', createFirework, true);
-    document.addEventListener('touchend', createFirework, true);
+    //document.addEventListener('click', closeFireworks, true);
+    //document.addEventListener('touchend', createFirework, true);
 	
     // and now we set off
     update();
@@ -122,8 +122,20 @@ var Fireworks = (function() {
    * black. The bonus of this is the trails effect we get
    */
   function clearContext() {
-    mainContext.fillStyle = "#000000";
+   
+	mainContext.fillStyle = "#000000";
     mainContext.fillRect(0, 0, viewportWidth, viewportHeight);
+	//alert(Library.nightsky.width);
+	var x = (viewportWidth - Library.nightsky.width)/2;
+	//mainContext.fillStyle = Library.nightsky;
+	//mainContext.drawImage(Library.nightsky, x, 0);
+	mainContext.drawImage(Library.nightsky, 0, 0, Library.nightsky.width, Library.nightsky.height, 0, 0, viewportWidth, viewportHeight);
+	mainContext.font = "100px Arial";
+	mainContext.fillStyle = 'red';
+	mainContext.textAlign = 'center';
+	var x = viewportWidth / 2;
+    var y = viewportHeight / 2;
+	mainContext.fillText("Happy New Year",x,y);
   }
 
   /**
@@ -326,6 +338,7 @@ Particle.prototype = {
  * we want to reference later on
  */
 var Library = {
+  nightsky: document.getElementById('nightsky'),	
   bigGlow: document.getElementById('big-glow'),
   smallGlow: document.getElementById('small-glow')
 };
@@ -437,13 +450,21 @@ var FireworkExplosions = {
 
 // Go
 window.onload = function() {
-  Fireworks.initialize();
-  run();
-  
+	Fireworks.initialize();
+	run();
+  	$('body').css('overflow','hidden');
 };
 function run()
 {
-	for(i=1;i<=3;i++)
+	var numfire = Math.floor((Math.random() * 10) + 1);
+	//var randtime = Math.floor((Math.random() * 10000) + 1);
+	for(i=1;i<=numfire;i++)
 		Fireworks.createParticle();
 	setTimeout(function(){ run(); },3000);	
+}
+function closeFireworks()
+{
+	//$('canvas').css('top','100px');
+	$('canvas').remove();
+	$('body').css('overflow','auto');
 }
