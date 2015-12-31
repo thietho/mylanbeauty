@@ -56,7 +56,7 @@ var Fireworks = (function() {
 
     // add the canvas in
     document.body.appendChild(mainCanvas);
-    //document.addEventListener('click', closeFireworks, true);
+    document.addEventListener('click', closeFireworks, true);
     //document.addEventListener('touchend', createFirework, true);
 	
     // and now we set off

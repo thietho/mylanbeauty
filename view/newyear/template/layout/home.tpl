@@ -44,8 +44,9 @@
 <script language="javascript">
 var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
+var fireworkspath = DIR_COMPONENT + "fireworksnew/fw07";
 </script>
-<link rel='stylesheet' type='text/css' href='<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/css/fireworks.css'>
+
 
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/common.js'></script>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/cart.js'></script>
@@ -65,6 +66,7 @@ var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
 <script type="text/javascript">
 var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>loading.gif"></center>';
 </script>
+
 <script language="javascript">
 
 </script>
@@ -99,11 +101,6 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
         <div id="ben-popup-content"></div>
         
     </div>
-    <aside id="library">
-      <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/nightsky.png" id="nightsky"/>
-      <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/big-glow.png" id="big-glow" />
-      <img src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/images/small-glow.png" id="small-glow" />
-    </aside>
 </body>
 
 </html>
@@ -114,9 +111,8 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
         </div>
     </div>
 </div>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/js/requestanimframe.js"></script>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworks/js/fireworks.js"></script>
 
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworksnew/fireworks.js" type="text/javascript"></script>
 <script language="javascript">
 
 $(window).resize(function(e) {

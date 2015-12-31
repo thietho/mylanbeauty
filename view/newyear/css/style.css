@@ -417,7 +417,7 @@ input.ben-button:active {border-style: inset;}
 }
 .run-left
 {
-	background:url(../image/bg-left.png) no-repeat bottom right;
+	
 	
 }
 
@@ -428,7 +428,6 @@ input.ben-button:active {border-style: inset;}
 }
 .run-right
 {
-	background:url(../image/bg-right.png) no-repeat bottom left;
 	
 }
 
