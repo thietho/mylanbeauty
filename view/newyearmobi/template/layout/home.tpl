@@ -51,6 +51,7 @@
   ga('send', 'pageview');
 
 </script>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworksnew/fireworks1.js" type="text/javascript"></script>
 <body>
 	<div id="snowflakeContainer">
         <p class="snowflake">*</p>

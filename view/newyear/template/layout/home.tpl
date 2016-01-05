@@ -112,7 +112,7 @@ var loading = '<center id="loading"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>
     </div>
 </div>
 
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworksnew/fireworks.js" type="text/javascript"></script>
+<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworksnew/fireworks1.js" type="text/javascript"></script>
 <script language="javascript">
 
 $(window).resize(function(e) {
