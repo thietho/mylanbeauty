@@ -457,7 +457,7 @@ class ControllerCoreMember extends Controller
 		$data_member = @$this->model_core_user->getList($where);
 		$arr_member = @$this->string->matrixToArray($data_member,'id');
 		//print_r($arr_member);
-		$where = " AND loaiphieu = 'PBH'";
+		$where = " AND loaiphieu = 'PX-PBH'";
 		//$where .= " AND khachhangid in ('". implode("','",$arr_member) ."')";
 		if(@$tungay != "")
 		{
@@ -512,7 +512,7 @@ class ControllerCoreMember extends Controller
 		$data_member = @$this->model_core_user->getList($where);
 		$arr_member = @$this->string->matrixToArray($data_member,'id');
 		//print_r($arr_member);
-		$where = " AND loaiphieu = 'PBH'";
+		$where = " AND loaiphieu in ('PX-PBH','CH-BH')";
 		//$where .= " AND khachhangid in ('". implode("','",$arr_member) ."')";
 		if(@$tungay != "")
 		{
