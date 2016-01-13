@@ -51,11 +51,9 @@
   ga('send', 'pageview');
 
 </script>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>fireworksnew/fireworks1.js" type="text/javascript"></script>
+
 <body>
-	<div id="snowflakeContainer">
-        <p class="snowflake">*</p>
-    </div>
+	
 	<div style="display:none"><?php echo @$meta_keyword?></div>
     <div data-role="page" class="jqm-hl jqm-home">
         <?php echo @$header?>
