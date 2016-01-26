@@ -40,9 +40,9 @@
         </tr>
     </thead>
     <tbody>
-    	
+    	<?php $count = 0;?>
         <?php foreach($data_nhapkho as $key =>$val){ ?>
-            
+            <?php $count += $val['soluong'];?>
         <tr <?php if(@$val['thanhtien']==0) echo 'style="font-weight:bold"'?>>
             <td><center><?php echo @$key+1?></center></td>
             
@@ -51,7 +51,7 @@
                 <?php echo @$this->document->productName($val['mediaid'])?>
             </td>
             <td><font style="text-transform:uppercase"><?php echo @$this->document->getCategory(@$this->document->getMedia($val['mediaid'],'brand'))?></font></td>
-            <td><center><?php echo @$this->string->numberFormate($val['soluong'])?></center></td>
+            <td class="number"><?php echo @$this->string->numberFormate($val['soluong'])?></td>
             <!--<td><?php echo @$this->document->getDonViTinh($val['madonvi'])?></td>-->
             <td class="number">
             	<?php if(@$val['giatien'] == 0){ ?>
@@ -79,9 +79,12 @@
         </tr>
         <?php } ?>
         <tr>
-            
-           	
-            <td class="number" colspan="6"><strong>Tổng tiền</strong></td>
+            <td></td>
+           	<td></td>
+            <td></td>
+            <td class="number"><?php echo @$this->string->numberFormate($count)?></td>
+            <td></td>
+            <td class="number"><strong>Tổng tiền</strong></td>
             <td class="number"><?php echo @$this->string->numberFormate($item['tongtien'])?></td>
         </tr>
         

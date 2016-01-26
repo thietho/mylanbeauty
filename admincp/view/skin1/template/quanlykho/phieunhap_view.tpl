@@ -39,9 +39,9 @@
         </tr>
     </thead>
     <tbody>
-    	
+    	<?php $count = 0;?>
         <?php foreach($data_nhapkho as $key =>$val){ ?>
-            
+            <?php $count += $val['soluong'];?>
         <tr <?php if(@$val['thanhtien']==0) echo 'style="font-weight:bold"'?>>
             <td><center><?php echo @$key+1?></center></td>
             
@@ -75,9 +75,11 @@
         </tr>
         <?php } ?>
         <tr>
-            
-           	
-            <td colspan="5" class="number"><strong>Tổng tiền</strong></td>
+            <td></td>
+           	<td></td>
+            <td></td>
+            <td class="number"><?php echo @$this->string->numberFormate($count)?></td>
+            <td class="number"><strong>Tổng tiền</strong></td>
             <td class="number"><?php echo @$this->string->numberFormate($item['tongtien'])?></td>
         </tr>
         
