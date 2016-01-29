@@ -43,11 +43,10 @@
     	<?php $count = 0;?>
         <?php foreach($data_nhapkho as $key =>$val){ ?>
         	<?php $count += $val['soluong'];?>    
-        <tr <?php if(@$val['thanhtien']==0) echo 'style="font-weight:bold"'?>>
+        <tr <?php if($val['xuattu']=='kho') echo 'class="xuatkho"'?> <?php if(@$val['thanhtien']==0) echo 'style="font-weight:bold"'?>>
             <td><center><?php echo @$key+1?></center></td>
             
             <td>
-            	
                 <?php echo @$this->document->productName($val['mediaid'])?>
             </td>
             <td><font style="text-transform:uppercase"><?php echo @$this->document->getCategory(@$this->document->getMedia($val['mediaid'],'brand'))?></font></td>
