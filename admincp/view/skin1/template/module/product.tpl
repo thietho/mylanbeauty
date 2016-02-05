@@ -454,7 +454,7 @@ function Product()
 	{
 		$('body').append('<div id="history_form" style="display:none"></div>');
 		var eid = "#history_form";
-		
+		$('body').css('overflow','hidden');
 		
 		$(eid).attr('title','Lịch sử xuất nhập');
 			$( eid ).dialog({
@@ -467,6 +467,7 @@ function Product()
 				close:function()
 					{
 						$(eid).remove();
+						$('body').css('overflow','auto');
 					},
 				
 			});
