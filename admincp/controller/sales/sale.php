@@ -496,6 +496,8 @@ class ControllerSalesSale extends Controller
 		$denngay = @$this->date->formatViewDate($data['denngay']);
 		$brand = @$data['brand'];
 		$keyword = @$data['keyword'];
+		$sitemapid = @$data['sitemapid'];
+		
 		if(@$keyword !="")
 		{
 			@$arrkey = split(' ', $keyword);
@@ -549,6 +551,12 @@ class ControllerSalesSale extends Controller
 		{
 			@$where .= " AND brand like '".$brand."'";
 		}
+		
+		
+		if(@$sitemapid)
+			$where .= " AND refersitemap like '%[".$sitemapid."]%'";
+		
+		
 		$where .= " AND mediatype = 'module/product' Order By `title`";
 		$medias = $this->model_core_media->getList($where);
 		@$data_product = array();
