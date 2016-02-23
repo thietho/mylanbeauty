@@ -194,7 +194,8 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			
 			$where = " AND phieuid = '".$id."' ORDER BY `vitri` ASC";
 			@$this->data['data_nhapkho'] = array();
-			$data = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
+			$this->data['data_nhapkho'] = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
+			/*$data = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
 			foreach($data as $key => $item)
 			{
 				if(@$item['xuattu'] == '')
@@ -224,7 +225,7 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 					{
 						@$this->data['data_nhapkho'][]=$item;	
 					}
-			}
+			}*/
     	}
 		
 		@$this->id='content';
