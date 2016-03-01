@@ -973,17 +973,22 @@ class ControllerModuleProduct extends Controller
 		$where = " AND mediatype = 'module/product'";
 		$where .= " Order by position, statusdate DESC";
 		$medias = @$this->model_core_media->getList($where);
+		$data = array();
 		foreach($medias as $key => $media)
 		{
-			@$this->updateProductInventory($media['mediaid']);
+			//@$this->updateProductInventory($media['mediaid']);
+			$arr = array('id'=>$media['mediaid'],'name'=>$this->document->productName($media));
+			$data[] = $arr;
 		}
 		
+		@$this->data['output'] = json_encode($data);
 		@$this->id='content';
 		@$this->template='common/output.tpl';
 		@$this->render();
 	}
-	public function updateProductInventory($mediaid)
+	public function updateProductInventory()
 	{
+		$mediaid = @$this->request->get['id'];
 		$inventory = @$this->model_core_media->getInventory($mediaid);
 		$suminvetoryshop = 0;
 		foreach(@$this->data['data_shop'] as $shop)
@@ -995,6 +1000,10 @@ class ControllerModuleProduct extends Controller
 		}
 		$totalinventory = $inventory + $suminvetoryshop;
 		@$this->model_core_media->updateCol($mediaid,'inventory',$totalinventory);
+		@$this->data['output'] = "true";
+		@$this->id='content';
+		@$this->template='common/output.tpl';
+		@$this->render();
 	}
 	public function getInventory()
 	{

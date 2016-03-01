@@ -1,5 +1,5 @@
 <center>
-    <h2>Phiếu Nhập Kho</h2>
+    <h2><?php echo $this->document->getCategory($item['loaiphieu'])?></h2>
     
 </center>
 <table>

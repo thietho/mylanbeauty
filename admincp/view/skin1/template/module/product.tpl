@@ -566,9 +566,23 @@ function Product()
 	this.updateInventory = function()
 	{
 		$.blockUI({ message: "<h1><?php echo @$announ_infor ?></h1>" }); 
-		$.get("?route=module/product/updateInventory",function(data){
-			$.unblockUI();
+		$.getJSON("?route=module/product/updateInventory",function(data){
+			
+			//alert(data.length);
+			pro.updateInventoryItem(data,0);
 		});	
+	}
+	this.updateInventoryItem = function(data,i)
+	{
+		if(i<data.length)
+		{
+			$('.blockMsg h1').html( Math.round((i/(data.length-1))*100) +"%");
+			$.get("?route=module/product/updateProductInventory&id="+data[i].id,function(html){
+				pro.updateInventoryItem(data,i+1);				
+			});
+		}
+		else
+			$.unblockUI();
 	}
 	this.showListSort = function()
 	{
