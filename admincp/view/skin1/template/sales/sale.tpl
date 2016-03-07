@@ -1,4 +1,16 @@
 <link rel="stylesheet" type="text/css" href="<?php echo DIR_CSS?>sale.css">
+<style>
+.progress
+{
+	width:100%;	
+	
+}
+.bar {
+    height: 18px;
+    background: green;
+	text-align:center;
+}
+</style>
 <div class="section">
 	<div class="section-title"><?php echo @$this->document->title?></div>	
     <div class="section-content">					
@@ -93,6 +105,14 @@
                     <tr>
                         <td><label>Ghi chú</label></td>
                         <td><textarea id="ghichu" name="ghichu"></textarea></td>
+                    </tr>
+                    <tr>
+                    	<td><label>File đính kèm</label></td>
+                        <td>
+                        	<input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
+                            <div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div>
+                            
+                        </td>
                     </tr>
                 </table>
                 
@@ -205,6 +225,45 @@
     
 </div>
 <script language="javascript">
+$(function () {
+    $('#fileupload').fileupload({
+		url: '?route=common/uploadfile&folder=donhang/aaaaa',
+        dataType: 'json',
+		/*add: function (e, data) {
+			//alert(data.files[0].name)
+			var t =posk++;
+			
+			var str = '<tr>';
+			str += '<td>'+data.files[0].name+'</td>';
+			str += '<td id="btn'+t+'"></td>';
+			str += '<td><div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div></td>';
+			str += '</tr>'
+			$('#listfile').append(str);
+            data.context = $('<button class="btnUpload" id="up'+t+'" ref="'+t+'"/>').text('Upload')
+                .appendTo($('#btn'+t))
+                .click(function () {
+					cur = t;
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                    data.submit();
+                });
+        },*/
+        done: function (e, data) {
+           
+			
+			//file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
+        },
+		progressall: function (e, data) {
+			//showProgress(cur,e, data)
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('.bar').html(progress+"%");
+			$('.progress .bar').css(
+				'width',
+				progress + '%'
+			);
+		}
+    });
+});
+
 
 $(document).ready(function(e) {
 	
