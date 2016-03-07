@@ -29,7 +29,53 @@ class ControllerCoreFile extends Controller
 		}
 		@$this->render();
 	}
-
+	
+	public function getListFile()
+	{
+		@$this->load->helper('image');
+		$folder = urldecode(@$this->request->get['folder']);
+		if(@$folder=="")
+			$files = glob(DIR_FILE.'upload/*');
+		else
+		{
+			$files = glob(DIR_FILE.'upload/'.$folder.'/*');
+		}
+		$datafile=array();
+		if(count($files)>0)
+		{
+			
+			foreach($files as $i => $file) 
+			{
+				$info = pathinfo($file);
+				
+				if(@substr_count(strtolower($info['basename']), strtolower($keyword))>0 || $keyword == "")
+				{
+					
+					if(is_file($file))
+					{
+						$ext = @$this->string->getFileExt($file);
+						if(@$this->string->isImage($ext))
+							@$datafile[$i]['imagethumbnail'] = HelperImage::resizePNG(str_replace(DIR_FILE,"",$file), 48, 48);
+						else
+						{
+							$urlext = HTTP_IMAGE."icon/48px/".$ext.".png";
+							if(!@fopen($urlext,"r"))
+								$urlext = HTTP_IMAGE."icon/48px/_blank.png";
+							@$datafile[$i]['imagethumbnail'] = $urlext;	
+						}
+						@$datafile[$i]['filename'] = @$this->string->getFileName($file);
+						@$datafile[$i]['filepath'] = $file;
+					}	
+				}
+				
+			}	
+		}
+		@$this->data['output'] = json_encode($datafile);
+		@$this->id='post';
+		@$this->template="common/output.tpl";
+		@$this->render();
+	}
+	
 	public function getList()
 	{
 		@$this->load->model("core/media");

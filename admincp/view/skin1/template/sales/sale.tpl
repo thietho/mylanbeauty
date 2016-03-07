@@ -111,6 +111,7 @@
                         <td>
                         	<input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
                             <div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div>
+                            <div id="listfile"></div>
                             
                         </td>
                     </tr>
@@ -228,10 +229,9 @@
 $('#attachment').hide();
 $(function () {
     $('#fileupload').fileupload({
-		//url: '?route=common/uploadfile&folder=donhang/' + $('#id').val(),
         dataType: 'json',
         done: function (e, data) {
-        
+        	alert("aa");
         },
 		progressall: function (e, data) {
 			//showProgress(cur,e, data)
@@ -561,6 +561,21 @@ function SaleOrder(shopid)
 				url: '?route=common/uploadfile&folder=donhang/' + data.maphieu
 				
 			});
+			saleOrder.loadAttachment(data.maphieu);
+		});
+	}
+	this.loadAttachment = function(maphieu)
+	{
+		$.getJSON("?route=core/file/getListFile&folder=donhang/" + maphieu,function(data){
+			$('#listfile').html('');
+			for(i in data)
+			{
+				
+				var str ='<a href="'+data[i].filepath+'" target="_blank">';
+				str+='<img src="'+ data[i].imagethumbnail +'"> '+ data[i].filename;
+				str+='</a>';
+				$('#listfile').append(str);
+			}
 		});
 	}
 	this.getUrl = function()
