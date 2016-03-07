@@ -106,7 +106,7 @@
                         <td><label>Ghi chú</label></td>
                         <td><textarea id="ghichu" name="ghichu"></textarea></td>
                     </tr>
-                    <tr>
+                    <tr id="attachment">
                     	<td><label>File đính kèm</label></td>
                         <td>
                         	<input id="fileupload" class="button" type="file" name="files[]"  multiple value="Chon file" >
@@ -225,32 +225,13 @@
     
 </div>
 <script language="javascript">
+$('#attachment').hide();
 $(function () {
     $('#fileupload').fileupload({
-		url: '?route=common/uploadfile&folder=donhang/aaaaa',
+		//url: '?route=common/uploadfile&folder=donhang/' + $('#id').val(),
         dataType: 'json',
-		/*add: function (e, data) {
-			//alert(data.files[0].name)
-			var t =posk++;
-			
-			var str = '<tr>';
-			str += '<td>'+data.files[0].name+'</td>';
-			str += '<td id="btn'+t+'"></td>';
-			str += '<td><div class="progress" id="progress'+t+'"><div class="bar" style="width: 0%;"></div></div></td>';
-			str += '</tr>'
-			$('#listfile').append(str);
-            data.context = $('<button class="btnUpload" id="up'+t+'" ref="'+t+'"/>').text('Upload')
-                .appendTo($('#btn'+t))
-                .click(function () {
-					cur = t;
-                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-                    data.submit();
-                });
-        },*/
         done: function (e, data) {
-           
-			
-			//file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
+        
         },
 		progressall: function (e, data) {
 			//showProgress(cur,e, data)
@@ -406,6 +387,7 @@ function SaleOrder(shopid)
 		$('#btnDelOrder').hide();
 		$('.listorder').removeClass('ordercurrent');
 		$('#error').hide('slow');
+		$('#attachment').hide();
 	}
 	this.delOrder = function(id)
 	{
@@ -573,7 +555,12 @@ function SaleOrder(shopid)
 				//objdl.addRow(obj.id,obj.mediaid,obj.code,obj.title,1,obj.unit,obj.price,giagiam,obj.discountpercent);
 				objdl.addRowSale(obj.id,obj.mediaid,obj.code,obj.title,obj.soluong,obj.madonvi,obj.giatien,obj.giamgia,obj.phantramgiamgia,obj.xuattu);	
 			}
-			
+			//
+			$('#attachment').show();
+			$('#fileupload').fileupload({
+				url: '?route=common/uploadfile&folder=donhang/' + data.maphieu
+				
+			});
 		});
 	}
 	this.getUrl = function()
