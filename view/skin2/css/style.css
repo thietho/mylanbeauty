@@ -376,7 +376,7 @@ input.ben-button:active {border-style: inset;}
 #ben-bottom
 {
 	margin: 0 auto;
-	
+	width:1000px;
 	background:url(../image/bg-bottom.png) no-repeat bottom center;
 }
 
@@ -694,7 +694,7 @@ display:block;
 	color: #000;
 	
 	margin:0 auto;
-	
+	padding:0 10px;
 	height:110px;
 	font-size:1.2em;
 }

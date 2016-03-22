@@ -40,12 +40,12 @@ switch($deviceType)
 	case 'phone':	
 	case 'tablet':
 	
-		define('SKIN', 'newyearmobi');
+		define('SKIN', 'skin4');
 		define('IMG_PROLIST', '550');
 		break;
 	default:
 		
-		define('SKIN', 'newyear');
+		define('SKIN', 'skin2');
 		define('IMG_PROLIST', '180');
 }
 

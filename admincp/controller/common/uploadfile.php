@@ -22,7 +22,7 @@ class ControllerCommonUploadfile extends Controller
 			if(!is_dir($str))
 			mkdir($str);
 		}
-		print_r($arrdir);
+		
 		foreach($_FILES['files']['name'] as $key => $item)
 		{
 			if(@$_FILES['files']['name'][$key] != "")

@@ -5,7 +5,7 @@ if(@count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) {?>
-    <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover" data-tooltip="sticky1" ref="<?php echo @$media['imagetpreview']?>" title="<?php echo @$this->document->productName($media)?>">
+    <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover" title="<?php echo @$this->document->productName($media)?>">
         <table>
             <tr class="product-list-image">
                 <td>

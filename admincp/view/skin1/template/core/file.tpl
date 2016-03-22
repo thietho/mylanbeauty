@@ -100,7 +100,7 @@ $(function () {
 				function(){
 					 file.showList("?route=core/file/getList&folderid="+folderid);
 				});*/
-			
+			resetProgressBar();
 			file.showList("?route=core/file/getList&folder="+ encodeURI($('#pathview').html()));
         },
 		progressall: function (e, data) {
@@ -114,6 +114,13 @@ $(function () {
 		}
     });
 });
+function resetProgressBar()
+{
+	$('.bar').html('');
+			$('.progress .bar').css(
+				'width',0
+			);	
+}
 function showProgress(id,e, data)
 {
 	var progress = parseInt(data.loaded / data.total * 100, 10);

@@ -14,6 +14,7 @@ class ModelCoreMedia extends ModelCoreFile
 							'colorcode',
 							'material',
 							'brand',
+							'grouppro',
 							'mediaparent',
 							'mediatype',
 							'refersitemap',

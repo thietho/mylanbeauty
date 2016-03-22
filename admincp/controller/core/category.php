@@ -342,6 +342,15 @@ class ControllerCoreCategory extends Controller
 		}
 	}
 	//Cac ham xu ly tren form
-	
+	public function getListChild()
+	{
+		$categoryid = @$this->request->get['categoryid'];
+		$child = @$this->model_core_category->getChild($categoryid);
+		@$this->data['output'] = json_encode($child);
+		
+		@$this->id="donvi";
+		@$this->template="common/output.tpl";
+		@$this->render();
+	}
 }
 ?>

@@ -230,9 +230,7 @@ $('#attachment').hide();
 $(function () {
     $('#fileupload').fileupload({
         dataType: 'json',
-        done: function (e, data) {
-        	alert("aa");
-        },
+        
 		progressall: function (e, data) {
 			//showProgress(cur,e, data)
 			var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -244,7 +242,13 @@ $(function () {
 		}
     });
 });
-
+function resetProgressBar()
+{
+	$('.bar').html('');
+			$('.progress .bar').css(
+				'width',0
+			);	
+}
 
 $(document).ready(function(e) {
 	
@@ -558,8 +562,11 @@ function SaleOrder(shopid)
 			//
 			$('#attachment').show();
 			$('#fileupload').fileupload({
-				url: '?route=common/uploadfile&folder=donhang/' + data.maphieu
-				
+				url: '?route=common/uploadfile&folder=donhang/' + data.maphieu,
+				done: function (e, file) {
+					setTimeout("resetProgressBar()",2000);
+					saleOrder.loadAttachment(data.maphieu);
+				},
 			});
 			saleOrder.loadAttachment(data.maphieu);
 		});
@@ -571,12 +578,29 @@ function SaleOrder(shopid)
 			for(i in data)
 			{
 				
-				var str ='<a href="'+data[i].filepath+'" target="_blank">';
-				str+='<img src="'+ data[i].imagethumbnail +'"> '+ data[i].filename;
-				str+='</a>';
+				var str ='<img src="'+ data[i].imagethumbnail +'" width="15px"><a href="'+data[i].filepath+'" target="_blank">';
+				str+= data[i].filename;
+				str+='</a><img class="btndelfile" src="<?php echo DIR_IMAGE;?>icon/del.png" width="15px" filepath="'+data[i].path+'">';
 				$('#listfile').append(str);
 			}
+			$('.btndelfile').click(function(e) {
+                saleOrder.delFile($(this).attr('filepath'),maphieu);
+            });
 		});
+	}
+	this.delFile = function(filepath,maphieu)
+	{
+		var ans = confirm("Bạn có chắc xóa file không?");
+		if(ans == true)
+		{
+			$.get("?route=core/file/delFile",
+				{
+					filepath:filepath
+				},
+				function(data){
+					saleOrder.loadAttachment(maphieu);
+			});			
+		}
 	}
 	this.getUrl = function()
 	{

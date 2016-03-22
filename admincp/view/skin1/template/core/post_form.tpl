@@ -169,6 +169,28 @@ $('#title').change(function(e) {
                                 <option value="<?php echo @$it['categoryid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo @$it['categoryname']?></option>                        
                                 <?php } ?>
                             </select>
+                            <script language="javascript">
+							$(document).ready(function(e) {
+                                $('#frmPost #brand').change(function(e) {
+                                    $.getJSON("?route=core/category/getListChild&categoryid="+ $(this).val(),function(data){
+										var str = '<option value=""></option>';
+										for(i in data)
+										{
+											str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
+										}
+										$('#frmPost #grouppro').html(str);
+										$('#frmPost #grouppro').val("<?php echo @$post['grouppro']?>");
+									});
+                                });
+                            });
+								
+							</script>
+                        </p>
+                        <p>
+                            <label>Dòng sản phẩm</label><br />
+                            <select id="grouppro" name="grouppro">
+                                <option value=""></option>
+                            </select>
                         </p>
                         <p>
                         	<label>Chú thích</label><br>
@@ -246,7 +268,7 @@ $('#title').change(function(e) {
 								$(document).ready(function(e) {
 									$("#frmPost #unit").val("<?php echo @$post['unit']?>").change();
                                 	//$('#unit').val("<?php echo @$post['unit']?>").change();
-									$('#frmPost #brand').val("<?php echo @$post['brand']?>");
+									$('#frmPost #brand').val("<?php echo @$post['brand']?>").change();
                                 });
 								
 								

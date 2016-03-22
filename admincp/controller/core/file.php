@@ -48,25 +48,24 @@ class ControllerCoreFile extends Controller
 			{
 				$info = pathinfo($file);
 				
-				if(@substr_count(strtolower($info['basename']), strtolower($keyword))>0 || $keyword == "")
+				if(is_file($file))
 				{
-					
-					if(is_file($file))
+					$ext = @$this->string->getFileExt($file);
+					if(@$this->string->isImage($ext))
+						@$datafile[$i]['imagethumbnail'] = HelperImage::resizePNG(str_replace(DIR_FILE,"",$file), 48, 48);
+					else
 					{
-						$ext = @$this->string->getFileExt($file);
-						if(@$this->string->isImage($ext))
-							@$datafile[$i]['imagethumbnail'] = HelperImage::resizePNG(str_replace(DIR_FILE,"",$file), 48, 48);
-						else
-						{
-							$urlext = HTTP_IMAGE."icon/48px/".$ext.".png";
-							if(!@fopen($urlext,"r"))
-								$urlext = HTTP_IMAGE."icon/48px/_blank.png";
-							@$datafile[$i]['imagethumbnail'] = $urlext;	
-						}
-						@$datafile[$i]['filename'] = @$this->string->getFileName($file);
-						@$datafile[$i]['filepath'] = $file;
-					}	
-				}
+						$urlext = HTTP_IMAGE."icon/48px/".$ext.".png";
+						if(!@fopen($urlext,"r"))
+							$urlext = HTTP_IMAGE."icon/48px/_blank.png";
+						@$datafile[$i]['imagethumbnail'] = $urlext;	
+					}
+					@$datafile[$i]['filename'] = @$this->string->getFileName($file);
+					@$datafile[$i]['filepath'] = $file;
+					@$datafile[$i]['path'] = str_replace(DIR_FILE,'',$file);
+					
+				}	
+				
 				
 			}	
 		}
@@ -242,18 +241,7 @@ class ControllerCoreFile extends Controller
 		@$this->template="common/output.tpl";
 		@$this->render();
 	}
-	public function delFile()
-	{
-		/*@$this->load->model("core/file");
-		$fileid = @$this->request->get['fileid'];
-		@$this->model_core_file->deleteFile($fileid);*/
-		$filepath = urldecode(@$this->request->get['filepath']);
-		unlink($filepath);
-		@$this->data['output'] = "true";
-		@$this->id='post';
-		@$this->template="common/output.tpl";
-		@$this->render();
-	}
+	
 	public function copy()
 	{
 		$data = @$this->request->post;
@@ -339,6 +327,21 @@ class ControllerCoreFile extends Controller
         } 
         return $result; 
     }
+	
+	public function delFile()
+	{
+		/*@$this->load->model("core/file");
+		$fileid = @$this->request->get['fileid'];
+		@$this->model_core_file->deleteFile($fileid);*/
+		$filepath = urldecode(@$this->request->get['filepath']);
+		$p = DIR_FILE.$filepath;
+		if(is_file($p))
+			unlink($p);
+		@$this->data['output'] = "true";
+		@$this->id='post';
+		@$this->template="common/output.tpl";
+		@$this->render();
+	}
 	public function delListFile()
 	{
 		@$this->load->model("core/file");

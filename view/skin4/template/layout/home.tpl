@@ -52,9 +52,7 @@
 
 </script>
 <body>
-	<div id="snowflakeContainer">
-        <p class="snowflake">*</p>
-    </div>
+	
 	<div style="display:none"><?php echo @$meta_keyword?></div>
     <div data-role="page" class="jqm-hl jqm-home">
         <?php echo @$header?>
@@ -71,6 +69,5 @@
     </div><!-- /page -->
 
 </body>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/fallingsnow_v6mobi.js" type="text/javascript"></script>
-<script src="<?php echo HTTP_SERVER.DIR_COMPONENT?>snowfalling/prefixfree.min.js" type="text/javascript"></script>
+
 </html>
