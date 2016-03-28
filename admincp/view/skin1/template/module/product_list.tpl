@@ -111,7 +111,9 @@
                     Ref: <?php echo @$media['ref']?>
                 </td>
                 <td width="150px">
-                	Nhãn hiệu: <?php echo @$this->document->getCategory($media['brand'])?><br />
+                	Nhãn hiệu: <?php echo @$this->document->getCategory($media['brand'])?>
+                    <?php if($media['grouppro']) echo " - ".@$this->document->getCategory($media['grouppro'])?>
+                    <br />
                     Trạng thái:<?php echo @$this->document->status_media[$media['status']]?><br />
                     <?php echo @$media['sitemapname']?>
                 </td>
