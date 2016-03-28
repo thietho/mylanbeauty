@@ -139,12 +139,17 @@ class ControllerModuleProduct extends Controller
 		{
 			$where .= " AND brand like '".$brand."'";
 		}
+		@$grouppro = urldecode(@$this->request->get['grouppro']);
+		if(@$grouppro !="")
+		{
+			$where .= " AND grouppro like '".$grouppro."'";
+		}
+		
 		@$status = urldecode(@$this->request->get['status']);
 		if(@$status !="")
 		{
 			$where .= " AND groupkeys like '%[".$status."]%'";
 		}
-		
 		/*$sort = "sort".$sitemapid.$status;
 		$listmediaid = @$this->model_core_media->getInformation($sort,'sort');
 		$arrmediaid = @$this->string->referSiteMapToArray($listmediaid);

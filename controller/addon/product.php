@@ -23,6 +23,7 @@ class ControllerAddonProduct extends Controller
 		$keyword = urldecode($_GET['keyword']);
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
+		$grouppro = urldecode($_GET['grouppro']);
 		$gia = urldecode($_GET['gia']);
 		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
@@ -98,6 +99,10 @@ class ControllerAddonProduct extends Controller
 		if(@$nhanhieu)
 		{
 			$where .= " AND brand like '".$nhanhieu."'";
+		}
+		if(@$grouppro)
+		{
+			$where .= " AND grouppro like '".$grouppro."'";
 		}
 		if(@$gia)
 		{

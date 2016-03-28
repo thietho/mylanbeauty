@@ -10,6 +10,11 @@
                     <?php } ?>
                 </select>
             </td>
+            <td>
+                <select id="grouppro" name="grouppro">
+                    <option value="">Dòng sản phẩm</option>
+                </select>        
+            </td>
             <td width="20%">
             	<select id="sitemapid">
                     <option value="">Tất cả danh mục</option>
@@ -57,6 +62,17 @@ $('#shopsearch #keyword').keyup(function(e) {
 });
 $('#shopsearch select').change(function(e) {
 	saleOrder.search();
+});
+$('#shopsearch #brand').change(function(e) {
+	$.getJSON("?route=core/category/getListChild&categoryid="+ $(this).val(),function(data){
+		var str = '<option value="">Dòng sản phẩm</option>';
+		for(i in data)
+		{
+			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
+		}
+		$('#shopsearch #grouppro').html(str);
+		
+	});
 });
 $('#searchproductpopup').scroll(function(e) {
 	//alert($(document).scrollTop() + window.innerHeight);

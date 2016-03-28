@@ -26,19 +26,30 @@
             </select>
         </p>
         <p>
-            <select name="gia" id="gia">
-                <option value="">Chọn giá</option>
-                <?php foreach($gia as $it){ ?>
-                <option value="<?php echo @$it['categoryid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo @$it['categoryname']?></option>                        
-                <?php } ?>
+        	<select id="grouppro" name="grouppro">
+                <option value="">Dòng sản phẩm</option>
             </select>
         </p>
+        
     	<input type="text" class="ben-textbox" id="keyword" name="keyword" >
         <input type="submit" class="ben-button" id="btnSearch" value="Tìm">
     </form>
 </div>
 <script language="javascript">
-
+$(document).ready(function(e) {
+    $('#ben-searchform #nhanhieu').change();
+});
+$('#ben-searchform #nhanhieu').change(function(e) {
+	$.getJSON("?route=module/category/getListChild&categoryid="+ $(this).val(),function(data){
+		var str = '<option value="">Dòng sản phẩm</option>';
+		for(i in data)
+		{
+			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
+		}
+		$('#ben-searchform #grouppro').html(str);
+		$('#ben-searchform #grouppro').val("<?php echo @$_GET['grouppro']?>");
+	});
+});
 $("#loaisp").val("<?php echo @$_GET['loaisp']?>");
 $("#nhomhuong").val("<?php echo @$_GET['nhomhuong']?>");
 $("#nhanhieu").val("<?php echo @$_GET['nhanhieu']?>");

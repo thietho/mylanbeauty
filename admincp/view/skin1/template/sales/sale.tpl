@@ -613,6 +613,10 @@ function SaleOrder(shopid)
 		{
 			url += "&brand="+encodeURI($('#shopsearch #brand').val());
 		}
+		if($('#shopsearch #grouppro').val()!="")
+		{
+			url += "&grouppro="+encodeURI($('#shopsearch #grouppro').val());
+		}
 		if($('#shopsearch #sitemapid').val()!="")
 		{
 			url += "&sitemapid="+encodeURI($('#shopsearch #sitemapid').val());

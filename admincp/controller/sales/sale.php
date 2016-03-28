@@ -29,9 +29,13 @@ class ControllerSalesSale extends Controller
 		$where = " ORDER BY shopname";
 		@$this->data['data_shop'] = @$this->model_sales_shop->getList($where);
 		
-		$this->data['nhanhieu'] = array();
-		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
-		unset($this->data['nhanhieu'][0]);
+		$this->data['nhanhieu'] = $this->model_core_category->getChild('nhanhieu');
+		unset($this->data['nhanhieu'][count($this->data['nhanhieu'])-1]);
+		$brandother = $this->model_core_category->getChild('brandother');
+		foreach($brandother as $cat)
+		{
+			$this->data['nhanhieu'][] = $cat;
+		}
 		
 		$this->data['status'] = array();
 		$this->model_core_category->getTree("status",$this->data['status']);
@@ -249,6 +253,11 @@ class ControllerSalesSale extends Controller
 		if(@$brand !="")
 		{
 			$where .= " AND brand like '".$brand."'";
+		}
+		$grouppro = urldecode(@$this->request->get['grouppro']);
+		if(@$grouppro !="")
+		{
+			$where .= " AND grouppro like '".$grouppro."'";
 		}
 		$page = urldecode(@$this->request->get['page']);
 		$limt = urldecode(@$this->request->get['limt']);

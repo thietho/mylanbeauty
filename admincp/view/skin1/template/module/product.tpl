@@ -92,7 +92,17 @@
 $('#search select').change(function(e) {
     pro.searchForm();
 });
-
+$('#search #brand').change(function(e) {
+	$.getJSON("?route=core/category/getListChild&categoryid="+ $(this).val(),function(data){
+		var str = '<option value="">Dòng sản phẩm</option>';
+		for(i in data)
+		{
+			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
+		}
+		$('#search #grouppro').html(str);
+		
+	});
+});
 
 function Product()
 {
@@ -160,6 +170,10 @@ function Product()
 		if($('#search #brand').val()!="")
 		{
 			url += "&brand="+encodeURI($('#search #brand').val());
+		}
+		if($('#search #grouppro').val()!="")
+		{
+			url += "&grouppro="+encodeURI($('#search #grouppro').val());
 		}
 		if($('#search #sitemapid').val()!="")
 		{

@@ -14,9 +14,13 @@ class ControllerSitebarSearchproduct extends Controller
 		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
 		unset($this->data['nhomhuong'][0]);
 		
-		$this->data['nhanhieu'] = array();
-		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
-		unset($this->data['nhanhieu'][0]);
+		$this->data['nhanhieu'] = $this->model_core_category->getChild('nhanhieu');
+		unset($this->data['nhanhieu'][count($this->data['nhanhieu'])-1]);
+		$brandother = $this->model_core_category->getChild('brandother');
+		foreach($brandother as $cat)
+		{
+			$this->data['nhanhieu'][] = $cat;
+		}
 		
 		$this->data['gia'] = array();
 		$this->model_core_category->getTree("gia",$this->data['gia']);

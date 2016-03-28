@@ -1487,7 +1487,11 @@ ul.autocomplete {
 {
 	background:#FF0;	
 }
-#search table input,select
+#search table input
+{
+	width:100%;	
+}
+#search table select
 {
 	width:100%;	
 }

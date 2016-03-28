@@ -12,5 +12,18 @@ class ControllerModuleCategory extends Controller
 		$this->render();
 	
 	}
+	public function getListChild()
+	{
+		$this->load->model('core/category');
+		$categoryid = @$this->request->get['categoryid'];
+		$child = array();
+		if($categoryid)
+			$child = @$this->model_core_category->getChild($categoryid);
+		@$this->data['output'] = json_encode($child);
+		
+		@$this->id="donvi";
+		@$this->template="common/output.tpl";
+		@$this->render();
+	}
 }
 ?>

@@ -15,9 +15,13 @@ class ControllerAddonSearchproduct extends Controller
 		$this->model_core_category->getTree("nhomhuong",$this->data['nhomhuong']);
 		unset($this->data['nhomhuong'][0]);
 		
-		$this->data['nhanhieu'] = array();
-		$this->model_core_category->getTree("nhanhieu",$this->data['nhanhieu']);
-		unset($this->data['nhanhieu'][0]);
+		$this->data['nhanhieu'] = $this->model_core_category->getChild('nhanhieu');
+		unset($this->data['nhanhieu'][count($this->data['nhanhieu'])-1]);
+		$brandother = $this->model_core_category->getChild('brandother');
+		foreach($brandother as $cat)
+		{
+			$this->data['nhanhieu'][] = $cat;
+		}
 		
 		$this->data['gia'] = array();
 		$this->model_core_category->getTree("gia",$this->data['gia']);
@@ -45,6 +49,7 @@ class ControllerAddonSearchproduct extends Controller
 		$keyword = urldecode($_GET['keyword']);
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
+		$grouppro = urldecode($_GET['grouppro']);
 		$gia = urldecode($_GET['gia']);
 		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
@@ -103,6 +108,10 @@ class ControllerAddonSearchproduct extends Controller
 		if(@$nhanhieu)
 		{
 			$where .= " AND brand like '".$nhanhieu."'";
+		}
+		if(@$grouppro)
+		{
+			$where .= " AND grouppro like '".$grouppro."'";
 		}
 		/*if(@$gia)
 		{
