@@ -204,49 +204,14 @@ class ControllerSalesSale extends Controller
 		{
 			@$arrkey = split(' ', $keyword);
 			$arr = array();
-			$arrcode = array();
-			$arrbarcode = array();
-			$arrref = array();
-			$arrcolor = array();
-			$arrsizes = array();
-			$arrmaterial = array();
-			foreach($arrkey as $key)
-			{
-				$arr[] = "title like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrcode[] = "code like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrbarcode[] = "barcode like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrref[] = "ref like '%".$key."%'";
-			}
 			
 			foreach($arrkey as $key)
 			{
-				$arrcolor[] = "color like '%".$key."%'";
+				$arr[] = "keyword like '%".$key."%'";
 			}
-			foreach($arrkey as $key)
-			{
-				$arrsizes[] = "sizes like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrmaterial[] = "material like '%".$key."%'";
-			}
-			$where .= " AND ((". implode(" AND ",$arr). ") 
-									OR (". implode(" AND ",$arrcode). ") 
-									OR (". implode(" AND ",$arrbarcode). ") 
-									OR (". implode(" AND ",$arrref). ") 
-									OR (". implode(" AND ",$arrcolor). ") 
-									OR (". implode(" AND ",$arrsizes). ") 
-									OR (". implode(" AND ",$arrmaterial). ") 
-							)";
+			
+			
+			$where .= " AND (". implode(" AND ",$arr). ")";
 			
 		}
 		$brand = urldecode(@$this->request->get['brand']);
@@ -259,6 +224,7 @@ class ControllerSalesSale extends Controller
 		{
 			$where .= " AND grouppro like '".$grouppro."'";
 		}
+		
 		$page = urldecode(@$this->request->get['page']);
 		$limt = urldecode(@$this->request->get['limt']);
 		$data_product = @$this->model_core_media->getList($where." Order by `title` LIMIT ".$page * $limt. ", ".$limt);

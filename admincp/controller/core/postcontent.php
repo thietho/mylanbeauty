@@ -155,7 +155,7 @@ class ControllerCorePostcontent extends Controller
 						@$this->data['post']['material'] = $mediaparent['material'];
 						@$this->data['post']['summary'] = $mediaparent['summary'];
 						@$this->data['post']['description'] = $mediaparent['description'];
-						@$this->data['post']['keyword'] = $mediaparent['keyword'];
+						//@$this->data['post']['keyword'] = $mediaparent['keyword'];
 						@$this->data['post']['unit'] = $mediaparent['unit'];
 						@$this->data['post']['sizes'] = $mediaparent['sizes'];
 						@$this->data['post']['imageid'] = $mediaparent['imageid'];

@@ -518,7 +518,7 @@ class ModelCoreMedia extends ModelCoreFile
 		$data['discountpercent']=@$this->db->escape(@$this->string->toNumber($data['discountpercent']));
 		$data['pricepromotion']=@$this->db->escape(@$this->string->toNumber($data['pricepromotion']));
 		$data['updateddate'] = @$this->date->getToday();
-		
+		$data['keyword']=$this->createKeyword($data);
 		$value = array();
 		if(count($media))
 		{
@@ -607,6 +607,7 @@ class ModelCoreMedia extends ModelCoreFile
 	}
 	public function updateInforChild($mediaid)
 	{
+		
 		$data_child = @$this->getListByParent($mediaid);
 		$ref = '';
 		if(count($data_child))
@@ -630,8 +631,33 @@ class ModelCoreMedia extends ModelCoreFile
 				$ref .= @$this->string->arrayToString($val);
 			}
 			@$this->updateCol($mediaid,"ref",$ref);
+			//Cập nhat thông tin các con giống với cha
+			$arrcol = array(			
+							'refersitemap',
+							'title',
+							'code',
+							'summary',
+							'description',
+							'metadescription',
+							'brand',
+							'grouppro'
+							);
+			$arrval = array();
+			$media = $this->getItem($mediaid);
+			foreach($arrcol as $val)
+				$arrval[] = $media[$val];
+			foreach($data_child as $child)
+			{
+				$where="mediaid = '".$child['mediaid']."'";
+				@$this->db->updateData('media',$arrcol,$arrval,$where);
+			}
 		}
 		
+	}
+	public function createKeyword($media)
+	{
+		
+		return $this->document->productName($media)." ".$media['mediaid']." ".$media['barcode'].$media['ref']." ".strip_tags($media['summary']);
 	}
 	public function delete($mediaid)
 	{

@@ -192,6 +192,8 @@ final class Document {
 			@$productname .= " - ".$media['code'];
 		if(@$media['sizes'])
 			@$productname .= " ".$media['sizes'];
+		if(@$media['material'])
+			@$productname .= " ".$media['material'];
 		if(@$media['color'])
 			@$productname .= " ".$media['color'];
 		return $productname;

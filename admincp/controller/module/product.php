@@ -84,54 +84,16 @@ class ControllerModuleProduct extends Controller
 			$arrcode = array();
 			$arrbarcode = array();
 			$arrref = array();
-			$arrcolor = array();
-			$arrsizes = array();
-			$arrmaterial = array();
+			
 			foreach($arrkey as $key)
 			{
-				@$arr[] = "title like '%".$key."%'";
+				@$arr[] = "keyword like '%".$key."%'";
 			}
-			foreach($arrkey as $key)
-			{
-				@$arrid[] = "mediaid like '".$key."'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrcode[] = "code like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrbarcode[] = "barcode like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrref[] = "ref like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrref[] = "ref like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrcolor[] = "color like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrsizes[] = "sizes like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrmaterial[] = "material like '%".$key."%'";
-			}
-			$where .= " AND ((". implode(" AND ",$arr). ") 
-									OR (". implode(" AND ",$arrid). ") 
-									OR (". implode(" AND ",$arrcode). ") 
-									OR (". implode(" AND ",$arrbarcode). ") 
-									OR (". implode(" AND ",$arrref). ") 
-									OR (". implode(" AND ",$arrcolor). ") 
-									OR (". implode(" AND ",$arrsizes). ") 
-									OR (". implode(" AND ",$arrmaterial). ") 
-							)";
+			
+			
+			
+			
+			$where .= " AND (". implode(" AND ",$arr). ")";
 			
 		}
 		@$brand = urldecode(@$this->request->get['brand']);
@@ -150,6 +112,7 @@ class ControllerModuleProduct extends Controller
 		{
 			$where .= " AND groupkeys like '%[".$status."]%'";
 		}
+		
 		/*$sort = "sort".$sitemapid.$status;
 		$listmediaid = @$this->model_core_media->getInformation($sort,'sort');
 		$arrmediaid = @$this->string->referSiteMapToArray($listmediaid);
@@ -1009,6 +972,11 @@ class ControllerModuleProduct extends Controller
 		}
 		$totalinventory = $inventory + $suminvetoryshop;
 		@$this->model_core_media->updateCol($mediaid,'inventory',$totalinventory);
+		//Update keyword
+		$media = $this->model_core_media->getItem($mediaid);
+		$keyword = $this->model_core_media->createKeyword($media);
+		@$this->model_core_media->updateCol($mediaid,'keyword',$keyword);
+		
 		@$this->data['output'] = "true";
 		@$this->id='content';
 		@$this->template='common/output.tpl';
