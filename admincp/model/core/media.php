@@ -632,29 +632,35 @@ class ModelCoreMedia extends ModelCoreFile
 			}
 			@$this->updateCol($mediaid,"ref",$ref);
 			//Cập nhat thông tin các con giống với cha
-			$arrcol = array(			
-							
-							'title',
-							'code',
-							'summary',
-							'description',
-							'metadescription',
-							'brand',
-							'grouppro',
-							'refersitemap',
-							'groupkeys'
-							);
-			$arrval = array();
-			$media = $this->getItem($mediaid);
-			foreach($arrcol as $val)
-				$arrval[] = $media[$val];
-			foreach($data_child as $child)
-			{
-				$where="mediaid = '".$child['mediaid']."'";
-				@$this->db->updateData('media',$arrcol,$arrval,$where);
-			}
+			
 		}
 		
+	}
+	public function updateChild($mediaid)
+	{
+		$data_child = @$this->getListByParent($mediaid);
+		$arrcol = array(			
+							
+				'title',
+				'code',
+				'summary',
+				'description',
+				'metadescription',
+				'brand',
+				'grouppro',
+				'refersitemap',
+				'groupkeys'
+				);
+		$arrval = array();
+		$media = $this->getItem($mediaid);
+		foreach($arrcol as $val)
+			$arrval[] = $media[$val];
+		foreach($data_child as $child)
+		{
+			$where="mediaid = '".$child['mediaid']."'";
+			@$this->db->updateData('media',$arrcol,$arrval,$where);
+		}
+	}
 	}
 	public function createKeyword($media)
 	{
