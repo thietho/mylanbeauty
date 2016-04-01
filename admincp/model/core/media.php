@@ -636,7 +636,7 @@ class ModelCoreMedia extends ModelCoreFile
 		}
 		
 	}
-	public function updateChild($mediaid)
+	public function updateAllChild($mediaid)
 	{
 		$data_child = @$this->getListByParent($mediaid);
 		$arrcol = array(			
@@ -661,7 +661,7 @@ class ModelCoreMedia extends ModelCoreFile
 			@$this->db->updateData('media',$arrcol,$arrval,$where);
 		}
 	}
-	}
+	
 	public function createKeyword($media)
 	{
 		
