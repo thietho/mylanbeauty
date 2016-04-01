@@ -32,65 +32,16 @@ class ControllerAddonProduct extends Controller
 		}
 		
 		$where = " AND mediatype = 'module/product' AND mediaparent = ''";
+		@$keyword = preg_replace("/[^a-zA-Z0-9]/", " ", $keyword);
 		if(@$keyword !="")
 		{
 			@$arrkey = split(' ', $keyword);
 			$arr = array();
-			$arrcode = array();
-			$arrbarcode = array();
-			$arrref = array();
-			$arrsummary = array();
-			$arrdescription = array();
-			$arrcolor = array();
-			$arrsizes = array();
-			$arrmaterial = array();
 			foreach($arrkey as $key)
 			{
-				$arr[] = "title like '%".$key."%'";
+				@$arr[] = "keyword like '%".$key."%'";
 			}
-			foreach($arrkey as $key)
-			{
-				$arrcode[] = "code like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrbarcode[] = "barcode like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrref[] = "ref like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrsummary[] = "summary like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrdescription[] = "description like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrcolor[] = "color like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrsizes[] = "sizes like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrmaterial[] = "material like '%".$key."%'";
-			}
-			$where .= " AND (
-								(". implode(" AND ",$arr). ") 
-								OR (". implode(" AND ",$arrcode). ") 
-								OR (". implode(" AND ",$arrbarcode). ") 
-								OR (". implode(" AND ",$arrref). ") 
-								OR (". implode(" AND ",$arrsummary). ") 
-								OR (". implode(" AND ",$arrdescription). ") 
-								OR (". implode(" AND ",$arrcolor). ") 
-								OR (". implode(" AND ",$arrsizes). ") 
-								OR (". implode(" AND ",$arrmaterial). ") 
-							)";
+			$where .= " AND (". implode(" AND ",$arr). ")";
 		}
 		if(@$loaisp)
 		{

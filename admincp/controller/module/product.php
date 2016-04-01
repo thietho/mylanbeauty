@@ -81,10 +81,6 @@ class ControllerModuleProduct extends Controller
 		if(@$keyword !="")
 		{
 			$arr = array();
-			$arrid = array();
-			$arrcode = array();
-			$arrbarcode = array();
-			$arrref = array();
 			
 			foreach($arrkey as $key)
 			{
