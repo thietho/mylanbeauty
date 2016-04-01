@@ -442,7 +442,7 @@ class ControllerCorePostcontent extends Controller
 			
 			$data['imagepath'] = str_replace(DIR_FILE,"",$data['imagepath']);
 			@$this->model_core_media->save($data);
-			@$this->model_core_media->updateChild($data['mediaid']);
+			@$this->model_core_media->updateAllChild($data['mediaid']);
 			@$this->model_core_media->updateInforChild($data['mediaid']);
 			if(@$data['mediaparent']!="")
 				@$this->model_core_media->updateInforChild($data['mediaparent']);
