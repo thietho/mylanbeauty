@@ -633,14 +633,16 @@ class ModelCoreMedia extends ModelCoreFile
 			@$this->updateCol($mediaid,"ref",$ref);
 			//Cập nhat thông tin các con giống với cha
 			$arrcol = array(			
-							'refersitemap',
+							
 							'title',
 							'code',
 							'summary',
 							'description',
 							'metadescription',
 							'brand',
-							'grouppro'
+							'grouppro',
+							'refersitemap',
+							'groupkeys'
 							);
 			$arrval = array();
 			$media = $this->getItem($mediaid);
