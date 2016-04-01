@@ -15,13 +15,21 @@
                     <option value="">Dòng sản phẩm</option>
                 </select>        
             </td>
-            <td width="20%">
+            <td>
             	<select id="sitemapid">
                     <option value="">Tất cả danh mục</option>
                     <?php foreach($sitemaps as $sitemap){ ?>
                     <?php if(@$sitemap['moduleid'] == 'module/product'){ ?>
                     <option value="<?php echo @$sitemap['sitemapid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$sitemap['level']) ?><?php echo @$sitemap['sitemapname']?></option>
                     <?php } ?>
+                    <?php } ?>
+                </select>
+            </td>
+            <td>
+                 <select id="status">            	
+                    <option value=""></option>
+                    <?php foreach($status as $it){ ?>
+                    <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>
                     <?php } ?>
                 </select>
             </td>

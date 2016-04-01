@@ -25,6 +25,14 @@
             </select>
         </div>
         <div>
+            <select name="status" id="status" class="form-control" >
+                <option value="">Các vấn đề</option>
+                <?php foreach($status as $it){ ?>
+                <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>                        
+                <?php } ?>
+            </select>
+        </div>
+        <div>
         	<input type="submit" class="form-control" value="Tìm sản phẩm">
         </div>
     </form>
@@ -76,6 +84,7 @@ $("#btnSearch").click(function(){
 $("#loaisp").val("<?php echo @$_GET['loaisp']?>");
 $("#nhomhuong").val("<?php echo @$_GET['nhomhuong']?>");
 $("#nhanhieu").val("<?php echo @$_GET['nhanhieu']?>");
+$("#status").val("<?php echo @$_GET['status']?>");
 $("#gia").val("<?php echo @$_GET['gia']?>");
 $("#keyword").val("<?php echo urldecode($_GET['keyword'])?>");
 </script>

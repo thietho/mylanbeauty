@@ -26,6 +26,10 @@ class ControllerSitebarSearchproduct extends Controller
 		$this->model_core_category->getTree("gia",$this->data['gia']);
 		unset($this->data['gia'][0]);
 		
+		$this->data['status'] = array();
+		$this->model_core_category->getTree("status",$this->data['status']);
+		unset($this->data['status'][0]);
+		
 		$this->id="content";		
 		$this->template="sitebar/searchproduct.tpl";
 		

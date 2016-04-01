@@ -25,6 +25,7 @@ class ControllerAddonProduct extends Controller
 		$nhanhieu = urldecode($_GET['nhanhieu']);
 		$grouppro = urldecode($_GET['grouppro']);
 		$gia = urldecode($_GET['gia']);
+		$status = urldecode($_GET['status']);
 		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
 		{
 			@$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
@@ -54,6 +55,11 @@ class ControllerAddonProduct extends Controller
 		if(@$grouppro)
 		{
 			$where .= " AND grouppro like '".$grouppro."'";
+		}
+		
+		if(@$status !="")
+		{
+			$where .= " AND groupkeys like '%[".$status."]%'";
 		}
 		if(@$gia)
 		{

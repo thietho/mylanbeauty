@@ -197,6 +197,11 @@ class ControllerSalesSale extends Controller
 		if(count($arr))
 			$where .= "AND (". implode($arr," OR ").")";
 		
+		@$status = urldecode(@$this->request->get['status']);
+		if(@$status !="")
+		{
+			$where .= " AND groupkeys like '%[".$status."]%'";
+		}
 		$keyword = urldecode(@$this->request->get['keyword']);
 		@$keyword = preg_replace("/[^a-zA-Z0-9]/", " ", $keyword);
 		

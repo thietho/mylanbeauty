@@ -621,6 +621,10 @@ function SaleOrder(shopid)
 		{
 			url += "&sitemapid="+encodeURI($('#shopsearch #sitemapid').val());
 		}
+		if($('#shopsearch #status').val()!="")
+		{
+			url += "&status="+encodeURI($('#shopsearch #status').val());
+		}
 		url += "&page="+ this.page + "&limt="+ this.limt;
 		return url
 	}

@@ -86,10 +86,6 @@ class ControllerModuleProduct extends Controller
 			{
 				@$arr[] = "keyword like '%".$key."%'";
 			}
-			
-			
-			
-			
 			$where .= " AND (". implode(" AND ",$arr). ")";
 			
 		}

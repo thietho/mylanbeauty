@@ -30,7 +30,14 @@
                 <option value="">Dòng sản phẩm</option>
             </select>
         </p>
-        
+        <p>
+            <select name="status" id="status">
+                <option value="">Các vấn đề</option>
+                <?php foreach($status as $it){ ?>
+                <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>                        
+                <?php } ?>
+            </select>
+        </p>
     	<input type="text" class="ben-textbox" id="keyword" name="keyword" >
         <input type="submit" class="ben-button" id="btnSearch" value="Tìm">
     </form>
@@ -53,6 +60,7 @@ $('#ben-searchform #nhanhieu').change(function(e) {
 $("#loaisp").val("<?php echo @$_GET['loaisp']?>");
 $("#nhomhuong").val("<?php echo @$_GET['nhomhuong']?>");
 $("#nhanhieu").val("<?php echo @$_GET['nhanhieu']?>");
+$("#status").val("<?php echo @$_GET['status']?>");
 $("#gia").val("<?php echo @$_GET['gia']?>");
 $("#keyword").val("<?php echo urldecode(@$_GET['keyword'])?>");
 </script>
