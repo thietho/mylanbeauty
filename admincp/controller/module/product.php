@@ -75,6 +75,7 @@ class ControllerModuleProduct extends Controller
 			$where .= "AND (". implode($arr," OR ").")";
 		
 		@$keyword = urldecode(@$this->request->get['keyword']);
+		@$keyword = preg_replace("/[^a-zA-Z0-9]/", " ", $keyword);
 		@$arrkey = split(' ', $keyword);
 		
 		if(@$keyword !="")
