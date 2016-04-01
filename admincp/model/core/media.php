@@ -183,9 +183,11 @@ class ModelCoreMedia extends ModelCoreFile
 	
 	public function getListByParent($parent,$order = "", $from=0, $length=0)
 	{
-		$where = "AND mediaparent = '".$parent."' ".$order;		
-		return @$this->getMedias($where, $from, $length);		
-		
+		if($parent)
+		{
+			$where = "AND mediaparent = '".$parent."' ".$order;		
+			return @$this->getMedias($where, $from, $length);		
+		}
 		
 	}
 
@@ -671,7 +673,7 @@ class ModelCoreMedia extends ModelCoreFile
 	public function createKeyword($media)
 	{
 		
-		return $this->document->productName($media)." ".$media['mediaid']." ".$media['barcode'].$media['ref']." ".strip_tags($media['summary']);
+		return $this->document->productName($media)." ".$media['mediaid']." ".$media['barcode'].$media['ref']." ".strip_tags($media['metadescription']);
 	}
 	public function delete($mediaid)
 	{
