@@ -31,10 +31,8 @@ class ControllerAddonSearchproduct extends Controller
 		$this->model_core_category->getTree("status",$this->data['status']);
 		unset($this->data['status'][0]);
 		
-		if(@$_GET['keyword'] !='' || $_GET['loaisp'] != '' || $_GET['nhanhieu'] !='')
-		{
-			$this->getList();	
-		}
+		
+		$this->getList();	
 		
 		$this->id="content";		
 		$this->template="addon/searchproduct.tpl";
@@ -49,16 +47,16 @@ class ControllerAddonSearchproduct extends Controller
 		$this->load->helper('image');
 		$donvi = 1000;
 		//$para = $this->string->referSiteMapToArray($_GET['search']);
-		
+		$status = urldecode($_GET['status']);
 		$keyword = urldecode($_GET['keyword']);
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
 		$grouppro = urldecode($_GET['grouppro']);
 		$gia = urldecode($_GET['gia']);
-		$status = urldecode($_GET['status']);
-		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
+		
+		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "" && $status == "")
 		{
-			@$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
+			@$this->data['searchresult'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
 		}
 		

@@ -19,14 +19,13 @@ class ControllerAddonProduct extends Controller
 		$this->load->helper('image');
 		$donvi = 1000;
 		//$para = $this->string->referSiteMapToArray($_GET['search']);
-		
+		$status = urldecode($_GET['status']);
 		$keyword = urldecode($_GET['keyword']);
 		$loaisp = urldecode($_GET['loaisp']);
 		$nhanhieu = urldecode($_GET['nhanhieu']);
 		$grouppro = urldecode($_GET['grouppro']);
 		$gia = urldecode($_GET['gia']);
-		$status = urldecode($_GET['status']);
-		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "")
+		if(@$keyword == "" && $loaisp == "" && $nhanhieu == "" && $gia == "" && $status == "")
 		{
 			@$this->data['output'] = "Bạn chưa chọn tiêu chí tìm kiếm";
 			return;
