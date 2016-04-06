@@ -177,8 +177,8 @@ class ControllerSalesSale extends Controller
 		$where = " AND shopid = '".$shopid."' Group by mediaid ";
 		$data_nhapxuatmedia = @$this->model_quanlykho_phieunhapxuat->getPhieuNhapXuatMediaList($where);
 		$arr_mediaid = @$this->string->matrixToArray($data_nhapxuatmedia,'mediaid');
-		
 		$where = " AND mediatype = 'module/product' AND mediaid in ('".implode("','",$arr_mediaid)."')";
+		
 		$sitemapid = urldecode(@$this->request->get['sitemapid']);
 		@$this->data['sitemapid'] = $sitemapid;
 		$siteid = @$this->user->getSiteId();
@@ -477,61 +477,33 @@ class ControllerSalesSale extends Controller
 		$brand = @$data['brand'];
 		$keyword = @$data['keyword'];
 		$sitemapid = @$data['sitemapid'];
+		$grouppro = @$data['grouppro'];
+		
 		
 		if(@$keyword !="")
 		{
 			@$arrkey = split(' ', $keyword);
 			$arr = array();
-			$arrcode = array();
-			$arrbarcode = array();
-			$arrref = array();
-			$arrcolor = array();
-			$arrsizes = array();
-			$arrmaterial = array();
-			foreach($arrkey as $key)
-			{
-				$arr[] = "title like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrcode[] = "code like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrbarcode[] = "barcode like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrref[] = "ref like '%".$key."%'";
-			}
 			
 			foreach($arrkey as $key)
 			{
-				$arrcolor[] = "color like '%".$key."%'";
+				$arr[] = "keyword like '%".$key."%'";
 			}
-			foreach($arrkey as $key)
-			{
-				$arrsizes[] = "sizes like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				$arrmaterial[] = "material like '%".$key."%'";
-			}
-			$where .= " AND ((". implode(" AND ",$arr). ") 
-									OR (". implode(" AND ",$arrcode). ") 
-									OR (". implode(" AND ",$arrbarcode). ") 
-									OR (". implode(" AND ",$arrref). ") 
-									OR (". implode(" AND ",$arrcolor). ") 
-									OR (". implode(" AND ",$arrsizes). ") 
-									OR (". implode(" AND ",$arrmaterial). ") 
-							)";
+			
+			
+			$where .= " AND (". implode(" AND ",$arr). ")";
 			
 		}
+		
 		if(@$brand !="")
 		{
 			@$where .= " AND brand like '".$brand."'";
 		}
 		
+		if(@$grouppro !="")
+		{
+			$where .= " AND grouppro like '".$grouppro."'";
+		}
 		
 		if(@$sitemapid)
 			$where .= " AND refersitemap like '%[".$sitemapid."]%'";

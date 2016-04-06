@@ -7,8 +7,8 @@
         <form id="frm_thongke">
         	<div id="ben-search">
             	<input type="text" class="text" id="keyword" name="keyword" placeholder="Tìm kiếm sản phẩm"/>
-                <label>Từ ngày</label>
-                <input type="text" class="text date" id="tungay" name="tungay" />
+                
+                <input type="text" class="text date" id="tungay" name="tungay" placeholder="Từ ngày"/>
                 <script language="javascript">
                 $(function() {
                     $("#tungay").datepicker({
@@ -18,8 +18,8 @@
                             });
                     });
                 </script>
-                <label>Đến ngày</label>
-                <input type="text" class="text date" id="denngay" name="denngay" />
+                
+                <input type="text" class="text date" id="denngay" name="denngay" placeholder="Đến ngày"/>
                 <script language="javascript">
                 $(function() {
                     $("#denngay").datepicker({
@@ -29,14 +29,17 @@
                             });
                     });
                 </script>
-                <label>Nhản hiệu</label>
+                
                 <select id="brand" name="brand">
                     <option value="">Tất cả nhản hiệu</option>
                     <?php foreach($nhanhieu as $it){ ?>
                     <option value="<?php echo @$it['categoryid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo @$it['categoryname']?></option>                        
                     <?php } ?>
                 </select>
-                <label>Danh mục</label>
+                <select id="grouppro" name="grouppro">
+                    <option value="">Dòng sản phẩm</option>
+                </select>
+                
                 <select id="sitemapid" name="sitemapid">
                     <option value="">Tất cả danh mục</option>
                     <?php foreach($sitemaps as $sitemap){ ?>
@@ -79,5 +82,16 @@ $('#keyword').keyup(function(e) {
 });
 $('#btnSaveToExcel').click(function(e) {
 	tableToExcel('reportbanhang', 'Ho Lan Solutions');
+});
+$('#frm_thongke #brand').change(function(e) {
+	$.getJSON("?route=core/category/getListChild&categoryid="+ $(this).val(),function(data){
+		var str = '<option value="">Dòng sản phẩm</option>';
+		for(i in data)
+		{
+			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
+		}
+		$('#frm_thongke #grouppro').html(str);
+		
+	});
 });
 </script>
