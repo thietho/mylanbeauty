@@ -63,17 +63,16 @@ class ControllerCoreMedia extends Controller
 							OR description like '%".$keyword."%' 
 							)";	
 		}*/
-		@$arrkey = split(' ', $keyword);
 		$where = "";
 		if(@$keyword !="")
 		{
+			@$arrkey = split(' ', $keyword);
 			$arr = array();
 			foreach($arrkey as $key)
 			{
-				$arr[] = "title like '%".$key."%'";
+				$arr[] = "keyword like '%".$key."%'";
 			}
 			$where .= " AND (". implode(" AND ",$arr). ")";
-			//$where .= " AND ( title like '%".$keyword."%' OR summary like '%".$keyword."%' OR description like '%".$keyword."%')";
 		}
 		
 		if(@$type!="")
@@ -477,64 +476,16 @@ class ControllerCoreMedia extends Controller
 	{
 		
 		$keyword = urldecode(@$this->request->get['term']);
-		@$arrkey = split(' ', $keyword);
 		$where = " AND mediatype = 'module/product' ";
 		if(@$keyword !="")
 		{
+			@$arrkey = split(' ', $keyword);
 			$arr = array();
-			$arrid = array();
-			$arrcode = array();
-			$arrbarcode = array();
-			$arrref = array();
-			$arrcolor = array();
-			$arrsizes = array();
-			$arrmaterial = array();
 			foreach($arrkey as $key)
 			{
-				@$arr[] = "title like '%".$key."%'";
+				$arr[] = "keyword like '%".$key."%'";
 			}
-			foreach($arrkey as $key)
-			{
-				@$arrid[] = "mediaid like '".$key."'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrcode[] = "code like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrbarcode[] = "barcode like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrref[] = "ref like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrref[] = "ref like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrcolor[] = "color like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrsizes[] = "sizes like '%".$key."%'";
-			}
-			foreach($arrkey as $key)
-			{
-				@$arrmaterial[] = "material like '%".$key."%'";
-			}
-			$where .= " AND ((". implode(" AND ",$arr). ") 
-									OR (". implode(" AND ",$arrid). ") 
-									OR (". implode(" AND ",$arrcode). ") 
-									OR (". implode(" AND ",$arrbarcode). ") 
-									OR (". implode(" AND ",$arrref). ") 
-									OR (". implode(" AND ",$arrcolor). ") 
-									OR (". implode(" AND ",$arrsizes). ") 
-									OR (". implode(" AND ",$arrmaterial). ") 
-							)";
-			
+			$where .= " AND (". implode(" AND ",$arr). ")";
 		}
 		
 		$medias = @$this->model_core_media->getList($where);
