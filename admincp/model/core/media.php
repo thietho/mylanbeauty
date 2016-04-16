@@ -673,7 +673,7 @@ class ModelCoreMedia extends ModelCoreFile
 	public function createKeyword($media)
 	{
 		
-		return $this->document->productName($media)." ".$media['mediaid']." ".$media['barcode'].$media['ref']." ".strip_tags($media['metadescription']);
+		return $this->document->productName($media)." ".$media['mediaid']." ".$media['barcode']." ".$media['ref']." ".strip_tags($media['metadescription']);
 	}
 	public function delete($mediaid)
 	{
