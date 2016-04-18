@@ -100,7 +100,7 @@ $('#search #brand').change(function(e) {
 			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
 		}
 		$('#search #grouppro').html(str);
-		
+		$('#search #grouppro').val(objdl.grouppro);
 	});
 });
 
@@ -166,22 +166,27 @@ function Product()
 		if($('#search #keyword').val()!="")
 		{
 			url += "&keyword="+encodeURI($('#search #keyword').val());
+			objdl.keyword = $('#search #keyword').val();
 		}
 		if($('#search #brand').val()!="")
 		{
 			url += "&brand="+encodeURI($('#search #brand').val());
+			objdl.brand = $('#search #brand').val();
 		}
 		if($('#search #grouppro').val()!="")
 		{
 			url += "&grouppro="+encodeURI($('#search #grouppro').val());
+			objdl.grouppro = $('#search #grouppro').val();
 		}
 		if($('#search #sitemapid').val()!="")
 		{
 			url += "&sitemapid="+encodeURI($('#search #sitemapid').val());
+			objdl.sitemapid = $('#search #sitemapid').val();
 		}
 		if($('#search #status').val()!="")
 		{
 			url += "&status="+encodeURI($('#search #status').val());
+			objdl.status = $('#search #status').val();
 		}
 		
 		url += "&page=" + Number(control.getParam("page",control.getUrl()));
@@ -666,6 +671,11 @@ function Product()
 }
 var pro = new Product();
 $(document).ready(function(e) {
+	$('#search #keyword').val(objdl.keyword);
+	$('#search #brand').val(objdl.brand).change();
+	$('#search #grouppro').val(objdl.grouppro);
+	$('#search #sitemapid').val(objdl.sitemapid);
+	$('#search #status').val(objdl.status);
     //$('#showdanhmuc').load('?route=module/product/productCat');
 	pro.page = Number(control.getParam("page",control.getUrl()));
 		

@@ -1,6 +1,11 @@
 function PhieuNhapXuat()
 {
 	this.index = 0;
+	this.keyword = "";
+	this.brand = "";
+	this.grouppro = "";
+	this.sitemapid = "";
+	this.status = "";
 	this.addRow = function(id,mediaid,code,title,soluong,madonvi,giatien,giamgia,phantramgiamgia)
 	{
 		
