@@ -251,7 +251,11 @@ function resetProgressBar()
 }
 
 $(document).ready(function(e) {
-	
+	$('#shopsearch #keyword').val(objdl.keyword);
+	$('#shopsearch #brand').val(objdl.brand).change();
+	$('#shopsearch #grouppro').val(objdl.grouppro);
+	$('#shopsearch #sitemapid').val(objdl.sitemapid);
+	$('#shopsearch #status').val(objdl.status);
 	$("#nhapkhonguyenlieu").sortable();
 	
 	
@@ -608,22 +612,27 @@ function SaleOrder(shopid)
 		if($('#shopsearch #keyword').val()!="")
 		{
 			url += "&keyword="+encodeURI($('#shopsearch #keyword').val());
+			objdl.keyword = $('#shopsearch #keyword').val();
 		}
 		if($('#shopsearch #brand').val()!="")
 		{
 			url += "&brand="+encodeURI($('#shopsearch #brand').val());
+			objdl.brand = $('#shopsearch #brand').val();
 		}
 		if($('#shopsearch #grouppro').val()!="")
 		{
 			url += "&grouppro="+encodeURI($('#shopsearch #grouppro').val());
+			objdl.grouppro = $('#shopsearch #grouppro').val();
 		}
 		if($('#shopsearch #sitemapid').val()!="")
 		{
 			url += "&sitemapid="+encodeURI($('#shopsearch #sitemapid').val());
+			objdl.sitemapid = $('#shopsearch #sitemapid').val();
 		}
 		if($('#shopsearch #status').val()!="")
 		{
 			url += "&status="+encodeURI($('#shopsearch #status').val());
+			objdl.status = $('#shopsearch #status').val();
 		}
 		url += "&page="+ this.page + "&limt="+ this.limt;
 		return url

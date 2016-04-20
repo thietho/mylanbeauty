@@ -101,6 +101,8 @@ $('#search #brand').change(function(e) {
 		}
 		$('#search #grouppro').html(str);
 		$('#search #grouppro').val(objdl.grouppro);
+		if(objdl.grouppro != "")
+			pro.searchForm();
 	});
 });
 
@@ -678,8 +680,8 @@ $(document).ready(function(e) {
 	$('#search #status').val(objdl.status);
     //$('#showdanhmuc').load('?route=module/product/productCat');
 	pro.page = Number(control.getParam("page",control.getUrl()));
-		
-	pro.searchForm();
+	if(objdl.grouppro=="")	
+		pro.searchForm();
 	//console.log("aa");
 	$('#btnSearch').click(function(e) {
 		
