@@ -61,16 +61,6 @@
 <div id="product-loading"></div>
 
 <script language="javascript">
-$(document).ready(function(e) {
-	saleOrder.search();
-});
-$('#shopsearch #keyword').keyup(function(e) {
-	if(e.keyCode == 13)
-		saleOrder.search();
-});
-$('#shopsearch select').change(function(e) {
-	saleOrder.search();
-});
 $('#shopsearch #brand').change(function(e) {
 	$.getJSON("?route=core/category/getListChild&categoryid="+ $(this).val(),function(data){
 		var str = '<option value="">Dòng sản phẩm</option>';
@@ -79,9 +69,28 @@ $('#shopsearch #brand').change(function(e) {
 			str += '<option value="'+data[i].categoryid+'">'+data[i].categoryname+'</option>';
 		}
 		$('#shopsearch #grouppro').html(str);
-		
+		$('#shopsearch #grouppro').val(objdl.grouppro);
+		if(objdl.grouppro!="")	
+			saleOrder.search();
 	});
 });
+$(document).ready(function(e) {
+	$('#shopsearch #keyword').val(objdl.keyword);
+	$('#shopsearch #brand').val(objdl.brand).change();
+	$('#shopsearch #grouppro').val(objdl.grouppro);
+	$('#shopsearch #sitemapid').val(objdl.sitemapid);
+	$('#shopsearch #status').val(objdl.status);
+	if(objdl.grouppro=="")	
+		saleOrder.search();
+});
+$('#shopsearch #keyword').keyup(function(e) {
+	if(e.keyCode == 13)
+		saleOrder.search();
+});
+$('#shopsearch select').change(function(e) {
+	saleOrder.search();
+});
+
 $('#searchproductpopup').scroll(function(e) {
 	//alert($(document).scrollTop() + window.innerHeight);
 	//console.log(($('#searchproductpopup').innerHeight() + $('#searchproductpopup').scrollTop()) + ':' + $('#product-content').innerHeight());

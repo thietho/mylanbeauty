@@ -251,11 +251,7 @@ function resetProgressBar()
 }
 
 $(document).ready(function(e) {
-	$('#shopsearch #keyword').val(objdl.keyword);
-	$('#shopsearch #brand').val(objdl.brand).change();
-	$('#shopsearch #grouppro').val(objdl.grouppro);
-	$('#shopsearch #sitemapid').val(objdl.sitemapid);
-	$('#shopsearch #status').val(objdl.status);
+	
 	$("#nhapkhonguyenlieu").sortable();
 	
 	
