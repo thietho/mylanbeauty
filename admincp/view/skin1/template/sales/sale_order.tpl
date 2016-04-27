@@ -30,8 +30,13 @@
                     dateFormat: 'dd-mm-yy'
                     });
             });
-     </script>
-    
+    </script>
+    <select id="trangthai">
+    	<option>Trạng thái</option>
+        <?php foreach($orderstatus as $cat){ ?>
+        <option value="<?php echo $cat['categoryid']?>"><?php echo $cat['categoryname']?></option>
+        <?php } ?>
+    </select>
     <br />
 </div>
 <div id="listordercomlete"></div>
@@ -56,7 +61,8 @@ function createParam()
 		url += "&tungay="+ encodeURI($("#chbhsearch #tungay").val());
 	if($("#chbhsearch #denngay").val() != "")
 		url += "&denngay="+ encodeURI($("#chbhsearch #denngay").val());
-	
+	if($("#chbhsearch #trangthai").val() != "")
+		url += "&trangthai="+ encodeURI($("#chbhsearch #trangthai").val());
 	return url;
 }
 $('#chbhsearch .text').keyup(function(e) {
@@ -64,6 +70,9 @@ $('#chbhsearch .text').keyup(function(e) {
 });
 
 $('#chbhsearch .date').change(function(e) {
+    saleOrder.listOrderCompleteData(createParam());
+});
+$('#chbhsearch select').change(function(e) {
     saleOrder.listOrderCompleteData(createParam());
 });
 </script>

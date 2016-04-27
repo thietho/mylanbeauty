@@ -6,11 +6,9 @@
             <th>Mã phiếu</th>
             <th>Ngày bán</th>
             <th>Khách hàng</th>
-            
             <th>Tổng tiền bán</th>
-            
-            
             <th>Ghi chú</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +33,7 @@
             </td>
             <td class="number"><?php echo @$this->string->numberFormate($item['tongtien'])?></td>
             <td><?php echo @$item['ghichu']?></td>
+            <td><?php echo $this->document->getCategory(@$item['trangthai'])?></td>
         </tr>
         <?php } ?>
     </tbody>

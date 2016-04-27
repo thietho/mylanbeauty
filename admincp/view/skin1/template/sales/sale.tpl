@@ -460,7 +460,7 @@ function SaleOrder(shopid)
 	}
 	this.listOrder = function()
 	{
-		$('#listorder').html(loading);
+		//$('#listorder').html(loading);
 		$.getJSON("?route=sales/sale/listOrder&shopid="+ this.shopid,function(dataorder){
 			/*var countchuathanhtoan = 0;
 			var countdathanhtoan = 0;

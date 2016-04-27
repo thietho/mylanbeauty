@@ -70,7 +70,7 @@ class ControllerSalesSale extends Controller
 	public function listOrder()
 	{
 		$shopid = @$this->request->get['shopid'];
-		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH' AND trangthai  <> 'paid'";
+		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH' AND trangthai  <> 'paid' AND trangthai <> 'ordercancel'";
 		$data = @$this->model_quanlykho_phieunhapxuat->getList($where);
 		$arrdate = array();
 		$data_order = array();
@@ -119,7 +119,8 @@ class ControllerSalesSale extends Controller
 		$datasearchlike['tenkhachhang'] = urldecode(@$this->request->get['tenkhachhang']);
 		$datasearchlike['dienthoai'] = urldecode(@$this->request->get['dienthoai']);
 		$datasearchlike['diachi'] = urldecode(@$this->request->get['diachi']);
-		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH' AND trangthai like 'paid'";
+		$datasearchlike['trangthai'] = urldecode(@$this->request->get['trangthai']);
+		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH'";
 		
 		$arr = array();
 		foreach($datasearchlike as $key => $item)
