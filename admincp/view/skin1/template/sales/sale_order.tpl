@@ -32,7 +32,7 @@
             });
     </script>
     <select id="trangthai">
-    	<option>Trạng thái</option>
+    	<option value="">Trạng thái</option>
         <?php foreach($orderstatus as $cat){ ?>
         <option value="<?php echo $cat['categoryid']?>"><?php echo $cat['categoryname']?></option>
         <?php } ?>
