@@ -78,7 +78,7 @@
                     }
                     if($item['xuatkho'][$i]['xuattu'])
                     {
-                        echo ", Bán từ ".$item['xuat'][$i]['xuattu'];
+                        echo ", Bán từ ".$item['xuatkho'][$i]['xuattu'];
                     }
                     
                 ?>
