@@ -78,9 +78,7 @@
                 
                 
                 <?php } ?>
-                <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>
-                <a class="button" onclick="pro.deleteProduct()">Xóa</a>&nbsp;
-                <?php } ?>
+                
                 <a class="button" href="index.php"><?php echo @$button_cancel?></a>
             </div>
             <div class="clearer">^&nbsp;</div>

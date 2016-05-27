@@ -62,7 +62,7 @@ class ControllerCommonLogin extends Controller
 		@$this->load->model("core/user");
 		@$this->load->model("quanlykho/nhanvien");
 		$user = @$this->model_core_user->getItemByUserName($username);
-		if(md5($pwd) == $user['password'])
+		if(md5($pwd) == $user['password'] && $user['status'] == 'active')
 		{
 			//Login thanh cong
 			$nhanvien = @$this->model_quanlykho_nhanvien->getItemByUsername($username);
