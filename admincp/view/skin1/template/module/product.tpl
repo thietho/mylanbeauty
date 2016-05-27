@@ -64,12 +64,18 @@
                
                 <?php } ?>
                 <a class="button" onclick="pro.showDanhMuc()">Danh mục sản phẩm</a>
+                <?php if(@$this->user->checkPermission("module/product/baogia")==true){ ?>
                 <a class="button" onclick="pro.viewListBaoGia()">Danh sách báo giá</a>
+                <?php } ?>
+                <?php if(@$this->user->checkPermission("module/product/viewListSelect")==true){ ?>
                 <a class="button" onclick="pro.viewListSelect()">Xem danh sách</a>
+                <?php } ?>
                 <?php if(@$this->user->checkPermission("module/product/update")==true){ ?>
+                <?php if(@$this->user->checkPermission("module/product/updateInventory")==true){ ?>
                 <a class="button" onclick="pro.updateInventory()">Cập nhật tồn kho</a>
-                <a class="button" onclick="pro.updatePosition()"><?php echo @$button_updateposition?></a>
-                <a class="button" href="?route=module/information&goback=module/product">Biên tập nội dung</a>
+                <?php } ?>
+                
+                
                 
                 <?php } ?>
                 <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>

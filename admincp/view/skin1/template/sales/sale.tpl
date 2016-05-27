@@ -96,6 +96,16 @@
                                                 });
                                          </script>
                                     </td>
+                                    <td><label>Hình thức thanh toán</label></td>
+                                    <td>
+                                    	<select id="payment" name="payment">
+                                        	<option value=""></option>
+                                            <?php foreach($payment as $it){ ?>
+                                            <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>
+                                            <?php } ?>
+                                            
+                                        </select>
+                                    </td>
                                 </tr>
                             </table>
                             
@@ -211,11 +221,16 @@
             <input type="button" class="button" id="btnListProducShop" value="Các sản phẩm đang có tại shop"/>
             <input type="button" class="button" id="btnSave" value="Lưu phiếu" onClick="saleOrder.save('')"/>
             <input type="button" class="button" id="btnSavePrint" value="Lưu & in" onClick="saleOrder.save('print')"/>
-            
+            <?php if(@$this->user->checkPermission("sales/sale/del")==true){ ?>
             <input type="button" class="button" id="btnDelOrder" value="Xóa đơn hàng" onClick="saleOrder.delOrder($('#frmSaleOrder #id').val())"/>
+            <?php } ?>
+            <?php if(@$this->user->checkPermission("sales/sale/del")==true){ ?>
             <input type="button" class="button" id="btnListOrder" value="Danh sách đơn hàng đã bán" onClick="saleOrder.listOrderComplete()"/>
+            <?php } ?>
+            <?php if(@$this->user->checkPermission("sales/sale/report")==true){ ?>
             <input type="button" class="button" id="btnImportExportStatistics" value="Thống kê" onClick="window.location = '?route=sales/sale/report'"/>
             <input type="button" class="button" id="btnReportSale" value="Báo cáo bán hàng" onClick="window.location = '?route=sales/sale/reportSale'"/>
+            <?php } ?>
         </div>
         
         
@@ -378,6 +393,7 @@ function SaleOrder(shopid)
 		$('#frmSaleOrder #loaiphieu').val('CH-BH');
 		$('#frmSaleOrder #trangthai').val('new');
 		$('#frmSaleOrder #shipby').val('');
+		$('#frmSaleOrder #payment').val('');
 		$('#frmSaleOrder #shipdate').val('');
 		$('#frmSaleOrder #ghichu').val('');
 		$('#frmSaleOrder #lydothu').val('');
@@ -544,6 +560,7 @@ function SaleOrder(shopid)
 			$('#frmSaleOrder #loaiphieu').val(data.loaiphieu);
 			$('#frmSaleOrder #trangthai').val(data.trangthai);
 			$('#frmSaleOrder #shipby').val(data.shipby);
+			$('#frmSaleOrder #payment').val(data.payment);
 			$('#frmSaleOrder #shipdate').val(data.shipdate);
 			$('#frmSaleOrder #ghichu').val(data.ghichu);
 			$('#frmSaleOrder #lydothu').val(data.lydothu);

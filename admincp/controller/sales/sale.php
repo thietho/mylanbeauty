@@ -52,6 +52,10 @@ class ControllerSalesSale extends Controller
 		$this->model_core_category->getTree("shipper",$this->data['shipper']);
 		unset($this->data['shipper'][0]);
 		
+		$this->data['payment'] = array();
+		$this->model_core_category->getTree("payment",$this->data['payment']);
+		unset($this->data['payment'][0]);
+		
 		$nhanvien = @$this->user->getNhanVien();
 		$staffshop = @$this->model_sales_shop->getShopStaff($nhanvien['id']);
 		$this->shopid = $staffshop['shopid'];
@@ -584,6 +588,7 @@ class ControllerSalesSale extends Controller
 		$denngay = @$this->date->formatViewDate($data['denngay']);
 		$tenkhachhang = @$data['tenkhachhang'];
 		$shipby = @$data['shipby'];
+		$payment = @$data['payment'];
 		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH'";
 		if($tenkhachhang)
 		{
@@ -592,6 +597,10 @@ class ControllerSalesSale extends Controller
 		if($shipby)
 		{
 			$where.= " AND shipby like '".$shipby."'";	
+		}
+		if($payment)
+		{
+			$where.= " AND payment like '".$payment."'";	
 		}
 		if(@$tungay != "")
 		{

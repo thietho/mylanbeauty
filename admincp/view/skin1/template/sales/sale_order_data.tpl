@@ -17,7 +17,7 @@
         	<td><center><?php echo @$key+1 ?></center></td>
             <td>
             	<a onclick="objdl.viewPX(<?php echo @$item['id']?>,'')"><?php echo @$item['maphieu']?></a>
-                <?php if(@$this->user->getUserTypeId() =='admin'){ ?>
+                <?php if(@$this->user->checkPermission("sales/sale/edit")==true){ ?>
                 <input type="button" class="button" value="Edit" onClick="saleOrder.editOrder(<?php echo @$item['id']?>);$('#listordercomplete').dialog( 'close' );">
                 <?php }?>
             </td>

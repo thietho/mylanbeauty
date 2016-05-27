@@ -5,7 +5,9 @@
             <th width="10px">STT</th>
             <th>Mã phiếu</th>
             <th>Ngày bán</th>
-            <th>Khách hàng</th>            
+            <th>Khách hàng</th>
+            <th>Giao bởi</th> 
+            <th>Hình thức thanh toán</th>       
             <th>Ghi chú</th>
             <th>Tổng tiền bán</th>
             
@@ -29,6 +31,8 @@
                     }
                 ?>
             </td>
+            <td><?php echo @$this->document->getCategory($item['shipby'])?></td>
+            <td><?php echo @$this->document->getCategory($item['payment'])?></td>
             <td><?php echo @$item['ghichu']?></td>
             <td class="number"><?php echo @$this->string->numberFormate($item['tongtien'])?></td>
             
@@ -36,7 +40,7 @@
         	<?php $sum += $item['tongtien'];?>
         <?php } ?>
         <tr>
-        	<td colspan="5" align="right"><strong>Tổng</strong></td>
+        	<td colspan="7" align="right"><strong>Tổng</strong></td>
             <td class="number"><strong><?php echo @$this->string->numberFormate($sum)?></strong></td>
         </tr>
     </tbody>

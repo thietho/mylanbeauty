@@ -79,7 +79,7 @@ class ModelQuanlykhoPhieunhapxuat extends Model
 		$thuphi=@$this->string->toNumber(@$this->db->escape(@$data['thuphi']));
 		$shipby=@$this->db->escape(@$data['shipby']);
 		$shipdate=@$this->db->escape(@$data['shipdate']);
-		
+		$payment=@$this->db->escape(@$data['payment']);
 		$field=array(
 							
 						
@@ -108,7 +108,8 @@ class ModelQuanlykhoPhieunhapxuat extends Model
 						'lydothu',
 						'thuphi',
 						'shipby',
-						'shipdate'
+						'shipdate',
+						'payment'
 					);
 		$value=array(
 						
@@ -138,7 +139,8 @@ class ModelQuanlykhoPhieunhapxuat extends Model
 						$lydothu,
 						$thuphi,
 						$shipby,
-						$shipdate
+						$shipdate,
+						$payment
 						);
 		if((int)$data['id'] == 0)
 		{

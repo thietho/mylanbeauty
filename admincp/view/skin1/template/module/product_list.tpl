@@ -20,12 +20,15 @@
                     Giá: <?php echo @$this->string->numberFormate($media['price'])?><?php if(@$media['noteprice']) echo "(".@$this->document->getCategory($media['noteprice']).")";?><br />
                     Giá khuyến mãi: <?php echo @$this->string->numberFormate($media['pricepromotion'])?><br />
                     <?php echo ($media['groupkeys']!="")?$media['groupkeys']."<br>":"" ?>
+                    <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
                     <?php if(@$media['totalinventorytext']) echo "Tổng tồn: ".$media['totalinventorytext']."<br>"?>
                     <?php if(@$media['inventorytext']) echo "Tồn tại kho: ".$media['inventorytext']?>
                     <?php if(@$media['shopinventory']) echo $media['shopinventory']?>
+                    <?php } ?>
                     <?php if(count($media['child'])==0){ ?>
-                            
+                    <?php if(@$this->user->checkPermission("module/product/viewListSelect")==true){ ?>       
                     <input type="button" class="button" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo @$media['mediaid']?>')"/>
+                    <?php } ?>
                     <input type="button" class="button selectProduct" value="Chọn" ref="<?php echo @$media['mediaid']?>" image="<?php echo @$media['imagepreview']?>" code="<?php echo @$media['code']?>" unit="<?php echo @$media['unit']?>" title="<?php echo @$this->document->productName($media)?>" price="<?php echo @$media['price']?>" pricepromotion="<?php echo @$media['pricepromotion']?>" discountpercent="<?php echo @$media['discountpercent']?>" productname="<?php echo @$this->document->productName($media)?>" brandname="<?php echo @$this->document->getCategory($media['brand'])?>"/>
                     <?php } ?>
                     <div>
@@ -79,9 +82,11 @@
                                 <?php echo @$child['material']?> : <?php echo @$this->string->numberFormate($child['price'])?><?php if(@$child['noteprice']!="") echo "(".@$this->document->getCategory($child['noteprice']).")";?><br />
                                 Giảm: <?php echo @$this->string->numberFormate($child['discountpercent'])?>%<br />
                                 Giá khuyến mãi: <?php echo @$this->string->numberFormate($child['pricepromotion'])?><br />
+                                <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
                                 <?php if(@$child['totalinventorytext']!='') echo "Tổng tồn: ".$child['totalinventorytext']."<br>"?>
                                 <?php if(@$child['inventorytext']) echo "Tồn tại kho: ".$child['inventorytext']?>
                                 <?php if(@$child['shopinventory']) echo $child['shopinventory']?>
+                                <?php } ?>
                             </td>
                             <td>
                             	Barcode: <?php echo @$child['barcode']?><br />
@@ -90,7 +95,9 @@
                             </td>
                     		<td>
                             	<input type="button" class="button" value="Sửa" onclick="showProductForm('<?php echo @$child['mediaid']?>','<?php echo @$media['mediaid']?>','pro.searchForm()');"/>
+                                <?php if(@$this->user->checkPermission("module/product/viewListSelect")==true){ ?>
                             	<input type="button" class="button addToList" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo @$child['mediaid']?>')"/>
+                                <?php } ?>
                                 <input type="button" class="button" value="Xóa" onclick="pro.delete('<?php echo @$child['mediaid']?>')"/>
                                 <input type="button" class="button" value="Ra ngoài nhóm" onclick="pro.outGroup('<?php echo @$child['mediaid']?>')"/>
                                 <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>

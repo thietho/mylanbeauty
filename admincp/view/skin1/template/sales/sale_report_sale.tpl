@@ -36,6 +36,13 @@
                     <option value="<?php echo @$it['categoryid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo @$it['categoryname']?></option>                        
                     <?php } ?>
                 </select>
+                <label>Hình thức thanh toán</label>
+                <select id="payment" name="payment">
+                    <option value=""></option>
+                    <?php foreach($payment as $it){ ?>
+                    <option value="<?php echo @$it['categoryid']?>"><?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?><?php echo @$it['categoryname']?></option>                        
+                    <?php } ?>
+                </select>
                 <br />
                 <input type="button" class="button" id="btnThongKe" name="btnThongKe" value="Xem"/>
                 

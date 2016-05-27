@@ -165,12 +165,13 @@ class ControllerModuleProduct extends Controller
 			
 			
 			@$this->data['medias'][$i]['imagepreview'] = HelperImage::resizePNG(@$this->data['medias'][$i]['imagepath'], 100, 100);
-			
-			$inventory = @$this->model_core_media->getInventory(@$this->data['medias'][$i]['mediaid']);
-			$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,@$this->data['medias'][$i]['unit']);
-			
-			@$this->data['medias'][$i]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);	
-			
+			if(@$this->user->checkPermission("module/product/history")==true)
+			{
+				$inventory = @$this->model_core_media->getInventory(@$this->data['medias'][$i]['mediaid']);
+				$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,@$this->data['medias'][$i]['unit']);
+				
+				@$this->data['medias'][$i]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);	
+			}
 			@$this->data['medias'][$i]['saleprice'] = json_decode(@$this->data['medias'][$i]['saleprice']);
 			$arr = @$this->string->referSiteMapToArray(@$this->data['medias'][$i]['groupkeys']);
 			$arrstatus = array();
@@ -185,56 +186,59 @@ class ControllerModuleProduct extends Controller
 			if(count($arrstatus))
 				@$this->data['medias'][$i]['groupkeys'] = implode(",",$arrstatus);
 			$mediaid = @$this->data['medias'][$i]['mediaid'];
-			
-			@$this->data['medias'][$i]['shopinventory'] = '';
-			$suminvetoryshop = 0;
-			$totalinventory = 0;
-			foreach(@$this->data['data_shop'] as $shop)
+			if(@$this->user->checkPermission("module/product/history")==true)
 			{
-				$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$mediaid);
-				$str = '';
-				$suminvetoryshop += $shopinventory;
-				if(@$shopinventory)
+				@$this->data['medias'][$i]['shopinventory'] = '';
+				$suminvetoryshop = 0;
+				$totalinventory = 0;
+				foreach(@$this->data['data_shop'] as $shop)
 				{
-					$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($shopinventory,@$this->data['medias'][$i]['unit']);
-					$inventorytext = @$this->model_quanlykho_donvitinh->toText($arr_ton);
-					$str = $shop['shopname']." Tồn: ". $inventorytext;
+					$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$mediaid);
+					$str = '';
+					$suminvetoryshop += $shopinventory;
+					if(@$shopinventory)
+					{
+						$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($shopinventory,@$this->data['medias'][$i]['unit']);
+						$inventorytext = @$this->model_quanlykho_donvitinh->toText($arr_ton);
+						$str = $shop['shopname']." Tồn: ". $inventorytext;
+					}
+					@$this->data['medias'][$i]['shopinventory'] .= $str;
 				}
-				@$this->data['medias'][$i]['shopinventory'] .= $str;
+				
+				$totalinventory = $inventory + $suminvetoryshop;
+				$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,@$this->data['medias'][$i]['unit']);
+				@$this->data['medias'][$i]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
 			}
-			
-			$totalinventory = $inventory + $suminvetoryshop;
-			$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,@$this->data['medias'][$i]['unit']);
-			@$this->data['medias'][$i]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
-			
 			$data_child = @$this->model_core_media->getListByParent($mediaid,"ORDER BY `position` ASC ");
 			foreach($data_child as $key =>$child)
 			{
 				$data_child[$key]['imagepreview'] = HelperImage::resizePNG($child['imagepath'], 100, 100);
 				$data_child[$key]['saleprice'] = json_decode($child['saleprice']);
-				$inventory = @$this->model_core_media->getInventory($child['mediaid']);
-				$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,$data_child[$key]['unit']);
-				$data_child[$key]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);
-				$data_child[$key]['shopinventory'] = '';
-				$suminvetoryshop = 0;
-				foreach(@$this->data['data_shop'] as $shop)
+				if(@$this->user->checkPermission("module/product/history")==true)
 				{
-					$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$child['mediaid']);
-					$str = '';
-					$suminvetoryshop += $shopinventory;
-					if(@$shopinventory)
+					$inventory = @$this->model_core_media->getInventory($child['mediaid']);
+					$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($inventory,$data_child[$key]['unit']);
+					$data_child[$key]['inventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_ton);
+					$data_child[$key]['shopinventory'] = '';
+					$suminvetoryshop = 0;
+					foreach(@$this->data['data_shop'] as $shop)
 					{
-						$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($shopinventory,$data_child[$key]['unit']);
-						$inventorytext = @$this->model_quanlykho_donvitinh->toText($arr_ton);
-						$str = $shop['shopname']." Tồn: ". $inventorytext;
+						$shopinventory = @$this->model_core_media->getShopInventory($shop['id'],$child['mediaid']);
+						$str = '';
+						$suminvetoryshop += $shopinventory;
+						if(@$shopinventory)
+						{
+							$arr_ton = @$this->model_quanlykho_donvitinh->toDonVi($shopinventory,$data_child[$key]['unit']);
+							$inventorytext = @$this->model_quanlykho_donvitinh->toText($arr_ton);
+							$str = $shop['shopname']." Tồn: ". $inventorytext;
+						}
+						$data_child[$key]['shopinventory'] .= $str;
 					}
-					$data_child[$key]['shopinventory'] .= $str;
+					
+					@$totalinventory = $inventory + $suminvetoryshop;
+					@$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,$data_child[$key]['unit']);
+					@$data_child[$key]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
 				}
-				
-				@$totalinventory = $inventory + $suminvetoryshop;
-				@$arr_total = @$this->model_quanlykho_donvitinh->toDonVi($totalinventory,$data_child[$key]['unit']);
-				@$data_child[$key]['totalinventorytext'] = @$this->model_quanlykho_donvitinh->toText($arr_total);
-				
 				@$data_child[$key]['link_edit'] = @$this->url->http('module/product/update&sitemapid='.$sitemap['sitemapid'].'&mediaid='.$child['mediaid'].$parapage);
 				$data_child[$key]['text_edit'] = "Edit";
 			}
