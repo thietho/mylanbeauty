@@ -31,7 +31,11 @@
                     }
                 ?>
             </td>
-            <td><?php echo @$this->document->getCategory($item['shipby'])?></td>
+            <td>
+            	<?php if($item['shipby']){?>
+            <?php echo @$this->document->getCategory($item['shipby'])?> gửi ngày <?php echo @$this->date->formatMySQLDate($item['shipdate'])?>
+            	<?php } ?>
+            </td>
             <td><?php echo @$this->document->getCategory($item['payment'])?></td>
             <td><?php echo @$item['ghichu']?></td>
             <td class="number"><?php echo @$this->string->numberFormate($item['tongtien'])?></td>

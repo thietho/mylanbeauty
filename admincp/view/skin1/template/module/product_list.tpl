@@ -98,7 +98,9 @@
                                 <?php if(@$this->user->checkPermission("module/product/viewListSelect")==true){ ?>
                             	<input type="button" class="button addToList" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo @$child['mediaid']?>')"/>
                                 <?php } ?>
+                                <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>
                                 <input type="button" class="button" value="Xóa" onclick="pro.delete('<?php echo @$child['mediaid']?>')"/>
+                                <?php } ?>
                                 <input type="button" class="button" value="Ra ngoài nhóm" onclick="pro.outGroup('<?php echo @$child['mediaid']?>')"/>
                                 <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
                                 <input type="button" class="button" value="Lịch sử" onclick="pro.history('<?php echo @$child['mediaid']?>')"/>
