@@ -405,7 +405,7 @@ function browserFile(eid,type)
 	switch(type)
 	{
 		case "single":
-		
+		case "singlecallback":
 		case "video":
 		
 		$("#"+eid).dialog({
@@ -515,7 +515,8 @@ function intSeleteFile(type)
 				$('#'+ $('#handler').val()).html($(this).attr('filepath'));
 				$('#'+ $('#handler').val()+'_filepath').val($(this).attr('filepath'));
 				$('#'+ $('#handler').val()+'_preview').attr('src',$(this).attr('imagethumbnail'));
-				
+				callback = $('#'+ $('#handler').val()+'_callback').val();
+				alert(callback);
 				/*$('#imagepreview').attr('src',$(this).attr('imagethumbnail'));
 				$('#imageid').val(this.id);
 				$('#imagepath').val($(this).attr('filepath'));

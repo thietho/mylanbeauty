@@ -75,6 +75,11 @@
                     <table id="child<?php echo @$child['mediaid']?>" mediaid="<?php echo @$child['mediaid']?>" position="<?php echo @$k?>">
                     	<tr>
                         	<td>
+                            	<img id="<?php echo @$child['mediaid']?>" src="<?php echo $child['imagepreview']?>">
+                            	<input type="button" value="Đổi hình" onClick="browserFile('<?php echo @$child['mediaid']?>','single')">
+                                <input type="hidden" id="<?php echo @$child['mediaid']?>_callback" value="updateImage('<?php echo @$child['mediaid']?>')">
+                            </td>
+                        	<td>
                             	<?php echo @$child['sizes']?> <?php echo @$child['color']?> 
                                 <?php if(@$child['colorcode']){ ?>
                                 <img class="hl-color-icon" style="background-color:<?php echo @$child['colorcode']?>">
