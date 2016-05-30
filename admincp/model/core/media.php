@@ -870,5 +870,20 @@ class ModelCoreMedia extends ModelCoreFile
 		//echo "<br>";
 		return @$this->model_quanlykho_donvitinh->toText($arr_ton);*/
 	}
+	function getTotalInventory($mediaid)
+	{
+		//So luong ton ko
+		$inventory = $this->getInventory($mediaid);
+		//So luong ton tung shop
+		$sql = "SELECT * FROM  `shop`" ;
+		$query = @$this->db->query($sql);
+		$data_shops = $query->rows;
+		$sumshopinventory = 0;
+		foreach($data_shops as $shop)
+		{
+			$sumshopinventory+= $this->getShopInventory($shop['id'],$mediaid);
+		}
+		return $inventory + $sumshopinventory;
+	}
 }
 ?>

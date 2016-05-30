@@ -955,9 +955,10 @@ class ControllerModuleProduct extends Controller
 		@$this->template='common/output.tpl';
 		@$this->render();
 	}
-	public function updateProductInventory()
+	public function updateProductInventory($mediaid='')
 	{
-		$mediaid = @$this->request->get['id'];
+		if($mediaid == '')
+			$mediaid = @$this->request->get['id'];
 		$inventory = @$this->model_core_media->getInventory($mediaid);
 		$suminvetoryshop = 0;
 		foreach(@$this->data['data_shop'] as $shop)

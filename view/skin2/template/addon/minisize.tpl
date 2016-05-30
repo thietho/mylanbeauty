@@ -1,1 +1,1 @@
-aaaa
+<?php echo $brand?>

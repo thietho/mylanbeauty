@@ -384,8 +384,8 @@ class ControllerQuanlykhoPhieuxuat extends Controller
 			$data['error'] = '';
 			
 			//Cap nhat ton kho
-			//$inventory = @$this->model_core_media->getInventory($data['mediaid']);
-			//@$this->model_core_media->updateCol($data['mediaid'],'inventory',$inventory);
+			//$totalinventory = @$this->model_core_media->getTotalInventory($data['mediaid']);
+			//@$this->model_core_media->updateCol($data['mediaid'],'inventory',$totalinventory);
 			$arr = array($data['mediaid']);
 			$this->loadModule('module/product','updateProductInventory',$arr);
 		}
