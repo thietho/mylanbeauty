@@ -8,9 +8,14 @@
             
             <tr class="item">
                 <td width="100px">
-                	<img src="<?php echo @$media['imagepreview']?>" /><br />
-                    
-                    
+                	<img id="pro<?php echo @$media['mediaid']?>_preview" src="<?php echo $media['imagepreview']?>" width="100px">
+                    <?php if(@$this->user->checkPermission("module/product/changimage")==true){ ?>
+                	<div align="center">
+                    	<input type="button" class="button" value="Đổi hình" onClick="browserFile('pro<?php echo @$media['mediaid']?>','single')">
+                        <input type="hidden" id="pro<?php echo @$media['mediaid']?>_callback" value="pro.updateImage('<?php echo @$media['mediaid']?>'">
+                        <input type="hidden" id="pro<?php echo @$media['mediaid']?>_filepath" name="imagepath" value="<?php echo @$media['imagepath']?>" />
+                    </div>
+                    <?php } ?>
                     <!--
                     -->
                 </td>
@@ -74,10 +79,15 @@
                     
                     <table id="child<?php echo @$child['mediaid']?>" mediaid="<?php echo @$child['mediaid']?>" position="<?php echo @$k?>">
                     	<tr>
-                        	<td>
-                            	<img id="<?php echo @$child['mediaid']?>" src="<?php echo $child['imagepreview']?>">
-                            	<input type="button" value="Đổi hình" onClick="browserFile('<?php echo @$child['mediaid']?>','single')">
-                                <input type="hidden" id="<?php echo @$child['mediaid']?>_callback" value="updateImage('<?php echo @$child['mediaid']?>')">
+                        	<td width="100px">
+                            	<img id="pro<?php echo @$child['mediaid']?>_preview" src="<?php echo $child['imagepreview']?>" width="100px">
+                                <?php if(@$this->user->checkPermission("module/product/changimage")==true){ ?>
+                                <div align="center">
+                                    <input type="button" class="button" value="Đổi hình" onClick="browserFile('pro<?php echo @$child['mediaid']?>','single')">
+                                    <input type="hidden" id="pro<?php echo @$child['mediaid']?>_callback" value="pro.updateImage('<?php echo @$child['mediaid']?>'">
+                                    <input type="hidden" id="pro<?php echo @$child['mediaid']?>_filepath" name="imagepath" value="<?php echo @$child['imagepath']?>" />
+                                </div>
+                                <?php } ?>
                             </td>
                         	<td>
                             	<?php echo @$child['sizes']?> <?php echo @$child['color']?> 
@@ -99,18 +109,24 @@
                                 Trạng thái:<?php echo @$this->document->status_media[$child['status']]?><br />
                             </td>
                     		<td>
+                            	<?php if(@$this->user->checkPermission("module/product/update")==true){ ?>
                             	<input type="button" class="button" value="Sửa" onclick="showProductForm('<?php echo @$child['mediaid']?>','<?php echo @$media['mediaid']?>','pro.searchForm()');"/>
+                                <?php } ?>
                                 <?php if(@$this->user->checkPermission("module/product/viewListSelect")==true){ ?>
                             	<input type="button" class="button addToList" value="Đưa vào danh sách" onclick="pro.addToList('<?php echo @$child['mediaid']?>')"/>
                                 <?php } ?>
                                 <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>
                                 <input type="button" class="button" value="Xóa" onclick="pro.delete('<?php echo @$child['mediaid']?>')"/>
                                 <?php } ?>
+                                <?php if(@$this->user->checkPermission("module/product/update")==true){ ?>
                                 <input type="button" class="button" value="Ra ngoài nhóm" onclick="pro.outGroup('<?php echo @$child['mediaid']?>')"/>
+                                <?php } ?>
                                 <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
                                 <input type="button" class="button" value="Lịch sử" onclick="pro.history('<?php echo @$child['mediaid']?>')"/>
                                 <?php } ?>
+                                <?php if(@$this->user->checkPermission("sales/sale")==true){ ?>
                                 <input type="button" class="button selectProduct" value="Chọn" ref="<?php echo @$child['mediaid']?>" image="<?php echo @$child['imagepreview']?>" code="<?php echo @$child['code']?>" unit="<?php echo @$child['unit']?>" title="<?php echo @$this->document->productName($child)?>" price="<?php echo @$child['price']?>" pricepromotion="<?php echo @$child['pricepromotion']?>" discountpercent="<?php echo @$child['discountpercent']?>" productname="<?php echo @$this->document->productName($child)?>" brandname="<?php echo @$this->document->getCategory($child['brand'])?>"/>
+                                <?php } ?>
                             </td>
                         
                         

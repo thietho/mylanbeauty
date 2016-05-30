@@ -405,14 +405,20 @@ function browserFile(eid,type)
 	switch(type)
 	{
 		case "single":
-		case "singlecallback":
+		
 		case "video":
 		
 		$("#"+eid).dialog({
 			
 			width: $(document).width()-100,
 			height: window.innerHeight,
-			
+			close:function()
+			{
+				$("#"+eid).remove();
+				
+				if($(".ui-widget-overlay").length==0)
+					$('body').css('overflow','auto');
+			},
 			
 		});
 		break;
@@ -516,7 +522,11 @@ function intSeleteFile(type)
 				$('#'+ $('#handler').val()+'_filepath').val($(this).attr('filepath'));
 				$('#'+ $('#handler').val()+'_preview').attr('src',$(this).attr('imagethumbnail'));
 				callback = $('#'+ $('#handler').val()+'_callback').val();
-				alert(callback);
+				if(callback != undefined)
+				{
+					callback += ",'"+$(this).attr('filepath')+"')";
+					setTimeout(callback,0);
+				}
 				/*$('#imagepreview').attr('src',$(this).attr('imagethumbnail'));
 				$('#imageid').val(this.id);
 				$('#imagepath').val($(this).attr('filepath'));

@@ -630,6 +630,15 @@ function Product()
 		else
 			$.unblockUI();
 	}
+	this.updateImage = function(mediaid,imagepath)
+	{
+		$.post("?route=core/media/updateCol",
+			{
+				mediaid:mediaid,
+				col:"imagepath",
+				val:imagepath
+			});
+	}
 	this.showListSort = function()
 	{
 		var eid = "listsort";
