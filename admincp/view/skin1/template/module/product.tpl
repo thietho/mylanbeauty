@@ -413,6 +413,19 @@ function Product()
 		$('.enterGroup').hide();
 		$('.selectGroup').show();
 	}
+	this.activeGroup = function()
+	{
+		$('.mediaitem').draggable();
+		$('.listitem').droppable({
+		  drop: function( event, ui ) {
+			
+			var desid = ui.draggable.attr('id');
+			var souid = $(this).attr('id');
+			pro.selectGroup(desid,souid)
+			//console.log(ui);
+		  }
+		});	
+	}
 	this.selectGroup = function(des,sou)
 	{
 		

@@ -43,7 +43,23 @@
                             <option value="<?php echo @$key?>"><?php echo @$val?></option>
                             <?php } ?>
                         </select>
+                        <?php if(@$this->user->checkPermission("module/product/update")==true){ ?>
+                        <input type="button" class="button" value="Sửa" onClick="showProductForm('<?php echo @$media['mediaid']?>','','pro.searchForm()');">
+                        <?php if(count($media['child'])==0){ ?>
+                        <input type="button" class="button" value="Đưa vào nhóm" onClick="pro.activeGroup();">
+                        <?php } ?>
+                        <?php } ?>
+                        <?php if(@$this->user->checkPermission("module/product/insert")==true){ ?>
+                    	<input type="button" class="button" value="Thêm qui cách" onClick="showProductForm('','<?php echo @$media['mediaid']?>','pro.searchForm()');">
+                    	<?php } ?>
+                        <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
+                        <input type="button" class="button" value="Thêm qui cách" onClick="pro.history('<?php echo @$media['mediaid']?>');">
+                        <?php } ?>
+                        <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>
+                        <input type="button" class="button" value="Xóa" onClick="pro.delete('<?php echo @$media['mediaid']?>');">
+                        <?php } ?>
                     </div>
+                    
                     <?php if(count($media['child'])){ ?>
                     <script language="javascript">
 					$("#displaytype<?php echo @$media['mediaid']?>").val("<?php echo @$media['displaytype']?>");
@@ -183,7 +199,7 @@
 
 $(function(){
 	
-    $.contextMenu({
+    /*$.contextMenu({
         selector: '.listitem', 
         callback: function(key, options) {
             var m = "clicked: " + key;
@@ -232,7 +248,7 @@ $(function(){
 			"del": {name: "Xóa"},
 			<?php } ?>
         }
-    });
+    });*/
     
     $('.listitem').on('click', function(e){
         console.log('clicked', this);
