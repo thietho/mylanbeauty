@@ -53,7 +53,7 @@
                     	<input type="button" class="button" value="Thêm qui cách" onClick="showProductForm('','<?php echo @$media['mediaid']?>','pro.searchForm()');">
                     	<?php } ?>
                         <?php if(@$this->user->checkPermission("module/product/history")==true){ ?>
-                        <input type="button" class="button" value="Thêm qui cách" onClick="pro.history('<?php echo @$media['mediaid']?>');">
+                        <input type="button" class="button" value="Lịch sử" onClick="pro.history('<?php echo @$media['mediaid']?>');">
                         <?php } ?>
                         <?php if(@$this->user->checkPermission("module/product/deleted")==true){ ?>
                         <input type="button" class="button" value="Xóa" onClick="pro.delete('<?php echo @$media['mediaid']?>');">
