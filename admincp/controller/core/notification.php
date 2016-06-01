@@ -28,12 +28,9 @@ class ControllerCoreNotification extends Controller
 			$data = array();
 			$data['productName'] = $media['productName'];
 			$data['inventory'] = $media['inventory'];
-			if(@$media['noteprice'] == 'minisize')
+			if(@$media['noteprice'] != '')
 			{
-				//Cac san pham minisize co ton ma bi an			
-				
-				
-				
+				//Cac san pham minisize co ton ma bi an
 				if((int)$inventory > 0 && $media['status'] == 'hide')
 				{
 					$media['inventory'] = $inventory;
@@ -71,7 +68,7 @@ class ControllerCoreNotification extends Controller
 	}
 	public function systemCheckMinSize()
 	{
-		$where = " AND mediatype = 'module/product' AND noteprice = 'minisize'";
+		$where = " AND mediatype = 'module/product' AND noteprice <> ''";
 		$where .= " Order by position, statusdate DESC";
 		$medias = @$this->model_core_media->getList($where);
 		$data_war = array();

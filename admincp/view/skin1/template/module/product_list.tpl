@@ -8,7 +8,7 @@
             
             <tr class="item">
                 <td width="100px">
-                	<img id="pro<?php echo @$media['mediaid']?>_preview" src="<?php echo $media['imagepreview']?>" width="100px">
+                	<img id="pro<?php echo @$media['mediaid']?>_preview" src="<?php echo $media['imagepreview']?>" width="100px" onclick="showFile($('#pro<?php echo @$media['mediaid']?>_filepath').val())"/>
                     <?php if(@$this->user->checkPermission("module/product/changimage")==true){ ?>
                 	<div align="center">
                     	<input type="button" class="button" value="Đổi hình" onClick="browserFile('pro<?php echo @$media['mediaid']?>','single')">
@@ -96,7 +96,7 @@
                     <table id="child<?php echo @$child['mediaid']?>" mediaid="<?php echo @$child['mediaid']?>" position="<?php echo @$k?>">
                     	<tr>
                         	<td width="100px">
-                            	<img id="pro<?php echo @$child['mediaid']?>_preview" src="<?php echo $child['imagepreview']?>" width="100px">
+                            	<img id="pro<?php echo @$child['mediaid']?>_preview" src="<?php echo $child['imagepreview']?>" width="100px" onclick="showFile($('#pro<?php echo @$child['mediaid']?>_filepath').val())">
                                 <?php if(@$this->user->checkPermission("module/product/changimage")==true){ ?>
                                 <div align="center">
                                     <input type="button" class="button" value="Đổi hình" onClick="browserFile('pro<?php echo @$child['mediaid']?>','single')">
