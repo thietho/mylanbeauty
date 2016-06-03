@@ -69,6 +69,7 @@
                 </ul>
             </div>
     	</li> 
+        <li><a href="<?php echo @$this->document->createLink('minisize')?>" title="Hàng size nhỏ (Mini size)" data-transition="fade">Chuyên Hàng size nhỏ</a></li>
 	</ul>
 </div>
 

@@ -3,6 +3,11 @@
                     	
                         <div class="ben-section-content">
                         	<ul id="menu">
+                            	<li>
+                                	<div class="collape">
+                                    	<a href="<?php echo @$this->document->createLink('minisize')?>" title="Hàng size nhỏ (Mini size)">Chuyên Hàng size nhỏ</a><div class="clearer">^&nbsp;</div>
+                                    </div>
+                                </li>
                                 <?php echo @$menu?>
                             </ul>
                         </div>
