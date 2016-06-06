@@ -126,134 +126,145 @@ class ControllerModulePagedetail extends Controller
 		
 		$this->data['post'] = $this->model_core_media->getItem($mediaid);
 		if(count($this->data['post']) == 0)
-			$this->response->redirect(HTTP_SERVER);
-		$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
-		$sid = $arr[0];
-		$this->data['post']['link'] = $this->document->createLink($sid,$this->data['post']['alias']);
-		
-		$mediaid = $this->data['post']['mediaid'];
-		$this->document->title .= " - ".$this->document->productName($this->data['post']);
-		$this->document->meta_keyword = $this->data['post']['keyword'];
-		$this->document->meta_description = $this->data['post']['metadescription'];
-		
-		if(count($this->data['post']) == 0)
+			$this->response->redirect(HTTP_SERVER);	
+		if($this->data['post']['status']=='active')
 		{
-			$this->data['post']['description'] = "Updating...";
-		}
-		$this->data['post']['summary'] = html_entity_decode($this->data['post']['summary']);
-		$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
-		
-		
-		$loaisp= $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
-		
-		foreach($loaisp as $item)
-		{
-			$this->data['loaisp'][] = $this->model_core_sitemap->getItem($item,$this->member->getSiteId());
-		}
-		
-		//if(@$this->data['post']['imagepath'] != "")
-		{
-			$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], $template['width'], $template['height']);
-			$this->data['post']['imagepreview'] = HelperImage::resizePNG($this->data['post']['imagepath'],  800, 800);
-			$this->document->meta_image = $this->data['post']['imagethumbnail'];
-		}
-		
-		$this->data['properties'] = $this->string->referSiteMapToArray($this->data['post']['groupkeys']);
-		
-		//Get sub attachment
-		$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
-		$listfileid=array();
-		if(@$listfile)
-			@$listfileid=split(",",$listfile);
+			$arr = $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
+			$sid = $arr[0];
+			$this->data['post']['link'] = $this->document->createLink($sid,$this->data['post']['alias']);
 			
-		array_unshift($listfileid,$this->data['post']['imagepath']);
-		
-		$this->data['subimage']=array();
-		$this->data['attachment']=array();
-		
-		foreach($listfileid as $key => $item)
-		{
-			$file = pathinfo($item);
-			if(@$this->string->isImage($file['extension']))
+			$mediaid = $this->data['post']['mediaid'];
+			$this->document->title .= " - ".$this->document->productName($this->data['post']);
+			$this->document->meta_keyword = $this->data['post']['keyword'];
+			$this->document->meta_description = $this->data['post']['metadescription'];
+			
+			if(count($this->data['post']) == 0)
 			{
-				//$this->data['subimage'][$key] = $file;
-				$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($item, $template['width'], $template['height']);
-				$this->data['subimage'][$key]['icon'] = HelperImage::resizePNG($item, 60, 60);	
-				$this->data['subimage'][$key]['imagepreview'] = HelperImage::resizePNG($item,  800, 800);
+				$this->data['post']['description'] = "Updating...";
+			}
+			$this->data['post']['summary'] = html_entity_decode($this->data['post']['summary']);
+			$this->data['post']['description'] = html_entity_decode($this->data['post']['description']);
+			
+			
+			$loaisp= $this->string->referSiteMapToArray($this->data['post']['refersitemap']);
+			
+			foreach($loaisp as $item)
+			{
+				$this->data['loaisp'][] = $this->model_core_sitemap->getItem($item,$this->member->getSiteId());
 			}
 			
-			if(!$this->string->isImage(@$file['extension']))
+			//if(@$this->data['post']['imagepath'] != "")
 			{
-				$this->data['attachment'][$key] = $file;
-				$this->data['attachment'][$key]['imagethumbnail'] = DIR_IMAGE."icon/dinhkem.png";
+				$this->data['post']['imagethumbnail'] = HelperImage::resizePNG($this->data['post']['imagepath'], $template['width'], $template['height']);
+				$this->data['post']['imagepreview'] = HelperImage::resizePNG($this->data['post']['imagepath'],  800, 800);
+				$this->document->meta_image = $this->data['post']['imagethumbnail'];
 			}
 			
-		}
-		//Get sub infomation
-		
-		$this->data['child'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'subinfor'"," Order by position");
-		foreach($this->data['child'] as $key => $item)
-		{
-			$this->data['child'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
-			$this->data['child'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
-		}
-		
-		$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'module/product' "," Order by position");
-		usort($this->data['priceproduct'],array("ControllerModulePagedetail", "cmp"));
-		foreach($this->data['priceproduct'] as $key => $item)
-		{
+			$this->data['properties'] = $this->string->referSiteMapToArray($this->data['post']['groupkeys']);
 			
-			$this->data['priceproduct'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
-			$this->data['priceproduct'][$key]['imagethumbnail'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
-			$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], 800, 800);
-			@$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
-			@$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
-		}
-		
-		$queryoptions = array();
-		$queryoptions['mediaparent'] = '%';
-		$queryoptions['mediatype'] = '%';
-		$queryoptions['refersitemap'] = $sitemapid;
-		$this->data['othernews'] = $this->model_core_media->getOthersMedia($this->data['post']['mediaid'], $queryoptions, $count);
-		
-		
-		/*$temp = array(
-						  'template' => "module/product_list.tpl",
-						  'width' => IMG_PROLIST,
-						  'height' =>IMG_PROLIST
-						  );
-		$arr = array($this->document->sitemapid,9,"",$temp,$this->data['othernews']);*/
-		//$this->data['other'] = $this->loadModule('module/productlist','index',$arr);
-		//Load san phang cung hieu
-		$nhanhieuid = $this->data['post']['brand'];
-		if(@$nhanhieuid)
-		{
-			$where = " AND mediaid not like '".$mediaid."'";
-			$arr = array($where,$nhanhieuid);
-			$this->data['saphamcungnhanhieu'] = $this->loadModule('addon/brand','getList',$arr);
-		}
-		//Load comemnt
-		$temp = array(
-						  'template' => "module/comment_list.tpl"
-						  );
-		$where = " AND mediaid = '".$mediaid."'";
-		$arr = array($where,$temp);
-		$this->data['comment'] = $this->loadModule('module/comment','getList',$arr);
-		//Cac sp cung code
-		
-		if(@$this->data['post']['code'] != "")
-		{
-			$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = '' AND mediaid <> '".$this->data['post']['mediaid']."'";
-			$this->data['data_samplecode'] = $this->model_core_media->getList($where);
-			foreach($this->data['data_samplecode'] as $i => $item)
+			//Get sub attachment
+			$listfile = $this->model_core_media->getInformation($mediaid, "attachment");
+			$listfileid=array();
+			if(@$listfile)
+				@$listfileid=split(",",$listfile);
+				
+			array_unshift($listfileid,$this->data['post']['imagepath']);
+			
+			$this->data['subimage']=array();
+			$this->data['attachment']=array();
+			
+			foreach($listfileid as $key => $item)
 			{
-				$this->data['data_samplecode'][$i]['icon'] = HelperImage::resizePNG($item['imagepath'], 50, 50);
+				$file = pathinfo($item);
+				if(@$this->string->isImage($file['extension']))
+				{
+					//$this->data['subimage'][$key] = $file;
+					$this->data['subimage'][$key]['imagethumbnail'] = HelperImage::resizePNG($item, $template['width'], $template['height']);
+					$this->data['subimage'][$key]['icon'] = HelperImage::resizePNG($item, 60, 60);	
+					$this->data['subimage'][$key]['imagepreview'] = HelperImage::resizePNG($item,  800, 800);
+				}
+				
+				if(!$this->string->isImage(@$file['extension']))
+				{
+					$this->data['attachment'][$key] = $file;
+					$this->data['attachment'][$key]['imagethumbnail'] = DIR_IMAGE."icon/dinhkem.png";
+				}
+				
 			}
+			//Get sub infomation
+			
+			$this->data['child'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'subinfor'"," Order by position");
+			foreach($this->data['child'] as $key => $item)
+			{
+				$this->data['child'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
+				$this->data['child'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
+			}
+			
+			$this->data['priceproduct'] = $this->model_core_media->getListByParent($mediaid," AND mediatype = 'module/product' "," Order by position");
+			usort($this->data['priceproduct'],array("ControllerModulePagedetail", "cmp"));
+			foreach($this->data['priceproduct'] as $key => $item)
+			{
+				
+				$this->data['priceproduct'][$key]['icon'] = HelperImage::resizePNG($item['imagepath'],50,50);
+				$this->data['priceproduct'][$key]['imagethumbnail'] = HelperImage::resizePNG($item['imagepath'], $template['width'], $template['height']);
+				$this->data['priceproduct'][$key]['imagepreview'] = HelperImage::resizePNG($item['imagepath'], 800, 800);
+				@$khuyenmai = $this->model_core_media->getItem($this->data['priceproduct'][$key]['makhuyenmai']);
+				@$this->data['priceproduct'][$key]['tenkhuyenmai'] = $khuyenmai['title'];
+			}
+			
+			$queryoptions = array();
+			$queryoptions['mediaparent'] = '%';
+			$queryoptions['mediatype'] = '%';
+			$queryoptions['refersitemap'] = $sitemapid;
+			$this->data['othernews'] = $this->model_core_media->getOthersMedia($this->data['post']['mediaid'], $queryoptions, $count);
+			
+			
+			/*$temp = array(
+							  'template' => "module/product_list.tpl",
+							  'width' => IMG_PROLIST,
+							  'height' =>IMG_PROLIST
+							  );
+			$arr = array($this->document->sitemapid,9,"",$temp,$this->data['othernews']);*/
+			//$this->data['other'] = $this->loadModule('module/productlist','index',$arr);
+			//Load san phang cung hieu
+			$nhanhieuid = $this->data['post']['brand'];
+			if(@$nhanhieuid)
+			{
+				$where = " AND mediaid not like '".$mediaid."'";
+				$arr = array($where,$nhanhieuid);
+				$this->data['saphamcungnhanhieu'] = $this->loadModule('addon/brand','getList',$arr);
+			}
+			//Load comemnt
+			$temp = array(
+							  'template' => "module/comment_list.tpl"
+							  );
+			$where = " AND mediaid = '".$mediaid."'";
+			$arr = array($where,$temp);
+			$this->data['comment'] = $this->loadModule('module/comment','getList',$arr);
+			//Cac sp cung code
+			
+			if(@$this->data['post']['code'] != "")
+			{
+				$where = " AND code = '".$this->data['post']['code']."' AND mediaparent = '' AND mediaid <> '".$this->data['post']['mediaid']."'";
+				$this->data['data_samplecode'] = $this->model_core_media->getList($where);
+				foreach($this->data['data_samplecode'] as $i => $item)
+				{
+					$this->data['data_samplecode'][$i]['icon'] = HelperImage::resizePNG($item['imagepath'], 50, 50);
+				}
+			}
+			$this->id="news";
+			$this->template=$template['template'];
+			$this->render();			
+		}
+		else
+		{
+			$this->data['output'] = "Sản phẩm đã không còn kinh doanh";
+			$this->id="content";
+			$this->template="common/output.tpl";
+			$this->render();
 		}
 		
-		$this->id="news";
-		$this->template=$template['template'];
-		$this->render();
+		
 	}
 	
 	private function cmp($mediaa,$mediab)
