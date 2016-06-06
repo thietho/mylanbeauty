@@ -257,7 +257,7 @@ $("#ben-next").click(function(){
                         <p class="ben-khuyenmai"><a  onclick="xemkhuyenmai('<?php echo @$val['makhuyenmai']?>')"><?php echo @$val['tenkhuyenmai']?></a></p>
                         <?php } ?>
                     </td>
-                    <td>
+                    <td align="center">
                     	<?php if(@$val['colorcode']==''){ ?>
                         <img src="<?php echo @$val['icon']?>" class="ben-sub-item" pos="<?php echo @$key?>" >
                         <?php }else{ ?>
