@@ -6,23 +6,18 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo DIR_CSS?>style.css" media="screen" />
-<link rel='stylesheet' type='text/css'
-	href='<?php echo DIR_CSS?>blockui.css'>
-<link rel='stylesheet' type='text/css'
-	href='<?php echo DIR_CSS?>jquery-ui.css'>
-<link rel='stylesheet' type='text/css'
-	href='<?php echo DIR_CSS?>jquery.tabs.css'><script
-	src="<?php echo DIR_JS?>jquery.js" type="text/javascript"></script> <script
-	type='text/javascript' language='javascript'
-	src='<?php echo DIR_JS?>jquery.blockUI.js'></script> <script
-	type='text/javascript' language='javascript'
-	src='<?php echo DIR_COMPONENT?>ckeditor/ckeditor.js'></script> <script
-	src="<?php echo DIR_JS?>common.js" type="text/javascript"></script>
-<title>HL Solutions Content Management System</title>
-<script src="<?php echo DIR_JS?>menu-collapsed.js"
-	type="text/javascript"></script>
+	
+    
+   	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js" type="text/javascript"></script>
+    <script src="<?php echo HTTP_SERVER.DIR_JS?>jquery-ui.js" type="text/javascript"></script>
+    
+	
+	<script type='text/javascript' language='javascript' src='<?php echo DIR_COMPONENT?>ckeditor/ckeditor.js'></script>
+    
+    <script src="<?php echo DIR_JS?>common.js" type="text/javascript"></script>
+    <script src="<?php echo DIR_JS?>media.js" type="text/javascript"></script>
+    <script src="<?php echo DIR_JS?>control.js" type="text/javascript"></script>
+	
 
 </head>
 <!--[if lt IE 7]>
@@ -37,23 +32,21 @@
 
 <body>
 
-<div id="site-wrapper">
 
-<div id="header"><?php echo @$header?></div>
+
+
 
 <div class="main">
 
 
-<div id="main-content"><?php echo @$content?></div>
+	<div id="main-content"><?php echo @$content?></div>
 
-<div class="clearer">&nbsp;</div>
+	<div class="clearer">&nbsp;</div>
 
-
-</div>
-
-<div id="footer"><?php echo @$footer?></div>
 
 </div>
+
+
 
 </body>
 

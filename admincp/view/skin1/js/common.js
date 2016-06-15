@@ -510,6 +510,21 @@ function browserFile(eid,type)
 	$("#"+eid).load("?route=core/file&dialog=true&type="+type);
 	
 }
+function openEditor(eid)
+{
+	width= 700;
+	height = 600;
+	win = window.open("?route=common/editor", "_blank", "toolbar=no, scrollbars=yes, resizable=yes, top=0, left=0, width="+width+", height="+height);
+	writeFile($('#'+eid).val());
+}
+function writeFile(text)
+{
+	
+}
+function readFile()
+{
+	
+}
 function intSeleteFile(type)
 {
 	

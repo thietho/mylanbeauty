@@ -440,6 +440,7 @@ function callAtt(pos)
                     <p>
                         <label><?php echo @$entry_summary?></label><br>
                         <textarea class="text editor" rows="3" cols="70" id="summary" name="summary"><?php echo @$post['summary']?></textarea>
+                        <input type="button" class="button" value="Trình soạn thảo" onClick="openEditor('summary')">
 <?php if(@$_GET['dialog']==""){ ?>
 <script language="javascript">
 $(document).ready(function(e) {
