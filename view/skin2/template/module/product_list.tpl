@@ -15,7 +15,7 @@ if(@count($medias))
                     <?php } ?>
                 	
                     <?php if(@$media['imagethumbnail'] !=""){ ?>
-                    <a class="islink" href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>"><img src='<?php echo @$media['imagethumbnail']?>' class='ben-center' alt="<?php echo @$this->document->productName($media)?>" title="<?php echo @$this->document->productName($media)?>"/></a>
+                    <a class="islink" href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>"><img data-src='<?php echo @$media['imagethumbnail']?>' class='ben-center lazy' title="<?php echo @$this->document->productName($media)?>"/></a>
                     
                     <?php }?>
                     	
@@ -166,3 +166,30 @@ if(@count($medias))
 <?php
 }
 ?>
+<script type="text/javascript">
+var loadedElements = 0;
+
+setTimeout(function() {
+		  $('.lazy').lazy({
+			  bind: 'event',
+			  beforeLoad: function(element){
+				  //console.log('image "' + element.data('src') + '" is about to be loaded');
+			  },
+			  afterLoad: function(element) {
+				  loadedElements++;
+				  console.log(loadedElements);
+				  console.log('image "' + element.data('src') + '" was loaded successfully');
+			  },
+			 /* onError: function(element) {
+				  loadedElements++;
+				  
+				  console.log('image "' + element.data('src') + '" could not be loaded');
+			  },
+			  onFinishedAll: function() {
+				  console.log('finished loading ' + loadedElements + ' elements');
+				  console.log('lazy instance is about to be destroyed')
+			  }*/
+		  });
+      }, 2000);
+</script>
+

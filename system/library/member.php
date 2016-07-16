@@ -149,7 +149,7 @@ final class Member {
 	}
   
   	public function isLogged() {
-    	if(count($this->session->data['member'])){	
+    	if(count(@$this->session->data['member'])){	
 			return true;
 		}
 		
