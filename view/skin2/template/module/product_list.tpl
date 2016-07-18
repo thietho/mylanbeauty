@@ -1,4 +1,4 @@
-<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_JS?>jquery-tooltip.js'></script>
+
 <?php
 if(@count($medias))
 {
@@ -167,29 +167,6 @@ if(@count($medias))
 }
 ?>
 <script type="text/javascript">
-var loadedElements = 0;
-
-setTimeout(function() {
-		  $('.lazy').lazy({
-			  bind: 'event',
-			  beforeLoad: function(element){
-				  //console.log('image "' + element.data('src') + '" is about to be loaded');
-			  },
-			  afterLoad: function(element) {
-				  loadedElements++;
-				  console.log(loadedElements);
-				  console.log('image "' + element.data('src') + '" was loaded successfully');
-			  },
-			 /* onError: function(element) {
-				  loadedElements++;
-				  
-				  console.log('image "' + element.data('src') + '" could not be loaded');
-			  },
-			  onFinishedAll: function() {
-				  console.log('finished loading ' + loadedElements + ' elements');
-				  console.log('lazy instance is about to be destroyed')
-			  }*/
-		  });
-      }, 2000);
+loadLazy();
 </script>
 

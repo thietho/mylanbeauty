@@ -11,13 +11,13 @@
             <div style="clear:both;height:0.5em"></div>
             <div class="ui-grid-b hl-brand">
                 <div class="ui-block-a">
-                    <a href="<?php echo @$this->document->createLink('brand','Sisley')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Sisley')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Sisley.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<?php echo @$this->document->createLink('brand','Guerlain')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Guerlain')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Guerlain.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="<?php echo @$this->document->createLink('brand','Lancome')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Lancome')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Lancome.jpg" /></a>
                 </div>
                 
                 
@@ -25,26 +25,26 @@
             </div>
             <div class="ui-grid-b hl-brand">
             	<div class="ui-block-a">
-                    <a href="<?php echo @$this->document->createLink('brand','Clarins')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Clarins')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clarins.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<?php echo @$this->document->createLink('brand','Shiseido')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Shiseido')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Shiseido.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="<?php echo @$this->document->createLink('brand','EsteeLauder')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','EsteeLauder')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/EsteeLauder.jpg" /></a>
                 </div>
                 
             </div>
             
             <div class="ui-grid-b hl-brand">
                 <div class="ui-block-a">
-                    <a href="<?php echo @$this->document->createLink('brand','Clinique')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','Clinique')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Clinique.jpg" /></a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<?php echo @$this->document->createLink('brand','ElizabethArden')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ElizabethArden.jpg" /></a>
+                    <a href="<?php echo @$this->document->createLink('brand','ElizabethArden')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/ElizabethArden.jpg" /></a>
                 </div>
                 <div class="ui-block-c">
-                    <a href="<?php echo @$this->document->createLink('ortherbrand')?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
+                    <a href="<?php echo @$this->document->createLink('ortherbrand')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
                 </div>
             </div>
             <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
@@ -90,7 +90,18 @@ function loadBrand()
 					
 				}
 				pageload.flag = true;
-				//console.log("aa"+pageload.flag);
+				$('img.lazy').lazy({
+					bind: "event",
+					effect: "fadeIn",
+					effectTime: 300,
+					threshold: 0,
+					beforeLoad: function(element) {
+						$(element).addClass('loading');
+					},
+					afterLoad: function(element) {
+						$(element).removeClass('loading');
+					}
+            	});
 			});
 	}
 	pageload.flag = false;

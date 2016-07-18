@@ -41,7 +41,7 @@
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery-ui.js'></script>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.lazy.js'></script>
 <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.blockUI.js'></script>
-<script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_COMPONENT?>ckeditor/ckeditor.js'></script>
+
 <script language="javascript">
 var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
@@ -129,7 +129,7 @@ $(document).scroll(function(e) {
 	//setTimeout("runMove();",500);
 	
 });
-function runMove()
+/*function runMove()
 {
 	 var pTop = Number($(document).scrollTop());
 	//alert(pTop);
@@ -151,5 +151,5 @@ function runMove()
 				setTimeout("runMove();",500);
 		});
 	}
-}
+}*/
 </script>

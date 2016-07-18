@@ -58,6 +58,7 @@ function loadBrand()
 		$('#ben-maincontent .ben-section-content').append(loading);
 		$.get("?route=page/home/loadBrand&brand="+ pageload.arr[pageload.index],function(html){
 				
+				
 				$('#loading').remove();
 				$('#ben-maincontent .ben-section-content').append(html);
 				//stickytooltip.init("*[data-tooltip]", "mystickytooltip")
@@ -68,7 +69,22 @@ function loadBrand()
 					
 				}
 				pageload.flag = true;
-				//console.log("aa"+pageload.flag);
+				
+    			
+				
+				$('img.lazy').lazy({
+					bind: "event",
+					effect: "fadeIn",
+					effectTime: 300,
+					threshold: 0,
+					beforeLoad: function(element) {
+						$(element).addClass('loading');
+					},
+					afterLoad: function(element) {
+						$(element).removeClass('loading');
+					}
+            	});
+				
 			});
 	}
 	pageload.flag = false;

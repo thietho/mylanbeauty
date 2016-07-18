@@ -366,3 +366,23 @@ function dateYMDtoDMY(strdate)
 	var arr = strdate.split('-');
 	return arr[2]+'-'+arr[1]+'-'+arr[0];
 }
+function loadLazy() {
+	 $('img.lazy').lazy({
+        effect: "fadeIn",
+        effectTime: 300,
+        threshold: 0,
+        beforeLoad: function(element) {
+            $(element).addClass('loading');
+        },
+        afterLoad: function(element) {
+			
+            $(element).removeClass('loading');
+        },
+		onError: function(element) {
+            // called whenever an element could not be handled
+        },
+        onFinishedAll: function() {
+            // called once all elements was handled
+        }
+    });
+}

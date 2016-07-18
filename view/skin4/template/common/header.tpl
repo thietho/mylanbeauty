@@ -18,7 +18,7 @@
                 
             </div>
             
-            <h2><a href="<?php echo HTTP_SERVER?>" data-transition="fade"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
+            <h2><a href="<?php echo HTTP_SERVER?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo.png" alt="Mỹ Lan Beauty"></a></h2>
         	<div id="supportonline" class="supportonline">
         	<a href="ymsgr:sendIM?mylanbeauty"><img border="0" height="16" src="http://opi.yahoo.com/online?u=mylanbeauty&amp;m=g&amp;t=1" width="64"></a> <a href="https://www.facebook.com/mylanbeauty.net" target="_blank"><img src="http://mylanbeauty.net/file/upload/icon/facebook-icon.png"></a> <a href="skype:nv_lantran?chat" onclick="return skypeCheck();"><img src="http://mylanbeauty.net/file/upload/icon/skype.png"></a></div>
             <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
@@ -28,19 +28,19 @@
         <!--Menu-->
 <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
     <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
-    	<li data-icon="home"><a href="<?php echo HTTP_SERVER?>" data-transition="fade">Trang chủ</a></li>
-    	<li><a href="<?php echo @$this->document->createLink('gioithieu')?>" title="Giới thiệu" data-transition="fade">Giới thiệu</a></li>
-   		<li><a href="<?php echo @$this->document->createLink('tin-tuc')?>" title="Tin tức" data-transition="fade">Tin tức</a></li>
-        <li><a href="<?php echo @$this->document->createLink('khuyen-mai')?>" title="Khuyến mãi" data-transition="fade">Khuyến mãi</a></li>
+    	<li data-icon="home"><a href="<?php echo HTTP_SERVER?>" data-transition="fade" data-ajax="false">Trang chủ</a></li>
+    	<li><a href="<?php echo @$this->document->createLink('gioithieu')?>" title="Giới thiệu" data-transition="fade" data-ajax="false">Giới thiệu</a></li>
+   		<li><a href="<?php echo @$this->document->createLink('tin-tuc')?>" title="Tin tức" data-transition="fade" data-ajax="false">Tin tức</a></li>
+        <li><a href="<?php echo @$this->document->createLink('khuyen-mai')?>" title="Khuyến mãi" data-transition="fade" data-ajax="false">Khuyến mãi</a></li>
         <li><a href="<?php echo @$this->document->createLink('lienhe')?>" title="Liên hệ" data-ajax="false">Liên hệ</a></li>
-        <li><a href="<?php echo @$this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng" data-transition="fade">Cách thức mua hàng</a></li>
-    	<li><a href="<?php echo @$this->document->createLink('cart')?>" title="Giỏ hàng" data-transition="fade">Giỏ hàng</a></li>
+        <li><a href="<?php echo @$this->document->createLink('cach-thuc-mua-hang')?>" title="Cách thức mua hàng" data-transition="fade" data-ajax="false">Cách thức mua hàng</a></li>
+    	<li><a href="<?php echo @$this->document->createLink('cart')?>" title="Giỏ hàng" data-transition="fade" data-ajax="false">Giỏ hàng</a></li>
         <?php if(!$this->member->isLogged()){?>
         <li><a href="<?php echo @$this->document->createLink('login')?>" title="Đăng nhập" data-ajax="false">Đăng nhập</a></li>
         <li><a href="<?php echo @$this->document->createLink('register')?>" title="Đăng ký" data-ajax="false">Đăng ký</a></li>
         
         <?php }else{ ?>
-        <li><a href="<?php echo @$this->document->createLink('member')?>" title="Thông tin thành viên" data-transition="fade"><?php echo @$this->member->data['fullname']?></a></li>
+        <li><a href="<?php echo @$this->document->createLink('member')?>" title="Thông tin thành viên" data-transition="fade" data-ajax="false"><?php echo @$this->member->data['fullname']?></a></li>
         <li><a href="#" onclick="logout()" title="Đăng xuất" data-ajax="false">Đăng xuất</a></li>
             
           
@@ -69,7 +69,7 @@
                 </ul>
             </div>
     	</li> 
-        <li><a href="<?php echo @$this->document->createLink('minisize')?>" title="Hàng size nhỏ (Mini size)" data-transition="fade">Chuyên Hàng size nhỏ</a></li>
+        <li><a href="<?php echo @$this->document->createLink('minisize')?>" title="Hàng size nhỏ (Mini size)" data-transition="fade" data-ajax="false">Chuyên hàng size nhỏ</a></li>
 	</ul>
 </div>
 

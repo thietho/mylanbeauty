@@ -3,13 +3,13 @@
         <?php echo @$member['fullname']?> (<?php echo @$member['username']?>)
     </p>
     <p>
-        <a href="<?php echo @$this->document->createLink('memberinfor')?>" data-transition="fade">Thông tin cá nhân</a>
+        <a href="<?php echo @$this->document->createLink('memberinfor')?>" data-transition="fade" data-ajax="false">Thông tin cá nhân</a>
     </p>
     <p>
-        <a href="<?php echo @$this->document->createLink('changepass')?>" data-transition="fade">Đổi mật khẩu</a>
+        <a href="<?php echo @$this->document->createLink('changepass')?>" data-transition="fade" data-ajax="false">Đổi mật khẩu</a>
     </p>
     <p>
-        <a href="<?php echo @$this->document->createLink('historyorder')?>" data-transition="fade">Lịch sử mua hàng</a>
+        <a href="<?php echo @$this->document->createLink('historyorder')?>" data-transition="fade" data-ajax="false">Lịch sử mua hàng</a>
     </p>
     <!--<p>
         <a href="<?php echo @$this->document->createLink('message')?>">Hộp thư</a>

@@ -329,3 +329,24 @@ function fixlayout()
 	}*/
 	
 }
+function loadLazy() {
+	 $('img.lazy').lazy({
+        effect: "fadeIn",
+        effectTime: 300,
+        threshold: 0,
+        beforeLoad: function(element) {
+			console.log("beforeload");
+            $(element).addClass('loading');
+        },
+        afterLoad: function(element) {
+			console.log("afterLoad");
+            $(element).removeClass('loading');
+        },
+		onError: function(element) {
+            // called whenever an element could not be handled
+        },
+        onFinishedAll: function() {
+            // called once all elements was handled
+        }
+    });
+}
