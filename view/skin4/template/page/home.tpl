@@ -47,7 +47,7 @@
                     <a href="<?php echo @$this->document->createLink('ortherbrand')?>" data-transition="fade" data-ajax="false"><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>logo/Other.png" /></a>
                 </div>
             </div>
-            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>bannerShop3.jpg">
+            <img src="<?php echo HTTP_SERVER.DIR_IMAGE?>thong_bao_nghi1.png">
             <?php echo @$bannerhome?>
             
             <div id="hl-home">

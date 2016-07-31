@@ -12,7 +12,7 @@
         	<?php echo @$brand?>
             
             <div class="ben-section-content">
-            	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannerShop3.jpg'?>"/>
+            	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'thong_bao_nghi1.png'?>"/>
             	<?php echo @$bannerhome?>
                 
             </div>
