@@ -13,13 +13,16 @@ class ControllerCoreMember extends Controller
    	}
 	public function index()
 	{
+		
 		@$this->data['insert'] = @$this->url->http('core/member/insert');
 		@$this->data['delete'] = @$this->url->http('core/user/delete');		
 		
 		
 		@$this->id='content';
 		@$this->template="core/member_list.tpl";
-		@$this->layout=@$this->user->getLayout();
+		
+		//@$this->layout=@$this->user->getLayout();
+		@$this->layout="layout/center";
 		if(@$this->request->get['opendialog']=='true')
 		{
 			@$this->layout="";
@@ -31,12 +34,7 @@ class ControllerCoreMember extends Controller
 	
 	public function insert()
 	{
-		if(!@$this->user->hasPermission(@$this->getRoute(), "add"))
-		{
-			@$this->response->redirect("?route=common/permission");
-		}
-		//@$this->load->language('core/user');
-		//@$this->data = array_merge(@$this->data, @$this->language->getData());
+		
 		
 		@$this->document->title = @$this->language->get('heading_title');
 		
@@ -54,12 +52,7 @@ class ControllerCoreMember extends Controller
 	
 	public function update()
 	{
-		if(!@$this->user->hasPermission(@$this->getRoute(), "edit"))
-		{
-			@$this->response->redirect("?route=common/permission");
-		}
-		else
-		{
+		
 			//@$this->load->language('core/user');
 			//@$this->data = array_merge(@$this->data, @$this->language->getData());
 			
@@ -70,7 +63,7 @@ class ControllerCoreMember extends Controller
 			
 		
 			@$this->getForm();
-		}
+		
 		
   	}
 	
@@ -430,7 +423,8 @@ class ControllerCoreMember extends Controller
 		
 		@$this->id='content';
 		@$this->template="core/member_commission.tpl";
-		@$this->layout=@$this->user->getLayout();
+		//@$this->layout=@$this->user->getLayout();
+		@$this->layout="layout/center";
 		if(@$this->request->get['opendialog']=='true')
 		{
 			@$this->layout="";
@@ -548,17 +542,19 @@ class ControllerCoreMember extends Controller
 	}
 	public function getMember()
 	{
-		$keyword = urldecode(@$this->request->get['term']);
+		$keyword = urldecode(@$this->request->get['keyword']);
+		
 		$where = "AND usertypeid = 'member'";
 		@$arrkey = split(' ', $keyword);
 		if(@$keyword)
 		{
-			$arr = array();
-			foreach($arrkey as $key)
-			{
-				$arr[] = "fullname like '%".$key."%'";
-			}
-			$where .= " AND ((". implode(" AND ",$arr). "))";
+			//$arr = array();
+			//foreach($arrkey as $key)
+			//{
+				//$arr[] = "phone like '%".$key."%'";
+			//}
+			//$where .= " AND ((". implode(" AND ",$arr). "))";
+			$where .= " AND phone like '".$keyword."'";
 		}
 		$members = @$this->model_core_user->getList($where);
 		$data = array();

@@ -7,8 +7,8 @@
 			@$this->children=array(
 				'common/header',
 				'common/footer',
-				'user/leftsidebar',
-				'common/permission'
+				
+				
 			);
 			@$this->render();
 		}

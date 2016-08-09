@@ -227,7 +227,7 @@
             <?php if(@$this->user->checkPermission("sales/sale/showlist")==true){ ?>
             <input type="button" class="button" id="btnListOrder" value="Danh sách đơn hàng đã bán" onClick="saleOrder.listOrderComplete()"/>
             <?php } ?>
-            <?php if(@$this->user->checkPermission("sales/sale/report")==true){ ?>
+            <?php if(@$this->user->checkPermission("sales/sale/reportSale")==true){ ?>
             <input type="button" class="button" id="btnImportExportStatistics" value="Thống kê" onClick="window.location = '?route=sales/sale/report'"/>
             <input type="button" class="button" id="btnReportSale" value="Báo cáo bán hàng" onClick="window.location = '?route=sales/sale/reportSale'"/>
             <?php } ?>
@@ -351,7 +351,16 @@ $(function() {
 			});
 		}
 	});
-	$("#tenkhachhang").autocomplete({
+	$('#dienthoai').change(function(e) {
+        $.getJSON( "?route=core/member/getMember&keyword=" + this.value,function(obj){
+			
+			$('#khachhangid').val(obj[0].id);
+			$('#tenkhachhang').val(obj[0].data.fullname);
+			$('#dienthoai').val(obj[0].data.phone);
+			$('#diachi').val(obj[0].data.address);
+			});
+    });
+	/*$("#dienthoai").autocomplete({
 		minLength: 2,
 		select: function( event, ui ) {
 			//console.log(ui.item.id);
@@ -372,7 +381,7 @@ $(function() {
 			response( data );
 			});
 		}
-	});
+	});*/
 	
 });
 function SaleOrder(shopid)

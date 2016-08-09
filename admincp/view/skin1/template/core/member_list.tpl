@@ -91,7 +91,7 @@ $(document).ready(function(e) {
 		
 	});
 });
-$('#listmember .text').keyup(function(e) {
+$('#listmember .text').change(function(e) {
     //if(e.keyCode == 13)
 		searchForm();
 	

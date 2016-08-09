@@ -75,6 +75,8 @@ class ControllerSalesSale extends Controller
 	{
 		$shopid = @$this->request->get['shopid'];
 		$where = " AND shopid = '".$shopid."' AND `loaiphieu` = 'CH-BH' AND trangthai  <> 'paid' AND trangthai <> 'ordercancel'";
+		if($this->user->getUserTypeId() == 'user')
+			$where .= " AND nguoilap ='".$this->user->getUserName()."'";
 		$data = @$this->model_quanlykho_phieunhapxuat->getList($where);
 		$arrdate = array();
 		$data_order = array();

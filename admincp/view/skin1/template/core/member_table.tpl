@@ -9,7 +9,9 @@
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
                         <th>Email</th>
+                        <?php if(@$this->user->checkPermission("core/member/xemcongno")==true){ ?>
                         <th>Công nợ</th>
+                        <?php } ?>
                         <th>Giới thiệu bởi</th>
                         <th>Hoa hồng</th>
                         <th>Trang thái</th>
@@ -32,7 +34,9 @@
                         <td><?php echo @$user['phone']?></td>
                         <td><?php echo @$user['address']?></td>
                         <td><?php echo @$user['email']?></td>
+                        <?php if(@$this->user->checkPermission("core/member/xemcongno")==true){ ?>
                         <td class="number"><a onclick="viewCongNo(<?php echo @$user['id']?>)"><?php echo @$this->string->numberFormate($user['congno'])?></a></td>
+                        <?php } ?>
                         <td><?php echo @$this->document->getCustomer($user['assignid'])?></td>
                         <td><?php echo @$user['commissions']?></td>
                 		<td><?php echo @$this->document->userstatus[$user['status']]?></td>

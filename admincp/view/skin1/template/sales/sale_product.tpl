@@ -13,7 +13,9 @@
     <td><img src="<?php echo @$media['icon']?>"></td>
     <td>
         <input type="button" class="button selectProduct" value="Chọn" ref="<?php echo @$media['mediaid']?>" image="<?php echo @$media['imagepreview']?>" code="<?php echo @$media['code']?>" unit="<?php echo @$media['unit']?>" title="<?php echo @$this->document->productName($media)?>" price="<?php echo @$media['price']?>" pricepromotion="<?php echo @$media['pricepromotion']?>" discountpercent="<?php echo @$media['discountpercent']?>" productname="<?php echo @$this->document->productName($media)?>" brandname="<?php echo @$this->document->getCategory($media['brand'])?>"/>
+        <?php if(@$this->user->checkPermission("sales/sale/history")==true){ ?>
         <input type="button" class="button historyProduct" value="Lịch sử" ref="<?php echo @$media['mediaid']?>" />
+        <?php } ?>
     </td>
 </tr>
 <?php } ?>
