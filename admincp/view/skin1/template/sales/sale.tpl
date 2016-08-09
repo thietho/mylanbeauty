@@ -62,7 +62,7 @@
                                 <?php } ?>
                                 
                             </select>
-                            <?php if(@$this->user->getUserTypeId()=='admin'){ ?>
+                            <?php if(@$this->user->checkPermission("core/member")==true){ ?>
                             <a class="button" id="btnSelectKhachHang" >Chọn khách hàng</a>
                             <?php } ?>
                             <a class="button" id="btnNewOrder" onClick="saleOrder.newOrder()">Đơn hàng mới</a>
@@ -224,7 +224,7 @@
             <?php if(@$this->user->checkPermission("sales/sale/del")==true){ ?>
             <input type="button" class="button" id="btnDelOrder" value="Xóa đơn hàng" onClick="saleOrder.delOrder($('#frmSaleOrder #id').val())"/>
             <?php } ?>
-            <?php if(@$this->user->checkPermission("sales/sale/del")==true){ ?>
+            <?php if(@$this->user->checkPermission("sales/sale/showlist")==true){ ?>
             <input type="button" class="button" id="btnListOrder" value="Danh sách đơn hàng đã bán" onClick="saleOrder.listOrderComplete()"/>
             <?php } ?>
             <?php if(@$this->user->checkPermission("sales/sale/report")==true){ ?>
