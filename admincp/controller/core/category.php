@@ -38,22 +38,13 @@ class ControllerCoreCategory extends Controller
 	
 	public function insert()
 	{
-		if(!@$this->user->hasPermission(@$this->getRoute(), "add"))
-		{
-			@$this->response->redirect("?route=common/permission");
-		}
 		
     	@$this->getForm();
 	}
 	
 	public function update()
 	{
-		if(!@$this->user->hasPermission(@$this->getRoute(), "edit"))
-		{
-			@$this->response->redirect("?route=common/permission");
-		}
-		else
-		{
+		
 			//@$this->load->language('core/category');
 			//@$this->data = array_merge(@$this->data, @$this->language->getData());
 			
@@ -64,18 +55,13 @@ class ControllerCoreCategory extends Controller
 		
 		
 			@$this->getForm();
-		}
+		
 		
   	}
 	
 	public function edit()
 	{
-		if(!@$this->user->hasPermission(@$this->getRoute(), "edit"))
-		{
-			@$this->response->redirect("?route=common/permission");
-		}
-		else
-		{
+		
 			
 			//@$this->load->language('core/category');
 			//@$this->data = array_merge(@$this->data, @$this->language->getData());
@@ -104,7 +90,7 @@ class ControllerCoreCategory extends Controller
 			@$this->template='common/output.tpl';
 			@$this->layout="layout/center";
 			@$this->render();
-		}
+		
 		
   	}
 	
