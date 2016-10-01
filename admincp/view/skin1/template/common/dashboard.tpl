@@ -50,21 +50,23 @@
                 </p>
             </div>
             <div>
-            	
-                
-                <?php for($i=1;$i<=4;$i++){?>
-            	<p>
-                    <label>Quảng cáo <?php echo @$i?></label>
-                    <input type="hidden" id="qc<?php echo @$i?>_fileid" name="qc<?php echo @$i?>_fileid" value="<?php echo @$qc[$i]['fileid']?>"/><br />
-                    	(250px x 250px)
-                        <img id="qc<?php echo @$i?>_preview" src="<?php echo @$qc[$i]['imagethumbnail']?>"/>
-                        <input type="button" class="button" value="<?php echo @$entry_photo ?>" onclick="browserFile('qc<?php echo @$i?>','single')"/>
-                        (1045px x 540px)
-                        <input type="hidden" id="qcbanner<?php echo @$i?>_fileid" name="qcbanner<?php echo @$i?>_fileid" value="<?php echo @$qc[$i]['fileid']?>"/>
-                        <img id="qcbanner<?php echo @$i?>_preview" src="<?php echo @$qcbanner[$i]['imagethumbnail']?>"/>
-                        <input type="button" class="button" value="<?php echo @$entry_photo ?>" onclick="browserFile('qcbanner<?php echo @$i?>','single')"/>
-                </p>
-                <?php }?>
+                <label>Sản phẩm ưu đãi</label>
+            	<table class="data-table">
+                    <thead>
+                        <tr class="tr-head">
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Phần trăm giảm</th>
+                            <th>Hình</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="listproducgoodwill">
+
+                    </tbody>
+            	</table>
+                <input type="button" class="button" id="btnSelectProduct" value="Chọn sản phẩm">
+
             </div>
         </form>
     
@@ -90,16 +92,68 @@ function save()
 		}
 	);
 }
-var index = 0;
-function addRow(obj)
-{
-	var str ='<tr id="row'+index+'">';
-	str += '<td><input type="hidden" id="film'+index+'" name="film['+index+']" value="'+obj.id+'"/><span id="film'+index+'_name">'+obj.moviename+'</span></td>';
-	str += '<td><img id="film'+index+'_icon" src="'+obj.icone+'"/></td>';
-	str += '<td><input type="button" class="button" value="Chọn film" onclick="selectFilm(\'film'+index+'\',\'edit\')"/><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
-	str += '</tr>';
-	$('#listfilm').append(str);
-	index++;
-}
+$('#btnSelectProduct').click(function () {
+    browseProduct('addProductRow()');
+});
 
+var index = 0;
+function addProductRow()
+{
+    $('.selectProduct').click(function(e) {
+        var obj = new Object();
+        obj.id = 0;
+        obj.mediaid = $(this).attr('ref');
+        obj.imagepath = $(this).attr('image');
+        obj.title = $(this).attr('title');
+        obj.code = $(this).attr('code');
+        obj.unit = $(this).attr('unit');
+        //console.log(obj.mediaid);
+        obj.price = $(this).attr('price');
+
+        obj.pricepromotion = $(this).attr('pricepromotion');
+        obj.discountpercent = $(this).attr('discountpercent');
+        obj.productname = $(this).attr('productname');
+        obj.brandname = $(this).attr('brandname');
+
+        $("#popupbrowseproduct").dialog("close");
+
+        var str =createRow(obj)
+        $('#listproducgoodwill').append(str);
+        index++;
+    });
+
+}
+function createRow(obj)
+{
+    var str ='<tr id="row'+index+'">';
+    str += '<td><input type="hidden" id="product'+index+'" name="product['+index+']" value="'+obj.mediaid+'"/><span id="product'+index+'_name">'+obj.productname+'</span></td>';
+    str += '<td class="number">'+ obj.price+'</td>';
+    str += '<td class="number">'+ obj.discountpercent+'%</td>';
+    str += '<td><img id="product'+index+'_icon" src="'+obj.imagepath+'"/></td>';
+    str += '<td><input type="button" class="button" value="X" onclick="$(\'#row'+index+'\').remove()"/></td>';
+    str += '</tr>';
+    return str;
+}
+<?php foreach($ListProductGoodWill as $media){ ?>
+    var obj = new Object();
+    obj.id = 0;
+    obj.mediaid = "<?php echo $media['mediaid']?>";
+    obj.imagepath = "<?php echo $media['imagepreview']?>";
+    obj.title = "<?php echo $media['title']?>";
+    obj.code = "<?php echo $media['code']?>";
+    obj.unit = "<?php echo $media['unit']?>";
+    //console.log(obj.mediaid);
+    obj.price = "<?php echo $media['price']?>";
+
+    obj.pricepromotion = "<?php echo $media['pricepromotion']?>";
+    obj.discountpercent = "<?php echo $media['discountpercent']?>";
+    obj.productname = "<?php echo $this->document->productName($media)?>";
+    obj.brand = "<?php echo $media['brand']?>";
+
+
+
+    var str =createRow(obj)
+    $('#listproducgoodwill').append(str);
+    index++;
+<?php } ?>
 </script>

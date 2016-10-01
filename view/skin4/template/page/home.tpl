@@ -51,6 +51,10 @@
             <?php echo @$bannerhome?>
             
             <div id="hl-home">
+                <?php if(@$_GET['isdemo'] == 'true'){ ?>
+                <h1><?php echo $ListProductGoodWill['title']?></h1>
+                <?php echo $ListProductGoodWill['data']?>
+                <?php } ?>
             </div>
             
 <script language="javascript">

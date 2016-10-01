@@ -14,7 +14,10 @@
             <div class="ben-section-content">
             	<img src="<?php echo HTTP_SERVER.DIR_IMAGE.'bannerShop3.jpg'?>"/>
             	<?php echo @$bannerhome?>
-                
+                <?php if(@$_GET['isdemo'] == 'true'){ ?>
+                <h1><?php echo $ListProductGoodWill['title']?></h1>
+                <?php echo $ListProductGoodWill['data']?>
+                <?php } ?>
             </div>
             
             
