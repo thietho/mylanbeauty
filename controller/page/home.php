@@ -61,7 +61,7 @@ class ControllerPageHome extends Controller
                 'heightpreview' =>450
             );
             $arr = array('',0,"",$template,$medias);
-            $this->data['ListProductGoodWill']['title'] ="Sản phẩm size nhỏ ưu đãi";
+            $this->data['ListProductGoodWill']['title'] ="Mỹ Phẩm size nhỏ dùng thử giá khuyến mãi đặc biệt";
             $this->data['ListProductGoodWill']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			//San pham hot
 			/*$template = array(
