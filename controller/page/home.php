@@ -1,4 +1,10 @@
 <?php
+/**
+ * Class ControllerCoreItems
+ *
+ * @property ModelCoreMedia model_core_media
+ *
+ */
 class ControllerPageHome extends Controller
 {
 	function __construct() 
@@ -38,6 +44,25 @@ class ControllerPageHome extends Controller
 		
 			$arr = array("bannerhome",0,"",$template);
 			$this->data['bannerhome'] = $this->loadModule('module/block','getList',$arr);
+            $str = $this->document->setup['ListProductGoodWill'];
+            $listid = json_decode($str,true);
+
+            $medias = array();
+            foreach($listid as $i => $mediaid)
+            {
+                $medias[] = $this->model_core_media->getItem($mediaid);
+
+            }
+            $template = array(
+                'template' => "module/product_list.tpl",
+                'width' => IMG_PROLIST,
+                'height' =>IMG_PROLIST,
+                'widthpreview' => 450,
+                'heightpreview' =>450
+            );
+            $arr = array('',0,"",$template,$medias);
+            $this->data['ListProductGoodWill']['title'] ="Mỹ Phẩm size nhỏ dùng thử giá khuyến mãi đặc biệt";
+            $this->data['ListProductGoodWill']['data'] = $this->loadModule('module/productlist','getAll',$arr);
 			//San pham hot
 			/*$template = array(
 								  'template' => "module/product_list.tpl",

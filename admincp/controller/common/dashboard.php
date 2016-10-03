@@ -1,4 +1,10 @@
 <?php
+/**
+ * Class ControllerCoreItems
+ *
+ * @property ModelCoreMedia model_core_media
+ *
+ */
 class ControllerCommonDashboard extends Controller
 {
 	function __construct() 
@@ -29,26 +35,20 @@ class ControllerCommonDashboard extends Controller
 		@$this->data['item']['HeaderBill'] = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'HeaderBill');
 		@$this->data['item']['Keyword'] = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'Keyword');
 		@$this->data['item']['Description'] = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'Description');
+        $str = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'ListProductGoodWill');
+        $listid = json_decode($str,true);
+        $this->data['ListProductGoodWill'] = array();
+        foreach($listid as $i => $mediaid)
+        {
+            @$this->data['ListProductGoodWill'][$i] = $this->model_core_media->getItem($mediaid);
+            @$this->data['ListProductGoodWill'][$i]['imagepreview'] = HelperImage::resizePNG(@$this->data['ListProductGoodWill'][$i]['imagepath'], 100, 100);
+        }
+
 		
 		
-		@$this->data['item']['brochure'] = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'brochure');
-		@$this->data['item']['background'] = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'background');
-		$listfilm = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'listfilm');
-		@$arr_filmid = split(',',$listfilm);
 		
 		
-		
-		
-		for($i=1;$i<=4;$i++)
-		{	
-			$fileid = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'qc'.$i);	
-			@$this->data['qc'][$i] = @$this->model_core_file->getFile($fileid);
-			@$this->data['qc'][$i]['imagethumbnail'] = HelperImage::resizePNG(@$this->data['qc'][$i]['filepath'], 100, 0);
-			$fileid = @$this->model_core_media->getInformation(@$this->data['item']['mediaid'], 'qcbanner'.$i);	
-			@$this->data['qcbanner'][$i] = @$this->model_core_file->getFile($fileid);
-			@$this->data['qcbanner'][$i]['imagethumbnail'] = HelperImage::resizePNG(@$this->data['qcbanner'][$i]['filepath'], 100, 0);
-			
-		}
+
 	}
 	
 	public function save()
@@ -64,15 +64,9 @@ class ControllerCommonDashboard extends Controller
 		@$this->model_core_media->saveInformation($data['mediaid'],"HeaderBill",$data['HeaderBill']);
 		@$this->model_core_media->saveInformation($data['mediaid'],"Keyword",$data['Keyword']);
 		@$this->model_core_media->saveInformation($data['mediaid'],"Description",$data['Description']);
-		
-		@$this->model_core_media->saveInformation($data['mediaid'],"brochure",$data['brochure']);
-		@$this->model_core_media->saveInformation($data['mediaid'],"background",$data['background']);
-		
-		for($i=1;$i<=4;$i++)
-		{
-			@$this->model_core_media->saveInformation($data['mediaid'],"qc".$i,$data['qc'.$i.'_fileid']);
-			@$this->model_core_media->saveInformation($data['mediaid'],"qcbanner".$i,$data['qcbanner'.$i.'_fileid']);
-		}
+
+        @$this->model_core_media->saveInformation($data['mediaid'],"ListProductGoodWill",json_encode($data['product']));
+
 		
 		@$this->data['output'] = "true";
 		
