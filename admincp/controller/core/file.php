@@ -32,7 +32,7 @@ class ControllerCoreFile extends Controller
 	
 	public function getListFile()
 	{
-		@$this->load->helper('image');
+		$this->load->helper('image');
 		$folder = urldecode(@$this->request->get['folder']);
 		if(@$folder=="")
 			$files = glob(DIR_FILE.'upload/*');
