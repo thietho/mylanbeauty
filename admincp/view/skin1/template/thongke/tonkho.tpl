@@ -11,33 +11,26 @@
                 <th>Tên sản phẩm</th>
                 
                 <th>Tồn kho</th>
-                <th>Giá nhập trung bình</th>
-                <th>Thành tiền</th>
+                <th>Tồn tại shop</th>
+                <th>Tồn kho</th>
             </tr>
-            <?php $sum = 0;?>
-            <?php $sumthanhtien = 0;?>
-            <?php foreach($medias as $media){ ?>
-            	<?php if((int)$media['inventory']){ ?>
-                <?php $sum += (int)$media['inventory'];?>
-                <?php $sumthanhtien += $media['priceimport']*$media['inventory'];?>
+
+            <?php foreach($medias as $brand => $data){ ?>
+            <tr>
+                <td><strong><?php echo $this->document->getCategory($brand)?></strong></td>
+            </tr>
+                <?php foreach($data as $media){ ?>
 			<tr>
             	
-                <td><?php echo @$this->document->productName($media['mediaid'])?></td>
+                <td><?php echo $this->document->productName($media)?></td>
                 
-                <td class="number"><?php echo @$media['inventory']?></td>
-                <td class="number"><?php echo @$this->string->numberFormate($media['priceimport'])?></td>
-                <td class="number"><?php echo @$this->string->numberFormate($media['priceimport']*$media['inventory'])?></td>
+                <td class="number"><?php echo $media['inventory']?></td>
+                <td class="number"><?php echo $media['shopinventory']?></td>
+                <td class="number"><?php echo $media['khoinventory']?></td>
             </tr>
             	<?php } ?>
             <?php } ?>
-            <tr>
-            	
-                
-                <td class="number">Tổng tồn kho</td>
-                <td class="number"><?php echo @$this->string->numberFormate($sum)?></td>
-                <td class="number">Tổng giá trị tồn</td>
-                <td class="number"><?php echo @$this->string->numberFormate($sumthanhtien)?></td>
-            </tr>
+
         </table>    	
         
         
