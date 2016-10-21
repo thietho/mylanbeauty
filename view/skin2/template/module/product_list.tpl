@@ -4,7 +4,7 @@ if(@count($medias))
 {
 ?>
 <div id="listpoduct">
-	<?php foreach($medias as $media) {?>
+	<?php foreach($medias as $media) { ?>
     <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover" title="<?php echo @$this->document->productName($media)?>">
         <table>
             <tr class="product-list-image">
@@ -38,7 +38,7 @@ if(@count($medias))
                             
                         </a>
                         <?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
-                        <?php foreach($media['childs'] as $me){?>
+                        <?php foreach($media['childs'] as $me){ ?>
                         <div>
                         	<?php echo @$me['sizes']?>
                             <?php 
@@ -50,7 +50,7 @@ if(@count($medias))
                            
                             
                             <span class="<?php echo @$cls?>" >
-                            	<?php if(@$me['price']){?>
+                            	<?php if(@$me['price']){ ?>
                             	<?php echo @$this->string->numberFormate($me['price'])?><?php echo @$this->document->setup['Currency']?>
                                 <?php }else{ ?>
                                 Giá đang cập nhật
@@ -59,9 +59,7 @@ if(@count($medias))
                             <?php if(@$me['pricepromotion']){ ?>
                             <span class="product-pricepromotion">
                         	<?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?>
-                            <?php if(@$me['noteprice']!=""){ ?>
-                            (<?php echo @$me['noteprice']?>)
-                            <?php }?>
+                            
                             </span>
                             <?php } ?>
                             
@@ -79,16 +77,14 @@ if(@count($medias))
                             <?php $cls = 'product-price-no';?>
                         	<?php echo @$this->string->numberFormate($media['pricepromotion'])?><?php echo @$this->document->setup['Currency']?>
                             <?php } ?>
-                            <?php if(@$media['noteprice']!=""){ ?>
-                            (<?php echo @$media['noteprice']?>)
-                            <?php }?>
+
                     </div>
                     		<?php } ?>
                     <div align="center" class="product-price <?php echo @$cls?>">
-                    		<?php if(@$media['price']){?>
+                    		<?php if(@$media['price']){ ?>
                     		<?php echo @$this->string->numberFormate($media['price'])?><?php echo @$this->document->setup['Currency']?>
                         	<?php if(@$media['noteprice']!="" && $media['pricepromotion'] == 0 ){ ?>
-                        (<?php echo @$media['noteprice']?>)
+
                         <?php }?>
                         	<?php }else{ ?>
                         Giá đang cập nhật
@@ -122,7 +118,7 @@ if(@count($medias))
                             <?php } ?>
                         <?php } ?>
                     <center>
-                    	
+
                         <?php if(@$media['noted']!=""){ ?>
                         <em><?php echo @$media['noted']?></em>
                         <?php }?>
