@@ -59,7 +59,7 @@ if(@count($medias))
                             <?php if(@$me['pricepromotion']){ ?>
                             <span class="product-pricepromotion">
                         	<?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?>
-                            
+
                             </span>
                             <?php } ?>
                             
