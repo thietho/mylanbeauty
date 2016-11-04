@@ -40,6 +40,10 @@ class ControllerModuleProduct extends Controller
         $this->model_core_category->getTree("status",$this->data['status']);
         unset($this->data['status'][0]);
 
+        $this->data['productstatus'] = array();
+        $this->model_core_category->getTree("productstatus",$this->data['productstatus']);
+        unset($this->data['productstatus'][0]);
+
         $this->data['sitemaps'] = array();
         $this->model_core_sitemap->getTreeSitemap("", $this->data['sitemaps']);
 
@@ -293,7 +297,7 @@ class ControllerModuleProduct extends Controller
             $where .= "AND (". implode($arr," OR ").")";
 
         $keyword = urldecode(@$this->request->get['keyword']);
-        @$arrkey = split(' ', $keyword);
+        @$arrkey = explode(' ', $keyword);
 
 
         $brand = urldecode(@$this->request->get['brand']);

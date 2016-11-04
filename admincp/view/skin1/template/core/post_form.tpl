@@ -33,19 +33,19 @@
             
         	<ul>
                 <li class="tabs-selected"><a href="#fragment-content" ><span><?php echo @$tab_editcontent?></span></a></li>
-                <?php if(@$hasProperties) {?>
+                <?php if(@$hasProperties) { ?>
                 <li><a href="#fragment-properties"><span><?php echo @$lbl_property ?></span></a></li>
                 <?php }?>
                 <?php if(@$hasDetail){ ?>
                 <li><a href="#fragment-detail"><span><?php echo @$lbl_detail ?></span></a></li>
                 <?php } ?>
-                <?php if(@$hasVideo) {?>
+                <?php if(@$hasVideo) { ?>
                 <li><a href="#fragment-video"><span>Video</span></a></li>
                 <?php }?>
-                <?php if(@$hasAudio) {?>
+                <?php if(@$hasAudio) { ?>
                 <li><a href="#fragment-audio"><span>Audio</span></a></li>
                 <?php }?>
-                <?php if(@$hasSubInfor) {?>
+                <?php if(@$hasSubInfor) { ?>
                 <li><a href="#fragment-subinfor"><span><?php echo @$lbl_infor ?></span></a></li>
                 <?php }?>
                 <?php if(@$hasTabImages){ ?>
@@ -58,10 +58,10 @@
                 <li><a href="#fragment-documents"><span><?php echo @$lbl_document ?></span></a></li>
                 <?php } ?>
                 
-                <?php if(@$hasTabMap) {?>
+                <?php if(@$hasTabMap) { ?>
                 <li><a href="#fragment-map"><span><?php echo @$tab_map?></span></a></li>
                 <?php } ?>
-                <?php if(@$hasTabComment) {?>
+                <?php if(@$hasTabComment) { ?>
                 <li><a href="#fragment-comment"><span>Đánh giá</span></a></li>
                 <?php } ?>
                  
@@ -120,7 +120,7 @@ $('#title').change(function(e) {
                             <textarea class="text" rows="3" cols="70" name="keyword"><?php echo @$keyword?></textarea>
                         </p>-->
                         <?php } ?>
-                        <?php if(@$hasCode){?>
+                        <?php if(@$hasCode){ ?>
                         <p>
                         	<label>Bar code</label><br>
                             <input class="text" type="text" id="barcode" name="barcode" value="<?php echo @$post['barcode']?>" size="60" />
@@ -353,7 +353,7 @@ $('#title').change(function(e) {
 							</script>
                         </p>
                     </div>
-                    <?php if(@$hasFile) {?>
+                    <?php if(@$hasFile) { ?>
                     <div class="col2 right">
                     	
                     	<p id="pnImage">
@@ -471,7 +471,7 @@ $(document).ready(function(e) {
                 </div>
                 
             </div>
-            <?php if(@$hasProperties) {?>
+            <?php if(@$hasProperties) { ?>
             <div id="fragment-properties">
             	<div>
                 	
@@ -507,6 +507,17 @@ $(document).ready(function(e) {
                             <?php echo @$it['categoryname']?>
                         </div>
                         <?php } ?>
+                    </p>
+                    <p>
+                        <label>Khuyến mãi</label>
+                        <?php foreach($productstatus as $it){ ?>
+                    <div>
+
+                        <?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?>
+                        <input type="checkbox"  name="loaisp[<?php echo @$it['categoryid']?>]" value="<?php echo @$it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'checked="checked"':''; ?> />
+                        <?php echo @$it['categoryname']?>
+                    </div>
+                    <?php } ?>
                     </p>
                 </div>
             </div>

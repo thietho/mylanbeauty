@@ -35,8 +35,18 @@ if(@count($medias))
                         <a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false"><img class="lazy" data-src='<?php echo @$media['imagethumbnail']?>' title="<?php echo @$this->document->productName($media)?>"/></a>
                         <div class="price-group">
                         	<?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
-                            	<?php foreach($media['childs'] as $me){?>
+                            	<?php foreach($media['childs'] as $me){ ?>
+
                                 	<p class="price">
+                                        <?php
+                                        $pos = strpos($me['groupkeys'],'[promotion]');
+                                        if($pos === false)
+                                        {
+
+                                        }
+                                        else
+                                            echo '<span class="shop">*</span>(';
+                                        ?>
                                     <?php echo @$me['sizes']?>
                                     <?php 
                                     //if(@$me['color'])
@@ -55,7 +65,17 @@ if(@count($medias))
                                     		<span class="shop"><?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span>
                                         <?php } ?>
                                     <?php } ?>
+                                        <?php
+                                        $pos = strpos($me['groupkeys'],'[promotion]');
+                                        if($pos === false)
+                                        {
+
+                                        }
+                                        else
+                                            echo ')';
+                                    ?>
                                     </p>
+
                                 <?php } ?>
                             <?php } ?>
                             <?php if(@count($media['childs'])==0 || $media['displaytype']=='compact'){ ?>

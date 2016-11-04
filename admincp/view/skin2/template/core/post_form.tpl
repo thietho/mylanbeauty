@@ -487,6 +487,17 @@
                                 </div>
                                 <?php } ?>
                             </div>
+                            <div class="form-group">
+                                <label>Khuyến mãi/label>
+                                <?php foreach($productstatus as $it){ ?>
+                                <div>
+
+                                    <?php echo @$this->string->getPrefix("&nbsp;&nbsp;&nbsp;&nbsp;",$it['level']) ?>
+                                    <input type="checkbox"  name="loaisp[<?php echo @$it['categoryid']?>]" value="<?php echo @$it['categoryid']?>" <?php echo in_array($it['categoryid'],$properties)?'checked="checked"':''; ?> />
+                                    <?php echo @$it['categoryname']?>
+                                </div>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                     <?php } ?>

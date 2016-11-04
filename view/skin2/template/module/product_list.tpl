@@ -40,6 +40,15 @@ if(@count($medias))
                         <?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
                         <?php foreach($media['childs'] as $me){ ?>
                         <div>
+                            <?php
+                                $pos = strpos($me['groupkeys'],'[promotion]');
+                                if($pos === false)
+                                {
+
+                                }
+                                else
+                                    echo '<span class="product-pricepromotion">*</span>(';
+                            ?>
                         	<?php echo @$me['sizes']?>
                             <?php 
                             if(@$me['color'])
@@ -48,7 +57,7 @@ if(@count($medias))
                             <?php $cls = '';?>
                             <?php if(@$me['pricepromotion']) $cls = 'product-price-no'; else $cls = 'product-pricepromotion'?>
                            
-                            
+
                             <span class="<?php echo @$cls?>" >
                             	<?php if(@$me['price']){ ?>
                             	<?php echo @$this->string->numberFormate($me['price'])?><?php echo @$this->document->setup['Currency']?>
@@ -62,7 +71,15 @@ if(@count($medias))
 
                             </span>
                             <?php } ?>
-                            
+                            <?php
+                                $pos = strpos($me['groupkeys'],'[promotion]');
+                                if($pos === false)
+                                {
+
+                                }
+                                else
+                                    echo ')';
+                            ?>
                         </div>
                         <?php } ?>
                     <?php } ?>
@@ -101,6 +118,7 @@ if(@count($medias))
                                     else
                                         @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
                                     @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+                                    @$data_price[$me['sizes']]['groupkeys'] = $me['groupkeys'];
                                 }
                             } ?>
                             <?php foreach($data_price as $size => $price){ ?>
@@ -110,10 +128,12 @@ if(@count($medias))
                                     if($size == '')
                                     	$str ='';
                                     if($price['pricepromotion']==0)
-                                		echo $str.$price['price'];
+                                		$str.=$price['price'];
                                     else
-                                    	echo $str.'<span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
+                                    	$str.='<span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
+                                    echo $str;
                                     ?>
+
                                 </div>
                             <?php } ?>
                         <?php } ?>
