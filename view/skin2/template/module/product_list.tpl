@@ -41,15 +41,16 @@ if(@count($medias))
                         <?php foreach($media['childs'] as $me){ ?>
                         <div>
                             <?php
+                                $str = '';
                                 $pos = strpos($me['groupkeys'],'[promotion]');
                                 if($pos === false)
                                 {
 
                                 }
                                 else
-                                    echo '<span class="product-pricepromotion">*</span>(';
+                                    $str = '<span class="product-pricepromotion">*</span>(';
                             ?>
-                        	<?php echo @$me['sizes']?>
+                        	<?php echo $str.$me['sizes']?>
                             <?php 
                             if(@$me['color'])
 								echo " ".$me['color'];

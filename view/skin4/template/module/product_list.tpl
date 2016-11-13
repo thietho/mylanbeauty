@@ -4,7 +4,7 @@ if(@count($medias))
 	
 ?>
 			<div class="ui-grid-a ui-responsive product-list">
-					<?php foreach($medias as $key => $media) {?>
+					<?php foreach($medias as $key => $media) { ?>
                     
                     <?php 
                     $block = "ui-block-a";
@@ -39,15 +39,16 @@ if(@count($medias))
 
                                 	<p class="price">
                                         <?php
+                                        $str = '';
                                         $pos = strpos($me['groupkeys'],'[promotion]');
                                         if($pos === false)
                                         {
 
                                         }
                                         else
-                                            echo '<span class="shop">*</span>(';
+                                            $str '<span class="shop">*</span>(';
                                         ?>
-                                    <?php echo @$me['sizes']?>
+                                    <?php echo $str.@$me['sizes']?>
                                     <?php 
                                     //if(@$me['color'])
                                         //echo " ".$me['color'];

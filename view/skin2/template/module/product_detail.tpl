@@ -186,7 +186,7 @@ $("#ben-next").click(function(){
                     	<td><strong>Giá:</strong></td>
                         <td>
                         	<?php $cls = '';?>
-                            <?php if(@$post['discountpercent']) echo "Giảm ".$post['discountpercent']."%"?>
+                            <?php if(@$post['discountpercent']) echo "Giảm ".$this->string->numberFormate($post['discountpercent'])."%"?>
                             <?php if(@$post['pricepromotion']!=0){ ?>
                             <?php $cls = 'product-price-no';?>
                             <span class="product-pricepromotion">
