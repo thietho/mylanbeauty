@@ -46,7 +46,7 @@ if(@count($medias))
 
                                         }
                                         else
-                                            $str '<span class="shop">*</span>(';
+                                            $str = '<span class="shop">*</span>(';
                                         ?>
                                     <?php echo $str.@$me['sizes']?>
                                     <?php 
