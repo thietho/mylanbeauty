@@ -39,8 +39,8 @@ final class Document {
 						   );
 	public $status_media = array(
 						   'active' => "Hiện",
-						   'hide' => "Ẩn"
-						   
+						   'hide' => "Ẩn",
+						   'show' => "Luôn hiện"
 						   );
 	public $paymenttype = array(
 							'cash'=>'Tiền mặt',

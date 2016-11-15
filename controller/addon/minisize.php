@@ -43,7 +43,7 @@ class ControllerAddonMinisize extends Controller
 	{
 		//$arrprotype = $this->string->matrixToArray($this->data['producttype'],'categoryid');
 		//$where = " AND brand = '".$brand."' AND noteprice in ('".implode("','",$arrprotype)."') AND inventory > 0";
-		$where = " AND brand = '".$brand."' AND noteprice <> '' AND inventory > 0";
+		$where = " AND brand = '".$brand."' AND noteprice <> '' AND ( inventory > 0 OR status = 'show')";
 		@$data_medias = array();
 		foreach($this->data['sitemaps'] as $sitemap)
 		{
@@ -60,7 +60,7 @@ class ControllerAddonMinisize extends Controller
 									  'widthpreview' => 450,
 									  'heightpreview' =>450
 									  );
-				$arr = array("",20,$header,$template,$medias);
+				$arr = array("",20,'',$template,$medias);
 				$data['sitemapname'] = $sitemap['sitemapname'];
 				$data['listpro'] = $this->loadModule('module/productlist','getAll',$arr);
 				$data_medias[$sitemap['sitemapid']] = $data;
@@ -72,12 +72,13 @@ class ControllerAddonMinisize extends Controller
 	{
 		//$arrprotype = $this->string->matrixToArray($this->data['producttype'],'categoryid');
 		//$where = " AND brand = '".$brand."' AND noteprice in ('".implode("','",$arrprotype)."') AND inventory > 0";
-		$where = " AND noteprice <> '' AND inventory > 0";
+		$where = " AND noteprice <> '' AND ( inventory > 0 OR status = 'show')";
 		@$data_medias = array();
 		foreach($this->data['sitemaps'] as $sitemap)
 		{
 			$w = $where . " AND  refersitemap like '%[".$sitemap['sitemapid']."]%'";
-			$medias = $this->model_core_media->getList($w,0,0," Order by code");
+
+			$medias = $this->model_core_media->getList($w,0,0," ORDER BY `code` ASC ");
 			if(count($medias))
 			{
 				//$data_medias = array_merge($data_medias,$medias);
@@ -89,7 +90,7 @@ class ControllerAddonMinisize extends Controller
 									  'widthpreview' => 450,
 									  'heightpreview' =>450
 									  );
-				@$arr = array("",20,$header,$template,$medias);
+				@$arr = array("",20,'',$template,$medias);
 				@$data['sitemapname'] = $sitemap['sitemapname'];
 				@$data['listpro'] = $this->loadModule('module/productlist','getAll',$arr);
 				@$data_medias[$sitemap['sitemapid']] = $data;
