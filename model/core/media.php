@@ -24,7 +24,7 @@ class ModelCoreMedia extends ModelCoreFile
 		
 		$sql = "Select `media`.* 
 									from `media` 
-									where status not like 'hide' " . $where ;
+									where `status` NOT IN ('delete','hide')". $where ;
 		if(@$order == "")
 		{
 			$order = " Order by position, statusdate DESC";
@@ -515,8 +515,7 @@ class ModelCoreMedia extends ModelCoreFile
 			$newerlist = $this->model_core_media->getPaginationList($queryoptions, $newstep, $to);
 			$olderlist = $this->model_core_media->getPaginationList($queryoptions, $oldstep, $to);
 			
-			@$newerid = (float)$medias[0]['id'];
-			@$olderid = (float)$medias[$index]['id'];
+
 			
 			if(count($newerlist) > 0 && $newstep >= 0)
 			{
