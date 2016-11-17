@@ -39,17 +39,24 @@ if(@count($medias))
                         </a>
                         <?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
                         <?php foreach($media['childs'] as $me){ ?>
-                        <div>
-                            <?php
-                                $str = '';
-                                $pos = strpos($me['groupkeys'],'[promotion]');
-                                if($pos === false)
-                                {
+                        <?php
+                        $str = '';
+                        $strclose = '';
+                        $clshideprice = '';
+                        $pos = strpos($me['groupkeys'],'[promotion]');
+                        if($pos === false)
+                        {
 
-                                }
-                                else
-                                    $str = '<span class="product-pricepromotion">*</span>(';
-                            ?>
+                        }
+                        else
+                        {
+                            $str = '<span class="product-pricepromotion">*</span>(';
+                            $strclose = ')';
+                            $clshideprice = 'class="pro-'.$media['mediaid'].'-hideprice hideprice"';
+                        }
+                        ?>
+                        <div <?php echo $clshideprice?>>
+
                         	<?php echo $str.$me['sizes']?>
                             <?php 
                             if(@$me['color'])
@@ -67,20 +74,9 @@ if(@count($medias))
                                 <?php } ?>
                             </span>
                             <?php if(@$me['pricepromotion']){ ?>
-                            <span class="product-pricepromotion">
-                        	<?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?>
-
-                            </span>
+                            <span class="product-pricepromotion"><?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span><?php echo $strclose?>
                             <?php } ?>
-                            <?php
-                                $pos = strpos($me['groupkeys'],'[promotion]');
-                                if($pos === false)
-                                {
 
-                                }
-                                else
-                                    echo ')';
-                            ?>
                         </div>
                         <?php } ?>
                     <?php } ?>
@@ -185,5 +181,36 @@ if(@count($medias))
 ?>
 <script type="text/javascript">
 loadLazy();
+$('.product').hover(function(e){
+    var str = '';
+    $('.'+this.id + '-hideprice').each(function(){
+
+        str += "<div>"+$(this).html()+"</div>";
+    });
+
+    $('#tool-tip-product').html(str);
+
+},function(e){
+
+});
+$('.product').mouseover(function(e){
+    if($('#tool-tip-product').html()!="")
+    {
+
+
+        $('#tool-tip-product').css('display','block');
+    }
+    else
+        $('#tool-tip-product').css('display','none');
+
+
+});
+
+$( document ).on( "mousemove", function( event ) {
+    //console.log( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+    $('#tool-tip-product').css("left", event.pageX+"px");
+    $('#tool-tip-product').css('top', event.pageY+"px");
+});
 </script>
+<div id="tool-tip-product" style="display: none;position: absolute;background: #fff;border:#666666 solid thin;border-radius: 5px;padding: 5px;text-align: center"></div>
 

@@ -299,8 +299,8 @@ class ControllerModuleProductlist extends Controller
 			
 			//$where = " AND mediaparent = '".$media['mediaid']."' AND sizes <> '' AND price > 0";
 			//$this->data['medias'][$i]['data_samplecode'] = $this->model_core_media->getList($where);
-			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid'],'',' Order by sizes');
-			usort($this->data['medias'][$i]['childs'],array("ControllerModuleProductlist", "cmp"));
+			$this->data['medias'][$i]['childs'] = $this->model_core_media->getListByParent($media['mediaid'],'',' Order by position');
+			//usort($this->data['medias'][$i]['childs'],array("ControllerModuleProductlist", "cmp"));
 			$discountpercent = 0;
 			if(count($this->data['medias'][$i]['childs']))
 			{

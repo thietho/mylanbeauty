@@ -900,3 +900,8 @@ img.lazy {
 	width: 100%;
     height: 180px;
 }
+.hideprice
+{
+    display: none;
+    position: absolute;
+}
