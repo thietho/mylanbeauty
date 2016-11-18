@@ -35,19 +35,27 @@ if(@count($medias))
                         <a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false"><img class="lazy" data-src='<?php echo @$media['imagethumbnail']?>' title="<?php echo @$this->document->productName($media)?>"/></a>
                         <div class="price-group">
                         	<?php if(@count($media['childs']) && $media['displaytype']==''){ ?>
+                                <?php $ispromotion = 0;?>
                             	<?php foreach($media['childs'] as $me){ ?>
-
-                                	<p class="price">
-                                        <?php
+                                <?php
                                         $str = '';
+                                        $strclose = '';
+                                        $cls = '';
                                         $pos = strpos($me['groupkeys'],'[promotion]');
                                         if($pos === false)
                                         {
 
                                         }
                                         else
+                                        {
+                                            $ispromotion = 1;
+                                            $cls = $media['mediaid']."-promotion hideprice";
                                             $str = '<span class="shop">*</span>(';
-                                        ?>
+                                            $strclose = ')';
+                                        }
+                                    ?>
+                                	<p class="price <?php echo $cls?>">
+
                                     <?php echo $str.@$me['sizes']?>
                                     <?php 
                                     //if(@$me['color'])
@@ -63,18 +71,10 @@ if(@count($medias))
                                         	
                                         	<span class="genuine"><?php echo @$this->string->numberFormate($me['price'])?><?php echo @$this->document->setup['Currency']?></span>
                                             -
-                                    		<span class="shop"><?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span>
+                                    		<span class="shop"><?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span><?php echo $strclose?>
                                         <?php } ?>
                                     <?php } ?>
-                                        <?php
-                                        $pos = strpos($me['groupkeys'],'[promotion]');
-                                        if($pos === false)
-                                        {
 
-                                        }
-                                        else
-                                            echo ')';
-                                    ?>
                                     </p>
 
                                 <?php } ?>
@@ -131,7 +131,11 @@ if(@count($medias))
                                 </center>
                             <?php } ?>
                             <center>
-                            	<a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false">Chi tiết</a>    
+                            	<a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false">Chi tiết</a>
+                                <?php if($ispromotion){ ?>
+                                <a href="#" style="color: red !important;" class="btnPromotion" mediaid="<?php echo $media['mediaid']?>">*Khuyến mãi</a>
+                                <div id="<?php echo $media['mediaid']?>-promotion" style="display: none"></div>
+                                <?php } ?>
                             </center>
                         </div>
                     </div>
@@ -148,6 +152,14 @@ if(@count($medias))
 
 $(document).ready(function(e) {
     loadLazy();
+    $('.btnPromotion').click(function(){
+        var str = "";
+        var mediaid = $(this).attr('mediaid');
+        $('.'+mediaid+"-promotion").each(function(){
+            str += $(this).html()+"<br>";
+        });
+        $('#'+mediaid+"-promotion").html(str).toggle();
+    });
 });
 	  
 </script>
