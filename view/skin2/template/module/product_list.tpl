@@ -5,7 +5,7 @@ if(@count($medias))
 ?>
 <div id="listpoduct">
 	<?php foreach($medias as $media) { ?>
-    <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover" title="<?php echo @$this->document->productName($media)?>">
+    <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover">
         <table>
             <tr class="product-list-image">
                 <td>
@@ -15,7 +15,7 @@ if(@count($medias))
                     <?php } ?>
                 	
                     <?php if(@$media['imagethumbnail'] !=""){ ?>
-                    <a class="islink" href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>"><img data-src='<?php echo @$media['imagethumbnail']?>' class='ben-center lazy' title="<?php echo @$this->document->productName($media)?>"/></a>
+                    <a class="islink" href="<?php echo @$media['link']?>"><img data-src='<?php echo @$media['imagethumbnail']?>' class='ben-center lazy'/></a>
                     
                     <?php }?>
                     	
@@ -24,7 +24,7 @@ if(@count($medias))
             <tr>
                 <td>
                     <div align="center">
-                    	<a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>">
+                    	<a href="<?php echo @$media['link']?>">
                         	<h6>
                             	<?php if(@count($media['childs'])){ ?>
                             	<?php echo @$media['title']?> - <?php echo @$media['code']?>
@@ -142,7 +142,7 @@ if(@count($medias))
                     </center>
                     <?php } ?>
                     <div align="center">
-                        <a href="<?php echo @$media['link']?>" title="<?php echo @$media['title']?><?php if(@$media['code']!="") echo ' - '.$media['code']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo @$media['mediaid']?>')">Đặt hàng</a>-->
+                        <a href="<?php echo @$media['link']?>">Chi tiết</a><!-- || <a onclick="cart.add('<?php echo @$media['mediaid']?>')">Đặt hàng</a>-->
                     </div>
                     <?php if(@$media['displaytype']=='compact'){ ?>
                     <div align="center">
