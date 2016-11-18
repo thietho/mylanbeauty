@@ -191,7 +191,7 @@ $('.product').hover(function(e){
     $('#tool-tip-product').html(str);
 
 },function(e){
-
+    $('#tool-tip-product').css('display','none');
 });
 $('.product').mouseover(function(e){
     if($('#tool-tip-product').html()!="")
@@ -200,9 +200,6 @@ $('.product').mouseover(function(e){
 
         $('#tool-tip-product').css('display','block');
     }
-    else
-        $('#tool-tip-product').css('display','none');
-
 
 });
 
