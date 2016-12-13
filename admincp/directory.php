@@ -14,7 +14,7 @@ define('DIR_CONTROLLER','controller/');
 define('DIR_MODEL','model/');
 define('DIR_LANGUAGE', 'language/');
 
-define('SKIN', 'skin2');
+define('SKIN', 'skin1');
 define('DIR_VIEW','view/'.SKIN.'/');
 define('DIR_TEMPLATE','view/'.SKIN.'/template/');
 define('DIR_IMAGE', 'view/'.SKIN.'/image/');

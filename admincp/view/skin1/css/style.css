@@ -116,7 +116,7 @@ a:hover {
 }
 
 a.feed {
-	background: url('img/icon-feed.gif') no-repeat left center;
+
 	padding-left: 18px;
 }
 
@@ -723,7 +723,7 @@ img.alignright,img.right {
 }
 
 .comment-list ul.children li {
-	background: url('img/comment-reply.gif') no-repeat left top;
+
 	margin: 0;
 	padding: 10px 0 0 15px;
 }
@@ -759,7 +759,7 @@ img.alignright,img.right {
 }
 
 .comment-arrow {
-	background: url('img/comment-arrow.gif') no-repeat left top;
+
 	display: block;
 	float: left;
 	height: 45px;
@@ -796,7 +796,7 @@ img.alignright,img.right {
 }
 
 #comments #respond ul {
-	background: url('img/comment-reply.gif') no-repeat left top;
+
 	padding: 10px 0 0 15px;
 }
 
@@ -1344,7 +1344,7 @@ ul.autocomplete {
 	cursor: pointer;
 	color: #C60;
 }
-}
+
 .product-price
 {
 	position:absolute;
