@@ -744,12 +744,13 @@ display:block;
 	position:absolute;	
 }
 
-#ben-icon-sale
+.ben-icon-sale
 {
-	margin-top:152px;	
+
+    margin-left:140px;
 }
 
-#ben-icon-new
+.ben-icon-new
 {
 	margin-left:140px;
 	margin-top:140px;

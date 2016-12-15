@@ -3,7 +3,7 @@
 if(@count($medias))
 {
 ?>
-<div id="listpoduct">
+<div id="listpoduct" xmlns="http://www.w3.org/1999/html">
 	<?php foreach($medias as $media) { ?>
     <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover">
         <table>
@@ -11,7 +11,8 @@ if(@count($medias))
                 <td>
                 	
                 	<?php if(@$media['discountpercent']){ ?>
-                	<div class="flagdiscount ben-icon">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>
+                	<!--<div class="flagdiscount ben-icon">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>-->
+                    <img class="ben-icon ben-icon-sale" src="<?php echo DIR_IMAGE?>icon/ico-sale.png">
                     <?php } ?>
                 	
                     <?php if(@$media['imagethumbnail'] !=""){ ?>
@@ -52,11 +53,14 @@ if(@count($medias))
                         {
                             $str = '<span class="product-pricepromotion">*</span>(';
                             $strclose = ')';
-                            $clshideprice = 'class="pro-'.$media['mediaid'].'-hideprice hideprice"';
+                            $clshideprice = 'pro-'.$media['mediaid'].'-hideprice hideprice';
                         }
                         ?>
-                        <div <?php echo $clshideprice?>>
-
+                        <div class="price-row <?php echo $clshideprice?>" >
+                            <?php ?>
+                            <?php if($me['discountpercent']){ ?>
+                            <span class="product-price-discount"><?php echo $this->string->numberFormate($me['discountpercent'])?>%</span>
+                            <?php } ?>
                         	<?php echo $str.$me['sizes']?>
                             <?php 
                             if(@$me['color'])
@@ -115,6 +119,7 @@ if(@count($medias))
                                     else
                                         @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
                                     @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+                                    @$data_price[$me['sizes']]['discountpercent'] = $this->string->numberFormate($me['discountpercent']);
                                     @$data_price[$me['sizes']]['groupkeys'] = $me['groupkeys'];
                                 }
                             } ?>
@@ -127,7 +132,7 @@ if(@count($medias))
                                     if($price['pricepromotion']==0)
                                 		$str.=$price['price'];
                                     else
-                                    	$str.='<span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
+                                    	$str.='<span class="product-price-discount">'.$price['discountpercent'].'</span><span class="product-price-no">'.$price['price'].'</span> <span class="product-pricepromotion">'.$price['pricepromotion'].'</span>';
                                     echo $str;
                                     ?>
 
