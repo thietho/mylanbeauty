@@ -12,7 +12,7 @@ if(@count($medias))
                 	
                 	<?php if(@$media['discountpercent']){ ?>
                 	<!--<div class="flagdiscount ben-icon">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>-->
-                    <img class="ben-icon ben-icon-sale" src="<?php echo DIR_IMAGE?>icon/ico-sale.png">
+                    <img class="ben-icon ben-icon-sale" src="<?php echo HTTP_SERVER.DIR_IMAGE?>icon/ico-sale.png">
                     <?php } ?>
                 	
                     <?php if(@$media['imagethumbnail'] !=""){ ?>

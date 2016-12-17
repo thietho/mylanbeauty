@@ -2,509 +2,216 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Bobbi Brown_Skin Foundation Mineral Makeup SPF 15_Skin Foundation Mineral Makeup SPF 15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Bobbi-Brown_Skin-Foundation-Mineral-Makeup-SPF-15_Skin-Foundation-Mineral-Makeup-SPF-15_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Bobbi-Brown_Skin-Foundation-Mineral-Makeup-SPF-15_Skin-Foundation-Mineral-Makeup-SPF-15_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Bobbi-Brown_Skin-Foundation-Mineral-Makeup-SPF-15_Skin-Foundation-Mineral-Makeup-SPF-15_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Cac hieu khac_Kanebo Kate Face Powder.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Cac-hieu-khac_Kanebo-Kate-Face-Powder_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Cac-hieu-khac_Kanebo-Kate-Face-Powder_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Cac-hieu-khac_Kanebo-Kate-Face-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC HOA HONG_ALOE VERA_Extra Comfort Toning Lotion Alcohol-Free.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC HOA HONG_CAMOMILE_Toning Lotion With camomile Alcohol free.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC HOA HONG_IRIS_Toning Lotion With iris.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_ALOE-VERA_Extra-Comfort-Toning-Lotion-Alcohol-Free_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_ALOE-VERA_Extra-Comfort-Toning-Lotion-Alcohol-Free_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_CAMOMILE_Toning-Lotion-With-camomile-Alcohol-free_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_CAMOMILE_Toning-Lotion-With-camomile-Alcohol-free_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_IRIS_Toning-Lotion-With-iris_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_NUOC-HOA-HONG_IRIS_Toning-Lotion-With-iris_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY TRANG_Cleansing Milk With Alpine Herbs for Normal to Dry Skin.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY TRANG_Cleansing Milk With Gentian for combination or oily skin.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY TRANG_NUOC TAY TRANG ONE STEP_Water Comfort One-Step Cleanser with Peach Essential Water.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_Cleansing-Milk-With-Alpine-Herbs-for-Normal-to-Dry-Skin_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_Cleansing-Milk-With-Alpine-Herbs-for-Normal-to-Dry-Skin_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_Cleansing-Milk-With-Gentian-for-combination-or-oily-skin_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_Cleansing-Milk-With-Gentian-for-combination-or-oily-skin_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_NUOC-TAY-TRANG-ONE-STEP_Water-Comfort-One-Step-Cleanser-with-Peach-Essential-Water_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_CLEANSER_TAY-TRANG_NUOC-TAY-TRANG-ONE-STEP_Water-Comfort-One-Step-Cleanser-with-Peach-Essential-Water_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA FIMING_DAY_Extra Firming Day Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA FIMING_EYE_Extra Firming Eye Complete Rejuvenating Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA FIMING_NECK_neck .jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA FIMING_NIGHT_Extra Firming Night Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_DAY_Extra-Firming-Day-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_DAY_Extra-Firming-Day-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_EYE_Extra-Firming-Eye-Complete-Rejuvenating-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_EYE_Extra-Firming-Eye-Complete-Rejuvenating-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_NECK_neck-_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_NECK_neck-_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_NIGHT_Extra-Firming-Night-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_EXTRA-FIMING_NIGHT_Extra-Firming-Night-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Extra-Comfort Anti-Pollution Cleansing Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Extra-Comfort-Anti-Pollution-Cleansing-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Extra-Comfort-Anti-Pollution-Cleansing-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi Active Day.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi Active Night Youth Recovery Comfort Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi-Active-Day_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi-Active-Day_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi-Active-Night-Youth-Recovery-Comfort-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_Multi-Active-Night-Youth-Recovery-Comfort-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_DAY KO SPF_White Plus Total Luminescent Brightening Hydrating Emulsion.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_DAY-KO-SPF_White-Plus-Total-Luminescent-Brightening-Hydrating-Emulsion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_DAY-KO-SPF_White-Plus-Total-Luminescent-Brightening-Hydrating-Emulsion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NIGHT_White Plus Total Luminescent Smoothing Brightening Night Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NIGHT_White-Plus-Total-Luminescent-Smoothing-Brightening-Night-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NIGHT_White-Plus-Total-Luminescent-Smoothing-Brightening-Night-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NUOC HOA HONG_White Plus Brightening Pure Aqua Lotion.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NUOC-HOA-HONG_White-Plus-Brightening-Pure-Aqua-Lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_NUOC-HOA-HONG_White-Plus-Brightening-Pure-Aqua-Lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_SERUM_White Plus Intensive Brightening Serum.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_SERUM_White-Plus-Intensive-Brightening-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_SERUM_White-Plus-Intensive-Brightening-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_White Plus All Spots Brightening Corrector.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_White-Plus-All-Spots-Brightening-Corrector_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clarins_WHITE_White-Plus-All-Spots-Brightening-Corrector_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clinique_Perfectly Real Radiant Skin Compact Makeup SPF29 PA_Perfectly Real Radiant Skin Compact Makeup SPF29 PA Refill 01 Ivory.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clinique_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA-Refill-01-Ivory_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clinique_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA-Refill-01-Ivory_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Clinique_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA_Perfectly-Real-Radiant-Skin-Compact-Makeup-SPF29-PA-Refill-01-Ivory_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Cyber White Brilliant Perfection Full Spectrum Brightening Cool Sensation Loose Powder SPF13 PA.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Cyber-White-Brilliant-Perfection-Full-Spectrum-Brightening-Cool-Sensation-Loose-Powder-SPF13-PA_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Cyber-White-Brilliant-Perfection-Full-Spectrum-Brightening-Cool-Sensation-Loose-Powder-SPF13-PA_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Cyber-White-Brilliant-Perfection-Full-Spectrum-Brightening-Cool-Sensation-Loose-Powder-SPF13-PA_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double Wear Stay-in-Place Makeup SPF 10_PHAN NEN_Double Wear Stay in Place Dual Effect Powder Makeup SPF10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double Wear Stay-in-Place Makeup SPF 10_PHAN NEN_DoubleWearStayinPlacePowderMakeup36NewSoftChestnut.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_Double-Wear-Stay-in-Place-Dual-Effect-Powder-Makeup-SPF10_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_Double-Wear-Stay-in-Place-Dual-Effect-Powder-Makeup-SPF10_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_Double-Wear-Stay-in-Place-Dual-Effect-Powder-Makeup-SPF10_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_DoubleWearStayinPlacePowderMakeup36NewSoftChestnut_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_DoubleWearStayinPlacePowderMakeup36NewSoftChestnut_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Double-Wear-Stay-in-Place-Makeup-SPF-10_PHAN-NEN_DoubleWearStayinPlacePowderMakeup36NewSoftChestnut_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Perfecting Loose Powder.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Perfecting-Loose-Powder_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Perfecting-Loose-Powder_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_EsteeLauder_Perfecting-Loose-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_AQUA ALLEGORIA_AQUA ALLEGORIA Limon Verde.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_AQUA-ALLEGORIA_AQUA-ALLEGORIA-Limon-Verde_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_AQUA-ALLEGORIA_AQUA-ALLEGORIA-Limon-Verde_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_ABEILLE ROYALE DAILY REPAIR SERUM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_ABEILLE ROYALE DAY CREAM NORMAL TO DRY SKIN WRINKLE CORRECTION FIRMING.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_ABEILLE ROYALE DAY CREAM WRINKLE CORRECTION FIRMING.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_ABEILLE ROYALE NIGHT CREAM WRINKLE CORRECTION FIRMING.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_ABEILLE ROYALE REPAIRING HONEY GEL MASK.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_Abeille Royale Gold Eyetech Eye Sculpt Serum_Abeille Royale Gold Eyetech Eye Sculpt Serum.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_Abeille Royale Up lifting Eye Care Firming lift wrinkle correction.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille Royale_Abeille Royale Youth Serum Firming Lift Wrinkle Correction.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAILY-REPAIR-SERUM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAILY-REPAIR-SERUM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAY-CREAM-NORMAL-TO-DRY-SKIN-WRINKLE-CORRECTION-FIRMING_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAY-CREAM-NORMAL-TO-DRY-SKIN-WRINKLE-CORRECTION-FIRMING_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAY-CREAM-WRINKLE-CORRECTION-FIRMING_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-DAY-CREAM-WRINKLE-CORRECTION-FIRMING_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-NIGHT-CREAM-WRINKLE-CORRECTION-FIRMING_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-NIGHT-CREAM-WRINKLE-CORRECTION-FIRMING_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-REPAIRING-HONEY-GEL-MASK_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_ABEILLE-ROYALE-REPAIRING-HONEY-GEL-MASK_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Gold-Eyetech-Eye-Sculpt-Serum_Abeille-Royale-Gold-Eyetech-Eye-Sculpt-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Gold-Eyetech-Eye-Sculpt-Serum_Abeille-Royale-Gold-Eyetech-Eye-Sculpt-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Up-lifting-Eye-Care-Firming-lift-wrinkle-correction_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Up-lifting-Eye-Care-Firming-lift-wrinkle-correction_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Youth-Serum-Firming-Lift-Wrinkle-Correction_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Abeille-Royale_Abeille-Royale-Youth-Serum-Firming-Lift-Wrinkle-Correction_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_BLANC DE PERLE WHITE PEARL SLEEPING MASK WHITENING MASK.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_Blanc de Perle Lotion Whitening Pearl Perfection.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_Blanc de Perle Whitening Night Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_NIGHT_NIGHT 7ML.JPG" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_SERUM_BLANC DE PERLE ADVANCED WHITE PEARL DROP WHITENING ESSENCE.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc de Perle_UV_Blanc de Perle Long Lasting UV Shield SPF50.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_BLANC-DE-PERLE-WHITE-PEARL-SLEEPING-MASK-WHITENING-MASK_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_BLANC-DE-PERLE-WHITE-PEARL-SLEEPING-MASK-WHITENING-MASK_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_Blanc-de-Perle-Lotion-Whitening-Pearl-Perfection_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_Blanc-de-Perle-Lotion-Whitening-Pearl-Perfection_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_Blanc-de-Perle-Whitening-Night-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_Blanc-de-Perle-Whitening-Night-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_NIGHT_NIGHT-7ML_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_NIGHT_NIGHT-7ML_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_SERUM_BLANC-DE-PERLE-ADVANCED-WHITE-PEARL-DROP-WHITENING-ESSENCE_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_SERUM_BLANC-DE-PERLE-ADVANCED-WHITE-PEARL-DROP-WHITENING-ESSENCE_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_UV_Blanc-de-Perle-Long-Lasting-UV-Shield-SPF50_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Blanc-de-Perle_UV_Blanc-de-Perle-Long-Lasting-UV-Shield-SPF50_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_FACE TREATMENT OIL.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_FACE-TREATMENT-OIL_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_FACE-TREATMENT-OIL_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lait de BeautÃ© Cleansing milk.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lait-de-BeautÃ©-Cleansing-milk_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lait-de-BeautÃ©-Cleansing-milk_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les Voilettes Translucent Loose Powder.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes-Translucent-Loose-Powder_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes-Translucent-Loose-Powder_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes-Translucent-Loose-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes_Les-Voilettes-Translucent-Compact-Powder_02-Clair_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lingerie-de-Peau-Nude-Powder-Foundation-Moisture-Retention-Matte-Effect_12-Rose-Clair_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES COMPACT LIGHT REVEALING POWDER_METEORITES COMPACT LIGHT REVEALING POWDER 3 Medium.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES COMPACT LIGHT REVEALING POWDER_METEORITES COMPACT LIGHT REVEALING POWDER 4 Dore.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_200x200.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_250x250.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_50x50.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_60x60.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_800x800.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-3-Medium_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-3-Medium_250x250.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-3-Medium_50x50.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-3-Medium_800x800.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-4-Dore_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-4-Dore_250x250.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-4-Dore_50x50.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-4-Dore_800x800.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Eyebrow Kit 4 Long-Lasting Powders Tailor-Made Shades 00 Universel_G041669.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Eyebrow-Kit-4-Long-Lasting-Powders-Tailor-Made-Shades-00-Universel_G041669_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Eyebrow-Kit-4-Long-Lasting-Powders-Tailor-Made-Shades-00-Universel_G041669_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Meteorites-Voyage-Exceptional-Compacted-Pearls-of-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose Aux Joues Tender Blush_01 Morning Rose.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose Aux Joues Tender Blush_02 Chic Pink.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose Aux Joues Tender Blush_03 Peach Party.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose Aux Joues Tender Blush_06 Pink Me Up.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_01-Morning-Rose_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_01-Morning-Rose_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_02-Chic-Pink_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_02-Chic-Pink_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_03-Peach-Party_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_03-Peach-Party_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_06-Pink-Me-Up_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Rose-Aux-Joues-Tender-Blush_06-Pink-Me-Up_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Compact-UV-Shield-Pressed-Powder-Protective-Illuminating-and-Mattifying_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Light-Revealing-Pearls-of-Powder_2_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_LA PETITE ROBE NOIRE BODY MILK Velvet body milk for glamorous skin.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_LA PETITE ROBE NOIRE EAU DE PARFUM COUTURE.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_LA PETITE ROBE NOIRE EAU DE PARFUM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_LA PETITE ROBE NOIRE EAU DE TOILETTE.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_La Petite Robe Noire Eau Fraiche.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC HOA_Lhomme IdÃ©al Eau de toilette.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-BODY-MILK-Velvet-body-milk-for-glamorous-skin_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-BODY-MILK-Velvet-body-milk-for-glamorous-skin_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-PARFUM-COUTURE_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-PARFUM-COUTURE_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-PARFUM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-PARFUM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-TOILETTE_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_LA-PETITE-ROBE-NOIRE-EAU-DE-TOILETTE_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_La-Petite-Robe-Noire-Eau-Fraiche_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_La-Petite-Robe-Noire-Eau-Fraiche_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_Lhomme-IdÃ©al-Eau-de-toilette_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_NUOC-HOA_Lhomme-IdÃ©al-Eau-de-toilette_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE IMPERIALE MASK.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE IMPERIALE NECK AND DECOLLETE CREAM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE IMPERIALE THE CREAM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE IMPERIALE THE EYE AND LIP CREAM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE IMPERIALE THE LOTION.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-MASK_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-MASK_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-NECK-AND-DECOLLETE-CREAM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-NECK-AND-DECOLLETE-CREAM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-CREAM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-CREAM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-EYE-AND-LIP-CREAM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-EYE-AND-LIP-CREAM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-LOTION_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_ORCHIDEE-IMPERIALE-THE-LOTION_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee Imperiale The Body Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee Imperiale The UV Beauty Protector SPF50.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee-Imperiale-The-Body-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee-Imperiale-The-Body-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee-Imperiale-The-UV-Beauty-Protector-SPF50_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_Orchidee-Imperiale-The-UV-Beauty-Protector-SPF50_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e ImpÃ©riale The Fluid.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e ImpÃ©riale The Longevity Concentrate.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e-ImpÃ©riale-The-Fluid_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e-ImpÃ©riale-The-Fluid_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e-ImpÃ©riale-The-Longevity-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_OrchidÃ©e-ImpÃ©riale-The-Longevity-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_SERUM WHITE_Orchidee Imperiale White Age Defying and Brightening Serum.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_SERUM-WHITE_Orchidee-Imperiale-White-Age-Defying-and-Brightening-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_ORCHIDEE_SERUM-WHITE_Orchidee-Imperiale-White-Age-Defying-and-Brightening-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Parure-Gold-Gold-Radiance-Powder-Foundation-Rejuvenating-Effect-SPF-15-PA--_31_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SECRET DE PURETE_Secret de Purete Cleansing Cream Smoothes Illuminates.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SECRET-DE-PURETE_Secret-de-Purete-Cleansing-Cream-Smoothes-Illuminates_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SECRET-DE-PURETE_Secret-de-Purete-Cleansing-Cream-Smoothes-Illuminates_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_SUPER AQUA BODY BODY SERUM OPTIMUM HYDRATION REVITALIZER.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_SUPER AQUA CREME DAY CREAM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_SUPER AQUA CREME DAY GEL.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_SUPER AQUA CREME NIGHT BALM.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_SUPER AQUA SERUM BB HYDRA.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_Super Aqua Eye Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_Super Aqua Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER AQUA_Super Aqua-Lotion.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-BODY-BODY-SERUM-OPTIMUM-HYDRATION-REVITALIZER_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-BODY-BODY-SERUM-OPTIMUM-HYDRATION-REVITALIZER_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-DAY-CREAM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-DAY-CREAM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-DAY-GEL_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-DAY-GEL_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-NIGHT-BALM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-CREME-NIGHT-BALM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-SERUM-BB-HYDRA_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_SUPER-AQUA-SERUM-BB-HYDRA_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Eye-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Eye-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_SUPER-AQUA_Super-Aqua-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Terracotta After Sun Cream.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Terracotta-After-Sun-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Terracotta-After-Sun-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_ABSOLUE PREMIUM Bx Absolute Night Recovery Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_ABSOLUE-PREMIUM-Bx-Absolute-Night-Recovery-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_ABSOLUE-PREMIUM-Bx-Absolute-Night-Recovery-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Nuit Premium Bx Advanced Night Recovery Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Precious Cells Advanced Regenerating and Repairing Care.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Premium ÃŸx Lotion Advanced Replenishing Toner.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Premium Î²x Cream Advanced Replenishing Cream SPF 15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Sublime Rejuvenating Essence Foundation.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue Yeux Premium Î²x Absolute Replenishing Eye Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Nuit-Premium-Bx-Advanced-Night-Recovery-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Nuit-Premium-Bx-Advanced-Night-Recovery-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Precious-Cells-Advanced-Regenerating-and-Repairing-Care_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Precious-Cells-Advanced-Regenerating-and-Repairing-Care_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Premium-ÃŸx-Lotion-Advanced-Replenishing-Toner_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Premium-ÃŸx-Lotion-Advanced-Replenishing-Toner_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Premium-Î²x-Cream-Advanced-Replenishing-Cream-SPF-15_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Premium-Î²x-Cream-Advanced-Replenishing-Cream-SPF-15_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Sublime-Rejuvenating-Essence-Foundation_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Sublime-Rejuvenating-Essence-Foundation_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Sublime-Rejuvenating-Essence-Foundation_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Yeux-Premium-Î²x-Absolute-Replenishing-Eye-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_Absolue-Yeux-Premium-Î²x-Absolute-Replenishing-Eye-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_AbsolueUVPreciousCellsGlobalYouthProtectorSPF50.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_AbsolueUVPreciousCellsGlobalYouthProtectorSPF50_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_AbsolueUVPreciousCellsGlobalYouthProtectorSPF50_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_B WHITE_Absolue B White Advanced Whitening Anti Age Spot Concentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_B-WHITE_Absolue-B-White-Advanced-Whitening-Anti-Age-Spot-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_B-WHITE_Absolue-B-White-Advanced-Whitening-Anti-Age-Spot-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_Absolue Yeux Precious Cells Advanced Regenerating and Replenishing Eye Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_Absolue-Yeux-Precious-Cells-Advanced-Regenerating-and-Replenishing-Eye-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_Absolue-Yeux-Precious-Cells-Advanced-Regenerating-and-Replenishing-Eye-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_AbsolueYeuxPreciousCells GlobalMultiRestorativeEyeConcentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_AbsolueYeuxPreciousCells-GlobalMultiRestorativeEyeConcentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_EYE_AbsolueYeuxPreciousCells-GlobalMultiRestorativeEyeConcentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_CREAM_Absolue LExtrait regenerating ultimate elixir.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_CREAM_Absolue-LExtrait-regenerating-ultimate-elixir_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_CREAM_Absolue-LExtrait-regenerating-ultimate-elixir_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_EYE BALM_Absolue LExtrait Regenerating Ultimate Eye Balm-Elixir.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_EYE-BALM_Absolue-LExtrait-Regenerating-Ultimate-Eye-Balm-Elixir_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_EYE-BALM_Absolue-LExtrait-Regenerating-Ultimate-Eye-Balm-Elixir_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_NUOC HH_Absolue LExtrait Ultimate Beautifying Lotion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_NUOC-HH_Absolue-LExtrait-Ultimate-Beautifying-Lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_NUOC-HH_Absolue-LExtrait-Ultimate-Beautifying-Lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_OIL_Absolue LExtrait Ultimate Essence.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_OIL_Absolue-LExtrait-Ultimate-Essence_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_OIL_Absolue-LExtrait-Ultimate-Essence_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_SERUM_Absolue LExtrait Regenerating and Renewing Ultimate Elixir-Concentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_SERUM_Absolue-LExtrait-Regenerating-and-Renewing-Ultimate-Elixir-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_LEXTRAIT_SERUM_Absolue-LExtrait-Regenerating-and-Renewing-Ultimate-Elixir-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_OLEO SERUM_Absolue Precious Essence.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_OLEO-SERUM_Absolue-Precious-Essence_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_OLEO-SERUM_Absolue-Precious-Essence_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS CELL_DAY_Absolue Precious Cells Advanced Regenerating And Replenishing Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS CELL_NIGHT_Absolue Nuit Precious Cells Advanced Regenerating And Restoring Night Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS CELL_NUOC HH_Absolue Precious Cells Advanced Youthful Lotion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS CELL_mask face.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_DAY_Absolue-Precious-Cells-Advanced-Regenerating-And-Replenishing-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_DAY_Absolue-Precious-Cells-Advanced-Regenerating-And-Replenishing-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_NIGHT_Absolue-Nuit-Precious-Cells-Advanced-Regenerating-And-Restoring-Night-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_NIGHT_Absolue-Nuit-Precious-Cells-Advanced-Regenerating-And-Restoring-Night-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_NUOC-HH_Absolue-Precious-Cells-Advanced-Youthful-Lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_NUOC-HH_Absolue-Precious-Cells-Advanced-Youthful-Lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_mask-face_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_PRECIOUS-CELL_mask-face_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE AURA_Absolue Precious Cells White Aura Regenerating and Brightening Global Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE AURA_KEM LOT_Absolue Precious Cells White Aura Miracle Illuminating Finisher.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE AURA_SERUM_Absolue Precious Cells White Aura Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_Absolue-Precious-Cells-White-Aura-Regenerating-and-Brightening-Global-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_Absolue-Precious-Cells-White-Aura-Regenerating-and-Brightening-Global-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_KEM-LOT_Absolue-Precious-Cells-White-Aura-Miracle-Illuminating-Finisher_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_KEM-LOT_Absolue-Precious-Cells-White-Aura-Miracle-Illuminating-Finisher_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_SERUM_Absolue-Precious-Cells-White-Aura-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Absolue_WHITE-AURA_SERUM_Absolue-Precious-Cells-White-Aura-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE DE VIE_DAY CREAM_ENERGIE DE VIE DAY CREAM.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE DE VIE_NUOC HOA HONG_ENERGIE DE VIE INTENSE ESSENCE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE DE VIE_NUOC HOA HONG_PEARLY LOTION.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE DE VIE_SERUM_ENERGIE DE VIE LIQUID CARE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_DAY-CREAM_ENERGIE-DE-VIE-DAY-CREAM_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_DAY-CREAM_ENERGIE-DE-VIE-DAY-CREAM_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_NUOC-HOA-HONG_ENERGIE-DE-VIE-INTENSE-ESSENCE_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_NUOC-HOA-HONG_ENERGIE-DE-VIE-INTENSE-ESSENCE_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_NUOC-HOA-HONG_PEARLY-LOTION_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_NUOC-HOA-HONG_PEARLY-LOTION_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_SERUM_ENERGIE-DE-VIE-LIQUID-CARE_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_ENERGIE-DE-VIE_SERUM_ENERGIE-DE-VIE-LIQUID-CARE_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Genifique_FACE_Advanced GÃ©nifique. Youth Activating Concentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Genifique_FACE_Advanced-GÃ©nifique.-Youth-Activating-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Genifique_FACE_Advanced-GÃ©nifique.-Youth-Activating-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire LR 2412 4 Cx Advanced Skin Corrector for Wrinkles Pores and Uneven skin texture.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire LR 2412 Correcting Polishing Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire LR 2412 Pre Correcting Advanced Emulsion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire Lotion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire Yeux.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-4-Cx-Advanced-Skin-Corrector-for-Wrinkles-Pores-and-Uneven-skin-texture_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-4-Cx-Advanced-Skin-Corrector-for-Wrinkles-Pores-and-Uneven-skin-texture_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-Correcting-Polishing-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-Correcting-Polishing-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-Pre-Correcting-Advanced-Emulsion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-LR-2412-Pre-Correcting-Advanced-Emulsion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-Lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-Lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-Yeux_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Lancome_Visionnaire_Visionnaire-Yeux_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_BIO PERFORMANCE_BIOPERFORMANCE Advanced Super Revitalizing Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_BIO-PERFORMANCE_BIOPERFORMANCE-Advanced-Super-Revitalizing-Cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_BIO-PERFORMANCE_BIOPERFORMANCE-Advanced-Super-Revitalizing-Cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_BIO-PERFORMANCE_BIOPERFORMANCE-Advanced-Super-Revitalizing-Cream_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_ClÃ© de Peau BeautÃ© The Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG GENTLE_KEM DEM_gentle nourishing emulsion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG GENTLE_KEM NGAY_gentle protective emulsion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG GENTLE_NUOC HH_gentle balancing lotion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG REFRESH_KEM NGAY_Cle de Peau BeautÃ© Refreshing Protective Emulsion I.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG REFRESH_NUOC HH_ClÃ© de Peau BeautÃ© Refreshing Balancing Lotion I.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_KEM DUONG REFRESH_kem dem_ClÃ© de Peau BeautÃ© Refreshing Nourishing Emulsion I.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_UV_UV protection cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_body cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_essential correcting refiner.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_extra rich lipstick_311.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_intensive brightening mask.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle de Peau Beaute_perfect lash mascara.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_ClÃ©-de-Peau-BeautÃ©-The-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_ClÃ©-de-Peau-BeautÃ©-The-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_KEM-DEM_gentle-nourishing-emulsion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_KEM-DEM_gentle-nourishing-emulsion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_KEM-NGAY_gentle-protective-emulsion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_KEM-NGAY_gentle-protective-emulsion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_NUOC-HH_gentle-balancing-lotion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-GENTLE_NUOC-HH_gentle-balancing-lotion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_KEM-NGAY_Cle-de-Peau-BeautÃ©-Refreshing-Protective-Emulsion-I_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_KEM-NGAY_Cle-de-Peau-BeautÃ©-Refreshing-Protective-Emulsion-I_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_NUOC-HH_ClÃ©-de-Peau-BeautÃ©-Refreshing-Balancing-Lotion-I_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_NUOC-HH_ClÃ©-de-Peau-BeautÃ©-Refreshing-Balancing-Lotion-I_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_kem-dem_ClÃ©-de-Peau-BeautÃ©-Refreshing-Nourishing-Emulsion-I_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_KEM-DUONG-REFRESH_kem-dem_ClÃ©-de-Peau-BeautÃ©-Refreshing-Nourishing-Emulsion-I_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_UV_UV-protection-cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_UV_UV-protection-cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_body-cream_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_body-cream_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_essential-correcting-refiner_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_essential-correcting-refiner_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_extra-rich-lipstick_311_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_extra-rich-lipstick_311_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_intensive-brightening-mask_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_intensive-brightening-mask_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_perfect-lash-mascara_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Cle-de-Peau-Beaute_perfect-lash-mascara_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _EYE COLOR CREAM.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _EYE LINER 2 DAU.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _EYEBROW STYLING.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _FESTIVAL EYECOLOR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _NATURAL EYEBROW PENCIL.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW _SPARKING.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_EYE-COLOR-CREAM_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_EYE-LINER-2-DAU_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_EYEBROW-STYLING_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_FESTIVAL-EYECOLOR_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_NATURAL-EYEBROW-PENCIL_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_EYEBROW-_SPARKING_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_cushion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_cushion_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_cushion_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_cushion_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan nen sheer.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan nen.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen-sheer_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen-sheer_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen-sheer_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FOUDATION_phan-nen_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_FUTURE SOLUTION LX Total Radiance Loose Powder.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_KEM DEM_Future Solution LX Total Regenerating Cream.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_NUOC HH_FUTURE SOLUTION LX Concentrated Balancing Softener.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_OIL_FUTURE SOLUTION LX Replenishing Treatment Oil.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_SERUM_FUTURE SOLUTION LX Ultimate Regenerating Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE LX_SERUM_Future Solution LX Superior Radiance Serum.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_FUTURE-SOLUTION-LX-Total-Radiance-Loose-Powder_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_FUTURE-SOLUTION-LX-Total-Radiance-Loose-Powder_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_FUTURE-SOLUTION-LX-Total-Radiance-Loose-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_NUOC-HH_FUTURE-SOLUTION-LX-Concentrated-Balancing-Softener_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_NUOC-HH_FUTURE-SOLUTION-LX-Concentrated-Balancing-Softener_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_OIL_FUTURE-SOLUTION-LX-Replenishing-Treatment-Oil_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_OIL_FUTURE-SOLUTION-LX-Replenishing-Treatment-Oil_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_SERUM_FUTURE-SOLUTION-LX-Ultimate-Regenerating-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_SERUM_FUTURE-SOLUTION-LX-Ultimate-Regenerating-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_SERUM_Future-Solution-LX-Superior-Radiance-Serum_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_FUTURE-LX_SERUM_Future-Solution-LX-Superior-Radiance-Serum_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LACQUER ROUGE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LACQUER-ROUGE_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LAQUER.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LAQUER_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LIP LINER.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_LIP-LINER_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_PERFECT ROUGE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_PERFECT SHEER.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_PERFECT-ROUGE_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_PERFECT-SHEER_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_SHIMMER.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_SHIMMER_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_veild.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_LIPSTICK_veild_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_FULL LASH SERUM.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_FULL LUSH.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_FULL-LASH-SERUM_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_FULL-LUSH_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_LASH.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_LASH_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_MASCARA BASE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_MASCARA-BASE_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT Definition.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT VOLUME.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT-Definition_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT-VOLUME_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_MASCARA_PERFECT_100x100.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Translucent Loose Powder.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Translucent-Loose-Powder_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Translucent-Loose-Powder_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_Translucent-Loose-Powder_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE Power Infusing Concentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE Power Infusing Eye Concentrate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE-Power-Infusing-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE-Power-Infusing-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE-Power-Infusing-Eye-Concentrate_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_ULTIMUNE-Power-Infusing-Eye-Concentrate_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_UV_Sun Protection Compact Foundation SPF 35.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_UV_Sun-Protection-Compact-Foundation-SPF-35_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_UV_Sun-Protection-Compact-Foundation-SPF-35_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_UV_Sun-Protection-Compact-Foundation-SPF-35_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_WHITE LUCENT_WHITE LUCENT Brightening Spot Control Foundation_WHITE LUCENT Brightening Spot Control Foundation.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_WHITE-LUCENT_WHITE-LUCENT-Brightening-Spot-Control-Foundation_WHITE-LUCENT-Brightening-Spot-Control-Foundation_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_WHITE-LUCENT_WHITE-LUCENT-Brightening-Spot-Control-Foundation_WHITE-LUCENT-Brightening-Spot-Control-Foundation_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_WHITE-LUCENT_WHITE-LUCENT-Brightening-Spot-Control-Foundation_WHITE-LUCENT-Brightening-Spot-Control-Foundation_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_bronzer.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_bronzer_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_bronzer_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_bronzer_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_phan phu.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_phan-phu_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_phan-phu_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Shishedo_phan-phu_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Gentle Brush Face and Neck.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Gentle-Brush-Face-and-Neck_180x180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Gentle-Brush-Face-and-Neck_450x450.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Blanc-Lightening-Compact-Foundation_Phyto-Blanc-Lightening-Compact-Foundation_550x550.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Transparent-Loose-Powder_550x550.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/config/directory.php" afterPath="$PROJECT_DIR$/system/config/directory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/skin2/css/product.css" afterPath="$PROJECT_DIR$/view/skin2/css/product.css" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_CC Cream.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_CC-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_CC-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les Voilettes_Les Voilettes Translucent Compact Powder_02 Clair.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes_Les-Voilettes-Translucent-Compact-Powder_02-Clair_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Les-Voilettes_Les-Voilettes-Translucent-Compact-Powder_02-Clair_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lingerie de Peau Nude Powder Foundation Moisture Retention-Matte Effect_12 Rose Clair.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lingerie-de-Peau-BB-Beauty-Booster-Multi-Perfecting-Makeup-SPF-30-PA_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lingerie-de-Peau-Nude-Powder-Foundation-Moisture-Retention-Matte-Effect_12-Rose-Clair_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Lingerie-de-Peau-Nude-Powder-Foundation-Moisture-Retention-Matte-Effect_12-Rose-Clair_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES BABY GLOW LIGHT REVEALING SHEER MAKE UP.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES COMPACT LIGHT REVEALING POWDER_METEORITES COMPACT LIGHT REVEALING POWDER 2 Clair.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-BABY-GLOW-LIGHT-REVEALING-SHEER-MAKE-UP_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-BABY-GLOW-LIGHT-REVEALING-SHEER-MAKE-UP_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_METEORITES-COMPACT-LIGHT-REVEALING-POWDER_METEORITES-COMPACT-LIGHT-REVEALING-POWDER-2-Clair_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Meteorites Voyage Exceptional Compacted Pearls of Powder.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Meteorites-Voyage-Exceptional-Compacted-Pearls-of-Powder_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Makeup_Meteorites-Voyage-Exceptional-Compacted-Pearls-of-Powder_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites Compact UV Shield Pressed Powder Protective Illuminating and Mattifying.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites Light Revealing Pearls of Powder_2.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Compact-UV-Shield-Pressed-Powder-Protective-Illuminating-and-Mattifying_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Compact-UV-Shield-Pressed-Powder-Protective-Illuminating-and-Mattifying_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Light-Revealing-Pearls-of-Powder_2_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Meteorites-Light-Revealing-Pearls-of-Powder_2_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Parure Gold Gold Radiance Powder Foundation Rejuvenating Effect SPF 15 PA  _31.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Parure-Gold-Gold-Radiance-Powder-Foundation-Rejuvenating-Effect-SPF-15-PA--_31_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Guerlain_Parure-Gold-Gold-Radiance-Powder-Foundation-Rejuvenating-Effect-SPF-15-PA--_31_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_BODY CREAM_Confort Extreme Body Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_BODY-CREAM_Confort-Extreme-Body-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_BODY-CREAM_Confort-Extreme-Body-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Energizing Foaming Exfoliant for the Body_Energizing Foaming Exfoliant for the Body.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Energizing-Foaming-Exfoliant-for-the-Body_Energizing-Foaming-Exfoliant-for-the-Body_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Energizing-Foaming-Exfoliant-for-the-Body_Energizing-Foaming-Exfoliant-for-the-Body_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Phyto-Svelt Global Intensive Slimming Body Care_Phyto Svelt Global Intensive Slimming Body Care.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Phyto-Svelt-Global-Intensive-Slimming-Body-Care_Phyto-Svelt-Global-Intensive-Slimming-Body-Care_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Phyto-Svelt-Global-Intensive-Slimming-Body-Care_Phyto-Svelt-Global-Intensive-Slimming-Body-Care_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Restorative Fluid Body Cream_Restorative Fluid Body Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Restorative-Fluid-Body-Cream_Restorative-Fluid-Body-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Restorative-Fluid-Body-Cream_Restorative-Fluid-Body-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Sisleya Anti-Aging Concentrate Firming Body Care_Sisleya Anti Aging Concentrate Firming Body Care.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Sisleya-Anti-Aging-Concentrate-Firming-Body-Care_Sisleya-Anti-Aging-Concentrate-Firming-Body-Care_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_BODY_Sisleya-Anti-Aging-Concentrate-Firming-Body-Care_Sisleya-Anti-Aging-Concentrate-Firming-Body-Care_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Body Suncare SPF15 UVA.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Body-Suncare-SPF15-UVA_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Body-Suncare-SPF15-UVA_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Celluli Pro Slimming Complex.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Celluli-Pro-Slimming-Complex_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Celluli-Pro-Slimming-Complex_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Cellulinov Intensive Anti cellulite Body Care.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Cellulinov-Intensive-Anti-cellulite-Body-Care_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Cellulinov-Intensive-Anti-cellulite-Body-Care_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort Extreme Day Skincare.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort Extreme Mains Hand Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort Extreme Night Skincare.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Day-Skincare_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Day-Skincare_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Mains-Hand-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Mains-Hand-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Night-Skincare_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Confort-Extreme-Night-Skincare_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau Tropicale.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau de Campagne perfumed Bath and Shower Gel.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau-Tropicale_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau-Tropicale_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau-de-Campagne-perfumed-Bath-and-Shower-Gel_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Eau-de-Campagne-perfumed-Bath-and-Shower-Gel_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Hair Care Conditioner.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Hair-Care-Conditioner_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Hair-Care-Conditioner_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Intensive Bust Compound.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Intensive-Bust-Compound_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Intensive-Bust-Compound_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_BOTANICAL D-TOX Detoxifying Nighttime Treatment_BOTANICAL D TOX Detoxifying Nighttime Treatment.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Hydra-Global Intense Anti-aging Hydration_Hydra Global Intense Anti Aging Hydration.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Intensive Day Cream_Intensive Day Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Phyto-Blanc Lightening Hydrating Emulsion_Phyto Blanc Lightening Hydrating Emulsion.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Restorative Facial Cream_Restorative Facial Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_SISLEÅ¸A GLOBAL ANTI-AGE_Global Anti Age.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Sisleya Daily Line Reducer_Sisleya Daily Line Reducer.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Sisleya Radiance Anti-Aging Concentrate_Sisleya Radiance Anti Aging Concentrate.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Sisleyouth Hydrating-Energizing Early Wrinkles_Sisleyouth Hydrating Energizing Early Wrinkles.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_SisleÃ¿a Global Anti-Age Extra Rich_Global Anti Age Extra Rich.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_SisleÃ¿a Global Firming Serum_Sisleya Global Firming Serum.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Supremya at Night The Supreme Anti-Aging Skin Cream_Supremya at Night The Supreme Anti-Aging Skin Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_SupremÃ¿a Yeux At Night The Supreme Anti-Aging Eye Serum_Supremya Yeux At Night The Supreme Anti Aging Eye Serum.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_SupremÃ¿a at Night The Supreme Anti-Aging Skin Care_Supremya at Night The Supreme Anti Aging Skin Care.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_Tropical Resins Complex Oil Free Purifying_Tropical Resins Complex Oil Free Purifying.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM DUONG_all day all year_ALL DAY ALL YEAR Essential anti aging daytime skincare.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_BOTANICAL-D-TOX-Detoxifying-Nighttime-Treatment_BOTANICAL-D-TOX-Detoxifying-Nighttime-Treatment_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_BOTANICAL-D-TOX-Detoxifying-Nighttime-Treatment_BOTANICAL-D-TOX-Detoxifying-Nighttime-Treatment_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Hydra-Global-Intense-Anti-aging-Hydration_Hydra-Global-Intense-Anti-Aging-Hydration_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Hydra-Global-Intense-Anti-aging-Hydration_Hydra-Global-Intense-Anti-Aging-Hydration_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Intensive-Day-Cream_Intensive-Day-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Intensive-Day-Cream_Intensive-Day-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Phyto-Blanc-Lightening-Hydrating-Emulsion_Phyto-Blanc-Lightening-Hydrating-Emulsion_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Phyto-Blanc-Lightening-Hydrating-Emulsion_Phyto-Blanc-Lightening-Hydrating-Emulsion_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Restorative-Facial-Cream_Restorative-Facial-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Restorative-Facial-Cream_Restorative-Facial-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SISLEÅ¸A-GLOBAL-ANTI-AGE_Global-Anti-Age_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SISLEÅ¸A-GLOBAL-ANTI-AGE_Global-Anti-Age_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleya-Daily-Line-Reducer_Sisleya-Daily-Line-Reducer_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleya-Daily-Line-Reducer_Sisleya-Daily-Line-Reducer_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleya-Radiance-Anti-Aging-Concentrate_Sisleya-Radiance-Anti-Aging-Concentrate_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleya-Radiance-Anti-Aging-Concentrate_Sisleya-Radiance-Anti-Aging-Concentrate_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleyouth-Hydrating-Energizing-Early-Wrinkles_Sisleyouth-Hydrating-Energizing-Early-Wrinkles_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Sisleyouth-Hydrating-Energizing-Early-Wrinkles_Sisleyouth-Hydrating-Energizing-Early-Wrinkles_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SisleÃ¿a-Global-Anti-Age-Extra-Rich_Global-Anti-Age-Extra-Rich_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SisleÃ¿a-Global-Anti-Age-Extra-Rich_Global-Anti-Age-Extra-Rich_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SisleÃ¿a-Global-Firming-Serum_Sisleya-Global-Firming-Serum_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SisleÃ¿a-Global-Firming-Serum_Sisleya-Global-Firming-Serum_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SupremÃ¿a-Yeux-At-Night-The-Supreme-Anti-Aging-Eye-Serum_Supremya-Yeux-At-Night-The-Supreme-Anti-Aging-Eye-Serum_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SupremÃ¿a-Yeux-At-Night-The-Supreme-Anti-Aging-Eye-Serum_Supremya-Yeux-At-Night-The-Supreme-Anti-Aging-Eye-Serum_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SupremÃ¿a-at-Night-The-Supreme-Anti-Aging-Skin-Care_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Care_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_SupremÃ¿a-at-Night-The-Supreme-Anti-Aging-Skin-Care_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Care_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Tropical-Resins-Complex-Oil-Free-Purifying_Tropical-Resins-Complex-Oil-Free-Purifying_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_Tropical-Resins-Complex-Oil-Free-Purifying_Tropical-Resins-Complex-Oil-Free-Purifying_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_all-day-all-year_ALL-DAY-ALL-YEAR-Essential-anti-aging-daytime-skincare_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_KEM-DUONG_all-day-all-year_ALL-DAY-ALL-YEAR-Essential-anti-aging-daytime-skincare_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH TINH_Gentle Facial Buffing Cream with Botanical Extract_Gentle Facial Buffing cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH TINH_i - Botanical Eye and Lip Contour Balm_Botanical Eye and Lip Contour Balm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH-TINH_Gentle-Facial-Buffing-Cream-with-Botanical-Extract_Gentle-Facial-Buffing-cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH-TINH_Gentle-Facial-Buffing-Cream-with-Botanical-Extract_Gentle-Facial-Buffing-cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH-TINH_i---Botanical-Eye-and-Lip-Contour-Balm_Botanical-Eye-and-Lip-Contour-Balm_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_LINH-TINH_i---Botanical-Eye-and-Lip-Contour-Balm_Botanical-Eye-and-Lip-Contour-Balm_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Hydrating Long Lasting Lipstick L30.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Hydrating Long Lasting Lipstick L9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Instant Perfect Minimize Shine and Fine lines_Instant Perfect Minimize Shine and Fine lines.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_KEM NEN_Phyto Teint Eclat Fluid Foundation Oil Free.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_KEM NEN_Skinleya Anti Aging Lift Foundation.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Phyto-Blanc Lightening Compact Foundation_Phyto-Blanc Lightening Compact Foundation.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Phyto-Cernes Eclat eye concealer_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Phyto-Khol Perfect EyeLiner_1 Black.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE UP_Transparent Loose Powder.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Hydrating-Long-Lasting-Lipstick-L30_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Hydrating-Long-Lasting-Lipstick-L30_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Hydrating-Long-Lasting-Lipstick-L9_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Hydrating-Long-Lasting-Lipstick-L9_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Instant-Perfect-Minimize-Shine-and-Fine-lines_Instant-Perfect-Minimize-Shine-and-Fine-lines_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Instant-Perfect-Minimize-Shine-and-Fine-lines_Instant-Perfect-Minimize-Shine-and-Fine-lines_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_KEM-NEN_Phyto-Teint-Eclat-Fluid-Foundation-Oil-Free_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_KEM-NEN_Phyto-Teint-Eclat-Fluid-Foundation-Oil-Free_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_KEM-NEN_Skinleya-Anti-Aging-Lift-Foundation_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_KEM-NEN_Skinleya-Anti-Aging-Lift-Foundation_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Blanc-Lightening-Compact-Foundation_Phyto-Blanc-Lightening-Compact-Foundation_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Blanc-Lightening-Compact-Foundation_Phyto-Blanc-Lightening-Compact-Foundation_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Cernes-Eclat-eye-concealer_1_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Cernes-Eclat-eye-concealer_1_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Khol-Perfect-EyeLiner_1-Black_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Phyto-Khol-Perfect-EyeLiner_1-Black_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Transparent-Loose-Powder_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_MAKE-UP_Transparent-Loose-Powder_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Moisturizer with Cucumber.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Moisturizer-with-Cucumber_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Moisturizer-with-Cucumber_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Neck Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Neck-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Neck-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night Complex.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night Cream with Collagen and Woodmallow.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night-Complex_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night-Complex_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night-Cream-with-Collagen-and-Woodmallow_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Night-Cream-with-Collagen-and-Woodmallow_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Nutritive Lip Balm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Nutritive-Lip-Balm_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Nutritive-Lip-Balm_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto Aromatique Botanical Shampoo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto Blanc Clearing Essence with Vitamin C.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto-Aromatique-Botanical-Shampoo_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto-Aromatique-Botanical-Shampoo_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto-Blanc-Clearing-Essence-with-Vitamin-C_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto-Blanc-Clearing-Essence-with-Vitamin-C_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Phyto-blanc-White-Tensor-Immediate-Lift_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya Elixir.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya Eye and Lip Contour Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya Global Anti Age Hand Care.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Elixir_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Elixir_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Eye-and-Lip-Contour-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Eye-and-Lip-Contour-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Global-Anti-Age-Hand-Care_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Sisleya-Global-Anti-Age-Hand-Care_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Soir de Lune Moisturizing Perfumed Body Cream.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Soir-de-Lune-Moisturizing-Perfumed-Body-Cream_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_Soir-de-Lune-Moisturizing-Perfumed-Body-Cream_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad Spectrum Facial Sunscreen SPF 50.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad Spectrum Sunscreen Natural SPF30.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad-Spectrum-Facial-Sunscreen-SPF-50_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad-Spectrum-Facial-Sunscreen-SPF-50_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad-Spectrum-Sunscreen-Natural-SPF30_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Broad-Spectrum-Sunscreen-Natural-SPF30_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Facial Sun Cream SPF 10 UVA.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Facial-Sun-Cream-SPF-10-UVA_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Facial-Sun-Cream-SPF-10-UVA_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Soleil Fluid Body Sun Cream Spray SPF30 UVA.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Soleil-Fluid-Body-Sun-Cream-Spray-SPF30-UVA_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Soleil-Fluid-Body-Sun-Cream-Spray-SPF30-UVA_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Sunleya High protection anti aging sun care SPF50.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Sunleya-High-protection-anti-aging-sun-care-SPF50_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Sunleya-High-protection-anti-aging-sun-care-SPF50_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super Stick Solaire Incolore SPF30.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super Sun Oil Body SPF6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super-Stick-Solaire-Incolore-SPF30_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super-Stick-Solaire-Incolore-SPF30_450x450.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super-Sun-Oil-Body-SPF6_180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\mylanbeauty\file\cache\upload_Sisley_UV_Super-Sun-Oil-Body-SPF6_450x450.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" afterPath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/skin2/css/style.css" afterPath="$PROJECT_DIR$/view/skin2/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mylanbeauty.iws" />
@@ -533,18 +240,18 @@
       <file leaf-file-name="directory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/config/directory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.615385" vertical-offset="438" max-vertical-offset="1275">
-              <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1275">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_list.tpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product_list.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/skin2/template/module/product_list.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077" vertical-offset="442" max-vertical-offset="3808">
-              <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.28883496" vertical-offset="0" max-vertical-offset="3808">
+              <caret line="14" column="84" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -553,17 +260,17 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/skin2/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.785714" vertical-offset="11320" max-vertical-offset="15521">
+            <state vertical-scroll-proportion="0.0" vertical-offset="11320" max-vertical-offset="15521">
               <caret line="682" column="17" selection-start-line="682" selection-start-column="17" selection-end-line="682" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/skin2/css/product.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72421783" vertical-offset="361" max-vertical-offset="1224">
+            <state vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1224">
               <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
               <folding />
             </state>
@@ -613,8 +320,8 @@
         <option value="$PROJECT_DIR$/view/newyearmobi/js/common.js" />
         <option value="$PROJECT_DIR$/system/config/directory.php" />
         <option value="$PROJECT_DIR$/view/skin2/css/style.css" />
-        <option value="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" />
         <option value="$PROJECT_DIR$/view/skin2/css/product.css" />
+        <option value="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" />
       </list>
     </option>
   </component>
@@ -651,6 +358,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -853,7 +561,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -884,15 +591,15 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -911,7 +618,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -926,13 +633,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1190,7 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46942446" vertical-offset="15413" max-vertical-offset="16014">
           <caret line="922" column="8" selection-start-line="922" selection-start-column="8" selection-end-line="922" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2266187" vertical-offset="22756" max-vertical-offset="25534">
           <caret line="1346" column="0" selection-start-line="1346" selection-start-column="0" selection-end-line="1346" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2066" max-vertical-offset="2890">
           <caret line="163" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="164" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2066" max-vertical-offset="2890">
           <caret line="164" column="9" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47451457" vertical-offset="306" max-vertical-offset="1360">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="123" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1242,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1377">
           <caret line="41" column="123" selection-start-line="41" selection-start-column="123" selection-end-line="41" selection-end-column="123" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1250,7 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3251" max-vertical-offset="4063">
           <caret line="223" column="0" selection-start-line="223" selection-start-column="0" selection-end-line="233" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1258,7 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3183" max-vertical-offset="4063">
           <caret line="217" column="5" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1273,7 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5854" max-vertical-offset="6681">
           <caret line="368" column="0" selection-start-line="368" selection-start-column="0" selection-end-line="387" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,7 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9329412" vertical-offset="5786" max-vertical-offset="6681">
           <caret line="387" column="1" selection-start-line="387" selection-start-column="1" selection-end-line="387" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,29 +986,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="863">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/config/directory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.615385" vertical-offset="438" max-vertical-offset="1275">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/skin2/template/module/product_list.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.923077" vertical-offset="442" max-vertical-offset="3808">
-          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/skin2/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.785714" vertical-offset="11320" max-vertical-offset="15521">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11320" max-vertical-offset="15521">
           <caret line="682" column="17" selection-start-line="682" selection-start-column="17" selection-end-line="682" selection-end-column="17" />
           <folding />
         </state>
@@ -1319,8 +999,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/skin2/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72421783" vertical-offset="361" max-vertical-offset="1224">
+        <state vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1224">
           <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/config/directory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/skin2/template/module/product_list.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28883496" vertical-offset="0" max-vertical-offset="3808">
+          <caret line="14" column="84" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
           <folding />
         </state>
       </provider>
