@@ -114,7 +114,7 @@ $(document).ready(function(e) {
 				response( cache[ term ] );
 				return;
 			}
-			$.getJSON( "?route=core/member/getMember", request, function( data, status, xhr ) {
+			$.getJSON( "?route=core/member/getMemberAuto", request, function( data, status, xhr ) {
 				cache[ term ] = data;
 				response( data );
 				});

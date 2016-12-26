@@ -540,12 +540,55 @@ class ControllerCoreMember extends Controller
 			@$this->render();
 		}
 	}
+    public function getMemberAuto()
+    {
+        $keyword = urldecode(@$this->request->get['term']);
+
+        $where = "AND usertypeid = 'member'";
+        @$arrkey = explode(' ', $keyword);
+        if(@$keyword)
+        {
+            $arr = array();
+            foreach($arrkey as $key)
+            {
+                $arr[] = "fullname like '%".$key."%'";
+
+            }
+            $where .= " AND ((". implode(" AND ",$arr). "))";
+
+        }
+
+        $members = @$this->model_core_user->getList($where);
+        $data = array();
+        foreach($members as $member)
+        {
+            $label = $member['fullname'];
+            if(@$member['phone'])
+                $label .= " - ".$member['phone'];
+            if(@$member['address'])
+                $label .= " - ".$member['address'];
+            $arr = array(
+                "id" => $member['id'],
+                "label" => $label,
+                "value" => $member['fullname'],
+                "data" => array(
+                    "fullname" =>$member['fullname'],
+                    "phone"=>$member['phone'],
+                    "address"=>$member['address'])
+            );
+            $data[] = $arr;
+        }
+        @$this->data['output'] = json_encode($data);
+        @$this->id="member";
+        @$this->template="common/output.tpl";
+        @$this->render();
+    }
 	public function getMember()
 	{
 		$keyword = urldecode(@$this->request->get['keyword']);
 		
 		$where = "AND usertypeid = 'member'";
-		@$arrkey = split(' ', $keyword);
+		@$arrkey = explode(' ', $keyword);
 		if(@$keyword)
 		{
 			//$arr = array();
@@ -556,6 +599,7 @@ class ControllerCoreMember extends Controller
 			//$where .= " AND ((". implode(" AND ",$arr). "))";
 			$where .= " AND phone like '".$keyword."'";
 		}
+
 		$members = @$this->model_core_user->getList($where);
 		$data = array();
 		foreach($members as $member)
