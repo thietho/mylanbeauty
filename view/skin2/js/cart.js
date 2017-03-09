@@ -36,12 +36,12 @@ function Cart()
 						buttons: {
 							
 							
-							'Đóng': function() {
+							'Tiếp tục mua hàng': function() {
 								$( this ).dialog( "close" );
 							},
-							'Xem giỏ hàng': function(){
+							'Thanh toán': function(){
 								window.location = HTTP_SERVER+'cart_'+ Date.now() +'.html';	
-							},
+							}
 							
 						}
 					});

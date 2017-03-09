@@ -16,24 +16,25 @@ function Cart()
 	this.add = function(mediaid)
 	{
 		
-		$.mobile.loading( "show", {
+		/*$.mobile.loading( "show", {
 	            text: "Loading",
 	            textVisible: true,
 	            theme: 'b',
 	            textonly: false,
 	            html: processing
-	    });
+	    });*/
 		$.get(HTTP_SERVER+"?route=addon/cart/add&mediaid="+mediaid,
 			
 			function(data){
 				
 				if(data == "true")
 				{
-					$("#warring").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
-						setTimeout('$.mobile.loading( "hide" );',3000);
+					$("#popupconten").load(HTTP_SERVER+"?route=common/warring/cart&mediaid="+mediaid,function(){
+						//setTimeout('$.mobile.loading( "hide" );',3000);
+                        $( "#popup-card" ).popup( "open" );
 					});
-					
-					cart.load()
+
+                    cart.load()
 					
 				}
 				//$.mobile.loading( "hide" );

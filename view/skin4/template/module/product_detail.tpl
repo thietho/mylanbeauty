@@ -151,7 +151,7 @@
                 <?php if(@count($data_samplecode)>1){ ?>
                 <h3>Các sản phẩm cùng loại</h3>
                 <p>
-                    <?php foreach($data_samplecode as $key => $item){?>
+                    <?php foreach($data_samplecode as $key => $item){ ?>
                     <a href="<?php echo @$this->document->createLink($this->document->sitemapid,$item['mediaid'].'-'.$item['alias'])?>" data-transition="fade" data-ajax="false" title="<?php echo @$item['color']?>"><img src="<?php echo @$item['icon']?>" /></a>
                     <?php } ?>
                 </p>
@@ -159,3 +159,21 @@
             </div>
 <h3>Sản phẩm cùng nhãn hiệu</h3>
 <?php echo @$saphamcungnhanhieu?>
+<!--<div data-role="popup" id="popup-card" data-position-to="window" data-transition="turn">
+    <div id="popupconten"></div>
+    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Tiếp tục mua hàng</a>
+    <a href="<?php echo HTTP_SERVER?>cart.html" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Thanh toán</a>
+</div>-->
+
+<div data-role="popup" id="popup-card" class="ui-overlay-shadow ui-corner-all" data-position-to="window" data-transition="turn">
+
+    <div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b"><a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left" data-rel="back">Close</a>
+        <h1 class="ui-title" role="heading" aria-level="1">Mỹ Lan Beauty</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <div id="popupconten"></div>
+        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Tiếp tục mua hàng</a>
+        <a href="<?php echo HTTP_SERVER?>cart.html" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Thanh toán</a>
+    </div>
+</div>
