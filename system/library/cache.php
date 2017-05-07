@@ -3,6 +3,7 @@ final class Cache {
 	private $expire = 84600;
 
   	public function __construct() {
+        $this->expire = 84600*30;
 		if (!is_dir(DIR_CACHE))
 			mkdir( DIR_CACHE , 0777 );
 		$files = glob(DIR_CACHE . '*');
