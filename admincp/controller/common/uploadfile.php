@@ -14,7 +14,7 @@ class ControllerCommonUploadfile extends Controller
 			$filepath = $root."/".$folder."/";
 		//echo $filepath;
 		//Tao thu muc neu chua có
-		$arrdir = explode("/",$folder);
+		$arrdir = spliti("/",$folder);
 		$str = $root;
 		foreach($arrdir as $dir)
 		{

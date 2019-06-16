@@ -67,9 +67,9 @@ final class User {
 	public function hasPermission($moduleid, $action) 
 	{
 		
-		if($this->usertypeid == 'admin')
+		if(@$this->usertypeid == 'admin')
 			return true;
-		$allow = false;
+		@$allow = false;
 		if (count($this->permission)) 
 		{
 			$moduleid = trim($moduleid);
@@ -86,8 +86,8 @@ final class User {
 	}
   
   	public function isLogged() {
-    	if($this->session->data['userid']){
-			$this->usertypeid = $this->session->data['usertypeid'];
+    	if(@$this->session->data['userid']){
+			@$this->usertypeid = $this->session->data['usertypeid'];
 			$this->userid = $this->session->data['userid'];
 			$this->username = $this->session->data['username'];	
 			$this->siteid = $this->session->data['siteid'];		
@@ -98,7 +98,7 @@ final class User {
   	}
 	
 	public function isCMSLogged() {
-    	if($this->session->data['cmsuserid']){
+    	if(@$this->session->data['cmsuserid']){
 			$this->usertypeid = $this->session->data['usertypeid'];
 			$this->userid = $this->session->data['userid'];
 			$this->username = $this->session->data['username'];

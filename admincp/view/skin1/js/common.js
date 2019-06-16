@@ -519,11 +519,22 @@ function openEditor(eid)
 }
 function writeFile(text)
 {
-	
+	var fso = new ActiveXObject("Scripting.FileSystemObject");
+	var fh = fso.OpenTextFile("D:\\data.txt", 8);
+	fh.WriteLine(text);
+	fh.Close(); 
 }
 function readFile()
 {
-	
+	fh = fopen("c:\\MyFile.txt", 0); // Open the file for reading 
+	var str = "";
+	if(fh!=-1) // If the file has been successfully opened 
+	{ 
+		length = flength(fh);         // Get the length of the file     
+		str = fread(fh, length);     // Read in the entire file 
+		fclose(fh);                    // Close the file 
+	}
+	return str;
 }
 function intSeleteFile(type)
 {

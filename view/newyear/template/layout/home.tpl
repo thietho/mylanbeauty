@@ -127,5 +127,27 @@ $(document).scroll(function(e) {
 	//setTimeout("runMove();",500);
 	
 });
+function runMove()
+{
+	 var pTop = Number($(document).scrollTop());
+	//alert(pTop);
+	if(fmove)
+	{
 
+		fmove = false
+		var runTop = Number($('.run-site').css('top').replace("px",''));
+
+		var move = Number( pTop) - Number(runTop);
+		//console.log(move)
+		$('.run-site').animate({"top":"+="+move+"px"},"slow",function(){
+			var pTop = Number($(document).scrollTop());
+			var runTop = Number($('.run-site').css('top').replace("px",''));
+			//$('.hl-left').html("doctop: "+ pTop);
+			//$('.hl-left').append("<br>runtop: "+ runTop);
+			fmove=true;
+			if(pTop!=runTop)
+				setTimeout("runMove();",500);
+		});
+	}
+}
 </script>

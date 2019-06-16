@@ -303,7 +303,7 @@ $('#btnSelectKhachHang').click(function(e) {
 			hide: "explode",
 			width: 1000,
 			height: window.innerHeight,
-			modal: true,
+			modal: true
 		});
 	
 		$("#popup").dialog("open");
@@ -351,7 +351,7 @@ $(function() {
 			});
 		}
 	});
-	$('#dienthoai').change(function(e) {
+	/*$('#dienthoai').change(function(e) {
         $.getJSON( "?route=core/member/getMember&keyword=" + this.value,function(obj){
 			
 			$('#khachhangid').val(obj[0].id);
@@ -359,14 +359,16 @@ $(function() {
 			$('#dienthoai').val(obj[0].data.phone);
 			$('#diachi').val(obj[0].data.address);
 			});
-    });
-	/*$("#dienthoai").autocomplete({
+    });*/
+
+	$("#dienthoai").autocomplete({
 		minLength: 2,
 		select: function( event, ui ) {
 			//console.log(ui.item.id);
 			//objdl.getProbyMediaId(ui.item.id);
-			//alert(ui.item.data.fullname);
+
 			$('#khachhangid').val(ui.item.id);
+            $('#tenkhachhang').val(ui.item.data.fullname);
 			$('#dienthoai').val(ui.item.data.phone);
 			$('#diachi').val(ui.item.data.address);
 		},
@@ -381,7 +383,30 @@ $(function() {
 			response( data );
 			});
 		}
-	});*/
+	});
+    $("#tenkhachhang").autocomplete({
+        minLength: 2,
+        select: function( event, ui ) {
+            //console.log(ui.item.id);
+            //objdl.getProbyMediaId(ui.item.id);
+
+            $('#khachhangid').val(ui.item.id);
+            $('#tenkhachhang').val(ui.item.data.fullname);
+            $('#dienthoai').val(ui.item.data.phone);
+            $('#diachi').val(ui.item.data.address);
+        },
+        source: function( request, response ) {
+            var term = request.term;
+            if ( term in cache ) {
+                response( cache[ term ] );
+                return;
+            }
+            $.getJSON( "?route=core/member/getMemberAuto", request, function( data, status, xhr ) {
+                cache[ term ] = data;
+                response( data );
+            });
+        }
+    });
 	
 });
 function SaleOrder(shopid)

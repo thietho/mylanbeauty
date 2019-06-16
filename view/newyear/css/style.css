@@ -417,19 +417,21 @@ input.ben-button:active {border-style: inset;}
 }
 .run-left
 {
-	
-	
+	background-image: url("../image/bg-left.png");
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size:contain ;
 }
 
 .run-right
 {
-	right:0;	
-	
+	right:0;
+	background-image: url("../image/bg-right.png");
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size:contain ;
 }
-.run-right
-{
-	
-}
+
 
 /*---------- HEADER AREA ------------*/
 /* Header */

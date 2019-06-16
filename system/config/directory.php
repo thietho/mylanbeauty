@@ -1,7 +1,7 @@
 <?php
 // HTTP
-define('HTTP_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/mylanbeauty/file/');
-define('HTTP_SERVER', 'http://'.$_SERVER['HTTP_HOST'].'/mylanbeauty/');
+define('HTTP_IMAGE', 'http://'.$_SERVER['HTTP_HOST'].'/file/');
+define('HTTP_SERVER', 'http://'.$_SERVER['HTTP_HOST'].'/');
 //define('HTTP_IMAGE', 'http://localhost:81/mylanbeauty/file/');
 //define('HTTP_SERVER', 'http://localhost:81/mylanbeauty/');
 

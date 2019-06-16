@@ -585,21 +585,21 @@ class ControllerCoreMember extends Controller
     }
 	public function getMember()
 	{
-		$keyword = urldecode(@$this->request->get['keyword']);
+		$keyword = urldecode(@$this->request->get['term']);
 		
 		$where = "AND usertypeid = 'member'";
 		@$arrkey = explode(' ', $keyword);
 		if(@$keyword)
 		{
-			//$arr = array();
-			//foreach($arrkey as $key)
-			//{
-				//$arr[] = "phone like '%".$key."%'";
-			//}
-			//$where .= " AND ((". implode(" AND ",$arr). "))";
-			$where .= " AND phone like '".$keyword."'";
+			$arr = array();
+			foreach($arrkey as $key)
+			{
+				$arr[] = "phone like '%".$key."%'";
+			}
+			$where .= " AND ((". implode(" AND ",$arr). "))";
+			//$where .= " AND phone like '".$keyword."'";
 		}
-
+        //echo $where;
 		$members = @$this->model_core_user->getList($where);
 		$data = array();
 		foreach($members as $member)
@@ -612,7 +612,7 @@ class ControllerCoreMember extends Controller
 			$arr = array(
 						"id" => $member['id'],
 						"label" => $label,
-						"value" => $member['fullname'],
+						"value" => $member['phone'],
 						"data" => array(
 										"fullname" =>$member['fullname'],
 										"phone"=>$member['phone'],

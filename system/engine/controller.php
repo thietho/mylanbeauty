@@ -11,6 +11,12 @@ abstract class Controller {
 	protected $iscache = false;
 	protected $module;
 	
+	function __construct() 
+	{
+		$this->data = array_merge($this->data, $this->language->getData());
+		
+	}
+	
 	public function __get($key) {
 		return Registry::get($key);
 	}
@@ -100,7 +106,7 @@ abstract class Controller {
 			$class = 'Controller' . preg_replace('/[^a-zA-Z0-9]/', '', $this->layout);
 			
 			if (file_exists($file)) {
-				require_once($file);
+				@require_once($file);
 				
 				$controller = new $class();
 				
@@ -185,7 +191,7 @@ abstract class Controller {
 	public function getMethod()
 	{
 		$route = $this->request->get['route'];
-		@$arr = split("/",$route);
+		$arr = split("/",$route);
 		return @$arr[2];
 	}
 	
