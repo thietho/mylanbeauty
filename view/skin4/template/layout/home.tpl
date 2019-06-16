@@ -31,6 +31,7 @@
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>jquery.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>index.js"></script>
 	<script src="<?php echo HTTP_SERVER.DIR_JS?>/jquery.mobile-1.4.5.js"></script>
+    <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/snow-plugin.js'></script>
     <script language="javascript">
 	var HTTP_SERVER = '<?php echo HTTP_SERVER?>';
 	var DIR_COMPONENT = '<?php echo HTTP_SERVER.DIR_COMPONENT?>';
@@ -68,7 +69,25 @@
     
     
     </div><!-- /page -->
+    <style>
+        .snow-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            pointer-events: none;
+        }
+    </style>
+    <!--<canvas class="snow-canvas" speed="1" interaction="false" size="2" count="80" opacity="0.00001" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" wind-power="0" image="false" width="1366" height="667"></canvas>
+    <canvas class="snow-canvas" speed="2" interaction="true" size="6" count="30" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="2" image="false" width="1366" height="667"></canvas>
+    <canvas class="snow-canvas" speed="3" interaction="true" size="12" count="20" wind-power="-5" image="snow.png" width="1366" height="667"></canvas>-->
 
+
+    <script>
+        //$(".snow-canvas").snow();
+    </script>
 </body>
 
 </html>

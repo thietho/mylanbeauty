@@ -131,9 +131,9 @@ if(@count($medias))
                                 </center>
                             <?php } ?>
                             <center>
-                            	<a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false">Chi tiết</a>
-                                <?php if(@$ispromotion){ ?>
-                                <a href="#" style="color: red !important;" class="btnPromotion" mediaid="<?php echo $media['mediaid']?>">*Khuyến mãi</a>
+                            	<a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false" style="font-weight: bold">Chi tiết</a>
+                                <?php if($ispromotion){ ?>
+                                <a href="#" style="color: red !important;font-weight: bold; font-style: italic" class="btnPromotion" mediaid="<?php echo $media['mediaid']?>">Khuyến mãi</a>
                                 <div id="<?php echo $media['mediaid']?>-promotion" style="display: none"></div>
                                 <?php } ?>
                             </center>

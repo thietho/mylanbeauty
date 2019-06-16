@@ -221,14 +221,3 @@ h1
 		width:25%;	
 	}
 }
-.loading {
-    background: url('images/loading.gif') center center no-repeat ;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    width: 100%;
-    height: 550px;
-}
-.hideprice
-{
-    display: none;
-}

@@ -39,7 +39,6 @@
 	</script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>common.js"></script>
     <script src="<?php echo HTTP_SERVER.DIR_JS?>cart.js"></script>
-    <script type='text/javascript' language='javascript' src='<?php echo HTTP_SERVER.DIR_VIEW?>js/jquery.lazy.js'></script>
     
 </head>
 <script>
