@@ -38,9 +38,17 @@
                         </td>
                         <td>
                         	 <select id="status">            	
-                                <option value=""></option>
+                                <option value="">Công dụng</option>
                                 <?php foreach($status as $it){ ?>
                                 <option value="<?php echo @$it['categoryid']?>"><?php echo @$it['categoryname']?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="display">
+                                <option value="">Trang thái</option>
+                                <?php foreach(@$this->document->status_media as $key =>$val){ ?>
+                                <option value="<?php echo @$key?>"?><?php echo @$val?></option>
                                 <?php } ?>
                             </select>
                         </td>
@@ -203,6 +211,13 @@ function Product()
 		}
 		else
             objdl.status = '';
+        if($('#search #display').val()!="")
+        {
+            url += "&display="+encodeURI($('#search #display').val());
+            objdl.display = $('#search #display').val();
+        }
+        else
+            objdl.display = '';
 		url += "&page=" + Number(control.getParam("page",control.getUrl()));
 		return url
 	}

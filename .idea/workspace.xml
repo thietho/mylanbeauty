@@ -20,359 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update">
-      <change beforePath="$PROJECT_DIR$/controller/addon/active.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/active.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/activelink.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/activelink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/brandinfor.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/brandinfor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/changepass.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/changepass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/checkoutcomplete.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/checkoutcomplete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/compose.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/compose.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/gameregister.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/gameregister.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/googsearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/googsearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/historyorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/historyorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/kt.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/kt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/media.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/member.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/memberinfor.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/memberinfor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/message.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/minisize.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/minisize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/ortherbrand.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/ortherbrand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/request.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/addon/searchproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addon/searchproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/footermobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/footermobile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/goldrate.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/goldrate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/headermobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/headermobile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/tygia.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/tygia.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/uploadattachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/uploadattachment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/uploadfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/uploadfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/uploadpreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/uploadpreview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/validate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/common/warring.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/common/warring.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/layout/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/layout/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/layout/mobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/layout/mobile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/block.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/block.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/information.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/information.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/location.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/location.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/pagedetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/pagedetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/pagelist.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/pagelist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/module/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/module/productlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/page/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/page/detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/page/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pagesample/leftsidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pagesample/leftsidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pagesample/singlecolumn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pagesample/singlecolumn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pagesample/styledemo.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pagesample/styledemo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pagesample/threecolumn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pagesample/threecolumn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sample/blanklist.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sample/blanklist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sample/defaultlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sample/defaultlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sample/nicelist.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sample/nicelist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/services/checkconnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/services/checkconnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/services/media.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/services/media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/banner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/catalogue.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/catalogue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/exchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/exchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/gallery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/hitcounter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/hitcounter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/question.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/searchproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/searchproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/sitebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/sitebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/supportonline.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/supportonline.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/sitebar/weblink.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/sitebar/weblink.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/addon/nhantin.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/addon/nhantin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/addon/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/addon/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/addon/request.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/addon/request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ben/nhantin.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ben/nhantin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/common/counter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/common/counter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/country.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/file.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/file.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/media.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/message.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/sitemap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/core/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/core/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/config/config_local.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/config/config_local.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/config/directory.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/config/directory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/config/startup.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/config/startup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/database/ClassConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/database/ClassConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/database/mysql.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/database/mysql.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/action.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/action.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/front.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/front.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/module.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/module.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/registry.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/registry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/helper/image.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/helper/image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/helper/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/helper/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/cachehtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/cachehtml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/date.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/date.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/document.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/document.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/image.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/json.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/json.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/language.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/loader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/mailsmtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/mailsmtp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/member.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/pager.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/pager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/request.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/response.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/string.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/string.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/url.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/url.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/library/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/plugin/class.smtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/plugin/class.smtp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/album.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/album.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/blockui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/blockui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/colorbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/colorbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/ie_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/ie_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/jquery.ad-gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/jquery.ad-gallery.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/jquery.fancybox-1.3.4.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/jquery.fancybox-1.3.4.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/jquery.tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/jquery.tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/mobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/niceform.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/niceform.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/objectpack1.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/objectpack1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/productmobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/productmobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/sagscroller.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/sagscroller.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/stickytooltip.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/stickytooltip.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/css/wt-rotator.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/css/wt-rotator.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/control.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/ie_png.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/ie_png.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery-tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery-tooltip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.ad-gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.ad-gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.bgiframe-2.1.2.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.bgiframe-2.1.2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.blockUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.blockUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.colorbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.colorbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.fileupload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/maxheight.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/maxheight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/menu-collapsed.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/menu-collapsed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/preview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/js/sagscroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/js/sagscroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/active.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/active.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/activelink.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/activelink.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/cart.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/cart.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/cart_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/cart_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/changepass.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/changepass.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/checkout.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/checkout.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/checkoutcomplete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/checkoutcomplete.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/emailactive.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/emailactive.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/game_register.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/game_register.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/googsearch.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/googsearch.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/historyorder.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/historyorder.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/login.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/media.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/media.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/member.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/member.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/memberinfor.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/memberinfor.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/message_form.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/message_form.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/message_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/message_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/message_view.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/message_view.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/ortherbrand.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/ortherbrand.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/register.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/register.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/request.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/request.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/search.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/search.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/addon/searchproduct.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/addon/searchproduct.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/email.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/email.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/footer.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/footermobile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/footermobile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/goldrate.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/goldrate.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/header.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/header.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/headermobile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/headermobile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/common/tygia.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/common/tygia.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/home/banner.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/home/banner.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/home/content.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/home/content.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/home/product.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/home/product.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/home/video.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/home/video.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/layout/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/layout/home.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/layout/mobile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/layout/mobile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/album_detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/album_detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/album_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/album_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/banner_detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/banner_detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/category_brand.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/category_brand.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/comment_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/comment_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/contact.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/contact.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/information.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/information.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/location.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/location.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/news_detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/news_detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/news_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/news_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/product_detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/product_detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/product_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/product_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/product_quickview.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/product_quickview.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/productmobile_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/productmobile_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/module/video_detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/module/video_detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/page/detail.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/page/detail.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/page/detailmobile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/page/detailmobile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/page/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/page/home.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/page/homemobile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/page/homemobile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/pagesample/leftsidebar.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/pagesample/leftsidebar.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/pagesample/singlecolumn.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/pagesample/singlecolumn.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/pagesample/styledemo.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/pagesample/styledemo.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/pagesample/threecolumn.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/pagesample/threecolumn.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sample/blanklist.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sample/blanklist.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sample/defaultlist.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sample/defaultlist.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sample/nicelist.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sample/nicelist.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/banner.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/banner.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/cart.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/cart.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/cart_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/cart_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/catalogue.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/catalogue.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/exchange.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/exchange.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/faq.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/faq.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/flogin.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/flogin.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/gallery.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/gallery.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/gallery1.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/gallery1.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/hitcounter.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/hitcounter.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/login.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/memberinfor.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/memberinfor.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/product_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/product_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/question.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/question.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/question_result.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/question_result.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/search.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/search.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/searchproduct.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/searchproduct.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/sitebar.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/sitebar.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/supportonline.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/supportonline.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/sitebar/weblink.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/sitebar/weblink.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyear/template/warring/cart.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyear/template/warring/cart.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/css/jqm-hl.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/css/jqm-hl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/css/jquery.mobile-1.4.5.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/css/jquery.mobile-1.4.5.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/newyearmobi/js/jquery.mobile-1.4.5.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/newyearmobi/js/jquery.mobile-1.4.5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/album.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/album.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/blockui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/blockui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/ie_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/ie_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/jquery.ad-gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/jquery.ad-gallery.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/jquery.tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/jquery.tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/objectpack1.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/objectpack1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/css/wt-rotator.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/css/wt-rotator.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/ajaxupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/ajaxupload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/control.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/ie_png.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/ie_png.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/jquery.ad-gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/jquery.ad-gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/jquery.blockUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/jquery.blockUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/jquery.tabs.pack.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/jquery.tabs.pack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/maxheight.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/maxheight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/menu-collapsed.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/menu-collapsed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/preview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/ui.datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/ui.datepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/uploadattament.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/uploadattament.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/uploadfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/uploadfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/uploadpreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/uploadpreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin1/js/uploadvideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin1/js/uploadvideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/album.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/album.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/blockui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/blockui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/colorbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/colorbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/ie_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/ie_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/jquery.ad-gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/jquery.ad-gallery.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/jquery.fancybox-1.3.4.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/jquery.fancybox-1.3.4.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/jquery.tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/jquery.tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/mobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/niceform.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/niceform.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/objectpack1.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/objectpack1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/productmobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/productmobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/sagscroller.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/sagscroller.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/stickytooltip.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/stickytooltip.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/wt-rotator.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/wt-rotator.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/control.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/control.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/ie_png.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/ie_png.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery-tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery-tooltip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery-tooltip_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery-tooltip_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.ad-gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.ad-gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.bgiframe-2.1.2.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.bgiframe-2.1.2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.blockUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.blockUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.colorbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.colorbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.fileupload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.js.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/jquery.lazy.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/jquery.lazy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/maxheight.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/maxheight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/menu-collapsed.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/menu-collapsed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/preview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/sagscroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/sagscroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/js/snow-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/js/snow-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/template/layout/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/template/layout/home.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/blockui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/blockui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/jquery-ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/jquery-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/jquery-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/jquery.blockUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/jquery.blockUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin3/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin3/js/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/css/jqm-hl.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/css/jqm-hl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/css/jquery.mobile-1.4.5.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/css/jquery.mobile-1.4.5.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/jquery.lazy.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/jquery.lazy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/jquery.mobile-1.4.5.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/jquery.mobile-1.4.5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/js/snow-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/js/snow-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin4/template/layout/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/template/layout/home.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admincp/controller/core/postcontent.php" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/controller/core/postcontent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admincp/controller/module/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/controller/module/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admincp/view/skin1/template/module/product.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/view/skin1/template/module/product.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,12 +44,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
   </component>
   <component name="ProjectId" id="1cIuu34gknimOgf7PK9fVksY6sg" />
   <component name="ProjectReloadState">
@@ -445,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475334862121</updated>
-      <workItem from="1590228654778" duration="826000" />
+      <workItem from="1590228654778" duration="2671000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1590229366992</created>
@@ -454,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590229366992</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update">
+      <created>1590229938983</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590229938983</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,10 +145,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DirDiffDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229481543" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590229376058">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590229983872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229376058" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229983872" />
     <state x="572" y="143" key="ftp.server.browser" timestamp="1590228920075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
