@@ -128,7 +128,7 @@ class ControllerModuleProduct extends Controller
                 $data_media[] = $media;
             }
         }*/
-        echo $where .= " Order by position, statusdate DESC";
+        $where .= " Order by position, statusdate DESC";
         $rows = $this->model_core_media->getList($where);
         //$data_media = array_merge($data_media,$rows);
         return $rows;
