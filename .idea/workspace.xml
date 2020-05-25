@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admincp/controller/core/postcontent.php" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/controller/core/postcontent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admincp/controller/module/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/controller/module/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admincp/view/skin1/template/module/product.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/admincp/view/skin1/template/module/product.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/skin2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +88,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475334862121</updated>
-      <workItem from="1590228654778" duration="2671000" />
+      <workItem from="1590228654778" duration="2721000" />
+      <workItem from="1590390986993" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1590229366992</created>
@@ -107,7 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590229938983</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update">
+      <created>1590231345953</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590231345953</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update">
+      <created>1590231371257</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590231371257</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +135,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -145,10 +158,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DirDiffDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229481543" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590229983872">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590231374688">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229983872" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590231374688" />
     <state x="572" y="143" key="ftp.server.browser" timestamp="1590228920075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
