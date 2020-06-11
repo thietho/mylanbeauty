@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/skin2/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -89,7 +91,12 @@
       <option name="presentableId" value="Default" />
       <updated>1475334862121</updated>
       <workItem from="1590228654778" duration="2721000" />
-      <workItem from="1590390986993" duration="816000" />
+      <workItem from="1590390986993" duration="839000" />
+      <workItem from="1590393017398" duration="7000" />
+      <workItem from="1590481594471" duration="14000" />
+      <workItem from="1591884826881" duration="2328000" />
+      <workItem from="1591887347830" duration="105000" />
+      <workItem from="1591887491525" duration="815000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1590229366992</created>
@@ -119,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590231371257</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update">
+      <created>1590392991051</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590392991052</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,18 +164,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="71" key="#Deployment" timestamp="1590228924887">
+    <state x="361" y="71" key="#Deployment" timestamp="1591887637951">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="71" key="#Deployment/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590228924887" />
+    <state x="361" y="71" key="#Deployment/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591887637951" />
     <state x="93" y="93" width="1350" height="638" key="DirDiffDialog" timestamp="1590229481543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DirDiffDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229481543" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590231374688">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590392994452">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590231374688" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590392994452" />
     <state x="572" y="143" key="ftp.server.browser" timestamp="1590228920075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
