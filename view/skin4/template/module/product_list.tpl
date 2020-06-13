@@ -29,8 +29,8 @@ if(@count($medias))
                             
                             <strong><?php if(@$media['brand']) echo $this->document->getCategory($media['brand'])?></strong></a>
                         </p>
-                        <?php if(@$media['discountpercent']){ ?>
-                        <!--<div class="flagdiscount">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>-->
+                        <?php if(@$media['discountpercent'] && count($media['childs'])==0){ ?>
+                        <div class="flagdiscount">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>
                         <?php } ?>
                         <a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false"><img class="lazy" data-src='<?php echo @$media['imagethumbnail']?>' title="<?php echo @$this->document->productName($media)?>"/></a>
                         <div class="price-group">

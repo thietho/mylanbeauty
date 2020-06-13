@@ -176,7 +176,8 @@ h1
 	background: url(../image/flag-discount-small.png) no-repeat;
 	font-size: 0.5em;
 	color: #fff;
-	padding: 6px 2px;
+	padding: 9px 5px;
+	vertical-align: super;
 }
 .hl-header
 {
