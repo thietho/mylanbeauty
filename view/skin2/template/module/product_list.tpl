@@ -114,9 +114,9 @@ if(@count($medias))
                                         @$data_price[$me['sizes']]['price'] = 'Giá đang cập nhật';
                                     else
                                         @$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
-    @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
-    @$data_price[$me['sizes']]['groupkeys'] = $me['groupkeys'];
-    @$data_price[$me['sizes']]['discountpercent'] = $me['discountpercent'];
+    $data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+    $data_price[$me['sizes']]['groupkeys'] = $me['groupkeys'];
+    $data_price[$me['sizes']]['discountpercent'] = $me['discountpercent'];
     }
     } ?>
     <?php foreach($data_price as $size => $price){ ?>

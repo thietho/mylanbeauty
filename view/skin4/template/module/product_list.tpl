@@ -30,7 +30,7 @@ if(@count($medias))
                             <strong><?php if(@$media['brand']) echo $this->document->getCategory($media['brand'])?></strong></a>
                         </p>
                         <?php if(@$media['discountpercent']){ ?>
-                        <div class="flagdiscount">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>
+                        <!--<div class="flagdiscount">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>-->
                         <?php } ?>
                         <a href="<?php echo @$media['link']?>" title="<?php echo @$this->document->productName($media)?>" data-transition="fade" data-ajax="false"><img class="lazy" data-src='<?php echo @$media['imagethumbnail']?>' title="<?php echo @$this->document->productName($media)?>"/></a>
                         <div class="price-group">
@@ -68,7 +68,7 @@ if(@count($medias))
                                     	<?php if(@$me['pricepromotion'] == 0){ ?>
                                         	<span class="shop"><?php echo @$this->string->numberFormate($me['price'])?><?php echo @$this->document->setup['Currency']?></span>
                                         <?php }else{ ?>
-                                        	
+
                                         	<span class="genuine"><?php echo @$this->string->numberFormate($me['price'])?><?php echo @$this->document->setup['Currency']?></span>
                                             -
                                     		<span class="shop"><?php echo @$this->string->numberFormate($me['pricepromotion'])?><?php echo @$this->document->setup['Currency']?></span><?php echo $strclose?>
@@ -93,7 +93,7 @@ if(@count($medias))
                                         <?php } ?>
                                     <?php } ?>
                                 <?php }else{
-                                	@$data_price = array();
+                                	$data_price = array();
                                     foreach($media['childs'] as $me)
                                     {
                                         if(!isset($data_price[@$me['sizes']]))
@@ -102,7 +102,8 @@ if(@count($medias))
                                             	@$data_price[$me['sizes']]['price'] = 'Giá đang cập nhật';
                                             else
                                             	@$data_price[$me['sizes']]['price'] = $this->string->numberFormate($me['price']).@$this->document->setup['Currency'];
-                                            @$data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+                                            $data_price[$me['sizes']]['pricepromotion'] = $this->string->numberFormate($me['pricepromotion']).@$this->document->setup['Currency'];
+                                            $data_price[$me['sizes']]['discountpercent'] = $me['discountpercent'];
                                         }
                                     }
                                     foreach($data_price as $size => $price)
@@ -113,7 +114,7 @@ if(@count($medias))
                                     	if($price['pricepromotion']==0)
                                     		echo '<p class="price">'.$str.'<span class="shop">'.$price['price'].'</span></p>';
                                          else
-                                         	echo '<p class="price">'.$str.'<span class="genuine">'.$price['price'].'</span> - <span class="shop">'.$price['pricepromotion'].'</span></p>';
+                            echo '<p class="price">'.'<span class="discountpercent">-'.$this->string->numberFormate($price['discountpercent']).'% </span>'.$str.' <span class="genuine">'.$price['price'].'</span> - <span class="shop">'.$price['pricepromotion'].'</span></p>';
                                     }
                                 }
                                     
