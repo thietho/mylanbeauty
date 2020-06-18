@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update" />
+    <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/skin2/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/css/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin2/template/module/product_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/skin4/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/skin4/css/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +106,10 @@
       <workItem from="1592231151062" duration="327000" />
       <workItem from="1592236044030" duration="40000" />
       <workItem from="1592236531325" duration="2124000" />
+      <workItem from="1592466485481" duration="35000" />
+      <workItem from="1592466591454" duration="22000" />
+      <workItem from="1592492294848" duration="930000" />
+      <workItem from="1592494895228" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1590229366992</created>
@@ -165,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592238660872</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update">
+      <created>1592466501151</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592466501151</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,10 +212,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="71" key="#Deployment" timestamp="1591887637951">
+    <state x="361" y="71" key="#Deployment" timestamp="1592492372873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="71" key="#Deployment/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1591887637951" />
+    <state x="361" y="71" key="#Deployment/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1592492372873" />
     <state x="361" y="53" key="#Plugins" timestamp="1592231313554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -212,10 +228,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DirDiffDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590229481543" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592238665253">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592466504865">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1592238665253" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592466504865" />
     <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1591888349332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

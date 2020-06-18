@@ -3,7 +3,7 @@
 if(@count($medias))
 {
 ?>
-<div id="listpoduct">
+<div id="listpoduct" xmlns="http://www.w3.org/1999/html">
     <?php foreach($medias as $media) { ?>
     <div id="pro-<?php echo @$media['mediaid']?>" class="ben-left product link_hover">
         <table>
@@ -123,7 +123,7 @@ if(@count($medias))
 
     <div align="center">
         <?php
-                                    $str = $size.' : giảm '.$this->string->numberFormate($price['discountpercent']).'% ';
+                                    $str = '<span class="discountpercent">'.$this->string->numberFormate($price['discountpercent']).'%</span> ' .$size.' : ';
                                     if($size == '')
                                     	$str ='';
                                     if($price['pricepromotion']==0)
