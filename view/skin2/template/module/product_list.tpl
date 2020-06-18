@@ -10,7 +10,7 @@ if(@count($medias))
             <tr class="product-list-image">
                 <td>
 
-                    <?php if(@$media['discountpercent']){ ?>
+                    <?php if(@$media['discountpercent'] && count($media['childs'])==0){ ?>
                     <div class="flagdiscount ben-icon">-<?php echo @$this->string->numberFormate($media['discountpercent'])?>%</div>
                     <?php } ?>
 
