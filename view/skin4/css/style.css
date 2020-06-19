@@ -167,10 +167,9 @@ h1 {
 
 .discountpercent {
     background: url(../image/flag-discount-small.png) no-repeat;
-    font-size: 0.5em;
+    padding: 1px 12px 1px 5px;
+    font-size: smaller;
     color: #fff;
-    padding: 10px 6px;
-    vertical-align: super;
 }
 
 .hl-header {
