@@ -56,8 +56,8 @@ if(@count($medias))
                         }
                         ?>
                         <div <?php echo $clshideprice?>>
-
-                        <?php echo $str.$me['sizes']?>
+                        <?php echo '<span class="discountpercent">'.$this->string->numberFormate($me['discountpercent']).'%</span> '.$me['sizes'];?>
+                        <?php //echo $str.$me['sizes']?>
                         <?php
                             if(@$me['color'])
 								echo " ".$me['color'];
