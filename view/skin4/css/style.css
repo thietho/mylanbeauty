@@ -159,10 +159,11 @@ h1 {
 
 .flagdiscount {
     position: absolute;
-    background: url(../image/flag-discount.png) no-repeat;
-    padding: 14px 9px 15px;
+    background: url(../image/flag-discount-small.png) no-repeat;
+    padding: 3px 5px 5px;
     color: #FFF;
     width: 4em;
+    font-size: 0.8em;
 }
 
 .discountpercent {
