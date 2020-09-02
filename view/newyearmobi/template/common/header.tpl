@@ -10,7 +10,7 @@
         	<div class="header-info">
             	<table width="100%">
                 	<tr>
-                    	<td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>hearder_address.png" alt="164 Bàn Cờ, Phường 3, Quận 3, Tp HCM" title="164 Bàn Cờ, Phường 3, Quận 3, Tp HCM"></td>
+                    	<td><img src="<?php echo HTTP_SERVER.DIR_IMAGE?>hearder_address.png" alt="Hà Đô Centrosa Garden Tháp Iris 1 đường Cao Thắng P12 Q10 Tp.HCM" title="164 Bàn Cờ, Phường 3, Quận 3, Tp HCM"></td>
                         <td align="right"><img  src="<?php echo HTTP_SERVER.DIR_IMAGE?>hearder_hotline.png" alt="0903 767 580 - 0906 83 69 93" title="0903 767 580 - 0906 83 69 93"></td>
                     </tr>
                 </table>

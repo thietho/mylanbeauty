@@ -168,8 +168,8 @@ h1 {
 
 .discountpercent {
     background: url(../image/flag-discount-small.png) no-repeat;
-    padding: 3px 13px 4px 9px;
-    font-size: smaller;
+    padding: 0px 20px 4px 5px;
+    
     color: #fff;
 }
 
