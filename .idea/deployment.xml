@@ -5,7 +5,7 @@
       <paths name="mylanbeauty">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/mylanbeauty.net" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
