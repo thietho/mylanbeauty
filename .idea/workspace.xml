@@ -20,27 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce4792a-8f53-4864-8ad1-84f1fefd9048" name="Default" comment="Update">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/cache_default_default_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/cache_default_default_200x200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/default_default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_FACE TREATMENT OIL.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_FACE-TREATMENT-OIL_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_KissKiss Liplift.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_KissKiss-Liplift_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Le Stylo Levres Lasting Colour High-Precision Lip Liner_46 Orange Hibiscus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Le Stylo Levres Lasting Colour High-Precision Lip Liner_Rouge Dahlia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Le-Stylo-Levres-Lasting-Colour-High-Precision-Lip-Liner_46-Orange-Hibiscus_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Le-Stylo-Levres-Lasting-Colour-High-Precision-Lip-Liner_Rouge-Dahlia_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Meteorites Voyage Exceptional Compacted Pearls of Powder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Guerlain_Makeup_Meteorites-Voyage-Exceptional-Compacted-Pearls-of-Powder_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Sisley_KEM DUONG_Supremya at Night The Supreme Anti-Aging Skin Cream_Supremya at Night The Supreme Anti-Aging Skin Cream.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/cache/upload_Sisley_KEM-DUONG_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_Supremya-at-Night-The-Supreme-Anti-Aging-Skin-Cream_100x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/engine/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/engine/controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/library/mailsmtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/library/mailsmtp.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +120,7 @@
       <workItem from="1595174362553" duration="738000" />
       <workItem from="1595234190546" duration="10000" />
       <workItem from="1599041587104" duration="1682000" />
-      <workItem from="1608126616559" duration="3534000" />
+      <workItem from="1608126616559" duration="4549000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1590229366992</created>
@@ -267,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593614425171</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update">
+      <created>1608130307487</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608130307487</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
